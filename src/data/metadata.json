@@ -1,0 +1,82 @@
+{
+  "100US": {
+    "background_color": "#FF0000",
+    "display_name": "pslibrary.1.0.0 US (high acc.)",
+    "short_name": "100US"
+  },
+  "100PAW": {
+    "background_color": "#008B00",
+    "display_name": "pslibrary.1.0.0 PAW (high acc.)",
+    "short_name": "100PAW"
+  },
+  "031US": {
+    "background_color": "#0000FF",
+    "display_name": "pslibrary.0.3.1 US",
+    "short_name": "031US"
+  },
+  "031PAW": {
+    "background_color": "#FF00FF",
+    "display_name": "pslibrary.0.3.1 PAW",
+    "short_name": "031PAW"
+  },
+  "GBRV-1.2": {
+    "background_color": "#00CDCD",
+    "display_name": "GBRV-1.2 (US)",
+    "short_name": "GBRV-1.2"
+  },
+  "GBRV-1.4": {
+    "background_color": "#4682B4",
+    "display_name": "GBRV-1.4 (US)",
+    "short_name": "GBRV-1.4"
+  },
+  "GBRV-1.5": {
+    "background_color": "#B8860B",
+    "display_name": "GBRV-1.5 (US)",
+    "short_name": "GBRV-1.5"
+  },
+  "SG15": {
+    "background_color": "#000000",
+    "display_name": "SG15 (NC)",
+    "short_name": "SG15"
+  },
+  "SG15-1.1": {
+    "background_color": "#708090",
+    "display_name": "SG15-1.1 (NC)",
+    "short_name": "SG15-1.1"
+  },
+  "Goedecker": {
+    "background_color": "#808000",
+    "display_name": "Goedecker (NC)",
+    "short_name": "Goedecker"
+  },
+  "THEOS": {
+    "background_color": "#D7DF01",
+    "display_name": "THEOS (US)",
+    "short_name": "THEOS"
+  },
+  "Dojo": {
+    "background_color": "#FFA500",
+    "display_name": "PseudoDojo (NC)",
+    "short_name": "Dojo"
+  },
+  "Wentzcovitch": {
+    "background_color": "#610B5E",
+    "display_name": "RE Wentzcovitch (PAW)",
+    "short_name": "Wentzcovitch"
+  },
+  "Wentzcovitch_plus_nitrogen": {
+    "background_color": "#610B5E",
+    "display_name": "RE Wentzcovitch (PAW)",
+    "short_name": "Wentzcovitch"
+  },
+  "100US_plus_nitrogen": {
+    "background_color": "#FF0000",
+    "display_name": "pslibrary.1.0.0 US (high acc.)",
+    "short_name": "100US"
+  },
+  "100PAW_plus_nitrogen": {
+    "background_color": "#008B00",
+    "display_name": "pslibrary.1.0.0 PAW (high acc.)",
+    "short_name": "100PAW"
+  }
+}
