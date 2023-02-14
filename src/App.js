@@ -1,7 +1,7 @@
 import "./App.css";
 import SSSP from "./components/SSSP";
 
-import MaterialsCloudHeader from "react-materialscloud-header";
+import MaterialsCloudHeader from "mc-react-header";
 
 function App() {
   return (
