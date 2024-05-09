@@ -30,6 +30,7 @@
   /* margin-right: -2px; */
   /* margin-bottom: -2px; */
   user-select: none; /* don't select text upon clicking */
+  -webkit-user-select: none;
   position: relative;
   border-radius: 20%;
   cursor: pointer;
@@ -52,6 +53,11 @@
   filter: brightness(85%);
   transform: scale(1.2);
   z-index: 10;
+  -webkit-filter: brightness(85%);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
 }
 
 .elem_sym {
