@@ -1,9 +1,4 @@
-/*
-Array of element symbols for drawing the periodic table
-
-Organized such that the array number corresponds to the atomic number
-*/
-export const element_symbols = [
+[
   "X",
   "H",
   "He",
@@ -122,5 +117,5 @@ export const element_symbols = [
   "Mc",
   "Lv",
   "Ts",
-  "Og",
-];
+  "Og"
+]

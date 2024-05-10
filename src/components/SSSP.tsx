@@ -1,11 +1,9 @@
-import React from "react";
-
-import PTable from "./PTable";
-
 import pseudo_metadata from "../data/metadata.json";
 import sssp_efficiency from "../data/sssp_efficiency.json";
 
-const SSSP = () => {
+import { PTable } from "./PTable/PTable";
+
+export const SSSP = () => {
   return (
     <div>
       <div>Placeholder for information, legend, etc</div>
@@ -17,5 +15,3 @@ const SSSP = () => {
     </div>
   );
 };
-
-export default SSSP;
