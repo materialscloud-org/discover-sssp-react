@@ -2,7 +2,7 @@ import { Element } from "./Element";
 import { PTableProps } from "./models";
 import element_symbols from "./symbols.json";
 
-import "./PTable.css";
+import "./index.css";
 
 export const PTable = ({ ssspData, pseudoMetadata, linkBase }: PTableProps) => {
   const makeElements = (start: number, end: number) => {

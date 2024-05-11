@@ -3,24 +3,6 @@
   --element-box-size: 55px;
 }
 
-.ptable_outer {
-  /* width: 95%; */
-  /* margin: 0 auto; */
-  /*margin-top: -4vw;*/
-  /* max-width: 1700px; */
-  /* transform: scale(0.8); */
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.ptable {
-  display: grid;
-  grid-template-columns: repeat(17, auto) 1fr;
-  grid-template-rows: repeat(10, auto) 1fr;
-}
-
 .element {
   /* background: rgb(139, 208, 248); */
   /* border: 2px solid #999; */

@@ -9,7 +9,7 @@ function App() {
       activeSection={"discover"}
       breadcrumbsPath={[
         { name: "Discover", link: "https://www.materialscloud.org/discover" },
-        { name: "SSSP", link: null },
+        { name: "SSSP Efficiency", link: null },
       ]}
     >
       <div className="App">

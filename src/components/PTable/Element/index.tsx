@@ -1,6 +1,14 @@
 import { ElementProps } from "./models";
 
-export const Element = ({ num, symbol, color, elemInfo, linkBase }: ElementProps) => {
+import "./index.css";
+
+export const Element = ({
+  num,
+  symbol,
+  color,
+  elemInfo,
+  linkBase,
+}: ElementProps) => {
   const link = `${linkBase}/${symbol}`;
   const disabled = elemInfo == null;
 

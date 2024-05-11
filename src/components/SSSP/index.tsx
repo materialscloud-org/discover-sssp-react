@@ -1,7 +1,7 @@
-import pseudo_metadata from "../data/metadata.json";
-import sssp_efficiency from "../data/sssp_efficiency.json";
+import pseudo_metadata from "../../data/metadata.json";
+import sssp_efficiency from "../../data/sssp_efficiency.json";
 
-import { PTable } from "./PTable/PTable";
+import { PTable } from "../PTable";
 
 export const SSSP = () => {
   return (
