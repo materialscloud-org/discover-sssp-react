@@ -1,5 +1,8 @@
 import MaterialsCloudHeader from "mc-react-header";
-import { SSSP } from "./components/SSSP";
+import pseudo_metadata from "./data/metadata.json";
+import sssp_efficiency from "./data/sssp_efficiency.json";
+
+import { PTable } from "./components/PTable";
 
 import "./App.css";
 
@@ -13,7 +16,11 @@ function App() {
       ]}
     >
       <div className="App">
-        <SSSP />
+        <PTable
+          ssspData={sssp_efficiency}
+          pseudoMetadata={pseudo_metadata}
+          linkBase="https://www.materialscloud.org/discover/sssp/plot/efficiency"
+        />
       </div>
     </MaterialsCloudHeader>
   );
