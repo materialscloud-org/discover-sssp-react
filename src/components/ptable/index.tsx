@@ -1,4 +1,4 @@
-import { Element } from "./Element";
+import { Element } from "./element";
 import { PTableProps } from "./models";
 import element_symbols from "./symbols.json";
 
