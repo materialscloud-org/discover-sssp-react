@@ -27,14 +27,22 @@ export const PTable = ({ ssspData, pseudoMetadata }: PTableProps) => {
     return items;
   };
 
+  const placeholder = (n: number) => {
+    return <span className="star-placeholder">{"*".repeat(n)}</span>;
+  };
+
   return (
     <div className="ptable_outer">
       <div className="ptable">
-        {makeElements(1, 57)}
-        {makeElements(72, 89)}
+        {makeElements(1, 56)}
+        {placeholder(1)}
+        {makeElements(72, 88)}
+        {placeholder(2)}
         {makeElements(104, 118)}
-        {makeElements(58, 71)}
-        {makeElements(90, 103)}
+        {placeholder(1)}
+        {makeElements(57, 71)}
+        {placeholder(2)}
+        {makeElements(89, 103)}
       </div>
     </div>
   );

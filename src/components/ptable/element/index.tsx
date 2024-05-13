@@ -6,7 +6,7 @@ export const Element = ({ num, symbol, color, elemInfo }: ElementProps) => {
   const disabled = elemInfo == null;
 
   let eClass = `element element-${num}`;
-  if (num >= 58 && num <= 71) {
+  if (num >= 57 && num <= 71) {
     eClass += " lanthanide";
   }
 

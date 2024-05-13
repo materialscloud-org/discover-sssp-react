@@ -10,3 +10,11 @@
   grid-template-columns: repeat(17, auto) 1fr;
   grid-template-rows: repeat(10, auto) 1fr;
 }
+
+.star-placeholder {
+  display: flex;
+  font-weight: bold;
+  align-self: center;
+  justify-self: center;
+  grid-column-start: 3;
+}

@@ -1,34 +1,29 @@
 /* Variables */
 :root {
-  --element-box-size: 55px;
+  --element-box-size: 5vw;
 }
 
 .element {
-  /* background: rgb(139, 208, 248); */
-  /* border: 2px solid #999; */
   height: var(--element-box-size);
   width: var(--element-box-size);
+  max-width: 55px;
+  max-height: 55px;
   margin: 1px;
-  /* margin-right: -2px; */
-  /* margin-bottom: -2px; */
-  user-select: none; /* don't select text upon clicking */
+  user-select: none;
   -webkit-user-select: none;
   position: relative;
   border-radius: 20%;
   cursor: pointer;
-  /*cursor: default; /* don't charge cursor into a bar when hovering over text */
   display: flex;
-  flex-direction: column; /* make main axis vertical */
-  justify-content: center; /* center items vertically, in this case */
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  /* text inside the a element */
   color: rgb(255, 255, 255);
-  text-decoration: none; /* no underline */
+  text-decoration: none;
 }
 
 .element-disabled {
-  /* background: rgb(226, 226, 226); */
-  pointer-events: none; /* no hover on disabled elements */
+  pointer-events: none;
 }
 
 .element:hover {
@@ -43,15 +38,13 @@
 }
 
 .elem_sym {
-  font-size: calc(0.32 * var(--element-box-size));
+  font-size: 16px;
   line-height: 1;
-  /* border: 1px solid blue; */
 }
 
 .elem_num {
   font-size: 13px;
   line-height: 1;
-  /* border: 1px solid red; */
 }
 
 /* ----------------------------- */
@@ -69,16 +62,6 @@
   grid-column-start: 13;
 }
 
-/* Lanthanoids and Actonoids */
-
-.element-58 {
-  grid-column-start: 4;
-}
-
-.element-90 {
-  grid-column-start: 4;
-}
-
 .lanthanide {
   margin-top: 14px;
 }
@@ -87,7 +70,10 @@
 
 @media screen and (max-width: 1000px) {
   :root {
-    --element-box-size: 40px;
+    --element-box-size: 5vw;
+  }
+  .elem_sym {
+    font-size: calc(0.4 * var(--element-box-size));
   }
   .elem_num {
     display: none;
