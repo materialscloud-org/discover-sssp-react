@@ -5,11 +5,11 @@ import Tabs from "react-bootstrap/Tabs";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { DetailsPage } from "./pages/details";
-import { TablePage } from "./pages/table";
+import DetailsPage from "./pages/details";
+import TablePage from "./pages/table";
 
-import Header from "./components/header";
 import logo from "./assets/images/sssp_logo.png";
+import Header from "./components/header";
 
 import "./App.css";
 

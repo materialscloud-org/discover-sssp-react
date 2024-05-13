@@ -1,14 +1,11 @@
+import React from "react";
+
 import { DoiBadge } from "mc-react-library";
 import { HeaderProps } from "./models";
 
 import "./index.css";
 
-export default function Header({
-  title,
-  subtitle,
-  doi_ids,
-  logo,
-}: HeaderProps) {
+const Header: React.FC<HeaderProps> = ({ title, subtitle, doi_ids, logo }) => {
   return (
     <div className="title-and-logo">
       <div className="title-and-doi">
@@ -23,4 +20,6 @@ export default function Header({
       <img src={logo} className="logo" />
     </div>
   );
-}
+};
+
+export default Header;

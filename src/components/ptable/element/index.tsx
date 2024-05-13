@@ -1,10 +1,11 @@
-import { ElementProps } from "./models";
-
+import React from "react";
 import { Link } from "react-router-dom";
+
+import { ElementProps } from "./models";
 
 import "./index.css";
 
-export const Element = ({ num, symbol, color, elemInfo }: ElementProps) => {
+const Element: React.FC<ElementProps> = ({ num, symbol, color, elemInfo }) => {
   const disabled = elemInfo == null;
 
   let eClass = `element element-${num}`;
@@ -34,3 +35,5 @@ export const Element = ({ num, symbol, color, elemInfo }: ElementProps) => {
     </Link>
   );
 };
+
+export default Element;

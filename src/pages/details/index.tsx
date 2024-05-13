@@ -17,7 +17,7 @@ const TYPES = [
   "pressure-per",
 ];
 
-export const DetailsPage = () => {
+const DetailsPage = () => {
   const params = useParams();
   if (!params || !params.element) {
     return <div className="element-info">Missing element</div>;
@@ -41,3 +41,5 @@ export const DetailsPage = () => {
     </div>
   );
 };
+
+export default DetailsPage;
