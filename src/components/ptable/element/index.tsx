@@ -1,5 +1,7 @@
 import { ElementProps } from "./models";
 
+import { Link } from "react-router-dom";
+
 import "./index.css";
 
 export const Element = ({ num, symbol, color, elemInfo }: ElementProps) => {
@@ -22,13 +24,13 @@ export const Element = ({ num, symbol, color, elemInfo }: ElementProps) => {
   }
 
   return (
-    <a
+    <Link
+      to={symbol}
       className={`${eClass}${disabled ? " element-disabled" : ""}`}
       style={{ background: color }}
-      href={symbol}
     >
       <div className="elem_sym">{symbol}</div>
       {cutoffText}
-    </a>
+    </Link>
   );
 };
