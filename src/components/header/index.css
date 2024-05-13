@@ -1,0 +1,32 @@
+.title-and-logo {
+  width: 950px;
+  border-bottom: 1px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.title-and-doi {
+  text-align: left;
+}
+
+.title {
+  font-size: 24px;
+}
+
+.subtitle {
+  padding: 2px;
+}
+
+.doi-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.logo {
+  height: 100px;
+  float: right;
+  padding: 2px;
+}
