@@ -16,7 +16,7 @@ export default function Header({
         <div className="subtitle">{subtitle}</div>
         <div className="doi-container">
           {doi_ids.map((doi_id: string) => (
-            <DoiBadge doi_id={doi_id} />
+            <DoiBadge doi_id={doi_id} key={doi_id} />
           ))}
         </div>
       </div>
