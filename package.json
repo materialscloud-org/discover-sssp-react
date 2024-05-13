@@ -14,12 +14,14 @@
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
+    "bootstrap": "^5.3.3",
+    "mc-react-header": "^0.3.1",
+    "mc-react-library": "^0.3.0",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",
-    "react-bootstrap": "^2.10.0",
     "react-router-dom": "^6.21.3",
-    "react-router-hash-link": "^2.4.3",
-    "mc-react-header": "^0.3.1"
+    "react-router-hash-link": "^2.4.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
