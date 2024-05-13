@@ -9,5 +9,4 @@ interface Metadata {
 export interface PTableProps {
   ssspData: { [key: string]: ElementInfo };
   pseudoMetadata: { [key: string]: Metadata };
-  linkBase: string;
 }

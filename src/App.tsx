@@ -19,7 +19,6 @@ function App() {
         <PTable
           ssspData={sssp_efficiency}
           pseudoMetadata={pseudo_metadata}
-          linkBase="https://www.materialscloud.org/discover/sssp/plot/efficiency"
         />
       </div>
     </MaterialsCloudHeader>

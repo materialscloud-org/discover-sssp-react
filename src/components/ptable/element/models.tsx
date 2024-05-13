@@ -12,5 +12,4 @@ export interface ElementProps {
   symbol: string;
   color: string;
   elemInfo: ElementInfo;
-  linkBase: string;
 }

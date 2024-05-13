@@ -4,7 +4,7 @@ import element_symbols from "./symbols.json";
 
 import "./index.css";
 
-export const PTable = ({ ssspData, pseudoMetadata, linkBase }: PTableProps) => {
+export const PTable = ({ ssspData, pseudoMetadata }: PTableProps) => {
   const makeElements = (start: number, end: number) => {
     const items = [];
     for (let i = start; i <= end; i++) {
@@ -21,7 +21,6 @@ export const PTable = ({ ssspData, pseudoMetadata, linkBase }: PTableProps) => {
           symbol={symbol}
           color={color}
           elemInfo={elemInfo}
-          linkBase={linkBase}
         />
       );
     }

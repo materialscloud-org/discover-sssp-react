@@ -2,14 +2,7 @@ import { ElementProps } from "./models";
 
 import "./index.css";
 
-export const Element = ({
-  num,
-  symbol,
-  color,
-  elemInfo,
-  linkBase,
-}: ElementProps) => {
-  const link = `${linkBase}/${symbol}`;
+export const Element = ({ num, symbol, color, elemInfo }: ElementProps) => {
   const disabled = elemInfo == null;
 
   let eClass = `element element-${num}`;
@@ -32,7 +25,7 @@ export const Element = ({
     <a
       className={`${eClass}${disabled ? " element-disabled" : ""}`}
       style={{ background: color }}
-      href={link}
+      href={symbol}
     >
       <div className="elem_sym">{symbol}</div>
       {cutoffText}
