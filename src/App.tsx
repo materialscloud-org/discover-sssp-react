@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
 import { Tab, Tabs } from "react-bootstrap";
 import {
-  Link,
   Navigate,
   Route,
   BrowserRouter as Router,
   Routes,
   useLocation,
+  useNavigate,
 } from "react-router-dom";
 
 import MaterialsCloudHeader from "mc-react-header";
+
+import { urlBase } from "./common/config";
 
 import AboutPage from "./pages/about";
 import EfficiencyPage from "./pages/efficiency";
@@ -20,8 +22,6 @@ import Header from "./components/header";
 import logo from "./assets/images/sssp_logo.png";
 
 import "./App.css";
-
-const BASE_PATH = "discover/sssp";
 
 function App() {
   return (
@@ -61,41 +61,25 @@ function App() {
 }
 
 const RoutedTabs = () => {
-  const [activeTab, setActiveTab] = useState("efficiency");
+  const [active, setActive] = useState("efficiency");
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const route = location.pathname.split(BASE_PATH)[1];
-    switch (route.split("/")[1]) {
-      case "efficiency":
-        setActiveTab("efficiency");
-        break;
-      case "precision":
-        setActiveTab("precision");
-        break;
-      case "about":
-        setActiveTab("about");
-        break;
-      default:
-        setActiveTab("efficiency");
-        break;
-    }
+    const route = location.pathname.split(urlBase)[1];
+    const root = route.split("/")[1];
+    setActive(root);
   }, [location]);
 
   return (
-    <Tabs defaultActiveKey="efficiency" activeKey={activeTab}>
-      <Tab
-        eventKey="efficiency"
-        title={<Link to="discover/sssp/efficiency/table">Efficiency</Link>}
-      />
-      <Tab
-        eventKey="precision"
-        title={<Link to="discover/sssp/precision/table">Precision</Link>}
-      />
-      <Tab
-        eventKey="about"
-        title={<Link to="discover/sssp/about">About</Link>}
-      />
+    <Tabs
+      defaultActiveKey="efficiency"
+      activeKey={active}
+      onSelect={(key) => navigate(`${urlBase}/${key}`)}
+    >
+      <Tab eventKey="efficiency" title="Efficiency" />
+      <Tab eventKey="precision" title="Precision" />
+      <Tab eventKey="about" title="About" />
     </Tabs>
   );
 };
