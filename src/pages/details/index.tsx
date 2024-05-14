@@ -1,5 +1,5 @@
 import { Accordion } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import Plots from "./plots/factory";
 
@@ -25,9 +25,6 @@ const DetailsPage = () => {
   const element = params.element;
   return (
     <div>
-      <Link to="/discover/sssp/" className="btn btn-primary float-start">
-        Back
-      </Link>
       <div className="element-info">
         <span>Element: {element}</span>
       </div>

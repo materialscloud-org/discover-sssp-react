@@ -1,6 +1,7 @@
 import React from "react";
 
 import { DoiBadge } from "mc-react-library";
+
 import { HeaderProps } from "./models";
 
 import "./index.css";

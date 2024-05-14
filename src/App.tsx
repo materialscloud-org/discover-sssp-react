@@ -1,17 +1,27 @@
+import { useEffect, useState } from "react";
+import { Tab, Tabs } from "react-bootstrap";
+import {
+  Link,
+  Navigate,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  useLocation,
+} from "react-router-dom";
+
 import MaterialsCloudHeader from "mc-react-header";
 
-import Tab from "react-bootstrap/Tab";
-import Tabs from "react-bootstrap/Tabs";
+import AboutPage from "./pages/about";
+import EfficiencyPage from "./pages/efficiency";
+import PrecisionPage from "./pages/precision";
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-
-import DetailsPage from "./pages/details";
-import TablePage from "./pages/table";
-
-import logo from "./assets/images/sssp_logo.png";
 import Header from "./components/header";
 
+import logo from "./assets/images/sssp_logo.png";
+
 import "./App.css";
+
+const BASE_PATH = "discover/sssp";
 
 function App() {
   return (
@@ -20,7 +30,7 @@ function App() {
       breadcrumbsPath={[
         { name: "Discover", link: "https://www.materialscloud.org/discover" },
         {
-          name: "SSSP Efficiency",
+          name: "SSSP",
           link: null,
         },
       ]}
@@ -33,35 +43,61 @@ function App() {
             doi_ids={["f3-ym"]}
             logo={logo}
           />
-          <Tabs defaultActiveKey="table">
-            <Tab eventKey="table" title="Table">
-              <div className="body">
-                {/* <div className="description"></div> */}
-                <BrowserRouter>
-                  <Routes>
-                    <Route path="discover/sssp/">
-                      <Route path="" element={<TablePage />} />
-                      <Route path=":element" element={<DetailsPage />} />
-                    </Route>
-                  </Routes>
-                </BrowserRouter>
-              </div>
-            </Tab>
-            <Tab eventKey="about" title="About">
-              <div className="description">
-                The SSSP Efficiency library is a subset of the SSSP library
-                optimized for efficiency. It is based on the SSSP v1.1 library
-                and is generated using the same methodology. The SSSP Efficiency
-                library is a subset of the SSSP library optimized for
-                efficiency. It is based on the SSSP v1.1 library and is
-                generated using the same methodology.
-              </div>
-            </Tab>
-          </Tabs>
+          <Router>
+            <RoutedTabs />
+            <Routes>
+              <Route path="discover/sssp">
+                <Route path="efficiency/*" element={<EfficiencyPage />} />
+                <Route path="precision/*" element={<PrecisionPage />} />
+                <Route path="about" element={<AboutPage />} />
+                <Route path="" element={<Navigate replace to="efficiency" />} />
+              </Route>
+            </Routes>
+          </Router>
         </div>
       </div>
     </MaterialsCloudHeader>
   );
 }
+
+const RoutedTabs = () => {
+  const [activeTab, setActiveTab] = useState("efficiency");
+  const location = useLocation();
+
+  useEffect(() => {
+    const route = location.pathname.split(BASE_PATH)[1];
+    switch (route.split("/")[1]) {
+      case "efficiency":
+        setActiveTab("efficiency");
+        break;
+      case "precision":
+        setActiveTab("precision");
+        break;
+      case "about":
+        setActiveTab("about");
+        break;
+      default:
+        setActiveTab("efficiency");
+        break;
+    }
+  }, [location]);
+
+  return (
+    <Tabs defaultActiveKey="efficiency" activeKey={activeTab}>
+      <Tab
+        eventKey="efficiency"
+        title={<Link to="discover/sssp/efficiency/table">Efficiency</Link>}
+      />
+      <Tab
+        eventKey="precision"
+        title={<Link to="discover/sssp/precision/table">Precision</Link>}
+      />
+      <Tab
+        eventKey="about"
+        title={<Link to="discover/sssp/about">About</Link>}
+      />
+    </Tabs>
+  );
+};
 
 export default App;

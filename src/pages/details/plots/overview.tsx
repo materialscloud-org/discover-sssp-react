@@ -31,7 +31,6 @@ const Overview: React.FC<OverviewProps> = ({ element }) => {
             <div className="mt-3">
               <img src={convergence_root + "/" + filename} alt={filename} />
             </div>
-            {/* TODO fix link */}
             <Card.Text className="mt-2">
               Convergence pattern plots according to the SSSP protocol:
               zone-boundary phonons, cohesive energy, pressure and band
@@ -45,7 +44,7 @@ const Overview: React.FC<OverviewProps> = ({ element }) => {
               unless stated otherwise (i.e. rare-earths and flourine). The
               circle marks the pseudopotential and wavefunction cutoff chosen
               for the SSSP library (see{" "}
-              <Link to="/discover/sssp/">About SSSP</Link> for more details).
+              <Link to="/discover/sssp/about">About SSSP</Link> for more details).
             </Card.Text>
           </Tab>
         );
