@@ -14,3 +14,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+.content-container {
+  background-color: #f0f6f9;
+  margin-top: 0.5em;
+}

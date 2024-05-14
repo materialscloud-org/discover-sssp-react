@@ -1,9 +1,7 @@
 .title-and-logo {
-  border-bottom: 1px solid grey;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1em;
 }
 
 .title-and-doi {

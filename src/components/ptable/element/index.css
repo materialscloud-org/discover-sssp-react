@@ -68,9 +68,9 @@
 
 /* ----------------------------- */
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   :root {
-    --element-box-size: 5vw;
+    --element-box-size: 4.6vw;
   }
   .elem_sym {
     font-size: calc(0.4 * var(--element-box-size));

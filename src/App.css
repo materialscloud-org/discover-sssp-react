@@ -13,11 +13,23 @@
   padding: 0 6px;
 }
 
-.body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1em;
+.card {
+  border: 0;
+}
+
+.card-body {
+  border: 1px solid #d2d2d2;
+  box-shadow: var(--bs-box-shadow);
+}
+
+#main-card {
+  border-top: 0;
+}
+
+.tab-controls {
+  background-color: #eff5f8;
+  border: 0;
+  border-bottom: 1px solid #d2d2d2;
 }
 
 .description {
@@ -29,7 +41,8 @@
   border-top: 1px solid #ddd !important;
   border-left: 1px solid #ddd !important;
   border-right: 1px solid #ddd !important;
-  color: #3366cc;
+  color: grey;
+  background-color: whitesmoke;
 }
 
 .nav-tabs .nav-link a {
@@ -37,8 +50,7 @@
 }
 
 .nav-tabs .nav-link:hover {
-  background-color: rgb(245, 245, 245);
-  color: black;
+  color: #4682b4;
 }
 
 .nav-tabs .nav-link.active {
