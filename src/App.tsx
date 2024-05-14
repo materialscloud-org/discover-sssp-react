@@ -14,8 +14,7 @@ import MaterialsCloudHeader from "mc-react-header";
 import { urlBase } from "./common/config";
 
 import AboutPage from "./pages/about";
-import EfficiencyPage from "./pages/efficiency";
-import PrecisionPage from "./pages/precision";
+import PseudosPage from "./pages/pseudos";
 
 import Header from "./components/header";
 
@@ -47,8 +46,8 @@ function App() {
             <RoutedTabs />
             <Routes>
               <Route path="discover/sssp">
-                <Route path="efficiency/*" element={<EfficiencyPage />} />
-                <Route path="precision/*" element={<PrecisionPage />} />
+                <Route path="efficiency/*" element={<PseudosPage />} />
+                <Route path="precision/*" element={<PseudosPage />} />
                 <Route path="about" element={<AboutPage />} />
                 <Route path="" element={<Navigate replace to="efficiency" />} />
               </Route>

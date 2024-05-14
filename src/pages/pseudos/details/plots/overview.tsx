@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Tab, Tabs } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { fetchElementData } from "../service";
 import { OverviewProps } from "./models";
@@ -8,6 +8,11 @@ import { OverviewProps } from "./models";
 const Overview: React.FC<OverviewProps> = ({ element }) => {
   const [convergence_files, setConvergenceFiles] = useState<string[]>([]);
   const [chessboard_filename, setChessboardFile] = useState("");
+
+  const location = useLocation();
+  const category = location.pathname.includes("efficiency")
+    ? "Efficiency"
+    : "Precision";
 
   const data_root = "data/discover/sssp";
   const convergence_root = `${data_root}/convergences_efficiency`;
@@ -24,7 +29,7 @@ const Overview: React.FC<OverviewProps> = ({ element }) => {
     <Tabs defaultActiveKey="0">
       {convergence_files.map((filename, index) => {
         const number = filename.match(/\d+(\.\d+)?/)?.[0] || "";
-        const title = `Convergence Efficiency - ${number}`;
+        const title = `Convergence ${category} - ${number}`;
         const id = index.toString();
         return (
           <Tab eventKey={id} title={title} key={id}>
@@ -44,7 +49,8 @@ const Overview: React.FC<OverviewProps> = ({ element }) => {
               unless stated otherwise (i.e. rare-earths and flourine). The
               circle marks the pseudopotential and wavefunction cutoff chosen
               for the SSSP library (see{" "}
-              <Link to="/discover/sssp/about">About SSSP</Link> for more details).
+              <Link to="/discover/sssp/about">About SSSP</Link> for more
+              details).
             </div>
           </Tab>
         );

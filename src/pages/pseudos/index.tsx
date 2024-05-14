@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 
-import DetailsPage from "../details";
+import DetailsPage from "./details";
 import TablePage from "./table";
 
-const EfficiencyPage = () => {
+const PseudosPage = () => {
   return (
     <div className="body">
       {/* <div className="description"></div> */}
@@ -15,4 +15,4 @@ const EfficiencyPage = () => {
   );
 };
 
-export default EfficiencyPage;
+export default PseudosPage;
