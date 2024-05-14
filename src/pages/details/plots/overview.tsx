@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Tab, Tabs } from "react-bootstrap";
+import { Tab, Tabs } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import { fetchElementData } from "../service";
@@ -31,7 +31,7 @@ const Overview: React.FC<OverviewProps> = ({ element }) => {
             <div className="mt-3">
               <img src={convergence_root + "/" + filename} alt={filename} />
             </div>
-            <Card.Text className="mt-2">
+            <div className="mt-2">
               Convergence pattern plots according to the SSSP protocol:
               zone-boundary phonons, cohesive energy, pressure and band
               structure versus the wavefunction cutoff for all the considered
@@ -45,7 +45,7 @@ const Overview: React.FC<OverviewProps> = ({ element }) => {
               circle marks the pseudopotential and wavefunction cutoff chosen
               for the SSSP library (see{" "}
               <Link to="/discover/sssp/about">About SSSP</Link> for more details).
-            </Card.Text>
+            </div>
           </Tab>
         );
       })}
