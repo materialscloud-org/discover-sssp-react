@@ -1,5 +1,3 @@
-import { Card } from "react-bootstrap";
-
 import MaterialsCloudHeader from "mc-react-header";
 
 import Header from "components/Header";
@@ -23,16 +21,12 @@ function App() {
     >
       <div className={styles["app"]}>
         <div className={styles["main-page"]}>
-          <Card>
-            <Card.Body className="py-2">
-              <Header
-                title="Standard solid-state pseudopotentials (SSSP)"
-                subtitle="A standard solid-state pseudopotentials (SSSP) library optimized for precision or efficiency."
-                doi_ids={["f3-ym"]}
-                logo={logo}
-              />
-            </Card.Body>
-          </Card>
+          <Header
+            title="Standard solid-state pseudopotentials (SSSP)"
+            subtitle="A standard solid-state pseudopotentials (SSSP) library optimized for precision or efficiency."
+            doi_ids={["f3-ym"]}
+            logo={logo}
+          />
           <SSSPTable />
         </div>
       </div>
