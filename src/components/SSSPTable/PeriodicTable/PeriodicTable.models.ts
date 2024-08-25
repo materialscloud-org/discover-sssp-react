@@ -6,7 +6,7 @@ interface Metadata {
   short_name: string;
 }
 
-export interface PTableProps {
+export interface PeriodicTableProps {
   ssspData: { [key: string]: ElementInfo };
   pseudoMetadata: { [key: string]: Metadata };
 }

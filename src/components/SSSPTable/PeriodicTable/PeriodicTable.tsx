@@ -1,12 +1,15 @@
 import React from "react";
 
 import Element from "./Element";
-import { PTableProps } from "./PeriodicTable.models";
+import { PeriodicTableProps } from "./PeriodicTable.models";
 import element_symbols from "./symbols.json";
 
 import styles from "./PeriodicTable.module.scss";
 
-const PTable: React.FC<PTableProps> = ({ ssspData, pseudoMetadata }) => {
+const PeriodicTable: React.FC<PeriodicTableProps> = ({
+  ssspData,
+  pseudoMetadata,
+}) => {
   const makeElements = (start: number, end: number) => {
     const items = [];
     for (let i = start; i <= end; i++) {
@@ -50,4 +53,4 @@ const PTable: React.FC<PTableProps> = ({ ssspData, pseudoMetadata }) => {
   );
 };
 
-export default PTable;
+export default PeriodicTable;

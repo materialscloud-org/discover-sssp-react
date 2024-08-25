@@ -11,6 +11,7 @@
       "common/*": ["common/*"],
       "components/*": ["components/*"],
       "data/*": ["data/*"],
+      "pages/*": ["pages/*"]
     },
 
     /* Bundler mode */

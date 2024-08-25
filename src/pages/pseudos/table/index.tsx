@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 
-import PTable from "components/PeriodicTable";
+import PeriodicTable from "components/SSSPTable/PeriodicTable";
 
 import pseudo_metadata from "data/metadata.json";
 import sssp_efficiency from "data/sssp_efficiency.json";
@@ -14,7 +14,7 @@ const TablePage = () => {
     ? sssp_efficiency
     : sssp_precision;
 
-  return <PTable pseudoMetadata={pseudo_metadata} ssspData={ssspData} />;
+  return <PeriodicTable pseudoMetadata={pseudo_metadata} ssspData={ssspData} />;
 };
 
 export default TablePage;

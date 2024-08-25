@@ -9,6 +9,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+// global styles
 body {
   margin: 0;
   min-width: 320px;
@@ -18,4 +19,13 @@ body {
 .content-container {
   background-color: #f0f6f9;
   margin-top: 0.5em;
+}
+
+.card {
+  border: 0;
+}
+
+.card-body {
+  border: 1px solid #d2d2d2;
+  box-shadow: var(--bs-box-shadow);
 }
