@@ -6,8 +6,8 @@ import {
   Routes,
 } from "react-router-dom";
 
-import AboutPage from "pages/about";
-import PseudosPage from "pages/pseudos";
+import AboutPage from "components/SSSPTable/pages/about";
+import PseudosPage from "components/SSSPTable/pages/pseudos";
 
 import RoutedTabs from "./RoutedTabs";
 

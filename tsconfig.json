@@ -10,8 +10,7 @@
       "assets/*": ["assets/*"],
       "common/*": ["common/*"],
       "components/*": ["components/*"],
-      "data/*": ["data/*"],
-      "pages/*": ["pages/*"]
+      "data/*": ["data/*"]
     },
 
     /* Bundler mode */
