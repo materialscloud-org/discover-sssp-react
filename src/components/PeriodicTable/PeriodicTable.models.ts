@@ -1,4 +1,4 @@
-import { ElementInfo } from "./element/models";
+import { ElementInfo } from "./Element/Element.models";
 
 interface Metadata {
   background_color: string;

@@ -3,6 +3,5 @@ const REST_API_ELEMENTS =
 
 export const fetchElementData = async (symbol: string) => {
   const response = await fetch(`${REST_API_ELEMENTS}/${symbol}`);
-  const data = await response.json();
-  return data;
+  return await response.json();
 };

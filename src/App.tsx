@@ -20,7 +20,7 @@ import Header from "components/Header";
 
 import logo from "assets/images/sssp_logo.png";
 
-import "./App.css";
+import "./App.scss";
 
 function App() {
   return (

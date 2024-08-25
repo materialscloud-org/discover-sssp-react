@@ -1,10 +1,10 @@
 import React from "react";
 
-import Element from "./element";
-import { PTableProps } from "./models";
+import Element from "./Element";
+import { PTableProps } from "./PeriodicTable.models";
 import element_symbols from "./symbols.json";
 
-import "./index.css";
+import styles from "./PeriodicTable.module.scss";
 
 const PTable: React.FC<PTableProps> = ({ ssspData, pseudoMetadata }) => {
   const makeElements = (start: number, end: number) => {
@@ -30,12 +30,12 @@ const PTable: React.FC<PTableProps> = ({ ssspData, pseudoMetadata }) => {
   };
 
   const placeholder = (n: number) => {
-    return <span className="star-placeholder">{"*".repeat(n)}</span>;
+    return <span className={styles["star-placeholder"]}>{"*".repeat(n)}</span>;
   };
 
   return (
-    <div className="ptable_outer">
-      <div className="ptable">
+    <div className={styles["ptable-outer"]}>
+      <div className={styles["ptable"]}>
         {makeElements(1, 56)}
         {placeholder(1)}
         {makeElements(72, 88)}

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import Plots from "./plots/factory";
 
-import "./index.css";
+import styles from "./index.module.scss";
 
 const TYPES = [
   "overview",
@@ -20,12 +20,12 @@ const TYPES = [
 const DetailsPage = () => {
   const params = useParams();
   if (!params || !params.element) {
-    return <div className="element-info">Missing element</div>;
+    return <div className={styles.element_info}>Missing element</div>;
   }
   const element = params.element;
   return (
     <div>
-      <div className="element-info">
+      <div className={styles.element_info}>
         <span>Element: {element}</span>
       </div>
       <div className="mt-4">

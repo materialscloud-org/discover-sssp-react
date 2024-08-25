@@ -37,12 +37,12 @@
   -o-transform: scale(1.2);
 }
 
-.elem_sym {
+.elem-sym {
   font-size: 16px;
   line-height: 1;
 }
 
-.elem_num {
+.elem-num {
   font-size: 13px;
   line-height: 1;
 }
@@ -72,10 +72,10 @@
   :root {
     --element-box-size: 4.6vw;
   }
-  .elem_sym {
+  .elem-sym {
     font-size: calc(0.4 * var(--element-box-size));
   }
-  .elem_num {
+  .elem-num {
     display: none;
   }
 }
