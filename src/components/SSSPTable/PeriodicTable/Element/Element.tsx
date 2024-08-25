@@ -5,19 +5,20 @@ import { ElementProps } from "./Element.models";
 
 import styles from "./Element.module.scss";
 
-const Element: React.FC<ElementProps> = ({ num, symbol, color, elemInfo }) => {
-  const disabled = elemInfo == null;
+const Element: React.FC<ElementProps> = ({ number, symbol, color, info }) => {
+  const disabled = info == null;
 
-  let eClass = `${styles["element"]} ${styles[`element-${num}`]}`;
-  if (num >= 57 && num <= 71) {
-    eClass += ` ${styles["lanthanide"]}`;
-  }
+  const classes = [
+    styles["element"],
+    styles[`element-${number}`],
+    disabled ? styles["disabled"] : "",
+  ].join(" ");
 
   let cutoffText = null;
   if (!disabled) {
-    const { cutoff: wfcCutoff, rho_cutoff: rhoCutoff } = elemInfo;
+    const { cutoff: wfcCutoff, rho_cutoff: rhoCutoff } = info;
     cutoffText = (
-      <div className={styles["elem-num"]}>
+      <div className={styles["info"]}>
         {wfcCutoff}
         <sub>({rhoCutoff})</sub>
       </div>
@@ -25,14 +26,12 @@ const Element: React.FC<ElementProps> = ({ num, symbol, color, elemInfo }) => {
   }
 
   return (
-    <Link
-      to={symbol}
-      className={`${eClass}${disabled ? ` ${styles["element-disabled"]}` : ""}`}
-      style={{ background: color }}
-    >
-      <div className={styles["elem-sym"]}>{symbol}</div>
-      {cutoffText}
-    </Link>
+    <div className={classes} style={{ background: color }}>
+      <Link to={symbol}>
+        <div className={styles["symbol"]}>{symbol}</div>
+        {cutoffText}
+      </Link>
+    </div>
   );
 };
 

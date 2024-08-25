@@ -1,20 +1,25 @@
 .ptable-outer {
-  text-align: center;
   display: flex;
+  text-align: center;
   align-items: center;
   justify-content: center;
-}
 
-.ptable {
-  display: grid;
-  grid-template-columns: repeat(17, auto) 1fr;
-  grid-template-rows: repeat(10, auto) 1fr;
-}
+  .ptable {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
 
-.star-placeholder {
-  display: flex;
-  font-weight: bold;
-  align-self: center;
-  justify-self: center;
-  grid-column-start: 3;
+    .elements {
+      display: grid;
+      grid-template-columns: repeat(17, 1fr) 1fr;
+    }
+
+    .star-placeholder {
+      display: flex;
+      font-weight: bold;
+      align-self: center;
+      justify-content: center;
+      grid-column-start: 3;
+    }
+  }
 }

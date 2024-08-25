@@ -15,12 +15,12 @@ import styles from "./SSSPTable.module.scss";
 
 const SSSPTable = () => {
   return (
-    <Card className="mt-3">
+    <Card>
       <Router>
         <Card.Header className={styles["tab-controls"]}>
           <RoutedTabs />
         </Card.Header>
-        <Card.Body id={styles["main-card"]} className="p-4">
+        <Card.Body id={styles["sssp-card"]}>
           <Routes>
             <Route path="discover/sssp">
               <Route path="efficiency/*" element={<PseudosPage />} />

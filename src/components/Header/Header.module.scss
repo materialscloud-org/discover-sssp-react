@@ -2,28 +2,28 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
 
-.title-and-doi {
-  text-align: left;
-}
+  .title-and-doi {
+    text-align: left;
 
-.title {
-  font-size: 24px;
-}
+    .title {
+      font-size: 24px;
+    }
 
-.subtitle {
-  padding: 2px;
-}
+    .subtitle {
+      padding: 2px;
+    }
 
-.doi-container {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 5px;
-}
+    .doi-container {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 5px;
+    }
+  }
 
-.logo {
-  height: 100px;
-  float: right;
-  padding: 2px;
+  .logo {
+    height: 100px;
+    float: right;
+    padding: 2px;
+  }
 }

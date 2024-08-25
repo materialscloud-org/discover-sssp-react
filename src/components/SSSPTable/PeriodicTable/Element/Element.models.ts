@@ -1,15 +1,8 @@
-export interface ElementInfo {
-  cutoff: number;
-  dual: number;
-  filename: string;
-  md5: string;
-  pseudopotential: string;
-  rho_cutoff: number;
-}
+import { ElementInfo } from "../PeriodicTable.models";
 
 export interface ElementProps {
-  num: number;
+  number: number;
   symbol: string;
   color: string;
-  elemInfo: ElementInfo;
+  info: ElementInfo;
 }

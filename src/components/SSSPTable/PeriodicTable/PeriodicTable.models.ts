@@ -1,6 +1,13 @@
-import { ElementInfo } from "./Element/Element.models";
+export interface ElementInfo {
+  cutoff: number;
+  dual: number;
+  filename: string;
+  md5: string;
+  pseudopotential: string;
+  rho_cutoff: number;
+}
 
-interface Metadata {
+export interface Metadata {
   background_color: string;
   display_name: string;
   short_name: string;
