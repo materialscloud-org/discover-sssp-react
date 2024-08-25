@@ -1,10 +1,10 @@
 import { useLocation } from "react-router-dom";
 
-import PTable from "../../../components/ptable";
+import PTable from "components/PeriodicTable";
 
-import pseudo_metadata from "../../../data/metadata.json";
-import sssp_efficiency from "../../../data/sssp_efficiency.json";
-import sssp_precision from "../../../data/sssp_precision.json";
+import pseudo_metadata from "data/metadata.json";
+import sssp_efficiency from "data/sssp_efficiency.json";
+import sssp_precision from "data/sssp_precision.json";
 
 const TablePage = () => {
   const location = useLocation();

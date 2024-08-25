@@ -11,14 +11,14 @@ import {
 
 import MaterialsCloudHeader from "mc-react-header";
 
-import { urlBase } from "./common/config";
+import { urlBase } from "common/config";
 
 import AboutPage from "./pages/about";
 import PseudosPage from "./pages/pseudos";
 
-import Header from "./components/header";
+import Header from "components/Header";
 
-import logo from "./assets/images/sssp_logo.png";
+import logo from "assets/images/sssp_logo.png";
 
 import "./App.css";
 

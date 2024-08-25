@@ -8,4 +8,12 @@ export default defineConfig({
     port: 3000,
   },
   base: "/discover/sssp/",
+  resolve: {
+    alias: {
+      assets: "/src/assets",
+      common: "/src/common",
+      components: "/src/components",
+      data: "/src/data",
+    }
+  },
 });
