@@ -1,11 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { ElementProps } from "./Element.models";
+import { ElementModel, ElementProps } from "./Element.models";
 
 import styles from "./Element.module.scss";
 
-const Element: React.FC<ElementProps> = ({ number, symbol, color, info }) => {
+const Element: React.FC<ElementProps> = ({
+  number,
+  symbol,
+  color,
+  info,
+  on_hover,
+}) => {
   const disabled = info == null;
 
   const classes = [
@@ -25,8 +31,17 @@ const Element: React.FC<ElementProps> = ({ number, symbol, color, info }) => {
     );
   }
 
+  const objectify = (): ElementModel => {
+    return { number: number, symbol: symbol, color: color, info: info };
+  };
+
   return (
-    <div className={classes} style={{ background: color }}>
+    <div
+      className={classes}
+      style={{ background: color }}
+      onMouseEnter={() => on_hover(objectify())}
+      onMouseLeave={() => on_hover(null)}
+    >
       <Link to={symbol}>
         <div className={styles["symbol"]}>{symbol}</div>
         {cutoffText}

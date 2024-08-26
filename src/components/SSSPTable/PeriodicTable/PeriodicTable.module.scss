@@ -1,25 +1,26 @@
-.ptable-outer {
+// .ptable-outer {
+
+.ptable {
   display: flex;
+  flex-direction: column;
+  row-gap: 12px;
   text-align: center;
   align-items: center;
   justify-content: center;
+  width: fit-content;
+  margin: 0 auto;
+  position: relative;
 
-  .ptable {
+  .elements {
+    display: grid;
+    grid-template-columns: repeat(17, 1fr) 1fr;
+  }
+
+  .star-placeholder {
     display: flex;
-    flex-direction: column;
-    row-gap: 12px;
-
-    .elements {
-      display: grid;
-      grid-template-columns: repeat(17, 1fr) 1fr;
-    }
-
-    .star-placeholder {
-      display: flex;
-      font-weight: bold;
-      align-self: center;
-      justify-content: center;
-      grid-column-start: 3;
-    }
+    font-weight: bold;
+    align-self: center;
+    justify-content: center;
+    grid-column-start: 3;
   }
 }

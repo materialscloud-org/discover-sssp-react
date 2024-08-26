@@ -1,18 +1,23 @@
-import Element from "./Element";
+import element_symbols from "./symbols.json";
+
+import { ElementModel } from "./Element/Element.models";
 import { ElementInfo, Metadata } from "./PeriodicTable.models";
 
-import element_symbols from "./symbols.json";
+import Element from "./Element";
 
 class ElementsGenerator {
   private ssspData: { [key: string]: ElementInfo };
   private pseudoMetadata: { [key: string]: Metadata };
+  private hover_callback: (element: ElementModel | null) => void;
 
   constructor(
     ssspData: { [key: string]: ElementInfo },
-    pseudoMetadata: { [key: string]: Metadata }
+    pseudoMetadata: { [key: string]: Metadata },
+    on_element_hover: (element: ElementModel | null) => void
   ) {
     this.ssspData = ssspData;
     this.pseudoMetadata = pseudoMetadata;
+    this.hover_callback = on_element_hover;
   }
 
   public make(start: number, end: number) {
@@ -31,6 +36,7 @@ class ElementsGenerator {
             symbol={symbol}
             color={color}
             info={elemInfo}
+            on_hover={this.hover_callback}
           />
         );
       }
