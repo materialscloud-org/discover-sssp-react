@@ -1,20 +1,31 @@
-import { useLocation } from "react-router-dom";
+import { useState } from "react";
 
 import PeriodicTable from "components/SSSPTable/PeriodicTable";
+import PseudosLegend from "components/SSSPTable/PseudosLegend";
 
-import pseudo_metadata from "data/metadata.json";
-import sssp_efficiency from "data/sssp_efficiency.json";
-import sssp_precision from "data/sssp_precision.json";
+import pseudoMetadata from "data/metadata.json";
+import ssspEfficiency from "data/sssp_efficiency.json";
+import ssspPrecision from "data/sssp_precision.json";
 
-const TablePage = () => {
-  const location = useLocation();
-
+const TablePage = ({ ssspType }: { ssspType: string }) => {
   // TODO use a service to fetch the data
-  const ssspData = location.pathname.includes("efficiency")
-    ? sssp_efficiency
-    : sssp_precision;
+  const [hoveredPseudo, setHoveredPseudo] = useState<string | null>(null);
+  const ssspData = ssspType === "efficiency" ? ssspEfficiency : ssspPrecision;
 
-  return <PeriodicTable pseudoMetadata={pseudo_metadata} ssspData={ssspData} />;
+  const onLegendHover = (pseudo: string | null) => {
+    setHoveredPseudo(pseudo);
+  };
+
+  return (
+    <>
+      <PseudosLegend pseudoMetadata={pseudoMetadata} onHover={onLegendHover} />
+      <PeriodicTable
+        pseudoMetadata={pseudoMetadata}
+        ssspData={ssspData}
+        hoveredPseudo={hoveredPseudo}
+      />
+    </>
+  );
 };
 
 export default TablePage;

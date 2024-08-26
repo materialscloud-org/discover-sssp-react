@@ -11,19 +11,21 @@ import styles from "./PeriodicTable.module.scss";
 const PeriodicTable: React.FC<PeriodicTableProps> = ({
   ssspData,
   pseudoMetadata,
+  hoveredPseudo,
 }) => {
-  const [hovered_element, setHoveredElement] = useState<ElementModel | null>(
+  const [hoveredElement, setHoveredElement] = useState<ElementModel | null>(
     null
   );
 
-  const on_element_hover = (element_data: ElementModel | null) => {
-    setHoveredElement(element_data);
+  const onElementHover = (elementData: ElementModel | null) => {
+    setHoveredElement(elementData);
   };
 
   const elements = new ElementsGenerator(
     ssspData,
     pseudoMetadata,
-    on_element_hover
+    hoveredPseudo,
+    onElementHover
   );
 
   const placeholder = (n: number) => {
@@ -58,7 +60,7 @@ const PeriodicTable: React.FC<PeriodicTableProps> = ({
 
   return (
     <div className={styles["ptable"]}>
-      <Details element={hovered_element} />
+      <Details element={hoveredElement} />
       <Table />
     </div>
   );

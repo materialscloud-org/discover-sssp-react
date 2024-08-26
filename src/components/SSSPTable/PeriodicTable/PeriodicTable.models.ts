@@ -16,4 +16,5 @@ export interface Metadata {
 export interface PeriodicTableProps {
   ssspData: { [key: string]: ElementInfo };
   pseudoMetadata: { [key: string]: Metadata };
+  hoveredPseudo: string | null;
 }

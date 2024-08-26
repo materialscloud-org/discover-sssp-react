@@ -8,5 +8,5 @@ export interface ElementModel {
 }
 
 export interface ElementProps extends ElementModel {
-  on_hover: (element: ElementModel | null) => void;
+  onHover: (element: ElementModel | null) => void;
 }

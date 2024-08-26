@@ -10,7 +10,7 @@ const Element: React.FC<ElementProps> = ({
   symbol,
   color,
   info,
-  on_hover,
+  onHover,
 }) => {
   const disabled = info == null;
 
@@ -39,8 +39,8 @@ const Element: React.FC<ElementProps> = ({
     <div
       className={classes}
       style={{ background: color }}
-      onMouseEnter={() => on_hover(objectify())}
-      onMouseLeave={() => on_hover(null)}
+      onMouseEnter={() => onHover(objectify())}
+      onMouseLeave={() => onHover(null)}
     >
       <Link to={symbol}>
         <div className={styles["symbol"]}>{symbol}</div>
