@@ -10,7 +10,8 @@
       "assets/*": ["assets/*"],
       "common/*": ["common/*"],
       "components/*": ["components/*"],
-      "data/*": ["data/*"]
+      "data/*": ["data/*"],
+      "pages/*": ["components/SSSPTable/pages/*"]
     },
 
     /* Bundler mode */

@@ -6,8 +6,10 @@ import {
   Routes,
 } from "react-router-dom";
 
-import AboutPage from "components/SSSPTable/pages/about";
-import PseudosPage from "components/SSSPTable/pages/pseudos";
+import { urlBase } from "common/config";
+
+import AboutPage from "pages/about";
+import PseudosPage from "pages/pseudos";
 
 import RoutedTabs from "./RoutedTabs";
 
@@ -17,18 +19,18 @@ const SSSPTable = () => {
   const tabs = ["pseudopotentials", "about"];
   return (
     <Card>
-      <Router>
+      <Router basename={urlBase}>
         <Card.Header className={styles["tab-controls"]}>
           <RoutedTabs tabs={tabs} defaultTab={tabs[0]} />
         </Card.Header>
         <Card.Body id={styles["sssp-card"]}>
           <Routes>
-            <Route path="discover/sssp">
-              <Route path="efficiency/*" element={<PseudosPage />} />
-              <Route path="precision/*" element={<PseudosPage />} />
+            <Route path="pseudopotentials/*" element={<PseudosPage />} />
               <Route path="about" element={<AboutPage />} />
-              <Route path="" element={<Navigate replace to="efficiency" />} />
-            </Route>
+            <Route
+              path="/"
+              element={<Navigate replace to="pseudopotentials" />}
+            />
           </Routes>
         </Card.Body>
       </Router>

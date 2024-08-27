@@ -14,6 +14,7 @@ export default defineConfig({
       common: "/src/common",
       components: "/src/components",
       data: "/src/data",
+      pages: "/src/components/SSSPTable/pages",
     },
   },
 });
