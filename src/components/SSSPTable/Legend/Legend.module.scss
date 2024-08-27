@@ -10,6 +10,17 @@
     align-items: center;
     margin-right: 1rem;
     margin-bottom: 0.5rem;
+    cursor: default;
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+    -webkit-transition: opacity 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out;
+    -ms-transition: opacity 0.2s ease-in-out;
+    -o-transition: opacity 0.2s ease-in-out;
+
+    &.transparent {
+      opacity: 0.25;
+    }
 
     .pseudo-list-marker {
       width: 1rem;

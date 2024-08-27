@@ -13,11 +13,11 @@ import styles from "./index.module.scss";
 
 const TablePage = () => {
   // TODO use a service to fetch the data
-  const [hoveredPseudo, setHoveredPseudo] = useState<string | null>(null);
+  const [hoveredPseudo, setHoveredPseudo] = useState("");
   const ssspType = useLocation().pathname.split("/")[2];
   const ssspData = ssspType === "efficiency" ? ssspEfficiency : ssspPrecision;
 
-  const onLegendHover = (pseudo: string | null) => {
+  const onLegendHover = (pseudo: string) => {
     setHoveredPseudo(pseudo);
   };
 
@@ -26,7 +26,11 @@ const TablePage = () => {
       <div id={styles["sssp-header"]}>
         SSSP {ssspType} (v{ssspVersion})
       </div>
-      <PseudosLegend pseudoMetadata={pseudoMetadata} onHover={onLegendHover} />
+      <PseudosLegend
+        pseudoMetadata={pseudoMetadata}
+        hoveredPseudo={hoveredPseudo}
+        onHover={onLegendHover}
+      />
       <PeriodicTable
         pseudoMetadata={pseudoMetadata}
         ssspData={ssspData}

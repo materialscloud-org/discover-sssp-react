@@ -10,6 +10,7 @@ const Element: React.FC<ElementProps> = ({
   symbol,
   color,
   info,
+  isTransparent,
   onHover,
 }) => {
   const disabled = info == null;
@@ -18,6 +19,7 @@ const Element: React.FC<ElementProps> = ({
     styles["element"],
     styles[`element-${number}`],
     disabled ? styles["disabled"] : "",
+    isTransparent ? styles["transparent"] : "",
   ].join(" ");
 
   let cutoffText = null;
@@ -42,7 +44,7 @@ const Element: React.FC<ElementProps> = ({
       onMouseEnter={() => onHover(objectify())}
       onMouseLeave={() => onHover(null)}
     >
-      <Link to={symbol}>
+      <Link to={`../${symbol}`} state={""}>
         <div className={styles["symbol"]}>{symbol}</div>
         {cutoffText}
       </Link>

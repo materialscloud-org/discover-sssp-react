@@ -1,14 +1,22 @@
-import { PseudosLegendProps } from "./PseudosLegend.models";
+import { PseudosLegendProps } from "./Legend.models";
 
-import styles from "./PseudosLegend.module.scss";
+import styles from "./Legend.module.scss";
 
-const PseudosLegend = ({ pseudoMetadata, onHover }: PseudosLegendProps) => {
+const PseudosLegend = ({
+  pseudoMetadata,
+  hoveredPseudo,
+  onHover,
+}: PseudosLegendProps) => {
   return (
-    <ul className={styles["pseudo-legend"]} onMouseLeave={() => onHover(null)}>
+    <ul className={styles["pseudo-legend"]} onMouseLeave={() => onHover("")}>
       {Object.entries(pseudoMetadata).map(([pseudo, metadata]) => (
         <li
           key={pseudo}
-          className={styles["pseudo-item"]}
+          className={`${styles["pseudo-item"]} ${
+            hoveredPseudo && hoveredPseudo !== pseudo
+              ? styles["transparent"]
+              : ""
+          }`}
           onMouseEnter={() => onHover(pseudo)}
         >
           <span
