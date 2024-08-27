@@ -42,7 +42,7 @@ const Element: React.FC<ElementProps> = ({
       className={classes}
       style={{ background: color }}
       onMouseEnter={() => onHover(objectify())}
-      onMouseLeave={() => onHover(null)}
+      onMouseLeave={() => onHover(undefined)}
     >
       <Link to={`../${symbol}`} state={""}>
         <div className={styles["symbol"]}>{symbol}</div>

@@ -9,5 +9,5 @@ export interface ElementModel {
 
 export interface ElementProps extends ElementModel {
   isTransparent: boolean;
-  onHover: (element: ElementModel | null) => void;
+  onHover: (element?: ElementModel) => void;
 }

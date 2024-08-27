@@ -6,7 +6,7 @@ import { fetchElementData } from "../service";
 import { OverviewProps } from "./models";
 
 const Overview: React.FC<OverviewProps> = ({ element }) => {
-  const [convergence_files, setConvergenceFiles] = useState<string[]>([]);
+  const [convergence_files, setConvergenceFiles] = useState([""]);
   const [chessboard_filename, setChessboardFile] = useState("");
 
   const location = useLocation();

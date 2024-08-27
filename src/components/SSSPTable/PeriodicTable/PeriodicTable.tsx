@@ -13,9 +13,7 @@ const PeriodicTable: React.FC<PeriodicTableProps> = ({
   pseudoMetadata,
   hoveredPseudo,
 }) => {
-  const [hoveredElement, setHoveredElement] = useState<ElementModel | null>(
-    null
-  );
+  const [hoveredElement, setHoveredElement] = useState<ElementModel>();
 
   const onElementHover = (elementData: ElementModel | null) => {
     setHoveredElement(elementData);

@@ -9,13 +9,13 @@ class ElementsGenerator {
   private ssspData: { [key: string]: ElementInfo };
   private pseudoMetadata: { [key: string]: Metadata };
   private hoveredPseudo: string;
-  private hoverCallback: (element: ElementModel | null) => void;
+  private hoverCallback: (element?: ElementModel) => void;
 
   constructor(
     ssspData: { [key: string]: ElementInfo },
     pseudoMetadata: { [key: string]: Metadata },
     hoveredPseudo: string,
-    onElementHover: (element: ElementModel | null) => void
+    onElementHover: (element?: ElementModel) => void
   ) {
     this.ssspData = ssspData;
     this.pseudoMetadata = pseudoMetadata;

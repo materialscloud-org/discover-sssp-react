@@ -2,7 +2,7 @@ import { ElementModel } from "../Element/Element.models";
 
 import styles from "./Details.module.scss";
 
-const Details = ({ element }: { element: ElementModel | null }) => {
+const Details = ({ element }: { element?: ElementModel }) => {
   if (!element) {
     return <></>;
   }
