@@ -14,11 +14,12 @@ import RoutedTabs from "./RoutedTabs";
 import styles from "./SSSPTable.module.scss";
 
 const SSSPTable = () => {
+  const tabs = ["pseudopotentials", "about"];
   return (
     <Card>
       <Router>
         <Card.Header className={styles["tab-controls"]}>
-          <RoutedTabs />
+          <RoutedTabs tabs={tabs} defaultTab={tabs[0]} />
         </Card.Header>
         <Card.Body id={styles["sssp-card"]}>
           <Routes>

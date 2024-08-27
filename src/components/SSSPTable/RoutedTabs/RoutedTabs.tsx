@@ -1,32 +1,32 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Tab, Tabs } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import { urlBase } from "common/config";
+import { capitalize } from "common/utils";
+
+import { RoutedTabsProps } from "./RoutedTabs.models";
 
 import "./RoutedTabs.scss";
 
-// TODO generalize and refactor
-const RoutedTabs = () => {
-  const [active, setActive] = useState("efficiency");
+const RoutedTabs: React.FC<RoutedTabsProps> = ({ tabs, defaultTab }) => {
+  const [active, setActive] = useState(defaultTab);
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const route = location.pathname.split(urlBase)[1];
-    const root = route.split("/")[1];
-    setActive(root);
+    const route = location.pathname.split("/")[1];
+    setActive(route);
   }, [location]);
 
   return (
     <Tabs
-      defaultActiveKey="efficiency"
+      defaultActiveKey={defaultTab}
       activeKey={active}
-      onSelect={(key) => navigate(`${urlBase}/${key}`)}
+      onSelect={(key) => navigate(key || "")}
     >
-      <Tab eventKey="efficiency" title="Efficiency" />
-      <Tab eventKey="precision" title="Precision" />
-      <Tab eventKey="about" title="About" />
+      {tabs.map((tab) => (
+        <Tab eventKey={tab} title={tab} key={capitalize(tab)} />
+      ))}
     </Tabs>
   );
 };
