@@ -1,5 +1,5 @@
-import { Accordion } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Accordion, Button } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
 
 import Plots from "./plots/factory";
 
@@ -19,22 +19,37 @@ const TYPES = [
 
 const DetailsPage = () => {
   const params = useParams();
-  if (!params || !params.element) {
-    return <div className={styles.element_info}>Missing element</div>;
-  }
   const { element } = params;
   return (
-    <div>
-      <div className={styles.element_info}>
-        <span>Element: {element}</span>
-      </div>
-      <div className="mt-4">
-        <Accordion defaultActiveKey="overview">
-          {TYPES.map((type: string) => (
-            <Plots element={element} type={type} key={type} />
-          ))}
-        </Accordion>
-      </div>
+    <>
+      <BackButton />
+      <Header element={element} />
+      {element && (
+        <div className="mt-4">
+          <Accordion defaultActiveKey="overview">
+            {TYPES.map((type: string) => (
+              <Plots element={element} type={type} key={type} />
+            ))}
+          </Accordion>
+        </div>
+      )}
+    </>
+  );
+};
+
+const BackButton = () => {
+  const navigate = useNavigate();
+  return (
+    <Button className={styles["back-button"]} onClick={() => navigate("../")}>
+      Back
+    </Button>
+  );
+};
+
+const Header = ({ element }: { element?: string }) => {
+  return (
+    <div className={styles["sssp-header"]}>
+      <span>Element: {`${element || "None provided"}`}</span>
     </div>
   );
 };

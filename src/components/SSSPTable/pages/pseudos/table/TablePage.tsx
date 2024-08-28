@@ -50,7 +50,7 @@ const TablePage: React.FC<TablePageProps> = ({
           </ToggleButton>
         ))}
       </ToggleButtonGroup>
-      <div id={styles["sssp-header"]}>
+      <div className={styles["sssp-header"]}>
         SSSP {selectedAccuracy} (v{ssspVersion})
       </div>
       <PseudosLegend
