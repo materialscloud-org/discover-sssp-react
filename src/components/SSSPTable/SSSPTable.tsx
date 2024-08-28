@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Card } from "react-bootstrap";
 import {
   Navigate,
@@ -18,6 +19,7 @@ import styles from "./SSSPTable.module.scss";
 const SSSPTable = () => {
   const tabs = ["pseudopotentials", "about"];
   const accuracies = ["efficiency", "precision"];
+  const [activeAccuracy, setActiveAccuracy] = useState(accuracies[0]);
   return (
     <Card>
       <Router basename={urlBase}>
@@ -28,12 +30,18 @@ const SSSPTable = () => {
           <Routes>
             <Route
               path="pseudopotentials/*"
-              element={<PseudosPage accuracies={accuracies} />}
+              element={
+                <PseudosPage
+                  accuracies={accuracies}
+                  activeAccuracy={activeAccuracy}
+                  onAccuracyChange={setActiveAccuracy}
+                />
+              }
             />
-              <Route path="about" element={<AboutPage />} />
+            <Route path="about" element={<AboutPage />} />
             <Route
               path="/"
-              element={<Navigate replace to="pseudopotentials" />}
+              element={<Navigate to="pseudopotentials" replace />}
             />
           </Routes>
         </Card.Body>

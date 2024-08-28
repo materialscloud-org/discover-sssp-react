@@ -1,4 +1,5 @@
 export interface TablePageProps {
   accuracies: string[];
-  selectedAccuracy: string;
+  activeAccuracy: string;
+  onAccuracyToggle: (value: string) => void;
 }

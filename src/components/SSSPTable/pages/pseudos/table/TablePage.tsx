@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ToggleButton, ToggleButtonGroup } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { capitalize } from "common/utils";
 
@@ -18,22 +18,25 @@ import styles from "./TablePage.module.scss";
 
 const TablePage: React.FC<TablePageProps> = ({
   accuracies,
-  selectedAccuracy,
+  activeAccuracy,
+  onAccuracyToggle,
 }) => {
   // TODO use a service to fetch the data
-  const defaultAccuracy = accuracies[0];
-  const current = location.pathname.split("/").pop();
-  const [hoveredPseudo, setHoveredPseudo] = useState("");
-  const [active, setActive] = useState(current || defaultAccuracy);
   const navigate = useNavigate();
+  const location = useLocation();
+  const [hoveredPseudo, setHoveredPseudo] = useState("");
 
   const ssspData =
-    selectedAccuracy === "efficiency" ? ssspEfficiency : ssspPrecision;
+    activeAccuracy === "efficiency" ? ssspEfficiency : ssspPrecision;
 
   const handleNavigation = (value: string) => {
-    setActive(value);
     navigate(`../${value}`);
   };
+
+  useEffect(() => {
+    const currentAccuracy = location.pathname.split("/")[2];
+    onAccuracyToggle(currentAccuracy);
+  }, [location.pathname, onAccuracyToggle]);
 
   return (
     <>
@@ -41,7 +44,7 @@ const TablePage: React.FC<TablePageProps> = ({
         className={styles["accuracy-controls"]}
         type="radio"
         name="accuracy"
-        value={active}
+        value={activeAccuracy}
         onChange={handleNavigation}
       >
         {accuracies.map((accuracy) => (
@@ -51,7 +54,7 @@ const TablePage: React.FC<TablePageProps> = ({
         ))}
       </ToggleButtonGroup>
       <div className={styles["sssp-header"]}>
-        SSSP {selectedAccuracy} (v{ssspVersion})
+        SSSP {activeAccuracy} (v{ssspVersion})
       </div>
       <PseudosLegend
         pseudoMetadata={pseudoMetadata}
