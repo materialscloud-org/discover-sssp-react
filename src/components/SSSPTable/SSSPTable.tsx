@@ -17,6 +17,7 @@ import styles from "./SSSPTable.module.scss";
 
 const SSSPTable = () => {
   const tabs = ["pseudopotentials", "about"];
+  const accuracies = ["efficiency", "precision"];
   return (
     <Card>
       <Router basename={urlBase}>
@@ -25,7 +26,10 @@ const SSSPTable = () => {
         </Card.Header>
         <Card.Body id={styles["sssp-card"]}>
           <Routes>
-            <Route path="pseudopotentials/*" element={<PseudosPage />} />
+            <Route
+              path="pseudopotentials/*"
+              element={<PseudosPage accuracies={accuracies} />}
+            />
               <Route path="about" element={<AboutPage />} />
             <Route
               path="/"

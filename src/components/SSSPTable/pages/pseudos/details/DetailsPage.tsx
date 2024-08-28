@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import Plots from "./plots/factory";
 
-import styles from "./index.module.scss";
+import styles from "./DetailsPage.module.scss";
 
 const TYPES = [
   "overview",
@@ -22,7 +22,7 @@ const DetailsPage = () => {
   if (!params || !params.element) {
     return <div className={styles.element_info}>Missing element</div>;
   }
-  const element = params.element;
+  const { element } = params;
   return (
     <div>
       <div className={styles.element_info}>
