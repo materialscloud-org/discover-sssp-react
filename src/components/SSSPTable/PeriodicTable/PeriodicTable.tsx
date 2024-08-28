@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 
-import { ElementModel } from "./Element/Element.models";
 import { PeriodicTableProps } from "./PeriodicTable.models";
 
 import Details from "./Details";
@@ -12,13 +11,9 @@ const PeriodicTable: React.FC<PeriodicTableProps> = ({
   ssspData,
   pseudoMetadata,
   hoveredPseudo,
+  hoveredElement,
+  onElementHover,
 }) => {
-  const [hoveredElement, setHoveredElement] = useState<ElementModel>();
-
-  const onElementHover = (elementData: ElementModel | null) => {
-    setHoveredElement(elementData);
-  };
-
   const elements = new ElementsGenerator(
     ssspData,
     pseudoMetadata,
@@ -40,19 +35,19 @@ const Table = ({ elements }: { elements: ElementsGenerator }) => {
   };
   return (
     <>
-    <div className={styles["elements"]}>
-      {elements.make(1, 56)}
-      {placeholder(1)}
-      {elements.make(72, 88)}
-      {placeholder(2)}
-      {elements.make(104, 118)}
-    </div>
-    <div className={`${styles["elements"]} ${styles["rare-earth"]}`}>
-      {placeholder(1)}
-      {elements.make(57, 71)}
-      {placeholder(2)}
-      {elements.make(89, 103)}
-    </div>
+      <div className={styles["elements"]}>
+        {elements.make(1, 56)}
+        {placeholder(1)}
+        {elements.make(72, 88)}
+        {placeholder(2)}
+        {elements.make(104, 118)}
+      </div>
+      <div className={`${styles["elements"]} ${styles["rare-earth"]}`}>
+        {placeholder(1)}
+        {elements.make(57, 71)}
+        {placeholder(2)}
+        {elements.make(89, 103)}
+      </div>
     </>
   );
 };

@@ -2,18 +2,20 @@ import { PseudosLegendProps } from "./Legend.models";
 
 import styles from "./Legend.module.scss";
 
-const PseudosLegend = ({
+const PseudosLegend: React.FC<PseudosLegendProps> = ({
   pseudoMetadata,
   hoveredPseudo,
+  hoveredElement,
   onHover,
-}: PseudosLegendProps) => {
+}) => {
   return (
     <ul className={styles["pseudo-legend"]} onMouseLeave={() => onHover("")}>
       {Object.entries(pseudoMetadata).map(([pseudo, metadata]) => (
         <li
           key={pseudo}
           className={`${styles["pseudo-item"]} ${
-            hoveredPseudo && hoveredPseudo !== pseudo
+            (hoveredPseudo && hoveredPseudo !== pseudo) ||
+            (hoveredElement && hoveredElement.info.pseudopotential !== pseudo)
               ? styles["transparent"]
               : ""
           }`}

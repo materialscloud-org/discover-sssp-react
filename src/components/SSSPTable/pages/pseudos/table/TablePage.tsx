@@ -12,6 +12,7 @@ import pseudoMetadata from "data/metadata.json";
 import ssspEfficiency from "data/sssp_efficiency.json";
 import ssspPrecision from "data/sssp_precision.json";
 
+import { ElementModel } from "components/SSSPTable/PeriodicTable/Element/Element.models";
 import { TablePageProps } from "./TablePage.models";
 
 import styles from "./TablePage.module.scss";
@@ -25,13 +26,10 @@ const TablePage: React.FC<TablePageProps> = ({
   const navigate = useNavigate();
   const location = useLocation();
   const [hoveredPseudo, setHoveredPseudo] = useState("");
+  const [hoveredElement, setHoveredElement] = useState<ElementModel>();
 
   const ssspData =
     activeAccuracy === "efficiency" ? ssspEfficiency : ssspPrecision;
-
-  const handleNavigation = (value: string) => {
-    navigate(`../${value}`);
-  };
 
   useEffect(() => {
     const currentAccuracy = location.pathname.split("/")[2];
@@ -45,7 +43,7 @@ const TablePage: React.FC<TablePageProps> = ({
         type="radio"
         name="accuracy"
         value={activeAccuracy}
-        onChange={handleNavigation}
+        onChange={(value) => navigate(`../${value}`)}
       >
         {accuracies.map((accuracy) => (
           <ToggleButton key={accuracy} id={accuracy} value={accuracy}>
@@ -59,12 +57,15 @@ const TablePage: React.FC<TablePageProps> = ({
       <PseudosLegend
         pseudoMetadata={pseudoMetadata}
         hoveredPseudo={hoveredPseudo}
-        onHover={(pseudo) => setHoveredPseudo(pseudo)}
+        hoveredElement={hoveredElement}
+        onHover={setHoveredPseudo}
       />
       <PeriodicTable
         pseudoMetadata={pseudoMetadata}
         ssspData={ssspData}
         hoveredPseudo={hoveredPseudo}
+        hoveredElement={hoveredElement}
+        onElementHover={setHoveredElement}
       />
     </>
   );
