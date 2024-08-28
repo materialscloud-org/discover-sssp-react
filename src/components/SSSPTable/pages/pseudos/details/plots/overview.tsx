@@ -48,9 +48,8 @@ const Overview: React.FC<OverviewProps> = ({ element }) => {
               calculations are performed on the ground-state elemental solids
               unless stated otherwise (i.e. rare-earths and flourine). The
               circle marks the pseudopotential and wavefunction cutoff chosen
-              for the SSSP library (see{" "}
-              <Link to="/discover/sssp/about">About SSSP</Link> for more
-              details).
+              for the SSSP library (see <Link to="/about">About SSSP</Link> for
+              more details).
             </div>
           </Tab>
         );
