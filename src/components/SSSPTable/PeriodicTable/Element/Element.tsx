@@ -38,17 +38,16 @@ const Element: React.FC<ElementProps> = ({
   };
 
   return (
-    <div
+    <Link
       className={classes}
       style={{ background: color }}
       onMouseEnter={() => onHover(objectify())}
       onMouseLeave={() => onHover(undefined)}
+      to={`../${symbol}`}
     >
-      <Link to={`../${symbol}`} state={""}>
-        <div className={styles["symbol"]}>{symbol}</div>
-        {cutoffText}
-      </Link>
-    </div>
+      <div className={styles["symbol"]}>{symbol}</div>
+      {cutoffText}
+    </Link>
   );
 };
 

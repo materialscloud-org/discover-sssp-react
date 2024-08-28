@@ -4,6 +4,7 @@
 
 .element {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: var(--element-box-size);
@@ -11,6 +12,8 @@
   max-width: 55px;
   max-height: 55px;
   margin: 1px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
   border-radius: 20%;
@@ -21,11 +24,6 @@
   -moz-transition: opacity 0.2s ease-in-out;
   -ms-transition: opacity 0.2s ease-in-out;
   -o-transition: opacity 0.2s ease-in-out;
-
-  a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-  }
 
   &.disabled {
     pointer-events: none;
