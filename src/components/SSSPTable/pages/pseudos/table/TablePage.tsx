@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ToggleButton, ToggleButtonGroup } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import { capitalize } from "common/utils";
+
+import AccuracyContext from "context/AccuracyContext";
 
 import { ssspVersion } from "components/SSSPTable";
 import PseudosLegend from "components/SSSPTable/Legend";
@@ -17,14 +19,11 @@ import { TablePageProps } from "./TablePage.models";
 
 import styles from "./TablePage.module.scss";
 
-const TablePage: React.FC<TablePageProps> = ({
-  accuracies,
-  activeAccuracy,
-  onAccuracyToggle,
-}) => {
+const TablePage: React.FC<TablePageProps> = ({ accuracies }) => {
   // TODO use a service to fetch the data
   const navigate = useNavigate();
   const location = useLocation();
+  const { activeAccuracy, setActiveAccuracy } = useContext(AccuracyContext);
   const [hoveredPseudo, setHoveredPseudo] = useState("");
   const [hoveredElement, setHoveredElement] = useState<ElementModel>();
 
@@ -33,8 +32,8 @@ const TablePage: React.FC<TablePageProps> = ({
 
   useEffect(() => {
     const currentAccuracy = location.pathname.split("/")[2];
-    onAccuracyToggle(currentAccuracy);
-  }, [location.pathname, onAccuracyToggle]);
+    setActiveAccuracy(currentAccuracy);
+  }, [location.pathname, setActiveAccuracy]);
 
   return (
     <>

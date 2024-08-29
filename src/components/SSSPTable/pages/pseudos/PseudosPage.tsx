@@ -1,15 +1,15 @@
+import { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+
+import AccuracyContext from "context/AccuracyContext";
 
 import DetailsPage from "./details";
 import TablePage from "./table";
 
 import { PseudosPageProps } from "./PseudosPage.models";
 
-const PseudosPage: React.FC<PseudosPageProps> = ({
-  accuracies,
-  activeAccuracy,
-  onAccuracyChange,
-}) => {
+const PseudosPage: React.FC<PseudosPageProps> = ({ accuracies }) => {
+  const { activeAccuracy } = useContext(AccuracyContext);
   return (
     <>
       <Routes>
@@ -17,13 +17,7 @@ const PseudosPage: React.FC<PseudosPageProps> = ({
           <Route
             key={accuracy}
             path={accuracy}
-            element={
-              <TablePage
-                accuracies={accuracies}
-                activeAccuracy={accuracy}
-                onAccuracyToggle={onAccuracyChange}
-              />
-            }
+            element={<TablePage accuracies={accuracies} />}
           />
         ))}
         <Route path=":element" element={<DetailsPage />} />

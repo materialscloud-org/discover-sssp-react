@@ -10,6 +10,7 @@
       "assets/*": ["assets/*"],
       "common/*": ["common/*"],
       "components/*": ["components/*"],
+      "context/*": ["components/SSSPTable/context/*"],
       "data/*": ["data/*"],
       "pages/*": ["components/SSSPTable/pages/*"]
     },

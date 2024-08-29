@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Card } from "react-bootstrap";
 import {
   Navigate,
@@ -8,6 +7,9 @@ import {
 } from "react-router-dom";
 
 import { urlBase } from "common/config";
+
+import AccuracyContext from "context/AccuracyContext";
+import useAccuracy from "context/useAccuracy";
 
 import AboutPage from "pages/about";
 import PseudosPage from "pages/pseudos";
@@ -19,7 +21,7 @@ import styles from "./SSSPTable.module.scss";
 const SSSPTable = () => {
   const tabs = ["pseudopotentials", "about"];
   const accuracies = ["efficiency", "precision"];
-  const [activeAccuracy, setActiveAccuracy] = useState(accuracies[0]);
+  const accuracyContext = useAccuracy("efficiency");
   return (
     <Card>
       <Router basename={urlBase}>
@@ -27,23 +29,19 @@ const SSSPTable = () => {
           <RoutedTabs tabs={tabs} defaultTab={tabs[0]} />
         </Card.Header>
         <Card.Body id={styles["sssp-card"]}>
-          <Routes>
-            <Route
-              path="pseudopotentials/*"
-              element={
-                <PseudosPage
-                  accuracies={accuracies}
-                  activeAccuracy={activeAccuracy}
-                  onAccuracyChange={setActiveAccuracy}
-                />
-              }
-            />
-            <Route path="about" element={<AboutPage />} />
-            <Route
-              path="/"
-              element={<Navigate to="pseudopotentials" replace />}
-            />
-          </Routes>
+          <AccuracyContext.Provider value={accuracyContext}>
+            <Routes>
+              <Route
+                path="pseudopotentials/*"
+                element={<PseudosPage accuracies={accuracies} />}
+              />
+              <Route path="about" element={<AboutPage />} />
+              <Route
+                path="/"
+                element={<Navigate to="pseudopotentials" replace />}
+              />
+            </Routes>
+          </AccuracyContext.Provider>
         </Card.Body>
       </Router>
     </Card>

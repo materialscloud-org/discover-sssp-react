@@ -13,6 +13,7 @@ export default defineConfig({
       assets: "/src/assets",
       common: "/src/common",
       components: "/src/components",
+      context: "/src/components/SSSPTable/context",
       data: "/src/data",
       pages: "/src/components/SSSPTable/pages",
     },
