@@ -6,8 +6,3 @@ export interface ElementModel {
   color: string;
   info: ElementInfo;
 }
-
-export interface ElementProps extends ElementModel {
-  isTransparent: boolean;
-  onHover: (element?: ElementModel) => void;
-}

@@ -1,12 +1,15 @@
-import { ElementModel } from "../Element/Element.models";
+import { useContext } from "react";
+
+import HoverContext from "components/SSSPTable/context/HoverContext";
 
 import styles from "./Details.module.scss";
 
-const Details = ({ element }: { element?: ElementModel }) => {
-  if (!element) {
+const Details = () => {
+  const { hoveredElement } = useContext(HoverContext);
+  if (!hoveredElement) {
     return <></>;
   }
-  const { number, symbol, color, info } = element;
+  const { number, symbol, color, info } = hoveredElement;
   return (
     <div className={styles["details"]} style={{ borderColor: color }}>
       <div className={styles["label"]}>

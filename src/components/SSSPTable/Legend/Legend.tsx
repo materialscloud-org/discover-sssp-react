@@ -1,25 +1,34 @@
+import { useContext } from "react";
+
+import HoverContext from "../context/HoverContext";
+
 import { PseudosLegendProps } from "./Legend.models";
 
 import styles from "./Legend.module.scss";
 
-const PseudosLegend: React.FC<PseudosLegendProps> = ({
-  pseudoMetadata,
-  hoveredPseudo,
-  hoveredElement,
-  onHover,
-}) => {
+const PseudosLegend: React.FC<PseudosLegendProps> = ({ pseudoMetadata }) => {
+  const { hoveredPseudo, hoveredElement, setHoveredPSeudo } =
+    useContext(HoverContext);
   return (
-    <ul className={styles["pseudo-legend"]} onMouseLeave={() => onHover("")}>
+    <ul
+      className={styles["pseudo-legend"]}
+      onMouseLeave={() => setHoveredPSeudo("")}
+    >
       {Object.entries(pseudoMetadata).map(([pseudo, metadata]) => (
         <li
           key={pseudo}
-          className={`${styles["pseudo-item"]} ${
-            (hoveredPseudo && hoveredPseudo !== pseudo) ||
-            (hoveredElement && hoveredElement.info.pseudopotential !== pseudo)
-              ? styles["transparent"]
-              : ""
-          }`}
-          onMouseEnter={() => onHover(pseudo)}
+          className={`
+            ${styles["pseudo-item"]}
+            ${
+              !(hoveredPseudo || hoveredElement)
+                ? ""
+                : hoveredPseudo === pseudo ||
+                  hoveredElement?.info.pseudopotential === pseudo
+                ? styles["highlighted"]
+                : styles["transparent"]
+            }
+          `}
+          onMouseEnter={() => setHoveredPSeudo(pseudo)}
         >
           <span
             className={styles["pseudo-list-marker"]}

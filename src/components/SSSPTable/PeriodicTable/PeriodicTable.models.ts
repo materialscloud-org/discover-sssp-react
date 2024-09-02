@@ -1,5 +1,3 @@
-import { ElementModel } from "./Element/Element.models";
-
 export interface ElementInfo {
   cutoff: number;
   dual: number;
@@ -18,7 +16,4 @@ export interface Metadata {
 export interface PeriodicTableProps {
   ssspData: { [key: string]: ElementInfo };
   pseudoMetadata: { [key: string]: Metadata };
-  hoveredPseudo: string;
-  hoveredElement?: ElementModel;
-  onElementHover: (elementData?: ElementModel) => void;
 }

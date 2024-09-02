@@ -1,29 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { ElementModel, ElementProps } from "./Element.models";
+import { ElementModel } from "./Element.models";
 
+import HoverContext from "components/SSSPTable/context/HoverContext";
 import styles from "./Element.module.scss";
 
-const Element: React.FC<ElementProps> = ({
-  number,
-  symbol,
-  color,
-  info,
-  isTransparent,
-  onHover,
-}) => {
-  const disabled = info == null;
+const Element: React.FC<ElementModel> = ({ number, symbol, color, info }) => {
+  const { hoveredPseudo, setHoveredElement } = useContext(HoverContext);
 
-  const classes = [
-    styles["element"],
-    styles[`element-${number}`],
-    disabled ? styles["disabled"] : "",
-    isTransparent ? styles["transparent"] : "",
-  ].join(" ");
+  const classes = [styles["element"], styles[`element-${number}`]];
 
   let cutoffText = null;
-  if (!disabled) {
+
+  if (info) {
     const { cutoff: wfcCutoff, rho_cutoff: rhoCutoff } = info;
     cutoffText = (
       <div className={styles["info"]}>
@@ -31,6 +21,12 @@ const Element: React.FC<ElementProps> = ({
         <sub>({rhoCutoff})</sub>
       </div>
     );
+
+    if (hoveredPseudo && hoveredPseudo !== info.pseudopotential) {
+      classes.push(styles["transparent"]);
+    }
+  } else {
+    classes.push(styles["disabled"]);
   }
 
   const objectify = (): ElementModel => {
@@ -39,10 +35,10 @@ const Element: React.FC<ElementProps> = ({
 
   return (
     <Link
-      className={classes}
+      className={classes.join(" ")}
       style={{ background: color }}
-      onMouseEnter={() => onHover(objectify())}
-      onMouseLeave={() => onHover(undefined)}
+      onMouseEnter={() => setHoveredElement(objectify())}
+      onMouseLeave={() => setHoveredElement(undefined)}
       to={`../${symbol}`}
     >
       <div className={styles["symbol"]}>{symbol}</div>
