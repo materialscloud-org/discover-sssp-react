@@ -6,10 +6,9 @@ import styles from "./Details.module.scss";
 
 const Details = () => {
   const { hoveredElement } = useContext(HoverContext);
-  if (!hoveredElement) {
-    return <></>;
-  }
+  if (!hoveredElement) return <></>;
   const { number, symbol, color, info } = hoveredElement;
+
   return (
     <div id={styles["details"]} style={{ color: color }}>
       <div id={styles["label"]}>

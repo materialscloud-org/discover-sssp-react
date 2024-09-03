@@ -10,6 +10,7 @@ import { PseudosPageProps } from "./PseudosPage.models";
 
 const PseudosPage: React.FC<PseudosPageProps> = ({ accuracies }) => {
   const { activeAccuracy } = useContext(AccuracyContext);
+
   return (
     <div id="pseudos-page">
       <Routes>
@@ -20,7 +21,10 @@ const PseudosPage: React.FC<PseudosPageProps> = ({ accuracies }) => {
             element={<TablePage accuracies={accuracies} />}
           />
         ))}
-        <Route path=":element" element={<DetailsPage />} />
+        <Route
+          path=":element"
+          element={<DetailsPage accuracies={accuracies} />}
+        />
         <Route
           path="/"
           element={

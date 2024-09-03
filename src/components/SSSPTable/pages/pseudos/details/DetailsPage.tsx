@@ -1,55 +1,69 @@
-import { Accordion, Button } from "react-bootstrap";
-import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Button, Tab, Tabs, FormSelect } from "react-bootstrap";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+
+import { capitalize } from "common/utils";
+
+import { DetailsPageProps } from "./DetailsPage.models";
 
 import Plots from "./plots/factory";
 
 import styles from "./DetailsPage.module.scss";
 
 const TYPES = [
-  "overview",
-  "eos",
-  "bands",
-  "cohesive",
-  "cohesive-per",
-  "phonons",
-  "phonons-per",
-  "pressure",
-  "pressure-per",
+  "Overview",
+  "Bands Chessboards",
+  "Equation of State",
+  "Band Structure",
+  "More",
 ];
 
-const DetailsPage = () => {
+const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
+  const navigate = useNavigate();
   const params = useParams();
+  const location = useLocation();
+  const hashAccuracy = location?.hash.substring(1);
+  const [activeAccuracy, setActiveAccuracy] = useState(hashAccuracy || "");
   const { element } = params;
+
+  useEffect(() => {
+    const hashAccuracy = location?.hash.substring(1);
+    setActiveAccuracy(hashAccuracy || "");
+  }, [location]);
+
   return (
     <div id="details-page">
-      <BackButton />
-      <Header element={element} />
+      <div id={styles["details-controls"]}>
+        <Button id={styles["back-button"]} onClick={() => navigate("../")}>
+          Back
+        </Button>
+        <FormSelect
+          id={styles["accuracy-selector"]}
+          value={activeAccuracy}
+          onChange={(event) => navigate(`#${event.target.value}`)}
+        >
+          <option value="">Choose accuracy</option>
+          {accuracies.map((accuracy) => (
+            <option key={accuracy} value={accuracy}>
+              {capitalize(accuracy)}
+            </option>
+          ))}
+        </FormSelect>
+      </div>
+      <div className="sssp-pseudos-header">
+        <span>Element: {`${element || "None provided"}`}</span>
+      </div>
       {element && (
-        <div className="mt-4">
-          <Accordion defaultActiveKey="overview">
-            {TYPES.map((type: string) => (
+        <Tabs defaultActiveKey="Overview" id="sssp-pseudos-tabs">
+          {TYPES.map((type: string) => (
+            <Tab key={type} eventKey={type} title={type}>
               <Plots element={element} type={type} key={type} />
-            ))}
-          </Accordion>
-        </div>
+            </Tab>
+          ))}
+        </Tabs>
       )}
     </div>
   );
 };
-
-const BackButton = () => {
-  const navigate = useNavigate();
-  return (
-    <Button id={styles["back-button"]} onClick={() => navigate("../")}>
-      Back
-    </Button>
-  );
-};
-
-const Header = ({ element }: { element?: string }) => (
-  <div className="sssp-pseudos-header">
-    <span>Element: {`${element || "None provided"}`}</span>
-  </div>
-);
 
 export default DetailsPage;

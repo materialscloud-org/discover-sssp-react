@@ -21,6 +21,7 @@ const Table = ({ elements }: { elements: ElementsGenerator }) => {
   const placeholder = (n: number) => (
     <span className={styles["star-placeholder"]}>{"★".repeat(n)}</span>
   );
+
   return (
     <div id={styles["table"]}>
       <div className={styles["elements"]}>

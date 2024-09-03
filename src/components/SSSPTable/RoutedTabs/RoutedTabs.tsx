@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Tab, Tabs } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 
