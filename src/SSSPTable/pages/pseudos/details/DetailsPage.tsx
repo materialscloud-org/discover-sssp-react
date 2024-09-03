@@ -33,7 +33,7 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
     <div id="details-page">
       <div id={styles["details-controls"]}>
         <Button id={styles["back-button"]} onClick={() => navigate("../")}>
-          Back
+          Back to table
         </Button>
         <FormSelect
           id={styles["accuracy-selector"]}
