@@ -1,4 +1,4 @@
-export interface HeaderProps {
+export default interface HeaderProps {
   title: string;
   subtitle: string;
   doi_ids: string[];

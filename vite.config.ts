@@ -10,12 +10,15 @@ export default defineConfig({
   base: "/discover/sssp/",
   resolve: {
     alias: {
-      assets: "/src/assets",
-      common: "/src/common",
-      components: "/src/components",
-      context: "/src/components/SSSPTable/context",
-      data: "/src/data",
-      pages: "/src/components/SSSPTable/pages",
+      "@sssp": "/src/SSSPTable",
+      "@sssp/common": "/src/SSSPTable/common",
+      "@sssp/components": "/src/SSSPTable/components",
+      "@sssp/context": "/src/SSSPTable/context",
+      "@sssp/data": "/src/SSSPTable/data",
+      "@sssp/models": "/src/SSSPTable/models",
+      "@sssp/pages": "/src/SSSPTable/pages",
+      "@sssp/plotting": "/src/SSSPTable/plotting",
+      "@sssp/services": "/src/SSSPTable/services",
     },
   },
 });

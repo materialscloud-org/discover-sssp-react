@@ -3,8 +3,7 @@ import { Card } from "react-bootstrap";
 
 import { DoiBadge } from "mc-react-library";
 
-import { HeaderProps } from "./Header.models";
-
+import HeaderProps from "./Header.models";
 import styles from "./Header.module.scss";
 
 const Header: React.FC<HeaderProps> = ({ title, subtitle, doi_ids, logo }) => (

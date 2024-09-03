@@ -7,12 +7,15 @@
     "skipLibCheck": true,
     "baseUrl": "src",
     "paths": {
-      "assets/*": ["assets/*"],
-      "common/*": ["common/*"],
-      "components/*": ["components/*"],
-      "context/*": ["components/SSSPTable/context/*"],
-      "data/*": ["data/*"],
-      "pages/*": ["components/SSSPTable/pages/*"]
+      "@sssp": ["SSSPTable"],
+      "@sssp/common/*": ["SSSPTable/common/*"],
+      "@sssp/components/*": ["SSSPTable/components/*"],
+      "@sssp/context": ["SSSPTable/context"],
+      "@sssp/data/*": ["SSSPTable/data/*"],
+      "@sssp/models": ["SSSPTable/models"],
+      "@sssp/pages/*": ["SSSPTable/pages/*"],
+      "@sssp/plotting/*": ["SSSPTable/plotting/*"],
+      "@sssp/services/*": ["SSSPTable/services/*"]
     },
 
     /* Bundler mode */
