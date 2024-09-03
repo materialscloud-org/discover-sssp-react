@@ -11,18 +11,18 @@ const PeriodicTable: React.FC<PeriodicTableProps> = ({
   ssspData,
   pseudoMetadata,
 }) => (
-  <div className={styles["ptable"]}>
+  <div id={styles["periodic-table"]}>
     <Details />
     <Table elements={new ElementsGenerator(ssspData, pseudoMetadata)} />
   </div>
 );
 
 const Table = ({ elements }: { elements: ElementsGenerator }) => {
-  const placeholder = (n: number) => {
-    return <span className={styles["star-placeholder"]}>{"★".repeat(n)}</span>;
-  };
+  const placeholder = (n: number) => (
+    <span className={styles["star-placeholder"]}>{"★".repeat(n)}</span>
+  );
   return (
-    <>
+    <div id={styles["table"]}>
       <div className={styles["elements"]}>
         {elements.make(1, 56)}
         {placeholder(1)}
@@ -30,13 +30,13 @@ const Table = ({ elements }: { elements: ElementsGenerator }) => {
         {placeholder(2)}
         {elements.make(104, 118)}
       </div>
-      <div className={`${styles["elements"]} ${styles["rare-earth"]}`}>
+      <div className={styles["elements"]} id="rare-earth">
         {placeholder(1)}
         {elements.make(57, 71)}
         {placeholder(2)}
         {elements.make(89, 103)}
       </div>
-    </>
+    </div>
   );
 };
 

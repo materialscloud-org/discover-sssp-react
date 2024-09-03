@@ -9,7 +9,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-// global styles
 body {
   margin: 0;
   min-width: 320px;
@@ -28,4 +27,10 @@ body {
     border: 1px solid #d2d2d2;
     box-shadow: var(--bs-box-shadow);
   }
+}
+
+.sssp-pseudos-header {
+  text-align: center;
+  font-size: xx-large;
+  margin-bottom: 1em;
 }

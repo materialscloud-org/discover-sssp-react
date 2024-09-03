@@ -11,7 +11,7 @@ import { PseudosPageProps } from "./PseudosPage.models";
 const PseudosPage: React.FC<PseudosPageProps> = ({ accuracies }) => {
   const { activeAccuracy } = useContext(AccuracyContext);
   return (
-    <>
+    <div id="pseudos-page">
       <Routes>
         {accuracies.map((accuracy) => (
           <Route
@@ -28,7 +28,7 @@ const PseudosPage: React.FC<PseudosPageProps> = ({ accuracies }) => {
           }
         />
       </Routes>
-    </>
+    </div>
   );
 };
 

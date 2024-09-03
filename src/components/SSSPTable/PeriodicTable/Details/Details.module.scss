@@ -1,4 +1,4 @@
-.details {
+#details {
   display: flex;
   position: absolute;
   top: 0;
@@ -7,26 +7,26 @@
   padding: 5px 15px 0px 5px;
   border: 5px solid;
 
-  .label {
+  #label {
     width: 80px;
 
-    .number {
+    #number {
       font-size: x-large;
       font-weight: bold;
     }
 
-    .symbol {
+    #symbol {
       font-size: 48px;
       font-weight: bold;
       line-height: 1;
     }
   }
 
-  .info {
+  #info {
     list-style-type: none;
     text-align: center;
 
-    .cutoff-header {
+    #cutoff-header {
       font-size: x-large;
       font-weight: bold;
     }

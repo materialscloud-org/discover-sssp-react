@@ -9,7 +9,7 @@ import styles from "./Header.module.scss";
 
 const Header: React.FC<HeaderProps> = ({ title, subtitle, doi_ids, logo }) => {
   return (
-    <Card>
+    <Card className={styles["header"]}>
       <Card.Body>
         <div className={styles["title-and-logo"]}>
           <div className={styles["title-and-doi"]}>

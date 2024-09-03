@@ -36,9 +36,9 @@ const TablePage: React.FC<TablePageProps> = ({ accuracies }) => {
   }, [location.pathname, setActiveAccuracy]);
 
   return (
-    <>
+    <div id="table-page">
       <ToggleButtonGroup
-        className={styles["accuracy-controls"]}
+        id={styles["accuracy-controls"]}
         type="radio"
         name="accuracy"
         value={activeAccuracy}
@@ -50,14 +50,14 @@ const TablePage: React.FC<TablePageProps> = ({ accuracies }) => {
           </ToggleButton>
         ))}
       </ToggleButtonGroup>
-      <div className={styles["sssp-header"]}>
+      <div className="sssp-pseudos-header">
         SSSP {activeAccuracy} (v{ssspVersion})
       </div>
       <HoverContext.Provider value={hoverContext}>
         <PseudosLegend pseudoMetadata={pseudoMetadata} />
         <PeriodicTable pseudoMetadata={pseudoMetadata} ssspData={ssspData} />
       </HoverContext.Provider>
-    </>
+    </div>
   );
 };
 

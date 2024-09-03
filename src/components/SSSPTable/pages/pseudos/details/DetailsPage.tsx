@@ -21,7 +21,7 @@ const DetailsPage = () => {
   const params = useParams();
   const { element } = params;
   return (
-    <>
+    <div id="details-page">
       <BackButton />
       <Header element={element} />
       {element && (
@@ -33,25 +33,23 @@ const DetailsPage = () => {
           </Accordion>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
 const BackButton = () => {
   const navigate = useNavigate();
   return (
-    <Button className={styles["back-button"]} onClick={() => navigate("../")}>
+    <Button id={styles["back-button"]} onClick={() => navigate("../")}>
       Back
     </Button>
   );
 };
 
-const Header = ({ element }: { element?: string }) => {
-  return (
-    <div className={styles["sssp-header"]}>
-      <span>Element: {`${element || "None provided"}`}</span>
-    </div>
-  );
-};
+const Header = ({ element }: { element?: string }) => (
+  <div className="sssp-pseudos-header">
+    <span>Element: {`${element || "None provided"}`}</span>
+  </div>
+);
 
 export default DetailsPage;

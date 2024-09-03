@@ -10,10 +10,7 @@ const PseudosLegend: React.FC<PseudosLegendProps> = ({ pseudoMetadata }) => {
   const { hoveredPseudo, hoveredElement, setHoveredPSeudo } =
     useContext(HoverContext);
   return (
-    <ul
-      className={styles["pseudo-legend"]}
-      onMouseLeave={() => setHoveredPSeudo("")}
-    >
+    <ul id={styles["pseudo-legend"]} onMouseLeave={() => setHoveredPSeudo("")}>
       {Object.entries(pseudoMetadata).map(([pseudo, metadata]) => (
         <li
           key={pseudo}

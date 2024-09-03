@@ -11,20 +11,14 @@ const Details = () => {
   }
   const { number, symbol, color, info } = hoveredElement;
   return (
-    <div className={styles["details"]} style={{ borderColor: color }}>
-      <div className={styles["label"]}>
-        <div className={styles["number"]} style={{ color: color }}>
-          {number}
-        </div>
-        <div className={styles["symbol"]} style={{ color: color }}>
-          {symbol}
-        </div>
+    <div id={styles["details"]} style={{ color: color }}>
+      <div id={styles["label"]}>
+        <div id={styles["number"]}>{number}</div>
+        <div id={styles["symbol"]}>{symbol}</div>
       </div>
       <div>
-        <ul className={styles["info"]}>
-          <li className={styles["cutoff-header"]} style={{ color: color }}>
-            Cutoffs
-          </li>
+        <ul id={styles["info"]}>
+          <li id={styles["cutoff-header"]}>Cutoffs</li>
           <li>Ψ = {info.cutoff}</li>
           <li>ρ = {info.rho_cutoff}</li>
         </ul>

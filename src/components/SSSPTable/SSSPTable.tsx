@@ -23,9 +23,9 @@ const SSSPTable = () => {
   const accuracies = ["efficiency", "precision"];
   const accuracyContext = useAccuracy("efficiency");
   return (
-    <Card>
+    <Card id={styles["sssp-app"]}>
       <Router basename={urlBase}>
-        <Card.Header className={styles["tab-controls"]}>
+        <Card.Header id={styles["tab-controls"]}>
           <RoutedTabs tabs={tabs} defaultTab={tabs[0]} />
         </Card.Header>
         <Card.Body id={styles["sssp-card"]}>
