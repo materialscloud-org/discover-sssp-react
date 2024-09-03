@@ -6,7 +6,7 @@ export interface ElementInfo {
   pseudopotential: string;
   rho_cutoff: number;
 }
-export interface SSSPData {
+export interface SsspData {
   [key: string]: ElementInfo;
 }
 

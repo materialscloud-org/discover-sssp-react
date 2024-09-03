@@ -1,4 +1,4 @@
-import { ElementInfo } from "@sssp/models";
+import { ElementInfo } from "SsspApp/models";
 
 export interface ElementModel {
   number: number;

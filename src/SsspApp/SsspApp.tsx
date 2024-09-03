@@ -11,10 +11,10 @@ import { AccuracyProvider } from "@sssp/context";
 import AboutPage from "@sssp/pages/about";
 import PseudosPage from "@sssp/pages/pseudos";
 
-import SSSPTableProps from "./SSSPTable.models";
-import styles from "./SSSPTable.module.scss";
+import SsspProps from "./SsspApp.models";
+import styles from "./SsspApp.module.scss";
 
-const SSSPTable: React.FC<SSSPTableProps> = ({ urlBase }) => {
+const SsspApp: React.FC<SsspProps> = ({ urlBase }) => {
   const tabs = ["pseudopotentials", "about"];
   const accuracies = ["efficiency", "precision"];
   return (
@@ -43,4 +43,4 @@ const SSSPTable: React.FC<SSSPTableProps> = ({ urlBase }) => {
   );
 };
 
-export default SSSPTable;
+export default SsspApp;

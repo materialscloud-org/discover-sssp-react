@@ -7,15 +7,15 @@
     "skipLibCheck": true,
     "baseUrl": "src",
     "paths": {
-      "@sssp": ["SSSPTable"],
-      "@sssp/common/*": ["SSSPTable/common/*"],
-      "@sssp/components/*": ["SSSPTable/components/*"],
-      "@sssp/context": ["SSSPTable/context"],
-      "@sssp/data/*": ["SSSPTable/data/*"],
-      "@sssp/models": ["SSSPTable/models"],
-      "@sssp/pages/*": ["SSSPTable/pages/*"],
-      "@sssp/plotting/*": ["SSSPTable/plotting/*"],
-      "@sssp/services/*": ["SSSPTable/services/*"]
+      "@sssp": ["SsspApp"],
+      "@sssp/common/*": ["SsspApp/common/*"],
+      "@sssp/components/*": ["SsspApp/components/*"],
+      "@sssp/context": ["SsspApp/context"],
+      "@sssp/data/*": ["SsspApp/data/*"],
+      "@sssp/models": ["SsspApp/models"],
+      "@sssp/pages/*": ["SsspApp/pages/*"],
+      "@sssp/plotting/*": ["SsspApp/plotting/*"],
+      "@sssp/services/*": ["SsspApp/services/*"]
     },
 
     /* Bundler mode */

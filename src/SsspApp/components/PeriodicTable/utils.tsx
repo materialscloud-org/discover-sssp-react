@@ -1,14 +1,14 @@
 import elementSymbols from "./symbols.json";
 
-import { PseudoMetadata, SSSPData } from "@sssp/models";
+import { PseudoMetadata, SsspData } from "@sssp/models";
 
 import Element from "./Element";
 
 class ElementsGenerator {
-  private ssspData: SSSPData;
+  private ssspData: SsspData;
   private pseudoMetadata: PseudoMetadata;
 
-  constructor(ssspData: SSSPData, pseudoMetadata: PseudoMetadata) {
+  constructor(ssspData: SsspData, pseudoMetadata: PseudoMetadata) {
     this.ssspData = ssspData;
     this.pseudoMetadata = pseudoMetadata;
   }
