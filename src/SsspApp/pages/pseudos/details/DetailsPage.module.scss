@@ -1,5 +1,6 @@
 #details-controls {
   display: flex;
+  align-items: center;
 
   #back-button {
     margin-right: 10px;
@@ -7,5 +8,14 @@
 
   #accuracy-selector {
     width: 175px;
+  }
+
+  #accuracy-info {
+    display: flex;
+    margin-left: 10px;
+  }
+
+  #accuracy-tooltip {
+    text-align: left;
   }
 }

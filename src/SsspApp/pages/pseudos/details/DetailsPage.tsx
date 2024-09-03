@@ -1,5 +1,14 @@
 import { useEffect, useState } from "react";
-import { Button, FormSelect, Tab, Tabs } from "react-bootstrap";
+import {
+  Button,
+  FormSelect,
+  OverlayTrigger,
+  Tab,
+  Tabs,
+  Tooltip,
+} from "react-bootstrap";
+import { OverlayInjectedProps } from "react-bootstrap/esm/Overlay";
+import { BiInfoCircle } from "react-icons/bi";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 import { capitalize } from "@sssp/common/utils";
@@ -47,6 +56,7 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
             </option>
           ))}
         </FormSelect>
+        <AccuracyInfo />
       </div>
       <div className="sssp-pseudos-header">
         <span>Element: {`${element || "None provided"}`}</span>
@@ -60,6 +70,29 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
           ))}
         </Tabs>
       )}
+    </div>
+  );
+};
+
+const AccuracyInfo = () => {
+  const showTooltip = (props: OverlayInjectedProps) => (
+    <Tooltip id={styles["accuracy-tooltip"]} {...props}>
+      The recommended pseudopotential for the selected accuracy will be
+      highlighted in the data below
+    </Tooltip>
+  );
+
+  return (
+    <div id={styles["accuracy-info"]}>
+      <OverlayTrigger
+        placement="right"
+        delay={{ show: 100, hide: 100 }}
+        overlay={showTooltip}
+      >
+        <span>
+          <BiInfoCircle style={{ cursor: "pointer" }} />
+        </span>
+      </OverlayTrigger>
     </div>
   );
 };
