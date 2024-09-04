@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const useAccuracy = (initialAccuracy: string) => {
   const [activeAccuracy, setActiveAccuracy] = useState(initialAccuracy);
@@ -15,14 +16,19 @@ export const AccuracyContext = createContext(
 
 interface AccuracyProviderProps {
   children: JSX.Element | JSX.Element[];
-  initialAccuracy: string;
+  defaultAccuracy: string;
 }
 
 export const AccuracyProvider: React.FC<AccuracyProviderProps> = ({
   children,
-  initialAccuracy,
-}) => (
-  <AccuracyContext.Provider value={useAccuracy(initialAccuracy)}>
-    {children}
-  </AccuracyContext.Provider>
-);
+  defaultAccuracy,
+}) => {
+  const location = useLocation();
+  const initialAccuracy = location?.pathname.split("/")[2] || defaultAccuracy;
+
+  return (
+    <AccuracyContext.Provider value={useAccuracy(initialAccuracy)}>
+      {children}
+    </AccuracyContext.Provider>
+  );
+};

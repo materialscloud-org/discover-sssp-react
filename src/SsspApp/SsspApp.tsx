@@ -24,7 +24,7 @@ const SsspApp: React.FC<SsspProps> = ({ urlBase }) => {
           <RoutedTabs tabs={tabs} defaultTab={tabs[0]} />
         </Card.Header>
         <Card.Body id={styles["sssp-card"]}>
-          <AccuracyProvider initialAccuracy={accuracies[0]}>
+          <AccuracyProvider defaultAccuracy={accuracies[0]}>
             <Routes>
               <Route
                 path="pseudopotentials/*"
