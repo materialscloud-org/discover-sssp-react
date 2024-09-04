@@ -3,6 +3,7 @@ import { Card, Spinner } from "react-bootstrap";
 
 import { PlotFactoryProps } from "./PlotFactory.models";
 
+import Overview from "./components/Overview/Overview";
 import styles from "./PlotFactory.module.scss";
 
 const PlotFactory: React.FC<PlotFactoryProps> = ({ elementData, type }) => {
@@ -21,6 +22,9 @@ const PlotFactory: React.FC<PlotFactoryProps> = ({ elementData, type }) => {
 
   let plot = null;
   switch (type) {
+    case "Overview":
+      plot = <Overview elementData={elementData} />;
+      break;
     default:
       console.error(`Invalid plot type: ${type}`);
   }
