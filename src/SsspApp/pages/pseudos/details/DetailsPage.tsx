@@ -12,7 +12,9 @@ import { BiInfoCircle } from "react-icons/bi";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 import { capitalize } from "@sssp/common/utils";
-import Plots from "@sssp/plotting/factory";
+import PlotFactory from "@sssp/plotting/PlotFactory";
+import SsspDataService from "@sssp/services/data";
+import { ElementData } from "@sssp/services/models";
 
 import DetailsPageProps from "./DetailsPage.models";
 import styles from "./DetailsPage.module.scss";
@@ -29,14 +31,29 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
   const navigate = useNavigate();
   const params = useParams();
   const location = useLocation();
-  const hashAccuracy = location?.hash.substring(1);
-  const [activeAccuracy, setActiveAccuracy] = useState(hashAccuracy || "");
+  const hashAccuracy = location?.hash.substring(1) || "";
+  const [activeAccuracy, setActiveAccuracy] = useState(hashAccuracy);
   const { element } = params;
+  const [elementData, setElementData] = useState<ElementData>();
 
   useEffect(() => {
     const hashAccuracy = location?.hash.substring(1);
     setActiveAccuracy(hashAccuracy || "");
   }, [location]);
+
+  useEffect(() => {
+    if (!element) return;
+    const dataService = new SsspDataService(activeAccuracy);
+    dataService
+      .fetchElementData(element)
+      .then((data) => {
+        setElementData(data);
+      })
+      .catch((error) => {
+        setElementData(undefined);
+        console.error("Error fetching element data", error);
+      });
+  }, [activeAccuracy, element]);
 
   return (
     <div id="details-page">
@@ -65,7 +82,7 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
         <Tabs defaultActiveKey="Overview" id="sssp-pseudos-tabs">
           {TYPES.map((type: string) => (
             <Tab key={type} eventKey={type} title={type}>
-              <Plots element={element} type={type} key={type} />
+              <PlotFactory elementData={elementData} type={type} key={type} />
             </Tab>
           ))}
         </Tabs>

@@ -1,6 +1,8 @@
 import { pseudoMetadata, ssspEfficiency, ssspPrecision } from "@sssp/data";
 import { ElementsInfo, PseudosMetadata } from "@sssp/models";
 
+import { ElementData, ElementDataResponse } from "./models";
+
 export default class SsspDataService {
   private accuracy: string;
   private API = "https://www.materialscloud.org/mcloud/api/v2/discover/sssp";
@@ -17,7 +19,8 @@ export default class SsspDataService {
   // TODO consider caching
   fetchElementData = async (element: string) => {
     const response = await fetch(`${this.API}/elements/${element}`);
-    return await response.json();
+    const json: ElementDataResponse = await response.json();
+    return json?.data || ({} as ElementData);
   };
 
   fetchElementsInfo = (): ElementsInfo => {

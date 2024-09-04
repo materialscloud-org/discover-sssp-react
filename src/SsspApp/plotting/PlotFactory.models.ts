@@ -1,5 +1,7 @@
+import { ElementData } from "@sssp/services/models";
+
 export interface PlotFactoryProps {
-  element: string;
+  elementData?: ElementData;
   type: string;
 }
 

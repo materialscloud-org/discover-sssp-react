@@ -16,8 +16,8 @@ import styles from "./TablePage.module.scss";
 const TablePage: React.FC<TablePageProps> = ({ accuracies }) => {
   const location = useLocation();
   const { activeAccuracy, setActiveAccuracy } = useContext(AccuracyContext);
-  const [elementsInfo, setElementsInfo] = useState({} as ElementsInfo);
-  const [pseudosMetadata, setPseudosMetadata] = useState({} as PseudosMetadata);
+  const [elementsInfo, setElementsInfo] = useState<ElementsInfo>({});
+  const [pseudosMetadata, setPseudosMetadata] = useState<PseudosMetadata>({});
 
   useEffect(() => {
     const currentAccuracy = location.pathname.split("/")[2];
