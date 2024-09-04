@@ -1,36 +1,40 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Tab, Tabs } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import { fetchElementData } from "@sssp/services/data";
+import { AccuracyContext } from "@sssp/context";
+import SsspDataService from "@sssp/services/data";
 
 import { OverviewProps } from "./models";
 
 const Overview: React.FC<OverviewProps> = ({ element }) => {
+  const { activeAccuracy } = useContext(AccuracyContext);
   const [convergence_files, setConvergenceFiles] = useState([""]);
   const [chessboard_filename, setChessboardFile] = useState("");
-
-  const location = useLocation();
-  const accuracy = location.pathname.includes("efficiency")
-    ? "Efficiency"
-    : "Precision";
 
   const data_root = "data/discover/sssp";
   const convergence_root = `${data_root}/convergences_efficiency`;
   const chessboard_root = `${data_root}/chessboards`;
 
   useEffect(() => {
-    fetchElementData(element).then((data) => {
-      setConvergenceFiles(data.efficiency_filenames);
-      setChessboardFile(data.chessboards_filenames);
-    });
-  }, [element]);
+    const dataService = new SsspDataService(activeAccuracy);
+    dataService
+      .fetchElementData(element)
+      .then((data) => {
+        setConvergenceFiles(data.efficiency_filenames);
+        setChessboardFile(data.chessboards_filenames);
+      })
+      .catch((error) => {
+        setConvergenceFiles([]);
+        console.error("Error fetching element data", error);
+      });
+  }, [activeAccuracy, element]);
 
   return (
     <Tabs defaultActiveKey="0">
       {convergence_files.map((filename, index) => {
         const number = filename.match(/\d+(\.\d+)?/)?.[0] || "";
-        const title = `Convergence ${accuracy} - ${number}`;
+        const title = `Convergence ${activeAccuracy} - ${number}`;
         const id = index.toString();
         return (
           <Tab eventKey={id} title={title} key={id}>

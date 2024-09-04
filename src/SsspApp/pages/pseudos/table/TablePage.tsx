@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ToggleButton, ToggleButtonGroup } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -7,25 +7,37 @@ import { capitalize } from "@sssp/common/utils";
 import PseudosLegend from "@sssp/components/Legend";
 import PeriodicTable from "@sssp/components/PeriodicTable";
 import { AccuracyContext, HoverProvider } from "@sssp/context";
-import pseudosMetadata from "@sssp/data/metadata.json";
-import ssspEfficiency from "@sssp/data/sssp_efficiency.json";
-import ssspPrecision from "@sssp/data/sssp_precision.json";
+import { ElementsInfo, PseudosMetadata } from "@sssp/models";
+import SsspDataService from "@sssp/services/data";
 
-import TablePageProps, { AccuracyToggleProps } from "./TablePage.models";
+import TablePageProps from "./TablePage.models";
 import styles from "./TablePage.module.scss";
 
 const TablePage: React.FC<TablePageProps> = ({ accuracies }) => {
-  // TODO use a service to fetch the data
   const location = useLocation();
   const { activeAccuracy, setActiveAccuracy } = useContext(AccuracyContext);
-
-  const elementsInfo =
-    activeAccuracy === "efficiency" ? ssspEfficiency : ssspPrecision;
+  const [elementsInfo, setElementsInfo] = useState({} as ElementsInfo);
+  const [pseudosMetadata, setPseudosMetadata] = useState({} as PseudosMetadata);
 
   useEffect(() => {
     const currentAccuracy = location.pathname.split("/")[2];
     setActiveAccuracy(currentAccuracy);
   }, [location.pathname, setActiveAccuracy]);
+
+  useEffect(() => {
+    const dataService = new SsspDataService(activeAccuracy);
+    const metadata = dataService.fetchPseudosMetadata();
+    setPseudosMetadata(metadata);
+    dataService
+      .fetchElementsInfo()
+      .then((data) => {
+        setElementsInfo(data);
+      })
+      .catch((error) => {
+        setElementsInfo({});
+        console.error("Error fetching elements info", error);
+      });
+  }, [activeAccuracy]);
 
   return (
     <div id="table-page">
@@ -34,10 +46,7 @@ const TablePage: React.FC<TablePageProps> = ({ accuracies }) => {
       </div>
       <HoverProvider>
         <PseudosLegend pseudosMetadata={pseudosMetadata} />
-        <AccuracyToggle
-          accuracies={accuracies}
-          activeAccuracy={activeAccuracy}
-        />
+        <AccuracyToggle accuracies={accuracies} />
         <PeriodicTable
           pseudosMetadata={pseudosMetadata}
           elementsInfo={elementsInfo}
@@ -47,11 +56,9 @@ const TablePage: React.FC<TablePageProps> = ({ accuracies }) => {
   );
 };
 
-const AccuracyToggle: React.FC<AccuracyToggleProps> = ({
-  accuracies,
-  activeAccuracy,
-}) => {
+const AccuracyToggle: React.FC<TablePageProps> = ({ accuracies }) => {
   const navigate = useNavigate();
+  const { activeAccuracy } = useContext(AccuracyContext);
   return (
     <ToggleButtonGroup
       id={styles["accuracy-controls"]}
