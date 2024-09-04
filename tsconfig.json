@@ -8,6 +8,7 @@
     "baseUrl": "src",
     "paths": {
       "@sssp": ["SsspApp"],
+      "@sssp/assets/*": ["SsspApp/assets/*"],
       "@sssp/common/*": ["SsspApp/common/*"],
       "@sssp/components/*": ["SsspApp/components/*"],
       "@sssp/context": ["SsspApp/context"],

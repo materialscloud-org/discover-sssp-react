@@ -7,19 +7,19 @@ import HeaderProps from "./Header.models";
 import styles from "./Header.module.scss";
 
 const Header: React.FC<HeaderProps> = ({ title, subtitle, doi_ids, logo }) => (
-  <Card className={styles["header"]}>
-    <Card.Body>
-      <div className={styles["title-and-logo"]}>
-        <div className={styles["title-and-doi"]}>
-          <div className={styles["title"]}>{title}</div>
-          <div className={styles["subtitle"]}>{subtitle}</div>
-          <div className={styles["doi-container"]}>
+  <Card id={styles["header"]}>
+    <Card.Body id={styles["header-card"]}>
+      <div id={styles["title-and-logo"]}>
+        <div id={styles["title-and-doi"]}>
+          <div id={styles["title"]}>{title}</div>
+          <div id={styles["subtitle"]}>{subtitle}</div>
+          <div id={styles["doi-container"]}>
             {doi_ids.map((doi_id: string) => (
               <DoiBadge doi_id={doi_id} key={doi_id} />
             ))}
           </div>
         </div>
-        <img src={logo} className={styles["logo"]} />
+        <img src={logo} id={styles["logo"]} />
       </div>
     </Card.Body>
   </Card>

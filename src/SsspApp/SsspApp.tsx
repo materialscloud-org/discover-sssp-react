@@ -6,6 +6,7 @@ import {
   Routes,
 } from "react-router-dom";
 
+import "@sssp/assets/styles/main.scss";
 import RoutedTabs from "@sssp/components/RoutedTabs";
 import { AccuracyProvider } from "@sssp/context";
 import AboutPage from "@sssp/pages/about";
@@ -23,7 +24,7 @@ const SsspApp: React.FC<SsspProps> = ({ urlBase }) => {
         <Card.Header id={styles["tab-controls"]}>
           <RoutedTabs tabs={tabs} defaultTab={tabs[0]} />
         </Card.Header>
-        <Card.Body id={styles["sssp-card"]}>
+        <Card.Body id="sssp-card">
           <AccuracyProvider defaultAccuracy={accuracies[0]}>
             <Routes>
               <Route

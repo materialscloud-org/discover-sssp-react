@@ -11,6 +11,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@sssp": "/src/SsspApp",
+      "@sssp/assets": "/src/SsspApp/assets",
       "@sssp/common": "/src/SsspApp/common",
       "@sssp/components": "/src/SsspApp/components",
       "@sssp/context": "/src/SsspApp/context",
