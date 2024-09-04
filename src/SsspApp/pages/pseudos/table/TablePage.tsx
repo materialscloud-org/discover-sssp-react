@@ -7,7 +7,7 @@ import { capitalize } from "@sssp/common/utils";
 import PseudosLegend from "@sssp/components/Legend";
 import PeriodicTable from "@sssp/components/PeriodicTable";
 import { AccuracyContext, HoverProvider } from "@sssp/context";
-import pseudoMetadata from "@sssp/data/metadata.json";
+import pseudosMetadata from "@sssp/data/metadata.json";
 import ssspEfficiency from "@sssp/data/sssp_efficiency.json";
 import ssspPrecision from "@sssp/data/sssp_precision.json";
 
@@ -19,7 +19,7 @@ const TablePage: React.FC<TablePageProps> = ({ accuracies }) => {
   const location = useLocation();
   const { activeAccuracy, setActiveAccuracy } = useContext(AccuracyContext);
 
-  const ssspData =
+  const elementsInfo =
     activeAccuracy === "efficiency" ? ssspEfficiency : ssspPrecision;
 
   useEffect(() => {
@@ -33,12 +33,15 @@ const TablePage: React.FC<TablePageProps> = ({ accuracies }) => {
         SSSP {activeAccuracy} (v{ssspVersion})
       </div>
       <HoverProvider>
-        <PseudosLegend pseudoMetadata={pseudoMetadata} />
+        <PseudosLegend pseudosMetadata={pseudosMetadata} />
         <AccuracyToggle
           accuracies={accuracies}
           activeAccuracy={activeAccuracy}
         />
-        <PeriodicTable pseudoMetadata={pseudoMetadata} ssspData={ssspData} />
+        <PeriodicTable
+          pseudosMetadata={pseudosMetadata}
+          elementsInfo={elementsInfo}
+        />
       </HoverProvider>
     </div>
   );

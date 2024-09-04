@@ -1,5 +1,5 @@
-import { PseudoMetadata } from "SsspApp/models";
+import { PseudosMetadata } from "@sssp/models";
 
 export default interface PseudosLegendProps {
-  pseudoMetadata: PseudoMetadata;
+  pseudosMetadata: PseudosMetadata;
 }

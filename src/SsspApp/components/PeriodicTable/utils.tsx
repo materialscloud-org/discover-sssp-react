@@ -1,26 +1,28 @@
 import elementSymbols from "./symbols.json";
 
-import { PseudoMetadata, SsspData } from "@sssp/models";
+import { PseudosMetadata, ElementsInfo } from "@sssp/models";
 
 import Element from "./Element";
 
 class ElementsGenerator {
-  private ssspData: SsspData;
-  private pseudoMetadata: PseudoMetadata;
+  private elementsInfo: ElementsInfo;
+  private pseudosMetadata: PseudosMetadata;
 
-  constructor(ssspData: SsspData, pseudoMetadata: PseudoMetadata) {
-    this.ssspData = ssspData;
-    this.pseudoMetadata = pseudoMetadata;
+  constructor(elementsInfo: ElementsInfo, pseudosMetadata: PseudosMetadata) {
+    this.elementsInfo = elementsInfo;
+    this.pseudosMetadata = pseudosMetadata;
   }
 
   public make(start: number, end: number) {
     return Array.from({ length: end - start + 1 }, (_, i) => start + i).map(
       (i) => {
         const symbol = elementSymbols[i];
-        const info = this.ssspData[symbol];
+        const info = this.elementsInfo[symbol];
         const color = info
-          ? this.pseudoMetadata[info.pseudopotential].background_color
-          : "#dddddd";
+          ? info.pseudopotential in this.pseudosMetadata
+            ? this.pseudosMetadata[info.pseudopotential].background_color
+            : "#66b3b3"
+          : "#ddd";
 
         return (
           <Element

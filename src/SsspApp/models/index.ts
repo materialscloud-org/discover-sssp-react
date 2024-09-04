@@ -6,16 +6,17 @@ export interface ElementInfo {
   pseudopotential: string;
   rho_cutoff: number;
 }
-export interface SsspData {
+
+export interface ElementsInfo {
   [key: string]: ElementInfo;
 }
 
-export interface Metadata {
+export interface PseudoMetadata {
   background_color: string;
   display_name: string;
   short_name: string;
 }
 
-export interface PseudoMetadata {
-  [key: string]: Metadata;
+export interface PseudosMetadata {
+  [key: string]: PseudoMetadata;
 }

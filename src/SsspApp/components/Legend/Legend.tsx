@@ -5,13 +5,13 @@ import { HoverContext } from "@sssp/context";
 import PseudosLegendProps from "./Legend.models";
 import styles from "./Legend.module.scss";
 
-const PseudosLegend: React.FC<PseudosLegendProps> = ({ pseudoMetadata }) => {
+const PseudosLegend: React.FC<PseudosLegendProps> = ({ pseudosMetadata }) => {
   const { hoveredPseudo, hoveredElement, setHoveredPSeudo } =
     useContext(HoverContext);
 
   return (
     <ul id={styles["pseudo-legend"]} onMouseLeave={() => setHoveredPSeudo("")}>
-      {Object.entries(pseudoMetadata).map(([pseudo, metadata]) => (
+      {Object.entries(pseudosMetadata).map(([pseudo, metadata]) => (
         <li
           key={pseudo}
           className={`
