@@ -1,7 +1,4 @@
-import pseudoMetadata from "@sssp/data/metadata.json";
-import { PseudosMetadata, ElementsInfo } from "@sssp/models";
-
-import { ApiPseudosResponseType } from "./models";
+import { pseudoMetadata } from "@sssp/data";
 
 export default class SsspDataService {
   private accuracy: string;
