@@ -1,8 +1,14 @@
-import { pseudoMetadata } from "@sssp/data";
+import { pseudoMetadata, ssspEfficiency, ssspPrecision } from "@sssp/data";
+import { ElementsInfo, PseudosMetadata } from "@sssp/models";
 
 export default class SsspDataService {
   private accuracy: string;
   private API = "https://www.materialscloud.org/mcloud/api/v2/discover/sssp";
+
+  private elementsInfoMap: { [key: string]: ElementsInfo } = {
+    efficiency: ssspEfficiency,
+    precision: ssspPrecision,
+  };
 
   constructor(accuracy: string) {
     this.accuracy = accuracy;
@@ -14,31 +20,14 @@ export default class SsspDataService {
     return await response.json();
   };
 
-  // TODO consider caching
-  fetchElementsInfo = async () => {
-    const response = await fetch(`${this.API}/${this.accuracy}_cutoffs`);
-    const json = await response.json();
-    return this.mapElementData(json?.data || {});
+  fetchElementsInfo = (): ElementsInfo => {
+    try {
+      return this.elementsInfoMap[this.accuracy];
+    } catch (error) {
+      console.error(`Invalid accuracy: ${this.accuracy}`);
+      return {} as ElementsInfo;
+    }
   };
 
-  fetchPseudosMetadata(): PseudosMetadata {
-    return pseudoMetadata;
-  }
-
-  private mapElementData = (json: ApiPseudosResponseType) => {
-    const mappedElementData: ElementsInfo = {};
-    Object.keys(json).forEach((element) => {
-      const { elementClass, filename, md5, rho_cutoff, sub1, sub2 } =
-        json[element];
-      mappedElementData[element] = {
-        cutoff: sub1,
-        dual: sub2,
-        filename,
-        md5,
-        pseudopotential: elementClass,
-        rho_cutoff,
-      };
-    });
-    return mappedElementData;
-  };
+  fetchPseudosMetadata = (): PseudosMetadata => pseudoMetadata;
 }

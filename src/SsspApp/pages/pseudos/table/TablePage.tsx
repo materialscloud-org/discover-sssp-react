@@ -28,15 +28,8 @@ const TablePage: React.FC<TablePageProps> = ({ accuracies }) => {
     const dataService = new SsspDataService(activeAccuracy);
     const metadata = dataService.fetchPseudosMetadata();
     setPseudosMetadata(metadata);
-    dataService
-      .fetchElementsInfo()
-      .then((data) => {
-        setElementsInfo(data);
-      })
-      .catch((error) => {
-        setElementsInfo({});
-        console.error("Error fetching elements info", error);
-      });
+    const elementsInfo = dataService.fetchElementsInfo();
+    setElementsInfo(elementsInfo);
   }, [activeAccuracy]);
 
   return (
