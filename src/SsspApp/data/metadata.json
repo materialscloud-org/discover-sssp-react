@@ -9,6 +9,11 @@
     "display_name": "pslibrary.1.0.0 PAW (high acc.)",
     "short_name": "100PAW"
   },
+  "100PAW-low": {
+    "background_color": "#A8AE2B",
+    "display_name": "pslibrary.1.0.0 PAW (low acc.)",
+    "short_name": "100PAW-low"
+  },
   "031US": {
     "background_color": "#0000FF",
     "display_name": "pslibrary.0.3.1 US",
@@ -64,19 +69,9 @@
     "display_name": "RE Wentzcovitch (PAW)",
     "short_name": "Wentzcovitch"
   },
-  "Wentzcovitch_plus_nitrogen": {
-    "background_color": "#610B5E",
-    "display_name": "RE Wentzcovitch (PAW)",
-    "short_name": "Wentzcovitch"
-  },
-  "100US_plus_nitrogen": {
-    "background_color": "#FF0000",
-    "display_name": "pslibrary.1.0.0 US (high acc.)",
-    "short_name": "100US"
-  },
-  "100PAW_plus_nitrogen": {
-    "background_color": "#008B00",
-    "display_name": "pslibrary.1.0.0 PAW (high acc.)",
-    "short_name": "100PAW"
+  "MalteSachs": {
+    "background_color": "#EA388E",
+    "display_name": "Actinides MalteSachs",
+    "short_name": "MalteSachs"
   }
 }
