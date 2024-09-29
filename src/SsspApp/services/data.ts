@@ -1,7 +1,7 @@
 import { pseudoMetadata, ssspEfficiency, ssspPrecision } from "@sssp/data";
 import { ElementsInfo, PseudosMetadata } from "@sssp/models";
 
-import { ElementData, ElementDataResponse } from "./models";
+import { ElementDataResponse } from "./models";
 
 export default class SsspDataService {
   private accuracy: string;
@@ -20,7 +20,7 @@ export default class SsspDataService {
   fetchElementData = async (element: string) => {
     const response = await fetch(`${this.API}/elements/${element}`);
     const json: ElementDataResponse = await response.json();
-    return json?.data || ({} as ElementData);
+    return json || ({} as ElementDataResponse);
   };
 
   fetchElementsInfo = (): ElementsInfo => {

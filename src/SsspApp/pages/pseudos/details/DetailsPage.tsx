@@ -14,7 +14,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { capitalize } from "@sssp/common/utils";
 import PlotFactory from "@sssp/plotting/PlotFactory";
 import SsspDataService from "@sssp/services/data";
-import { ElementData } from "@sssp/services/models";
+import { ElementDataResponse } from "@sssp/services/models";
 
 import DetailsPageProps from "./DetailsPage.models";
 import styles from "./DetailsPage.module.scss";
@@ -34,7 +34,7 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
   const hashAccuracy = location?.hash.substring(1) || "";
   const [activeAccuracy, setActiveAccuracy] = useState(hashAccuracy);
   const { element } = params;
-  const [elementData, setElementData] = useState<ElementData>();
+  const [elementData, setElementData] = useState<ElementDataResponse>();
 
   useEffect(() => {
     const hashAccuracy = location?.hash.substring(1);
@@ -82,7 +82,12 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
         <Tabs defaultActiveKey="Overview" id="sssp-pseudos-tabs">
           {TYPES.map((type: string) => (
             <Tab key={type} eventKey={type} title={type}>
-              <PlotFactory elementData={elementData} type={type} key={type} />
+              <PlotFactory
+                element={element}
+                elementData={elementData}
+                activeAccuracy={activeAccuracy}
+                type={type}
+              />
             </Tab>
           ))}
         </Tabs>

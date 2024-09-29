@@ -1,8 +1,7 @@
 import { ElementDataResponse } from "@sssp/services/models";
 
-export interface PlotFactoryProps {
+export interface OverviewPlotsProps {
   element: string;
-  elementData?: ElementDataResponse;
+  elementData: ElementDataResponse;
   activeAccuracy: string;
-  type: string;
 }

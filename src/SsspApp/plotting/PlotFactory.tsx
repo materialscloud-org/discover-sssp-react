@@ -3,10 +3,16 @@ import { Card, Spinner } from "react-bootstrap";
 
 import { PlotFactoryProps } from "./PlotFactory.models";
 
-import Overview from "./components/Overview/Overview";
+import BandsChessboardPlots from "./BandsChessboardPlots";
+import OverviewPlots from "./OverviewPlots";
 import styles from "./PlotFactory.module.scss";
 
-const PlotFactory: React.FC<PlotFactoryProps> = ({ elementData, type }) => {
+const PlotFactory: React.FC<PlotFactoryProps> = ({
+  element,
+  elementData,
+  activeAccuracy,
+  type,
+}) => {
   if (!elementData) {
     return (
       <Card.Body id="plot-card">
@@ -23,7 +29,18 @@ const PlotFactory: React.FC<PlotFactoryProps> = ({ elementData, type }) => {
   let plot = null;
   switch (type) {
     case "Overview":
-      plot = <Overview elementData={elementData} />;
+      plot = (
+        <OverviewPlots
+          element={element}
+          elementData={elementData}
+          activeAccuracy={activeAccuracy}
+        />
+      );
+      break;
+    case "Bands Chessboards":
+      plot = (
+        <BandsChessboardPlots element={element} elementData={elementData} />
+      );
       break;
     default:
       console.error(`Invalid plot type: ${type}`);
