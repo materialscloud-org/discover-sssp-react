@@ -84,7 +84,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
   return (
     <div id="eos-plots">
       <Row>
-        <Col xl={2} id={styles["pseudo-controls"]}>
+        <Col md={4} lg={3} xxl={2} id={styles["pseudo-controls"]}>
           {pseudos.map((pseudo) => (
             <FormCheck
               key={pseudo}
@@ -114,7 +114,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
               const minVolume = Math.min(...volumes);
               const maxVolume = Math.max(...volumes);
               return (
-                <Col md={6} xxl={4} key={configuration}>
+                <Col lg={6} xl={4} xxl={3} key={configuration}>
                   <Plot
                     data={Object.entries(pseudos)
                       .filter(([pseudo]) => activePseudos.includes(pseudo))
@@ -193,7 +193,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
                         "autoScale2d",
                       ],
                     }}
-                    style={{ width: "100%", height: "100%" }}
+                    style={{ width: "100%", height: "300px" }}
                     useResizeHandler={true}
                   />
                 </Col>
