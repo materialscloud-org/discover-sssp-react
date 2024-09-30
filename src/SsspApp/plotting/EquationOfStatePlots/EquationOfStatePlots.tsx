@@ -191,6 +191,8 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
                         "zoomIn2d",
                         "zoomOut2d",
                         "autoScale2d",
+                        "lasso2d",
+                        "select2d",
                       ],
                     }}
                     style={{ width: "100%", height: "300px" }}
