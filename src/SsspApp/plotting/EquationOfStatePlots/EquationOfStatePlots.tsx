@@ -146,7 +146,12 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
                             line: { shape: "spline" },
                             name: pseudo,
                             marker: { color: pseudoColorMap[pseudo] },
-                            hovertemplate: hoverTemplate,
+                            hovertemplate:
+                              hoverTemplate +
+                              `<br>\u03BD = ${data.nu?.toFixed(hoverDigits)}`,
+                            hoverlabel: {
+                              align: "left",
+                            },
                           };
                         } else {
                           const volumes = Array.from(
