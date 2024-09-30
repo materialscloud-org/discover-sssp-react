@@ -187,7 +187,13 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
                         }
                       })}
                     layout={{
-                      title: configuration,
+                      title: {
+                        text: configuration,
+                        xref: "paper",
+                        yref: "paper",
+                        x: 0.45,
+                        y: 1,
+                      },
                       xaxis: {
                         title: { text: "Volume [Å³/atoms]", standoff: 20 },
                         showgrid: false,
@@ -200,7 +206,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
                       margin: {
                         l: 70,
                         r: 20,
-                        t: 60,
+                        t: 30,
                         b: 60,
                       },
                       autosize: true,
