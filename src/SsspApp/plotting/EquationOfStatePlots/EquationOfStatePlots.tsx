@@ -29,6 +29,9 @@ const colorPalette = [
   "#2C3E50", // Dark Blue
 ];
 
+const hoverDigits = 2;
+const hoverTemplate = `(%{x:.${hoverDigits}f}, %{y:.${hoverDigits}f})`;
+
 const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
   element,
   activeAccuracy,
@@ -116,14 +119,34 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
                     data={Object.entries(pseudos)
                       .filter(([pseudo]) => activePseudos.includes(pseudo))
                       .map(([pseudo, data]) => {
-                        if (pseudo !== "REF") {
+                        if (pseudo !== "REF" && data.volumes && data.energies) {
+                          // TODO proper sorting should be done in the backend
+                          if (data.volumes.length !== data.energies.length) {
+                            console.error(
+                              `Mismatch in volumes and energies for ${element} ${configuration} ${pseudo}`
+                            );
+                            return {};
+                          }
+                          const sorted = data.volumes
+                            .map((volume, index) => ({
+                              volume,
+                              energy:
+                                (data.energies?.[index] || 0.0) -
+                                (data?.E0 || 0.0),
+                            }))
+                            .sort((a, b) => a.volume - b.volume);
+                          const volumes = sorted.map((point) => point.volume);
+                          const energies = sorted.map((point) => point.energy);
+                          // TODO remove the above block once the backend is fixed
                           return {
-                            x: data.volumes,
-                            y: data.energies?.map((e) => e - (data.E0 || 0.0)),
-                            mode: "markers",
+                            x: volumes,
+                            y: energies,
+                            mode: "lines+markers",
                             type: "scatter",
+                            line: { shape: "spline" },
                             name: pseudo,
                             marker: { color: pseudoColorMap[pseudo] },
+                            hovertemplate: hoverTemplate,
                           };
                         } else {
                           const volumes = Array.from(
@@ -139,6 +162,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
                             type: "scatter",
                             line: { color: pseudoColorMap[pseudo] },
                             name: pseudo,
+                            hovertemplate: hoverTemplate,
                           };
                         }
                       })}
@@ -146,9 +170,11 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
                       title: configuration,
                       xaxis: {
                         title: { text: "Volume [Å³/atoms]", standoff: 20 },
+                        showgrid: false,
                       },
                       yaxis: {
                         title: { text: "Energy [eV/atom]", standoff: 20 },
+                        showgrid: false,
                       },
                       showlegend: false,
                       margin: {
