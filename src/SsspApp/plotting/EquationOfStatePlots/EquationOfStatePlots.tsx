@@ -119,7 +119,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
                         if (pseudo !== "REF") {
                           return {
                             x: data.volumes,
-                            y: data.energies,
+                            y: data.energies?.map((e) => e - (data.E0 || 0.0)),
                             mode: "markers",
                             type: "scatter",
                             name: pseudo,
