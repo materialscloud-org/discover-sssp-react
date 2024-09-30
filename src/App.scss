@@ -19,3 +19,13 @@ body {
   background-color: #f0f6f9;
   margin-top: 0.5em;
 }
+
+.loading {
+  display: flex;
+  justify-content: center;
+  font-size: large;
+
+  .spinner {
+    margin-left: 10px;
+  }
+}

@@ -4,8 +4,8 @@ import { Card, Spinner } from "react-bootstrap";
 import { PlotFactoryProps } from "./PlotFactory.models";
 
 import BandsChessboardPlots from "./BandsChessboardPlots";
+import EquationOfStatePlots from "./EquationOfStatePlots";
 import OverviewPlots from "./OverviewPlots";
-import styles from "./PlotFactory.module.scss";
 
 const PlotFactory: React.FC<PlotFactoryProps> = ({
   element,
@@ -16,9 +16,9 @@ const PlotFactory: React.FC<PlotFactoryProps> = ({
   if (!elementData) {
     return (
       <Card.Body id="plot-card">
-        <div id={styles["loading"]}>
+        <div className="loading">
           Loading
-          <Spinner id={styles["spinner"]} animation="border" role="status">
+          <Spinner className="spinner" animation="border" role="status">
             <span className="sr-only">Loading...</span>
           </Spinner>
         </div>
@@ -39,7 +39,19 @@ const PlotFactory: React.FC<PlotFactoryProps> = ({
       break;
     case "Bands Chessboards":
       plot = (
-        <BandsChessboardPlots element={element} elementData={elementData} />
+        <BandsChessboardPlots
+          element={element}
+          elementData={elementData}
+          activeAccuracy={activeAccuracy}
+        />
+      );
+      break;
+    case "Equation of State":
+      plot = (
+        <EquationOfStatePlots
+          element={element}
+          activeAccuracy={activeAccuracy}
+        />
       );
       break;
     default:

@@ -6,6 +6,7 @@ const ROOT = `/discover/sssp/src/SsspApp/data/chessboards`;
 const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
   element,
   elementData,
+  activeAccuracy,
 }) => {
   const filename = (elementData.chessboards_filenames || []) as string[];
   const source = `${ROOT}/${filename}`;

@@ -1,5 +1,14 @@
-import { pseudoMetadata, ssspEfficiency, ssspPrecision } from "@sssp/data";
-import { ElementsInfo, PseudosMetadata } from "@sssp/models";
+import {
+  eosData,
+  pseudoMetadata,
+  ssspEfficiency,
+  ssspPrecision,
+} from "@sssp/data";
+import {
+  ElementsInfo,
+  EquationOfStatePlotsData,
+  PseudosMetadata,
+} from "@sssp/models";
 
 import { ElementDataResponse } from "./models";
 
@@ -31,6 +40,9 @@ export default class SsspDataService {
       return {} as ElementsInfo;
     }
   };
+
+  fetchEosData = (element: string): EquationOfStatePlotsData =>
+    eosData[element];
 
   fetchPseudosMetadata = (): PseudosMetadata => pseudoMetadata;
 }

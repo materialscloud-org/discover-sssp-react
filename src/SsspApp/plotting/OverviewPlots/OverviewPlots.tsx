@@ -28,8 +28,8 @@ const OverviewPlots: React.FC<OverviewPlotsProps> = ({
   }
 
   return (
-    <div className="overview-plots">
-      <div className="convergence-panels">
+    <div id="overview-plots">
+      <div id="convergence-panels">
         <Tabs
           activeKey={activeTab}
           onSelect={(tabIndex) => setActiveTab(parseInt(tabIndex || "0"))}
@@ -48,7 +48,7 @@ const OverviewPlots: React.FC<OverviewPlotsProps> = ({
           })}
         </Tabs>
       </div>
-      <div className={styles["overview-note"]}>
+      <div id={styles["overview-note"]}>
         Convergence pattern plots according to the SSSP protocol: zone-boundary
         phonons, cohesive energy, pressure and band structure versus the
         wavefunction cutoff for all the considered pseudopotential libraries

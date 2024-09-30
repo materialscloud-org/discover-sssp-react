@@ -20,3 +20,21 @@ export interface PseudoMetadata {
 export interface PseudosMetadata {
   [key: string]: PseudoMetadata;
 }
+
+export interface EquationOfStatePlotsData {
+  [pseudo: string]: {
+    [configuration: string]: {
+      volumes?: number[];
+      energies?: number[];
+      V0: number;
+      B0: number;
+      B1: number;
+      nu?: number;
+      E0?: number;
+    };
+  };
+}
+
+export interface EquationOfStateData {
+  [element: string]: EquationOfStatePlotsData;
+}

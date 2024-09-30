@@ -23,8 +23,8 @@ const TYPES = [
   "Overview",
   "Bands Chessboards",
   "Equation of State",
-  "Band Structure",
-  "More",
+  // "Band Structure",
+  // "More",
 ];
 
 const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
