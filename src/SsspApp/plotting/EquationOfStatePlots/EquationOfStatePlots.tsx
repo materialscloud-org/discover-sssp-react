@@ -85,13 +85,28 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
     <div id="eos-plots">
       <Row>
         <Col md={4} lg={3} xxl={2} id={styles["pseudo-controls"]}>
+          <FormCheck
+            type="checkbox"
+            id="all"
+            label="Select all"
+            defaultChecked={false}
+            className={styles["pseudo-checkbox"]}
+            style={{ color: "black" }}
+            onChange={(event) => {
+              if (!event.target.checked) {
+                setActivePseudos(["REF"]);
+              } else {
+                setActivePseudos(pseudos);
+              }
+            }}
+          />
           {pseudos.map((pseudo) => (
             <FormCheck
               key={pseudo}
               type="checkbox"
               id={pseudo}
               label={pseudo}
-              defaultChecked={pseudo === "REF"}
+              checked={activePseudos.includes(pseudo)}
               disabled={pseudo === "REF"}
               className={styles["pseudo-checkbox"]}
               style={{ color: pseudoColorMap[pseudo] }}
