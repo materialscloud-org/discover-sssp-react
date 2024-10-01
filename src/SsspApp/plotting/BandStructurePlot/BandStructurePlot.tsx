@@ -173,6 +173,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
                         } | band ${bandIndex}`,
                         line: {
                           color: pseudoColorMap[pseudo],
+                          width: 1.5,
                         },
                       }));
                     })}
@@ -189,6 +190,36 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
                         ticklen: 5,
                         showgrid: false,
                       },
+                      shapes: [
+                        ...(tickVals
+                          .slice(1, tickVals.length - 1)
+                          .map((xValue) => ({
+                            type: "line",
+                            x0: xValue,
+                            x1: xValue,
+                            y0: 0,
+                            y1: 1,
+                            xref: "x",
+                            yref: "paper",
+                            line: {
+                              width: 1,
+                              color: "gray",
+                            },
+                          })) as Partial<Plotly.Shape>[]),
+                        {
+                          type: "rect",
+                          xref: "paper",
+                          yref: "paper",
+                          x0: 0,
+                          x1: 1,
+                          y0: 0,
+                          y1: 1,
+                          line: {
+                            color: "black",
+                            width: 2,
+                          },
+                        },
+                      ],
                       showlegend: false,
                       margin: {
                         l: 70,
