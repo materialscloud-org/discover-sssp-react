@@ -50,15 +50,15 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
     const data = dataService.fetchBandsData(element);
     setBandsData(data);
     setHighSymPath(
-      data[Object.keys(data)[0]].paths.map((segment) => [
+      data?.[Object.keys(data)[0]].paths.map((segment) => [
         GREEK?.[segment.from] || segment.from,
         GREEK?.[segment.to] || segment.to,
       ])
     );
-    const pseudos = Object.keys(data);
+    const pseudos = data && Object.keys(data);
     setPseudos(pseudos);
     setPseudoColorMap(
-      pseudos.reduce((acc: { [key: string]: string }, pseudo, i) => {
+      pseudos?.reduce((acc: { [key: string]: string }, pseudo, i) => {
         acc[pseudo] = colorPalette[i % colorPalette.length];
         return acc;
       }, {})
@@ -223,9 +223,9 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
                       showlegend: false,
                       margin: {
                         l: 70,
-                        r: 20,
+                        r: 10,
                         t: 30,
-                        b: 60,
+                        b: 20,
                       },
                       autosize: true,
                     }}

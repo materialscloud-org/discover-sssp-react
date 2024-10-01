@@ -46,7 +46,7 @@ export default class SsspDataService {
   fetchEosData = (element: string): EquationOfStatePlotsData =>
     eosData[element];
 
-  fetchBandsData = (element: string): BandsPlotData => bandsData[element];
+  fetchBandsData = (element: string): BandsPlotData => bandsData?.[element];
 
   fetchPseudosMetadata = (): PseudosMetadata => pseudoMetadata;
 }
