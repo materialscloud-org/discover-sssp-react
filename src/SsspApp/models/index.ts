@@ -38,3 +38,27 @@ export interface EquationOfStatePlotsData {
 export interface EquationOfStateData {
   [element: string]: EquationOfStatePlotsData;
 }
+
+export interface Path {
+  length: number;
+  from: string;
+  to: string;
+  values: number[][];
+  x: number[];
+  two_band_types: boolean;
+}
+
+export interface BandsPlotData {
+  [pseudo: string]: {
+    label: string;
+    path: string[][];
+    paths: Path[];
+    original_uuid: string;
+    comments: string;
+    fermi_level: number;
+  };
+}
+
+export interface BandsData {
+  [element: string]: BandsPlotData;
+}

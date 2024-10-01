@@ -23,7 +23,7 @@ const TYPES = [
   "Overview",
   "Bands Chessboards",
   "Equation of State",
-  // "Band Structure",
+  "Band Structure",
   // "More",
 ];
 
