@@ -84,7 +84,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
   return (
     <div id="eos-plots">
       <Row>
-        <Col md={4} lg={3} xxl={2} id={styles["pseudo-controls"]}>
+        <Col md={4} lg={3} xxl={2} className={styles["pseudo-controls"]}>
           <FormCheck
             type="checkbox"
             id="all"

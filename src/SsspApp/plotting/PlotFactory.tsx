@@ -6,6 +6,7 @@ import { PlotFactoryProps } from "./PlotFactory.models";
 import BandsChessboardPlots from "./BandsChessboardPlots";
 import EquationOfStatePlots from "./EquationOfStatePlots";
 import OverviewPlots from "./OverviewPlots";
+import BandStructurePlot from "./BandStructurePlot";
 
 const PlotFactory: React.FC<PlotFactoryProps> = ({
   element,
@@ -52,6 +53,11 @@ const PlotFactory: React.FC<PlotFactoryProps> = ({
           element={element}
           activeAccuracy={activeAccuracy}
         />
+      );
+      break;
+    case "Band Structure":
+      plot = (
+        <BandStructurePlot element={element} activeAccuracy={activeAccuracy} />
       );
       break;
     default:

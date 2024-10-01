@@ -1,10 +1,12 @@
 import {
+  bandsData,
   eosData,
   pseudoMetadata,
   ssspEfficiency,
   ssspPrecision,
 } from "@sssp/data";
 import {
+  BandsPlotData,
   ElementsInfo,
   EquationOfStatePlotsData,
   PseudosMetadata,
@@ -43,6 +45,8 @@ export default class SsspDataService {
 
   fetchEosData = (element: string): EquationOfStatePlotsData =>
     eosData[element];
+
+  fetchBandsData = (element: string): BandsPlotData => bandsData[element];
 
   fetchPseudosMetadata = (): PseudosMetadata => pseudoMetadata;
 }
