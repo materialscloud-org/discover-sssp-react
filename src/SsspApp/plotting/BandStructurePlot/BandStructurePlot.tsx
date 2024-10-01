@@ -27,14 +27,17 @@ const colorPalette = [
   "#2C3E50", // Dark Blue
 ];
 
-const hoverDigits = 2;
-const hoverTemplate = `(%{x:.${hoverDigits}f}, %{y:.${hoverDigits}f})`;
+const GREEK: { [key: string]: string } = {
+  GAMMA: "Γ",
+  SIGMA: "Σ",
+};
 
 const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
   element,
   activeAccuracy,
 }) => {
   const [bandsData, setBandsData] = useState<BandsPlotData | undefined>();
+  const [highSymPath, setHighSymPath] = useState<string[][]>([]);
   const [activePseudos, setActivePseudos] = useState<string[]>(["REF"]);
   const [pseudos, setPseudos] = useState<string[]>([]);
   const [pseudoColorMap, setPseudoColorMap] = useState<{
@@ -46,6 +49,12 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
     const dataService = new SsspDataService(activeAccuracy);
     const data = dataService.fetchBandsData(element);
     setBandsData(data);
+    setHighSymPath(
+      data[Object.keys(data)[0]].paths.map((segment) => [
+        GREEK?.[segment.from] || segment.from,
+        GREEK?.[segment.to] || segment.to,
+      ])
+    );
     const pseudos = Object.keys(data);
     setPseudos(pseudos);
     setPseudoColorMap(
@@ -109,34 +118,75 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
         <Col>
           <Row>
             {Object.entries(bandsData).map(([pseudo, data]) => {
+              const maxDistance = Math.max(
+                ...data.paths.map((path) => path.x[path.x.length - 1])
+              );
+
+              const tickData = data.paths.flatMap((path, pathIndex, array) => {
+                const { from, to } = path;
+                let values: number[] = [];
+                let text: string[] = [];
+
+                if (pathIndex === 0) {
+                  values = [path.x[0]];
+                  text = [from];
+                } else if (array[pathIndex - 1].to === from) {
+                  if (path.length === 1) {
+                    values = [path.x[0]];
+                    text = [`${from}|${to}`];
+                  } else if (array[pathIndex - 1].length === 1) {
+                    values = [];
+                    text = [];
+                  } else if (pathIndex === array.length - 1) {
+                    values = [path.x[0], path.x[path.x.length - 1]];
+                    text = [from, to];
+                  } else {
+                    values = [path.x[0]];
+                    text = [from];
+                  }
+                } else {
+                  values = [path.x[0], path.x[path.x.length - 1]];
+                  text = [from, to];
+                }
+
+                return {
+                  values,
+                  text: text.map((tick) => GREEK?.[tick] || tick),
+                };
+              });
+
+              const tickVals = tickData.flatMap((td) => td.values);
+              const tickText = tickData.flatMap((td) => td.text);
+
               return (
                 <Col key={pseudo}>
                   <Plot
-                    data={data.paths[0].values[0].map((_, bandIndex) => {
-                      const distances = data.paths.flatMap((path) => path.x);
-                      const bands = data.paths.flatMap(
-                        (path) => path.values[bandIndex]
-                      );
-                      return {
-                        x: distances,
-                        y: bands,
-                        mode: "lines",
+                    data={data.paths.flatMap((path, pathIndex) => {
+                      return path.values.map((band, bandIndex) => ({
+                        x: path.x,
+                        y: band.map((e) => e - data.fermi_level),
                         type: "scatter",
+                        mode: "lines",
+                        name: pseudo,
+                        hovertemplate: `${
+                          highSymPath[pathIndex]?.join("-") || ""
+                        } | band ${bandIndex}`,
                         line: {
-                          shape: "spline",
                           color: pseudoColorMap[pseudo],
                         },
-                        name: `${pseudo} - Band ${bandIndex + 1}`,
-                        hovertemplate: hoverTemplate,
-                      };
+                      }));
                     })}
                     layout={{
                       xaxis: {
-                        range: [0, 5],
+                        range: [0, maxDistance],
                         showgrid: false,
+                        tickmode: "array",
+                        tickvals: tickVals,
+                        ticktext: tickText,
                       },
                       yaxis: {
-                        title: { text: "Dispersion [eV]", standoff: 20 },
+                        title: { text: "Dispersion [eV]", standoff: 10 },
+                        ticklen: 5,
                         showgrid: false,
                       },
                       showlegend: false,
@@ -158,7 +208,10 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
                         "select2d",
                       ],
                     }}
-                    style={{ width: "500px", height: "100%" }}
+                    style={{
+                      width: "500px",
+                      height: "100%",
+                    }}
                     useResizeHandler={true}
                   />
                 </Col>
