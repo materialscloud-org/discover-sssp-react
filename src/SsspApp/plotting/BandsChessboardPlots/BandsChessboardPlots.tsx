@@ -1,19 +1,19 @@
 import { BandsChessboardPlotsProps } from "./BandsChessboardPlots.models";
 import styles from "./BandsChessboardPlots.module.scss";
 
-const ROOT = `/discover/sssp/src/SsspApp/data/chessboards`;
+import { IMAGE_DATA_BASE_URL } from "../../../common/config";
 
 const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
   element,
   elementData,
-  activeAccuracy,
+  // activeAccuracy,
 }) => {
   const filename = (elementData.chessboards_filenames || []) as string[];
-  const source = `${ROOT}/${filename}`;
+  const source = `${IMAGE_DATA_BASE_URL}/chessboards/${filename}`;
 
   return (
     <div className={styles["chessboard-plot"]}>
-      <img src={source} alt={`Bands chessboard plotsfor ${element}`} />
+      <img src={source} alt={`Bands chessboard plots for ${element}`} />
     </div>
   );
 };

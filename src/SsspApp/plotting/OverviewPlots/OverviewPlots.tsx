@@ -7,7 +7,7 @@ import { ElementDataResponse } from "@sssp/services/models";
 import { OverviewPlotsProps } from "./OverviewPlots.models";
 import styles from "./OverviewPlots.module.scss";
 
-const ROOT = `/discover/sssp/src/SsspApp/data/convergences`;
+import { IMAGE_DATA_BASE_URL } from "../../../common/config";
 
 const OverviewPlots: React.FC<OverviewPlotsProps> = ({
   element,
@@ -37,7 +37,7 @@ const OverviewPlots: React.FC<OverviewPlotsProps> = ({
           {filenames.map((filename, index) => {
             const convergence = filename.split("_")[1];
             const title = `Convergence ${activeAccuracy} - ${convergence}`;
-            const source = `${ROOT}_${activeAccuracy}/${filename}`;
+            const source = `${IMAGE_DATA_BASE_URL}/convergences_${activeAccuracy}/${filename}`;
             return (
               <Tab eventKey={index} title={title} key={index}>
                 <Card.Body className="overview-card">
