@@ -27,6 +27,17 @@ const TYPES = [
   // "More",
 ];
 
+// TODO
+// change url to H#precision
+// add family dropdown selector (H#efficiency, H#precision, H#non-conserving)
+// first 3 categories should be tabs, the rest in a "more" tab
+// band chessboards are stateful
+// switch bands to checkboxes (use same color as pseudo families)
+// - listens to family state
+// - consider radiobutton version for switching
+// - add toggle to switch between the two versions
+// one should be bold (based on the selected family)
+// EOS - structure selector and change tabs to radio buttons
 const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
   const navigate = useNavigate();
   const params = useParams();

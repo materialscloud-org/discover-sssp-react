@@ -4,6 +4,9 @@ import { HoverContext } from "@sssp/context";
 
 import styles from "./Details.module.scss";
 
+// TODO
+// electronic configuration (add to data)
+// # of electrons (add to data)
 const Details = () => {
   const { hoveredElement } = useContext(HoverContext);
   if (!hoveredElement) return <></>;

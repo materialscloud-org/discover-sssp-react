@@ -6,6 +6,8 @@ import ElementsGenerator from "./utils";
 import PeriodicTableProps from "./PeriodicTable.models";
 import styles from "./PeriodicTable.module.scss";
 
+// TODO
+// download buttons
 const PeriodicTable: React.FC<PeriodicTableProps> = ({
   elementsInfo,
   pseudosMetadata,

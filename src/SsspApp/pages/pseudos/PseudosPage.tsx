@@ -8,6 +8,11 @@ import TablePage from "./table";
 
 import PseudosPageProps from "./PseudosPage.models";
 
+// TODO
+// add PBE/PBEsol between SSSP and accuracy
+// add family/xc button matrix
+// title should not transfer to details page
+//   - add a header to details page with element (and more?)
 const PseudosPage: React.FC<PseudosPageProps> = ({ accuracies }) => {
   const { activeAccuracy } = useContext(AccuracyContext);
 

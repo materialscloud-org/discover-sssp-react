@@ -15,6 +15,12 @@ import PseudosPage from "@sssp/pages/pseudos";
 import SsspProps from "./SsspApp.models";
 import styles from "./SsspApp.module.scss";
 
+// TODO
+// About
+//   - PBEsol
+//   - License
+// How to cite + acknowledge
+// History (old versions)
 const SsspApp: React.FC<SsspProps> = ({ urlBase }) => {
   const tabs = ["pseudopotentials", "about"];
   const accuracies = ["efficiency", "precision"];
