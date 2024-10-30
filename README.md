@@ -16,7 +16,14 @@ For local development:
 > npm start
 ```
 
-To publish a new version to GitHub pages:
+To build locally and preview (e.g. before deploying), use
+
+```bash
+> npm run build
+> npm run preview
+```
+
+To publish the current local version to GitHub pages:
 
 ```bash
 > npm run deploy
