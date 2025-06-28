@@ -1,12 +1,4 @@
-.pseudo-controls {
-  padding-top: 4em;
-  padding-left: 2em;
-
-  .pseudo-checkbox {
-    padding-bottom: 1em;
-    padding-left: 1em;
-  }
-}
+@use "../plotting.scss";
 
 #eos-note {
   margin-top: 1.5rem;

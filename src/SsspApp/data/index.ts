@@ -1,5 +1,5 @@
 import {
-  BandsData,
+  ElementBandsDataMap,
   ElementsInfo,
   EquationOfStateData,
   PseudosMetadata,
@@ -11,7 +11,7 @@ import pseudoMetadataJson from "./metadata.json";
 import ssspEfficiencyJson from "./sssp_efficiency.json";
 import ssspPrecisionJson from "./sssp_precision.json";
 
-export const bandsData = bandsDataJson as BandsData;
+export const bandsData = bandsDataJson as ElementBandsDataMap;
 export const eosData = eosDataJson as EquationOfStateData;
 export const pseudoMetadata = pseudoMetadataJson as PseudosMetadata;
 export const ssspEfficiency = ssspEfficiencyJson as ElementsInfo;

@@ -1,11 +1,9 @@
-.pseudo-controls {
-  padding-top: 1em;
-  padding-left: 2em;
+@use "../plotting.scss";
 
-  .pseudo-checkbox {
-    padding-bottom: 1em;
-    padding-left: 1em;
-  }
+#bands-plot {
+  width: 500px;
+  height: 500px;
+  margin-top: 1.5rem;
 }
 
 #bands-note {
