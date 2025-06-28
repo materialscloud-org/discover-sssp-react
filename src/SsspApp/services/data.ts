@@ -6,7 +6,7 @@ import {
   ssspPrecision,
 } from "@sssp/data";
 import {
-  BandsPlotData,
+  PseudosBandsDataMap,
   ElementsInfo,
   EquationOfStatePlotsData,
   PseudosMetadata,
@@ -46,7 +46,8 @@ export default class SsspDataService {
   fetchEosData = (element: string): EquationOfStatePlotsData =>
     eosData[element];
 
-  fetchBandsData = (element: string): BandsPlotData => bandsData?.[element];
+  fetchBandsData = (element: string): PseudosBandsDataMap =>
+    bandsData?.[element];
 
   fetchPseudosMetadata = (): PseudosMetadata => pseudoMetadata;
 }

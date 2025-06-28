@@ -48,17 +48,19 @@ export interface Path {
   two_band_types: boolean;
 }
 
-export interface BandsPlotData {
-  [pseudo: string]: {
-    label: string;
-    path: string[][];
-    paths: Path[];
-    original_uuid: string;
-    comments: string;
-    fermi_level: number;
-  };
+export interface BandsData {
+  label: string;
+  path: string[][];
+  paths: Path[];
+  original_uuid: string;
+  comments: string;
+  fermi_level: number;
 }
 
-export interface BandsData {
-  [element: string]: BandsPlotData;
+export interface PseudosBandsDataMap {
+  [pseudo: string]: BandsData;
+}
+
+export interface ElementBandsDataMap {
+  [element: string]: PseudosBandsDataMap;
 }

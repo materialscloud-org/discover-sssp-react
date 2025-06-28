@@ -5,29 +5,11 @@ import Plot from "react-plotly.js";
 import { EquationOfStatePlotsData } from "@sssp/models";
 import SsspDataService from "@sssp/services/data";
 
+import { colorPalette } from "../params";
 import { EquationOfStatePlotsProps } from "./EquationOfStatePlots.models";
 import styles from "./EquationOfStatePlots.module.scss";
 
 const refRes = 1000; // resolution of reference equation of state
-
-const colorPalette = [
-  "black",
-  "#27AE60", // Dark Green
-  "#E74C3C", // Dark Red
-  "#8E44AD", // Dark Purple
-  "#F39C12", // Dark Orange
-  "#2980B9", // Medium Blue
-  "#D35400", // Medium Orange
-  "#C0392B", // Medium Red
-  "#16A085", // Dark Teal
-  "#C71585", // Dark Pink
-  "#7D3C98", // Dark Violet
-  "#D68910", // Dark Gold
-  "#AAB7B8", // Dark Gray
-  "#2E4053", // Dark Charcoal
-  "#F1948A", // Light Dark Pink
-  "#2C3E50", // Dark Blue
-];
 
 const hoverDigits = 2;
 const hoverTemplate = `(%{x:.${hoverDigits}f}, %{y:.${hoverDigits}f})`;
@@ -46,7 +28,9 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
   }>({});
 
   useEffect(() => {
-    if (!element) return;
+    if (!element) {
+      return;
+    }
     const dataService = new SsspDataService(activeAccuracy);
     const data = dataService.fetchEosData(element);
     setEosData(data);
