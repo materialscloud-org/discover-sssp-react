@@ -1,4 +1,8 @@
-.overview-plot {
-  width: 100%;
-  height: 100%;
+#overview-plot {
+  overflow-x: auto;
+
+  #overview-plot-inner {
+    width: 1700px;
+    margin: 0 auto;
+  }
 }

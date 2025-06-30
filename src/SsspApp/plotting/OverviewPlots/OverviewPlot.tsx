@@ -303,7 +303,7 @@ const OverviewPlot: React.FC<OverviewPlotProps> = ({
     height: plotHeight,
     margin: {
       l: 100,
-      r: 150,
+      r: 160,
       t: 40,
       b: 80,
     },
@@ -316,13 +316,13 @@ const OverviewPlot: React.FC<OverviewPlotProps> = ({
   };
 
   return (
-    <div id={styles["overview-plot"]} style={{ overflowX: "auto" }}>
-      <div style={{ width: "1725px" }}>
+    <div id={styles["overview-plot"]}>
+      <div id={styles["overview-plot-inner"]}>
         <Plot
           data={traces}
           layout={layout}
           config={config}
-          style={{ width: "100%" }}
+          style={{ width: "100%", height: "100%" }}
         />
       </div>
     </div>
