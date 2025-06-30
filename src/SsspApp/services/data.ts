@@ -16,7 +16,7 @@ import { ElementDataResponse } from "./models";
 
 export default class SsspDataService {
   private accuracy: string;
-  private API = "https://www.materialscloud.org/mcloud/api/v2/discover/sssp";
+  private API = "https://legacy-api.materialscloud.org/api/v2/discover/sssp";
 
   private elementsInfoMap: { [key: string]: ElementsInfo } = {
     efficiency: ssspEfficiency,
