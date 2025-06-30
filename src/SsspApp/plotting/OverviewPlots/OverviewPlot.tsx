@@ -315,13 +315,15 @@ const OverviewPlot: React.FC<OverviewPlotProps> = ({
   };
 
   return (
-    <div id={styles["overview-plot"]}>
-      <Plot
-        data={traces}
-        layout={layout}
-        config={config}
-        style={{ width: "100%" }}
-      />
+    <div id={styles["overview-plot"]} style={{ overflowX: "auto" }}>
+      <div style={{ width: "1725px" }}>
+        <Plot
+          data={traces}
+          layout={layout}
+          config={config}
+          style={{ width: "100%" }}
+        />
+      </div>
     </div>
   );
 };
