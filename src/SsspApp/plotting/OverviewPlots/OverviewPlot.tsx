@@ -64,25 +64,27 @@ const OverviewPlot: React.FC<OverviewPlotProps> = ({
 
     if (quantities.phonon_frequencies) {
       const frequencies = quantities.phonon_frequencies.values.map(
-        (v) => (v * 2) / PHONON_C_FACTOR + offset
+        (v) => (v * 2) / PHONON_C_FACTOR
       );
+      const freqError = quantities.phonon_frequencies.error;
       traces.push({
         name: "δω",
         type: "scatter",
         mode: "lines+markers",
         line: { color: pseudo.color, width: lineWidth, dash: "solid" },
         marker: { size: markerSize, symbol: "circle" },
-        hovertemplate: `<b>${pseudo.name} | δω: %{y:.2f}</b><extra></extra>`,
         showlegend: !hasLegend && showLegend,
         x: quantities.phonon_frequencies.cutoffs,
-        y: frequencies,
+        y: frequencies.map((v) => v + offset),
         error_y: {
           type: "data",
-          array: quantities.phonon_frequencies.error,
+          array: freqError,
           arrayminus: frequencies.map(() => 0),
           visible: true,
           color: pseudo.color,
         },
+        customdata: frequencies.map((v, idx) => [v, freqError[idx]]),
+        hovertemplate: `<b>${pseudo.name}<br>δω: %{customdata[0]:.1e} &plusmn; %{customdata[1]:.1e} cm<sup>-1</sup></b><extra></extra>`,
       });
 
       // ω_max annotation
@@ -97,32 +99,36 @@ const OverviewPlot: React.FC<OverviewPlotProps> = ({
     }
 
     if (quantities.pressure) {
+      const pressure = quantities.pressure.values.map(
+        (v) => (v * 2) / PRESSURE_C_FACTOR
+      );
       traces.push({
         name: "δV<sub>press</sub>",
         type: "scatter",
         mode: "lines+markers",
         line: { color: pseudo.color, width: lineWidth, dash: "dash" },
         marker: { size: markerSize, symbol: "triangle-down" },
-        hovertemplate: `<b>${pseudo.name} | δV<sub>press</sub>: %{y:.2f}</b><extra></extra>`,
         showlegend: !hasLegend && showLegend,
         x: quantities.pressure.cutoffs,
-        y: quantities.pressure.values.map(
-          (v) => (v * 2) / PRESSURE_C_FACTOR + offset
-        ),
+        y: pressure.map((v) => v + offset),
+        customdata: pressure,
+        hovertemplate: `<b>${pseudo.name}<br>δV<sub>press</sub>: %{customdata:.2f}</b><extra></extra>`,
       });
     }
 
     if (quantities.cohesive_energy) {
+      const cohesiveEnergy = quantities.cohesive_energy.values;
       traces.push({
         name: "δE<sub>coh</sub>",
         type: "scatter",
         mode: "lines+markers",
         line: { color: pseudo.color, width: lineWidth, dash: "dot" },
         marker: { size: markerSize, symbol: "star" },
-        hovertemplate: `<b>${pseudo.name} | δE<sub>coh</sub>: %{y:.2f}</b><extra></extra>`,
         showlegend: !hasLegend && showLegend,
         x: quantities.cohesive_energy.cutoffs,
-        y: quantities.cohesive_energy.values.map((v) => v + offset),
+        y: cohesiveEnergy.map((v) => v + offset),
+        customdata: cohesiveEnergy,
+        hovertemplate: `<b>${pseudo.name}<br>δE<sub>coh</sub>: %{customdata:.2f}</b><extra></extra>`,
       });
 
       // E_cohesive ref
@@ -137,16 +143,18 @@ const OverviewPlot: React.FC<OverviewPlotProps> = ({
     }
 
     if (quantities.eos) {
+      const eos = quantities.eos.values.map((v) => (v * 2) / EOS_C_FACTOR);
       traces.push({
         name: "δv",
         type: "scatter",
         mode: "lines+markers",
         line: { color: pseudo.color, width: lineWidth, dash: "dot" },
         marker: { size: markerSize, symbol: "square" },
-        hovertemplate: `<b>${pseudo.name} | δv: %{y:.2f}</b><extra></extra>`,
         showlegend: !hasLegend && showLegend,
         x: quantities.eos.cutoffs,
-        y: quantities.eos.values.map((v) => (v * 2) / EOS_C_FACTOR + offset),
+        y: eos.map((v) => v + offset),
+        customdata: eos,
+        hovertemplate: `<b>${pseudo.name}<br>δv: %{customdata:.2f}</b><extra></extra>`,
       });
     }
 
