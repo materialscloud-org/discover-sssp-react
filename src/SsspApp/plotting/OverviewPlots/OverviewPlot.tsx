@@ -88,7 +88,7 @@ const OverviewPlot: React.FC<OverviewPlotProps> = ({
       // ω_max annotation
       const omegaRef = quantities.phonon_frequencies.ref.toFixed(2);
       annotations.push({
-        x: 205,
+        x: 203.1,
         y: offset - 1,
         text: `ω<sub>max</sub> = ${omegaRef} cm<sup>-1</sup>`,
         showarrow: false,
