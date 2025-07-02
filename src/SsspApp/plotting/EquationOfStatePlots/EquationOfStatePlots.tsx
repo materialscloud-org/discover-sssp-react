@@ -205,7 +205,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
                         "select2d",
                       ],
                     }}
-                    style={{ width: "100%", height: "300px" }}
+                    className={styles["eos-plot"]}
                     useResizeHandler={true}
                   />
                 </Col>
