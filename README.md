@@ -2,6 +2,8 @@
 
 A [React](https://reactjs.org/) app for standard solid-state pseudopotentials (SSSP).
 
+Published to https://materialscloud-org.github.io/discover-sssp-react/
+
 ## Development
 
 For local development:
