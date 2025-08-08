@@ -27,17 +27,19 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
     if (!element) {
       return;
     }
-    const dataService = new SsspDataService(activeAccuracy);
-    const data = dataService.fetchBandsData(element);
-    setPseudosBandsDataMap(data);
-    const pseudos = data && Object.keys(data);
-    setPseudos(pseudos);
-    setPseudoColorMap(
-      pseudos?.reduce((acc: { [key: string]: string }, pseudo, i) => {
-        acc[pseudo] = colorPalette[i % colorPalette.length];
-        return acc;
-      }, {})
-    );
+    const dataService = new SsspDataService();
+    dataService.fetchBandsData(activeAccuracy).then((data) => {
+      const elementData = data[element];
+      setPseudosBandsDataMap(elementData);
+      const pseudos = elementData && Object.keys(elementData);
+      setPseudos(pseudos);
+      setPseudoColorMap(
+        pseudos?.reduce((acc: { [key: string]: string }, pseudo, i) => {
+          acc[pseudo] = colorPalette[i % colorPalette.length];
+          return acc;
+        }, {})
+      );
+    });
   }, [activeAccuracy, element]);
 
   useEffect(() => {

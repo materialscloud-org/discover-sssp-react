@@ -3,7 +3,8 @@ import Plot from "react-plotly.js";
 
 import { Annotations, Config, Data, Layout } from "plotly.js";
 
-import { IMAGE_DATA_BASE_URL } from "../../../common/config";
+import SsspDataService from "@sssp/services/data";
+
 import styles from "./OverviewPlot.module.scss";
 
 const HIGH_DUAL_ELEMENTS = new Set(["O", "Fe", "Mn", "Hf", "Co", "Ni", "Cr"]);
@@ -18,15 +19,17 @@ const OverviewPlot: React.FC<OverviewPlotProps> = ({
   const [pseudos, setPseudos] = useState<Pseudo[]>([]);
 
   useEffect(() => {
-    const source = `${IMAGE_DATA_BASE_URL}/summary/${element}_${convergence}.json`;
-    fetch(source)
-      .then((res) => res.json())
-      .then((data: PseudoResponse) => {
+    const dataService = new SsspDataService();
+    dataService
+      .fetchPseudosSummaryData(accuracy, element, convergence)
+      .then((data) => {
         setConff(data.conff);
         setPseudos(data.pseudos.slice(0, 20));
         setLoading(false);
       })
-      .catch((err) => console.error("Error fetching data:", err));
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
   }, [element, accuracy, convergence]);
 
   if (loading) {
@@ -41,7 +44,7 @@ const OverviewPlot: React.FC<OverviewPlotProps> = ({
   const annotations: Partial<Annotations>[] = [];
 
   const plotHeight = pseudos.length * 100 + 600;
-  const offsetHeight = 8; // 8
+  const offsetHeight = 8;
   const windowHeight = offsetHeight / 4;
   const aboveScalar = 1.2;
   const belowScalar = 1.3;

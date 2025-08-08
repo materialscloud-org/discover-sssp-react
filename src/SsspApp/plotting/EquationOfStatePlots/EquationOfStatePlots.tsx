@@ -31,17 +31,19 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
     if (!element) {
       return;
     }
-    const dataService = new SsspDataService(activeAccuracy);
-    const data = dataService.fetchEosData(element);
-    setEosData(data);
-    const pseudos = Object.keys(Object.values(data)[0]);
-    setPseudos(pseudos);
-    setPseudoColorMap(
-      pseudos.reduce((acc: { [key: string]: string }, pseudo, i) => {
-        acc[pseudo] = colorPalette[i % colorPalette.length];
-        return acc;
-      }, {})
-    );
+    const dataService = new SsspDataService();
+    dataService.fetchEosData(activeAccuracy).then((data) => {
+      const elementData = data[element];
+      setEosData(elementData);
+      const pseudos = Object.keys(Object.values(elementData)[0]);
+      setPseudos(pseudos);
+      setPseudoColorMap(
+        pseudos.reduce((acc: { [key: string]: string }, pseudo, i) => {
+          acc[pseudo] = colorPalette[i % colorPalette.length];
+          return acc;
+        }, {})
+      );
+    });
   }, [activeAccuracy, element]);
 
   const BM = (V: number[], V0: number, E0: number, B0: number, B1: number) =>

@@ -12,7 +12,6 @@
       "@sssp/common/*": ["SsspApp/common/*"],
       "@sssp/components/*": ["SsspApp/components/*"],
       "@sssp/context": ["SsspApp/context"],
-      "@sssp/data": ["SsspApp/data"],
       "@sssp/models": ["SsspApp/models"],
       "@sssp/pages/*": ["SsspApp/pages/*"],
       "@sssp/plotting/*": ["SsspApp/plotting/*"],
@@ -33,6 +32,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "public/data"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

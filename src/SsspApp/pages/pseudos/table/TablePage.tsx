@@ -25,11 +25,23 @@ const TablePage: React.FC<TablePageProps> = ({ accuracies }) => {
   }, [location.pathname, setActiveAccuracy]);
 
   useEffect(() => {
-    const dataService = new SsspDataService(activeAccuracy);
-    const metadata = dataService.fetchPseudosMetadata();
-    setPseudosMetadata(metadata);
-    const elementsInfo = dataService.fetchElementsInfo();
-    setElementsInfo(elementsInfo);
+    const dataService = new SsspDataService();
+    dataService
+      .fetchPseudosMetadata()
+      .then((metadata) => setPseudosMetadata(metadata))
+      .catch((error) => {
+        console.error("Error fetching pseudos metadata:", error);
+      });
+  }, []);
+
+  useEffect(() => {
+    const dataService = new SsspDataService();
+    dataService
+      .fetchElementsInfo(activeAccuracy)
+      .then((elementsInfo) => setElementsInfo(elementsInfo))
+      .catch((error) => {
+        console.error("Error fetching elements info:", error);
+      });
   }, [activeAccuracy]);
 
   return (

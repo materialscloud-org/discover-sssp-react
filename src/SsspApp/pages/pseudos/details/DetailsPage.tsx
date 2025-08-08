@@ -42,13 +42,13 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
   }, [location]);
 
   useEffect(() => {
-    if (!element) return;
-    const dataService = new SsspDataService(activeAccuracy);
+    if (!element) {
+      return;
+    }
+    const dataService = new SsspDataService();
     dataService
       .fetchElementData(element)
-      .then((data) => {
-        setElementData(data);
-      })
+      .then((data) => setElementData(data))
       .catch((error) => {
         setElementData(undefined);
         console.error("Error fetching element data", error);
