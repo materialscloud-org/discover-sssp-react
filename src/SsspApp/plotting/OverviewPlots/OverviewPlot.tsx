@@ -3,6 +3,7 @@ import Plot from "react-plotly.js";
 
 import { Annotations, Config, Data, Layout } from "plotly.js";
 
+import LoadingSpinner from "@sssp/components/Spinner";
 import SsspDataService from "@sssp/services/data";
 
 import styles from "./OverviewPlot.module.scss";
@@ -33,7 +34,7 @@ const OverviewPlot: React.FC<OverviewPlotProps> = ({
   }, [element, accuracy, convergence]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner />;
   }
 
   const EOS_C_FACTOR = accuracy === "efficiency" ? 0.2 : 0.1;
