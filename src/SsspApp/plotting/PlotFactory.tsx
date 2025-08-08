@@ -1,12 +1,13 @@
 import React from "react";
-import { Card, Spinner } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
-import { PlotFactoryProps } from "./PlotFactory.models";
+import LoadingSpinner from "@sssp/components/Spinner";
 
 import BandsChessboardPlots from "./BandsChessboardPlots";
+import BandStructurePlot from "./BandStructurePlot";
 import EquationOfStatePlots from "./EquationOfStatePlots";
 import OverviewPlots from "./OverviewPlots";
-import BandStructurePlot from "./BandStructurePlot";
+import { PlotFactoryProps } from "./PlotFactory.models";
 
 const PlotFactory: React.FC<PlotFactoryProps> = ({
   element,
@@ -17,12 +18,7 @@ const PlotFactory: React.FC<PlotFactoryProps> = ({
   if (!elementData) {
     return (
       <Card.Body id="plot-card">
-        <div className="loading">
-          Loading
-          <Spinner className="spinner" animation="border" role="status">
-            <span className="sr-only">Loading...</span>
-          </Spinner>
-        </div>
+        <LoadingSpinner />
       </Card.Body>
     );
   }

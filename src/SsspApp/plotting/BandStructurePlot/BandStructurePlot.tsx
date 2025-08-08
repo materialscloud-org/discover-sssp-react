@@ -1,7 +1,8 @@
 import { BandsVisualiser } from "bands-visualiser";
 import { useEffect, useRef, useState } from "react";
-import { Col, FormCheck, Row, Spinner } from "react-bootstrap";
+import { Col, FormCheck, Row } from "react-bootstrap";
 
+import LoadingSpinner from "@sssp/components/Spinner";
 import { PseudosBandsDataMap } from "@sssp/models";
 import SsspDataService from "@sssp/services/data";
 
@@ -62,14 +63,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
   }, [activePseudos, pseudosBandsDataMap]);
 
   if (!pseudosBandsDataMap) {
-    return (
-      <div className="loading">
-        Loading
-        <Spinner className="spinner" animation="border" role="status">
-          <span className="sr-only">Loading...</span>
-        </Spinner>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   return (

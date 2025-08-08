@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Col, FormCheck, Row, Spinner } from "react-bootstrap";
+import { Col, FormCheck, Row } from "react-bootstrap";
 import Plot from "react-plotly.js";
 
+import LoadingSpinner from "@sssp/components/Spinner";
 import { EquationOfStatePlotsData } from "@sssp/models";
 import SsspDataService from "@sssp/services/data";
 
@@ -57,14 +58,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
     });
 
   if (!eosData) {
-    return (
-      <div className="loading">
-        Loading
-        <Spinner className="spinner" animation="border" role="status">
-          <span className="sr-only">Loading...</span>
-        </Spinner>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   return (
