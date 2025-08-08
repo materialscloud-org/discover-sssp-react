@@ -1,15 +1,15 @@
+import { BASE_URL } from "@sssp/common/config";
+
 import { BandsChessboardPlotsProps } from "./BandsChessboardPlots.models";
 import styles from "./BandsChessboardPlots.module.scss";
-
-import { IMAGE_DATA_BASE_URL } from "../../../common/config";
 
 const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
   element,
   elementData,
-  // activeAccuracy,
+  activeAccuracy,
 }) => {
   const filename = (elementData.chessboards_filenames || []) as string[];
-  const source = `${IMAGE_DATA_BASE_URL}/chessboards/${filename}`;
+  const source = `${BASE_URL}/data/${activeAccuracy}/chessboards/${filename}`;
 
   return (
     <div className={styles["chessboard-plot"]}>

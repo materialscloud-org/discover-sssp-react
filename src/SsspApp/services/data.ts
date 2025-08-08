@@ -1,11 +1,11 @@
 import {
+  ElementBandsDataMap,
   ElementsInfo,
   EquationOfStateData,
-  ElementBandsDataMap,
   PseudosMetadata,
 } from "@sssp/models";
 
-import { IMAGE_DATA_BASE_URL } from "../../common/config";
+import { DATA_URL } from "@sssp/common/config";
 
 import { ElementDataResponse } from "./models";
 
@@ -19,29 +19,25 @@ export default class SsspDataService {
   };
 
   fetchElementsInfo = async (accuracy: string): Promise<ElementsInfo> => {
-    const response = await fetch(
-      `${IMAGE_DATA_BASE_URL}/${accuracy}/info.json`
-    );
+    const response = await fetch(`${DATA_URL}/${accuracy}/info.json`);
     const json: ElementsInfo = await response.json();
     return json || ({} as ElementsInfo);
   };
 
   fetchEosData = async (accuracy: string): Promise<EquationOfStateData> => {
-    const response = await fetch(`${IMAGE_DATA_BASE_URL}/${accuracy}/eos.json`);
+    const response = await fetch(`${DATA_URL}/${accuracy}/eos.json`);
     const json: EquationOfStateData = await response.json();
     return json || ({} as EquationOfStateData);
   };
 
   fetchBandsData = async (accuracy: string): Promise<ElementBandsDataMap> => {
-    const response = await fetch(
-      `${IMAGE_DATA_BASE_URL}/${accuracy}/bands.json`
-    );
+    const response = await fetch(`${DATA_URL}/${accuracy}/bands.json`);
     const json: ElementBandsDataMap = await response.json();
     return json || ({} as ElementBandsDataMap);
   };
 
   fetchPseudosMetadata = async (): Promise<PseudosMetadata> => {
-    const response = await fetch(`${IMAGE_DATA_BASE_URL}/metadata.json`);
+    const response = await fetch(`${DATA_URL}/metadata.json`);
     const json: PseudosMetadata = await response.json();
     return json || ({} as PseudosMetadata);
   };
@@ -52,7 +48,7 @@ export default class SsspDataService {
     convergence: string
   ): Promise<PseudoResponse> => {
     const response = await fetch(
-      `${IMAGE_DATA_BASE_URL}/${accuracy}/summary/${element}_${convergence}.json`
+      `${DATA_URL}/${accuracy}/summary/${element}_${convergence}.json`
     );
     const json: PseudoResponse = await response.json();
     return json || ({} as PseudoResponse);
