@@ -2,6 +2,8 @@
 
 A [React](https://reactjs.org/) app for standard solid-state pseudopotentials (SSSP).
 
+**NOTE: At the moment, there is only plotting data for Silicon (under the efficiency version). More data coming soon.**
+
 Published to https://materialscloud-org.github.io/discover-sssp-react/
 
 ## Development
