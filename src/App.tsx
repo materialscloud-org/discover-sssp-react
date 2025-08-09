@@ -1,6 +1,6 @@
 import MaterialsCloudHeader from "mc-react-header";
 
-import { urlBase } from "./common/config";
+import { URL_BASE } from "./common/config";
 
 import Header from "./components/Header";
 import SsspApp from "./SsspApp";
@@ -26,7 +26,7 @@ const App = () => (
       doi_ids={["f3-ym"]}
       logo={logo}
     />
-    <SsspApp urlBase={urlBase} />
+    <SsspApp urlBase={URL_BASE} />
   </MaterialsCloudHeader>
 );
 
