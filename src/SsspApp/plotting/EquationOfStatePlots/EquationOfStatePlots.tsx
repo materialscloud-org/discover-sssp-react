@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Col, FormCheck, Row } from "react-bootstrap";
 import Plot from "react-plotly.js";
 
@@ -19,6 +19,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
   element,
   activeAccuracy,
 }) => {
+  const [loading, setLoading] = useState(true);
   const [eosData, setEosData] = useState<
     EquationOfStatePlotsData | undefined
   >();
@@ -33,35 +34,47 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
       return;
     }
     const dataService = new SsspDataService();
-    dataService.fetchEosData(activeAccuracy).then((data) => {
-      const elementData = data[element];
-      setEosData(elementData);
-      const pseudos = Object.keys(Object.values(elementData)[0]);
-      setPseudos(pseudos);
-      setPseudoColorMap(
-        pseudos.reduce((acc: { [key: string]: string }, pseudo, i) => {
-          acc[pseudo] = colorPalette[i % colorPalette.length];
-          return acc;
-        }, {})
-      );
-    });
+    dataService
+      .fetchEosData(activeAccuracy)
+      .then((data) => {
+        const elementData = data[element];
+        setEosData(elementData);
+        const pseudos = Object.keys(Object.values(elementData)[0]);
+        setPseudos(pseudos);
+        setPseudoColorMap(
+          pseudos.reduce((acc: { [key: string]: string }, pseudo, i) => {
+            acc[pseudo] = colorPalette[i % colorPalette.length];
+            return acc;
+          }, {})
+        );
+      })
+      .catch((error) => {
+        console.error("Error fetching EOS data:", error);
+        setEosData(undefined);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [activeAccuracy, element]);
 
-  const BM = (V: number[], V0: number, E0: number, B0: number, B1: number) =>
-    V.map((v) => {
-      const eta = Math.pow(v / V0, 2 / 3);
-      return (
-        E0 +
-        ((9 * B0 * V0) / 16) *
-          (Math.pow(eta - 1, 3) * B1 + Math.pow(eta - 1, 2) * (6 - 4 * eta))
-      );
-    });
+  const BM = useMemo(
+    () => (V: number[], V0: number, E0: number, B0: number, B1: number) =>
+      V.map((v) => {
+        const eta = Math.pow(v / V0, 2 / 3);
+        return (
+          E0 +
+          ((9 * B0 * V0) / 16) *
+            (Math.pow(eta - 1, 3) * B1 + Math.pow(eta - 1, 2) * (6 - 4 * eta))
+        );
+      }),
+    []
+  );
 
-  if (!eosData) {
-    return <LoadingSpinner />;
-  }
-
-  return (
+  return loading ? (
+    <LoadingSpinner />
+  ) : !eosData ? (
+    <p>No data available</p>
+  ) : (
     <div id="eos-plots">
       <Row>
         <Col md={4} lg={3} xxl={2} className={styles["pseudo-controls"]}>

@@ -18,6 +18,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
   const [pseudosBandsDataMap, setPseudosBandsDataMap] = useState<
     PseudosBandsDataMap | undefined
   >();
+  const [loading, setLoading] = useState(true);
   const [activePseudos, setActivePseudos] = useState<string[]>(["REF"]);
   const [pseudos, setPseudos] = useState<string[]>([]);
   const [pseudoColorMap, setPseudoColorMap] = useState<{
@@ -29,18 +30,29 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
       return;
     }
     const dataService = new SsspDataService();
-    dataService.fetchBandsData(activeAccuracy).then((data) => {
-      const elementData = data[element];
-      setPseudosBandsDataMap(elementData);
-      const pseudos = elementData && Object.keys(elementData);
-      setPseudos(pseudos);
-      setPseudoColorMap(
-        pseudos?.reduce((acc: { [key: string]: string }, pseudo, i) => {
-          acc[pseudo] = colorPalette[i % colorPalette.length];
-          return acc;
-        }, {})
-      );
-    });
+    dataService
+      .fetchBandsData(activeAccuracy)
+      .then((data) => {
+        const elementData = data[element];
+        setPseudosBandsDataMap(elementData);
+        const pseudos = elementData && Object.keys(elementData);
+        setPseudos(pseudos);
+        setPseudoColorMap(
+          pseudos?.reduce((acc: { [key: string]: string }, pseudo, i) => {
+            acc[pseudo] = colorPalette[i % colorPalette.length];
+            return acc;
+          }, {})
+        );
+      })
+      .catch((error) => {
+        console.error("Error fetching bands data:", error);
+        setPseudosBandsDataMap(undefined);
+        setPseudos([]);
+        setPseudoColorMap({});
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [activeAccuracy, element]);
 
   useEffect(() => {
@@ -62,11 +74,11 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
     }
   }, [activePseudos, pseudosBandsDataMap]);
 
-  if (!pseudosBandsDataMap) {
-    return <LoadingSpinner />;
-  }
-
-  return (
+  return loading ? (
+    <LoadingSpinner />
+  ) : !pseudosBandsDataMap ? (
+    <div>No data available</div>
+  ) : (
     <div id="bands-plots">
       <Row>
         <Col md={3} lg={2} className={styles["pseudo-controls"]}>

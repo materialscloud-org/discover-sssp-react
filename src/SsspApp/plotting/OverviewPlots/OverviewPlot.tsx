@@ -26,15 +26,23 @@ const OverviewPlot: React.FC<OverviewPlotProps> = ({
       .then((data) => {
         setConff(data.conff);
         setPseudos(data.pseudos.slice(0, 20));
-        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
+        setConff("");
+        setPseudos([]);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, [element, accuracy, convergence]);
 
   if (loading) {
     return <LoadingSpinner />;
+  }
+
+  if (!conff || !pseudos.length) {
+    return <p>No data available</p>;
   }
 
   const EOS_C_FACTOR = accuracy === "efficiency" ? 0.2 : 0.1;
