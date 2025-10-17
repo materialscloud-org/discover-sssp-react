@@ -22,7 +22,7 @@ export default defineConfig({
       "@sssp/common": "/src/SsspApp/common",
       "@sssp/components": "/src/SsspApp/components",
       "@sssp/context": "/src/SsspApp/context",
-      "@sssp/models": "/wsrc/SsspApp/models",
+      "@sssp/models": "/src/SsspApp/models",
       "@sssp/pages": "/src/SsspApp/pages",
       "@sssp/plotting": "/src/SsspApp/plotting",
       "@sssp/services": "/src/SsspApp/services",
