@@ -12,9 +12,10 @@ import { BiInfoCircle } from "react-icons/bi";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 import { capitalize } from "@sssp/common/utils";
-import PlotFactory from "@sssp/plotting/PlotFactory";
-import SsspDataService from "@sssp/services/data";
-import { ElementDataResponse } from "@sssp/services/models";
+import { LoadingSpinner } from "@sssp/components";
+import { ElementDataResponse } from "@sssp/models";
+import { PlotFactory } from "@sssp/plotting";
+import { SsspDataService } from "@sssp/services";
 
 import DetailsPageProps from "./DetailsPage.models";
 import styles from "./DetailsPage.module.scss";

@@ -7,10 +7,10 @@ import {
 } from "react-router-dom";
 
 import "@sssp/assets/styles/main.scss";
-import RoutedTabs from "@sssp/components/RoutedTabs";
+
+import { RoutedTabs } from "@sssp/components";
 import { AccuracyProvider } from "@sssp/context";
-import AboutPage from "@sssp/pages/about";
-import PseudosPage from "@sssp/pages/pseudos";
+import { AboutPage, PseudosPage } from "@sssp/pages";
 
 import SsspProps from "./SsspApp.models";
 import styles from "./SsspApp.module.scss";

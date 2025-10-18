@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Card, Tab, Tabs } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import { ElementDataResponse } from "@sssp/services/models";
+import { ElementDataResponse } from "@sssp/models";
 
 import OverviewPlot from "./OverviewPlot";
-import { OverviewPlotsProps } from "./OverviewPlots.models";
+import OverviewPlotsProps from "./OverviewPlots.models";
 import styles from "./OverviewPlots.module.scss";
 
 const OverviewPlots: React.FC<OverviewPlotsProps> = ({

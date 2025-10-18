@@ -1,4 +1,4 @@
-export interface EquationOfStatePlotsProps {
+export default interface EquationOfStatePlotsProps {
   element: string;
   activeAccuracy: string;
 }

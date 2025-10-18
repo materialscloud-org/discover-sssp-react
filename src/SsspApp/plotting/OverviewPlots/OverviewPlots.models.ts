@@ -1,6 +1,6 @@
-import { ElementDataResponse } from "@sssp/services/models";
+import { ElementDataResponse } from "@sssp/models";
 
-export interface OverviewPlotsProps {
+export default interface OverviewPlotsProps {
   element: string;
   elementData: ElementDataResponse;
   activeAccuracy: string;

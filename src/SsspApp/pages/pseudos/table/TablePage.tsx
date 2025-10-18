@@ -4,11 +4,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import { ssspVersion } from "@sssp";
 import { capitalize } from "@sssp/common/utils";
-import PseudosLegend from "@sssp/components/Legend";
-import PeriodicTable from "@sssp/components/PeriodicTable";
+import { PeriodicTable, PseudosLegend } from "@sssp/components";
 import { AccuracyContext, HoverProvider } from "@sssp/context";
 import { ElementsInfo, PseudosMetadata } from "@sssp/models";
-import SsspDataService from "@sssp/services/data";
+import { SsspDataService } from "@sssp/services";
 
 import TablePageProps from "./TablePage.models";
 import styles from "./TablePage.module.scss";

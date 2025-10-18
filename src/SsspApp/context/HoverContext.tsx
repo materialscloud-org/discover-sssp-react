@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 
-import { ElementModel } from "@sssp/components/PeriodicTable/Element/Element.models";
+import { ElementModel } from "@sssp/models";
 
 const useHover = () => {
   const [hoveredPseudo, setHoveredPSeudo] = useState("");

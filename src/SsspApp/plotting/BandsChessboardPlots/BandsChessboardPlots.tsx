@@ -1,7 +1,7 @@
 import { DATA_URL } from "@sssp/common/config";
 import { useEffect, useMemo, useState } from "react";
 
-import { BandsChessboardPlotsProps } from "./BandsChessboardPlots.models";
+import BandsChessboardPlotsProps from "./BandsChessboardPlots.models";
 import styles from "./BandsChessboardPlots.module.scss";
 
 const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({

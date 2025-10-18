@@ -1,4 +1,4 @@
-export interface BandStructurePlotProps {
+export default interface BandStructurePlotProps {
   element: string;
   activeAccuracy: string;
 }

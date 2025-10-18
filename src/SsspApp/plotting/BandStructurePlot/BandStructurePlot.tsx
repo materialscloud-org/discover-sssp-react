@@ -2,12 +2,12 @@ import { BandsVisualiser } from "bands-visualiser";
 import { useEffect, useRef, useState } from "react";
 import { Col, FormCheck, Row } from "react-bootstrap";
 
-import LoadingSpinner from "@sssp/components/Spinner";
+import { LoadingSpinner } from "@sssp/components";
 import { PseudosBandsDataMap } from "@sssp/models";
-import SsspDataService from "@sssp/services/data";
+import { SsspDataService } from "@sssp/services";
 
 import { colorPalette } from "../params";
-import { BandStructurePlotProps } from "./BandStructurePlot.models";
+import BandStructurePlotProps from "./BandStructurePlot.models";
 import styles from "./BandStructurePlot.module.scss";
 
 const BandStructurePlot: React.FC<BandStructurePlotProps> = ({

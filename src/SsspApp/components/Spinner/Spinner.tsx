@@ -2,7 +2,7 @@ import { Spinner } from "react-bootstrap";
 
 import Styles from "./Spinner.module.scss";
 
-const LoadingSpinner = () => (
+const LoadingSpinner: React.FC = () => (
   <div className={Styles.loading}>
     Loading
     <Spinner className={Styles.spinner} animation="border" role="status">

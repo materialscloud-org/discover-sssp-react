@@ -3,8 +3,8 @@ import Plot from "react-plotly.js";
 
 import { Annotations, Config, Data, Layout } from "plotly.js";
 
-import LoadingSpinner from "@sssp/components/Spinner";
-import SsspDataService from "@sssp/services/data";
+import { LoadingSpinner } from "@sssp/components";
+import { SsspDataService } from "@sssp/services";
 
 import styles from "./OverviewPlot.module.scss";
 

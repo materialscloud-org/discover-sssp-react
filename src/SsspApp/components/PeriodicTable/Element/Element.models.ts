@@ -1,11 +1,4 @@
-import { ElementInfo } from "SsspApp/models";
-
-export interface ElementModel {
-  number: number;
-  symbol: string;
-  color: string;
-  info: ElementInfo;
-}
+import { ElementModel } from "@sssp/models";
 
 type ElementProps = ElementModel;
 

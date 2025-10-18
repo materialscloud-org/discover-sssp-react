@@ -2,8 +2,9 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { AccuracyContext, HoverContext } from "@sssp/context";
+import { ElementModel } from "@sssp/models";
 
-import ElementProps, { ElementModel } from "./Element.models";
+import ElementProps from "./Element.models";
 import styles from "./Element.module.scss";
 
 const Element: React.FC<ElementProps> = ({ number, symbol, color, info }) => {

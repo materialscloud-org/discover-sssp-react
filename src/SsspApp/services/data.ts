@@ -7,7 +7,7 @@ import {
 
 import { DATA_URL } from "@sssp/common/config";
 
-import { ElementDataResponse } from "./models";
+import { ElementDataResponse } from "@sssp/models";
 
 export default class SsspDataService {
   private API = "https://legacy-api.materialscloud.org/api/v2/discover/sssp";

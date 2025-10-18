@@ -1,13 +1,13 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 
-import LoadingSpinner from "@sssp/components/Spinner";
+import { LoadingSpinner } from "@sssp/components";
 
 import BandsChessboardPlots from "./BandsChessboardPlots";
 import BandStructurePlot from "./BandStructurePlot";
 import EquationOfStatePlots from "./EquationOfStatePlots";
 import OverviewPlots from "./OverviewPlots";
-import { PlotFactoryProps } from "./PlotFactory.models";
+import PlotFactoryProps from "./PlotFactory.models";
 
 const PlotFactory: React.FC<PlotFactoryProps> = ({
   element,
