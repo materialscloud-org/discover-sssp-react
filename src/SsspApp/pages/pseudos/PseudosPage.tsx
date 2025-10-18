@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import { AccuracyContext } from "@sssp/context";
+import { InvalidPage } from "@sssp/pages";
 
 import DetailsPage from "./details";
 import TablePage from "./table";
@@ -31,6 +32,7 @@ const PseudosPage: React.FC<PseudosPageProps> = ({ accuracies }) => {
             activeAccuracy ? <Navigate to={activeAccuracy} replace /> : null
           }
         />
+        <Route path="*" element={<InvalidPage />} />
       </Routes>
     </div>
   );

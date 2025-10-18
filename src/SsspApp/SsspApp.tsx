@@ -10,7 +10,7 @@ import "@sssp/assets/styles/main.scss";
 
 import { RoutedTabs } from "@sssp/components";
 import { AccuracyProvider } from "@sssp/context";
-import { AboutPage, PseudosPage } from "@sssp/pages";
+import { AboutPage, InvalidPage, PseudosPage } from "@sssp/pages";
 
 import SsspProps from "./SsspApp.models";
 import styles from "./SsspApp.module.scss";
@@ -36,6 +36,7 @@ const SsspApp: React.FC<SsspProps> = ({ urlBase }) => {
                 path="/"
                 element={<Navigate to="pseudopotentials" replace />}
               />
+              <Route path="*" element={<InvalidPage />} />
             </Routes>
           </AccuracyProvider>
         </Card.Body>

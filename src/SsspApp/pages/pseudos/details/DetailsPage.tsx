@@ -14,6 +14,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { capitalize } from "@sssp/common/utils";
 import { LoadingSpinner } from "@sssp/components";
 import { ElementDataResponse } from "@sssp/models";
+import { InvalidPage } from "@sssp/pages";
 import { PlotFactory } from "@sssp/plotting";
 import { SsspDataService } from "@sssp/services";
 
@@ -35,6 +36,7 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
   const hashAccuracy = location?.hash.substring(1) || "";
   const [activeAccuracy, setActiveAccuracy] = useState(hashAccuracy);
   const { element } = params;
+  const [loading, setLoading] = useState(true);
   const [elementData, setElementData] = useState<ElementDataResponse>();
 
   useEffect(() => {
@@ -53,10 +55,16 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
       .catch((error) => {
         setElementData(undefined);
         console.error("Error fetching element data", error);
-      });
+      })
+      .finally(() => setLoading(false));
   }, [activeAccuracy, element]);
 
-  return (
+  return loading ? (
+    <LoadingSpinner />
+  ) : (activeAccuracy && !accuracies.includes(activeAccuracy)) ||
+    !elementData ? (
+    <InvalidPage />
+  ) : (
     <div id="details-page">
       <div id={styles["details-controls"]}>
         <Button id={styles["back-button"]} onClick={() => navigate("../")}>
