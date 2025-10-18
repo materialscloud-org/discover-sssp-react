@@ -42,7 +42,7 @@ const OverviewPlot: React.FC<OverviewPlotProps> = ({
   }
 
   if (!conff || !pseudos.length) {
-    return <p>No data available</p>;
+    return <span>No data available</span>;
   }
 
   const EOS_C_FACTOR = accuracy === "efficiency" ? 0.2 : 0.1;

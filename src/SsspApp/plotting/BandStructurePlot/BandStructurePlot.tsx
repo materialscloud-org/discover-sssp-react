@@ -77,7 +77,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
   return loading ? (
     <LoadingSpinner />
   ) : !pseudosBandsDataMap ? (
-    <div>No data available</div>
+    <span>No data available</span>
   ) : (
     <div id="bands-plots">
       <Row>

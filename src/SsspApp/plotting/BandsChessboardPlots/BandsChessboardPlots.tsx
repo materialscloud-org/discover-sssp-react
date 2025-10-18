@@ -29,7 +29,7 @@ const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
   return (
     <div className={styles["chessboard-plot"]}>
       {!source || errored ? (
-        <div>No data available</div>
+        <span>No data available</span>
       ) : (
         <img
           src={source}

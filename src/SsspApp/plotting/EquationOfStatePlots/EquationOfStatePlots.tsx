@@ -73,7 +73,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
   return loading ? (
     <LoadingSpinner />
   ) : !eosData ? (
-    <p>No data available</p>
+    <span>No data available</span>
   ) : (
     <div id="eos-plots">
       <Row>

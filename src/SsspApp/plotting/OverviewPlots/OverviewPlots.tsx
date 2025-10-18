@@ -28,29 +28,31 @@ const OverviewPlots: React.FC<OverviewPlotsProps> = ({
 
   return (
     <div id="overview-plots">
-      <div id="convergence-panels">
-        <Tabs
-          activeKey={activeTab}
-          onSelect={(tabIndex) => setActiveTab(parseInt(tabIndex || "0"))}
-        >
-          {filenames.map((filename, index) => {
-            const convergence = filename.split("_")[1];
-            const title = `Convergence ${activeAccuracy} - ${convergence}`;
-            return (
-              <Tab eventKey={index} title={title} key={index}>
-                <Card.Body id={styles["overview-card"]}>
-                  <OverviewPlot
-                    element={element}
-                    accuracy={activeAccuracy}
-                    convergence={convergence}
-                  />
-                </Card.Body>
-              </Tab>
-            );
-          })}
-        </Tabs>
-      </div>
-      <div id={styles["overview-note"]}>
+      {activeAccuracy && (
+        <div id={styles["convergence-panels"]}>
+          <Tabs
+            activeKey={activeTab}
+            onSelect={(tabIndex) => setActiveTab(parseInt(tabIndex || "0"))}
+          >
+            {filenames.map((filename, index) => {
+              const convergence = filename.split("_")[1];
+              const title = `Convergence ${activeAccuracy} - ${convergence}`;
+              return (
+                <Tab eventKey={index} title={title} key={index}>
+                  <Card.Body id={styles["overview-card"]}>
+                    <OverviewPlot
+                      element={element}
+                      accuracy={activeAccuracy}
+                      convergence={convergence}
+                    />
+                  </Card.Body>
+                </Tab>
+              );
+            })}
+          </Tabs>
+        </div>
+      )}
+      <div id="overview-note">
         Convergence pattern plots according to the SSSP protocol: zone-boundary
         phonons, cohesive energy, pressure and band structure versus the
         wavefunction cutoff for all the considered pseudopotential libraries

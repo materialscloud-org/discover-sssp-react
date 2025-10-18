@@ -1,8 +1,12 @@
+:root {
+  --element-box-size: 55px;
+}
+
 #periodic-table {
   text-align: center;
   align-items: center;
   justify-content: center;
-  width: fit-content;
+  max-width: fit-content;
   margin: 0 auto;
   position: relative;
 
@@ -10,10 +14,16 @@
     display: flex;
     flex-direction: column;
     row-gap: 12px;
+    margin: 0 auto;
+    padding: 10px;
+    max-width: fit-content;
+    overflow-x: auto;
 
     .elements {
       display: grid;
-      grid-template-columns: repeat(17, 1fr) 1fr;
+      width: fit-content;
+      grid-template-columns: repeat(18, var(--element-box-size));
+      gap: 2px;
     }
 
     .star-placeholder {

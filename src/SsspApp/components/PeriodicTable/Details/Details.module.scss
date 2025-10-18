@@ -1,8 +1,8 @@
 #details {
   display: flex;
   position: absolute;
-  top: 0;
-  left: 15%;
+  top: 10px;
+  left: calc((var(--element-box-size) + 5px) * 3);
   width: fit-content;
   padding: 5px 15px 0px 5px;
   border: 5px solid;

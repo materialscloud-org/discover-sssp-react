@@ -1,6 +1,6 @@
 #pseudo-legend {
   display: grid;
-  width: 900px;
+  max-width: 1000px;
   margin: 0 auto 2em;
   padding: 0;
   grid-template-columns: repeat(4, 1fr);
@@ -12,11 +12,11 @@
     margin-bottom: 0.5rem;
     cursor: default;
     opacity: 1;
-    transition: opacity 0.2s ease-in-out;
-    -webkit-transition: opacity 0.2s ease-in-out;
-    -moz-transition: opacity 0.2s ease-in-out;
-    -ms-transition: opacity 0.2s ease-in-out;
-    -o-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.25s ease-in-out;
+    -webkit-transition: opacity 0.25s ease-in-out;
+    -moz-transition: opacity 0.25s ease-in-out;
+    -ms-transition: opacity 0.25s ease-in-out;
+    -o-transition: opacity 0.25s ease-in-out;
 
     &.transparent {
       opacity: 0.25;
@@ -40,5 +40,19 @@
     .pseudo-name {
       font-size: 0.8rem;
     }
+  }
+
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 530px) {
+    grid-template-columns: 1fr;
+    margin: 0 auto 2em;
+    width: fit-content;
   }
 }

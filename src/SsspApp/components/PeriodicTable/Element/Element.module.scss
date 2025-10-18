@@ -1,17 +1,10 @@
-:root {
-  --element-box-size: 5vw;
-}
-
 .element {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: var(--element-box-size);
   width: var(--element-box-size);
-  max-width: 55px;
-  max-height: 55px;
-  margin: 1px;
+  height: var(--element-box-size);
   color: rgb(255, 255, 255);
   text-decoration: none;
   user-select: none;
@@ -19,11 +12,11 @@
   border-radius: 20%;
   cursor: pointer;
   opacity: 1;
-  transition: opacity 0.2s ease-in-out;
-  -webkit-transition: opacity 0.2s ease-in-out;
-  -moz-transition: opacity 0.2s ease-in-out;
-  -ms-transition: opacity 0.2s ease-in-out;
-  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
 
   &.disabled {
     pointer-events: none;
@@ -40,11 +33,11 @@
     -moz-transform: scale(1.2);
     -ms-transform: scale(1.2);
     -o-transform: scale(1.2);
-    transition: transform 0.1s;
-    -webkit-transition: transform 0.1s;
-    -moz-transition: transform 0.1s;
-    -ms-transition: transform 0.1s;
-    -o-transition: transform 0.1s;
+    transition: transform 0.25s;
+    -webkit-transition: transform 0.25s;
+    -moz-transition: transform 0.25s;
+    -ms-transition: transform 0.25s;
+    -o-transition: transform 0.25s;
   }
 
   &.element-2 {
@@ -69,20 +62,5 @@
   .info {
     font-size: 13px;
     line-height: 1;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  :root {
-    --element-box-size: 4.6vw;
-  }
-
-  .element {
-    .symbol {
-      font-size: calc(0.4 * var(--element-box-size));
-    }
-    .info {
-      display: none;
-    }
   }
 }
