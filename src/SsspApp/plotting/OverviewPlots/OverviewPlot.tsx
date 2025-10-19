@@ -306,6 +306,8 @@ const OverviewPlot: React.FC<OverviewPlotProps> = ({
       tickmode: "array",
       tickvals: offsetsArray,
       ticktext: offsetsArray.map(() => "0"),
+      range: [-5, offsetsArray[offsetsArray.length - 1] + 5],
+      fixedrange: true,
     },
     showlegend: true,
     legend: {
