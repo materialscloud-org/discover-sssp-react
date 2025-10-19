@@ -35,9 +35,10 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
   const location = useLocation();
   const hashAccuracy = location?.hash.substring(1) || "";
   const [activeAccuracy, setActiveAccuracy] = useState(hashAccuracy);
-  const { element } = params;
-  const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState("Overview");
   const [elementData, setElementData] = useState<ElementDataResponse>();
+  const [loading, setLoading] = useState(true);
+  const { element } = params;
 
   useEffect(() => {
     const hashAccuracy = location?.hash.substring(1);
@@ -91,7 +92,12 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
         <span>Element: {`${element || "None provided"}`}</span>
       </div>
       {element && (
-        <Tabs defaultActiveKey="Overview" id="sssp-pseudos-tabs">
+        <Tabs
+          id="sssp-pseudos-tabs"
+          defaultActiveKey="Overview"
+          activeKey={activeTab}
+          onSelect={(k) => setActiveTab(k || "Overview")}
+        >
           {TYPES.map((type: string) => (
             <Tab key={type} eventKey={type} title={type}>
               <PlotFactory
