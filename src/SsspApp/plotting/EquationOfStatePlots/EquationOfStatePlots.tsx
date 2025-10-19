@@ -206,6 +206,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
                     }}
                     config={{
                       displaylogo: false,
+                      responsive: true,
                       modeBarButtonsToRemove: [
                         "zoomIn2d",
                         "zoomOut2d",
