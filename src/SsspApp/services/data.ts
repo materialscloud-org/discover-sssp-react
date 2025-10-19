@@ -13,31 +13,36 @@ export default class SsspDataService {
   private API = "https://legacy-api.materialscloud.org/api/v2/discover/sssp";
 
   fetchElementData = async (element: string): Promise<ElementDataResponse> => {
-    const response = await fetch(`${this.API}/elements/${element}`);
+    const url = `${this.API}/elements/${element}`;
+    const response = await fetch(url);
     const json: ElementDataResponse = await response.json();
     return json || ({} as ElementDataResponse);
   };
 
   fetchElementsInfo = async (accuracy: string): Promise<ElementsInfo> => {
-    const response = await fetch(`${DATA_URL}/${accuracy}/info.json`);
+    const url = `${DATA_URL}/${accuracy}/info.json`;
+    const response = await fetch(url);
     const json: ElementsInfo = await response.json();
     return json || ({} as ElementsInfo);
   };
 
   fetchEosData = async (accuracy: string): Promise<EquationOfStateData> => {
-    const response = await fetch(`${DATA_URL}/${accuracy}/eos.json`);
+    const url = `${DATA_URL}/${accuracy}/eos.json`;
+    const response = await fetch(url);
     const json: EquationOfStateData = await response.json();
     return json || ({} as EquationOfStateData);
   };
 
   fetchBandsData = async (accuracy: string): Promise<ElementBandsDataMap> => {
-    const response = await fetch(`${DATA_URL}/${accuracy}/bands.json`);
+    const url = `${DATA_URL}/${accuracy}/bands.json`;
+    const response = await fetch(url);
     const json: ElementBandsDataMap = await response.json();
     return json || ({} as ElementBandsDataMap);
   };
 
   fetchPseudosMetadata = async (): Promise<PseudosMetadata> => {
-    const response = await fetch(`${DATA_URL}/metadata.json`);
+    const url = `${DATA_URL}/metadata.json`;
+    const response = await fetch(url);
     const json: PseudosMetadata = await response.json();
     return json || ({} as PseudosMetadata);
   };
@@ -47,9 +52,9 @@ export default class SsspDataService {
     element: string,
     convergence: string
   ): Promise<PseudoResponse> => {
-    const response = await fetch(
-      `${DATA_URL}/${accuracy}/summary/${element}_${convergence}.json`
-    );
+    // TODO use convergence when available
+    const url = `${DATA_URL}/${accuracy}/summary/${element}.json`;
+    const response = await fetch(url);
     const json: PseudoResponse = await response.json();
     return json || ({} as PseudoResponse);
   };
