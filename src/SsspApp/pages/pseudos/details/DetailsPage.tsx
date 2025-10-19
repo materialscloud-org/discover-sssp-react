@@ -71,7 +71,7 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
           id={styles["back-button"]}
           onClick={() => navigate(`/pseudopotentials/${activeAccuracy}`)}
         >
-          Back to table
+          To table
         </Button>
         <FormSelect
           id={styles["accuracy-selector"]}
