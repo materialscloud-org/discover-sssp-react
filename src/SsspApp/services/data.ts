@@ -1,13 +1,11 @@
+import { DATA_URL } from "@sssp/common/config";
 import {
   ElementBandsDataMap,
+  ElementDataResponse,
   ElementsInfo,
   EquationOfStateData,
   PseudosMetadata,
 } from "@sssp/models";
-
-import { DATA_URL } from "@sssp/common/config";
-
-import { ElementDataResponse } from "@sssp/models";
 
 export default class SsspDataService {
   private API = "https://legacy-api.materialscloud.org/api/v2/discover/sssp";
