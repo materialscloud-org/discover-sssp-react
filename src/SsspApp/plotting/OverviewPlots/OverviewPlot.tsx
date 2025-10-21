@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import Plot from "react-plotly.js";
 
-import { Annotations, Config, Data, Layout } from "plotly.js";
+import type { Annotations, Config, Data, Layout } from "plotly.js";
 
 import { LoadingSpinner } from "@sssp/components";
 import { SsspDataService } from "@sssp/services";
 
+import Plot from "../PlotlyLoader";
 import styles from "./OverviewPlot.module.scss";
 
 const HIGH_DUAL_ELEMENTS = new Set(["O", "Fe", "Mn", "Hf", "Co", "Ni", "Cr"]);

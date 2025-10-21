@@ -1,13 +1,14 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { Card } from "react-bootstrap";
 
 import { LoadingSpinner } from "@sssp/components";
-
-import BandsChessboardPlots from "./BandsChessboardPlots";
-import BandStructurePlot from "./BandStructurePlot";
-import EquationOfStatePlots from "./EquationOfStatePlots";
-import OverviewPlots from "./OverviewPlots";
 import PlotFactoryProps from "./PlotFactory.models";
+
+// Defer loading of plot components until needed
+const OverviewPlots = lazy(() => import("./OverviewPlots"));
+const BandsChessboardPlots = lazy(() => import("./BandsChessboardPlots"));
+const EquationOfStatePlots = lazy(() => import("./EquationOfStatePlots"));
+const BandStructurePlot = lazy(() => import("./BandStructurePlot"));
 
 const PlotFactory: React.FC<PlotFactoryProps> = ({
   element,
@@ -60,7 +61,11 @@ const PlotFactory: React.FC<PlotFactoryProps> = ({
       console.error(`Invalid plot type: ${type}`);
   }
 
-  return <Card.Body id="plot-card">{plot}</Card.Body>;
+  return (
+    <Card.Body id="plot-card">
+      <Suspense fallback={<LoadingSpinner />}>{plot}</Suspense>
+    </Card.Body>
+  );
 };
 
 export default PlotFactory;

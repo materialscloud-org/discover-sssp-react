@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { Col, FormCheck, Row } from "react-bootstrap";
-import Plot from "react-plotly.js";
 
 import { LoadingSpinner } from "@sssp/components";
 import { EquationOfStatePlotsData } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
 import { colorPalette } from "../params";
+import Plot from "../PlotlyLoader";
 import EquationOfStatePlotsProps from "./EquationOfStatePlots.models";
 import styles from "./EquationOfStatePlots.module.scss";
 
