@@ -16,13 +16,13 @@ const PlotlyLoader: React.FC<any> = (props) => {
     // Import both factory and the smaller plotly build in parallel
     Promise.all([
       import("react-plotly.js/factory"),
-      import("plotly.js-basic-dist"),
+      import("plotly.js-basic-dist-min"),
     ])
-      .then(([factoryModule, plotly]) => {
+      .then(([factoryModule, Plotly]) => {
         if (!mounted) return;
         const createPlotlyComponent =
           (factoryModule as any).default || (factoryModule as any);
-        const Plot = createPlotlyComponent(plotly);
+        const Plot = createPlotlyComponent(Plotly);
         setPlotComponent(() => Plot);
       })
       .catch((err) => {
