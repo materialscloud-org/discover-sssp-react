@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { FormCheck } from "react-bootstrap";
+import { FormCheck, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 import PseudosCheckboxesProps from "./PseudosCheckboxes.models";
 import styles from "./PseudosCheckboxes.module.scss";
@@ -31,30 +31,41 @@ const PseudosCheckboxes: React.FC<PseudosCheckboxesProps> = ({
           setAllPseudosChecked(event.target.checked);
         }}
       />
-      {pseudos.map((pseudo) => (
-        <FormCheck
-          key={pseudo}
-          type="checkbox"
-          id={pseudo}
-          label={pseudo + (pseudo === "REF" ? " (AE average)" : "")}
-          checked={activePseudos.includes(pseudo)}
-          disabled={pseudo === "REF"}
-          className={styles["pseudo-checkbox"]}
-          style={{ color: pseudosColormap[pseudo] }}
-          onChange={(event) => {
-            setActivePseudos(
-              !event.target.checked
-                ? activePseudos.filter((p) => p !== pseudo)
-                : [...activePseudos, pseudo]
-            );
-            setAllPseudosChecked(
-              event.target.checked
-                ? activePseudos.length + 1 === pseudos.length
-                : false
-            );
-          }}
-        />
-      ))}
+      {pseudos.map((pseudo) => {
+        const label = pseudo + (pseudo === "REF" ? " (AE average)" : "");
+        return (
+          <FormCheck
+            key={pseudo}
+            type="checkbox"
+            id={pseudo}
+            label={
+              <OverlayTrigger
+                placement="right"
+                offset={[0, 10]}
+                overlay={<Tooltip>{label}</Tooltip>}
+              >
+                <span>{label}</span>
+              </OverlayTrigger>
+            }
+            checked={activePseudos.includes(pseudo)}
+            disabled={pseudo === "REF"}
+            className={styles["pseudo-checkbox"]}
+            style={{ color: pseudosColormap[pseudo] }}
+            onChange={(event) => {
+              setActivePseudos(
+                !event.target.checked
+                  ? activePseudos.filter((p) => p !== pseudo)
+                  : [...activePseudos, pseudo]
+              );
+              setAllPseudosChecked(
+                event.target.checked
+                  ? activePseudos.length + 1 === pseudos.length
+                  : false
+              );
+            }}
+          />
+        );
+      })}
     </div>
   );
 };
