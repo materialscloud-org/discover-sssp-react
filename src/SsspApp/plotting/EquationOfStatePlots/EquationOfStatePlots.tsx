@@ -188,7 +188,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
                         y: 1,
                       },
                       xaxis: {
-                        title: { text: "Volume [Å³/atoms]", standoff: 20 },
+                        title: { text: "Volume [Å³/atom]", standoff: 20 },
                         showgrid: false,
                       },
                       yaxis: {
