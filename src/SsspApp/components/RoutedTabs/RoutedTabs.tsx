@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Tab, Tabs } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -10,19 +10,28 @@ import "./RoutedTabs.scss";
 
 const RoutedTabs: React.FC<RoutedTabsProps> = ({ tabs, defaultTab }) => {
   const location = useLocation();
-  const currentTab = location.pathname.split("/")[1];
-  const [activeTab, setActiveTab] = useState(currentTab || defaultTab);
   const navigate = useNavigate();
 
-  const handleNavigation = (value: string | null) => {
-    if (!value || value === currentTab) return;
-    navigate(value);
-  };
+  const currentTab = location.pathname.split("/")[1] || defaultTab;
+  const [activeTab, setActiveTab] = useState(currentTab);
+
+  const lastPaths = useRef<Record<string, string>>({});
 
   useEffect(() => {
-    const currentTab = location.pathname.split("/")[1];
-    setActiveTab(currentTab);
-  }, [location.pathname]);
+    const tab = location.pathname.split("/")[1];
+    if (tab) {
+      const currentPath = location.pathname + location.search + location.hash;
+      console.log(`Navigating to ${tab}: ${currentPath}`);
+      lastPaths.current[tab] = currentPath;
+      setActiveTab(tab);
+    }
+  }, [location]);
+
+  const handleNavigation = (tab: string | null) => {
+    if (!tab || tab === activeTab) return;
+    const target = lastPaths.current[tab] || `/${tab}`;
+    navigate(target);
+  };
 
   return (
     <Tabs
