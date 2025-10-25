@@ -72,14 +72,16 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
           id={styles["back-button"]}
           onClick={() => navigate(`/pseudopotentials/${activeAccuracy}`)}
         >
-          To table
+          Back to table
         </Button>
         <FormSelect
           id={styles["accuracy-selector"]}
           value={activeAccuracy}
           onChange={(event) => navigate(`#${event.target.value}`)}
         >
-          <option value="">Choose accuracy</option>
+          <option value="" disabled>
+            Choose library
+          </option>
           {accuracies.map((accuracy) => (
             <option key={accuracy} value={accuracy}>
               {capitalize(accuracy)}
@@ -117,7 +119,7 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
 const AccuracyInfo = () => {
   const showTooltip = (props: OverlayInjectedProps) => (
     <Tooltip id={styles["accuracy-tooltip"]} {...props}>
-      The recommended pseudopotential for the selected accuracy will be
+      The recommended pseudopotential for the selected library will be
       highlighted in the data below
     </Tooltip>
   );

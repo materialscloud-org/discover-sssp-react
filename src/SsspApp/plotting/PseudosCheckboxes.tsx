@@ -41,6 +41,7 @@ const PseudosCheckboxes: React.FC<PseudosCheckboxesProps> = ({
             label={
               <OverlayTrigger
                 placement="right"
+                delay={{ show: 100, hide: 100 }}
                 offset={[0, 10]}
                 overlay={<Tooltip>{label}</Tooltip>}
               >
