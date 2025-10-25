@@ -15,11 +15,16 @@ const Details = () => {
         <div id={styles["number"]}>{number}</div>
         <div id={styles["symbol"]}>{symbol}</div>
       </div>
-      <div>
-        <ul id={styles["info"]}>
-          <li id={styles["cutoff-header"]}>Cutoffs</li>
-          <li>Ψ = {info.cutoff}</li>
-          <li>ρ = {info.rho_cutoff}</li>
+      <div id={styles["info"]}>
+        <h4 id={styles["cutoff-header"]}>Cutoffs</h4>
+        <ul>
+          <li>
+            <span className={styles["cutoff-label"]}>Ψ</span>: {info.cutoff} Ry
+          </li>
+          <li>
+            <span className={styles["cutoff-label"]}>ρ</span>: {info.rho_cutoff}{" "}
+            Ry
+          </li>
         </ul>
       </div>
     </div>

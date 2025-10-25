@@ -23,8 +23,17 @@
   }
 
   #info {
-    list-style-type: none;
-    text-align: center;
+    margin-left: 1rem;
+    text-align: left;
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      .cutoff-label {
+        font-family: monospace;
+      }
+    }
 
     #cutoff-header {
       font-size: x-large;
