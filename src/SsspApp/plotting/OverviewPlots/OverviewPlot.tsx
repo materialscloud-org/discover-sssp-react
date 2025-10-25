@@ -12,7 +12,7 @@ const HIGH_DUAL_ELEMENTS = new Set(["O", "Fe", "Mn", "Hf", "Co", "Ni", "Cr"]);
 
 const OverviewPlot: React.FC<OverviewPlotProps> = ({
   element,
-  accuracy,
+  library,
   convergence,
 }) => {
   const [loading, setLoading] = useState(true);
@@ -22,7 +22,7 @@ const OverviewPlot: React.FC<OverviewPlotProps> = ({
   useEffect(() => {
     const dataService = new SsspDataService();
     dataService
-      .fetchPseudosSummaryData(accuracy, element, convergence)
+      .fetchPseudosSummaryData(library, element, convergence)
       .then((data) => {
         setConff(data.conff);
         setPseudos(data.pseudos.slice(0, 20));
@@ -35,7 +35,7 @@ const OverviewPlot: React.FC<OverviewPlotProps> = ({
       .finally(() => {
         setLoading(false);
       });
-  }, [element, accuracy, convergence]);
+  }, [element, library, convergence]);
 
   if (loading) {
     return <LoadingSpinner />;
@@ -45,9 +45,9 @@ const OverviewPlot: React.FC<OverviewPlotProps> = ({
     return <span>No data available</span>;
   }
 
-  const EOS_C_FACTOR = accuracy === "efficiency" ? 0.2 : 0.1;
-  const PHONON_C_FACTOR = accuracy === "efficiency" ? 2 : 1;
-  const PRESSURE_C_FACTOR = accuracy === "efficiency" ? 1 : 0.5;
+  const EOS_C_FACTOR = library === "efficiency" ? 0.2 : 0.1;
+  const PHONON_C_FACTOR = library === "efficiency" ? 2 : 1;
+  const PRESSURE_C_FACTOR = library === "efficiency" ? 1 : 0.5;
 
   const traces: Partial<Data>[] = [];
   const annotations: Partial<Annotations>[] = [];
@@ -283,7 +283,7 @@ const OverviewPlot: React.FC<OverviewPlotProps> = ({
   });
 
   const layout: Partial<Layout> = {
-    title: `Verification summary: ${element} (${conff}) (${accuracy})`,
+    title: `Verification summary: ${element} (${conff}) (${library})`,
     xaxis: {
       title: `Wavefunction cutoff [Ry]; Charge density cutoff [Ry] = ${dual} x Ewfc (PAW/US) | 4 x Ewfc (NC); q-point = [0.5, 0.5, 0.5]`,
       showgrid: false,
@@ -296,7 +296,7 @@ const OverviewPlot: React.FC<OverviewPlotProps> = ({
       fixedrange: true,
     },
     yaxis: {
-      title: `Error w.r.t. ref. wavefunction cutoff (for the SSSP ${accuracy} criteria)`,
+      title: `Error w.r.t. ref. wavefunction cutoff (for the SSSP ${library} criteria)`,
       zeroline: false,
       showgrid: false,
       showline: true,

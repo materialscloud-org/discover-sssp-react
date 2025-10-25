@@ -1,3 +1,3 @@
 export default interface PseudosPageProps {
-  accuracies: string[];
+  libraries: string[];
 }

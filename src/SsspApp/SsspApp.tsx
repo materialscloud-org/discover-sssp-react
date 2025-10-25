@@ -9,7 +9,7 @@ import {
 import "@sssp/assets/styles/main.scss";
 
 import { RoutedTabs } from "@sssp/components";
-import { AccuracyProvider } from "@sssp/context";
+import { LibraryProvider } from "@sssp/context";
 import { AboutPage, InvalidPage, PseudosPage } from "@sssp/pages";
 
 import SsspProps from "./SsspApp.models";
@@ -17,7 +17,7 @@ import styles from "./SsspApp.module.scss";
 
 const SsspApp: React.FC<SsspProps> = ({ urlBase }) => {
   const tabs = ["pseudopotentials", "about"];
-  const accuracies = ["efficiency", "precision"];
+  const libraries = ["efficiency", "precision"];
   return (
     <Card id={styles["sssp-app"]}>
       <Router basename={urlBase}>
@@ -25,11 +25,11 @@ const SsspApp: React.FC<SsspProps> = ({ urlBase }) => {
           <RoutedTabs tabs={tabs} defaultTab={tabs[0]} />
         </Card.Header>
         <Card.Body id="sssp-card">
-          <AccuracyProvider defaultAccuracy={accuracies[0]}>
+          <LibraryProvider defaultLibrary={libraries[0]}>
             <Routes>
               <Route
                 path="pseudopotentials/*"
-                element={<PseudosPage accuracies={accuracies} />}
+                element={<PseudosPage libraries={libraries} />}
               />
               <Route path="about" element={<AboutPage />} />
               <Route
@@ -38,7 +38,7 @@ const SsspApp: React.FC<SsspProps> = ({ urlBase }) => {
               />
               <Route path="*" element={<InvalidPage />} />
             </Routes>
-          </AccuracyProvider>
+          </LibraryProvider>
         </Card.Body>
       </Router>
     </Card>

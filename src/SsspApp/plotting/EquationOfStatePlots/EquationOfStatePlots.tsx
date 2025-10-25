@@ -18,7 +18,7 @@ const hoverTemplate = `(%{x:.${hoverDigits}f}, %{y:.${hoverDigits}f})`;
 
 const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
   element,
-  activeAccuracy,
+  activeLibrary,
 }) => {
   const [loading, setLoading] = useState(true);
   const [eosData, setEosData] = useState<
@@ -36,7 +36,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
     }
     const dataService = new SsspDataService();
     dataService
-      .fetchEosData(activeAccuracy)
+      .fetchEosData(activeLibrary)
       .then((data) => {
         const elementData = data[element];
         setEosData(elementData);
@@ -44,9 +44,9 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
         setPseudos(pseudos);
         setActivePseudos(pseudos);
         setPseudoColorMap(
-          pseudos.reduce((acc: { [key: string]: string }, pseudo, i) => {
-            acc[pseudo] = colorPalette[i % colorPalette.length];
-            return acc;
+          pseudos.reduce((library: { [key: string]: string }, pseudo, i) => {
+            library[pseudo] = colorPalette[i % colorPalette.length];
+            return library;
           }, {})
         );
       })
@@ -57,7 +57,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
       .finally(() => {
         setLoading(false);
       });
-  }, [activeAccuracy, element]);
+  }, [activeLibrary, element]);
 
   const BM = useMemo(
     () => (V: number[], V0: number, E0: number, B0: number, B1: number) =>

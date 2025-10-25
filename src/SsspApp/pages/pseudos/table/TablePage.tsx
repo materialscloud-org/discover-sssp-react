@@ -5,23 +5,23 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ssspVersion } from "@sssp";
 import { capitalize } from "@sssp/common/utils";
 import { PeriodicTable, PseudosLegend } from "@sssp/components";
-import { AccuracyContext, HoverProvider } from "@sssp/context";
+import { HoverProvider, LibraryContext } from "@sssp/context";
 import { ElementsInfo, PseudosMetadata } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
 import TablePageProps from "./TablePage.models";
 import styles from "./TablePage.module.scss";
 
-const TablePage: React.FC<TablePageProps> = ({ accuracies }) => {
+const TablePage: React.FC<TablePageProps> = ({ libraries }) => {
   const location = useLocation();
-  const { activeAccuracy, setActiveAccuracy } = useContext(AccuracyContext);
+  const { activeLibrary, setActiveLibrary } = useContext(LibraryContext);
   const [elementsInfo, setElementsInfo] = useState<ElementsInfo>({});
   const [pseudosMetadata, setPseudosMetadata] = useState<PseudosMetadata>({});
 
   useEffect(() => {
-    const currentAccuracy = location.pathname.split("/")[2];
-    setActiveAccuracy(currentAccuracy);
-  }, [location.pathname, setActiveAccuracy]);
+    const currentLibrary = location.pathname.split("/")[2];
+    setActiveLibrary(currentLibrary);
+  }, [location.pathname, setActiveLibrary]);
 
   useEffect(() => {
     const dataService = new SsspDataService();
@@ -36,21 +36,21 @@ const TablePage: React.FC<TablePageProps> = ({ accuracies }) => {
   useEffect(() => {
     const dataService = new SsspDataService();
     dataService
-      .fetchElementsInfo(activeAccuracy)
+      .fetchElementsInfo(activeLibrary)
       .then((elementsInfo) => setElementsInfo(elementsInfo))
       .catch((error) => {
         console.error("Error fetching elements info:", error);
       });
-  }, [activeAccuracy]);
+  }, [activeLibrary]);
 
   return (
     <div id="table-page">
       <div className="sssp-pseudos-header">
-        SSSP {activeAccuracy} (v{ssspVersion})
+        SSSP {activeLibrary} (v{ssspVersion})
       </div>
       <HoverProvider>
         <PseudosLegend pseudosMetadata={pseudosMetadata} />
-        <AccuracyToggle accuracies={accuracies} />
+        <LibraryToggle libraries={libraries} />
         <PeriodicTable
           pseudosMetadata={pseudosMetadata}
           elementsInfo={elementsInfo}
@@ -60,20 +60,20 @@ const TablePage: React.FC<TablePageProps> = ({ accuracies }) => {
   );
 };
 
-const AccuracyToggle: React.FC<TablePageProps> = ({ accuracies }) => {
+const LibraryToggle: React.FC<TablePageProps> = ({ libraries: libraries }) => {
   const navigate = useNavigate();
-  const { activeAccuracy } = useContext(AccuracyContext);
+  const { activeLibrary } = useContext(LibraryContext);
   return (
     <ToggleButtonGroup
-      id={styles["accuracy-controls"]}
+      id={styles["library-controls"]}
       type="radio"
-      name="accuracy"
-      value={activeAccuracy}
+      name="library"
+      value={activeLibrary}
       onChange={(value) => navigate(`../${value}`)}
     >
-      {accuracies.map((accuracy) => (
-        <ToggleButton key={accuracy} id={accuracy} value={accuracy}>
-          {capitalize(accuracy)}
+      {libraries.map((library) => (
+        <ToggleButton key={library} id={library} value={library}>
+          {capitalize(library)}
         </ToggleButton>
       ))}
     </ToggleButtonGroup>

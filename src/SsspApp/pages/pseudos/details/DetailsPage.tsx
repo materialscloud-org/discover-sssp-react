@@ -29,20 +29,20 @@ const TYPES = [
   // "More",
 ];
 
-const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
+const DetailsPage: React.FC<DetailsPageProps> = ({ libraries }) => {
   const navigate = useNavigate();
   const params = useParams();
   const location = useLocation();
-  const hashAccuracy = location?.hash.substring(1) || "";
-  const [activeAccuracy, setActiveAccuracy] = useState(hashAccuracy);
+  const hashLibrary = location?.hash.substring(1) || "";
+  const [activeLibrary, setActiveLibrary] = useState(hashLibrary);
   const [activeTab, setActiveTab] = useState("Overview");
   const [elementData, setElementData] = useState<ElementDataResponse>();
   const [loading, setLoading] = useState(true);
   const { element } = params;
 
   useEffect(() => {
-    const hashAccuracy = location?.hash.substring(1);
-    setActiveAccuracy(hashAccuracy || "");
+    const hashLibrary = location?.hash.substring(1);
+    setActiveLibrary(hashLibrary || "");
   }, [location]);
 
   useEffect(() => {
@@ -58,37 +58,36 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
         console.error("Error fetching element data", error);
       })
       .finally(() => setLoading(false));
-  }, [activeAccuracy, element]);
+  }, [activeLibrary, element]);
 
   return loading ? (
     <LoadingSpinner />
-  ) : (activeAccuracy && !accuracies.includes(activeAccuracy)) ||
-    !elementData ? (
+  ) : (activeLibrary && !libraries.includes(activeLibrary)) || !elementData ? (
     <InvalidPage />
   ) : (
     <div id="details-page">
       <div id={styles["details-controls"]}>
         <Button
           id={styles["back-button"]}
-          onClick={() => navigate(`/pseudopotentials/${activeAccuracy}`)}
+          onClick={() => navigate(`/pseudopotentials/${activeLibrary}`)}
         >
           Back to table
         </Button>
         <FormSelect
-          id={styles["accuracy-selector"]}
-          value={activeAccuracy}
+          id={styles["library-selector"]}
+          value={activeLibrary}
           onChange={(event) => navigate(`#${event.target.value}`)}
         >
           <option value="" disabled>
             Choose library
           </option>
-          {accuracies.map((accuracy) => (
-            <option key={accuracy} value={accuracy}>
-              {capitalize(accuracy)}
+          {libraries.map((library) => (
+            <option key={library} value={library}>
+              {capitalize(library)}
             </option>
           ))}
         </FormSelect>
-        <AccuracyInfo />
+        <LibraryInfo />
       </div>
       <div className="sssp-pseudos-header">
         <span>Element: {`${element || "None provided"}`}</span>
@@ -105,7 +104,7 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
               <PlotFactory
                 element={element}
                 elementData={elementData}
-                activeAccuracy={activeAccuracy}
+                activeLibrary={activeLibrary}
                 type={type}
               />
             </Tab>
@@ -116,16 +115,16 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ accuracies }) => {
   );
 };
 
-const AccuracyInfo = () => {
+const LibraryInfo = () => {
   const showTooltip = (props: OverlayInjectedProps) => (
-    <Tooltip id={styles["accuracy-tooltip"]} {...props}>
+    <Tooltip id={styles["library-tooltip"]} {...props}>
       The recommended pseudopotential for the selected library will be
       highlighted in the data below
     </Tooltip>
   );
 
   return (
-    <div id={styles["accuracy-info"]}>
+    <div id={styles["library-info"]}>
       <OverlayTrigger
         placement="right"
         delay={{ show: 100, hide: 100 }}

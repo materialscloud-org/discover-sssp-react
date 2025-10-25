@@ -1,3 +1,3 @@
 export default interface TablePageProps {
-  accuracies: string[];
+  libraries: string[];
 }

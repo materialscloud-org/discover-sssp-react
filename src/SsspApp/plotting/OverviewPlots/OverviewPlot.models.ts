@@ -1,6 +1,6 @@
 interface OverviewPlotProps {
   element: string;
-  accuracy: string;
+  library: string;
   convergence: string;
 }
 

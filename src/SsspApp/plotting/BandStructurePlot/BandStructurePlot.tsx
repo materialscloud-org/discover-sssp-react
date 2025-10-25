@@ -14,7 +14,7 @@ import styles from "./BandStructurePlot.module.scss";
 
 const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
   element,
-  activeAccuracy,
+  activeLibrary,
 }) => {
   const bandsPlotRef = useRef<HTMLDivElement>(null);
   const [pseudosBandsDataMap, setPseudosBandsDataMap] = useState<
@@ -33,16 +33,16 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
     }
     const dataService = new SsspDataService();
     dataService
-      .fetchBandsData(activeAccuracy)
+      .fetchBandsData(activeLibrary)
       .then((data) => {
         const elementData = data[element];
         setPseudosBandsDataMap(elementData);
         const pseudos = elementData && Object.keys(elementData);
         setPseudos(pseudos);
         setPseudosColormap(
-          pseudos?.reduce((acc: { [key: string]: string }, pseudo, i) => {
-            acc[pseudo] = colorPalette[i % colorPalette.length];
-            return acc;
+          pseudos?.reduce((lib: { [key: string]: string }, pseudo, i) => {
+            lib[pseudo] = colorPalette[i % colorPalette.length];
+            return lib;
           }, {})
         );
       })
@@ -55,7 +55,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
       .finally(() => {
         setLoading(false);
       });
-  }, [activeAccuracy, element]);
+  }, [activeLibrary, element]);
 
   useEffect(() => {
     if (pseudosBandsDataMap && bandsPlotRef.current) {

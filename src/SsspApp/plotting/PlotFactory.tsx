@@ -13,7 +13,7 @@ const BandStructurePlot = lazy(() => import("./BandStructurePlot"));
 const PlotFactory: React.FC<PlotFactoryProps> = ({
   element,
   elementData,
-  activeAccuracy,
+  activeLibrary,
   type,
 }) => {
   if (!elementData) {
@@ -31,7 +31,7 @@ const PlotFactory: React.FC<PlotFactoryProps> = ({
         <OverviewPlots
           element={element}
           elementData={elementData}
-          activeAccuracy={activeAccuracy}
+          activeLibrary={activeLibrary}
         />
       );
       break;
@@ -40,21 +40,18 @@ const PlotFactory: React.FC<PlotFactoryProps> = ({
         <BandsChessboardPlots
           element={element}
           elementData={elementData}
-          activeAccuracy={activeAccuracy}
+          activeLibrary={activeLibrary}
         />
       );
       break;
     case "Equation of State":
       plot = (
-        <EquationOfStatePlots
-          element={element}
-          activeAccuracy={activeAccuracy}
-        />
+        <EquationOfStatePlots element={element} activeLibrary={activeLibrary} />
       );
       break;
     case "Band Structure":
       plot = (
-        <BandStructurePlot element={element} activeAccuracy={activeAccuracy} />
+        <BandStructurePlot element={element} activeLibrary={activeLibrary} />
       );
       break;
     default:

@@ -11,11 +11,11 @@ import styles from "./OverviewPlots.module.scss";
 const OverviewPlots: React.FC<OverviewPlotsProps> = ({
   element,
   elementData,
-  activeAccuracy,
+  activeLibrary,
 }) => {
   const [activeTab, setActiveTab] = useState(0);
 
-  const key = `${activeAccuracy}_filenames` as keyof ElementDataResponse;
+  const key = `${activeLibrary}_filenames` as keyof ElementDataResponse;
   const filenames = (elementData[key] || []) as string[];
 
   if (filenames) {
@@ -28,7 +28,7 @@ const OverviewPlots: React.FC<OverviewPlotsProps> = ({
 
   return (
     <div id="overview-plots">
-      {activeAccuracy && (
+      {activeLibrary && (
         <div id={styles["convergence-panels"]}>
           <Tabs
             activeKey={activeTab}
@@ -36,13 +36,13 @@ const OverviewPlots: React.FC<OverviewPlotsProps> = ({
           >
             {filenames.map((filename, index) => {
               const convergence = filename.split("_")[1];
-              const title = `Convergence ${activeAccuracy} - ${convergence}`;
+              const title = `Convergence ${activeLibrary} - ${convergence}`;
               return (
                 <Tab eventKey={index} title={title} key={index}>
                   <Card.Body id={styles["overview-card"]}>
                     <OverviewPlot
                       element={element}
-                      accuracy={activeAccuracy}
+                      library={activeLibrary}
                       convergence={convergence}
                     />
                   </Card.Body>

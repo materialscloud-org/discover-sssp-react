@@ -17,22 +17,22 @@ export default class SsspDataService {
     return json || ({} as ElementDataResponse);
   };
 
-  fetchElementsInfo = async (accuracy: string): Promise<ElementsInfo> => {
-    const url = `${DATA_URL}/${accuracy}/info.json`;
+  fetchElementsInfo = async (library: string): Promise<ElementsInfo> => {
+    const url = `${DATA_URL}/${library}/info.json`;
     const response = await fetch(url);
     const json: ElementsInfo = await response.json();
     return json || ({} as ElementsInfo);
   };
 
-  fetchEosData = async (accuracy: string): Promise<EquationOfStateData> => {
-    const url = `${DATA_URL}/${accuracy}/eos.json`;
+  fetchEosData = async (library: string): Promise<EquationOfStateData> => {
+    const url = `${DATA_URL}/${library}/eos.json`;
     const response = await fetch(url);
     const json: EquationOfStateData = await response.json();
     return json || ({} as EquationOfStateData);
   };
 
-  fetchBandsData = async (accuracy: string): Promise<ElementBandsDataMap> => {
-    const url = `${DATA_URL}/${accuracy}/bands.json`;
+  fetchBandsData = async (library: string): Promise<ElementBandsDataMap> => {
+    const url = `${DATA_URL}/${library}/bands.json`;
     const response = await fetch(url);
     const json: ElementBandsDataMap = await response.json();
     return json || ({} as ElementBandsDataMap);
@@ -46,12 +46,12 @@ export default class SsspDataService {
   };
 
   fetchPseudosSummaryData = async (
-    accuracy: string,
+    library: string,
     element: string,
     convergence: string
   ): Promise<PseudoResponse> => {
     console.log(convergence); // TODO use convergence when available
-    const url = `${DATA_URL}/${accuracy}/summary/${element}.json`;
+    const url = `${DATA_URL}/${library}/summary/${element}.json`;
     const response = await fetch(url);
     const json: PseudoResponse = await response.json();
     return json || ({} as PseudoResponse);

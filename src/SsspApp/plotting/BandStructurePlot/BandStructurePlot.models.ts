@@ -1,4 +1,4 @@
 export default interface BandStructurePlotProps {
   element: string;
-  activeAccuracy: string;
+  activeLibrary: string;
 }

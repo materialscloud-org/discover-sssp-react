@@ -7,7 +7,7 @@ import styles from "./BandsChessboardPlots.module.scss";
 const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
   element,
   elementData,
-  activeAccuracy,
+  activeLibrary,
 }) => {
   const [errored, setErrored] = useState(false);
 
@@ -18,8 +18,8 @@ const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
 
   const source = useMemo(
     () =>
-      filename ? `${DATA_URL}/${activeAccuracy}/chessboards/${filename}` : "",
-    [filename, activeAccuracy]
+      filename ? `${DATA_URL}/${activeLibrary}/chessboards/${filename}` : "",
+    [filename, activeLibrary]
   );
 
   useEffect(() => {
