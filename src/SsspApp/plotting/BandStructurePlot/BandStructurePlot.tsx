@@ -1,12 +1,14 @@
-import { BandsVisualiser } from "bands-visualiser";
 import { useEffect, useRef, useState } from "react";
-import { Col, FormCheck, Row } from "react-bootstrap";
+
+import { BandsVisualiser } from "bands-visualiser";
+import { Col, Row } from "react-bootstrap";
 
 import { LoadingSpinner } from "@sssp/components";
 import { PseudosBandsDataMap } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
 import { colorPalette } from "../params";
+import PseudosCheckboxes from "../PseudosCheckboxes";
 import BandStructurePlotProps from "./BandStructurePlot.models";
 import styles from "./BandStructurePlot.module.scss";
 
@@ -19,9 +21,9 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
     PseudosBandsDataMap | undefined
   >();
   const [loading, setLoading] = useState(true);
-  const [activePseudos, setActivePseudos] = useState<string[]>(["REF"]);
   const [pseudos, setPseudos] = useState<string[]>([]);
-  const [pseudoColorMap, setPseudoColorMap] = useState<{
+  const [activePseudos, setActivePseudos] = useState<string[]>(["REF"]);
+  const [pseudosColormap, setPseudosColormap] = useState<{
     [key: string]: string;
   }>({});
 
@@ -37,7 +39,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
         setPseudosBandsDataMap(elementData);
         const pseudos = elementData && Object.keys(elementData);
         setPseudos(pseudos);
-        setPseudoColorMap(
+        setPseudosColormap(
           pseudos?.reduce((acc: { [key: string]: string }, pseudo, i) => {
             acc[pseudo] = colorPalette[i % colorPalette.length];
             return acc;
@@ -48,7 +50,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
         console.error("Error fetching bands data:", error);
         setPseudosBandsDataMap(undefined);
         setPseudos([]);
-        setPseudoColorMap({});
+        setPseudosColormap({});
       })
       .finally(() => {
         setLoading(false);
@@ -61,7 +63,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
         bandsData: pseudosBandsDataMap[pseudo],
         traceFormat: {
           line: {
-            color: pseudoColorMap[pseudo] || "black",
+            color: pseudosColormap[pseudo] || "black",
           },
         },
       }));
@@ -81,41 +83,13 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
   ) : (
     <div id="bands-plots">
       <Row>
-        <Col md={3} lg={2} className={styles["pseudo-controls"]}>
-          <FormCheck
-            type="checkbox"
-            id="all"
-            label="Select all"
-            defaultChecked={false}
-            className={styles["pseudo-checkbox"]}
-            style={{ color: "black" }}
-            onChange={(event) => {
-              if (!event.target.checked) {
-                setActivePseudos(["REF"]);
-              } else {
-                setActivePseudos(pseudos);
-              }
-            }}
+        <Col md={3} lg={2}>
+          <PseudosCheckboxes
+            pseudos={pseudos}
+            activePseudos={activePseudos}
+            pseudosColormap={pseudosColormap}
+            setActivePseudos={setActivePseudos}
           />
-          {pseudos.map((pseudo) => (
-            <FormCheck
-              key={pseudo}
-              type="checkbox"
-              id={pseudo}
-              label={pseudo}
-              checked={activePseudos.includes(pseudo)}
-              disabled={pseudo === "REF"}
-              className={styles["pseudo-checkbox"]}
-              style={{ color: pseudoColorMap[pseudo] }}
-              onChange={(event) => {
-                if (!event.target.checked) {
-                  setActivePseudos(activePseudos.filter((p) => p !== pseudo));
-                } else {
-                  setActivePseudos([...activePseudos, pseudo]);
-                }
-              }}
-            />
-          ))}
         </Col>
         <Col>
           <div ref={bandsPlotRef} id={styles["bands-plot"]}></div>

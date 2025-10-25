@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Col, FormCheck, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 
 import { LoadingSpinner } from "@sssp/components";
 import { EquationOfStatePlotsData } from "@sssp/models";
@@ -7,6 +7,7 @@ import { SsspDataService } from "@sssp/services";
 
 import { colorPalette } from "../params";
 import Plot from "../PlotlyLoader";
+import PseudosCheckboxes from "../PseudosCheckboxes";
 import EquationOfStatePlotsProps from "./EquationOfStatePlots.models";
 import styles from "./EquationOfStatePlots.module.scss";
 
@@ -28,7 +29,6 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
   const [pseudoColorMap, setPseudoColorMap] = useState<{
     [key: string]: string;
   }>({});
-  const [allPseudosChecked, setAllPseudosChecked] = useState<boolean>(true);
 
   useEffect(() => {
     if (!element) {
@@ -80,46 +80,12 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
     <div id="eos-plots">
       <Row>
         <Col md={4} lg={3} xxl={2} className={styles["pseudo-controls"]}>
-          <FormCheck
-            type="checkbox"
-            id="all"
-            label="Select all"
-            checked={allPseudosChecked}
-            className={styles["pseudo-checkbox"]}
-            style={{ color: "black" }}
-            onChange={(event) => {
-              if (!event.target.checked) {
-                setActivePseudos(["REF"]);
-              } else {
-                setActivePseudos(pseudos);
-              }
-              setAllPseudosChecked(event.target.checked);
-            }}
+          <PseudosCheckboxes
+            pseudos={pseudos}
+            activePseudos={activePseudos}
+            pseudosColormap={pseudoColorMap}
+            setActivePseudos={setActivePseudos}
           />
-          {pseudos.map((pseudo) => (
-            <FormCheck
-              key={pseudo}
-              type="checkbox"
-              id={pseudo}
-              label={pseudo}
-              checked={activePseudos.includes(pseudo)}
-              disabled={pseudo === "REF"}
-              className={styles["pseudo-checkbox"]}
-              style={{ color: pseudoColorMap[pseudo] }}
-              onChange={(event) => {
-                if (!event.target.checked) {
-                  setActivePseudos(activePseudos.filter((p) => p !== pseudo));
-                } else {
-                  setActivePseudos([...activePseudos, pseudo]);
-                }
-                setAllPseudosChecked(
-                  event.target.checked
-                    ? activePseudos.length + 1 === pseudos.length
-                    : false
-                );
-              }}
-            />
-          ))}
         </Col>
         <Col>
           <Row>
