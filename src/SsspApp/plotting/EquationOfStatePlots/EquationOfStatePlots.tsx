@@ -26,7 +26,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
   >();
   const [pseudos, setPseudos] = useState<string[]>([]);
   const [activePseudos, setActivePseudos] = useState<string[]>([]);
-  const [pseudoColorMap, setPseudoColorMap] = useState<{
+  const [pseudosColormap, setPseudosColormap] = useState<{
     [key: string]: string;
   }>({});
 
@@ -43,7 +43,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
         const pseudos = Object.keys(Object.values(elementData)[0]);
         setPseudos(pseudos);
         setActivePseudos(pseudos);
-        setPseudoColorMap(
+        setPseudosColormap(
           pseudos.reduce((library: { [key: string]: string }, pseudo, i) => {
             library[pseudo] = colorPalette[i % colorPalette.length];
             return library;
@@ -83,7 +83,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
           <PseudosCheckboxes
             pseudos={pseudos}
             activePseudos={activePseudos}
-            pseudosColormap={pseudoColorMap}
+            pseudosColormap={pseudosColormap}
             setActivePseudos={setActivePseudos}
           />
         </Col>
@@ -127,7 +127,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
                             type: "scatter",
                             line: { shape: "spline" },
                             name: pseudo,
-                            marker: { color: pseudoColorMap[pseudo] },
+                            marker: { color: pseudosColormap[pseudo] },
                             hovertemplate:
                               hoverTemplate +
                               `<br>\u03BD = ${data.nu?.toFixed(hoverDigits)}`,
@@ -147,7 +147,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
                             y: BM(volumes, data.V0, 0, data.B0, data.B1),
                             mode: "lines",
                             type: "scatter",
-                            line: { color: pseudoColorMap[pseudo] },
+                            line: { color: pseudosColormap[pseudo] },
                             name: pseudo,
                             hovertemplate: hoverTemplate,
                           };
