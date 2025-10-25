@@ -23,11 +23,12 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
   const [eosData, setEosData] = useState<
     EquationOfStatePlotsData | undefined
   >();
-  const [activePseudos, setActivePseudos] = useState<string[]>(["REF"]);
   const [pseudos, setPseudos] = useState<string[]>([]);
+  const [activePseudos, setActivePseudos] = useState<string[]>([]);
   const [pseudoColorMap, setPseudoColorMap] = useState<{
     [key: string]: string;
   }>({});
+  const [allPseudosChecked, setAllPseudosChecked] = useState<boolean>(true);
 
   useEffect(() => {
     if (!element) {
@@ -41,6 +42,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
         setEosData(elementData);
         const pseudos = Object.keys(Object.values(elementData)[0]);
         setPseudos(pseudos);
+        setActivePseudos(pseudos);
         setPseudoColorMap(
           pseudos.reduce((acc: { [key: string]: string }, pseudo, i) => {
             acc[pseudo] = colorPalette[i % colorPalette.length];
@@ -82,7 +84,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
             type="checkbox"
             id="all"
             label="Select all"
-            defaultChecked={false}
+            checked={allPseudosChecked}
             className={styles["pseudo-checkbox"]}
             style={{ color: "black" }}
             onChange={(event) => {
@@ -91,6 +93,7 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
               } else {
                 setActivePseudos(pseudos);
               }
+              setAllPseudosChecked(event.target.checked);
             }}
           />
           {pseudos.map((pseudo) => (
@@ -109,6 +112,11 @@ const EquationOfStatePlots: React.FC<EquationOfStatePlotsProps> = ({
                 } else {
                   setActivePseudos([...activePseudos, pseudo]);
                 }
+                setAllPseudosChecked(
+                  event.target.checked
+                    ? activePseudos.length + 1 === pseudos.length
+                    : false
+                );
               }}
             />
           ))}
