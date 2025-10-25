@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from "react";
 import { Card } from "react-bootstrap";
 
 import { LoadingSpinner } from "@sssp/components";
+
 import PlotFactoryProps from "./PlotFactory.models";
 
 // Defer loading of plot components until needed

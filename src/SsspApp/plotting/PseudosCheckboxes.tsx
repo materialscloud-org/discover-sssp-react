@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import { FormCheck, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 import PseudosCheckboxesProps from "./PseudosCheckboxes.models";

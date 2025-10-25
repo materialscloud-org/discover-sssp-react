@@ -1,5 +1,6 @@
-import { DATA_URL } from "@sssp/common/config";
 import { useEffect, useMemo, useState } from "react";
+
+import { DATA_URL } from "@sssp/common/config";
 
 import BandsChessboardPlotsProps from "./BandsChessboardPlots.models";
 import styles from "./BandsChessboardPlots.module.scss";

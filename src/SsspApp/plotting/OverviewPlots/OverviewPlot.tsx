@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 
-import type { Annotations, Config, Data, Layout } from "plotly.js";
+import type {
+  Annotations,
+  Config,
+  Data,
+  Layout,
+} from "plotly.js-basic-dist-min";
 
 import { LoadingSpinner } from "@sssp/components";
 import { SsspDataService } from "@sssp/services";

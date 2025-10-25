@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import { Col, Row } from "react-bootstrap";
 
 import { BandsVisualiser } from "bands-visualiser";
-import { Col, Row } from "react-bootstrap";
 
 import { LoadingSpinner } from "@sssp/components";
 import { PseudosBandsDataMap } from "@sssp/models";
