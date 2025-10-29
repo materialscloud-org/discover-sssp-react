@@ -1,6 +1,6 @@
 import React from "react";
 
-import Details from "./Details";
+import DetailsBox from "./DetailsBox";
 import ElementsGenerator from "./utils";
 
 import PeriodicTableProps from "./PeriodicTable.models";
@@ -11,7 +11,7 @@ const PeriodicTable: React.FC<PeriodicTableProps> = ({
   pseudosMetadata,
 }) => (
   <div id={styles["periodic-table"]}>
-    <Details />
+    <DetailsBox />
     <Table elements={new ElementsGenerator(elementsInfo, pseudosMetadata)} />
   </div>
 );

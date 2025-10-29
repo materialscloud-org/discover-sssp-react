@@ -2,9 +2,9 @@ import { useContext } from "react";
 
 import { HoverContext } from "@sssp/context";
 
-import styles from "./Details.module.scss";
+import styles from "./DetailsBox.module.scss";
 
-const Details = () => {
+const DetailsBox = () => {
   const { hoveredElement } = useContext(HoverContext);
   if (!hoveredElement) return <></>;
   const { number, symbol, color, info } = hoveredElement;
@@ -31,4 +31,4 @@ const Details = () => {
   );
 };
 
-export default Details;
+export default DetailsBox;
