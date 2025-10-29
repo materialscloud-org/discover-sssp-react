@@ -1,14 +1,13 @@
 import { useContext, useEffect, useState } from "react";
-import { ToggleButton, ToggleButtonGroup } from "react-bootstrap";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { ssspVersion } from "@sssp";
-import { capitalize } from "@sssp/common/utils";
 import { PeriodicTable, PseudosLegend } from "@sssp/components";
 import { HoverProvider, LibraryContext } from "@sssp/context";
 import { ElementsInfo, PseudosMetadata } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
+import LibraryToggle from "./LibraryToggle";
 import TablePageProps from "./TablePage.models";
 import styles from "./TablePage.module.scss";
 
@@ -50,33 +49,15 @@ const TablePage: React.FC<TablePageProps> = ({ libraries }) => {
       </div>
       <HoverProvider>
         <PseudosLegend pseudosMetadata={pseudosMetadata} />
-        <LibraryToggle libraries={libraries} />
-        <PeriodicTable
-          pseudosMetadata={pseudosMetadata}
-          elementsInfo={elementsInfo}
-        />
+        <div id={styles["table-container"]}>
+          <LibraryToggle libraries={libraries} />
+          <PeriodicTable
+            pseudosMetadata={pseudosMetadata}
+            elementsInfo={elementsInfo}
+          />
+        </div>
       </HoverProvider>
     </div>
-  );
-};
-
-const LibraryToggle: React.FC<TablePageProps> = ({ libraries: libraries }) => {
-  const navigate = useNavigate();
-  const { activeLibrary } = useContext(LibraryContext);
-  return (
-    <ToggleButtonGroup
-      id={styles["library-controls"]}
-      type="radio"
-      name="library"
-      value={activeLibrary}
-      onChange={(value) => navigate(`../${value}`)}
-    >
-      {libraries.map((library) => (
-        <ToggleButton key={library} id={library} value={library}>
-          {capitalize(library)}
-        </ToggleButton>
-      ))}
-    </ToggleButtonGroup>
   );
 };
 
