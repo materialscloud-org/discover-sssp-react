@@ -7,7 +7,6 @@ import {
   Tabs,
   Tooltip,
 } from "react-bootstrap";
-import { OverlayInjectedProps } from "react-bootstrap/esm/Overlay";
 import { BiInfoCircle } from "react-icons/bi";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
@@ -87,7 +86,20 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ libraries }) => {
             </option>
           ))}
         </FormSelect>
-        <LibraryInfo />
+        <OverlayTrigger
+          placement="right"
+          delay={{ show: 100, hide: 100 }}
+          overlay={
+            <Tooltip id={styles["library-tooltip"]}>
+              The recommended pseudopotential for the selected library will be
+              highlighted in the data below
+            </Tooltip>
+          }
+        >
+          <span id={styles["library-info"]}>
+            <BiInfoCircle />
+          </span>
+        </OverlayTrigger>
       </div>
       <div className="sssp-pseudos-header">
         <span>Element: {`${element || "None provided"}`}</span>
@@ -111,29 +123,6 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ libraries }) => {
           ))}
         </Tabs>
       )}
-    </div>
-  );
-};
-
-const LibraryInfo = () => {
-  const showTooltip = (props: OverlayInjectedProps) => (
-    <Tooltip id={styles["library-tooltip"]} {...props}>
-      The recommended pseudopotential for the selected library will be
-      highlighted in the data below
-    </Tooltip>
-  );
-
-  return (
-    <div id={styles["library-info"]}>
-      <OverlayTrigger
-        placement="right"
-        delay={{ show: 100, hide: 100 }}
-        overlay={showTooltip}
-      >
-        <span>
-          <BiInfoCircle style={{ cursor: "pointer" }} />
-        </span>
-      </OverlayTrigger>
     </div>
   );
 };
