@@ -21,7 +21,6 @@ const RoutedTabs: React.FC<RoutedTabsProps> = ({ tabs, defaultTab }) => {
     const tab = location.pathname.split("/")[1];
     if (tab) {
       const currentPath = location.pathname + location.search + location.hash;
-      console.log(`Navigating to ${tab}: ${currentPath}`);
       lastPaths.current[tab] = currentPath;
       setActiveTab(tab);
     }
