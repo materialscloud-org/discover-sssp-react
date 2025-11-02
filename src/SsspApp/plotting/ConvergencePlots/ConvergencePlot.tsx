@@ -18,7 +18,7 @@ const offsetHeight = 8;
 const windowHeight = offsetHeight / 4;
 const aboveScalar = 1.2;
 const belowScalar = 1.3;
-const annotationOffset = 0.005;
+const annotationOffset = 0.13;
 const markerSize = 6;
 const lineWidth = 1;
 const fontSize = 10;
@@ -278,7 +278,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
         : "not all EOS valid";
       annotations.push({
         xref: "paper",
-        x: metadata ? 1.1 : 1.085,
+        x: metadata ? -0.1 : -0.085,
         y: offset,
         text: `${pseudo.name}<br>Z = ${pseudo.Z}<br>${metadataText}`,
         showarrow: false,
@@ -305,6 +305,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
         fixedrange: true,
       },
       yaxis: {
+        side: "right",
         title: {
           text: `Error w.r.t. ref. wavefunction cutoff (for the SSSP ${library} criteria)`,
         },
@@ -322,7 +323,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
       },
       showlegend: true,
       legend: {
-        x: -0.07,
+        x: 1.02,
         y: 1,
         xanchor: "left",
         yanchor: "top",
@@ -334,8 +335,8 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
       hovermode: "closest",
       height: plotHeight,
       margin: {
-        l: 100,
-        r: 160,
+        l: 160,
+        r: 80,
         t: 40,
         b: 80,
       },
