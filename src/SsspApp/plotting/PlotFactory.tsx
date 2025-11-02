@@ -8,7 +8,7 @@ import PlotFactoryProps from "./PlotFactory.models";
 // Defer loading of plot components until needed
 const OverviewPlots = lazy(() => import("./OverviewPlots"));
 const BandsChessboardPlots = lazy(() => import("./BandsChessboardPlots"));
-const EquationOfStatePlots = lazy(() => import("./EquationOfStatePlots"));
+const EquationOfStatePlots = lazy(() => import("./EosPlots"));
 const BandStructurePlot = lazy(() => import("./BandStructurePlot"));
 
 const PlotFactory: React.FC<PlotFactoryProps> = ({

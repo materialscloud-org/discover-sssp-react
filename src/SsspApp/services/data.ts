@@ -3,7 +3,7 @@ import {
   ElementBandsDataMap,
   ElementDataResponse,
   ElementsInfo,
-  EquationOfStateData,
+  EosData,
   PseudosMetadata,
 } from "@sssp/models";
 
@@ -24,11 +24,11 @@ export default class SsspDataService {
     return json || ({} as ElementsInfo);
   };
 
-  fetchEosData = async (library: string): Promise<EquationOfStateData> => {
+  fetchEosData = async (library: string): Promise<EosData> => {
     const url = `${DATA_URL}/${library}/eos.json`;
     const response = await fetch(url);
-    const json: EquationOfStateData = await response.json();
-    return json || ({} as EquationOfStateData);
+    const json: EosData = await response.json();
+    return json || ({} as EosData);
   };
 
   fetchBandsData = async (library: string): Promise<ElementBandsDataMap> => {

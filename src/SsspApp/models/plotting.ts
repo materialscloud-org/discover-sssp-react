@@ -1,19 +1,27 @@
-export interface EquationOfStatePlotsData {
-  [pseudo: string]: {
-    [configuration: string]: {
-      volumes?: number[];
-      energies?: number[];
-      V0: number;
-      B0: number;
-      B1: number;
-      nu?: number;
-      E0?: number;
-    };
-  };
+export interface PseudosColormap {
+  [pseudo: string]: string;
 }
 
-export interface EquationOfStateData {
-  [element: string]: EquationOfStatePlotsData;
+export interface EosPlotData {
+  volumes?: number[];
+  energies?: number[];
+  V0: number;
+  B0: number;
+  B1: number;
+  nu?: number;
+  E0?: number;
+}
+
+export interface EosPseudosMap {
+  [pseudo: string]: EosPlotData;
+}
+
+export interface EosConfigMap {
+  [configuration: string]: EosPseudosMap;
+}
+
+export interface EosData {
+  [element: string]: EosConfigMap;
 }
 
 export interface Path {
@@ -34,12 +42,12 @@ export interface BandsData {
   fermi_level: number;
 }
 
-export interface PseudosBandsDataMap {
+export interface BandsPseudosMap {
   [pseudo: string]: BandsData;
 }
 
 export interface ElementBandsDataMap {
-  [element: string]: PseudosBandsDataMap;
+  [element: string]: BandsPseudosMap;
 }
 
 interface DataSeries {

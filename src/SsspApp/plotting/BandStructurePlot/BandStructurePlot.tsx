@@ -4,7 +4,7 @@ import { Col, Row } from "react-bootstrap";
 import { BandsVisualiser } from "bands-visualiser";
 
 import { LoadingSpinner } from "@sssp/components";
-import { PseudosBandsDataMap } from "@sssp/models";
+import { BandsPseudosMap, PseudosColormap } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
 import { colorPalette } from "../params";
@@ -16,16 +16,12 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
   element,
   activeLibrary,
 }) => {
-  const bandsPlotRef = useRef<HTMLDivElement>(null);
-  const [pseudosBandsDataMap, setPseudosBandsDataMap] = useState<
-    PseudosBandsDataMap | undefined
-  >();
   const [loading, setLoading] = useState(true);
   const [pseudos, setPseudos] = useState<string[]>([]);
   const [activePseudos, setActivePseudos] = useState<string[]>(["REF"]);
-  const [pseudosColormap, setPseudosColormap] = useState<{
-    [key: string]: string;
-  }>({});
+  const [bandsPseudosMap, setBandsPseudosMap] = useState<BandsPseudosMap>();
+  const [pseudosColormap, setPseudosColormap] = useState<PseudosColormap>({});
+  const plotRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!element) {
@@ -36,7 +32,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
       .fetchBandsData(activeLibrary)
       .then((data) => {
         const elementData = data[element];
-        setPseudosBandsDataMap(elementData);
+        setBandsPseudosMap(elementData);
         const pseudos = elementData && Object.keys(elementData);
         setPseudos(pseudos);
         setPseudosColormap(
@@ -48,7 +44,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
       })
       .catch((error) => {
         console.error("Error fetching bands data:", error);
-        setPseudosBandsDataMap(undefined);
+        setBandsPseudosMap(undefined);
         setPseudos([]);
         setPseudosColormap({});
       })
@@ -58,27 +54,27 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
   }, [activeLibrary, element]);
 
   useEffect(() => {
-    if (pseudosBandsDataMap && bandsPlotRef.current) {
+    if (bandsPseudosMap && plotRef.current) {
       const pseudosData = activePseudos.map((pseudo) => ({
-        bandsData: pseudosBandsDataMap[pseudo],
+        bandsData: bandsPseudosMap[pseudo],
         traceFormat: {
           line: {
             color: pseudosColormap[pseudo] || "black",
           },
         },
       }));
-      BandsVisualiser(bandsPlotRef.current, {
+      BandsVisualiser(plotRef.current, {
         bandsDataArray: pseudosData,
         settings: {
           showlegend: false,
         },
       });
     }
-  }, [activePseudos, pseudosBandsDataMap]);
+  }, [activePseudos, bandsPseudosMap]);
 
   return loading ? (
     <LoadingSpinner />
-  ) : !pseudosBandsDataMap ? (
+  ) : !bandsPseudosMap ? (
     <span>No data available</span>
   ) : (
     <div id="bands-plots">
@@ -92,7 +88,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
           />
         </Col>
         <Col>
-          <div ref={bandsPlotRef} id={styles["bands-plot"]}></div>
+          <div ref={plotRef} id={styles["bands-plot"]}></div>
         </Col>
       </Row>
       <div id={styles["bands-note"]}>
