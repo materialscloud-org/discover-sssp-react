@@ -278,7 +278,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
         : "not all EOS valid";
       annotations.push({
         xref: "paper",
-        x: metadata ? -0.1 : -0.085,
+        x: metadata ? -0.11 : -0.085,
         y: offset,
         text: `${pseudo.name}<br>Z = ${pseudo.Z}<br>${metadataText}`,
         showarrow: false,

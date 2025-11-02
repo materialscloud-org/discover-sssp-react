@@ -2,16 +2,19 @@ import { Link } from "react-router-dom";
 
 import ConvergencePlot from "./ConvergencePlot";
 import ConvergencePlotsProps from "./ConvergencePlots.models";
+import styles from "./ConvergencePlots.module.scss";
 
 const ConvergencePlots: React.FC<ConvergencePlotsProps> = ({
   element,
   activeLibrary,
 }) => {
   return (
-    <div id="convergence-plots">
-      <ConvergencePlot element={element} library={activeLibrary} />
+    <>
+      <div id={styles["convergence-plot-container"]}>
+        <ConvergencePlot element={element} library={activeLibrary} />
+      </div>
       <hr />
-      <div id="convergence-plot-note">
+      <div id={styles["convergence-plot-description"]}>
         Convergence pattern plots according to the SSSP protocol: zone-boundary
         phonons, cohesive energy, pressure and band structure versus the
         wavefunction cutoff for all the considered pseudopotential libraries
@@ -24,7 +27,7 @@ const ConvergencePlots: React.FC<ConvergencePlotsProps> = ({
         marks the pseudopotential and wavefunction cutoff chosen for the SSSP
         library (see <Link to="/about">About SSSP</Link> for more details).
       </div>
-    </div>
+    </>
   );
 };
 

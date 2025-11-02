@@ -1,3 +1,8 @@
-#convergence-panels {
-  margin-bottom: 1.5rem;
+#convergence-plot-container {
+  overflow-x: auto;
+  width: 100%;
+}
+
+#convergence-plot-description {
+  padding: 0.5rem;
 }
