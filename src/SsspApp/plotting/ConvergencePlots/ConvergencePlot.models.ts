@@ -1,4 +1,4 @@
-interface OverviewPlotProps {
+interface ConvergencePlotProps {
   element: string;
   library: string;
   convergence: string;

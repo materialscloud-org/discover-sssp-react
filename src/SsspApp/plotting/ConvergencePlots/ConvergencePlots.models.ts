@@ -1,6 +1,6 @@
 import { ElementDataResponse } from "@sssp/models";
 
-export default interface OverviewPlotsProps {
+export default interface ConvergencePlotsProps {
   element: string;
   elementData: ElementDataResponse;
   activeLibrary: string;

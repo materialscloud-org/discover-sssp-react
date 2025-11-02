@@ -10,7 +10,7 @@ import Plotly, {
 import { LoadingSpinner } from "@sssp/components";
 import { SsspDataService } from "@sssp/services";
 
-import styles from "./OverviewPlot.module.scss";
+import styles from "./ConvergencePlot.module.scss";
 
 const HIGH_DUAL_ELEMENTS = new Set(["O", "Fe", "Mn", "Hf", "Co", "Ni", "Cr"]);
 
@@ -29,7 +29,7 @@ const config: Partial<Config> = {
   displaylogo: false,
 };
 
-const OverviewPlot: React.FC<OverviewPlotProps> = ({
+const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
   element,
   library,
   convergence,
@@ -359,8 +359,8 @@ const OverviewPlot: React.FC<OverviewPlotProps> = ({
   ) : !conff || !pseudos.length ? (
     <span>No data available</span>
   ) : (
-    <div ref={plotRef} id={styles["overview-plot"]}></div>
+    <div ref={plotRef} id={styles["convergence-plot"]}></div>
   );
 };
 
-export default OverviewPlot;
+export default ConvergencePlot;

@@ -21,7 +21,7 @@ import DetailsPageProps from "./DetailsPage.models";
 import styles from "./DetailsPage.module.scss";
 
 const TYPES = [
-  "Overview",
+  "Convergence Summary",
   "Bands Chessboards",
   "Equation of State",
   "Band Structure",
@@ -34,7 +34,7 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ libraries }) => {
   const location = useLocation();
   const hashLibrary = location?.hash.substring(1) || "";
   const [activeLibrary, setActiveLibrary] = useState(hashLibrary);
-  const [activeTab, setActiveTab] = useState("Overview");
+  const [activeTab, setActiveTab] = useState("Convergence Summary");
   const [elementData, setElementData] = useState<ElementDataResponse>();
   const [loading, setLoading] = useState(true);
   const { element } = params;
@@ -107,9 +107,9 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ libraries }) => {
       {element && (
         <Tabs
           id="sssp-pseudos-tabs"
-          defaultActiveKey="Overview"
+          defaultActiveKey="Convergence Summary"
           activeKey={activeTab}
-          onSelect={(k) => setActiveTab(k || "Overview")}
+          onSelect={(k) => setActiveTab(k || "Convergence Summary")}
         >
           {TYPES.map((type: string) => (
             <Tab key={type} eventKey={type} title={type}>

@@ -6,7 +6,7 @@ import { LoadingSpinner } from "@sssp/components";
 import PlotFactoryProps from "./PlotFactory.models";
 
 // Defer loading of plot components until needed
-const OverviewPlots = lazy(() => import("./OverviewPlots"));
+const ConvergencePlots = lazy(() => import("./ConvergencePlots"));
 const BandsChessboardPlots = lazy(() => import("./BandsChessboardPlots"));
 const EquationOfStatePlots = lazy(() => import("./EosPlots"));
 const BandStructurePlot = lazy(() => import("./BandStructurePlot"));
@@ -27,9 +27,9 @@ const PlotFactory: React.FC<PlotFactoryProps> = ({
 
   let plot = null;
   switch (type) {
-    case "Overview":
+    case "Convergence Summary":
       plot = (
-        <OverviewPlots
+        <ConvergencePlots
           element={element}
           elementData={elementData}
           activeLibrary={activeLibrary}

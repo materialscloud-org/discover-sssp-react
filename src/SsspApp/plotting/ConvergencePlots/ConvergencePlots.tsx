@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 import { ElementDataResponse } from "@sssp/models";
 
-import OverviewPlot from "./OverviewPlot";
-import OverviewPlotsProps from "./OverviewPlots.models";
-import styles from "./OverviewPlots.module.scss";
+import ConvergencePlot from "./ConvergencePlot";
+import ConvergencePlotsProps from "./ConvergencePlots.models";
+import styles from "./ConvergencePlots.module.scss";
 
-const OverviewPlots: React.FC<OverviewPlotsProps> = ({
+const ConvergencePlots: React.FC<ConvergencePlotsProps> = ({
   element,
   elementData,
   activeLibrary,
@@ -27,7 +27,7 @@ const OverviewPlots: React.FC<OverviewPlotsProps> = ({
   }
 
   return (
-    <div id="overview-plots">
+    <div id="convergence-plots">
       {activeLibrary && (
         <div id={styles["convergence-panels"]}>
           <Tabs
@@ -39,8 +39,8 @@ const OverviewPlots: React.FC<OverviewPlotsProps> = ({
               const title = `Convergence ${activeLibrary} - ${convergence}`;
               return (
                 <Tab eventKey={index} title={title} key={index}>
-                  <Card.Body id={styles["overview-card"]}>
-                    <OverviewPlot
+                  <Card.Body id="convergence-card">
+                    <ConvergencePlot
                       element={element}
                       library={activeLibrary}
                       convergence={convergence}
@@ -52,7 +52,7 @@ const OverviewPlots: React.FC<OverviewPlotsProps> = ({
           </Tabs>
         </div>
       )}
-      <div id="overview-note">
+      <div id="convergence-plot-note">
         Convergence pattern plots according to the SSSP protocol: zone-boundary
         phonons, cohesive energy, pressure and band structure versus the
         wavefunction cutoff for all the considered pseudopotential libraries
@@ -69,4 +69,4 @@ const OverviewPlots: React.FC<OverviewPlotsProps> = ({
   );
 };
 
-export default OverviewPlots;
+export default ConvergencePlots;
