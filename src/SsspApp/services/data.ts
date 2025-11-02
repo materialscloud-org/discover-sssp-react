@@ -47,10 +47,8 @@ export default class SsspDataService {
 
   fetchPseudosSummaryData = async (
     library: string,
-    element: string,
-    convergence: string
+    element: string
   ): Promise<PseudoResponse> => {
-    console.log(convergence); // TODO use convergence when available
     const url = `${DATA_URL}/${library}/summary/${element}.json`;
     const response = await fetch(url);
     const json: PseudoResponse = await response.json();

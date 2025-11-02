@@ -1,57 +1,16 @@
-import { useState } from "react";
-import { Card, Tab, Tabs } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
-import { ElementDataResponse } from "@sssp/models";
 
 import ConvergencePlot from "./ConvergencePlot";
 import ConvergencePlotsProps from "./ConvergencePlots.models";
-import styles from "./ConvergencePlots.module.scss";
 
 const ConvergencePlots: React.FC<ConvergencePlotsProps> = ({
   element,
-  elementData,
   activeLibrary,
 }) => {
-  const [activeTab, setActiveTab] = useState(0);
-
-  const key = `${activeLibrary}_filenames` as keyof ElementDataResponse;
-  const filenames = (elementData[key] || []) as string[];
-
-  if (filenames) {
-    filenames.sort((a, b) => {
-      const aConvergence = a.split("_")[1];
-      const bConvergence = b.split("_")[1];
-      return parseFloat(aConvergence) - parseFloat(bConvergence);
-    });
-  }
-
   return (
     <div id="convergence-plots">
-      {activeLibrary && (
-        <div id={styles["convergence-panels"]}>
-          <Tabs
-            activeKey={activeTab}
-            onSelect={(tabIndex) => setActiveTab(parseInt(tabIndex || "0"))}
-          >
-            {filenames.map((filename, index) => {
-              const convergence = filename.split("_")[1];
-              const title = `Convergence ${activeLibrary} - ${convergence}`;
-              return (
-                <Tab eventKey={index} title={title} key={index}>
-                  <Card.Body id="convergence-card">
-                    <ConvergencePlot
-                      element={element}
-                      library={activeLibrary}
-                      convergence={convergence}
-                    />
-                  </Card.Body>
-                </Tab>
-              );
-            })}
-          </Tabs>
-        </div>
-      )}
+      <ConvergencePlot element={element} library={activeLibrary} />
+      <hr />
       <div id="convergence-plot-note">
         Convergence pattern plots according to the SSSP protocol: zone-boundary
         phonons, cohesive energy, pressure and band structure versus the

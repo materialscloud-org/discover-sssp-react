@@ -32,7 +32,6 @@ const config: Partial<Config> = {
 const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
   element,
   library,
-  convergence,
 }) => {
   const [loading, setLoading] = useState(true);
   const [conff, setConff] = useState("");
@@ -42,7 +41,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
   useEffect(() => {
     const dataService = new SsspDataService();
     dataService
-      .fetchPseudosSummaryData(library, element, convergence)
+      .fetchPseudosSummaryData(library, element)
       .then((data) => {
         setConff(data.conff);
         setPseudos(data.pseudos.slice(0, 20));
@@ -55,7 +54,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
       .finally(() => {
         setLoading(false);
       });
-  }, [element, library, convergence]);
+  }, [element, library]);
 
   useEffect(() => {
     if (loading || !pseudos.length || !plotRef.current) {

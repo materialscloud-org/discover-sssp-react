@@ -1,7 +1,6 @@
 interface ConvergencePlotProps {
   element: string;
   library: string;
-  convergence: string;
 }
 
 interface PseudoResponse {

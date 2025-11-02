@@ -29,11 +29,7 @@ const PlotFactory: React.FC<PlotFactoryProps> = ({
   switch (type) {
     case "Convergence Summary":
       plot = (
-        <ConvergencePlots
-          element={element}
-          elementData={elementData}
-          activeLibrary={activeLibrary}
-        />
+        <ConvergencePlots element={element} activeLibrary={activeLibrary} />
       );
       break;
     case "Bands Chessboards":
