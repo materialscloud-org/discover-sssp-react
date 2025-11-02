@@ -113,12 +113,16 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ libraries }) => {
         >
           {TYPES.map((type: string) => (
             <Tab key={type} eventKey={type} title={type}>
-              <PlotFactory
-                element={element}
-                elementData={elementData}
-                activeLibrary={activeLibrary}
-                type={type}
-              />
+              {type === activeTab ? (
+                <PlotFactory
+                  element={element}
+                  elementData={elementData}
+                  activeLibrary={activeLibrary}
+                  type={type}
+                />
+              ) : (
+                <LoadingSpinner />
+              )}
             </Tab>
           ))}
         </Tabs>
