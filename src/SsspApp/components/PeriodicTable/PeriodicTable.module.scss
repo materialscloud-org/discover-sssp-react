@@ -6,7 +6,7 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  max-width: fit-content;
+  max-width: 100%;
   margin: 0 auto;
   position: relative;
   overflow-x: auto;
@@ -16,7 +16,6 @@
   #table {
     display: flex;
     flex-direction: column;
-    width: fit-content;
     row-gap: 12px;
 
     .elements {
