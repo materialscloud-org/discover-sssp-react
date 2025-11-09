@@ -34,11 +34,7 @@ const PlotFactory: React.FC<PlotFactoryProps> = ({
       break;
     case "Bands Chessboards":
       plot = (
-        <BandsChessboardPlots
-          element={element}
-          elementData={elementData}
-          activeLibrary={activeLibrary}
-        />
+        <BandsChessboardPlots element={element} activeLibrary={activeLibrary} />
       );
       break;
     case "Equation of State":
