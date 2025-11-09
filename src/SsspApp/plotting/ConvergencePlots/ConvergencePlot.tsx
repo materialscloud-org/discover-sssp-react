@@ -1,11 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import Plotly, {
-  Annotations,
-  Config,
-  Data,
-  Layout,
-} from "plotly.js-basic-dist-min";
+import type { Annotations, Config, Data, Layout } from "plotly.js";
 
 import { LoadingSpinner } from "@sssp/components";
 import { SsspDataService } from "@sssp/services";
@@ -60,6 +55,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
     if (loading || !pseudos.length || !plotRef.current) {
       return;
     }
+
     const EOS_C_FACTOR = library === "efficiency" ? 0.2 : 0.1;
     const PHONON_C_FACTOR = library === "efficiency" ? 2 : 1;
     const PRESSURE_C_FACTOR = library === "efficiency" ? 1 : 0.5;
@@ -342,15 +338,15 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
       },
     };
 
-    Plotly.react(
-      plotRef.current,
-      traces as Data[],
-      layout as Partial<Layout>,
-      config as Partial<Config>
-    );
+    let Plotly: any | null = null;
+
+    (async () => {
+      Plotly = (await import("@sssp/plotting/PlotlyLoader")).default;
+      Plotly.react(plotRef.current, traces, layout, config);
+    })();
 
     return () => {
-      plotRef.current && Plotly.purge(plotRef.current);
+      plotRef.current && Plotly && Plotly.purge(plotRef.current);
     };
   }, [loading, pseudos]);
 

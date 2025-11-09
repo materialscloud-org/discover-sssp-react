@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 
-import { BandsVisualiser } from "bands-visualiser";
-
 import { LoadingSpinner } from "@sssp/components";
 import { BandsPseudosMap, PseudosColormap } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
@@ -63,12 +61,19 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
           },
         },
       }));
-      BandsVisualiser(plotRef.current, {
-        bandsDataArray: pseudosData,
-        settings: {
-          showlegend: false,
-        },
-      });
+
+      let BandsVisualiser: any | null = null;
+
+      (async () => {
+        BandsVisualiser = (await import("bands-visualiser")).BandsVisualiser;
+
+        BandsVisualiser(plotRef.current, {
+          bandsDataArray: pseudosData,
+          settings: {
+            showlegend: false,
+          },
+        });
+      })();
     }
   }, [activePseudos, bandsPseudosMap]);
 

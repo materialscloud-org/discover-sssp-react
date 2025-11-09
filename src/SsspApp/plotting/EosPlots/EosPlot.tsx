@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react";
 
-import Plotly, { Config, Data, Layout } from "plotly.js-basic-dist-min";
+import type { Config, Data, Layout } from "plotly.js";
 
 import { EosPlotData } from "@sssp/models";
+
 import EosPlotProps from "./EosPlot.models";
 import styles from "./EosPlot.module.scss";
 
@@ -103,11 +104,20 @@ const EosPlot: React.FC<EosPlotProps> = ({
       autosize: true,
     };
 
-    Plotly.react(plotRef.current, data, layout, config);
+    let Plotly: any | null = null;
 
-    const handleResize = () => Plotly.Plots.resize(plotRef.current!);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    (async () => {
+      Plotly = (await import("@sssp/plotting/PlotlyLoader")).default;
+      Plotly.react(plotRef.current, data, layout, config);
+
+      const handleResize = () => Plotly.Plots.resize(plotRef.current!);
+      window.addEventListener("resize", handleResize);
+      handleResize();
+    })();
+
+    return () => {
+      plotRef.current && Plotly && Plotly.purge(plotRef.current);
+    };
   }, [activePseudos]);
 
   return <div ref={plotRef} className={styles["eos-plot"]}></div>;
