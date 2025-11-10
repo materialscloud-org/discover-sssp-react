@@ -20,7 +20,7 @@ class ElementsGenerator {
         const info = this.elementsInfo[symbol];
         const color = info
           ? info.pseudopotential in this.pseudosMetadata
-            ? this.pseudosMetadata[info.pseudopotential].background_color
+            ? this.pseudosMetadata[info.pseudopotential].color
             : "#66b3b3"
           : "#ddd";
 

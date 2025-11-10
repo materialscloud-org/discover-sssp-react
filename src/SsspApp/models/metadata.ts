@@ -1,5 +1,5 @@
 export interface PseudoMetadata {
-  background_color: string;
+  color: string;
   display_name: string;
   short_name: string;
 }
