@@ -33,12 +33,27 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ libraries }) => {
   const hashLibrary = location?.hash.substring(1) || "";
   const [activeLibrary, setActiveLibrary] = useState(hashLibrary);
   const [activeTab, setActiveTab] = useState("Convergence Summary");
+  const [visitedTabs, setVisitedTabs] = useState<Set<string>>(
+    new Set(["Convergence Summary"])
+  );
   const { element } = params;
 
   useEffect(() => {
     const hashLibrary = location?.hash.substring(1);
     setActiveLibrary(hashLibrary || "");
   }, [location]);
+
+  const handleTabSelect = (tab: string | null) => {
+    if (tab) {
+      setActiveTab(tab);
+      setVisitedTabs((prev) => {
+        if (prev.has(tab)) return prev;
+        const next = new Set(prev);
+        next.add(tab);
+        return next;
+      });
+    }
+  };
 
   return activeLibrary && !libraries.includes(activeLibrary) ? (
     <InvalidPage />
@@ -88,11 +103,11 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ libraries }) => {
           id="sssp-pseudos-tabs"
           defaultActiveKey="Convergence Summary"
           activeKey={activeTab}
-          onSelect={(k) => setActiveTab(k || "Convergence Summary")}
+          onSelect={handleTabSelect}
         >
           {TYPES.map((type: string) => (
             <Tab key={type} eventKey={type} title={type}>
-              {type === activeTab ? (
+              {visitedTabs.has(type) ? (
                 <PlotFactory
                   element={element}
                   activeLibrary={activeLibrary}
