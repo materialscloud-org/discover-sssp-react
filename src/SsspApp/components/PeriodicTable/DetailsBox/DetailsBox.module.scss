@@ -1,34 +1,61 @@
 #details {
   display: flex;
   position: absolute;
-  top: 10px;
+  top: 12px;
   left: calc((var(--element-box-size) + 5px) * 3);
   width: fit-content;
-  padding: 5px 15px 0px 5px;
+  padding: 5px;
   border: 5px solid;
 
-  #label {
-    width: 80px;
+  #element-info {
+    width: 120px;
 
-    #number {
-      font-size: x-large;
+    #z-value {
+      font-size: 24px;
       font-weight: bold;
+      text-align: center;
     }
 
-    #symbol {
-      font-size: 48px;
-      font-weight: bold;
-      line-height: 1;
+    #label-info {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-bottom: 6px;
+
+      #atomic-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-right: 2px;
+
+        #atomic-number {
+          text-align: right;
+          line-height: 1.4;
+        }
+
+        #atomic-mass {
+          text-align: right;
+          line-height: 1;
+        }
+      }
+
+      #symbol {
+        font-size: 48px;
+        font-weight: bold;
+        line-height: 1;
+      }
     }
   }
 
-  #info {
-    margin-left: 1rem;
+  #cutoffs-info {
+    margin-left: 8px;
+    padding-right: 12px;
     text-align: left;
 
     ul {
       list-style-type: none;
       padding: 0;
+      margin: 0;
 
       .cutoff-label {
         font-family: monospace;
@@ -36,7 +63,7 @@
     }
 
     #cutoff-header {
-      font-size: x-large;
+      font-size: 24px;
       font-weight: bold;
     }
   }

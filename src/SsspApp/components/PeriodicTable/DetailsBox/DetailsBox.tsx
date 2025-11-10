@@ -11,12 +11,18 @@ const DetailsBox = () => {
 
   return (
     <div id={styles["details"]} style={{ color: color }}>
-      <div id={styles["label"]}>
-        <div id={styles["number"]}>{number}</div>
-        <div id={styles["symbol"]}>{symbol}</div>
+      <div id={styles["element-info"]}>
+        <span id={styles["z-value"]}>Z = {info.Z}</span>
+        <div id={styles["label-info"]}>
+          <div id={styles["atomic-info"]}>
+            <span id={styles["atomic-number"]}>{number}</span>
+            <span id={styles["atomic-mass"]}>?</span>
+          </div>
+          <span id={styles["symbol"]}>{symbol}</span>
+        </div>
       </div>
-      <div id={styles["info"]}>
-        <h4 id={styles["cutoff-header"]}>Cutoffs</h4>
+      <div id={styles["cutoffs-info"]}>
+        <span id={styles["cutoff-header"]}>Cutoffs</span>
         <ul>
           <li>
             <span className={styles["cutoff-label"]}>Ψ</span>: {info.cutoff_wfc}{" "}
