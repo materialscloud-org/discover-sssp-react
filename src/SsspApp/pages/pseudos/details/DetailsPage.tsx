@@ -20,8 +20,8 @@ import styles from "./DetailsPage.module.scss";
 
 const TYPES = [
   "Convergence Summary",
-  "Bands Chessboards",
   "Equation of State",
+  "Bands Chessboards",
   "Band Structure",
   // "More",
 ];
