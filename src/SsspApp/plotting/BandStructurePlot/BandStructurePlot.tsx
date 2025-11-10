@@ -13,10 +13,11 @@ import styles from "./BandStructurePlot.module.scss";
 const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
   element,
   activeLibrary,
+  activePseudos,
+  setActivePseudos,
 }) => {
   const [loading, setLoading] = useState(true);
   const [pseudos, setPseudos] = useState<string[]>([]);
-  const [activePseudos, setActivePseudos] = useState<string[]>(["REF"]);
   const [bandsPseudosMap, setBandsPseudosMap] = useState<BandsPseudosMap>();
   const [pseudosColormap, setPseudosColormap] = useState<PseudosColormap>({});
   const plotRef = useRef<HTMLDivElement>(null);
@@ -25,9 +26,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
     if (!element) {
       return;
     }
-    const dataService = new SsspDataService();
-    dataService
-      .fetchBandsData(activeLibrary)
+    SsspDataService.fetchBandsData(activeLibrary)
       .then((data) => {
         const elementData = data[element];
         setBandsPseudosMap(elementData);

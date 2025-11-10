@@ -40,9 +40,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
   const plotRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const dataService = new SsspDataService();
-    dataService
-      .fetchPseudosSummaryData(library, element)
+    SsspDataService.fetchPseudosSummaryData(library, element)
       .then((data) => {
         setConff(data.conff);
         setPseudos(data.pseudos.slice(0, 20));
