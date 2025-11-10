@@ -1,77 +1,82 @@
 {
-  "100US": {
-    "background_color": "#FF0000",
-    "display_name": "pslibrary.1.0.0 US (high acc.)",
-    "short_name": "100US"
+  "DOJO-041-std": {
+    "color": "#ffa500",
+    "display_name": "nc-dojo-v0.4.1-std",
+    "short_name": "DOJO-041-std"
   },
-  "100PAW": {
-    "background_color": "#008B00",
-    "display_name": "pslibrary.1.0.0 PAW (high acc.)",
-    "short_name": "100PAW"
+  "SPMS": {
+    "color": "#7f8001",
+    "display_name": "nc-spms-oncvpsp4",
+    "short_name": "SPMS"
   },
-  "100PAW-low": {
-    "background_color": "#A8AE2B",
-    "display_name": "pslibrary.1.0.0 PAW (low acc.)",
-    "short_name": "100PAW-low"
+  "DOJO-041-str": {
+    "color": "#ffb500",
+    "display_name": "nc-dojo-v0.4.1-str",
+    "short_name": "DOJO-041-str"
   },
-  "031US": {
-    "background_color": "#0000FF",
-    "display_name": "pslibrary.0.3.1 US",
-    "short_name": "031US"
-  },
-  "031PAW": {
-    "background_color": "#FF00FF",
-    "display_name": "pslibrary.0.3.1 PAW",
-    "short_name": "031PAW"
-  },
-  "GBRV-1.2": {
-    "background_color": "#00CDCD",
-    "display_name": "GBRV-1.2 (US)",
-    "short_name": "GBRV-1.2"
-  },
-  "GBRV-1.4": {
-    "background_color": "#4682B4",
-    "display_name": "GBRV-1.4 (US)",
-    "short_name": "GBRV-1.4"
-  },
-  "GBRV-1.5": {
-    "background_color": "#B8860B",
-    "display_name": "GBRV-1.5 (US)",
-    "short_name": "GBRV-1.5"
+  "DOJO-050-std": {
+    "color": "#ffc500",
+    "display_name": "nc-dojo-v0.5.0-std",
+    "short_name": "DOJO-050-std"
   },
   "SG15": {
-    "background_color": "#000000",
-    "display_name": "SG15 (NC)",
+    "color": "#000000",
+    "display_name": "nc-sg15-oncvpsp4",
     "short_name": "SG15"
   },
-  "SG15-1.1": {
-    "background_color": "#708090",
-    "display_name": "SG15-1.1 (NC)",
-    "short_name": "SG15-1.1"
+  "GBRV-1.X": {
+    "color": "#00cdcd",
+    "display_name": "us-gbrv-v1.x-upf2",
+    "short_name": "GBRV-1.X"
   },
-  "Goedecker": {
-    "background_color": "#808000",
-    "display_name": "Goedecker (NC)",
-    "short_name": "Goedecker"
+  "PSL-US-v1-high": {
+    "color": "#ff0000",
+    "display_name": "us-psl-v1.0.0-high",
+    "short_name": "PSL-US-v1-high"
   },
-  "THEOS": {
-    "background_color": "#D7DF01",
-    "display_name": "THEOS (US)",
-    "short_name": "THEOS"
+  "PSL-US-v1-low": {
+    "color": "#fa0000",
+    "display_name": "us-psl-v1.0.0-low",
+    "short_name": "PSL-US-v1-low"
   },
-  "Dojo": {
-    "background_color": "#FFA500",
-    "display_name": "PseudoDojo (NC)",
-    "short_name": "Dojo"
+  "PSL-US-v0.x": {
+    "color": "#0000ff",
+    "display_name": "us-psl-v0.x",
+    "short_name": "PSL-US-v0.x"
+  },
+  "JTH-1.1-std": {
+    "color": "#984ea3",
+    "display_name": "paw-jth-v1.1-std",
+    "short_name": "JTH-1.1-std"
+  },
+  "JTH-1.1-str": {
+    "color": "#984fa3",
+    "display_name": "paw-jth-v1.1-str",
+    "short_name": "JTH-1.1-str"
   },
   "Wentzcovitch": {
-    "background_color": "#610B5E",
-    "display_name": "RE Wentzcovitch (PAW)",
+    "color": "#610b5e",
+    "display_name": "paw-lanthanides-wentzcovitch",
     "short_name": "Wentzcovitch"
   },
-  "MalteSachs": {
-    "background_color": "#EA388E",
-    "display_name": "Actinides MalteSachs",
-    "short_name": "MalteSachs"
+  "PSL-PAW-v0.x": {
+    "color": "#ff00ff",
+    "display_name": "paw-psl-v0.x",
+    "short_name": "PSL-PAW-v0.x"
+  },
+  "PSL-PAW-v1-high": {
+    "color": "#008b00",
+    "display_name": "paw-psl-v1.0.0-high",
+    "short_name": "PSL-PAW-v1-high"
+  },
+  "PSL-PAW-v1-low": {
+    "color": "#008c00",
+    "display_name": "paw-psl-v1.0.0-low",
+    "short_name": "PSL-PAW-v1-low"
+  },
+  "MARBURG": {
+    "color": "#ea388e",
+    "display_name": "paw-actinides-marburg",
+    "short_name": "MARBURG"
   }
 }
