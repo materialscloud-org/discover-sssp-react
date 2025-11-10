@@ -13,18 +13,9 @@ const BandStructurePlot = lazy(() => import("./BandStructurePlot"));
 
 const PlotFactory: React.FC<PlotFactoryProps> = ({
   element,
-  elementData,
   activeLibrary,
   type,
 }) => {
-  if (!elementData) {
-    return (
-      <Card.Body id="plot-card">
-        <LoadingSpinner />
-      </Card.Body>
-    );
-  }
-
   let plot = null;
   switch (type) {
     case "Convergence Summary":
