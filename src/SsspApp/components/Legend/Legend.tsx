@@ -6,11 +6,11 @@ import PseudosLegendProps from "./Legend.models";
 import styles from "./Legend.module.scss";
 
 const PseudosLegend: React.FC<PseudosLegendProps> = ({ pseudosMetadata }) => {
-  const { hoveredPseudo, hoveredElement, setHoveredPSeudo } =
+  const { hoveredPseudo, hoveredElement, setHoveredPseudo } =
     useContext(HoverContext);
 
   return (
-    <ul id={styles["pseudo-legend"]} onMouseLeave={() => setHoveredPSeudo("")}>
+    <ul id={styles["pseudo-legend"]} onMouseLeave={() => setHoveredPseudo("")}>
       {Object.entries(pseudosMetadata).map(([pseudo, metadata]) => (
         <li
           key={pseudo}
@@ -25,7 +25,7 @@ const PseudosLegend: React.FC<PseudosLegendProps> = ({ pseudosMetadata }) => {
                 : styles["transparent"]
             }
           `}
-          onMouseEnter={() => setHoveredPSeudo(pseudo)}
+          onMouseEnter={() => setHoveredPseudo(pseudo)}
         >
           <span
             className={styles["pseudo-list-marker"]}
