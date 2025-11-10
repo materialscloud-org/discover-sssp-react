@@ -20,9 +20,7 @@ const EosPlots: React.FC<EosPlotsProps> = ({ element, activeLibrary }) => {
 
   useEffect(() => {
     if (!element) return;
-    const dataService = new SsspDataService();
-    dataService
-      .fetchEosData(activeLibrary)
+    SsspDataService.fetchEosData(activeLibrary)
       .then((data) => {
         const configMap = data[element];
         setEosConfigMap(configMap);

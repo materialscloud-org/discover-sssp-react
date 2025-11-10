@@ -48,8 +48,7 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ libraries }) => {
     if (!element) {
       return;
     }
-    const dataService = new SsspDataService();
-    dataService
+    SsspDataService
       .fetchElementData(element)
       .then((data) => setElementData(data))
       .catch((error) => {

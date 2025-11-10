@@ -23,9 +23,7 @@ const TablePage: React.FC<TablePageProps> = ({ libraries }) => {
   }, [location.pathname, setActiveLibrary]);
 
   useEffect(() => {
-    const dataService = new SsspDataService();
-    dataService
-      .fetchPseudosMetadata()
+    SsspDataService.fetchPseudosMetadata()
       .then((metadata) => setPseudosMetadata(metadata))
       .catch((error) => {
         console.error("Error fetching pseudos metadata:", error);
@@ -33,8 +31,7 @@ const TablePage: React.FC<TablePageProps> = ({ libraries }) => {
   }, []);
 
   useEffect(() => {
-    const dataService = new SsspDataService();
-    dataService
+    SsspDataService.fetchElementsInfo(activeLibrary)
       .fetchElementsInfo(activeLibrary)
       .then((elementsInfo) => setElementsInfo(elementsInfo))
       .catch((error) => {
