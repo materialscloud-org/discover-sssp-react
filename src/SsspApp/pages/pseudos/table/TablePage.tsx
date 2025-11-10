@@ -2,9 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import { ssspVersion } from "@sssp";
-import { PeriodicTable, PseudosLegend } from "@sssp/components";
-import { HoverProvider, LibraryContext } from "@sssp/context";
-import { ElementsInfo, PseudosMetadata } from "@sssp/models";
+import { LoadingSpinner, PeriodicTable, PseudosLegend } from "@sssp/components";
+import { HoverProvider, LibraryContext, PseudosContext } from "@sssp/context";
+import { ElementsInfo } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
 import LibraryToggle from "./LibraryToggle";
@@ -13,9 +13,10 @@ import styles from "./TablePage.module.scss";
 
 const TablePage: React.FC<TablePageProps> = ({ libraries }) => {
   const location = useLocation();
+  const [loading, setLoading] = useState(true);
+  const { loadingMetadata, pseudosMetadata } = useContext(PseudosContext);
   const { activeLibrary, setActiveLibrary } = useContext(LibraryContext);
   const [elementsInfo, setElementsInfo] = useState<ElementsInfo>({});
-  const [pseudosMetadata, setPseudosMetadata] = useState<PseudosMetadata>({});
 
   useEffect(() => {
     const currentLibrary = location.pathname.split("/")[2];
@@ -23,22 +24,17 @@ const TablePage: React.FC<TablePageProps> = ({ libraries }) => {
   }, [location.pathname, setActiveLibrary]);
 
   useEffect(() => {
-    SsspDataService.fetchPseudosMetadata()
-      .then((metadata) => setPseudosMetadata(metadata))
-      .catch((error) => {
-        console.error("Error fetching pseudos metadata:", error);
-      });
-  }, []);
-
-  useEffect(() => {
     SsspDataService.fetchElementsInfo(activeLibrary)
       .then((elementsInfo) => setElementsInfo(elementsInfo))
       .catch((error) => {
         console.error("Error fetching elements info:", error);
-      });
+      })
+      .finally(() => setLoading(false));
   }, [activeLibrary]);
 
-  return (
+  return loading || loadingMetadata ? (
+    <LoadingSpinner />
+  ) : (
     <div id="table-page">
       <div className="sssp-pseudos-header">
         SSSP {activeLibrary} (v{ssspVersion})

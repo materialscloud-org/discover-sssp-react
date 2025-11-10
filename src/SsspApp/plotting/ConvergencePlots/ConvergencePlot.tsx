@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 
 import type {
   Annotations,
@@ -9,6 +9,7 @@ import type {
 } from "plotly.js";
 
 import { LoadingSpinner } from "@sssp/components";
+import { PseudosContext } from "@sssp/context";
 import { SsspDataService } from "@sssp/services";
 
 import styles from "./ConvergencePlot.module.scss";
@@ -35,6 +36,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
   library,
 }) => {
   const [loading, setLoading] = useState(true);
+  const { loadingMetadata, pseudosMetadata } = useContext(PseudosContext);
   const [conff, setConff] = useState("");
   const [pseudos, setPseudos] = useState<Pseudo[]>([]);
   const plotRef = useRef<HTMLDivElement>(null);
@@ -56,7 +58,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
   }, [element, library]);
 
   useEffect(() => {
-    if (loading || !pseudos.length || !plotRef.current) {
+    if (loading || loadingMetadata || !pseudos.length || !plotRef.current) {
       return;
     }
 
@@ -83,8 +85,9 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
       let hasLegend = false;
 
       pseudos.forEach((pseudo, i) => {
+        const color = pseudosMetadata[pseudo.name]?.color || "black";
         const offset = i * offsetHeight;
-        const showLegend = pseudo.color == "#000000";
+        const showLegend = color == "#000000";
 
         const { quantities } = pseudo;
 
@@ -97,7 +100,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
             name: "δω",
             type: "scatter",
             mode: "lines+markers",
-            line: { color: pseudo.color, width: lineWidth, dash: "solid" },
+            line: { color: color, width: lineWidth, dash: "solid" },
             marker: { size: markerSize, symbol: "circle" },
             showlegend: !hasLegend && showLegend,
             x: quantities.phonon_frequencies.cutoffs,
@@ -107,7 +110,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
               array: freqError,
               arrayminus: frequencies.map(() => 0),
               visible: true,
-              color: pseudo.color,
+              color: color,
             },
             customdata: frequencies.map((v, idx) => [v, freqError[idx]]),
             hovertemplate: `<b>${pseudo.name}<br>δω: %{customdata[0]:.1e} &plusmn; %{customdata[1]:.1e} cm<sup>-1</sup></b><extra></extra>`,
@@ -132,7 +135,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
             name: "δV<sub>press</sub>",
             type: "scatter",
             mode: "lines+markers",
-            line: { color: pseudo.color, width: lineWidth, dash: "dash" },
+            line: { color: color, width: lineWidth, dash: "dash" },
             marker: { size: markerSize, symbol: "triangle-down" },
             showlegend: !hasLegend && showLegend,
             x: quantities.pressure.cutoffs,
@@ -148,7 +151,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
             name: "δE<sub>coh</sub>",
             type: "scatter",
             mode: "lines+markers",
-            line: { color: pseudo.color, width: lineWidth, dash: "dot" },
+            line: { color: color, width: lineWidth, dash: "dot" },
             marker: { size: markerSize, symbol: "star" },
             showlegend: !hasLegend && showLegend,
             x: quantities.cohesive_energy.cutoffs,
@@ -174,7 +177,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
             name: "δv",
             type: "scatter",
             mode: "lines+markers",
-            line: { color: pseudo.color, width: lineWidth, dash: "dot" },
+            line: { color: color, width: lineWidth, dash: "dot" },
             marker: { size: markerSize, symbol: "square" },
             showlegend: !hasLegend && showLegend,
             x: quantities.eos.cutoffs,
@@ -227,7 +230,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
             mode: "lines",
             text: eta_c.map((v) => v.toFixed(2)),
             showlegend: false,
-            line: { color: pseudo.color, width: lineWidth, dash: "dashdot" },
+            line: { color: color, width: lineWidth, dash: "dashdot" },
             hoverinfo: "skip",
           });
 
@@ -269,7 +272,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
             mode: "lines",
             text: max_diff_c.map((v) => v.toFixed(2)),
             showlegend: false,
-            line: { color: pseudo.color, width: lineWidth, dash: "dashdot" },
+            line: { color: color, width: lineWidth, dash: "dashdot" },
             hoverinfo: "skip",
           });
 
@@ -371,7 +374,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
     };
   }, [loading, pseudos]);
 
-  return loading ? (
+  return loading || loadingMetadata ? (
     <LoadingSpinner />
   ) : !conff || !pseudos.length ? (
     <span>No data available</span>

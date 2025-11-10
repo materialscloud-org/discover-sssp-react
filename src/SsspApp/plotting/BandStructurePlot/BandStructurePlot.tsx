@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 
 import { LoadingSpinner } from "@sssp/components";
-import { BandsPseudosMap, PseudosColormap } from "@sssp/models";
+import { PseudosContext } from "@sssp/context";
+import { BandsPseudosMap } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
-import { colorPalette } from "../params";
 import PseudosCheckboxes from "../PseudosCheckboxes";
 import BandStructurePlotProps from "./BandStructurePlot.models";
 import styles from "./BandStructurePlot.module.scss";
@@ -13,13 +13,12 @@ import styles from "./BandStructurePlot.module.scss";
 const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
   element,
   activeLibrary,
-  activePseudos,
-  setActivePseudos,
 }) => {
   const [loading, setLoading] = useState(true);
+  const { loadingMetadata, pseudosMetadata } = useContext(PseudosContext);
   const [pseudos, setPseudos] = useState<string[]>([]);
+  const [activePseudos, setActivePseudos] = useState<string[]>(["REF"]);
   const [bandsPseudosMap, setBandsPseudosMap] = useState<BandsPseudosMap>();
-  const [pseudosColormap, setPseudosColormap] = useState<PseudosColormap>({});
   const plotRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -32,18 +31,11 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
         setBandsPseudosMap(elementData);
         const pseudos = elementData && Object.keys(elementData);
         setPseudos(pseudos);
-        setPseudosColormap(
-          pseudos?.reduce((lib: { [key: string]: string }, pseudo, i) => {
-            lib[pseudo] = colorPalette[i % colorPalette.length];
-            return lib;
-          }, {})
-        );
       })
       .catch((error) => {
         console.error("Error fetching bands data:", error);
         setBandsPseudosMap(undefined);
         setPseudos([]);
-        setPseudosColormap({});
       })
       .finally(() => {
         setLoading(false);
@@ -56,7 +48,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
         bandsData: bandsPseudosMap[pseudo],
         traceFormat: {
           line: {
-            color: pseudosColormap[pseudo] || "black",
+            color: pseudosMetadata[pseudo]?.color || "black",
           },
         },
       }));
@@ -74,9 +66,9 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
         });
       })();
     }
-  }, [activePseudos, bandsPseudosMap]);
+  }, [activePseudos, bandsPseudosMap, pseudosMetadata]);
 
-  return loading ? (
+  return loading || loadingMetadata ? (
     <LoadingSpinner />
   ) : !bandsPseudosMap ? (
     <span>No data available</span>
@@ -87,7 +79,6 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
           <PseudosCheckboxes
             pseudos={pseudos}
             activePseudos={activePseudos}
-            pseudosColormap={pseudosColormap}
             setActivePseudos={setActivePseudos}
           />
         </Col>
