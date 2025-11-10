@@ -1,10 +1,8 @@
 export interface ElementInfo {
-  cutoff: number;
-  dual: number;
-  filename: string;
-  md5: string;
   pseudopotential: string;
-  rho_cutoff: number;
+  cutoff_wfc: number;
+  cutoff_rho: number;
+  Z: number;
 }
 
 export interface ElementsInfo {
