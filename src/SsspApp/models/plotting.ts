@@ -109,16 +109,3 @@ export interface ElementData {
   default: DefaultSeries;
   framework: Framework[];
 }
-
-export interface ElementDataResponse {
-  bands_filenames: string[];
-  chessboards_filenames: string[];
-  data: ElementData;
-  efficiency_filenames: string[];
-  eos_filenames: string[];
-  method: string;
-  path: string;
-  precision_filenames: string[];
-  url: string;
-  url_root: string;
-}

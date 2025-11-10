@@ -1,24 +1,12 @@
 import { DATA_URL } from "@sssp/common/config";
 import {
   ElementBandsDataMap,
-  ElementDataResponse,
   ElementsInfo,
   EosData,
   PseudosMetadata,
 } from "@sssp/models";
 
-const API = "https://legacy-api.materialscloud.org/api/v2/discover/sssp";
-
 export default class SsspDataService {
-  static fetchElementData = async (
-    element: string
-  ): Promise<ElementDataResponse> => {
-    const url = `${API}/elements/${element}`;
-    const response = await fetch(url);
-    const json: ElementDataResponse = await response.json();
-    return json || ({} as ElementDataResponse);
-  };
-
   static fetchElementsInfo = async (library: string): Promise<ElementsInfo> => {
     const url = `${DATA_URL}/${library}/info.json`;
     const response = await fetch(url);
