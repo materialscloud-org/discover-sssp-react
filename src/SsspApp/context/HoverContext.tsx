@@ -2,24 +2,35 @@ import { createContext, useState } from "react";
 
 import { ElementModel } from "@sssp/models";
 
-const useHover = () => {
-  const [hoveredPseudo, setHoveredPSeudo] = useState("");
-  const [hoveredElement, setHoveredElement] = useState<ElementModel>();
-
-  return {
-    hoveredPseudo,
-    setHoveredPSeudo,
-    hoveredElement,
-    setHoveredElement,
-  };
+type HoverContextType = {
+  hoveredPseudo: string;
+  setHoveredPseudo: React.Dispatch<React.SetStateAction<string>>;
+  hoveredElement?: ElementModel;
+  setHoveredElement: React.Dispatch<
+    React.SetStateAction<ElementModel | undefined>
+  >;
 };
 
-export const HoverContext = createContext({} as ReturnType<typeof useHover>);
+export const HoverContext = createContext({} as HoverContextType);
 
-interface HoverProviderProps {
+type HoverProviderProps = {
   children: JSX.Element | JSX.Element[];
-}
+};
 
-export const HoverProvider: React.FC<HoverProviderProps> = ({ children }) => (
-  <HoverContext.Provider value={useHover()}>{children}</HoverContext.Provider>
-);
+export const HoverProvider: React.FC<HoverProviderProps> = ({ children }) => {
+  const [hoveredPseudo, setHoveredPseudo] = useState("");
+  const [hoveredElement, setHoveredElement] = useState<ElementModel>();
+
+  return (
+    <HoverContext.Provider
+      value={{
+        hoveredPseudo,
+        setHoveredPseudo,
+        hoveredElement,
+        setHoveredElement,
+      }}
+    >
+      {children}
+    </HoverContext.Provider>
+  );
+};

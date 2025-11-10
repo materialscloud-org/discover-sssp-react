@@ -1,23 +1,17 @@
 import { createContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-const useLibrary = (initialLibrary: string) => {
-  const [activeLibrary, setActiveLibrary] = useState(initialLibrary);
-
-  return {
-    activeLibrary,
-    setActiveLibrary,
-  };
+type LibraryContextType = {
+  activeLibrary: string;
+  setActiveLibrary: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export const LibraryContext = createContext(
-  {} as ReturnType<typeof useLibrary>
-);
+export const LibraryContext = createContext({} as LibraryContextType);
 
-interface LibraryProviderProps {
+type LibraryProviderProps = {
   children: JSX.Element | JSX.Element[];
   defaultLibrary: string;
-}
+};
 
 export const LibraryProvider: React.FC<LibraryProviderProps> = ({
   children,
@@ -25,9 +19,10 @@ export const LibraryProvider: React.FC<LibraryProviderProps> = ({
 }) => {
   const location = useLocation();
   const initialLibrary = location?.pathname.split("/")[2] || defaultLibrary;
+  const [activeLibrary, setActiveLibrary] = useState(initialLibrary);
 
   return (
-    <LibraryContext.Provider value={useLibrary(initialLibrary)}>
+    <LibraryContext.Provider value={{ activeLibrary, setActiveLibrary }}>
       {children}
     </LibraryContext.Provider>
   );
