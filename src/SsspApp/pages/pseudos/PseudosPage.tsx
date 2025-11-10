@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
-import { LibraryContext } from "@sssp/context";
+import { LibraryContext, PseudosProvider } from "@sssp/context";
 import { InvalidPage } from "@sssp/pages";
 
 import DetailsPage from "./details";
@@ -14,26 +14,28 @@ const PseudosPage: React.FC<PseudosPageProps> = ({ libraries }) => {
 
   return (
     <div id="pseudos-page">
-      <Routes>
-        {libraries.map((library) => (
+      <PseudosProvider>
+        <Routes>
+          {libraries.map((library) => (
+            <Route
+              key={library}
+              path={library}
+              element={<TablePage libraries={libraries} />}
+            />
+          ))}
           <Route
-            key={library}
-            path={library}
-            element={<TablePage libraries={libraries} />}
+            path=":element"
+            element={<DetailsPage libraries={libraries} />}
           />
-        ))}
-        <Route
-          path=":element"
-          element={<DetailsPage libraries={libraries} />}
-        />
-        <Route
-          path="/"
-          element={
-            activeLibrary ? <Navigate to={activeLibrary} replace /> : null
-          }
-        />
-        <Route path="*" element={<InvalidPage />} />
-      </Routes>
+          <Route
+            path="/"
+            element={
+              activeLibrary ? <Navigate to={activeLibrary} replace /> : null
+            }
+          />
+          <Route path="*" element={<InvalidPage />} />
+        </Routes>
+      </PseudosProvider>
     </div>
   );
 };

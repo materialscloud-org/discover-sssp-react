@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 
 import { LoadingSpinner } from "@sssp/components";
-import { EosConfigMap, PseudosColormap } from "@sssp/models";
+import { PseudosContext } from "@sssp/context";
+import { EosConfigMap } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
-import { colorPalette } from "../params";
 import PseudosCheckboxes from "../PseudosCheckboxes";
 import EosPlot from "./EosPlot";
 import EosPlotsProps from "./EosPlots.models";
@@ -13,10 +13,10 @@ import styles from "./EosPlots.module.scss";
 
 const EosPlots: React.FC<EosPlotsProps> = ({ element, activeLibrary }) => {
   const [loading, setLoading] = useState(true);
+  const { loadingMetadata } = useContext(PseudosContext);
   const [eosConfigMap, setEosConfigMap] = useState<EosConfigMap>();
   const [pseudos, setPseudos] = useState<string[]>([]);
   const [activePseudos, setActivePseudos] = useState<string[]>([]);
-  const [pseudosColormap, setPseudosColormap] = useState<PseudosColormap>({});
 
   useEffect(() => {
     if (!element) return;
@@ -27,12 +27,6 @@ const EosPlots: React.FC<EosPlotsProps> = ({ element, activeLibrary }) => {
         const pseudos = Object.keys(Object.values(configMap)[0]);
         setPseudos(pseudos);
         setActivePseudos(pseudos);
-        setPseudosColormap(
-          pseudos.reduce((colormap: PseudosColormap, pseudo, i) => {
-            colormap[pseudo] = colorPalette[i % colorPalette.length];
-            return colormap;
-          }, {} as PseudosColormap)
-        );
       })
       .catch((error) => {
         console.error("Error fetching EOS data:", error);
@@ -41,7 +35,7 @@ const EosPlots: React.FC<EosPlotsProps> = ({ element, activeLibrary }) => {
       .finally(() => setLoading(false));
   }, [activeLibrary, element]);
 
-  return loading ? (
+  return loading || loadingMetadata ? (
     <LoadingSpinner />
   ) : !eosConfigMap ? (
     <span>No data available</span>
@@ -52,7 +46,6 @@ const EosPlots: React.FC<EosPlotsProps> = ({ element, activeLibrary }) => {
           <PseudosCheckboxes
             pseudos={pseudos}
             activePseudos={activePseudos}
-            pseudosColormap={pseudosColormap}
             setActivePseudos={setActivePseudos}
           />
         </Col>
@@ -64,7 +57,6 @@ const EosPlots: React.FC<EosPlotsProps> = ({ element, activeLibrary }) => {
                   <EosPlot
                     configuration={configuration}
                     eosPseudosMap={eosPseudosMap}
-                    pseudosColormap={pseudosColormap}
                     activePseudos={activePseudos}
                   />
                 </Col>

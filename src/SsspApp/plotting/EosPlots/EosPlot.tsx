@@ -1,8 +1,9 @@
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 
 import type { Config, Data, Layout, PlotlyHTMLElement } from "plotly.js";
 
 import { EosPlotData } from "@sssp/models";
+import { PseudosContext } from "@sssp/context";
 
 import EosPlotProps from "./EosPlot.models";
 import styles from "./EosPlot.module.scss";
@@ -36,9 +37,9 @@ const BM = (V: number[], V0: number, E0: number, B0: number, B1: number) =>
 const EosPlot: React.FC<EosPlotProps> = ({
   configuration,
   eosPseudosMap,
-  pseudosColormap,
   activePseudos,
 }) => {
+  const { pseudosMetadata } = useContext(PseudosContext);
   const plotRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -63,6 +64,7 @@ const EosPlot: React.FC<EosPlotProps> = ({
       const data: Data[] = Object.entries(eosPseudosMap)
         .filter(([pseudo]) => activePseudos.includes(pseudo))
         .map(([pseudo, eosData]: [string, EosPlotData]) => {
+          const color = pseudosMetadata[pseudo]?.color || "black";
           if (pseudo !== "REF" && eosData.volumes && eosData.energies) {
             const sorted = eosData.volumes
               .map((volume: number, i: number) => ({
@@ -82,7 +84,9 @@ const EosPlot: React.FC<EosPlotProps> = ({
               type: "scatter",
               line: { shape: "spline" },
               name: pseudo,
-              marker: { color: pseudosColormap[pseudo] },
+              marker: {
+                color: color,
+              },
               hovertemplate:
                 hoverTemplate +
                 `<br>\u03BD = ${eosData.nu?.toFixed(hoverDigits)}`,
@@ -98,7 +102,9 @@ const EosPlot: React.FC<EosPlotProps> = ({
               y: BM(x, eosData.V0, 0, eosData.B0, eosData.B1),
               mode: "lines",
               type: "scatter",
-              line: { color: pseudosColormap[pseudo] },
+              line: {
+                color: color,
+              },
               name: pseudo,
               hovertemplate: hoverTemplate,
             };

@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FormCheck, OverlayTrigger, Tooltip } from "react-bootstrap";
+
+import { PseudosContext } from "@sssp/context";
 
 import PseudosCheckboxesProps from "./PseudosCheckboxes.models";
 import styles from "./PseudosCheckboxes.module.scss";
@@ -7,9 +9,9 @@ import styles from "./PseudosCheckboxes.module.scss";
 const PseudosCheckboxes: React.FC<PseudosCheckboxesProps> = ({
   pseudos,
   activePseudos,
-  pseudosColormap,
   setActivePseudos,
 }) => {
+  const { pseudosMetadata } = useContext(PseudosContext);
   const [allPseudosChecked, setAllPseudosChecked] = useState<boolean>(false);
 
   useEffect(() => {
@@ -50,7 +52,9 @@ const PseudosCheckboxes: React.FC<PseudosCheckboxesProps> = ({
             checked={activePseudos.includes(pseudo)}
             disabled={pseudo === "REF"}
             className={styles["pseudo-checkbox"]}
-            style={{ color: pseudosColormap[pseudo] }}
+            style={{
+              color: pseudosMetadata[pseudo]?.color || "black",
+            }}
             onChange={(event) => {
               setActivePseudos(
                 !event.target.checked

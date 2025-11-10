@@ -1,7 +1,3 @@
-export interface PseudosColormap {
-  [pseudo: string]: string;
-}
-
 export interface EosPlotData {
   volumes?: number[];
   energies?: number[];
