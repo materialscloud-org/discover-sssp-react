@@ -1,6 +1,10 @@
 // get the base url subpath from vite.config.ts (base:)
 export const BASE_URL = import.meta.env.BASE_URL || "/";
 
-// raw data location on github
-export const DATA_URL =
-  "https://raw.githubusercontent.com/materialscloud-org/discover-sssp-react/refs/heads/main/public/data";
+const isLocal =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1";
+
+export const DATA_URL = isLocal
+  ? `${BASE_URL}/data`
+  : "https://raw.githubusercontent.com/materialscloud-org/discover-sssp-react/refs/heads/main/public/data";
