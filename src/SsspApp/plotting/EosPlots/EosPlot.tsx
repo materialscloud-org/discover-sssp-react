@@ -112,7 +112,7 @@ const EosPlot: React.FC<EosPlotProps> = ({
         });
 
       const layout: Partial<Layout> = {
-        title: { text: configuration, x: 0.45 },
+        title: { text: configuration, x: 0.55, y: 0.9 },
         xaxis: { title: { text: "Volume [Å³/atom]" }, showgrid: false },
         yaxis: { title: { text: "Energy [eV/atom]" }, showgrid: false },
         showlegend: false,
