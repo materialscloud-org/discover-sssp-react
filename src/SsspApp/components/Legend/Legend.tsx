@@ -29,7 +29,7 @@ const PseudosLegend: React.FC<PseudosLegendProps> = ({ pseudosMetadata }) => {
         >
           <span
             className={styles["pseudo-list-marker"]}
-            style={{ backgroundColor: metadata.background_color }}
+            style={{ backgroundColor: metadata.color }}
           ></span>
           <span className={styles["pseudo-name"]}>{metadata.display_name}</span>
         </li>

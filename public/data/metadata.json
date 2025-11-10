@@ -1,81 +1,81 @@
 {
   "DOJO-041-std": {
-    "background_color": "#ffa500",
+    "color": "#ffa500",
     "display_name": "nc-dojo-v0.4.1-std",
     "short_name": "DOJO-041-std"
   },
   "SPMS": {
-    "background_color": "#7f8001",
+    "color": "#7f8001",
     "display_name": "nc-spms-oncvpsp4",
     "short_name": "SPMS"
   },
   "DOJO-041-str": {
-    "background_color": "#ffb500",
+    "color": "#ffb500",
     "display_name": "nc-dojo-v0.4.1-str",
     "short_name": "DOJO-041-str"
   },
   "DOJO-050-std": {
-    "background_color": "#ffc500",
+    "color": "#ffc500",
     "display_name": "nc-dojo-v0.5.0-std",
     "short_name": "DOJO-050-std"
   },
   "SG15": {
-    "background_color": "#000000",
+    "color": "#000000",
     "display_name": "nc-sg15-oncvpsp4",
     "short_name": "SG15"
   },
   "GBRV-1.X": {
-    "background_color": "#00cdcd",
+    "color": "#00cdcd",
     "display_name": "us-gbrv-v1.x-upf2",
     "short_name": "GBRV-1.X"
   },
   "PSL-US-v1-high": {
-    "background_color": "#ff0000",
+    "color": "#ff0000",
     "display_name": "us-psl-v1.0.0-high",
     "short_name": "PSL-US-v1-high"
   },
   "PSL-US-v1-low": {
-    "background_color": "#fa0000",
+    "color": "#fa0000",
     "display_name": "us-psl-v1.0.0-low",
     "short_name": "PSL-US-v1-low"
   },
   "PSL-US-v0.x": {
-    "background_color": "#0000ff",
+    "color": "#0000ff",
     "display_name": "us-psl-v0.x",
     "short_name": "PSL-US-v0.x"
   },
   "JTH-1.1-std": {
-    "background_color": "#984ea3",
+    "color": "#984ea3",
     "display_name": "paw-jth-v1.1-std",
     "short_name": "JTH-1.1-std"
   },
   "JTH-1.1-str": {
-    "background_color": "#984fa3",
+    "color": "#984fa3",
     "display_name": "paw-jth-v1.1-str",
     "short_name": "JTH-1.1-str"
   },
   "Wentzcovitch": {
-    "background_color": "#610b5e",
+    "color": "#610b5e",
     "display_name": "paw-lanthanides-wentzcovitch",
     "short_name": "Wentzcovitch"
   },
   "PSL-PAW-v0.x": {
-    "background_color": "#ff00ff",
+    "color": "#ff00ff",
     "display_name": "paw-psl-v0.x",
     "short_name": "PSL-PAW-v0.x"
   },
   "PSL-PAW-v1-high": {
-    "background_color": "#008b00",
+    "color": "#008b00",
     "display_name": "paw-psl-v1.0.0-high",
     "short_name": "PSL-PAW-v1-high"
   },
   "PSL-PAW-v1-low": {
-    "background_color": "#008c00",
+    "color": "#008c00",
     "display_name": "paw-psl-v1.0.0-low",
     "short_name": "PSL-PAW-v1-low"
   },
   "MARBURG": {
-    "background_color": "#ea388e",
+    "color": "#ea388e",
     "display_name": "paw-actinides-marburg",
     "short_name": "MARBURG"
   }
