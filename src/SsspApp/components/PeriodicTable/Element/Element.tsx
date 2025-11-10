@@ -16,7 +16,7 @@ const Element: React.FC<ElementProps> = ({ number, symbol, color, info }) => {
   let cutoffText = null;
 
   if (info) {
-    const { cutoff: wfcCutoff, rho_cutoff: rhoCutoff } = info;
+    const { cutoff_wfc: wfcCutoff, cutoff_rho: rhoCutoff } = info;
     cutoffText = (
       <div className={styles["info"]}>
         {wfcCutoff}

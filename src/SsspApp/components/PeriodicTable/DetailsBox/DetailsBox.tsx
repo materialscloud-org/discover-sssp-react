@@ -19,10 +19,11 @@ const DetailsBox = () => {
         <h4 id={styles["cutoff-header"]}>Cutoffs</h4>
         <ul>
           <li>
-            <span className={styles["cutoff-label"]}>Ψ</span>: {info.cutoff} Ry
+            <span className={styles["cutoff-label"]}>Ψ</span>: {info.cutoff_wfc}{" "}
+            Ry
           </li>
           <li>
-            <span className={styles["cutoff-label"]}>ρ</span>: {info.rho_cutoff}{" "}
+            <span className={styles["cutoff-label"]}>ρ</span>: {info.cutoff_rho}{" "}
             Ry
           </li>
         </ul>
