@@ -1,14 +1,13 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { LibraryContext, HoverContext } from "@sssp/context";
+import { HoverContext } from "@sssp/context";
 import { ElementModel } from "@sssp/models";
 
 import ElementProps from "./Element.models";
 import styles from "./Element.module.scss";
 
 const Element: React.FC<ElementProps> = ({ number, symbol, color, info }) => {
-  const { activeLibrary } = useContext(LibraryContext);
   const { hoveredPseudo, setHoveredElement } = useContext(HoverContext);
 
   const classes = [styles["element"], styles[`element-${number}`]];
@@ -44,7 +43,7 @@ const Element: React.FC<ElementProps> = ({ number, symbol, color, info }) => {
       style={{ background: color }}
       onMouseEnter={() => setHoveredElement(objectify())}
       onMouseLeave={() => setHoveredElement(undefined)}
-      to={`../${symbol}#${activeLibrary}`}
+      to={`../${symbol}`}
     >
       <div className={styles["symbol"]}>{symbol}</div>
       {cutoffText}

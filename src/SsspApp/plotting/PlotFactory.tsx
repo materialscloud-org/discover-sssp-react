@@ -13,34 +13,22 @@ const BandStructurePlot = lazy(() => import("./BandStructurePlot"));
 
 const PlotFactory: React.FC<PlotFactoryProps> = ({
   element,
-  activeLibrary,
   setActiveTab,
   type,
 }) => {
   let plot = null;
   switch (type) {
     case "Convergence Summary":
-      plot = (
-        <ConvergencePlots element={element} activeLibrary={activeLibrary} />
-      );
+      plot = <ConvergencePlots element={element} />;
       break;
     case "Bands Chessboards":
-      plot = (
-        <BandsChessboardPlots
-          activeLibrary={activeLibrary}
-          setActiveTab={setActiveTab}
-        />
-      );
+      plot = <BandsChessboardPlots setActiveTab={setActiveTab} />;
       break;
     case "Equation of State":
-      plot = (
-        <EquationOfStatePlots element={element} activeLibrary={activeLibrary} />
-      );
+      plot = <EquationOfStatePlots element={element} />;
       break;
     case "Band Structure":
-      plot = (
-        <BandStructurePlot element={element} activeLibrary={activeLibrary} />
-      );
+      plot = <BandStructurePlot element={element} />;
       break;
     default:
       console.error(`Invalid plot type: ${type}`);

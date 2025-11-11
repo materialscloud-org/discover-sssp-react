@@ -10,10 +10,7 @@ import PseudosCheckboxes from "../PseudosCheckboxes";
 import BandStructurePlotProps from "./BandStructurePlot.models";
 import styles from "./BandStructurePlot.module.scss";
 
-const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
-  element,
-  activeLibrary,
-}) => {
+const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
   const [loading, setLoading] = useState(true);
   const { loadingMetadata, pseudosMetadata, activePseudos, setActivePseudos } =
     useContext(PseudosContext);
@@ -23,7 +20,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
 
   useEffect(() => {
     if (!element) return;
-    SsspDataService.fetchBandsData(activeLibrary)
+    SsspDataService.fetchBandsData()
       .then((data) => {
         const elementData = data[element];
         setBandsPseudosMap(elementData);
@@ -40,7 +37,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
       .finally(() => {
         setLoading(false);
       });
-  }, [activeLibrary, element]);
+  }, [element]);
 
   useEffect(() => {
     if (bandsPseudosMap && plotRef.current) {

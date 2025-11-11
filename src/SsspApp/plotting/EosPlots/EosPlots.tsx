@@ -11,7 +11,7 @@ import EosPlot from "./EosPlot";
 import EosPlotsProps from "./EosPlots.models";
 import styles from "./EosPlots.module.scss";
 
-const EosPlots: React.FC<EosPlotsProps> = ({ element, activeLibrary }) => {
+const EosPlots: React.FC<EosPlotsProps> = ({ element }) => {
   const [loading, setLoading] = useState(true);
   const { loadingMetadata } = useContext(PseudosContext);
   const [eosConfigMap, setEosConfigMap] = useState<EosConfigMap>();
@@ -20,7 +20,7 @@ const EosPlots: React.FC<EosPlotsProps> = ({ element, activeLibrary }) => {
 
   useEffect(() => {
     if (!element) return;
-    SsspDataService.fetchEosData(activeLibrary)
+    SsspDataService.fetchEosData()
       .then((data) => {
         const configMap = data[element];
         setEosConfigMap(configMap);
@@ -33,7 +33,7 @@ const EosPlots: React.FC<EosPlotsProps> = ({ element, activeLibrary }) => {
         setEosConfigMap(undefined);
       })
       .finally(() => setLoading(false));
-  }, [activeLibrary, element]);
+  }, [element]);
 
   return loading || loadingMetadata ? (
     <LoadingSpinner />
