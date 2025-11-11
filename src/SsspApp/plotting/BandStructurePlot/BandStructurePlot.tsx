@@ -74,6 +74,10 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
     <span>No data available</span>
   ) : (
     <div id="bands-plots">
+      <div style={{ fontWeight: "bold", textAlign: "center" }}>
+        Disclaimer: The data shown does not reflect real data and is for
+        demonstration purposes only.
+      </div>
       <Row>
         <Col md={3} lg={2}>
           <PseudosCheckboxes
