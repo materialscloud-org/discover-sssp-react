@@ -31,10 +31,7 @@ const config: Partial<Config> = {
   displaylogo: false,
 };
 
-const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
-  element,
-  library,
-}) => {
+const ConvergencePlot: React.FC<ConvergencePlotProps> = ({ element }) => {
   const [loading, setLoading] = useState(true);
   const { loadingMetadata, pseudosMetadata } = useContext(PseudosContext);
   const [conff, setConff] = useState("");
@@ -42,7 +39,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
   const plotRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    SsspDataService.fetchPseudosSummaryData(library, element)
+    SsspDataService.fetchPseudosSummaryData(element)
       .then((data) => {
         setConff(data.conff);
         setPseudos(data.pseudos.slice(0, 20));
@@ -55,7 +52,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
       .finally(() => {
         setLoading(false);
       });
-  }, [element, library]);
+  }, [element]);
 
   useEffect(() => {
     if (loading || loadingMetadata || !pseudos.length || !plotRef.current) {
@@ -71,9 +68,9 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
 
       if (destroyed || !plotRef.current) return;
 
-      const EOS_C_FACTOR = library === "efficiency" ? 0.2 : 0.1;
-      const PHONON_C_FACTOR = library === "efficiency" ? 2 : 1;
-      const PRESSURE_C_FACTOR = library === "efficiency" ? 1 : 0.5;
+      const EOS_C_FACTOR = 0.2;
+      const PHONON_C_FACTOR = 2;
+      const PRESSURE_C_FACTOR = 1;
 
       const data: Partial<Data>[] = [];
       const annotations: Partial<Annotations>[] = [];
@@ -222,7 +219,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
             align: "left",
             font: { size: fontSize },
           });
-          // Line
+          // Efficiency line
           data.push({
             x: [0, 250],
             y: [offset + windowHeight, offset + windowHeight],
@@ -231,6 +228,17 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
             text: eta_c.map((v) => v.toFixed(2)),
             showlegend: false,
             line: { color: color, width: lineWidth, dash: "dashdot" },
+            hoverinfo: "skip",
+          });
+          // Precision line
+          data.push({
+            x: [0, 250],
+            y: [offset + windowHeight / 2, offset + windowHeight / 2],
+            type: "scatter",
+            mode: "lines",
+            text: eta_c.map((v) => v.toFixed(2)),
+            showlegend: false,
+            line: { color: "gray", width: lineWidth, dash: "dot" },
             hoverinfo: "skip",
           });
 
@@ -301,7 +309,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
 
       const layout: Partial<Layout> = {
         title: {
-          text: `Verification summary: ${element} (${conff}) (${library})`,
+          text: `Verification summary: ${element} (${conff})`,
         },
         xaxis: {
           title: {
@@ -319,7 +327,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
         yaxis: {
           side: "right",
           title: {
-            text: `Error w.r.t. ref. wavefunction cutoff (for the SSSP ${library} criteria)`,
+            text: `Error w.r.t. ref. wavefunction cutoff`,
           },
           zeroline: false,
           showgrid: false,

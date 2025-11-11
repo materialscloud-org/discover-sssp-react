@@ -8,23 +8,21 @@ import {
 
 export default class SsspDataService {
   static fetchElementsInfo = async (library: string): Promise<ElementsInfo> => {
-    const url = `${DATA_URL}/${library}/info.json`;
+    const url = `${DATA_URL}/${library}.json`;
     const response = await fetch(url);
     const json: ElementsInfo = await response.json();
     return json || ({} as ElementsInfo);
   };
 
-  static fetchEosData = async (library: string): Promise<EosData> => {
-    const url = `${DATA_URL}/${library}/eos.json`;
+  static fetchEosData = async (): Promise<EosData> => {
+    const url = `${DATA_URL}/eos.json`;
     const response = await fetch(url);
     const json: EosData = await response.json();
     return json || ({} as EosData);
   };
 
-  static fetchBandsData = async (
-    library: string
-  ): Promise<ElementBandsDataMap> => {
-    const url = `${DATA_URL}/${library}/bands.json`;
+  static fetchBandsData = async (): Promise<ElementBandsDataMap> => {
+    const url = `${DATA_URL}/bands.json`;
     const response = await fetch(url);
     const json: ElementBandsDataMap = await response.json();
     return json || ({} as ElementBandsDataMap);
@@ -38,10 +36,9 @@ export default class SsspDataService {
   };
 
   static fetchPseudosSummaryData = async (
-    library: string,
     element: string
   ): Promise<PseudoResponse> => {
-    const url = `${DATA_URL}/${library}/summary/${element}.json`;
+    const url = `${DATA_URL}/summary/${element}.json`;
     const response = await fetch(url);
     const json: PseudoResponse = await response.json();
     return json || ({} as PseudoResponse);

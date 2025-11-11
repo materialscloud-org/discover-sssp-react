@@ -1,16 +1,7 @@
 import { useEffect, useState } from "react";
-import {
-  Button,
-  FormSelect,
-  OverlayTrigger,
-  Tab,
-  Tabs,
-  Tooltip,
-} from "react-bootstrap";
-import { BiInfoCircle } from "react-icons/bi";
+import { Button, Tab, Tabs } from "react-bootstrap";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
-import { capitalize } from "@sssp/common/utils";
 import { LoadingSpinner } from "@sssp/components";
 import { InvalidPage } from "@sssp/pages";
 import { PlotFactory } from "@sssp/plotting";
@@ -66,34 +57,6 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ libraries }) => {
         >
           Back to table
         </Button>
-        <FormSelect
-          id={styles["library-selector"]}
-          value={activeLibrary}
-          onChange={(event) => navigate(`#${event.target.value}`)}
-        >
-          <option value="" disabled>
-            Choose library
-          </option>
-          {libraries.map((library) => (
-            <option key={library} value={library}>
-              {capitalize(library)}
-            </option>
-          ))}
-        </FormSelect>
-        <OverlayTrigger
-          placement="right"
-          delay={{ show: 100, hide: 100 }}
-          overlay={
-            <Tooltip id={styles["library-tooltip"]}>
-              The recommended pseudopotential for the selected library will be
-              highlighted in the data below
-            </Tooltip>
-          }
-        >
-          <span id={styles["library-info"]}>
-            <BiInfoCircle />
-          </span>
-        </OverlayTrigger>
       </div>
       <div className="sssp-pseudos-header">
         <span>Element: {`${element || "None provided"}`}</span>
@@ -110,7 +73,6 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ libraries }) => {
               {visitedTabs.has(type) ? (
                 <PlotFactory
                   element={element}
-                  activeLibrary={activeLibrary}
                   setActiveTab={setActiveTab}
                   type={type}
                 />

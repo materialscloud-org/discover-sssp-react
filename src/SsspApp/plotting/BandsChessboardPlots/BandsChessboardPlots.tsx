@@ -9,7 +9,6 @@ import BandsChessboardPlotsProps from "./BandsChessboardPlots.models";
 import styles from "./BandsChessboardPlots.module.scss";
 
 const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
-  activeLibrary,
   setActiveTab,
 }) => {
   const { loadingMetadata, pseudosMetadata, setActivePseudos } =
@@ -21,11 +20,10 @@ const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
 
   const generateDummyData = (size: number): number[][] => {
     const data: number[][] = [];
-    const multiplier = activeLibrary === "efficiency" ? 100 : 200;
     for (let i = 0; i < size; i++) {
       const row: number[] = [];
       for (let j = 0; j < size; j++) {
-        row.push(Math.random() * multiplier);
+        row.push(Math.random() * 100);
       }
       data.push(row);
     }
