@@ -45,8 +45,8 @@ const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
   ) : (
     <div id="chessboard-page">
       <div style={{ fontWeight: "bold", textAlign: "center" }}>
-        Disclaimer: The data shown is randomly generated for demonstration
-        purposes.
+        Disclaimer: The data shown does not reflect real data and is for
+        demonstration purposes only.
       </div>
       <div id={styles["chessboard-plots"]}>
         <Col xl={12} xxl={6}>
