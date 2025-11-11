@@ -18,11 +18,11 @@ const config: Partial<Config> = {
 };
 
 const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
-  element,
   pseudos,
   values,
   title,
   colorMax,
+  tileClickHandler,
 }) => {
   const plotRef = useRef<HTMLDivElement>(null);
 
@@ -47,6 +47,11 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
           colorscale: "Inferno",
           type: "heatmap",
         },
+        {
+          yaxis: "y2",
+          mode: "none",
+          showlegend: false,
+        },
       ];
 
       const layout: Partial<Layout> = {
@@ -58,10 +63,32 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         },
         yaxis: {
           autorange: "reversed",
-          title: { text: `max ${title}`, standoff: 15 },
+          title: { text: "" },
           fixedrange: true,
         },
-        margin: { t: 80, r: 60, b: 40, l: 100 },
+        yaxis2: {
+          overlaying: "y",
+          side: "right",
+          title: { text: `Max ${title}`, standoff: 100 },
+          showticklabels: false,
+          fixedrange: true,
+        },
+        hoverlabel: { namelength: 0 },
+        annotations: values
+          .map((row, i) =>
+            row.map((value, j) => ({
+              x: pseudos[j],
+              y: pseudos[i],
+              text: value.toFixed(1),
+              showarrow: false,
+              font: {
+                color: value > colorMax / 2 ? "white" : "black",
+                size: 10,
+              },
+            }))
+          )
+          .flat(),
+        margin: { t: 140, r: 60, b: 40, l: 140 },
         paper_bgcolor: "rgba(0,0,0,0)",
         plot_bgcolor: "rgba(0,0,0,0)",
       };
@@ -73,14 +100,12 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         config
       )) as PlotlyHTMLElement;
 
-      const handleClick = (event: PlotMouseEvent) => {
+      graphDiv.on("plotly_click", (event: PlotMouseEvent) => {
         const { x, y } = event.points[0];
-        console.log(x, y);
-      };
+        tileClickHandler([x as string, y as string]);
+      });
 
-      graphDiv.on("plotly_click", handleClick);
-
-      const keepAspectRatio = (gd: any) => {
+      const handleResize = (gd: PlotlyHTMLElement) => {
         if (!gd) return;
         const update = {
           width: gd.offsetWidth,
@@ -89,8 +114,9 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         Plotly.relayout(gd, update);
       };
 
-      window.addEventListener("resize", () => keepAspectRatio(graphDiv));
-      keepAspectRatio(graphDiv);
+      resizeHandler = () => handleResize(graphDiv!);
+      window.addEventListener("resize", resizeHandler);
+      handleResize(graphDiv);
 
       return () => {
         if (graphDiv) graphDiv.removeAllListeners?.("plotly_click");
@@ -104,12 +130,12 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         try {
           graphDiv.removeAllListeners?.("plotly_click");
           Plotly.purge(graphDiv);
-        } catch {
-          /* ignore */
+        } catch (error) {
+          console.error("Error purging BandsChessboardPlot:", error);
         }
       }
     };
-  }, [element, pseudos, values, title, colorMax]);
+  }, [pseudos, values, title, colorMax]);
 
   return <div ref={plotRef} className={styles["chessboard-plot"]} />;
 };

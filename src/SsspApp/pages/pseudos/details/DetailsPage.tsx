@@ -111,6 +111,7 @@ const DetailsPage: React.FC<DetailsPageProps> = ({ libraries }) => {
                 <PlotFactory
                   element={element}
                   activeLibrary={activeLibrary}
+                  setActiveTab={setActiveTab}
                   type={type}
                 />
               ) : (

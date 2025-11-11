@@ -37,6 +37,10 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
       });
   }, []);
 
+  const alwaysIncludeRef = (pseudos: string[]) => {
+    setActivePseudos(!pseudos.includes("REF") ? ["REF", ...pseudos] : pseudos);
+  };
+
   return (
     <PseudosContext.Provider
       value={{
@@ -44,7 +48,7 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
         pseudosMetadata,
         setPseudosMetadata,
         activePseudos,
-        setActivePseudos,
+        setActivePseudos: alwaysIncludeRef,
       }}
     >
       {children}

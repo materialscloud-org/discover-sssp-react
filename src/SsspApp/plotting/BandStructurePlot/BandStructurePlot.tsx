@@ -15,27 +15,27 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
   activeLibrary,
 }) => {
   const [loading, setLoading] = useState(true);
-  const { loadingMetadata, pseudosMetadata } = useContext(PseudosContext);
+  const { loadingMetadata, pseudosMetadata, activePseudos, setActivePseudos } =
+    useContext(PseudosContext);
   const [pseudos, setPseudos] = useState<string[]>([]);
-  const [activePseudos, setActivePseudos] = useState<string[]>(["REF"]);
   const [bandsPseudosMap, setBandsPseudosMap] = useState<BandsPseudosMap>();
   const plotRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!element) {
-      return;
-    }
+    if (!element) return;
     SsspDataService.fetchBandsData(activeLibrary)
       .then((data) => {
         const elementData = data[element];
         setBandsPseudosMap(elementData);
         const pseudos = elementData && Object.keys(elementData);
         setPseudos(pseudos);
+        setActivePseudos(["REF"]);
       })
       .catch((error) => {
         console.error("Error fetching bands data:", error);
         setBandsPseudosMap(undefined);
         setPseudos([]);
+        setActivePseudos([]);
       })
       .finally(() => {
         setLoading(false);

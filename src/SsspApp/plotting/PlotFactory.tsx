@@ -14,6 +14,7 @@ const BandStructurePlot = lazy(() => import("./BandStructurePlot"));
 const PlotFactory: React.FC<PlotFactoryProps> = ({
   element,
   activeLibrary,
+  setActiveTab,
   type,
 }) => {
   let plot = null;
@@ -25,7 +26,10 @@ const PlotFactory: React.FC<PlotFactoryProps> = ({
       break;
     case "Bands Chessboards":
       plot = (
-        <BandsChessboardPlots element={element} activeLibrary={activeLibrary} />
+        <BandsChessboardPlots
+          activeLibrary={activeLibrary}
+          setActiveTab={setActiveTab}
+        />
       );
       break;
     case "Equation of State":

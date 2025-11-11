@@ -1,4 +1,4 @@
 export default interface BandsChessboardPlotsProps {
-  element: string;
   activeLibrary: string;
+  setActiveTab: (tab: string) => void;
 }
