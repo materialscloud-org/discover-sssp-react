@@ -24,13 +24,13 @@ const TablePage: React.FC<TablePageProps> = ({ libraries }) => {
   }, [location.pathname, setActiveLibrary]);
 
   useEffect(() => {
-    SsspDataService.fetchElementsInfo(activeLibrary)
+    SsspDataService.fetchElementsInfo()
       .then((elementsInfo) => setElementsInfo(elementsInfo))
       .catch((error) => {
         console.error("Error fetching elements info:", error);
       })
       .finally(() => setLoading(false));
-  }, [activeLibrary]);
+  }, []);
 
   return loading || loadingMetadata ? (
     <LoadingSpinner />
@@ -45,7 +45,7 @@ const TablePage: React.FC<TablePageProps> = ({ libraries }) => {
           <LibraryToggle libraries={libraries} />
           <PeriodicTable
             pseudosMetadata={pseudosMetadata}
-            elementsInfo={elementsInfo}
+            libraryElementsInfo={elementsInfo[activeLibrary]}
           />
         </div>
       </HoverProvider>

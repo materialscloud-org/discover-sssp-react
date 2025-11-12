@@ -7,8 +7,8 @@ import {
 } from "@sssp/models";
 
 export default class SsspDataService {
-  static fetchElementsInfo = async (library: string): Promise<ElementsInfo> => {
-    const url = `${DATA_URL}/${library}.json`;
+  static fetchElementsInfo = async (): Promise<ElementsInfo> => {
+    const url = `${DATA_URL}/info.json`;
     const response = await fetch(url);
     const json: ElementsInfo = await response.json();
     return json || ({} as ElementsInfo);

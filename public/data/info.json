@@ -1,0 +1,1116 @@
+{
+  "efficiency": {
+    "H": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 120,
+      "Z": 1
+    },
+    "He": {
+      "pseudopotential": "SG15",
+      "cutoff_wfc": 50,
+      "cutoff_rho": 150,
+      "Z": 2
+    },
+    "Li": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 140,
+      "Z": 3
+    },
+    "Be": {
+      "pseudopotential": "PSL-US-v1-low",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 105,
+      "Z": 2
+    },
+    "B": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 60,
+      "Z": 3
+    },
+    "C": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 105,
+      "Z": 4
+    },
+    "N": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 140,
+      "Z": 5
+    },
+    "O": {
+      "pseudopotential": "PSL-PAW-v0.x",
+      "cutoff_wfc": 45,
+      "cutoff_rho": 540,
+      "Z": 6
+    },
+    "F": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 45,
+      "cutoff_rho": 158,
+      "Z": 7
+    },
+    "Na": {
+      "pseudopotential": "PSL-PAW-v0.x",
+      "cutoff_wfc": 50,
+      "cutoff_rho": 150,
+      "Z": 9
+    },
+    "Mg": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 160,
+      "Z": 10
+    },
+    "Al": {
+      "pseudopotential": "PSL-US-v1-low",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 60,
+      "Z": 3
+    },
+    "Si": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 150,
+      "Z": 4
+    },
+    "P": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 90,
+      "Z": 5
+    },
+    "S": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 90,
+      "Z": 6
+    },
+    "Cl": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 210,
+      "Z": 7
+    },
+    "Ar": {
+      "pseudopotential": "PSL-PAW-v1-low",
+      "cutoff_wfc": 75,
+      "cutoff_rho": 300,
+      "Z": 8
+    },
+    "K": {
+      "pseudopotential": "SG15",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 105,
+      "Z": 9
+    },
+    "Ca": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 105,
+      "Z": 10
+    },
+    "Sc": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 135,
+      "Z": 11
+    },
+    "Ti": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 180,
+      "Z": 12
+    },
+    "V": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 140,
+      "Z": 13
+    },
+    "Cr": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 175,
+      "Z": 14
+    },
+    "Mn": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 160,
+      "Z": 15
+    },
+    "Fe": {
+      "pseudopotential": "PSL-PAW-v0.x",
+      "cutoff_wfc": 80,
+      "cutoff_rho": 400,
+      "Z": 16
+    },
+    "Co": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 55,
+      "cutoff_rho": 165,
+      "Z": 17
+    },
+    "Ni": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 65,
+      "cutoff_rho": 195,
+      "Z": 18
+    },
+    "Cu": {
+      "pseudopotential": "PSL-PAW-v1-low",
+      "cutoff_wfc": 55,
+      "cutoff_rho": 165,
+      "Z": 11
+    },
+    "Zn": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 45,
+      "cutoff_rho": 225,
+      "Z": 12
+    },
+    "Ga": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 150,
+      "Z": 13
+    },
+    "Ge": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 160,
+      "Z": 14
+    },
+    "As": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 180,
+      "Z": 15
+    },
+    "Se": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 120,
+      "Z": 6
+    },
+    "Br": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 75,
+      "Z": 7
+    },
+    "Rb": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 90,
+      "Z": 9
+    },
+    "Sr": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 120,
+      "Z": 10
+    },
+    "Y": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 150,
+      "Z": 11
+    },
+    "Zr": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 90,
+      "Z": 12
+    },
+    "Nb": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 90,
+      "Z": 13
+    },
+    "Mo": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 60,
+      "Z": 14
+    },
+    "Tc": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 120,
+      "Z": 15
+    },
+    "Ru": {
+      "pseudopotential": "SG15",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 70,
+      "Z": 16
+    },
+    "Rh": {
+      "pseudopotential": "SG15",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 122,
+      "Z": 17
+    },
+    "Pd": {
+      "pseudopotential": "SG15",
+      "cutoff_wfc": 45,
+      "cutoff_rho": 135,
+      "Z": 18
+    },
+    "Ag": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 160,
+      "Z": 19
+    },
+    "Cd": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 80,
+      "Z": 12
+    },
+    "In": {
+      "pseudopotential": "PSL-US-v0.x",
+      "cutoff_wfc": 50,
+      "cutoff_rho": 150,
+      "Z": 13
+    },
+    "Sn": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 140,
+      "Z": 14
+    },
+    "Sb": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 120,
+      "Z": 15
+    },
+    "Te": {
+      "pseudopotential": "PSL-US-v1-low",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 60,
+      "Z": 6
+    },
+    "I": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 120,
+      "Z": 7
+    },
+    "Xe": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 8
+    },
+    "Cs": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 105,
+      "Z": 9
+    },
+    "Ba": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 45,
+      "Z": 10
+    },
+    "Ce": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 70,
+      "Z": 12
+    },
+    "Pr": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 75,
+      "Z": 13
+    },
+    "Nd": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 210,
+      "Z": 14
+    },
+    "Pm": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 105,
+      "Z": 15
+    },
+    "Sm": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 200,
+      "cutoff_rho": 400,
+      "Z": 26
+    },
+    "Eu": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 105,
+      "Z": 17
+    },
+    "Gd": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 140,
+      "Z": 18
+    },
+    "Tb": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 140,
+      "Z": 19
+    },
+    "Dy": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 160,
+      "Z": 20
+    },
+    "Ho": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 160,
+      "Z": 21
+    },
+    "Er": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 80,
+      "cutoff_rho": 160,
+      "Z": 22
+    },
+    "Tm": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 160,
+      "Z": 23
+    },
+    "Yb": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 80,
+      "cutoff_rho": 560,
+      "Z": 24
+    },
+    "Lu": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 45,
+      "cutoff_rho": 180,
+      "Z": 25
+    },
+    "Hf": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 90,
+      "Z": 12
+    },
+    "Ta": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 75,
+      "Z": 13
+    },
+    "W": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 90,
+      "Z": 14
+    },
+    "Re": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 120,
+      "Z": 15
+    },
+    "Os": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 140,
+      "Z": 16
+    },
+    "Ir": {
+      "pseudopotential": "PSL-PAW-v1-low",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 88,
+      "Z": 9
+    },
+    "Pt": {
+      "pseudopotential": "PSL-US-v1-low",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 120,
+      "Z": 10
+    },
+    "Au": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 105,
+      "Z": 11
+    },
+    "Hg": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 120,
+      "Z": 12
+    },
+    "Tl": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 90,
+      "Z": 13
+    },
+    "Pb": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 75,
+      "Z": 14
+    },
+    "Bi": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 45,
+      "cutoff_rho": 180,
+      "Z": 15
+    },
+    "Po": {
+      "pseudopotential": "DOJO-041-std",
+      "cutoff_wfc": 60,
+      "cutoff_rho": 180,
+      "Z": 16
+    },
+    "At": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 90,
+      "Z": 7
+    },
+    "Rn": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 135,
+      "Z": 8
+    },
+    "Fr": {
+      "pseudopotential": "PSL-PAW-v1-high",
+      "cutoff_wfc": 150,
+      "cutoff_rho": 675,
+      "Z": 19
+    },
+    "Ra": {
+      "pseudopotential": "PSL-PAW-v1-high",
+      "cutoff_wfc": 150,
+      "cutoff_rho": 600,
+      "Z": 20
+    },
+    "Ac": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 100,
+      "Z": 11
+    },
+    "Th": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 75,
+      "cutoff_rho": 255,
+      "Z": 12
+    },
+    "Pa": {
+      "pseudopotential": "MARBURG",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 240,
+      "Z": 13
+    },
+    "U": {
+      "pseudopotential": "MARBURG",
+      "cutoff_wfc": 45,
+      "cutoff_rho": 180,
+      "Z": 14
+    },
+    "Np": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 90,
+      "cutoff_rho": 180,
+      "Z": 15
+    },
+    "Pu": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 160,
+      "Z": 16
+    },
+    "Am": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 45,
+      "cutoff_rho": 100,
+      "Z": 17
+    }
+  },
+  "precision": {
+    "H": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 45,
+      "cutoff_rho": 360,
+      "Z": 1
+    },
+    "He": {
+      "pseudopotential": "PSL-PAW-v1-high",
+      "cutoff_wfc": 100,
+      "cutoff_rho": 800,
+      "Z": 2
+    },
+    "Li": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 320,
+      "Z": 3
+    },
+    "Be": {
+      "pseudopotential": "PSL-US-v1-low",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 2
+    },
+    "B": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 3
+    },
+    "C": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 4
+    },
+    "N": {
+      "pseudopotential": "PSL-PAW-v0.x",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 320,
+      "Z": 5
+    },
+    "O": {
+      "pseudopotential": "PSL-PAW-v0.x",
+      "cutoff_wfc": 50,
+      "cutoff_rho": 600,
+      "Z": 6
+    },
+    "F": {
+      "pseudopotential": "PSL-US-v0.x",
+      "cutoff_wfc": 75,
+      "cutoff_rho": 600,
+      "Z": 7
+    },
+    "Ne": {
+      "pseudopotential": "PSL-PAW-v1-high",
+      "cutoff_wfc": 200,
+      "cutoff_rho": 1600,
+      "Z": 8
+    },
+    "Na": {
+      "pseudopotential": "PSL-PAW-v0.x",
+      "cutoff_wfc": 55,
+      "cutoff_rho": 440,
+      "Z": 9
+    },
+    "Mg": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 320,
+      "Z": 10
+    },
+    "Al": {
+      "pseudopotential": "PSL-US-v1-low",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 3
+    },
+    "Si": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 4
+    },
+    "P": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 5
+    },
+    "S": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 140,
+      "Z": 6
+    },
+    "Cl": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 280,
+      "Z": 7
+    },
+    "Ar": {
+      "pseudopotential": "PSL-PAW-v1-low",
+      "cutoff_wfc": 120,
+      "cutoff_rho": 960,
+      "Z": 8
+    },
+    "K": {
+      "pseudopotential": "SG15",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 140,
+      "Z": 9
+    },
+    "Ca": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 10
+    },
+    "Sc": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 11
+    },
+    "Ti": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 280,
+      "Z": 12
+    },
+    "V": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 320,
+      "Z": 13
+    },
+    "Cr": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 480,
+      "Z": 14
+    },
+    "Mn": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 480,
+      "Z": 15
+    },
+    "Fe": {
+      "pseudopotential": "PSL-PAW-v0.x",
+      "cutoff_wfc": 90,
+      "cutoff_rho": 1080,
+      "Z": 16
+    },
+    "Co": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 55,
+      "cutoff_rho": 660,
+      "Z": 17
+    },
+    "Ni": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 65,
+      "cutoff_rho": 780,
+      "Z": 18
+    },
+    "Cu": {
+      "pseudopotential": "PSL-PAW-v1-low",
+      "cutoff_wfc": 55,
+      "cutoff_rho": 440,
+      "Z": 11
+    },
+    "Zn": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 50,
+      "cutoff_rho": 400,
+      "Z": 12
+    },
+    "Ga": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 13
+    },
+    "Ge": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 320,
+      "Z": 14
+    },
+    "As": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 15
+    },
+    "Se": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 6
+    },
+    "Br": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 120,
+      "Z": 7
+    },
+    "Rb": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 9
+    },
+    "Sr": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 10
+    },
+    "Y": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 11
+    },
+    "Zr": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 12
+    },
+    "Nb": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 13
+    },
+    "Mo": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 14
+    },
+    "Tc": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 15
+    },
+    "Ru": {
+      "pseudopotential": "SG15",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 140,
+      "Z": 16
+    },
+    "Rh": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 45,
+      "cutoff_rho": 180,
+      "Z": 17
+    },
+    "Pd": {
+      "pseudopotential": "SG15",
+      "cutoff_wfc": 45,
+      "cutoff_rho": 180,
+      "Z": 18
+    },
+    "Ag": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 45,
+      "cutoff_rho": 180,
+      "Z": 19
+    },
+    "Cd": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 150,
+      "cutoff_rho": 1200,
+      "Z": 12
+    },
+    "In": {
+      "pseudopotential": "PSL-US-v0.x",
+      "cutoff_wfc": 50,
+      "cutoff_rho": 400,
+      "Z": 13
+    },
+    "Sn": {
+      "pseudopotential": "JTH-1.1-std",
+      "cutoff_wfc": 150,
+      "cutoff_rho": 1200,
+      "Z": 14
+    },
+    "Sb": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 50,
+      "cutoff_rho": 200,
+      "Z": 15
+    },
+    "Te": {
+      "pseudopotential": "PSL-US-v1-low",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 6
+    },
+    "I": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 7
+    },
+    "Xe": {
+      "pseudopotential": "DOJO-050-std",
+      "cutoff_wfc": 150,
+      "cutoff_rho": 600,
+      "Z": 8
+    },
+    "Cs": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 160,
+      "Z": 9
+    },
+    "Ba": {
+      "pseudopotential": "DOJO-050-std",
+      "cutoff_wfc": 55,
+      "cutoff_rho": 220,
+      "Z": 10
+    },
+    "Ce": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 280,
+      "Z": 12
+    },
+    "Pr": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 90,
+      "cutoff_rho": 720,
+      "Z": 13
+    },
+    "Nd": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 320,
+      "Z": 14
+    },
+    "Pm": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 50,
+      "cutoff_rho": 400,
+      "Z": 15
+    },
+    "Sm": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 200,
+      "cutoff_rho": 1600,
+      "Z": 26
+    },
+    "Eu": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 280,
+      "Z": 17
+    },
+    "Gd": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 50,
+      "cutoff_rho": 400,
+      "Z": 18
+    },
+    "Tb": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 55,
+      "cutoff_rho": 440,
+      "Z": 19
+    },
+    "Dy": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 200,
+      "cutoff_rho": 1600,
+      "Z": 20
+    },
+    "Ho": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 120,
+      "cutoff_rho": 960,
+      "Z": 21
+    },
+    "Er": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 150,
+      "cutoff_rho": 1200,
+      "Z": 22
+    },
+    "Tm": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 200,
+      "cutoff_rho": 1600,
+      "Z": 23
+    },
+    "Yb": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 150,
+      "cutoff_rho": 1200,
+      "Z": 24
+    },
+    "Lu": {
+      "pseudopotential": "Wentzcovitch",
+      "cutoff_wfc": 50,
+      "cutoff_rho": 400,
+      "Z": 25
+    },
+    "Hf": {
+      "pseudopotential": "SG15",
+      "cutoff_wfc": 60,
+      "cutoff_rho": 240,
+      "Z": 26
+    },
+    "Ta": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 120,
+      "Z": 13
+    },
+    "W": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 120,
+      "Z": 14
+    },
+    "Re": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 15
+    },
+    "Os": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 320,
+      "Z": 16
+    },
+    "Ir": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 120,
+      "Z": 17
+    },
+    "Pt": {
+      "pseudopotential": "PSL-US-v1-low",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 280,
+      "Z": 10
+    },
+    "Au": {
+      "pseudopotential": "SPMS",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 140,
+      "Z": 19
+    },
+    "Hg": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 30,
+      "cutoff_rho": 240,
+      "Z": 12
+    },
+    "Tl": {
+      "pseudopotential": "SG15",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 140,
+      "Z": 13
+    },
+    "Pb": {
+      "pseudopotential": "SG15",
+      "cutoff_wfc": 35,
+      "cutoff_rho": 140,
+      "Z": 14
+    },
+    "Bi": {
+      "pseudopotential": "GBRV-1.X",
+      "cutoff_wfc": 45,
+      "cutoff_rho": 360,
+      "Z": 15
+    },
+    "Po": {
+      "pseudopotential": "DOJO-041-std",
+      "cutoff_wfc": 65,
+      "cutoff_rho": 260,
+      "Z": 16
+    },
+    "At": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 120,
+      "cutoff_rho": 960,
+      "Z": 17
+    },
+    "Rn": {
+      "pseudopotential": "PSL-PAW-v1-high",
+      "cutoff_wfc": 200,
+      "cutoff_rho": 1600,
+      "Z": 18
+    },
+    "Fr": {
+      "pseudopotential": "PSL-PAW-v1-high",
+      "cutoff_wfc": 200,
+      "cutoff_rho": 1600,
+      "Z": 19
+    },
+    "Ra": {
+      "pseudopotential": "PSL-PAW-v1-high",
+      "cutoff_wfc": 150,
+      "cutoff_rho": 1200,
+      "Z": 20
+    },
+    "Ac": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 320,
+      "Z": 11
+    },
+    "Th": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 80,
+      "cutoff_rho": 640,
+      "Z": 12
+    },
+    "Pa": {
+      "pseudopotential": "MARBURG",
+      "cutoff_wfc": 40,
+      "cutoff_rho": 320,
+      "Z": 13
+    },
+    "U": {
+      "pseudopotential": "MARBURG",
+      "cutoff_wfc": 50,
+      "cutoff_rho": 400,
+      "Z": 14
+    },
+    "Np": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 150,
+      "cutoff_rho": 1200,
+      "Z": 15
+    },
+    "Pu": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 60,
+      "cutoff_rho": 480,
+      "Z": 16
+    },
+    "Am": {
+      "pseudopotential": "PSL-US-v1-high",
+      "cutoff_wfc": 65,
+      "cutoff_rho": 520,
+      "Z": 17
+    }
+  }
+}
