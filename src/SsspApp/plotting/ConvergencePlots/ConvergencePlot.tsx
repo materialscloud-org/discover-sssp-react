@@ -180,7 +180,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({ element }) => {
             x: quantities.eos.cutoffs,
             y: eos.map((v) => v + offset),
             customdata: eos,
-            hovertemplate: `<b>${pseudo.name}<br>δv: %{customdata:.2f}</b><extra></extra>`,
+            hovertemplate: `<b>${pseudo.name}<br>δν: %{customdata:.2f}</b><extra></extra>`,
           });
         }
 
@@ -238,7 +238,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({ element }) => {
             mode: "lines",
             text: eta_c.map((v) => v.toFixed(2)),
             showlegend: false,
-            line: { color: "gray", width: lineWidth, dash: "dot" },
+            line: { color: "lightgray", width: lineWidth, dash: "dot" },
             hoverinfo: "skip",
           });
 
@@ -290,17 +290,17 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({ element }) => {
         // Pseudo metadata annotation
         const { metadata } = pseudo.quantities;
         const metadataText = metadata
-          ? `avg.v = ${metadata.avg_nu.toFixed(
+          ? `ν<sub>avg</sub> = ${metadata.avg_nu.toFixed(
               2
-            )}<br>max.v = ${metadata.max_nu.toFixed(2)} (${
+            )}<br>ν<sub>max</sub> = ${metadata.max_nu.toFixed(2)} (${
               metadata.max_conf
-            })<br>ang.v = ${metadata.ang_nu.toFixed(2)} (w/o XO3)`
+            })<br>ν<sub>avg</sub> (w/o XO3) = ${metadata.ang_nu.toFixed(2)}`
           : "not all EOS valid";
         annotations.push({
           xref: "paper",
           x: metadata ? -0.11 : -0.085,
           y: offset,
-          text: `${pseudo.name}<br>Z = ${pseudo.Z}<br>${metadataText}`,
+          text: `<b>${pseudo.name}</b><br>Z<sub>val</sub> = ${pseudo.Z}<br>${metadataText}`,
           showarrow: false,
           align: "center",
           font: { size: 10 },
