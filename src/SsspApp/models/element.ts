@@ -5,8 +5,12 @@ export interface ElementInfo {
   Z: number;
 }
 
-export interface ElementsInfo {
+export interface LibraryElementsInfo {
   [element: string]: ElementInfo;
+}
+
+export interface ElementsInfo {
+  [library: string]: LibraryElementsInfo;
 }
 
 export interface ElementModel {

@@ -7,12 +7,14 @@ import PeriodicTableProps from "./PeriodicTable.models";
 import styles from "./PeriodicTable.module.scss";
 
 const PeriodicTable: React.FC<PeriodicTableProps> = ({
-  elementsInfo,
+  libraryElementsInfo,
   pseudosMetadata,
 }) => (
   <div id={styles["periodic-table"]}>
     <DetailsBox />
-    <Table elements={new ElementsGenerator(elementsInfo, pseudosMetadata)} />
+    <Table
+      elements={new ElementsGenerator(libraryElementsInfo, pseudosMetadata)}
+    />
   </div>
 );
 

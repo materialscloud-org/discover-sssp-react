@@ -1,6 +1,6 @@
-import { PseudosMetadata, ElementsInfo } from "@sssp/models";
+import { PseudosMetadata, LibraryElementInfo } from "@sssp/models";
 
 export default interface PeriodicTableProps {
-  elementsInfo: ElementsInfo;
+  libraryElementsInfo: LibraryElementInfo;
   pseudosMetadata: PseudosMetadata;
 }

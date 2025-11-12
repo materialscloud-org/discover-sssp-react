@@ -1,15 +1,18 @@
 import elementSymbols from "./symbols.json";
 
-import { PseudosMetadata, ElementsInfo } from "@sssp/models";
+import { PseudosMetadata, LibraryElementsInfo } from "@sssp/models";
 
 import Element from "./Element";
 
 class ElementsGenerator {
-  private elementsInfo: ElementsInfo;
+  private libraryElementsInfo: LibraryElementsInfo;
   private pseudosMetadata: PseudosMetadata;
 
-  constructor(elementsInfo: ElementsInfo, pseudosMetadata: PseudosMetadata) {
-    this.elementsInfo = elementsInfo;
+  constructor(
+    libraryElementsInfo: LibraryElementsInfo,
+    pseudosMetadata: PseudosMetadata
+  ) {
+    this.libraryElementsInfo = libraryElementsInfo;
     this.pseudosMetadata = pseudosMetadata;
   }
 
@@ -17,7 +20,7 @@ class ElementsGenerator {
     return Array.from({ length: end - start + 1 }, (_, i) => start + i).map(
       (i) => {
         const symbol = elementSymbols[i];
-        const info = this.elementsInfo[symbol];
+        const info = this.libraryElementsInfo[symbol];
         const color = info
           ? info.pseudopotential in this.pseudosMetadata
             ? this.pseudosMetadata[info.pseudopotential].color
