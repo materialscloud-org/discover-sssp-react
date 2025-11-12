@@ -6,7 +6,7 @@ export interface ElementInfo {
 }
 
 export interface ElementsInfo {
-  [key: string]: ElementInfo;
+  [element: string]: ElementInfo;
 }
 
 export interface ElementModel {
