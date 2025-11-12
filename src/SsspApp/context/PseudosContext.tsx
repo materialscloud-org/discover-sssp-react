@@ -6,7 +6,6 @@ import { SsspDataService } from "@sssp/services";
 type PseudosContextType = {
   loadingMetadata: boolean;
   pseudosMetadata: PseudosMetadata;
-  setPseudosMetadata: (metadata: PseudosMetadata) => void;
   activePseudos: string[];
   setActivePseudos: (pseudos: string[]) => void;
 };
@@ -46,7 +45,6 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
       value={{
         loadingMetadata,
         pseudosMetadata,
-        setPseudosMetadata,
         activePseudos,
         setActivePseudos: alwaysIncludeRef,
       }}
