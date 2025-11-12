@@ -22,21 +22,10 @@
       justify-content: center;
       margin-bottom: 6px;
 
-      #atomic-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+      #atomic-number {
+        text-align: right;
+        line-height: 2;
         padding-right: 2px;
-
-        #atomic-number {
-          text-align: right;
-          line-height: 1.4;
-        }
-
-        #atomic-mass {
-          text-align: right;
-          line-height: 1;
-        }
       }
 
       #symbol {
