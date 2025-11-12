@@ -25,20 +25,22 @@ const SsspApp: React.FC<SsspProps> = ({ urlBase }) => {
           <RoutedTabs tabs={tabs} defaultTab={tabs[0]} />
         </Card.Header>
         <Card.Body id="sssp-card">
-          <LibraryProvider defaultLibrary={libraries[0]}>
-            <Routes>
-              <Route
-                path="pseudopotentials/*"
-                element={<PseudosPage libraries={libraries} />}
-              />
-              <Route path="about" element={<AboutPage />} />
-              <Route
-                path="/"
-                element={<Navigate to="pseudopotentials" replace />}
-              />
-              <Route path="*" element={<InvalidPage />} />
-            </Routes>
-          </LibraryProvider>
+          <Routes>
+            <Route
+              path="pseudopotentials/*"
+              element={
+                <LibraryProvider defaultLibrary={libraries[0]}>
+                  <PseudosPage libraries={libraries} />
+                </LibraryProvider>
+              }
+            />
+            <Route path="about" element={<AboutPage />} />
+            <Route
+              path="/"
+              element={<Navigate to="pseudopotentials" replace />}
+            />
+            <Route path="*" element={<InvalidPage />} />
+          </Routes>
         </Card.Body>
       </Router>
     </Card>
