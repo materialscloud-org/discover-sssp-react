@@ -14,10 +14,7 @@ const DetailsBox = () => {
       <div id={styles["element-info"]}>
         <span id={styles["z-value"]}>Z = {info.Z}</span>
         <div id={styles["label-info"]}>
-          <div id={styles["atomic-info"]}>
-            <span id={styles["atomic-number"]}>{number}</span>
-            <span id={styles["atomic-mass"]}>?</span>
-          </div>
+          <span id={styles["atomic-number"]}>{number}</span>
           <span id={styles["symbol"]}>{symbol}</span>
         </div>
       </div>
