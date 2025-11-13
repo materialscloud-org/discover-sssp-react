@@ -1,22 +1,10 @@
-#details-controls {
-  display: flex;
-  align-items: center;
+#back-button {
+  float: left;
+}
 
-  #back-button {
-    margin-right: 10px;
-  }
-
-  #library-selector {
-    width: 175px;
-  }
-
-  #library-info {
-    display: flex;
-    margin-left: 10px;
-    cursor: pointer;
-  }
-
-  #library-tooltip {
-    text-align: left;
-  }
+#element-header {
+  text-align: center;
+  font-size: xx-large;
+  line-height: 1;
+  margin-bottom: 1em;
 }

@@ -43,15 +43,13 @@ const DetailsPage: React.FC = () => {
     <InvalidPage />
   ) : (
     <div id="details-page">
-      <div id={styles["details-controls"]}>
-        <Button
-          id={styles["back-button"]}
-          onClick={() => navigate(`/pseudopotentials/${activeLibrary}`)}
-        >
-          Back to table
-        </Button>
-      </div>
-      <div className="sssp-pseudos-header">
+      <Button
+        id={styles["back-button"]}
+        onClick={() => navigate(`/pseudopotentials/${activeLibrary}`)}
+      >
+        Back to table
+      </Button>
+      <div id={styles["element-header"]}>
         <span>Element: {`${element || "None provided"}`}</span>
       </div>
       {element && (

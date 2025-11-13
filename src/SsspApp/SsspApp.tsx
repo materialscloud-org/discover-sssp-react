@@ -23,7 +23,7 @@ const SsspApp: React.FC<SsspProps> = ({ urlBase }) => {
         <Card.Header id={styles["tab-controls"]}>
           <RoutedTabs tabs={tabs} defaultTab={tabs[0]} />
         </Card.Header>
-        <Card.Body id="sssp-card">
+        <Card.Body id={styles["sssp-card"]}>
           <Routes>
             <Route
               path="pseudopotentials/*"
