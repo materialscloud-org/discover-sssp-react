@@ -9,11 +9,10 @@ import {
 import { InvalidPage } from "@sssp/pages";
 
 import DetailsPage from "./details";
-import PseudosPageProps from "./PseudosPage.models";
 import TablePage from "./table";
 
-const PseudosPage: React.FC<PseudosPageProps> = ({ libraries }) => {
-  const { activeLibrary } = useContext(LibraryContext);
+const PseudosPage: React.FC = () => {
+  const { libraries, activeLibrary } = useContext(LibraryContext);
 
   return (
     <div id="pseudos-page">
@@ -21,16 +20,9 @@ const PseudosPage: React.FC<PseudosPageProps> = ({ libraries }) => {
         <ElementsInfoProvider>
           <Routes>
             {libraries.map((library) => (
-              <Route
-                key={library}
-                path={library}
-                element={<TablePage libraries={libraries} />}
-              />
+              <Route key={library} path={library} element={<TablePage />} />
             ))}
-            <Route
-              path=":element"
-              element={<DetailsPage libraries={libraries} />}
-            />
+            <Route path=":element" element={<DetailsPage />} />
             <Route
               path="/"
               element={

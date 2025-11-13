@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Button, Tab, Tabs } from "react-bootstrap";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { LoadingSpinner } from "@sssp/components";
+import { LibraryContext } from "@sssp/context";
 import { InvalidPage } from "@sssp/pages";
 import { PlotFactory } from "@sssp/plotting";
 
-import DetailsPageProps from "./DetailsPage.models";
 import styles from "./DetailsPage.module.scss";
 
 const TYPES = [
@@ -17,22 +17,15 @@ const TYPES = [
   // "More",
 ];
 
-const DetailsPage: React.FC<DetailsPageProps> = ({ libraries }) => {
+const DetailsPage: React.FC = () => {
   const navigate = useNavigate();
   const params = useParams();
-  const location = useLocation();
-  const hashLibrary = location?.hash.substring(1) || "";
-  const [activeLibrary, setActiveLibrary] = useState(hashLibrary);
+  const { libraries, activeLibrary } = useContext(LibraryContext);
   const [activeTab, setActiveTab] = useState("Convergence Summary");
   const [visitedTabs, setVisitedTabs] = useState<Set<string>>(
     new Set(["Convergence Summary"])
   );
   const { element } = params;
-
-  useEffect(() => {
-    const hashLibrary = location?.hash.substring(1);
-    setActiveLibrary(hashLibrary || "");
-  }, [location]);
 
   const handleTabSelect = (tab: string | null) => {
     if (tab) {

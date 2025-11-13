@@ -17,7 +17,6 @@ import styles from "./SsspApp.module.scss";
 
 const SsspApp: React.FC<SsspProps> = ({ urlBase }) => {
   const tabs = ["pseudopotentials", "about"];
-  const libraries = ["efficiency", "precision"];
   return (
     <Card id={styles["sssp-app"]}>
       <Router basename={urlBase}>
@@ -29,8 +28,8 @@ const SsspApp: React.FC<SsspProps> = ({ urlBase }) => {
             <Route
               path="pseudopotentials/*"
               element={
-                <LibraryProvider defaultLibrary={libraries[0]}>
-                  <PseudosPage libraries={libraries} />
+                <LibraryProvider>
+                  <PseudosPage />
                 </LibraryProvider>
               }
             />

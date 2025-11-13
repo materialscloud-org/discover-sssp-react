@@ -6,10 +6,9 @@ import { PeriodicTable, PseudosLegend } from "@sssp/components";
 import { HoverProvider, LibraryContext } from "@sssp/context";
 
 import LibraryToggle from "./LibraryToggle";
-import TablePageProps from "./TablePage.models";
 import styles from "./TablePage.module.scss";
 
-const TablePage: React.FC<TablePageProps> = ({ libraries }) => {
+const TablePage: React.FC = () => {
   const location = useLocation();
   const { activeLibrary, setActiveLibrary } = useContext(LibraryContext);
 
@@ -26,7 +25,7 @@ const TablePage: React.FC<TablePageProps> = ({ libraries }) => {
       <HoverProvider>
         <PseudosLegend />
         <div id={styles["table-container"]}>
-          <LibraryToggle libraries={libraries} />
+          <LibraryToggle />
           <PeriodicTable />
         </div>
       </HoverProvider>
