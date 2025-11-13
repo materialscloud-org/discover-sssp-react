@@ -1,13 +1,16 @@
 import { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
-import { LibraryContext, PseudosProvider } from "@sssp/context";
+import {
+  ElementsInfoProvider,
+  LibraryContext,
+  PseudosProvider,
+} from "@sssp/context";
 import { InvalidPage } from "@sssp/pages";
 
 import DetailsPage from "./details";
-import TablePage from "./table";
-
 import PseudosPageProps from "./PseudosPage.models";
+import TablePage from "./table";
 
 const PseudosPage: React.FC<PseudosPageProps> = ({ libraries }) => {
   const { activeLibrary } = useContext(LibraryContext);
@@ -15,26 +18,28 @@ const PseudosPage: React.FC<PseudosPageProps> = ({ libraries }) => {
   return (
     <div id="pseudos-page">
       <PseudosProvider>
-        <Routes>
-          {libraries.map((library) => (
+        <ElementsInfoProvider>
+          <Routes>
+            {libraries.map((library) => (
+              <Route
+                key={library}
+                path={library}
+                element={<TablePage libraries={libraries} />}
+              />
+            ))}
             <Route
-              key={library}
-              path={library}
-              element={<TablePage libraries={libraries} />}
+              path=":element"
+              element={<DetailsPage libraries={libraries} />}
             />
-          ))}
-          <Route
-            path=":element"
-            element={<DetailsPage libraries={libraries} />}
-          />
-          <Route
-            path="/"
-            element={
-              activeLibrary ? <Navigate to={activeLibrary} replace /> : null
-            }
-          />
-          <Route path="*" element={<InvalidPage />} />
-        </Routes>
+            <Route
+              path="/"
+              element={
+                activeLibrary ? <Navigate to={activeLibrary} replace /> : null
+              }
+            />
+            <Route path="*" element={<InvalidPage />} />
+          </Routes>
+        </ElementsInfoProvider>
       </PseudosProvider>
     </div>
   );
