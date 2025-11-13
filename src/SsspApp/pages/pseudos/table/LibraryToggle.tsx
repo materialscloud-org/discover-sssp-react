@@ -5,10 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { capitalize } from "@sssp/common/utils";
 import { LibraryContext } from "@sssp/context";
 
+import LibraryToggleProps from "./LibraryToggle.models";
 import styles from "./LibraryToggle.module.scss";
-import TablePageProps from "./TablePage.models";
 
-const LibraryToggle: React.FC<TablePageProps> = ({ libraries: libraries }) => {
+const LibraryToggle: React.FC<LibraryToggleProps> = ({
+  libraries: libraries,
+}) => {
   const navigate = useNavigate();
   const { activeLibrary } = useContext(LibraryContext);
   return (
