@@ -24,8 +24,8 @@ class ElementsGenerator {
         const color = info
           ? info.pseudopotential in this.pseudosMetadata
             ? this.pseudosMetadata[info.pseudopotential].color
-            : "#66b3b3"
-          : "#ddd";
+            : "#ddd"
+          : "#fff";
 
         return (
           <Element
