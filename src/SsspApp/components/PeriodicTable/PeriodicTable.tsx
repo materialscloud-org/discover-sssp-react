@@ -1,22 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { LoadingSpinner } from "@sssp/components";
+import {
+  ElementsInfoContext,
+  LibraryContext,
+  PseudosContext,
+} from "@sssp/context";
 
 import DetailsBox from "./DetailsBox";
+import styles from "./PeriodicTable.module.scss";
 import ElementsGenerator from "./utils";
 
-import PeriodicTableProps from "./PeriodicTable.models";
-import styles from "./PeriodicTable.module.scss";
+const PeriodicTable: React.FC = () => {
+  const { activeLibrary } = useContext(LibraryContext);
+  const { loadingMetadata, pseudosMetadata } = useContext(PseudosContext);
+  const { loadingInfo, elementsInfo } = useContext(ElementsInfoContext);
 
-const PeriodicTable: React.FC<PeriodicTableProps> = ({
-  libraryElementsInfo,
-  pseudosMetadata,
-}) => (
-  <div id={styles["periodic-table"]}>
-    <DetailsBox />
-    <Table
-      elements={new ElementsGenerator(libraryElementsInfo, pseudosMetadata)}
-    />
-  </div>
-);
+  return loadingMetadata || loadingInfo ? (
+    <LoadingSpinner />
+  ) : (
+    <div id={styles["periodic-table"]}>
+      <DetailsBox />
+      <Table
+        elements={
+          new ElementsGenerator(elementsInfo[activeLibrary], pseudosMetadata)
+        }
+      />
+    </div>
+  );
+};
 
 const Table = ({ elements }: { elements: ElementsGenerator }) => {
   const placeholder = (n: number) => (

@@ -1,15 +1,18 @@
 import { useContext } from "react";
 
-import { HoverContext } from "@sssp/context";
+import { LoadingSpinner } from "@sssp/components";
+import { HoverContext, PseudosContext } from "@sssp/context";
 
-import PseudosLegendProps from "./Legend.models";
 import styles from "./Legend.module.scss";
 
-const PseudosLegend: React.FC<PseudosLegendProps> = ({ pseudosMetadata }) => {
+const PseudosLegend: React.FC = () => {
   const { hoveredPseudo, hoveredElement, setHoveredPseudo } =
     useContext(HoverContext);
+  const { loadingMetadata, pseudosMetadata } = useContext(PseudosContext);
 
-  return (
+  return loadingMetadata ? (
+    <LoadingSpinner />
+  ) : (
     <ul id={styles["pseudo-legend"]} onMouseLeave={() => setHoveredPseudo("")}>
       {Object.entries(pseudosMetadata).map(([pseudo, metadata]) => (
         <li
