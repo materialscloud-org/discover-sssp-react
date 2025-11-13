@@ -3,7 +3,7 @@ import { Button, Tab, Tabs } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { LoadingSpinner } from "@sssp/components";
-import { LibraryContext } from "@sssp/context";
+import { ElementsInfoContext, LibraryContext } from "@sssp/context";
 import { InvalidPage } from "@sssp/pages";
 import { PlotFactory } from "@sssp/plotting";
 
@@ -20,7 +20,8 @@ const TYPES = [
 const DetailsPage: React.FC = () => {
   const navigate = useNavigate();
   const params = useParams();
-  const { libraries, activeLibrary } = useContext(LibraryContext);
+  const { activeLibrary } = useContext(LibraryContext);
+  const { elementsList } = useContext(ElementsInfoContext);
   const [activeTab, setActiveTab] = useState("Convergence Summary");
   const [visitedTabs, setVisitedTabs] = useState<Set<string>>(
     new Set(["Convergence Summary"])
@@ -39,7 +40,7 @@ const DetailsPage: React.FC = () => {
     }
   };
 
-  return activeLibrary && !libraries.includes(activeLibrary) ? (
+  return element && !elementsList.includes(element) ? (
     <InvalidPage />
   ) : (
     <div id="details-page">

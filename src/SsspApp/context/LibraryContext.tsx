@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import { useLocation } from "react-router-dom";
 
 type LibraryContextType = {
   defaultLibrary: string;
@@ -17,11 +16,9 @@ type LibraryProviderProps = {
 export const LibraryProvider: React.FC<LibraryProviderProps> = ({
   children,
 }) => {
-  const location = useLocation();
   const libraries = ["efficiency", "precision"];
   const defaultLibrary = libraries[0];
-  const initialLibrary = location?.pathname.split("/")[2] || defaultLibrary;
-  const [activeLibrary, setActiveLibrary] = useState(initialLibrary);
+  const [activeLibrary, setActiveLibrary] = useState(libraries[0]);
 
   return (
     <LibraryContext.Provider
