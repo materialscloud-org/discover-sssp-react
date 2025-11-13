@@ -8,7 +8,7 @@ import type {
   PlotlyHTMLElement,
 } from "plotly.js";
 
-import { LoadingSpinner } from "@sssp/components";
+import { LoadingSpinner, NoDataMessage } from "@sssp/components";
 import { PseudosContext } from "@sssp/context";
 import { SsspDataService } from "@sssp/services";
 
@@ -385,7 +385,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({ element }) => {
   return loading || loadingMetadata ? (
     <LoadingSpinner />
   ) : !conff || !pseudos.length ? (
-    <span>No data available</span>
+    <NoDataMessage />
   ) : (
     <div ref={plotRef} id={styles["convergence-plot"]}></div>
   );

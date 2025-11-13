@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 
-import { LoadingSpinner } from "@sssp/components";
+import { LoadingSpinner, NoDataMessage } from "@sssp/components";
 import { PseudosContext } from "@sssp/context";
 import { BandsPseudosMap } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
@@ -68,7 +68,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
   return loading || loadingMetadata ? (
     <LoadingSpinner />
   ) : !bandsPseudosMap ? (
-    <span>No data available</span>
+    <NoDataMessage />
   ) : (
     <div id="bands-plots">
       <div style={{ fontWeight: "bold", textAlign: "center" }}>

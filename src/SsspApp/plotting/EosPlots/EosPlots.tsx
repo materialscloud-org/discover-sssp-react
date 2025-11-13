@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 
-import { LoadingSpinner } from "@sssp/components";
+import { LoadingSpinner, NoDataMessage } from "@sssp/components";
 import { PseudosContext } from "@sssp/context";
 import { EosConfigMap } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
@@ -38,7 +38,7 @@ const EosPlots: React.FC<EosPlotsProps> = ({ element }) => {
   return loading || loadingMetadata ? (
     <LoadingSpinner />
   ) : !eosConfigMap ? (
-    <span>No data available</span>
+    <NoDataMessage />
   ) : (
     <div id="eos-plots">
       <Row>
