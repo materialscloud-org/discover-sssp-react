@@ -65,7 +65,7 @@ const DetailsPage: React.FC = () => {
               {visitedTabs.has(type) ? (
                 <PlotFactory
                   element={element}
-                  setActiveTab={setActiveTab}
+                  onTabRedirect={handleTabSelect}
                   type={type}
                 />
               ) : (

@@ -1,5 +1,5 @@
 export default interface PlotFactoryProps {
   element: string;
-  setActiveTab: (tab: string) => void;
+  onTabRedirect: (tab: string) => void;
   type: string;
 }

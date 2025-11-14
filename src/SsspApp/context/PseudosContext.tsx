@@ -27,7 +27,7 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
   const [categorizedPseudosMetadata, setCategorizedPseudosMetadata] =
     useState<CategorizedPseudosMetadata>({});
   const [activeCategories, setActiveCategories] = useState<string[]>([]);
-  const [activePseudos, setActivePseudos] = useState<string[]>([]);
+  const [activePseudos, setActivePseudos] = useState<string[]>(["REF"]);
 
   useEffect(() => {
     SsspDataService.fetchPseudosMetadata()

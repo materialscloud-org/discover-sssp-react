@@ -13,7 +13,7 @@ const BandStructurePlot = lazy(() => import("./BandStructurePlot"));
 
 const PlotFactory: React.FC<PlotFactoryProps> = ({
   element,
-  setActiveTab,
+  onTabRedirect: tabRedirectHandler,
   type,
 }) => {
   let plot = null;
@@ -22,7 +22,7 @@ const PlotFactory: React.FC<PlotFactoryProps> = ({
       plot = <ConvergencePlots element={element} />;
       break;
     case "Bands Chessboards":
-      plot = <BandsChessboardPlots setActiveTab={setActiveTab} />;
+      plot = <BandsChessboardPlots goToBands={tabRedirectHandler} />;
       break;
     case "Equation of State":
       plot = <EquationOfStatePlots element={element} />;

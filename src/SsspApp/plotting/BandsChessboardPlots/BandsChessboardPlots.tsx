@@ -9,7 +9,7 @@ import BandsChessboardPlotsProps from "./BandsChessboardPlots.models";
 import styles from "./BandsChessboardPlots.module.scss";
 
 const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
-  setActiveTab,
+  goToBands,
 }) => {
   const { loadingMetadata, categorizedPseudosMetadata, setActivePseudos } =
     useContext(PseudosContext);
@@ -36,7 +36,7 @@ const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
 
   const tileClickHandler = (pseudos: string[]) => {
     setActivePseudos(pseudos);
-    setActiveTab("Band Structure");
+    goToBands("Band Structure");
   };
 
   return loadingMetadata ? (

@@ -11,7 +11,7 @@ import BandStructurePlotProps from "./BandStructurePlot.models";
 import styles from "./BandStructurePlot.module.scss";
 
 const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
-  const [loading, setLoading] = useState(true);
+  const [loadingData, setLoadingData] = useState(true);
   const {
     loadingMetadata,
     categorizedPseudosMetadata,
@@ -35,16 +35,14 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
         setBandsPseudosMap(elementData);
         const pseudos = elementData && Object.keys(elementData);
         setPseudos(pseudos);
-        setActivePseudos(["REF"]);
       })
       .catch((error) => {
         console.error("Error fetching bands data:", error);
         setBandsPseudosMap(undefined);
         setPseudos([]);
-        setActivePseudos([]);
       })
       .finally(() => {
-        setLoading(false);
+        setLoadingData(false);
       });
   }, [element]);
 
@@ -74,7 +72,9 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
     }
   }, [activePseudos, bandsPseudosMap, pseudosMetadata]);
 
-  return loading || loadingMetadata ? (
+  const isLoading = loadingData || loadingMetadata;
+
+  return isLoading ? (
     <LoadingSpinner />
   ) : !bandsPseudosMap ? (
     <NoDataMessage />

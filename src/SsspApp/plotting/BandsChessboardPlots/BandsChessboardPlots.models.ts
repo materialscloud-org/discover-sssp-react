@@ -1,3 +1,3 @@
 export default interface BandsChessboardPlotsProps {
-  setActiveTab: (tab: string) => void;
+  goToBands: (tab: string) => void;
 }
