@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 
 import { LoadingSpinner, NoDataMessage } from "@sssp/components";
@@ -12,11 +12,20 @@ import styles from "./BandStructurePlot.module.scss";
 
 const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
   const [loading, setLoading] = useState(true);
-  const { loadingMetadata, pseudosMetadata, activePseudos, setActivePseudos } =
-    useContext(PseudosContext);
+  const {
+    loadingMetadata,
+    categorizedPseudosMetadata,
+    activePseudos,
+    setActivePseudos,
+  } = useContext(PseudosContext);
   const [pseudos, setPseudos] = useState<string[]>([]);
   const [bandsPseudosMap, setBandsPseudosMap] = useState<BandsPseudosMap>();
   const plotRef = useRef<HTMLDivElement>(null);
+
+  const pseudosMetadata = useMemo(
+    () => Object.assign({}, ...Object.values(categorizedPseudosMetadata)),
+    []
+  );
 
   useEffect(() => {
     if (!element) return;

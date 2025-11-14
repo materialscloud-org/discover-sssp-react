@@ -1,15 +1,13 @@
-#pseudo-legend {
+#pseudos-list {
   display: grid;
   max-width: 1000px;
-  margin: 0 auto 2em;
+  margin: 1rem auto;
   padding: 0;
-  grid-template-columns: repeat(4, 1fr);
 
   .pseudo-item {
     display: flex;
     align-items: center;
-    margin-right: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     cursor: default;
     opacity: 1;
     transition: opacity 0.25s ease-in-out;
@@ -40,6 +38,14 @@
     .pseudo-name {
       font-size: 0.8rem;
     }
+
+    @media (min-width: 531px) and (max-width: 1300px) {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  @media (max-width: 1490px) {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   @media (max-width: 1000px) {

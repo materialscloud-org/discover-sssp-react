@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useMemo, useRef } from "react";
 
 import type { Config, Data, Layout, PlotlyHTMLElement } from "plotly.js";
 
@@ -39,8 +39,13 @@ const EosPlot: React.FC<EosPlotProps> = ({
   eosPseudosMap,
   activePseudos,
 }) => {
-  const { pseudosMetadata } = useContext(PseudosContext);
+  const { categorizedPseudosMetadata } = useContext(PseudosContext);
   const plotRef = useRef<HTMLDivElement>(null);
+
+  const pseudosMetadata = useMemo(
+    () => Object.assign({}, ...Object.values(categorizedPseudosMetadata)),
+    []
+  );
 
   useEffect(() => {
     if (!plotRef.current) return;

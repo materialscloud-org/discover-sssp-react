@@ -1,8 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { FormCheck, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 import { PseudosContext } from "@sssp/context";
 
+import { PseudosMetadata } from "@sssp/models";
 import PseudosCheckboxesProps from "./PseudosCheckboxes.models";
 import styles from "./PseudosCheckboxes.module.scss";
 
@@ -11,8 +12,13 @@ const PseudosCheckboxes: React.FC<PseudosCheckboxesProps> = ({
   activePseudos,
   setActivePseudos,
 }) => {
-  const { pseudosMetadata } = useContext(PseudosContext);
+  const { categorizedPseudosMetadata } = useContext(PseudosContext);
   const [allPseudosChecked, setAllPseudosChecked] = useState<boolean>(false);
+
+  const pseudosMetadata: PseudosMetadata = useMemo(
+    () => Object.assign({}, ...Object.values(categorizedPseudosMetadata)),
+    [categorizedPseudosMetadata]
+  );
 
   useEffect(() => {
     setAllPseudosChecked(activePseudos.length === pseudos.length);

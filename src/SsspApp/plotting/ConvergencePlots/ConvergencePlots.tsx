@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 
+import { CategorySelector } from "@sssp/components";
+
 import ConvergencePlot from "./ConvergencePlot";
 import ConvergencePlotsProps from "./ConvergencePlots.models";
 import styles from "./ConvergencePlots.module.scss";
 
 const ConvergencePlots: React.FC<ConvergencePlotsProps> = ({ element }) => {
   return (
-    <>
+    <div id="convergence-summary">
+      <CategorySelector />
       <div id={styles["convergence-plot-container"]}>
         <ConvergencePlot element={element} />
       </div>
@@ -25,7 +28,7 @@ const ConvergencePlots: React.FC<ConvergencePlotsProps> = ({ element }) => {
         marks the pseudopotential and wavefunction cutoff chosen for the SSSP
         library (see <Link to="/about">About SSSP</Link> for more details).
       </div>
-    </>
+    </div>
   );
 };
 

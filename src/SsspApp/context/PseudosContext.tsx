@@ -1,11 +1,14 @@
 import { createContext, useEffect, useState } from "react";
 
-import { PseudosMetadata } from "@sssp/models";
+import { CategorizedPseudosMetadata } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
 type PseudosContextType = {
   loadingMetadata: boolean;
-  pseudosMetadata: PseudosMetadata;
+  categories: string[];
+  categorizedPseudosMetadata: CategorizedPseudosMetadata;
+  activeCategories: string[];
+  setActiveCategories: React.Dispatch<React.SetStateAction<string[]>>;
   activePseudos: string[];
   setActivePseudos: (pseudos: string[]) => void;
 };
@@ -20,13 +23,18 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
   children,
 }) => {
   const [loadingMetadata, setLoadingMetadata] = useState(true);
-  const [pseudosMetadata, setPseudosMetadata] = useState<PseudosMetadata>({});
+  const [categories, setCategories] = useState<string[]>([]);
+  const [categorizedPseudosMetadata, setCategorizedPseudosMetadata] =
+    useState<CategorizedPseudosMetadata>({});
+  const [activeCategories, setActiveCategories] = useState<string[]>([]);
   const [activePseudos, setActivePseudos] = useState<string[]>([]);
 
   useEffect(() => {
     SsspDataService.fetchPseudosMetadata()
       .then((metadata) => {
-        setPseudosMetadata(metadata);
+        setCategorizedPseudosMetadata(metadata);
+        setCategories(Object.keys(metadata));
+        setActiveCategories(Object.keys(metadata));
       })
       .catch((error) => {
         console.error("Error fetching pseudos metadata:", error);
@@ -44,7 +52,10 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
     <PseudosContext.Provider
       value={{
         loadingMetadata,
-        pseudosMetadata,
+        categories,
+        categorizedPseudosMetadata,
+        activeCategories,
+        setActiveCategories,
         activePseudos,
         setActivePseudos: alwaysIncludeRef,
       }}

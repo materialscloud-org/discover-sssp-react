@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 
 import { LoadingSpinner } from "@sssp/components";
 import {
@@ -13,8 +13,23 @@ import ElementsGenerator from "./utils";
 
 const PeriodicTable: React.FC = () => {
   const { activeLibrary } = useContext(LibraryContext);
-  const { loadingMetadata, pseudosMetadata } = useContext(PseudosContext);
+  const { loadingMetadata, categorizedPseudosMetadata, activeCategories } =
+    useContext(PseudosContext);
   const { loadingInfo, elementsInfo } = useContext(ElementsInfoContext);
+
+  const activePseudosMetadata = useMemo(() => {
+    const activePseudos: Record<string, any> = {};
+    Object.entries(categorizedPseudosMetadata).forEach(
+      ([category, pseudos]) => {
+        if (activeCategories.includes(category)) {
+          Object.entries(pseudos).forEach(([pseudo, metadata]) => {
+            activePseudos[pseudo] = metadata;
+          });
+        }
+      }
+    );
+    return activePseudos;
+  }, [activeCategories]);
 
   return loadingMetadata || loadingInfo ? (
     <LoadingSpinner />
@@ -23,7 +38,10 @@ const PeriodicTable: React.FC = () => {
       <DetailsBox />
       <Table
         elements={
-          new ElementsGenerator(elementsInfo[activeLibrary], pseudosMetadata)
+          new ElementsGenerator(
+            elementsInfo[activeLibrary],
+            activePseudosMetadata
+          )
         }
       />
     </div>

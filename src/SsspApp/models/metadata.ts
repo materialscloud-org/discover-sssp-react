@@ -5,5 +5,9 @@ export interface PseudoMetadata {
 }
 
 export interface PseudosMetadata {
-  [key: string]: PseudoMetadata;
+  [pseudo: string]: PseudoMetadata;
+}
+
+export interface CategorizedPseudosMetadata {
+  [category: string]: PseudosMetadata;
 }

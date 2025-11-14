@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { PeriodicTable, PseudosLegend } from "@sssp/components";
 import { HoverProvider, LibraryContext } from "@sssp/context";
 
+import { Col, Row } from "react-bootstrap";
 import LibraryToggle from "./LibraryToggle";
 import styles from "./TablePage.module.scss";
 
@@ -19,11 +20,17 @@ const TablePage: React.FC = () => {
   return (
     <div id="table-page">
       <HoverProvider>
-        <PseudosLegend />
-        <div id={styles["table-container"]}>
-          <LibraryToggle />
-          <PeriodicTable />
-        </div>
+        <Row>
+          <Col xl="2">
+            <PseudosLegend />
+          </Col>
+          <Col>
+            <div id={styles["table-container"]}>
+              <LibraryToggle />
+              <PeriodicTable />
+            </div>
+          </Col>
+        </Row>
       </HoverProvider>
     </div>
   );

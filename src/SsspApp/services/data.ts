@@ -1,9 +1,9 @@
 import { DATA_URL } from "@sssp/common/config";
 import {
+  CategorizedPseudosMetadata,
   ElementBandsDataMap,
   ElementsInfo,
   EosData,
-  PseudosMetadata,
 } from "@sssp/models";
 
 export default class SsspDataService {
@@ -28,19 +28,20 @@ export default class SsspDataService {
     return json || ({} as ElementBandsDataMap);
   };
 
-  static fetchPseudosMetadata = async (): Promise<PseudosMetadata> => {
-    const url = `${DATA_URL}/metadata.json`;
-    const response = await fetch(url);
-    const json: PseudosMetadata = await response.json();
-    return json || ({} as PseudosMetadata);
-  };
+  static fetchPseudosMetadata =
+    async (): Promise<CategorizedPseudosMetadata> => {
+      const url = `${DATA_URL}/metadata.json`;
+      const response = await fetch(url);
+      const json: CategorizedPseudosMetadata = await response.json();
+      return json || ({} as CategorizedPseudosMetadata);
+    };
 
   static fetchPseudosSummaryData = async (
     element: string
-  ): Promise<PseudoResponse> => {
+  ): Promise<PseudoConvergenceData> => {
     const url = `${DATA_URL}/summary/${element}.json`;
     const response = await fetch(url);
-    const json: PseudoResponse = await response.json();
-    return json || ({} as PseudoResponse);
+    const json: PseudoConvergenceData = await response.json();
+    return json || ({} as PseudoConvergenceData);
   };
 }

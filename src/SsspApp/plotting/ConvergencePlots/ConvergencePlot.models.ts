@@ -2,7 +2,7 @@ interface ConvergencePlotProps {
   element: string;
 }
 
-interface PseudoResponse {
+interface PseudoConvergenceData {
   conff: string;
   pseudos: Pseudo[];
 }
@@ -13,7 +13,6 @@ interface PseudoQuantity {
 }
 
 interface Pseudo {
-  conff: string;
   name: string;
   color: string;
   Z: number;
