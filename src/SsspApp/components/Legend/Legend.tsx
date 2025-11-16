@@ -7,7 +7,7 @@ import styles from "./Legend.module.scss";
 
 const PseudosLegend: React.FC = () => {
   return (
-    <div>
+    <div id={styles["pseudos-legend"]}>
       <CategorySelector />
       <PseudosList />
     </div>
@@ -19,8 +19,12 @@ export default PseudosLegend;
 const PseudosList: React.FC = () => {
   const { hoveredPseudo, hoveredElement, setHoveredPseudo } =
     useContext(HoverContext);
-  const { loadingMetadata, categorizedPseudosMetadata, activeCategories } =
-    useContext(PseudosContext);
+  const {
+    loadingMetadata,
+    categorizedPseudosMetadata,
+    maxPseudoWidth,
+    activeCategories,
+  } = useContext(PseudosContext);
 
   return loadingMetadata ? (
     <LoadingSpinner />
@@ -48,7 +52,10 @@ const PseudosList: React.FC = () => {
               className={styles["pseudo-list-marker"]}
               style={{ backgroundColor: metadata.color }}
             ></span>
-            <span className={styles["pseudo-name"]}>
+            <span
+              className={styles["pseudo-name"]}
+              style={{ width: maxPseudoWidth + 12 }}
+            >
               {metadata.display_name}
             </span>
           </li>

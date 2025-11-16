@@ -18,10 +18,10 @@ const TablePage: React.FC = () => {
   }, [location.pathname, setActiveLibrary]);
 
   return (
-    <div id="table-page">
-      <HoverProvider>
+    <HoverProvider>
+      <div id={styles["table-page"]}>
         <Row>
-          <Col xl="2">
+          <Col xxl="auto">
             <PseudosLegend />
           </Col>
           <Col>
@@ -31,8 +31,8 @@ const TablePage: React.FC = () => {
             </div>
           </Col>
         </Row>
-      </HoverProvider>
-    </div>
+      </div>
+    </HoverProvider>
   );
 };
 

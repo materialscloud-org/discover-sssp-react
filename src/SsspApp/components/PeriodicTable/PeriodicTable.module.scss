@@ -10,13 +10,13 @@
   margin: 0 auto;
   position: relative;
   overflow-x: auto;
-  padding: 0 auto;
   padding: 10px;
 
   #table {
     display: flex;
     flex-direction: column;
     row-gap: 12px;
+    width: fit-content;
 
     .elements {
       display: grid;

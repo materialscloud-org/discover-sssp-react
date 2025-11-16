@@ -11,13 +11,11 @@ import styles from "./BandsChessboardPlots.module.scss";
 const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
   goToBands,
 }) => {
-  const { loadingMetadata, categorizedPseudosMetadata, setActivePseudos } =
-    useContext(PseudosContext);
-
-  const pseudos = useMemo(
-    () => Object.values(categorizedPseudosMetadata).flatMap(Object.keys),
-    [categorizedPseudosMetadata]
-  );
+  const {
+    loadingMetadata,
+    allPseudos: pseudos,
+    setActivePseudos,
+  } = useContext(PseudosContext);
 
   const generateDummyData = (size: number): number[][] => {
     const data: number[][] = [];
