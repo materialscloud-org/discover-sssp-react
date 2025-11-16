@@ -102,7 +102,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
 
       graphDiv.on("plotly_click", (event: PlotMouseEvent) => {
         const { x, y } = event.points[0];
-        tileClickHandler([x as string, y as string]);
+        tileClickHandler([y as string, x as string]);
       });
 
       const handleResize = (gd: PlotlyHTMLElement) => {

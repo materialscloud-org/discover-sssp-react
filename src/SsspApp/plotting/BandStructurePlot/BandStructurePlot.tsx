@@ -1,12 +1,12 @@
 import { useContext, useEffect, useMemo, useRef, useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Container, Form, Row } from "react-bootstrap";
 
 import { LoadingSpinner, NoDataMessage } from "@sssp/components";
 import { PseudosContext } from "@sssp/context";
-import { BandsPseudosMap } from "@sssp/models";
+import { BandsData, BandsPseudosMap } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
-import PseudosCheckboxes from "../PseudosCheckboxes";
+import PseudoSelector from "../PseudoSelector";
 import BandStructurePlotProps from "./BandStructurePlot.models";
 import styles from "./BandStructurePlot.module.scss";
 
@@ -20,6 +20,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
   } = useContext(PseudosContext);
   const [pseudos, setPseudos] = useState<string[]>([]);
   const [bandsPseudosMap, setBandsPseudosMap] = useState<BandsPseudosMap>();
+  const [pseudoShift, setPseudoShift] = useState(0);
   const plotRef = useRef<HTMLDivElement>(null);
 
   const pseudosMetadata = useMemo(
@@ -31,28 +32,37 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
     if (!element) return;
     SsspDataService.fetchBandsData()
       .then((data) => {
-        const elementData = data[element];
-        setBandsPseudosMap(elementData);
-        const pseudos = elementData && Object.keys(elementData);
+        const elementBandsData = data[element];
+        setBandsPseudosMap(elementBandsData);
+        const pseudos = elementBandsData && Object.keys(elementBandsData);
         setPseudos(pseudos);
+        const defaultPseudo = pseudos ? pseudos[0] : "";
+        setActivePseudos([defaultPseudo, defaultPseudo]);
       })
       .catch((error) => {
         console.error("Error fetching bands data:", error);
         setBandsPseudosMap(undefined);
         setPseudos([]);
+        setActivePseudos([]);
       })
       .finally(() => {
         setLoadingData(false);
       });
   }, [element]);
 
+  useEffect(() => setPseudoShift(0), [activePseudos]);
+
   useEffect(() => {
     if (bandsPseudosMap && plotRef.current) {
-      const pseudosData = activePseudos.map((pseudo) => ({
-        bandsData: bandsPseudosMap[pseudo],
+      const pseudosData = activePseudos.map((pseudo, index) => ({
+        bandsData:
+          index == 0
+            ? bandsPseudosMap[pseudo]
+            : shiftBandsData(bandsPseudosMap[pseudo], pseudoShift),
         traceFormat: {
           line: {
-            color: pseudosMetadata[pseudo]?.color || "black",
+            color:
+              index == 0 ? "black" : pseudosMetadata[pseudo]?.color || "red",
           },
         },
       }));
@@ -70,7 +80,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
         });
       })();
     }
-  }, [activePseudos, bandsPseudosMap, pseudosMetadata]);
+  }, [activePseudos, bandsPseudosMap, pseudosMetadata, pseudoShift]);
 
   const isLoading = loadingData || loadingMetadata;
 
@@ -79,20 +89,52 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
   ) : !bandsPseudosMap ? (
     <NoDataMessage />
   ) : (
-    <div id="bands-plots">
-      <div style={{ fontWeight: "bold", textAlign: "center" }}>
+    <Container id="bands-plots">
+      <div
+        style={{
+          fontWeight: "bold",
+          textAlign: "center",
+          marginBottom: "1rem",
+        }}
+      >
         Disclaimer: The data shown does not reflect real data and is for
         demonstration purposes only.
       </div>
       <Row>
-        <Col md={3} lg={2}>
-          <PseudosCheckboxes
-            pseudos={pseudos}
-            activePseudos={activePseudos}
-            setActivePseudos={setActivePseudos}
-          />
+        <Col lg="3">
+          <div id={styles["pseudo-selectors-form"]}>
+            <PseudoSelector
+              which="reference"
+              pseudos={pseudos}
+              value={activePseudos[0]}
+              onSelect={(pseudo) =>
+                setActivePseudos([pseudo, activePseudos[1]])
+              }
+            />
+            <PseudoSelector
+              which="compared"
+              pseudos={pseudos}
+              value={activePseudos[1]}
+              onSelect={(pseudo) =>
+                setActivePseudos([activePseudos[0], pseudo])
+              }
+            />
+            <Form.Group>
+              <Form.Label htmlFor="pseudo-shift-range">
+                Avg. band difference = {pseudoShift} eV
+              </Form.Label>
+              <Form.Range
+                id="pseudo-shift-range"
+                value={pseudoShift}
+                min={-5}
+                max={5}
+                step={0.1}
+                onChange={(e) => setPseudoShift(Number(e.target.value))}
+              />
+            </Form.Group>
+          </div>
         </Col>
-        <Col>
+        <Col lg="6">
           <div ref={plotRef} id={styles["bands-plot"]}></div>
         </Col>
       </Row>
@@ -100,8 +142,18 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
         Electronic band structure along high-symmetry path. The reference energy
         (0 eV) corresponds to the Fermi level.
       </div>
-    </div>
+    </Container>
   );
 };
 
 export default BandStructurePlot;
+
+function shiftBandsData(bandsData: BandsData, shift: number): BandsData {
+  return {
+    ...bandsData,
+    paths: bandsData.paths.map((path) => ({
+      ...path,
+      values: path.values.map((point) => point.map((p) => p + shift)),
+    })),
+  };
+}
