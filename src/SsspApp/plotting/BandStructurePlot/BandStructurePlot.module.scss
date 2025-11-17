@@ -8,6 +8,11 @@
   }
 }
 
+#bands-plot-wrapper {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
 #bands-plot {
   width: 500px;
   height: 500px;
