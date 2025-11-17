@@ -1,4 +1,11 @@
-import type { Annotations, Data, Layout, Shape } from "plotly.js";
+import type {
+  Annotations,
+  Dash,
+  Data,
+  Layout,
+  MarkerSymbol,
+  Shape,
+} from "plotly.js";
 
 import { ElementInfo, PseudosMetadata } from "@sssp/models";
 
@@ -24,7 +31,11 @@ const EOS_C_FACTOR = 0.2;
 const PHONON_C_FACTOR = 2;
 const PRESSURE_C_FACTOR = 1;
 
-export const generateConvergencePlotData = (
+const labels = ["δω", "δV<sub>press</sub>", "δE<sub>coh</sub>", "δv"];
+const symbols: MarkerSymbol[] = ["circle", "triangle-down", "star", "square"];
+const dashes: Dash[] = ["solid", "dash", "dot", "solid"];
+
+export function generateConvergencePlotData(
   element: string,
   conff: string,
   libraries: string[],
@@ -34,7 +45,7 @@ export const generateConvergencePlotData = (
 ): {
   data: Partial<Data>[];
   layout: Partial<Layout>;
-} => {
+} {
   const windowHeight = offsetHeight / 4;
   const offsetsArray = activePseudos.map((_, i) => i * offsetHeight);
   const plotHeight =
@@ -64,6 +75,7 @@ export const generateConvergencePlotData = (
         line: { color: color, width: lineWidth, dash: "solid" },
         marker: { size: markerSize, symbol: "circle" },
         showlegend: false,
+        legendgroup: "δω",
         x: quantities.phonon_frequencies.cutoffs,
         y: frequencies.map((v) => v + offset),
         error_y: {
@@ -99,6 +111,7 @@ export const generateConvergencePlotData = (
         line: { color: color, width: lineWidth, dash: "dash" },
         marker: { size: markerSize, symbol: "triangle-down" },
         showlegend: false,
+        legendgroup: "δV<sub>press</sub>",
         x: quantities.pressure.cutoffs,
         y: pressure.map((v) => v + offset),
         customdata: pressure,
@@ -115,6 +128,7 @@ export const generateConvergencePlotData = (
         line: { color: color, width: lineWidth, dash: "dot" },
         marker: { size: markerSize, symbol: "star" },
         showlegend: false,
+        legendgroup: "δE<sub>coh</sub>",
         x: quantities.cohesive_energy.cutoffs,
         y: cohesiveEnergy.map((v) => v + offset),
         customdata: cohesiveEnergy,
@@ -141,6 +155,7 @@ export const generateConvergencePlotData = (
         line: { color: color, width: lineWidth, dash: "dot" },
         marker: { size: markerSize, symbol: "square" },
         showlegend: false,
+        legendgroup: "δv",
         x: quantities.eos.cutoffs,
         y: eos.map((v) => v + offset),
         customdata: eos,
@@ -292,63 +307,17 @@ export const generateConvergencePlotData = (
   });
 
   // Fake traces for legend
-  data.push({
-    name: "δω",
-    type: "scatter",
-    mode: "lines+markers",
-    x: [NaN],
-    y: [NaN],
-    line: { color: "black", width: lineWidth, dash: "solid" },
-    marker: { size: markerSize, symbol: "circle" },
-    showlegend: true,
-    hoverinfo: "skip",
-  });
-  data.push({
-    name: "δV<sub>press</sub>",
-    type: "scatter",
-    mode: "lines+markers",
-    x: [NaN],
-    y: [NaN],
-    line: { color: "black", width: lineWidth, dash: "dash" },
-    marker: { size: markerSize, symbol: "triangle-down" },
-    showlegend: true,
-    hoverinfo: "skip",
-  });
-  data.push({
-    name: "δE<sub>coh</sub>",
-    type: "scatter",
-    mode: "lines+markers",
-    x: [NaN],
-    y: [NaN],
-    line: { color: "black", width: lineWidth, dash: "dot" },
-    marker: { size: markerSize, symbol: "star" },
-    showlegend: true,
-    hoverinfo: "skip",
-  });
-  data.push({
-    name: "δv",
-    type: "scatter",
-    mode: "lines+markers",
-    x: [NaN],
-    y: [NaN],
-    line: { color: "black", width: lineWidth, dash: "solid" },
-    marker: { size: markerSize, symbol: "square" },
-    showlegend: true,
-    hoverinfo: "skip",
-  });
-  libraries.forEach((library) => {
+  labels.forEach((label, i) => {
     data.push({
-      x: [null],
-      y: [null],
-      mode: "markers",
-      name: library,
-      marker: {
-        size: 14,
-        symbol: library === "efficiency" ? "square-open" : "circle-open",
-        color: "black",
-        line: { color: "black", width: 2 },
-      },
+      name: label,
+      type: "scatter",
+      mode: "lines+markers",
+      x: [NaN],
+      y: [NaN],
+      line: { color: "black", width: lineWidth, dash: dashes[i] },
+      marker: { size: markerSize, symbol: symbols[i] },
       showlegend: true,
+      legendgroup: label,
       hoverinfo: "skip",
     });
   });
@@ -410,4 +379,4 @@ export const generateConvergencePlotData = (
   };
 
   return { data, layout };
-};
+}
