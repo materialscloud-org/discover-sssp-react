@@ -37,7 +37,9 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
         const pseudos = elementBandsData && Object.keys(elementBandsData);
         setPseudos(pseudos);
         const defaultPseudo = pseudos ? pseudos[0] : "";
-        setActivePseudos([defaultPseudo, defaultPseudo]);
+        setActivePseudos(
+          activePseudos.length ? activePseudos : [defaultPseudo, defaultPseudo]
+        );
       })
       .catch((error) => {
         console.error("Error fetching bands data:", error);
@@ -135,7 +137,9 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
           </div>
         </Col>
         <Col lg="6">
-          <div ref={plotRef} id={styles["bands-plot"]}></div>
+          <div id={styles["bands-plot-wrapper"]}>
+            <div ref={plotRef} id={styles["bands-plot"]}></div>
+          </div>
         </Col>
       </Row>
       <div id={styles["bands-note"]}>

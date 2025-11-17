@@ -29,7 +29,7 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
   const [categorizedPseudosMetadata, setCategorizedPseudosMetadata] =
     useState<CategorizedPseudosMetadata>({});
   const [activeCategories, setActiveCategories] = useState<string[]>([]);
-  const [activePseudos, setActivePseudos] = useState<string[]>(["REF"]);
+  const [activePseudos, setActivePseudos] = useState<string[]>([]);
 
   const allPseudos = useMemo(
     () => Object.values(categorizedPseudosMetadata).flatMap(Object.keys),
