@@ -105,34 +105,54 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
       <Row>
         <Col lg="3">
           <div id={styles["pseudo-selectors-form"]}>
-            <PseudoSelector
-              which="reference"
-              pseudos={pseudos}
-              value={activePseudos[0]}
-              onSelect={(pseudo) =>
-                setActivePseudos([pseudo, activePseudos[1]])
-              }
-            />
-            <PseudoSelector
-              which="compared"
-              pseudos={pseudos}
-              value={activePseudos[1]}
-              onSelect={(pseudo) =>
-                setActivePseudos([activePseudos[0], pseudo])
-              }
-            />
+            <Row>
+              <Col sm="6" lg="12">
+                <PseudoSelector
+                  which="reference"
+                  pseudos={pseudos}
+                  value={activePseudos[0]}
+                  onSelect={(pseudo) =>
+                    setActivePseudos([pseudo, activePseudos[1]])
+                  }
+                />
+              </Col>
+              <Col>
+                <PseudoSelector
+                  which="compared"
+                  pseudos={pseudos}
+                  value={activePseudos[1]}
+                  onSelect={(pseudo) =>
+                    setActivePseudos([activePseudos[0], pseudo])
+                  }
+                />
+              </Col>
+            </Row>
             <Form.Group>
               <Form.Label htmlFor="pseudo-shift-range">
-                Avg. band difference = {pseudoShift} eV
+                Avg. band difference (eV):
               </Form.Label>
-              <Form.Range
-                id="pseudo-shift-range"
-                value={pseudoShift}
-                min={-5}
-                max={5}
-                step={0.1}
-                onChange={(e) => setPseudoShift(Number(e.target.value))}
-              />
+              <Row style={{ alignItems: "center" }}>
+                <Col xs="8" sm="9" md="10" lg="6" xl="7" xxl="8">
+                  <Form.Range
+                    id={styles["pseudo-shift-range"]}
+                    value={pseudoShift}
+                    min={-5}
+                    max={5}
+                    step={0.001}
+                    onChange={(e) => setPseudoShift(Number(e.target.value))}
+                  />
+                </Col>
+                <Col>
+                  <Form.Control
+                    type="number"
+                    value={pseudoShift}
+                    min={-5}
+                    max={5}
+                    step={0.001}
+                    onChange={(e) => setPseudoShift(Number(e.target.value))}
+                  />
+                </Col>
+              </Row>
             </Form.Group>
           </div>
         </Col>
