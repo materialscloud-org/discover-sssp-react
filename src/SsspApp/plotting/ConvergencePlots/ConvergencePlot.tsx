@@ -3,8 +3,12 @@ import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import type { Config, PlotlyHTMLElement } from "plotly.js";
 
 import { LoadingSpinner, NoDataMessage } from "@sssp/components";
-import { PseudosContext } from "@sssp/context";
-import { PseudosMetadata } from "@sssp/models";
+import {
+  ElementsInfoContext,
+  LibraryContext,
+  PseudosContext,
+} from "@sssp/context";
+import { ElementInfo, PseudosMetadata } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
 import styles from "./ConvergencePlot.module.scss";
@@ -18,8 +22,10 @@ const config: Partial<Config> = {
 
 const ConvergencePlot: React.FC<ConvergencePlotProps> = ({ element }) => {
   const [loadingData, setLoadingData] = useState(true);
+  const { libraries } = useContext(LibraryContext);
   const { loadingMetadata, categorizedPseudosMetadata, activeCategories } =
     useContext(PseudosContext);
+  const { elementsInfo } = useContext(ElementsInfoContext);
   const [summaryData, setSummaryData] = useState<PseudoConvergenceData>(
     {} as PseudoConvergenceData
   );
@@ -42,6 +48,18 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({ element }) => {
       pseudosMetadata.hasOwnProperty(pseudo.name)
     );
   }, [summaryData, pseudosMetadata]);
+
+  const recommendedPseudos = useMemo(() => {
+    if (!element || !elementsInfo) return {};
+    const recommended: { [key: string]: ElementInfo } = {};
+    for (const key of Object.keys(elementsInfo)) {
+      const elementInfo = elementsInfo[key];
+      if (elementInfo && elementInfo[element]) {
+        recommended[key] = elementInfo[element];
+      }
+    }
+    return recommended;
+  }, [elementsInfo, element]);
 
   useEffect(() => {
     setLoadingData(true);
@@ -80,6 +98,8 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({ element }) => {
       const { data, layout } = generateConvergencePlotData(
         element,
         summaryData.conff,
+        libraries,
+        recommendedPseudos,
         activePseudos,
         pseudosMetadata
       );

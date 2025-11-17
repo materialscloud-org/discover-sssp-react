@@ -1,6 +1,6 @@
-import type { Annotations, Data, Layout } from "plotly.js";
+import type { Annotations, Data, Layout, Shape } from "plotly.js";
 
-import { PseudosMetadata } from "@sssp/models";
+import { ElementInfo, PseudosMetadata } from "@sssp/models";
 
 const aboveScalar = 1.2; // offset for annotations above the efficiency line
 const belowScalar = 1.3; // offset for annotations below the efficiency line
@@ -12,6 +12,8 @@ const fontSize = 10;
 
 const topMargin = 40;
 const bottomMargin = 80;
+
+const deltaX = 2; // highlight rectangle half-width
 
 const offsetHeight = 8; // offset between pseudos
 const PIXELS_PER_PSEUDO = 120; // fixed
@@ -25,6 +27,8 @@ const PRESSURE_C_FACTOR = 1;
 export const generateConvergencePlotData = (
   element: string,
   conff: string,
+  libraries: string[],
+  recommendedPseudos: { [key: string]: ElementInfo },
   activePseudos: Pseudo[],
   pseudosMetadata: PseudosMetadata
 ): {
@@ -40,6 +44,7 @@ export const generateConvergencePlotData = (
 
   const data: Partial<Data>[] = [];
   const annotations: Partial<Annotations>[] = [];
+  const shapes: Partial<Shape>[] = [];
 
   activePseudos.forEach((pseudo, i) => {
     const color = pseudosMetadata[pseudo.name]?.color || "black";
@@ -262,6 +267,28 @@ export const generateConvergencePlotData = (
       align: "left",
       font: { size: 10 },
     });
+
+    // Recommended pseudo highlight
+    const shortName = pseudosMetadata[pseudo.name]?.short_name;
+    libraries.forEach((library) => {
+      if (recommendedPseudos[library].pseudopotential === shortName) {
+        const cutoff = recommendedPseudos[library].cutoff_wfc;
+        const sizeScalar = library === "efficiency" ? 0.5 : 0.4;
+        shapes.push({
+          type: library === "efficiency" ? "rect" : "circle",
+          xref: "x",
+          yref: "y",
+          x0: cutoff - deltaX * sizeScalar * 2,
+          x1: cutoff + deltaX * sizeScalar * 2,
+          y0: offsetsArray[i] - windowHeight * sizeScalar,
+          y1: offsetsArray[i] + windowHeight * sizeScalar,
+          line: {
+            color: "black",
+            width: 2,
+          },
+        });
+      }
+    });
   });
 
   // Fake traces for legend
@@ -309,6 +336,22 @@ export const generateConvergencePlotData = (
     showlegend: true,
     hoverinfo: "skip",
   });
+  libraries.forEach((library) => {
+    data.push({
+      x: [null],
+      y: [null],
+      mode: "markers",
+      name: library,
+      marker: {
+        size: 14,
+        symbol: library === "efficiency" ? "square-open" : "circle-open",
+        color: "black",
+        line: { color: "black", width: 2 },
+      },
+      showlegend: true,
+      hoverinfo: "skip",
+    });
+  });
 
   const layout: Partial<Layout> = {
     title: {
@@ -346,7 +389,7 @@ export const generateConvergencePlotData = (
     },
     showlegend: true,
     legend: {
-      x: 1.02,
+      x: 1.05,
       y: 1,
       xanchor: "left",
       yanchor: "top",
@@ -355,6 +398,7 @@ export const generateConvergencePlotData = (
       borderwidth: 1,
     },
     annotations: annotations,
+    shapes: shapes,
     hovermode: "closest",
     height: plotHeight,
     margin: {
