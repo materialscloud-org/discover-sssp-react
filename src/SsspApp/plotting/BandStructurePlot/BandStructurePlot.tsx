@@ -78,6 +78,9 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
           bandsDataArray: pseudosData,
           settings: {
             showlegend: false,
+            yaxis: {
+              range: [-10, 25],
+            },
           },
         });
       })();
