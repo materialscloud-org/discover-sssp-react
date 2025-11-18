@@ -5,6 +5,12 @@ import { PseudosContext } from "@sssp/context";
 
 import styles from "./CategorySelector.module.scss";
 
+const PseudoCategoryMap: Record<string, string> = {
+  nc: "Norm-conserving",
+  us: "Ultrasoft",
+  paw: "PAW",
+};
+
 const CategorySelector: React.FC = () => {
   const { categories, activeCategories, setActiveCategories } =
     useContext(PseudosContext);
@@ -24,7 +30,7 @@ const CategorySelector: React.FC = () => {
           key={category}
           type="checkbox"
           id={`category-${category}`}
-          label={category}
+          label={PseudoCategoryMap[category] || category}
           checked={activeCategories.includes(category)}
           onChange={() => handleCategoryChange(category)}
         />
