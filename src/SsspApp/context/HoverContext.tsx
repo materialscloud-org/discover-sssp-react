@@ -29,7 +29,7 @@ export const HoverProvider: React.FC<HoverProviderProps> = ({ children }) => {
       }
       timeoutRef.current = window.setTimeout(() => {
         handler(value);
-      }, 50);
+      }, 10);
     };
   };
 
