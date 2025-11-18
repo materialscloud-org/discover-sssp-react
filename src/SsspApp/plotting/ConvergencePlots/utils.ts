@@ -9,6 +9,8 @@ import type {
 
 import { ElementInfo, PseudosMetadata } from "@sssp/models";
 
+import { Pseudo } from "./ConvergencePlot.models";
+
 const aboveScalar = 1.2; // offset for annotations above the efficiency line
 const belowScalar = 1.3; // offset for annotations below the efficiency line
 const annotationOffset = 0.13; // offset for last point annotations

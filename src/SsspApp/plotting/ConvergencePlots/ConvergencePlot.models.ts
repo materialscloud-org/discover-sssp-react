@@ -1,8 +1,11 @@
-interface ConvergencePlotProps {
+import { PseudosMetadata } from "@sssp/models";
+
+export interface ConvergencePlotProps {
   element: string;
+  pseudosMetadata: PseudosMetadata;
 }
 
-interface PseudoConvergenceData {
+export interface PseudoConvergenceData {
   conff: string;
   pseudos: Pseudo[];
 }
@@ -12,7 +15,7 @@ interface PseudoQuantity {
   values: number[];
 }
 
-interface Pseudo {
+export interface Pseudo {
   name: string;
   color: string;
   Z: number;

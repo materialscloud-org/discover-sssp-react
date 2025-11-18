@@ -1,5 +1,5 @@
 import { useContext, useEffect, useMemo, useState } from "react";
-import { FormCheck, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Form, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 import { PseudosContext } from "@sssp/context";
 
@@ -26,7 +26,7 @@ const PseudosCheckboxes: React.FC<PseudosCheckboxesProps> = ({
 
   return (
     <div className={styles["pseudos-checkboxes"]}>
-      <FormCheck
+      <Form.Check
         type="checkbox"
         id="all"
         label="Select all"
@@ -41,7 +41,7 @@ const PseudosCheckboxes: React.FC<PseudosCheckboxesProps> = ({
       {pseudos.map((pseudo) => {
         const label = pseudo + (pseudo === "REF" ? " (AE average)" : "");
         return (
-          <FormCheck
+          <Form.Check
             key={pseudo}
             type="checkbox"
             id={pseudo}

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
 
 import { LoadingSpinner, NoDataMessage } from "@sssp/components";
@@ -12,21 +12,12 @@ import styles from "./BandStructurePlot.module.scss";
 
 const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
   const [loadingData, setLoadingData] = useState(true);
-  const {
-    loadingMetadata,
-    categorizedPseudosMetadata,
-    activePseudos,
-    setActivePseudos,
-  } = useContext(PseudosContext);
+  const { loadingMetadata, pseudosMetadata, activePseudos, setActivePseudos } =
+    useContext(PseudosContext);
   const [pseudos, setPseudos] = useState<string[]>([]);
   const [bandsPseudosMap, setBandsPseudosMap] = useState<BandsPseudosMap>();
   const [pseudoShift, setPseudoShift] = useState(0);
   const plotRef = useRef<HTMLDivElement>(null);
-
-  const pseudosMetadata = useMemo(
-    () => Object.assign({}, ...Object.values(categorizedPseudosMetadata)),
-    []
-  );
 
   useEffect(() => {
     if (!element) return;
@@ -108,7 +99,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
       <Row>
         <Col lg="3">
           <div id={styles["pseudo-selectors-form"]}>
-            <Row>
+            <Row className="gap-3">
               <Col sm="6" lg="12">
                 <PseudoSelector
                   which="reference"
@@ -159,7 +150,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
             </Form.Group>
           </div>
         </Col>
-        <Col lg="6">
+        <Col lg="auto" className="ms-lg-5">
           <div id={styles["bands-plot-wrapper"]}>
             <div ref={plotRef} id={styles["bands-plot"]}></div>
           </div>

@@ -1,17 +1,43 @@
+import { useContext, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { CategorySelector } from "@sssp/components";
+import { CategorySelector, LoadingSpinner } from "@sssp/components";
+import { PseudosContext } from "@sssp/context";
+import { PseudosMetadata } from "@sssp/models";
 
 import ConvergencePlot from "./ConvergencePlot";
 import ConvergencePlotsProps from "./ConvergencePlots.models";
 import styles from "./ConvergencePlots.module.scss";
 
 const ConvergencePlots: React.FC<ConvergencePlotsProps> = ({ element }) => {
-  return (
+  const { loadingMetadata, categories, categorizedPseudosMetadata } =
+    useContext(PseudosContext);
+  const [activeCategories, setActiveCategories] = useState<string[]>(
+    Object.keys(categorizedPseudosMetadata)
+  );
+
+  const pseudosMetadata = useMemo(
+    (): PseudosMetadata =>
+      Object.assign(
+        {},
+        ...activeCategories.map(
+          (category) => categorizedPseudosMetadata[category]
+        )
+      ),
+    [activeCategories, categorizedPseudosMetadata]
+  );
+
+  return loadingMetadata ? (
+    <LoadingSpinner />
+  ) : (
     <div id="convergence-summary">
-      <CategorySelector />
+      <CategorySelector
+        categories={categories}
+        activeCategories={activeCategories}
+        onCategorySelect={setActiveCategories}
+      />
       <div id={styles["convergence-plot-container"]}>
-        <ConvergencePlot element={element} />
+        <ConvergencePlot element={element} pseudosMetadata={pseudosMetadata} />
       </div>
       <hr />
       <div id={styles["convergence-plot-description"]}>

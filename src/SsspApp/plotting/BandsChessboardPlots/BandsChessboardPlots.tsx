@@ -13,9 +13,14 @@ const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
 }) => {
   const {
     loadingMetadata,
-    allPseudos: pseudos,
+    pseudosMetadata: allPseudosMetadata,
     setActivePseudos,
   } = useContext(PseudosContext);
+
+  const pseudos = useMemo(
+    () => Object.keys(allPseudosMetadata),
+    [allPseudosMetadata]
+  );
 
   const generateDummyData = (size: number): number[][] => {
     const data: number[][] = [];

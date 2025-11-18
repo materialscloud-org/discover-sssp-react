@@ -1,13 +1,13 @@
 import { createContext, useEffect, useMemo, useState } from "react";
 
-import { CategorizedPseudosMetadata } from "@sssp/models";
+import { CategorizedPseudosMetadata, PseudosMetadata } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
 type PseudosContextType = {
   loadingMetadata: boolean;
   categories: string[];
   categorizedPseudosMetadata: CategorizedPseudosMetadata;
-  allPseudos: string[];
+  pseudosMetadata: PseudosMetadata;
   maxPseudoWidth: number;
   activeCategories: string[];
   setActiveCategories: React.Dispatch<React.SetStateAction<string[]>>;
@@ -31,14 +31,17 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
   const [activeCategories, setActiveCategories] = useState<string[]>([]);
   const [activePseudos, setActivePseudos] = useState<string[]>([]);
 
-  const allPseudos = useMemo(
-    () => Object.values(categorizedPseudosMetadata).flatMap(Object.keys),
+  const pseudosMetadata = useMemo(
+    () => Object.assign({}, ...Object.values(categorizedPseudosMetadata)),
     [categorizedPseudosMetadata]
   );
 
   const maxPseudoWidth = useMemo(
-    () => Math.max(...allPseudos.map((pseudo) => pseudo.length * 12)),
-    [allPseudos]
+    () =>
+      Math.max(
+        ...Object.keys(pseudosMetadata).map((pseudo) => pseudo.length * 12)
+      ),
+    [pseudosMetadata]
   );
 
   useEffect(() => {
@@ -62,7 +65,7 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
         loadingMetadata,
         categories,
         categorizedPseudosMetadata,
-        allPseudos,
+        pseudosMetadata,
         maxPseudoWidth,
         activeCategories,
         setActiveCategories,
