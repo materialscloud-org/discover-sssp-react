@@ -266,6 +266,17 @@ export function generateConvergencePlotData(
       });
     }
 
+    // Zero line
+    shapes.push({
+      type: "line",
+      x0: 18,
+      x1: 216,
+      y0: offset,
+      y1: offset,
+      opacity: 0.25,
+      line: { width: 0.5 },
+    });
+
     // Pseudo metadata annotation
     const { metadata } = pseudo.quantities;
     const metadataText = metadata
