@@ -1,7 +1,7 @@
 import type {
   Annotations,
   Dash,
-  Data,
+  PlotData,
   Layout,
   MarkerSymbol,
   Shape,
@@ -37,6 +37,35 @@ const labels = ["δω", "δV<sub>press</sub>", "δE<sub>coh</sub>", "δv"];
 const symbols: MarkerSymbol[] = ["circle", "triangle-down", "star", "square"];
 const dashes: Dash[] = ["solid", "dash", "dot", "solid"];
 
+type Quantity = {
+  label: string;
+  symbol: MarkerSymbol;
+  dash: Dash;
+};
+
+const QUANTITIES: Record<string, Quantity> = {
+  phononFrequencies: {
+    label: "δω",
+    symbol: "circle",
+    dash: "solid",
+  },
+  pressure: {
+    label: "δV<sub>press</sub>",
+    symbol: "triangle-down",
+    dash: "dash",
+  },
+  cohesiveEnergy: {
+    label: "δE<sub>coh</sub>",
+    symbol: "star",
+    dash: "dot",
+  },
+  eos: {
+    label: "δv",
+    symbol: "square",
+    dash: "solid",
+  },
+};
+
 export function generateConvergencePlotData(
   element: string,
   conff: string,
@@ -45,7 +74,7 @@ export function generateConvergencePlotData(
   activePseudos: Pseudo[],
   pseudosMetadata: PseudosMetadata
 ): {
-  data: Partial<Data>[];
+  data: Partial<PlotData>[];
   layout: Partial<Layout>;
 } {
   const windowHeight = offsetHeight / 4;
@@ -55,7 +84,7 @@ export function generateConvergencePlotData(
 
   const dual = HIGH_DUAL_ELEMENTS.has(element) ? 18 : 8;
 
-  const data: Partial<Data>[] = [];
+  const data: Partial<PlotData>[] = [];
   const annotations: Partial<Annotations>[] = [];
   const shapes: Partial<Shape>[] = [];
 
@@ -65,34 +94,31 @@ export function generateConvergencePlotData(
 
     const { quantities } = pseudo;
 
-    if (quantities.phonon_frequencies) {
-      const frequencies = quantities.phonon_frequencies.values.map(
+    let frequencies: number[] = [],
+      freqError: number[] = [],
+      pressure: number[] = [],
+      cohesiveEnergy: number[] = [],
+      eos: number[] = [];
+
+    if (quantities.phononFrequencies) {
+      frequencies = quantities.phononFrequencies.values.map(
         (v) => (v * 2) / PHONON_C_FACTOR
       );
-      const freqError = quantities.phonon_frequencies.error;
-      data.push({
-        name: "δω",
-        type: "scatter",
-        mode: "lines+markers",
-        line: { color: color, width: lineWidth, dash: "solid" },
-        marker: { size: markerSize, symbol: "circle" },
-        showlegend: false,
-        legendgroup: "δω",
-        x: quantities.phonon_frequencies.cutoffs,
-        y: frequencies.map((v) => v + offset),
-        error_y: {
-          type: "data",
-          array: freqError,
-          arrayminus: frequencies.map(() => 0),
-          visible: true,
-          color: color,
-        },
-        customdata: frequencies.map((v, idx) => [v, freqError[idx]]),
-        hovertemplate: `<b>${pseudo.name}<br>E<sub>wfc</sub>: %{x}<br>δω: %{customdata[0]:.1e} &plusmn; %{customdata[1]:.1e} cm<sup>-1</sup></b><extra></extra>`,
-      });
+      let dataSeries = generateDataSeries(QUANTITIES.phononFrequencies, color);
+      dataSeries.x = quantities.phononFrequencies.cutoffs;
+      dataSeries.y = frequencies.map((v) => v + offset);
+      freqError = quantities.phononFrequencies.error;
+      dataSeries.error_y = {
+        type: "data",
+        array: freqError,
+        arrayminus: frequencies.map(() => 0),
+        visible: true,
+        color: color,
+      };
+      data.push(dataSeries);
 
-      // ω_max annotation
-      const omegaRef = quantities.phonon_frequencies.ref.toFixed(2);
+      // Max phonon frequency annotation
+      const omegaRef = quantities.phononFrequencies.ref.toFixed(2);
       annotations.push({
         x: 203.1,
         y: offset - 1,
@@ -103,42 +129,24 @@ export function generateConvergencePlotData(
     }
 
     if (quantities.pressure) {
-      const pressure = quantities.pressure.values.map(
+      let dataSeries = generateDataSeries(QUANTITIES.pressure, color);
+      pressure = quantities.pressure.values.map(
         (v) => (v * 2) / PRESSURE_C_FACTOR
       );
-      data.push({
-        name: "δV<sub>press</sub>",
-        type: "scatter",
-        mode: "lines+markers",
-        line: { color: color, width: lineWidth, dash: "dash" },
-        marker: { size: markerSize, symbol: "triangle-down" },
-        showlegend: false,
-        legendgroup: "δV<sub>press</sub>",
-        x: quantities.pressure.cutoffs,
-        y: pressure.map((v) => v + offset),
-        customdata: pressure,
-        hovertemplate: `<b>${pseudo.name}<br>E<sub>wfc</sub>: %{x}<br>δV<sub>press</sub>: %{customdata:.2f}</b><extra></extra>`,
-      });
+      dataSeries.x = quantities.pressure.cutoffs;
+      dataSeries.y = pressure.map((v) => v + offset);
+      data.push(dataSeries);
     }
 
-    if (quantities.cohesive_energy) {
-      const cohesiveEnergy = quantities.cohesive_energy.values;
-      data.push({
-        name: "δE<sub>coh</sub>",
-        type: "scatter",
-        mode: "lines+markers",
-        line: { color: color, width: lineWidth, dash: "dot" },
-        marker: { size: markerSize, symbol: "star" },
-        showlegend: false,
-        legendgroup: "δE<sub>coh</sub>",
-        x: quantities.cohesive_energy.cutoffs,
-        y: cohesiveEnergy.map((v) => v + offset),
-        customdata: cohesiveEnergy,
-        hovertemplate: `<b>${pseudo.name}<br>E<sub>wfc</sub>: %{x}<br>δE<sub>coh</sub>: %{customdata:.2f}</b><extra></extra>`,
-      });
+    if (quantities.cohesiveEnergy) {
+      let dataSeries = generateDataSeries(QUANTITIES.cohesiveEnergy, color);
+      cohesiveEnergy = quantities.cohesiveEnergy.values;
+      dataSeries.x = quantities.cohesiveEnergy.cutoffs;
+      dataSeries.y = cohesiveEnergy.map((v) => v + offset);
+      data.push(dataSeries);
 
-      // E_cohesive ref
-      const cohesiveRef = quantities.cohesive_energy.ref.toFixed(2);
+      // Cohesive energy ref
+      const cohesiveRef = quantities.cohesiveEnergy.ref.toFixed(2);
       annotations.push({
         x: 205,
         y: offset + 1,
@@ -149,20 +157,11 @@ export function generateConvergencePlotData(
     }
 
     if (quantities.eos) {
-      const eos = quantities.eos.values.map((v) => (v * 2) / EOS_C_FACTOR);
-      data.push({
-        name: "δv",
-        type: "scatter",
-        mode: "lines+markers",
-        line: { color: color, width: lineWidth, dash: "dot" },
-        marker: { size: markerSize, symbol: "square" },
-        showlegend: false,
-        legendgroup: "δv",
-        x: quantities.eos.cutoffs,
-        y: eos.map((v) => v + offset),
-        customdata: eos,
-        hovertemplate: `<b>${pseudo.name}<br>E<sub>wfc</sub>: %{x}<br>δν: %{customdata:.2f}</b><extra></extra>`,
-      });
+      let dataSeries = generateDataSeries(QUANTITIES.eos, color);
+      eos = quantities.eos.values.map((v) => (v * 2) / EOS_C_FACTOR);
+      dataSeries.x = quantities.eos.cutoffs;
+      dataSeries.y = eos.map((v) => v + offset);
+      data.push(dataSeries);
     }
 
     if (quantities.bands) {
@@ -277,6 +276,70 @@ export function generateConvergencePlotData(
       line: { width: 0.5 },
     });
 
+    // Shared hover tip
+    const cutoffs = pseudo.quantities.bands?.cutoffs || [];
+
+    const customData = [cutoffs];
+    const hoverLines = [`E<sub>wfc</sub> = %{customdata[0]} Ry<br>`];
+
+    let colIndex = 1;
+
+    // Phonon frequency (and optional error)
+    if (frequencies.length) {
+      customData.push(frequencies);
+      let line = `δω = %{customdata[${colIndex}]:.3f}`;
+      colIndex += 1;
+      if (freqError.length) {
+        customData.push(freqError);
+        line += ` &plusmn; %{customdata[${colIndex}]:.1e}`;
+        colIndex += 1;
+      }
+      line += ` cm<sup>-1</sup><br>`;
+      hoverLines.push(line);
+    }
+
+    // Pressure
+    if (pressure.length) {
+      customData.push(pressure);
+      hoverLines.push(
+        `δV<sub>press</sub> = %{customdata[${colIndex}]:.3f}<br>`
+      );
+      colIndex += 1;
+    }
+
+    // Cohesive energy
+    if (cohesiveEnergy.length) {
+      customData.push(cohesiveEnergy);
+      hoverLines.push(`δE<sub>coh</sub> = %{customdata[${colIndex}]:.3f}<br>`);
+      colIndex += 1;
+    }
+
+    // Equation of state
+    if (eos.length) {
+      customData.push(eos);
+      hoverLines.push(`δv = %{customdata[${colIndex}]:.3f}`);
+      colIndex += 1;
+    }
+
+    data.push({
+      x: cutoffs,
+      y: new Array(cutoffs.length).fill(offset),
+      mode: "markers",
+      marker: {
+        size: 24,
+        opacity: 0,
+        line: { width: 0 },
+      },
+      showlegend: false,
+      customdata: cutoffs.map((_, row) => customData.map((col) => col[row])),
+      hoverlabel: {
+        bgcolor: "rgb(225, 225, 225)",
+        bordercolor: "black",
+      },
+      hovertemplate:
+        `<b>${pseudo.name}</b><br>` + hoverLines.join("") + `<extra></extra>`,
+    });
+
     // Pseudo metadata annotation
     const { metadata } = pseudo.quantities;
     const metadataText = metadata
@@ -301,17 +364,29 @@ export function generateConvergencePlotData(
     libraries.forEach((library) => {
       if (recommendedPseudos[library].pseudopotential === shortName) {
         const cutoff = recommendedPseudos[library].cutoff_wfc;
-        const sizeScalar = library === "efficiency" ? 0.5 : 0.4;
+        let shapeType, sizeScalar, fillColor, lineColor;
+        if (library === "efficiency") {
+          shapeType = "rect";
+          sizeScalar = 0.5;
+          fillColor = "lightgreen";
+          lineColor = "green";
+        } else {
+          shapeType = "circle";
+          sizeScalar = 0.4;
+          fillColor = "lightcoral";
+          lineColor = "red";
+        }
         shapes.push({
-          type: library === "efficiency" ? "rect" : "circle",
+          type: shapeType as any,
           xref: "x",
           yref: "y",
           x0: cutoff - deltaX * sizeScalar * 2,
           x1: cutoff + deltaX * sizeScalar * 2,
           y0: offsetsArray[i] - windowHeight * sizeScalar,
           y1: offsetsArray[i] + windowHeight * sizeScalar,
-          fillcolor: "black",
-          opacity: 0.2,
+          fillcolor: fillColor,
+          line: { width: 1, color: lineColor },
+          opacity: 0.5,
         });
       }
     });
@@ -385,4 +460,20 @@ export function generateConvergencePlotData(
   };
 
   return { data, layout };
+}
+
+function generateDataSeries(
+  quantity: Quantity,
+  color: string
+): Partial<PlotData> {
+  return {
+    name: quantity.label,
+    type: "scatter",
+    mode: "lines+markers",
+    line: { color: color, width: lineWidth, dash: quantity.dash },
+    marker: { size: markerSize, symbol: quantity.symbol },
+    showlegend: false,
+    legendgroup: quantity.label,
+    hoverinfo: "skip",
+  };
 }

@@ -26,9 +26,9 @@ export interface Pseudo {
       ang_nu: number;
       max_conf: string;
     };
-    phonon_frequencies?: PseudoQuantity & { error: number[]; ref: number };
+    phononFrequencies?: PseudoQuantity & { error: number[]; ref: number };
     pressure?: PseudoQuantity;
-    cohesive_energy?: PseudoQuantity & { ref: number };
+    cohesiveEnergy?: PseudoQuantity & { ref: number };
     eos?: PseudoQuantity;
     bands?: {
       cutoffs: number[];

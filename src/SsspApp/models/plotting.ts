@@ -70,7 +70,7 @@ interface YSeries {
 }
 
 interface DefaultSeries {
-  cohesive_energy: {
+  cohesiveEnergy: {
     X_label: string;
     Y_label: string;
     data_series: [string, string, number][];
