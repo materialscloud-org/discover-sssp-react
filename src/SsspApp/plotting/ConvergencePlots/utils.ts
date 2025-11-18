@@ -292,7 +292,7 @@ export function generateConvergencePlotData(
         line += ` &plusmn; %{customdata[${colIndex}]:.1e}`;
         colIndex += 1;
       }
-      line += ` cm<sup>-1</sup><br>`;
+      line += `%<br>`;
       hoverLines.push(line);
     }
 
@@ -300,7 +300,7 @@ export function generateConvergencePlotData(
     if (pressure.length) {
       customData.push(pressure);
       hoverLines.push(
-        `δV<sub>press</sub> = %{customdata[${colIndex}]:.3f}<br>`
+        `δV<sub>press</sub> = %{customdata[${colIndex}]:.3f}%<br>`
       );
       colIndex += 1;
     }
@@ -308,7 +308,9 @@ export function generateConvergencePlotData(
     // Cohesive energy
     if (cohesiveEnergy.length) {
       customData.push(cohesiveEnergy);
-      hoverLines.push(`δE<sub>coh</sub> = %{customdata[${colIndex}]:.3f}<br>`);
+      hoverLines.push(
+        `δE<sub>coh</sub> = %{customdata[${colIndex}]:.3f} meV<br>`
+      );
       colIndex += 1;
     }
 

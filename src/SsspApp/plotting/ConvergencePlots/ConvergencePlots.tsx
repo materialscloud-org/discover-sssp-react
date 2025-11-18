@@ -51,17 +51,35 @@ const ConvergencePlots: React.FC<ConvergencePlotsProps> = ({ element }) => {
         <ul>
           <li>the number of valence electrons of the pseudopotential</li>
           <li>
-            the delta-factor with respect to the reference all-electron results
+            the average of <b>ν</b>, a *metric relating to the equation of
+            state, across 10 structures
           </li>
-          <li>the maximum phonon frequency</li>
+          <li>
+            the maximum <b>ν</b> value
+          </li>
+          <li>
+            the average of <b>ν</b>, excluding the XO<sub>3</sub> structure
+          </li>
         </ul>
         <p>
+          *See the <b>About</b> tab of the{" "}
+          <a
+            href="https://acwf-verification.materialscloud.org/"
+            target="_blank"
+            style={{ textDecoration: "none" }}
+          >
+            Verification of the precision of DFT implementations via AiiDA
+            common workflows
+          </a>{" "}
+          app to learn more about how <b>ν</b> is computed.
+        </p>
+        <p>
           All calculations are performed on the ground-state elemental solids
-          unless stated otherwise (i.e. rare-earths and flourine). (see{" "}
+          unless stated otherwise (i.e. rare-earths and flourine). See{" "}
           <Link to="/about" style={{ textDecoration: "none" }}>
             About SSSP
           </Link>{" "}
-          for more details).
+          for more details.
         </p>
       </div>
       <hr />
