@@ -310,10 +310,8 @@ export function generateConvergencePlotData(
           x1: cutoff + deltaX * sizeScalar * 2,
           y0: offsetsArray[i] - windowHeight * sizeScalar,
           y1: offsetsArray[i] + windowHeight * sizeScalar,
-          line: {
-            color: "black",
-            width: 2,
-          },
+          fillcolor: "black",
+          opacity: 0.2,
         });
       }
     });
@@ -383,12 +381,7 @@ export function generateConvergencePlotData(
     shapes: shapes,
     hovermode: "closest",
     height: plotHeight,
-    margin: {
-      l: 160,
-      r: 80,
-      t: 40,
-      b: 80,
-    },
+    margin: { l: 160, r: 80, t: 40, b: 80 },
   };
 
   return { data, layout };

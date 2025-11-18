@@ -47,8 +47,8 @@ const ConvergencePlots: React.FC<ConvergencePlotsProps> = ({ element }) => {
         (the colored horizontal dashed lines correspond to the thresholds of the
         SSSP efficiency criteria, whereas the gray dotted lines correspond to
         the precision criteria). The recommended efficiency (precision)
-        pseudopotential is marked with a dotted bounding rectangle (circle) at
-        the recommended cutoff. On the right-hand side we report the number of
+        pseudopotential is marked with a dotted bounding square (circle) at the
+        recommended cutoff. On the right-hand side we report the number of
         valence electrons of the pseudopotential, the delta-factor with respect
         to the reference all-electron results and the maximum phonon frequency.
         All calculations are performed on the ground-state elemental solids
