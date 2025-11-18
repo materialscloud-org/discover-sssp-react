@@ -4,6 +4,7 @@ import {
   ElementBandsDataMap,
   ElementsInfo,
   EosData,
+  PseudoConvergenceData,
 } from "@sssp/models";
 
 export default class SsspDataService {

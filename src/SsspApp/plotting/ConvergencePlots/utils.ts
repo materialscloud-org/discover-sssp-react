@@ -7,9 +7,7 @@ import type {
   Shape,
 } from "plotly.js";
 
-import { ElementInfo, PseudosMetadata } from "@sssp/models";
-
-import { Pseudo } from "./ConvergencePlot.models";
+import { Pseudo, ElementInfo, PseudosMetadata } from "@sssp/models";
 
 const aboveScalar = 1.2; // offset for annotations above the efficiency line
 const belowScalar = 1.3; // offset for annotations below the efficiency line

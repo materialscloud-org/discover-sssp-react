@@ -4,13 +4,10 @@ import type { Config, PlotlyHTMLElement } from "plotly.js";
 
 import { LoadingSpinner, NoDataMessage } from "@sssp/components";
 import { ElementsInfoContext, LibraryContext } from "@sssp/context";
-import { ElementInfo } from "@sssp/models";
+import { ElementInfo, PseudoConvergenceData } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
-import {
-  ConvergencePlotProps,
-  PseudoConvergenceData,
-} from "./ConvergencePlot.models";
+import { ConvergencePlotProps } from "./ConvergencePlot.models";
 import styles from "./ConvergencePlot.module.scss";
 import { generateConvergencePlotData } from "./utils";
 
