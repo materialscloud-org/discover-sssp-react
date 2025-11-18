@@ -86,7 +86,7 @@ export function generateConvergencePlotData(
           color: color,
         },
         customdata: frequencies.map((v, idx) => [v, freqError[idx]]),
-        hovertemplate: `<b>${pseudo.name}<br>δω: %{customdata[0]:.1e} &plusmn; %{customdata[1]:.1e} cm<sup>-1</sup></b><extra></extra>`,
+        hovertemplate: `<b>${pseudo.name}<br>E<sub>wfc</sub>: %{x}<br>δω: %{customdata[0]:.1e} &plusmn; %{customdata[1]:.1e} cm<sup>-1</sup></b><extra></extra>`,
       });
 
       // ω_max annotation
@@ -115,7 +115,7 @@ export function generateConvergencePlotData(
         x: quantities.pressure.cutoffs,
         y: pressure.map((v) => v + offset),
         customdata: pressure,
-        hovertemplate: `<b>${pseudo.name}<br>δV<sub>press</sub>: %{customdata:.2f}</b><extra></extra>`,
+        hovertemplate: `<b>${pseudo.name}<br>E<sub>wfc</sub>: %{x}<br>δV<sub>press</sub>: %{customdata:.2f}</b><extra></extra>`,
       });
     }
 
@@ -132,7 +132,7 @@ export function generateConvergencePlotData(
         x: quantities.cohesive_energy.cutoffs,
         y: cohesiveEnergy.map((v) => v + offset),
         customdata: cohesiveEnergy,
-        hovertemplate: `<b>${pseudo.name}<br>δE<sub>coh</sub>: %{customdata:.2f}</b><extra></extra>`,
+        hovertemplate: `<b>${pseudo.name}<br>E<sub>wfc</sub>: %{x}<br>δE<sub>coh</sub>: %{customdata:.2f}</b><extra></extra>`,
       });
 
       // E_cohesive ref
@@ -159,7 +159,7 @@ export function generateConvergencePlotData(
         x: quantities.eos.cutoffs,
         y: eos.map((v) => v + offset),
         customdata: eos,
-        hovertemplate: `<b>${pseudo.name}<br>δν: %{customdata:.2f}</b><extra></extra>`,
+        hovertemplate: `<b>${pseudo.name}<br>E<sub>wfc</sub>: %{x}<br>δν: %{customdata:.2f}</b><extra></extra>`,
       });
     }
 
