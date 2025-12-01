@@ -360,9 +360,11 @@ export function generateConvergencePlotData(
     });
 
     // Recommended pseudo highlight
-    const shortName = pseudosMetadata[pseudo.name]?.short_name;
     libraries.forEach((library) => {
-      if (recommendedPseudos[library].pseudopotential === shortName) {
+      if (
+        recommendedPseudos[library].pseudopotential === pseudo.name &&
+        recommendedPseudos[library].Z === pseudo.Z
+      ) {
         const cutoff = recommendedPseudos[library].cutoff_wfc;
         let shapeType, sizeScalar, fillColor, lineColor;
         if (library === "efficiency") {

@@ -4,7 +4,7 @@ import type { Config, PlotlyHTMLElement } from "plotly.js";
 
 import { LoadingSpinner, NoDataMessage } from "@sssp/components";
 import { ElementsInfoContext, LibraryContext } from "@sssp/context";
-import { ElementInfo, PseudoConvergenceData } from "@sssp/models";
+import { PseudoConvergenceData } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
 import { ConvergencePlotProps } from "./ConvergencePlot.models";
@@ -36,17 +36,16 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
     );
   }, [summaryData, pseudosMetadata]);
 
-  const recommendedPseudos = useMemo(() => {
-    if (!element || !elementsInfo) return {};
-    const recommended: { [key: string]: ElementInfo } = {};
-    for (const key of Object.keys(elementsInfo)) {
-      const elementInfo = elementsInfo[key];
-      if (elementInfo && elementInfo[element]) {
-        recommended[key] = elementInfo[element];
-      }
-    }
-    return recommended;
-  }, [elementsInfo, element]);
+  const recommendedPseudos = useMemo(
+    () =>
+      Object.fromEntries(
+        Object.entries(elementsInfo).map(([library, infos]) => [
+          library,
+          infos[element],
+        ])
+      ),
+    [elementsInfo, element]
+  );
 
   useEffect(() => {
     setLoadingData(true);
