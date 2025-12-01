@@ -1,12 +1,11 @@
 import { createContext, useEffect, useMemo, useState } from "react";
 
-import { CategorizedPseudosMetadata, PseudosMetadata } from "@sssp/models";
+import { PseudosMetadata } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
 type PseudosContextType = {
   loadingMetadata: boolean;
   categories: string[];
-  categorizedPseudosMetadata: CategorizedPseudosMetadata;
   pseudosMetadata: PseudosMetadata;
   maxPseudoWidth: number;
   activeCategories: string[];
@@ -26,15 +25,9 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
 }) => {
   const [loadingMetadata, setLoadingMetadata] = useState(true);
   const [categories, setCategories] = useState<string[]>([]);
-  const [categorizedPseudosMetadata, setCategorizedPseudosMetadata] =
-    useState<CategorizedPseudosMetadata>({});
+  const [pseudosMetadata, setPseudosMetadata] = useState<PseudosMetadata>({});
   const [activeCategories, setActiveCategories] = useState<string[]>([]);
   const [activePseudos, setActivePseudos] = useState<string[]>([]);
-
-  const pseudosMetadata = useMemo(
-    () => Object.assign({}, ...Object.values(categorizedPseudosMetadata)),
-    [categorizedPseudosMetadata]
-  );
 
   const maxPseudoWidth = useMemo(
     () =>
@@ -47,9 +40,13 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
   useEffect(() => {
     SsspDataService.fetchPseudosMetadata()
       .then((metadata) => {
-        setCategorizedPseudosMetadata(metadata);
-        setCategories(Object.keys(metadata));
-        setActiveCategories(Object.keys(metadata));
+        setPseudosMetadata(metadata);
+        const uniqueCategories = new Set<string>();
+        Object.values(metadata).forEach((meta) => {
+          uniqueCategories.add(meta.category);
+        });
+        setCategories([...uniqueCategories]);
+        setActiveCategories([...uniqueCategories]);
       })
       .catch((error) => {
         console.error("Error fetching pseudos metadata:", error);
@@ -64,7 +61,6 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
       value={{
         loadingMetadata,
         categories,
-        categorizedPseudosMetadata,
         pseudosMetadata,
         maxPseudoWidth,
         activeCategories,

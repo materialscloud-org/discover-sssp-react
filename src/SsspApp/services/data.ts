@@ -1,6 +1,6 @@
 import { DATA_URL } from "@sssp/common/config";
 import {
-  CategorizedPseudosMetadata,
+  PseudosMetadata,
   ElementBandsDataMap,
   ElementsInfo,
   EosData,
@@ -29,13 +29,12 @@ export default class SsspDataService {
     return json || ({} as ElementBandsDataMap);
   };
 
-  static fetchPseudosMetadata =
-    async (): Promise<CategorizedPseudosMetadata> => {
-      const url = `${DATA_URL}/metadata.json`;
-      const response = await fetch(url);
-      const json: CategorizedPseudosMetadata = await response.json();
-      return json || ({} as CategorizedPseudosMetadata);
-    };
+  static fetchPseudosMetadata = async (): Promise<PseudosMetadata> => {
+    const url = `${DATA_URL}/metadata.json`;
+    const response = await fetch(url);
+    const json: PseudosMetadata = await response.json();
+    return json || ({} as PseudosMetadata);
+  };
 
   static fetchPseudosSummaryData = async (
     element: string

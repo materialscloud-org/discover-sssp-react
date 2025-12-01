@@ -3,29 +3,25 @@ import { Link } from "react-router-dom";
 
 import { CategorySelector, LoadingSpinner } from "@sssp/components";
 import { PseudosContext } from "@sssp/context";
-import { PseudosMetadata } from "@sssp/models";
 
 import ConvergencePlot from "./ConvergencePlot";
 import ConvergencePlotsProps from "./ConvergencePlots.models";
 import styles from "./ConvergencePlots.module.scss";
 
 const ConvergencePlots: React.FC<ConvergencePlotsProps> = ({ element }) => {
-  const { loadingMetadata, categories, categorizedPseudosMetadata } =
+  const { loadingMetadata, categories, pseudosMetadata } =
     useContext(PseudosContext);
-  const [activeCategories, setActiveCategories] = useState<string[]>(
-    Object.keys(categorizedPseudosMetadata)
-  );
+  const [activeCategories, setActiveCategories] = useState(categories);
 
-  const pseudosMetadata = useMemo(
-    (): PseudosMetadata =>
-      Object.assign(
-        {},
-        ...activeCategories.map(
-          (category) => categorizedPseudosMetadata[category]
-        )
-      ),
-    [activeCategories, categorizedPseudosMetadata]
-  );
+  const activePseudosMetadata = useMemo(() => {
+    const activePseudos: Record<string, any> = {};
+    Object.entries(pseudosMetadata).forEach(([pseudo, metadata]) => {
+      if (activeCategories.includes(metadata.category)) {
+        activePseudos[pseudo] = metadata;
+      }
+    });
+    return activePseudos;
+  }, [activeCategories]);
 
   return loadingMetadata ? (
     <LoadingSpinner />
@@ -89,7 +85,10 @@ const ConvergencePlots: React.FC<ConvergencePlotsProps> = ({ element }) => {
         onCategorySelect={setActiveCategories}
       />
       <div id={styles["convergence-plot-container"]}>
-        <ConvergencePlot element={element} pseudosMetadata={pseudosMetadata} />
+        <ConvergencePlot
+          element={element}
+          pseudosMetadata={activePseudosMetadata}
+        />
       </div>
     </div>
   );
