@@ -1,6 +1,6 @@
 import { useContext, useEffect, useMemo, useRef, useState } from "react";
 
-import type { Config, PlotlyHTMLElement } from "plotly.js";
+import type { Config } from "plotly.js";
 
 import { LoadingSpinner, NoDataMessage } from "@sssp/components";
 import { ElementsInfoContext, LibraryContext } from "@sssp/context";
@@ -68,7 +68,6 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
     }
 
     let destroyed = false;
-    let graphDiv: any | null = null;
 
     (async () => {
       const Plotly = (await import("@sssp/plotting/PlotlyLoader")).default;
@@ -84,12 +83,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
         pseudosMetadata
       );
 
-      graphDiv = (await Plotly.react(
-        plotRef.current,
-        data,
-        layout,
-        config
-      )) as PlotlyHTMLElement;
+      await Plotly.react(plotRef.current, data, layout, config);
     })();
 
     return () => {

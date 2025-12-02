@@ -31,7 +31,7 @@ const EOS_C_FACTOR = 0.2;
 const PHONON_C_FACTOR = 2;
 const PRESSURE_C_FACTOR = 1;
 
-const labels = ["δω", "δV<sub>press</sub>", "δE<sub>coh</sub>", "δv"];
+const labels = ["δω", "δV<sub>press</sub>", "δE<sub>coh</sub>", "δν"];
 const symbols: MarkerSymbol[] = ["circle", "triangle-down", "star", "square"];
 const dashes: Dash[] = ["solid", "dash", "dot", "solid"];
 
@@ -58,7 +58,7 @@ const QUANTITIES: Record<string, Quantity> = {
     dash: "dot",
   },
   eos: {
-    label: "δv",
+    label: "δν",
     symbol: "square",
     dash: "solid",
   },
