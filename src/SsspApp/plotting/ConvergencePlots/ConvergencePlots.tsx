@@ -22,7 +22,7 @@ const ConvergencePlots: React.FC<ConvergencePlotsProps> = ({ element }) => {
       }
     });
     return activePseudos;
-  }, [activeCategories]);
+  }, [activeCategories, pseudosMetadata]);
 
   return loadingMetadata ? (
     <LoadingSpinner />

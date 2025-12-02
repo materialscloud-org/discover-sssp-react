@@ -34,7 +34,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
     return summaryData.pseudos.filter((pseudo) =>
       pseudosMetadata.hasOwnProperty(pseudo.name)
     );
-  }, [summaryData, pseudosMetadata]);
+  }, [summaryData?.pseudos, pseudosMetadata]);
 
   const recommendedPseudos = useMemo(
     () =>
@@ -67,12 +67,11 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
       return;
     }
 
-    let Plotly: any | null = null;
     let destroyed = false;
     let graphDiv: any | null = null;
 
     (async () => {
-      Plotly = (await import("@sssp/plotting/PlotlyLoader")).default;
+      const Plotly = (await import("@sssp/plotting/PlotlyLoader")).default;
 
       if (destroyed || !plotRef.current) return;
 
@@ -95,22 +94,23 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
 
     return () => {
       destroyed = true;
-      if (Plotly && graphDiv) {
-        try {
-          Plotly.purge(graphDiv);
-        } catch (error) {
-          console.error("Error purging ConvergencePlot:", error);
-        }
-      }
     };
-  }, [loadingData, activePseudos, pseudosMetadata]);
+  }, [
+    loadingData,
+    element,
+    summaryData,
+    libraries,
+    recommendedPseudos,
+    activePseudos,
+    pseudosMetadata,
+  ]);
 
   return loadingData ? (
     <LoadingSpinner />
   ) : !activePseudos.length ? (
     <NoDataMessage />
   ) : (
-    <div ref={plotRef} id={styles["convergence-plot"]}></div>
+    <div ref={plotRef} id={styles["convergence-plot"]} />
   );
 };
 
