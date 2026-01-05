@@ -1,4 +1,4 @@
-import { useContext, useMemo } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 
 import { LoadingSpinner } from "@sssp/components";
@@ -9,53 +9,70 @@ import BandsChessboardPlotsProps from "./BandsChessboardPlots.models";
 import styles from "./BandsChessboardPlots.module.scss";
 
 const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
-  goToBands,
+  element,
 }) => {
-  const {
-    loadingMetadata,
-    pseudosMetadata: allPseudosMetadata,
-    setActivePseudos,
-  } = useContext(PseudosContext);
+  const { loadingMetadata, setActivePseudos } = useContext(PseudosContext);
+  const [loadingData, setLoadingData] = useState<boolean>(true);
+  const [pseudoFilenames, setPseudoFilenames] = useState<string[]>([]);
+  const [etaV, setEtaV] = useState<number[][]>([]);
+  const [etaV10, setEtaV10] = useState<number[][]>([]);
+  const [shifts, setShifts] = useState<number[][]>([]);
 
-  const pseudos = useMemo(
-    () => Object.keys(allPseudosMetadata),
-    [allPseudosMetadata]
-  );
-
-  const generateDummyData = (size: number): number[][] => {
-    const data: number[][] = [];
-    for (let i = 0; i < size; i++) {
-      const row: number[] = [];
-      for (let j = 0; j < size; j++) {
-        row.push(Math.random() * 100);
-      }
-      data.push(row);
-    }
-    return data;
-  };
-
-  const eta_v = useMemo(() => generateDummyData(pseudos.length), [pseudos]);
-  const eta_10 = useMemo(() => generateDummyData(pseudos.length), [pseudos]);
+  useEffect(() => {
+    if (!element) return;
+    SsspDataService.fetchBandChessboardData(element)
+      .then((data) => {
+        const filenames = Object.keys(data.pseudos);
+        setPseudoFilenames(filenames);
+        const n = filenames.length;
+        const etaV = Array.from({ length: n }, () => Array(n).fill(0));
+        const etaV10 = Array.from({ length: n }, () => Array(n).fill(0));
+        const shifts = Array.from({ length: n }, () => Array(n).fill(0));
+        for (let i = 0; i < n; i++) {
+          for (let j = i + 1; j < n; j++) {
+            const key1 = `${i}-${j}`;
+            const key2 = `${j}-${i}`;
+            const vData = data.v_distance[key1] || data.v_distance[key2];
+            const v10Data = data.v10_distance[key1] || data.v10_distance[key2];
+            etaV[i][j] = vData.max_diff_c;
+            etaV[j][i] = etaV[i][j];
+            etaV10[i][j] = v10Data.max_diff_c;
+            etaV10[j][i] = etaV10[i][j];
+            shifts[i][j] = vData.shift_c * RYDBERG_TO_EV;
+            shifts[j][i] = shifts[i][j];
+          }
+        }
+        setEtaV(etaV);
+        setEtaV10(etaV10);
+        setShifts(shifts);
+      })
+      .catch((error) => {
+        console.error("Error fetching band chessboard data:", error);
+        setPseudoFilenames([]);
+        setEtaV([]);
+        setEtaV10([]);
+        setShifts([]);
+      })
+      .finally(() => {
+        setLoadingData(false);
+      });
+  }, [element]);
 
   const tileClickHandler = (pseudos: string[]) => {
     setActivePseudos(pseudos);
     goToBands("Band Structure");
   };
 
-  return loadingMetadata ? (
+  return loadingMetadata || loadingData ? (
     <LoadingSpinner />
   ) : (
     <div id="chessboard-page">
-      <div style={{ fontWeight: "bold", textAlign: "center" }}>
-        Disclaimer: The data shown does not reflect real data and is for
-        demonstration purposes only.
-      </div>
       <div id={styles["chessboard-plots"]}>
         <Row className="justify-content-center g-0">
           <Col xxl="6">
             <BandsChessboardPlot
-              pseudos={pseudos}
-              values={eta_v}
+              pseudoFilenames={pseudoFilenames}
+              values={etaV}
               title="V"
               colorMax={Math.max(...eta_v.flat())}
               tileClickHandler={tileClickHandler}
@@ -63,9 +80,9 @@ const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
           </Col>
           <Col xxl="6">
             <BandsChessboardPlot
-              pseudos={pseudos}
-              values={eta_10}
-              title="10"
+              pseudoFilenames={pseudoFilenames}
+              values={etaV10}
+              title="V10"
               colorMax={Math.max(...eta_10.flat())}
               tileClickHandler={tileClickHandler}
             />

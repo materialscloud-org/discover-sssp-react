@@ -1,5 +1,5 @@
 export default interface BandsChessboardPlotProps {
-  pseudos: string[];
+  pseudoFilenames: string[];
   values: number[][];
   title: string;
   colorMax: number;

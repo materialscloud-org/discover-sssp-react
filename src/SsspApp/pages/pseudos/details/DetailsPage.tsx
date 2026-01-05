@@ -22,9 +22,9 @@ const DetailsPage: React.FC = () => {
   const params = useParams();
   const { activeLibrary } = useContext(LibraryContext);
   const { elementsList } = useContext(ElementsInfoContext);
-  const [activeTab, setActiveTab] = useState("Convergence Summary");
-  const [visitedTabs, setVisitedTabs] = useState<Set<string>>(
-    new Set(["Convergence Summary"])
+  const defaultTab = "Convergence Summary";
+  const [activeTab, setActiveTab] = useState(defaultTab);
+  const [visitedTabs, setVisitedTabs] = useState(new Set([defaultTab]));
   );
   const { element } = params;
 
