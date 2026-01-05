@@ -4,12 +4,17 @@ import { Col, Row } from "react-bootstrap";
 import { LoadingSpinner } from "@sssp/components";
 import { PseudosContext } from "@sssp/context";
 
+import { SsspDataService } from "@sssp/services";
 import BandsChessboardPlot from "./BandsChessboardPlot";
 import BandsChessboardPlotsProps from "./BandsChessboardPlots.models";
 import styles from "./BandsChessboardPlots.module.scss";
 
+const RYDBERG_TO_EV = 1 / 13.605693122994;
+
 const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
   element,
+  setBandShift,
+  onTileClick: goToTab,
 }) => {
   const { loadingMetadata, setActivePseudos } = useContext(PseudosContext);
   const [loadingData, setLoadingData] = useState<boolean>(true);
@@ -58,9 +63,10 @@ const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
       });
   }, [element]);
 
-  const tileClickHandler = (pseudos: string[]) => {
+  const tileClickHandler = (pseudos: string[], pointIndex: number[]) => {
     setActivePseudos(pseudos);
-    goToBands("Band Structure");
+    setBandShift(shifts[pointIndex[0]][pointIndex[1]]);
+    goToTab("Band Structure");
   };
 
   return loadingMetadata || loadingData ? (
@@ -73,18 +79,18 @@ const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
             <BandsChessboardPlot
               pseudoFilenames={pseudoFilenames}
               values={etaV}
-              title="V"
-              colorMax={Math.max(...eta_v.flat())}
-              tileClickHandler={tileClickHandler}
+              title="v"
+              colorMax={Math.max(...etaV.flat())}
+              onTileClick={tileClickHandler}
             />
           </Col>
           <Col xxl="6">
             <BandsChessboardPlot
               pseudoFilenames={pseudoFilenames}
               values={etaV10}
-              title="V10"
-              colorMax={Math.max(...eta_10.flat())}
-              tileClickHandler={tileClickHandler}
+              title="v10"
+              colorMax={Math.max(...etaV10.flat())}
+              onTileClick={tileClickHandler}
             />
           </Col>
         </Row>

@@ -10,13 +10,16 @@ import PseudoSelector from "../PseudoSelector";
 import BandStructurePlotProps from "./BandStructurePlot.models";
 import styles from "./BandStructurePlot.module.scss";
 
-const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
+const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
+  element,
+  bandShift,
+}) => {
   const [loadingData, setLoadingData] = useState(true);
   const { loadingMetadata, pseudosMetadata, activePseudos, setActivePseudos } =
     useContext(PseudosContext);
   const [pseudos, setPseudos] = useState<string[]>([]);
   const [bandsPseudosMap, setBandsPseudosMap] = useState<BandsPseudosMap>();
-  const [pseudoShift, setPseudoShift] = useState(0);
+  const [pseudoShift, setPseudoShift] = useState(bandShift);
   const plotRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -43,7 +46,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
       });
   }, [element]);
 
-  useEffect(() => setPseudoShift(0), [activePseudos]);
+  useEffect(() => setPseudoShift(bandShift), [bandShift]);
 
   useEffect(() => {
     if (bandsPseudosMap && plotRef.current) {
@@ -105,9 +108,10 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
                   which="reference"
                   pseudos={pseudos}
                   value={activePseudos[0]}
-                  onSelect={(pseudo) =>
-                    setActivePseudos([pseudo, activePseudos[1]])
-                  }
+                  onSelect={(pseudo) => {
+                    setActivePseudos([pseudo, activePseudos[1]]);
+                    setPseudoShift(0);
+                  }}
                 />
               </Col>
               <Col>
@@ -115,9 +119,10 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({ element }) => {
                   which="compared"
                   pseudos={pseudos}
                   value={activePseudos[1]}
-                  onSelect={(pseudo) =>
-                    setActivePseudos([activePseudos[0], pseudo])
-                  }
+                  onSelect={(pseudo) => {
+                    setActivePseudos([activePseudos[0], pseudo]);
+                    setPseudoShift(0);
+                  }}
                 />
               </Col>
             </Row>

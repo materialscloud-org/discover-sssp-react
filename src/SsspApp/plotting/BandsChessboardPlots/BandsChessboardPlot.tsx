@@ -22,7 +22,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
   values,
   title,
   colorMax,
-  tileClickHandler,
+  onTileClick: handleTileClick,
 }) => {
   const plotRef = useRef<HTMLDivElement>(null);
 
@@ -107,8 +107,8 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
       )) as PlotlyHTMLElement;
 
       graphDiv.on("plotly_click", (event: PlotMouseEvent) => {
-        const { x, y } = event.points[0];
-        tileClickHandler([y as string, x as string]);
+        const { x, y, pointIndex } = event.points[0];
+        handleTileClick([y as string, x as string], pointIndex as any);
       });
 
       const handleResize = (gd: PlotlyHTMLElement) => {
@@ -141,7 +141,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         }
       }
     };
-  }, [pseudos, values, title, colorMax]);
+  }, [pseudoFilenames, values, title, colorMax]);
 
   return <div ref={plotRef} className={styles["chessboard-plot"]} />;
 };
