@@ -5,6 +5,7 @@ import {
   ElementsInfo,
   EosData,
   PseudoConvergenceData,
+  BandChessboardData,
 } from "@sssp/models";
 
 export default class SsspDataService {
@@ -27,6 +28,15 @@ export default class SsspDataService {
     const response = await fetch(url);
     const json: ElementBandsDataMap = await response.json();
     return json || ({} as ElementBandsDataMap);
+  };
+
+  static fetchBandChessboardData = async (
+    element: string
+  ): Promise<BandChessboardData> => {
+    const url = `${DATA_URL}/chessboards/${element}.json`;
+    const response = await fetch(url);
+    const json: BandChessboardData = await response.json();
+    return json || {};
   };
 
   static fetchPseudosMetadata = async (): Promise<PseudosMetadata> => {

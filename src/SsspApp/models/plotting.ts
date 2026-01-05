@@ -79,6 +79,18 @@ export interface ElementBandsDataMap {
   [element: string]: BandsPseudosMap;
 }
 
+interface BandChessboardDistanceData {
+  eta_c: number;
+  max_diff_c: number;
+  shift_c: number;
+}
+
+export interface BandChessboardData {
+  pseudos: Record<string, number>;
+  v_distance: Record<string, BandChessboardDistanceData>;
+  v10_distance: Record<string, BandChessboardDistanceData>;
+}
+
 interface DataSeries {
   X_series: string;
   points: {
