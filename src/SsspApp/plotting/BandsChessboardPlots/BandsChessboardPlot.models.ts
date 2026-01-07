@@ -3,5 +3,9 @@ export default interface BandsChessboardPlotProps {
   values: number[][];
   title: string;
   colorMax: number;
-  onTileClick: (pseudos: string[], pointIndex: number[]) => void;
+  onTileClick: (
+    plotIndex: number,
+    pseudos: string[],
+    pointIndex: number[]
+  ) => void;
 }

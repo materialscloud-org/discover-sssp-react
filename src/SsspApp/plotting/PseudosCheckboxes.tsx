@@ -12,7 +12,7 @@ const PseudosCheckboxes: React.FC<PseudosCheckboxesProps> = ({
   setActivePseudos,
 }) => {
   const { pseudosMetadata } = useContext(PseudosContext);
-  const [allPseudosChecked, setAllPseudosChecked] = useState<boolean>(false);
+  const [allPseudosChecked, setAllPseudosChecked] = useState(false);
 
   useEffect(() => {
     setAllPseudosChecked(activePseudos.length === pseudos.length);

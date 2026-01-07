@@ -16,7 +16,7 @@ export interface Pseudo {
     metadata?: {
       avg_nu: number;
       max_nu: number;
-      ang_nu: number;
+      avg_nu_wo_xo3: number;
       max_conf: string;
     };
     phononFrequencies?: PseudoQuantity & { error: number[]; ref: number };
@@ -75,20 +75,16 @@ export interface BandsPseudosMap {
   [pseudo: string]: BandsData;
 }
 
-export interface ElementBandsDataMap {
-  [element: string]: BandsPseudosMap;
-}
-
 interface BandChessboardDistanceData {
-  eta_c: number;
-  max_diff_c: number;
-  shift_c: number;
+  eta_c: number[][];
+  max_diff_c: number[][];
+  shift_c: number[][];
 }
 
 export interface BandChessboardData {
-  pseudos: Record<string, number>;
-  v_distance: Record<string, BandChessboardDistanceData>;
-  v10_distance: Record<string, BandChessboardDistanceData>;
+  pseudos: string[];
+  v_distance: BandChessboardDistanceData;
+  v10_distance: BandChessboardDistanceData;
 }
 
 interface DataSeries {

@@ -19,7 +19,7 @@ export const ElementsInfoProvider: React.FC<ElementsInfoProviderProps> = ({
   children,
 }) => {
   const [loadingInfo, setLoadingInfo] = useState(true);
-  const [elementsInfo, setElementsInfo] = useState<ElementsInfo>({});
+  const [elementsInfo, setElementsInfo] = useState({} as ElementsInfo);
 
   const elementsList = useMemo(
     () => Object.values(elementsInfo).flatMap(Object.keys),

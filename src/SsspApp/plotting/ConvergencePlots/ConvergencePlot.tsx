@@ -24,9 +24,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
   const [loadingData, setLoadingData] = useState(true);
   const { libraries } = useContext(LibraryContext);
   const { elementsInfo } = useContext(ElementsInfoContext);
-  const [summaryData, setSummaryData] = useState<PseudoConvergenceData>(
-    {} as PseudoConvergenceData
-  );
+  const [summaryData, setSummaryData] = useState({} as PseudoConvergenceData);
   const plotRef = useRef<HTMLDivElement>(null);
 
   const activePseudos = useMemo(() => {

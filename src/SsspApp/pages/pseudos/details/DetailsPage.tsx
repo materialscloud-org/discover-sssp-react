@@ -24,7 +24,8 @@ const DetailsPage: React.FC = () => {
   const defaultTab = "Convergence Summary";
   const [activeTab, setActiveTab] = useState(defaultTab);
   const [visitedTabs, setVisitedTabs] = useState(new Set([defaultTab]));
-  const [bandShift, setBandShift] = useState<number>(0);
+  const [chessboardPseudos, setChessboardPseudos] = useState<string[]>([]);
+  const [bandShift, setBandShift] = useState(0);
   const { element } = params;
 
   const goToTab = (tab: string | null) => {
@@ -55,6 +56,7 @@ const DetailsPage: React.FC = () => {
         plot = (
           <Plot
             element={element}
+            setChessboardPseudos={setChessboardPseudos}
             setBandShift={setBandShift}
             onTileClick={goToTab}
           />
@@ -66,7 +68,13 @@ const DetailsPage: React.FC = () => {
         break;
       case "Band Structure":
         Plot = lazy(() => import("@sssp/plotting/BandStructurePlot"));
-        plot = <Plot element={element} bandShift={bandShift} />;
+        plot = (
+          <Plot
+            element={element}
+            chessboardPseudos={chessboardPseudos}
+            bandShift={bandShift}
+          />
+        );
         break;
       default:
         console.error(`Invalid plot type: ${type}`);

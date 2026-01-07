@@ -10,8 +10,6 @@ type PseudosContextType = {
   maxPseudoWidth: number;
   activeCategories: string[];
   setActiveCategories: React.Dispatch<React.SetStateAction<string[]>>;
-  activePseudos: string[];
-  setActivePseudos: (pseudos: string[]) => void;
 };
 
 export const PseudosContext = createContext({} as PseudosContextType);
@@ -24,10 +22,9 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
   children,
 }) => {
   const [loadingMetadata, setLoadingMetadata] = useState(true);
-  const [categories, setCategories] = useState<string[]>([]);
-  const [pseudosMetadata, setPseudosMetadata] = useState<PseudosMetadata>({});
-  const [activeCategories, setActiveCategories] = useState<string[]>([]);
-  const [activePseudos, setActivePseudos] = useState<string[]>([]);
+  const [categories, setCategories] = useState([] as string[]);
+  const [pseudosMetadata, setPseudosMetadata] = useState({} as PseudosMetadata);
+  const [activeCategories, setActiveCategories] = useState([] as string[]);
 
   const maxPseudoWidth = useMemo(
     () =>
@@ -65,8 +62,6 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
         maxPseudoWidth,
         activeCategories,
         setActiveCategories,
-        activePseudos,
-        setActivePseudos,
       }}
     >
       {children}

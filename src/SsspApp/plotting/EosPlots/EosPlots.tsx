@@ -14,9 +14,9 @@ import styles from "./EosPlots.module.scss";
 const EosPlots: React.FC<EosPlotsProps> = ({ element }) => {
   const [loading, setLoading] = useState(true);
   const { loadingMetadata } = useContext(PseudosContext);
-  const [eosConfigMap, setEosConfigMap] = useState<EosConfigMap>();
-  const [pseudos, setPseudos] = useState<string[]>([]);
-  const [activePseudos, setActivePseudos] = useState<string[]>([]);
+  const [eosConfigMap, setEosConfigMap] = useState({} as EosConfigMap);
+  const [pseudos, setPseudos] = useState([] as string[]);
+  const [activePseudos, setActivePseudos] = useState([] as string[]);
 
   useEffect(() => {
     if (!element) return;
@@ -30,7 +30,7 @@ const EosPlots: React.FC<EosPlotsProps> = ({ element }) => {
       })
       .catch((error) => {
         console.error("Error fetching EOS data:", error);
-        setEosConfigMap(undefined);
+        setEosConfigMap({} as EosConfigMap);
       })
       .finally(() => setLoading(false));
   }, [element]);

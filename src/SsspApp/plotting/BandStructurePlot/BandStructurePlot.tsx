@@ -12,34 +12,34 @@ import styles from "./BandStructurePlot.module.scss";
 
 const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
   element,
+  chessboardPseudos,
   bandShift,
 }) => {
   const [loadingData, setLoadingData] = useState(true);
-  const { loadingMetadata, pseudosMetadata, activePseudos, setActivePseudos } =
-    useContext(PseudosContext);
-  const [pseudos, setPseudos] = useState<string[]>([]);
-  const [bandsPseudosMap, setBandsPseudosMap] = useState<BandsPseudosMap>();
+  const { loadingMetadata, pseudosMetadata } = useContext(PseudosContext);
+  const [pseudos, setPseudos] = useState([] as string[]);
+  const [activePseudos, setActivePseudos] = useState(chessboardPseudos);
+  const [bandsPseudosMap, setBandsPseudosMap] = useState({} as BandsPseudosMap);
   const [pseudoShift, setPseudoShift] = useState(bandShift);
   const plotRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!element) return;
-    SsspDataService.fetchBandsData()
+    SsspDataService.fetchBandsData(element)
       .then((data) => {
-        const elementBandsData = data[element];
-        setBandsPseudosMap(elementBandsData);
-        const pseudos = elementBandsData && Object.keys(elementBandsData);
+        setBandsPseudosMap(data);
+        const pseudos = data && Object.keys(data);
         setPseudos(pseudos);
-        const defaultPseudo = pseudos ? pseudos[0] : "";
-        setActivePseudos(
-          activePseudos.length ? activePseudos : [defaultPseudo, defaultPseudo]
-        );
+        setActivePseudos((prev) => {
+          if (prev.length) return prev;
+          if (pseudos.length) return [pseudos[0], pseudos[0]];
+          return [];
+        });
       })
       .catch((error) => {
         console.error("Error fetching bands data:", error);
-        setBandsPseudosMap(undefined);
+        setBandsPseudosMap({} as BandsPseudosMap);
         setPseudos([]);
-        setActivePseudos([]);
       })
       .finally(() => {
         setLoadingData(false);

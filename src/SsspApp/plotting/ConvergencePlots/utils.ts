@@ -86,7 +86,7 @@ export function generateConvergencePlotData(
   const annotations: Partial<Annotations>[] = [];
   const shapes: Partial<Shape>[] = [];
 
-  activePseudos.forEach((pseudo, i) => {
+  activePseudos.reverse().forEach((pseudo, i) => {
     const color = pseudosMetadata[pseudo.name]?.color || "black";
     const offset = i * offsetHeight;
 
@@ -347,7 +347,7 @@ export function generateConvergencePlotData(
           2
         )}<br>ν<sub>max</sub> = ${metadata.max_nu.toFixed(2)} (${
           metadata.max_conf
-        })<br>ν<sub>avg</sub> (w/o XO3) = ${metadata.ang_nu.toFixed(2)}`
+        })<br>ν<sub>avg</sub> (w/o XO3) = ${metadata.avg_nu_wo_xo3.toFixed(2)}`
       : "not all EOS valid";
     annotations.push({
       xref: "paper",

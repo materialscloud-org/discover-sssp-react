@@ -1,7 +1,7 @@
 import { DATA_URL } from "@sssp/common/config";
 import {
   PseudosMetadata,
-  ElementBandsDataMap,
+  BandsPseudosMap,
   ElementsInfo,
   EosData,
   PseudoConvergenceData,
@@ -23,11 +23,11 @@ export default class SsspDataService {
     return json || ({} as EosData);
   };
 
-  static fetchBandsData = async (): Promise<ElementBandsDataMap> => {
-    const url = `${DATA_URL}/bands.json`;
+  static fetchBandsData = async (element: string): Promise<BandsPseudosMap> => {
+    const url = `${DATA_URL}/bands/${element}.json`;
     const response = await fetch(url);
-    const json: ElementBandsDataMap = await response.json();
-    return json || ({} as ElementBandsDataMap);
+    const json: BandsPseudosMap = await response.json();
+    return json || ({} as BandsPseudosMap);
   };
 
   static fetchBandChessboardData = async (

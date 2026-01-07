@@ -15,7 +15,7 @@ const RoutedTabs: React.FC<RoutedTabsProps> = ({ tabs, defaultTab }) => {
   const currentTab = location.pathname.split("/")[1] || defaultTab;
   const [activeTab, setActiveTab] = useState(currentTab);
 
-  const lastPaths = useRef<Record<string, string>>({});
+  const lastPaths = useRef({} as Record<string, string>);
 
   useEffect(() => {
     const tab = location.pathname.split("/")[1];

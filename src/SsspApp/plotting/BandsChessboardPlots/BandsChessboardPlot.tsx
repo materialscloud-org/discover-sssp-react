@@ -94,7 +94,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
             }))
           )
           .flat(),
-        margin: { t: 140, r: 60, b: 40, l: 140 },
+        margin: { t: 160, r: 60, b: 40, l: 160 },
         paper_bgcolor: "rgba(0,0,0,0)",
         plot_bgcolor: "rgba(0,0,0,0)",
       };
@@ -108,7 +108,12 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
 
       graphDiv.on("plotly_click", (event: PlotMouseEvent) => {
         const { x, y, pointIndex } = event.points[0];
-        handleTileClick([y as string, x as string], pointIndex as any);
+        const plotIndex = title == "v" ? 0 : 1;
+        handleTileClick(
+          plotIndex,
+          [y as string, x as string],
+          pointIndex as any // `any` because Plotly incorrectly defines it as `number` instead of `number[]`
+        );
       });
 
       const handleResize = (gd: PlotlyHTMLElement) => {
@@ -154,7 +159,6 @@ const FILENAME_TO_SHORTNAME_MAP: Record<string, string> = {
   "dojo.v0.4.1-std": "DOJO-041-std",
   "dojo.v0.4.1-str": "DOJO-041-str",
   "dojo.v0.5.0-std": "DOJO-050-std",
-  "dojo.v0.5.0-str": "DOJO-050-str",
   "spms.v1": "SPMS",
   "sg15.v0": "SG15",
   "us+gbrv.v1": "GBRV-1.X",
@@ -177,11 +181,11 @@ function pseudoFilenameToShortname(pseudo: string): string {
     parts = parts.slice(0, parts.length - 1);
   }
 
-  let category = parts[0]; // nc, us, paw
+  const category = parts[0]; // nc, us, paw
+  const prefix = category === "us" || category === "paw" ? `${category}+` : "";
+  const Z = parts[2].replace("z_", "");
 
   let remaining = parts.slice(4).join(".");
-
-  let prefix = category === "us" || category === "paw" ? `${category}+` : "";
 
   // Handle special cases
   if (remaining.includes("psl.v0")) {
@@ -196,7 +200,9 @@ function pseudoFilenameToShortname(pseudo: string): string {
     }
   }
 
-  let key = prefix + remaining;
+  const key = prefix + remaining;
 
-  return FILENAME_TO_SHORTNAME_MAP[key] || pseudo;
+  return key in FILENAME_TO_SHORTNAME_MAP
+    ? `${FILENAME_TO_SHORTNAME_MAP[key]}-${Z}`
+    : pseudo;
 }
