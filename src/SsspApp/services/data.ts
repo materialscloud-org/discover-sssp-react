@@ -10,7 +10,7 @@ import {
 
 export default class SsspDataService {
   static fetchElementsInfo = async (): Promise<ElementsInfo> => {
-    const url = `${DATA_URL}/info.json`;
+    const url = `${DATA_URL}/info/element.json`;
     const response = await fetch(url);
     const json: ElementsInfo = await response.json();
     return json || ({} as ElementsInfo);
@@ -40,7 +40,7 @@ export default class SsspDataService {
   };
 
   static fetchPseudosMetadata = async (): Promise<PseudosMetadata> => {
-    const url = `${DATA_URL}/metadata.json`;
+    const url = `${DATA_URL}/info/pseudo.json`;
     const response = await fetch(url);
     const json: PseudosMetadata = await response.json();
     return json || ({} as PseudosMetadata);
