@@ -113,6 +113,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
             <Row className="gap-3">
               <Col sm="6" lg="12">
                 <PseudoSelector
+                  id={styles["reference-pseudo-selector"]}
                   which="reference"
                   pseudos={pseudos}
                   value={activePseudos[0]}
@@ -124,6 +125,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
               </Col>
               <Col>
                 <PseudoSelector
+                  id={styles["compared-pseudo-selector"]}
                   which="compared"
                   pseudos={pseudos}
                   value={activePseudos[1]}

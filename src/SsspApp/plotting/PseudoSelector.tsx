@@ -4,6 +4,7 @@ import { Form } from "react-bootstrap";
 import { capitalize } from "@sssp/common/utils";
 
 interface PseudoSelectorProps {
+  id?: string;
   which: string;
   pseudos: string[];
   value: string;
@@ -11,13 +12,14 @@ interface PseudoSelectorProps {
 }
 
 const PseudoSelector: React.FC<PseudoSelectorProps> = ({
+  id,
   which,
   pseudos,
   value,
   onSelect,
 }) => {
   return (
-    <div id={`${which}-pseudo-selector`}>
+    <div id={id}>
       <Form.Label htmlFor={`${which}-select`}>{capitalize(which)}:</Form.Label>
       <Form.Select
         id={`${which}-select`}
