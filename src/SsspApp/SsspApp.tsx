@@ -1,4 +1,5 @@
 import { Card } from "react-bootstrap";
+import { Tab, Tabs } from "react-bootstrap";
 import {
   Navigate,
   Route,
@@ -8,42 +9,69 @@ import {
 
 import "@sssp/assets/styles/main.scss";
 
-import { RoutedTabs } from "@sssp/components";
+import { useRoutedTabs } from "@sssp/common/hooks";
 import { LibraryProvider } from "@sssp/context";
 import { AboutPage, InvalidPage, PseudosPage } from "@sssp/pages";
 
 import SsspProps from "./SsspApp.models";
 import styles from "./SsspApp.module.scss";
 
+const tabs = {
+  pseudopotentials: "Pseudopotentials",
+  about: "About",
+};
+
 const SsspApp: React.FC<SsspProps> = ({ urlBase }) => {
-  const tabs = ["pseudopotentials", "about"];
   return (
     <Card id={styles["sssp-app"]}>
       <Router basename={urlBase}>
-        <Card.Header id={styles["tab-controls"]}>
-          <RoutedTabs tabs={tabs} defaultTab={tabs[0]} />
-        </Card.Header>
-        <Card.Body id={styles["sssp-card"]}>
-          <Routes>
-            <Route
-              path="pseudopotentials/*"
-              element={
-                <LibraryProvider>
-                  <PseudosPage />
-                </LibraryProvider>
-              }
-            />
-            <Route path="about" element={<AboutPage />} />
-            <Route
-              path="/"
-              element={<Navigate to="pseudopotentials" replace />}
-            />
-            <Route path="*" element={<InvalidPage />} />
-          </Routes>
-        </Card.Body>
+        <SsspAppContent />
       </Router>
     </Card>
   );
 };
 
 export default SsspApp;
+
+const SsspAppContent: React.FC = () => {
+  const { activeTab, defaultTab, selectTab } = useRoutedTabs(tabs, {
+    segmentIndex: 1,
+    rememberLastPath: true,
+    resetAfterIndex: true,
+  });
+
+  return (
+    <>
+      <Card.Header id={styles["tab-controls"]}>
+        <Tabs
+          id="main-tabs"
+          defaultActiveKey={defaultTab}
+          activeKey={activeTab}
+          onSelect={(tab) => selectTab(tab)}
+        >
+          {Object.entries(tabs).map(([key, value]) => (
+            <Tab key={key} eventKey={key} title={value} />
+          ))}
+        </Tabs>
+      </Card.Header>
+      <Card.Body id={styles["sssp-card"]}>
+        <Routes>
+          <Route
+            path="pseudopotentials/*"
+            element={
+              <LibraryProvider>
+                <PseudosPage />
+              </LibraryProvider>
+            }
+          />
+          <Route path="about" element={<AboutPage />} />
+          <Route
+            path="/"
+            element={<Navigate to="pseudopotentials" replace />}
+          />
+          <Route path="*" element={<InvalidPage />} />
+        </Routes>
+      </Card.Body>
+    </>
+  );
+};

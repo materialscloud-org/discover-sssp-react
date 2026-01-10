@@ -12,3 +12,21 @@
 .tooltip-inner {
   max-width: none;
 }
+
+.nav-tabs {
+  .nav-link {
+    border-top: 1px solid #ddd !important;
+    border-left: 1px solid #ddd !important;
+    border-right: 1px solid #ddd !important;
+    color: grey;
+    background-color: whitesmoke;
+
+    a {
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: #4682b4;
+    }
+  }
+}
