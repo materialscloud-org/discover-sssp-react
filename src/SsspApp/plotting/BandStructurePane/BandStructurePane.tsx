@@ -124,7 +124,7 @@ const BandStructurePane: React.FC<BandStructurePaneProps> = ({
     <Container id="bands-plots">
       <Row>
         <Col lg="3">
-          <div id={styles["pseudo-selectors-form"]}>
+          <div id={styles["band-structure-controls"]}>
             <Row className="gap-3">
               <Col sm="6" lg="12">
                 <PseudoSelector
@@ -153,7 +153,7 @@ const BandStructurePane: React.FC<BandStructurePaneProps> = ({
             </Row>
             <Form.Group>
               <Form.Label htmlFor={styles["pseudo-shift-range"]}>
-                Avg. band difference (eV):
+                Compared bands shift (eV):
               </Form.Label>
               <Row style={{ alignItems: "center" }}>
                 <Col xs="8" sm="9" md="10" lg="6" xl="7" xxl="8">
