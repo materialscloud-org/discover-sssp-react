@@ -12,14 +12,20 @@ import EosPlotsProps from "./EosPlots.models";
 import styles from "./EosPlots.module.scss";
 
 const EosPlots: React.FC<EosPlotsProps> = ({ element }) => {
-  const [loading, setLoading] = useState(true);
   const { loadingMetadata } = useContext(PseudosContext);
+  const [loadingData, setLoadingData] = useState(true);
   const [eosConfigMap, setEosConfigMap] = useState({} as EosConfigMap);
   const [pseudos, setPseudos] = useState([] as string[]);
   const [activePseudos, setActivePseudos] = useState([] as string[]);
 
   useEffect(() => {
     if (!element) return;
+
+    setLoadingData(true);
+    setEosConfigMap({} as EosConfigMap);
+    setPseudos([]);
+    setActivePseudos([]);
+
     SsspDataService.fetchEosData()
       .then((data) => {
         const configMap = data[element];
@@ -31,13 +37,15 @@ const EosPlots: React.FC<EosPlotsProps> = ({ element }) => {
       .catch((error) => {
         console.error("Error fetching EOS data:", error);
         setEosConfigMap({} as EosConfigMap);
+        setPseudos([]);
+        setActivePseudos([]);
       })
-      .finally(() => setLoading(false));
+      .finally(() => setLoadingData(false));
   }, [element]);
 
-  return loading || loadingMetadata ? (
+  return loadingData || loadingMetadata ? (
     <LoadingSpinner />
-  ) : !eosConfigMap ? (
+  ) : !pseudos.length ? (
     <NoDataMessage />
   ) : (
     <div id="eos-plots">

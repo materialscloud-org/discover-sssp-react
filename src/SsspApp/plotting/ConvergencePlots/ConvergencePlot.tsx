@@ -46,7 +46,11 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
   );
 
   useEffect(() => {
+    if (!element) return;
+
     setLoadingData(true);
+    setSummaryData({} as PseudoConvergenceData);
+
     SsspDataService.fetchPseudosSummaryData(element)
       .then((data) => {
         setSummaryData(data);

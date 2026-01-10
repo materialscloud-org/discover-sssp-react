@@ -24,6 +24,13 @@ const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
 
   useEffect(() => {
     if (!element) return;
+
+    setLoadingData(true);
+    setPseudoFilenames([]);
+    setEtaV([]);
+    setEtaV10([]);
+    setShifts([]);
+
     SsspDataService.fetchBandChessboardData(element)
       .then((data) => {
         setPseudoFilenames(data.pseudos);
