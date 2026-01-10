@@ -1,4 +1,5 @@
 import { useContext, useMemo, useState } from "react";
+import { Accordion, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import { CategorySelector, LoadingSpinner } from "@sssp/components";
@@ -7,7 +8,6 @@ import { PseudosContext } from "@sssp/context";
 import ConvergencePlot from "./ConvergencePlot";
 import ConvergencePlotsProps from "./ConvergencePlots.models";
 import styles from "./ConvergencePlots.module.scss";
-import { Accordion, Table } from "react-bootstrap";
 
 const ConvergencePlots: React.FC<ConvergencePlotsProps> = ({ element }) => {
   const { loadingMetadata, categories, pseudosMetadata } =

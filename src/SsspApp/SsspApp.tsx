@@ -1,5 +1,4 @@
-import { Card } from "react-bootstrap";
-import { Tab, Tabs } from "react-bootstrap";
+import { Card, Tab, Tabs } from "react-bootstrap";
 import {
   Navigate,
   Route,
