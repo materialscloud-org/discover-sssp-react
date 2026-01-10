@@ -14,8 +14,7 @@ import ElementsGenerator from "./utils";
 const PeriodicTable: React.FC = () => {
   const { activeLibrary } = useContext(LibraryContext);
   const { loadingMetadata, pseudosMetadata } = useContext(PseudosContext);
-  const { loadingInfo, elementsInfo, elementsList } =
-    useContext(ElementsInfoContext);
+  const { loadingInfo, elementsInfo } = useContext(ElementsInfoContext);
 
   return loadingMetadata || loadingInfo ? (
     <LoadingSpinner />
@@ -24,11 +23,7 @@ const PeriodicTable: React.FC = () => {
       <DetailsBox />
       <Table
         elements={
-          new ElementsGenerator(
-            elementsList,
-            elementsInfo[activeLibrary],
-            pseudosMetadata
-          )
+          new ElementsGenerator(elementsInfo[activeLibrary], pseudosMetadata)
         }
       />
     </div>

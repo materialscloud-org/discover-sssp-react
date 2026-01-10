@@ -3,8 +3,9 @@ import { Button, Card, Dropdown, Tab, Tabs } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { useRoutedTabs } from "@sssp/common/hooks";
+import { elementSymbols } from "@sssp/common/symbols";
 import { LoadingSpinner } from "@sssp/components";
-import { ElementsInfoContext, LibraryContext } from "@sssp/context";
+import { LibraryContext } from "@sssp/context";
 import { InvalidPage } from "@sssp/pages";
 
 import styles from "./DetailsPage.module.scss";
@@ -32,7 +33,6 @@ const DetailsPage: React.FC = () => {
   const navigate = useNavigate();
   const params = useParams();
   const { activeLibrary } = useContext(LibraryContext);
-  const { elementsList } = useContext(ElementsInfoContext);
   const { element } = params;
   const { activeTab, defaultTab, selectTab } = useRoutedTabs(tabs, {
     segmentIndex: 3,
@@ -46,7 +46,7 @@ const DetailsPage: React.FC = () => {
     setBandShift(0);
   }, [element]);
 
-  return element && !elementsList.includes(element) ? (
+  return element && !elementSymbols.includes(element) ? (
     <InvalidPage />
   ) : (
     <div id="details-page">
@@ -67,7 +67,7 @@ const DetailsPage: React.FC = () => {
             {element || "None provided"}
           </Dropdown.Toggle>
           <Dropdown.Menu className={styles["element-dropdown-menu"]}>
-            {elementsList.map((el) => (
+            {elementSymbols.slice(1).map((el) => (
               <Dropdown.Item
                 key={el}
                 onClick={() => navigate(`/pseudopotentials/${el}/${activeTab}`)}
