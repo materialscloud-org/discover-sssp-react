@@ -6,7 +6,7 @@ import { PseudosContext } from "@sssp/context";
 import { BandsData, BandsPseudosMap } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
-import PseudoSelector from "../PseudoSelector";
+import PseudoSelector from "./PseudoSelector";
 import BandStructurePaneProps from "./BandStructurePane.models";
 import styles from "./BandStructurePane.module.scss";
 

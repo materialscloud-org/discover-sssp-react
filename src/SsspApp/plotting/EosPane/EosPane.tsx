@@ -6,7 +6,7 @@ import { PseudosContext } from "@sssp/context";
 import { EosConfigMap } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
-import PseudosCheckboxes from "../PseudosCheckboxes";
+import PseudosCheckboxes from "./PseudosCheckboxes";
 import EosPlot from "./EosPlot";
 import EosPaneProps from "./EosPane.models";
 import styles from "./EosPane.module.scss";
