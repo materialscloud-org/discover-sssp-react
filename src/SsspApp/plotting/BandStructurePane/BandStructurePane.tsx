@@ -1,27 +1,27 @@
-import { useContext, useEffect, useRef, useState } from "react";
-import { Col, Container, Form, Row } from "react-bootstrap";
+import { useContext, useEffect, useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 
 import { LoadingSpinner, NoDataMessage } from "@sssp/components";
 import { PseudosContext } from "@sssp/context";
-import { BandsData, BandsPseudosMap } from "@sssp/models";
+import { BandsPseudosMap } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
-import PseudoSelector from "./PseudoSelector";
+import BandStructureControls from "./BandStructureControls";
 import BandStructurePaneProps from "./BandStructurePane.models";
 import styles from "./BandStructurePane.module.scss";
+import BandStructurePlot from "./BandStructurePlot";
 
 const BandStructurePane: React.FC<BandStructurePaneProps> = ({
   element,
   chessboardPseudos,
-  bandShift,
+  bandShift: chessboardBandShift,
 }) => {
   const { loadingMetadata, pseudosMetadata } = useContext(PseudosContext);
   const [loadingData, setLoadingData] = useState(true);
   const [bandsPseudosMap, setBandsPseudosMap] = useState({} as BandsPseudosMap);
   const [pseudos, setPseudos] = useState([] as string[]);
   const [activePseudos, setActivePseudos] = useState(chessboardPseudos);
-  const [pseudoShift, setPseudoShift] = useState(bandShift);
-  const plotRef = useRef<HTMLDivElement>(null);
+  const [bandShift, setBandShift] = useState(chessboardBandShift);
 
   useEffect(() => {
     if (!element) return;
@@ -62,55 +62,7 @@ const BandStructurePane: React.FC<BandStructurePaneProps> = ({
     });
   }, [pseudos, chessboardPseudos, element]);
 
-  useEffect(() => setPseudoShift(bandShift), [bandShift]);
-
-  useEffect(() => {
-    if (bandsPseudosMap && plotRef.current) {
-      let shift = 0;
-      const pseudosData = activePseudos.flatMap((pseudo, index) => {
-        const data = bandsPseudosMap[pseudo];
-        if (!data) return [];
-
-        if (index === 0) {
-          shift = -data.fermiLevel || 0.0; // set fermi level to that of the reference pseudo
-        } else {
-          shift += pseudoShift;
-        }
-
-        return [
-          {
-            bandsData: shiftBandsData(data, shift),
-            traceFormat: {
-              line: {
-                color:
-                  index === 0
-                    ? "black"
-                    : pseudosMetadata[pseudo]?.color || "red",
-              },
-            },
-          },
-        ];
-      });
-
-      if (!pseudosData.length) return;
-
-      let BandsVisualiser: any | null = null;
-
-      (async () => {
-        BandsVisualiser = (await import("bands-visualiser")).BandsVisualiser;
-
-        BandsVisualiser(plotRef.current, {
-          bandsDataArray: pseudosData,
-          settings: {
-            showlegend: false,
-            yaxis: {
-              range: [-20, 20],
-            },
-          },
-        });
-      })();
-    }
-  }, [activePseudos, bandsPseudosMap, pseudosMetadata, pseudoShift]);
+  useEffect(() => setBandShift(bandShift), [bandShift]);
 
   const isLoading = loadingData || loadingMetadata;
 
@@ -124,68 +76,21 @@ const BandStructurePane: React.FC<BandStructurePaneProps> = ({
     <Container id="bands-plots">
       <Row>
         <Col lg="3">
-          <div id={styles["band-structure-controls"]}>
-            <Row className="gap-3">
-              <Col sm="6" lg="12">
-                <PseudoSelector
-                  id={styles["reference-pseudo-selector"]}
-                  which="reference"
-                  pseudos={pseudos}
-                  value={activePseudos[0]}
-                  onSelect={(pseudo) => {
-                    setActivePseudos([pseudo, activePseudos[1]]);
-                    setPseudoShift(0);
-                  }}
-                />
-              </Col>
-              <Col>
-                <PseudoSelector
-                  id={styles["compared-pseudo-selector"]}
-                  which="compared"
-                  pseudos={pseudos}
-                  value={activePseudos[1]}
-                  onSelect={(pseudo) => {
-                    setActivePseudos([activePseudos[0], pseudo]);
-                    setPseudoShift(0);
-                  }}
-                />
-              </Col>
-            </Row>
-            <Form.Group>
-              <Form.Label htmlFor={styles["pseudo-shift-range"]}>
-                Compared bands shift (eV):
-              </Form.Label>
-              <Row style={{ alignItems: "center" }}>
-                <Col xs="8" sm="9" md="10" lg="6" xl="7" xxl="8">
-                  <Form.Range
-                    id={styles["pseudo-shift-range"]}
-                    name="pseudo-shift-range"
-                    value={pseudoShift}
-                    min={-5}
-                    max={5}
-                    step={0.001}
-                    onChange={(e) => setPseudoShift(Number(e.target.value))}
-                  />
-                </Col>
-                <Col>
-                  <Form.Control
-                    name="pseudo-shift-number"
-                    type="number"
-                    value={pseudoShift}
-                    min={-5}
-                    max={5}
-                    step={0.001}
-                    onChange={(e) => setPseudoShift(Number(e.target.value))}
-                  />
-                </Col>
-              </Row>
-            </Form.Group>
-          </div>
+          <BandStructureControls
+            pseudos={pseudos}
+            activePseudos={activePseudos}
+            bandShift={bandShift}
+            onPseudoSelect={setActivePseudos}
+            onBandShiftChange={setBandShift}
+          />
         </Col>
         <Col lg="auto" className="ms-lg-5">
-          <div id={styles["bands-plot-wrapper"]}>
-            <div ref={plotRef} id={styles["bands-plot"]}></div>
-          </div>
+          <BandStructurePlot
+            pseudosMetadata={pseudosMetadata}
+            bandsPseudosMap={bandsPseudosMap}
+            activePseudos={activePseudos}
+            bandShift={bandShift}
+          />
         </Col>
       </Row>
       <div id={styles["bands-note"]}>
@@ -197,13 +102,3 @@ const BandStructurePane: React.FC<BandStructurePaneProps> = ({
 };
 
 export default BandStructurePane;
-
-const shiftBandsData = (bandsData: BandsData, shift: number): BandsData => {
-  return {
-    ...bandsData,
-    paths: bandsData.paths.map((path) => ({
-      ...path,
-      values: path.values.map((point) => point.map((p) => p + shift)),
-    })),
-  };
-};
