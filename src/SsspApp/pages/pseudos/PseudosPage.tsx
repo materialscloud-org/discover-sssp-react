@@ -22,7 +22,11 @@ const PseudosPage: React.FC = () => {
             {libraries.map((library) => (
               <Route key={library} path={library} element={<TablePage />} />
             ))}
-            <Route path=":element" element={<DetailsPage />} />
+            <Route
+              path=":element"
+              element={<Navigate to="convergence-summary" replace />}
+            />
+            <Route path=":element/:tab" element={<DetailsPage />} />
             <Route
               path="/"
               element={

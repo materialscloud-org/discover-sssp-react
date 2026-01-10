@@ -46,6 +46,22 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
       });
   }, [element]);
 
+  useEffect(() => {
+    const isValidPair = (pair: string[]) =>
+      pair.length === 2 && pair.every((p) => pseudos.includes(p));
+
+    if (!pseudos.length) {
+      setActivePseudos([]);
+      return;
+    }
+
+    setActivePseudos((prev) => {
+      if (isValidPair(chessboardPseudos)) return chessboardPseudos;
+      if (isValidPair(prev)) return prev;
+      return [pseudos[0], pseudos[0]];
+    });
+  }, [pseudos, chessboardPseudos, element]);
+
   useEffect(() => setPseudoShift(bandShift), [bandShift]);
 
   useEffect(() => {
@@ -83,9 +99,11 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
 
   const isLoading = loadingData || loadingMetadata;
 
+  const hasData = Object.keys(bandsPseudosMap || {}).length > 0;
+
   return isLoading ? (
     <LoadingSpinner />
-  ) : !bandsPseudosMap ? (
+  ) : !hasData ? (
     <NoDataMessage />
   ) : (
     <Container id="bands-plots">

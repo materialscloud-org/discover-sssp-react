@@ -13,7 +13,7 @@ const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
   element,
   setChessboardPseudos,
   setBandShift,
-  onTileClick: goToTab,
+  onTileClick: goToBands,
 }) => {
   const { loadingMetadata } = useContext(PseudosContext);
   const [loadingData, setLoadingData] = useState(true);
@@ -58,7 +58,7 @@ const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
   ) => {
     setChessboardPseudos(pseudos);
     setBandShift(shifts[plotIndex][pointIndex[0]][pointIndex[1]]);
-    goToTab("Band Structure");
+    goToBands();
   };
 
   return loadingMetadata || loadingData ? (
