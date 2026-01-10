@@ -107,16 +107,6 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
     <NoDataMessage />
   ) : (
     <Container id="bands-plots">
-      <div
-        style={{
-          fontWeight: "bold",
-          textAlign: "center",
-          marginBottom: "1rem",
-        }}
-      >
-        Disclaimer: The data shown does not reflect real data and is for
-        demonstration purposes only.
-      </div>
       <Row>
         <Col lg="3">
           <div id={styles["pseudo-selectors-form"]}>
