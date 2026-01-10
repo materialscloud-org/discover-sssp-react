@@ -8,10 +8,10 @@ import { SsspDataService } from "@sssp/services";
 
 import PseudosCheckboxes from "../PseudosCheckboxes";
 import EosPlot from "./EosPlot";
-import EosPlotsProps from "./EosPlots.models";
-import styles from "./EosPlots.module.scss";
+import EosPaneProps from "./EosPane.models";
+import styles from "./EosPane.module.scss";
 
-const EosPlots: React.FC<EosPlotsProps> = ({ element }) => {
+const EosPane: React.FC<EosPaneProps> = ({ element }) => {
   const { loadingMetadata } = useContext(PseudosContext);
   const [loadingData, setLoadingData] = useState(true);
   const [eosConfigMap, setEosConfigMap] = useState({} as EosConfigMap);
@@ -81,4 +81,4 @@ const EosPlots: React.FC<EosPlotsProps> = ({ element }) => {
   );
 };
 
-export default EosPlots;
+export default EosPane;
