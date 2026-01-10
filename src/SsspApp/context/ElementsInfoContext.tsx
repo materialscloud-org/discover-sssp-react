@@ -22,7 +22,7 @@ export const ElementsInfoProvider: React.FC<ElementsInfoProviderProps> = ({
   const [elementsInfo, setElementsInfo] = useState({} as ElementsInfo);
 
   const elementsList = useMemo(
-    () => Object.values(elementsInfo).flatMap(Object.keys),
+    () => Array.from(new Set(Object.values(elementsInfo).flatMap(Object.keys))),
     [elementsInfo]
   );
 
