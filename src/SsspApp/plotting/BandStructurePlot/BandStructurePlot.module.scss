@@ -22,3 +22,23 @@
 #bands-note {
   text-align: center;
 }
+
+.pseudo-selector {
+  font-weight: bold;
+}
+
+#reference-pseudo-selector {
+  @extend .pseudo-selector;
+
+  label {
+    color: black;
+  }
+}
+
+#compared-pseudo-selector {
+  @extend .pseudo-selector;
+
+  label {
+    color: red;
+  }
+}
