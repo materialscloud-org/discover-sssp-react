@@ -152,13 +152,14 @@ const BandStructurePane: React.FC<BandStructurePaneProps> = ({
               </Col>
             </Row>
             <Form.Group>
-              <Form.Label htmlFor="pseudo-shift-range">
+              <Form.Label htmlFor={styles["pseudo-shift-range"]}>
                 Avg. band difference (eV):
               </Form.Label>
               <Row style={{ alignItems: "center" }}>
                 <Col xs="8" sm="9" md="10" lg="6" xl="7" xxl="8">
                   <Form.Range
                     id={styles["pseudo-shift-range"]}
+                    name="pseudo-shift-range"
                     value={pseudoShift}
                     min={-5}
                     max={5}
@@ -168,6 +169,7 @@ const BandStructurePane: React.FC<BandStructurePaneProps> = ({
                 </Col>
                 <Col>
                   <Form.Control
+                    name="pseudo-shift-number"
                     type="number"
                     value={pseudoShift}
                     min={-5}
