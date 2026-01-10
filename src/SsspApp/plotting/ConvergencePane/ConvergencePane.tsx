@@ -6,10 +6,10 @@ import { CategorySelector, LoadingSpinner } from "@sssp/components";
 import { PseudosContext } from "@sssp/context";
 
 import ConvergencePlot from "./ConvergencePlot";
-import ConvergencePlotsProps from "./ConvergencePlots.models";
-import styles from "./ConvergencePlots.module.scss";
+import ConvergencePaneProps from "./ConvergencePane.models";
+import styles from "./ConvergencePane.module.scss";
 
-const ConvergencePlots: React.FC<ConvergencePlotsProps> = ({ element }) => {
+const ConvergencePane: React.FC<ConvergencePaneProps> = ({ element }) => {
   const { loadingMetadata, categories, pseudosMetadata } =
     useContext(PseudosContext);
   const [activeCategories, setActiveCategories] = useState(categories);
@@ -177,4 +177,4 @@ const ConvergencePlots: React.FC<ConvergencePlotsProps> = ({ element }) => {
   );
 };
 
-export default ConvergencePlots;
+export default ConvergencePane;

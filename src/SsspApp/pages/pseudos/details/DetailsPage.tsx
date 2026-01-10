@@ -10,13 +10,13 @@ import { InvalidPage } from "@sssp/pages";
 
 import styles from "./DetailsPage.module.scss";
 
-const ConvergencePlots = lazy(() => import("@sssp/plotting/ConvergencePlots"));
+const ConvergencePlots = lazy(() => import("@sssp/plotting/ConvergencePane"));
 const BandsChessboardPlots = lazy(
-  () => import("@sssp/plotting/BandsChessboardPlots")
+  () => import("@sssp/plotting/BandsChessboardPane")
 );
-const EosPlots = lazy(() => import("@sssp/plotting/EosPlots"));
+const EosPlots = lazy(() => import("@sssp/plotting/EosPane"));
 const BandStructurePlot = lazy(
-  () => import("@sssp/plotting/BandStructurePlot")
+  () => import("@sssp/plotting/BandStructurePane")
 );
 
 const tabs = {

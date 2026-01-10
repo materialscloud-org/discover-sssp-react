@@ -6,10 +6,10 @@ import { PseudosContext } from "@sssp/context";
 
 import { SsspDataService } from "@sssp/services";
 import BandsChessboardPlot from "./BandsChessboardPlot";
-import BandsChessboardPlotsProps from "./BandsChessboardPlots.models";
-import styles from "./BandsChessboardPlots.module.scss";
+import BandsChessboardPaneProps from "./BandsChessboardPane.models";
+import styles from "./BandsChessboardPane.module.scss";
 
-const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
+const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
   element,
   setChessboardPseudos,
   setBandShift,
@@ -91,4 +91,4 @@ const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
   );
 };
 
-export default BandsChessboardPlots;
+export default BandsChessboardPane;

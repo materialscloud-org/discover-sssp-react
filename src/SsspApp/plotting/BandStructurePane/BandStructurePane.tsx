@@ -7,10 +7,10 @@ import { BandsData, BandsPseudosMap } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
 import PseudoSelector from "../PseudoSelector";
-import BandStructurePlotProps from "./BandStructurePlot.models";
-import styles from "./BandStructurePlot.module.scss";
+import BandStructurePaneProps from "./BandStructurePane.models";
+import styles from "./BandStructurePane.module.scss";
 
-const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
+const BandStructurePane: React.FC<BandStructurePaneProps> = ({
   element,
   chessboardPseudos,
   bandShift,
@@ -194,7 +194,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
   );
 };
 
-export default BandStructurePlot;
+export default BandStructurePane;
 
 const shiftBandsData = (bandsData: BandsData, shift: number): BandsData => {
   return {
