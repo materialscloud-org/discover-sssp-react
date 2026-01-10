@@ -1,10 +1,10 @@
 import { useContext, useEffect } from "react";
+import { Col, Row } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 
 import { PeriodicTable, PseudosLegend } from "@sssp/components";
 import { HoverProvider, LibraryContext } from "@sssp/context";
 
-import { Col, Row } from "react-bootstrap";
 import LibraryToggle from "./LibraryToggle";
 import styles from "./TablePage.module.scss";
 

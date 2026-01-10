@@ -67,7 +67,7 @@ const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
     <div id="chessboard-page">
       <div id={styles["chessboard-plots"]}>
         <Row className="justify-content-center g-0">
-          <Col xxl="6">
+          <Col>
             <BandsChessboardPlot
               pseudoFilenames={pseudoFilenames}
               values={etaV}
@@ -76,7 +76,7 @@ const BandsChessboardPlots: React.FC<BandsChessboardPlotsProps> = ({
               onTileClick={tileClickHandler}
             />
           </Col>
-          <Col xxl="6">
+          <Col>
             <BandsChessboardPlot
               pseudoFilenames={pseudoFilenames}
               values={etaV10}

@@ -1,4 +1,4 @@
-import Button from "react-bootstrap/Button";
+import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const InvalidPage: React.FC = () => {

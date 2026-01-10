@@ -1,6 +1,5 @@
-import { Card } from "react-bootstrap";
-import { Tab, Tabs } from "react-bootstrap";
-import { Navigate, Route, BrowserRouter, Routes } from "react-router-dom";
+import { Card, Tab, Tabs } from "react-bootstrap";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import "@sssp/assets/styles/main.scss";
 
