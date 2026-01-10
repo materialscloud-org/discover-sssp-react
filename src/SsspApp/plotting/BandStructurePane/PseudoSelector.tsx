@@ -19,7 +19,7 @@ const PseudoSelector: React.FC<PseudoSelectorProps> = ({
   onSelect,
 }) => {
   return (
-    <div id={id}>
+    <Form.Group id={id}>
       <Form.Label htmlFor={`${which}-select`}>{capitalize(which)}:</Form.Label>
       <Form.Select
         id={`${which}-select`}
@@ -32,7 +32,7 @@ const PseudoSelector: React.FC<PseudoSelectorProps> = ({
           </option>
         ))}
       </Form.Select>
-    </div>
+    </Form.Group>
   );
 };
 
