@@ -8,3 +8,5 @@ const isLocal =
 export const DATA_URL = isLocal
   ? `${BASE_URL}/data`
   : "https://raw.githubusercontent.com/materialscloud-org/discover-sssp-react/refs/heads/main/public/data";
+
+export const API_URL = import.meta.env.VITE_API_URL;

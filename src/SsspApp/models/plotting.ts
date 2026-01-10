@@ -68,11 +68,17 @@ export interface BandsData {
   paths: Path[];
   original_uuid: string;
   comments: string;
-  fermi_level: number;
+  fermiLevel: number;
 }
 
 export interface BandsPseudosMap {
   [pseudo: string]: BandsData;
+}
+
+export interface PseudoBandsCalcUUIDs {
+  upf: string;
+  params: string;
+  bands: string;
 }
 
 interface BandChessboardDistanceData {
@@ -81,7 +87,7 @@ interface BandChessboardDistanceData {
   shift_c: number[][];
 }
 
-export interface BandChessboardData {
+export interface BandChessboardsData {
   pseudos: string[];
   v_distance: BandChessboardDistanceData;
   v10_distance: BandChessboardDistanceData;

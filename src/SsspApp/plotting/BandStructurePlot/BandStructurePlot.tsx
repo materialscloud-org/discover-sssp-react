@@ -66,18 +66,33 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
 
   useEffect(() => {
     if (bandsPseudosMap && plotRef.current) {
-      const pseudosData = activePseudos.map((pseudo, index) => ({
-        bandsData:
-          index == 0
-            ? bandsPseudosMap[pseudo]
-            : shiftBandsData(bandsPseudosMap[pseudo], pseudoShift),
-        traceFormat: {
-          line: {
-            color:
-              index == 0 ? "black" : pseudosMetadata[pseudo]?.color || "red",
+      let shift = 0;
+      const pseudosData = activePseudos.flatMap((pseudo, index) => {
+        const data = bandsPseudosMap[pseudo];
+        if (!data) return [];
+
+        if (index === 0) {
+          shift = -data.fermiLevel || 0.0; // set fermi level to that of the reference pseudo
+        } else {
+          shift += pseudoShift;
+        }
+
+        return [
+          {
+            bandsData: shiftBandsData(data, shift),
+            traceFormat: {
+              line: {
+                color:
+                  index === 0
+                    ? "black"
+                    : pseudosMetadata[pseudo]?.color || "red",
+              },
+            },
           },
-        },
-      }));
+        ];
+      });
+
+      if (!pseudosData.length) return;
 
       let BandsVisualiser: any | null = null;
 
@@ -89,7 +104,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
           settings: {
             showlegend: false,
             yaxis: {
-              range: [-10, 25],
+              range: [-20, 20],
             },
           },
         });
@@ -181,7 +196,7 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
 
 export default BandStructurePlot;
 
-function shiftBandsData(bandsData: BandsData, shift: number): BandsData {
+const shiftBandsData = (bandsData: BandsData, shift: number): BandsData => {
   return {
     ...bandsData,
     paths: bandsData.paths.map((path) => ({
@@ -189,4 +204,4 @@ function shiftBandsData(bandsData: BandsData, shift: number): BandsData {
       values: path.values.map((point) => point.map((p) => p + shift)),
     })),
   };
-}
+};
