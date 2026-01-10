@@ -1,10 +1,28 @@
 #back-button {
-  float: left;
+  position: absolute;
 }
 
 #element-header {
-  text-align: center;
-  font-size: xx-large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-size: 20px;
+  margin-bottom: 0.75em;
+}
+
+#element-label {
   line-height: 1;
-  margin-bottom: 1em;
+}
+
+.element-dropdown-toggle {
+  width: 70px;
+  height: 38px;
+  padding: 0;
+  font-size: 16px;
+}
+
+.element-dropdown-menu {
+  max-height: 300px;
+  overflow-y: auto;
 }

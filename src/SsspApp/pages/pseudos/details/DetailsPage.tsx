@@ -1,5 +1,5 @@
 import { lazy, Suspense, useContext, useEffect, useState } from "react";
-import { Button, Card, Tab, Tabs } from "react-bootstrap";
+import { Button, Card, Dropdown, Tab, Tabs } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { useRoutedTabs } from "@sssp/common/hooks";
@@ -57,7 +57,27 @@ const DetailsPage: React.FC = () => {
         Back to table
       </Button>
       <div id={styles["element-header"]}>
-        <span>Element: {`${element || "None provided"}`}</span>
+        <div id={styles["element-label"]}>Element:</div>
+        <Dropdown>
+          <Dropdown.Toggle
+            className={styles["element-dropdown-toggle"]}
+            variant="success"
+            size="lg"
+          >
+            {element || "None provided"}
+          </Dropdown.Toggle>
+          <Dropdown.Menu className={styles["element-dropdown-menu"]}>
+            {elementsList.map((el) => (
+              <Dropdown.Item
+                key={el}
+                onClick={() => navigate(`/pseudopotentials/${el}/${activeTab}`)}
+                active={el === element}
+              >
+                {el}
+              </Dropdown.Item>
+            ))}
+          </Dropdown.Menu>
+        </Dropdown>
       </div>
       {element && (
         <Tabs
