@@ -1,11 +1,10 @@
-import { createContext, useEffect, useMemo, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 import { ElementsInfo } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
 type ElementsInfoContextType = {
   loadingInfo: boolean;
-  elementsList: string[];
   elementsInfo: ElementsInfo;
 };
 
@@ -20,11 +19,6 @@ export const ElementsInfoProvider: React.FC<ElementsInfoProviderProps> = ({
 }) => {
   const [loadingInfo, setLoadingInfo] = useState(true);
   const [elementsInfo, setElementsInfo] = useState({} as ElementsInfo);
-
-  const elementsList = useMemo(
-    () => Array.from(new Set(Object.values(elementsInfo).flatMap(Object.keys))),
-    [elementsInfo]
-  );
 
   useEffect(() => {
     SsspDataService.fetchElementsInfo()
@@ -43,7 +37,6 @@ export const ElementsInfoProvider: React.FC<ElementsInfoProviderProps> = ({
     <ElementsInfoContext.Provider
       value={{
         loadingInfo,
-        elementsList,
         elementsInfo,
       }}
     >
