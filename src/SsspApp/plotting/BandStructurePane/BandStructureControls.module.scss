@@ -1,0 +1,29 @@
+#band-structure-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .pseudo-selector {
+    font-weight: bold;
+  }
+
+  #reference-pseudo-selector {
+    @extend .pseudo-selector;
+
+    label {
+      color: black;
+    }
+  }
+
+  #compared-pseudo-selector {
+    @extend .pseudo-selector;
+
+    label {
+      color: red;
+    }
+  }
+
+  #pseudo-shift-range {
+    height: 0.75rem;
+  }
+}
