@@ -86,7 +86,7 @@ export function generateConvergencePlotData(
   const annotations: Partial<Annotations>[] = [];
   const shapes: Partial<Shape>[] = [];
 
-  activePseudos.reverse().forEach((pseudo, i) => {
+  activePseudos.forEach((pseudo, i) => {
     const color = pseudosMetadata[pseudo.name]?.color || "black";
     const offset = i * offsetHeight;
 

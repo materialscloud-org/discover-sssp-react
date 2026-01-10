@@ -29,9 +29,9 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
 
   const activePseudos = useMemo(() => {
     if (!summaryData || !summaryData.pseudos) return [];
-    return summaryData.pseudos.filter((pseudo) =>
-      pseudosMetadata.hasOwnProperty(pseudo.name)
-    );
+    return summaryData.pseudos
+      .filter((pseudo) => pseudosMetadata.hasOwnProperty(pseudo.name))
+      .reverse(); // reversed because we build it bottom-up in the plot
   }, [summaryData?.pseudos, pseudosMetadata]);
 
   const recommendedPseudos = useMemo(
