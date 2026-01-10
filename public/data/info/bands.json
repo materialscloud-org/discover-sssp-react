@@ -1,0 +1,4263 @@
+{
+  "Ac": {
+    "PSL-US-v1-high-11": {
+      "upf": "e38d520e-8e27-4f48-9228-8220f8554a91",
+      "params": "f19ef4e5-54ca-4c57-8263-81baf75a5def",
+      "bands": "8fa66071-8ba6-4ca8-9ec9-ebb387e06651"
+    },
+    "PSL-PAW-v1-high-11": {
+      "upf": "d84c4cf5-10ef-4824-9858-d3d7d23aa18a",
+      "params": "1634594b-ecb1-49b1-b808-d767e1e10556",
+      "bands": "9bde1902-de0d-4082-a0f1-debc53d1d40e"
+    }
+  },
+  "Ag": {
+    "DOJO-041-std-19": {
+      "upf": "bf0c3ba1-dd0b-4c7b-aba9-34801b12d4ed",
+      "params": "d30cc398-80f9-414e-aed0-41f7a6b331b8",
+      "bands": "3d77ff57-c098-4e3e-a53b-1e1e103a173f"
+    },
+    "SPMS-19": {
+      "upf": "1f7d7ceb-a048-4f33-bb1e-ae43a0e05744",
+      "params": "2d6b5279-e708-48b3-ae8c-d690bf6fe58e",
+      "bands": "7ec785fc-7b57-4ac1-b118-23002cacb6f6"
+    },
+    "SG15-19": {
+      "upf": "fdc7b347-5c41-4c71-a3df-cdd4cfeb5f6c",
+      "params": "32da3cca-bb1c-43c1-b856-b0016db47659",
+      "bands": "dc2c2b68-9068-482d-9a2a-fd9635a6f672"
+    },
+    "GBRV-1.X-19": {
+      "upf": "aaf065ec-5bed-46ad-b41b-4f19d630ccc3",
+      "params": "bf0cc9b4-0a96-4cf7-bfa8-d9d36b25857e",
+      "bands": "a60b2b55-7b8f-4032-ab28-d91cf612cbd7"
+    },
+    "PSL-US-v1-high-19": {
+      "upf": "e49f3505-1cef-40be-a986-772d9a194e30",
+      "params": "f439b4bc-b0b2-480b-bad6-eab56bc57322",
+      "bands": "5fc13f7a-00e5-4533-b7b5-b27e238f7ddc"
+    },
+    "PSL-US-v1-low-11": {
+      "upf": "29d8870a-9e9f-42f5-b93d-33faba6ec28a",
+      "params": "37160cac-e32c-42d2-b270-5b4c5c195f6f",
+      "bands": "dca8aefa-7c7c-40e4-b5ca-3060b0a9e340"
+    },
+    "PSL-US-v0.x-11": {
+      "upf": "a246a285-f032-4031-9694-b43cd8bc66d2",
+      "params": "3dfa804a-664e-4c27-9ce1-bf3d8647b378",
+      "bands": "8d64d8ff-ffd6-4ce5-9abf-24dd2f192795"
+    },
+    "PSL-PAW-v0.x-11": {
+      "upf": "5eed4269-6c5f-463d-92c6-7a6cd812a635",
+      "params": "6a919c82-bb91-4419-a89d-f256d0506268",
+      "bands": "1f089465-3e9d-40a6-8313-3d823c74b6cb"
+    },
+    "PSL-PAW-v1-high-19": {
+      "upf": "f037f623-15e7-487b-acd0-90ad4c31d739",
+      "params": "09c49559-393d-462f-a461-c4bcc09687ab",
+      "bands": "8d0b7d6f-8b37-46b9-965d-570a931a177c"
+    },
+    "PSL-PAW-v1-low-11": {
+      "upf": "5661758a-d2b9-4a52-994d-6aa80156d148",
+      "params": "5acbea0a-9444-4b64-83c2-965e3853be24",
+      "bands": "f0197a3f-9350-41c7-ae30-c7a99905bd6f"
+    },
+    "JTH-1.1-std-11": {
+      "upf": "8e55d4aa-9c88-4208-bf1d-4e2c81311085",
+      "params": "5e2e3f44-49cb-46e6-9f70-0fe868dc3793",
+      "bands": "8f415888-2b9f-49bc-a282-a7d4ec914722"
+    }
+  },
+  "Al": {
+    "DOJO-041-std-3": {
+      "upf": "4b16b9ad-e3cf-43bf-91c4-4fd906069339",
+      "params": "8a051d73-e8b2-4984-bd28-cf6d7d5157c2",
+      "bands": "968fbbef-aee3-4219-bc4d-ca7586d283cf"
+    },
+    "DOJO-041-str-3": {
+      "upf": "5f2444bb-6c8f-43c3-baa7-a5a994c1f0ec",
+      "params": "3aa4c7ab-33ff-4630-83e9-3c29570c172a",
+      "bands": "fc153bd9-39c5-48f0-88ac-eb477c7e614c"
+    },
+    "SPMS-3": {
+      "upf": "8d57a43a-a1f3-45dc-b8b0-3a5b3d7df034",
+      "params": "f90b0ea1-d658-4ef3-9393-801497b19de8",
+      "bands": "c55fc8e2-a227-45ec-942c-9407174a3fa2"
+    },
+    "SG15-11": {
+      "upf": "340d8f3a-6c5d-4706-b416-e82c7045b2a9",
+      "params": "1ee01cf6-0c42-4199-ba47-545800545b32",
+      "bands": "9c1df2aa-3be6-4a70-bfa6-461edbcf8194"
+    },
+    "GBRV-1.X-3": {
+      "upf": "422a94c6-cb8f-41ce-9478-a79ce9fbcada",
+      "params": "7033e9d3-827d-4090-b0cd-133ebe25c58b",
+      "bands": "5ebe742f-5076-4d0f-848a-7a1ec03e8cc2"
+    },
+    "PSL-US-v1-high-3": {
+      "upf": "06ba944a-e1ed-4a17-a954-1d933fd21782",
+      "params": "92736589-c83f-49de-bb9f-6c129ff872b9",
+      "bands": "fba5e249-6de2-4f6d-8e34-1feee22a69b9"
+    },
+    "PSL-US-v1-low-3": {
+      "upf": "1b12d46b-ac5a-47b7-998b-a1f161fc3d50",
+      "params": "595411b5-b4af-4083-8660-8eee864057d1",
+      "bands": "2f19764b-4d30-493b-a268-f8f16598e3fe"
+    },
+    "PSL-US-v0.x-3": {
+      "upf": "1d0671d5-1525-43c6-b45c-39d50d024c8c",
+      "params": "414f2729-7612-4dd4-96c1-810bdda9b9c1",
+      "bands": "ab766afa-d275-45a8-aef2-3c84fce754be"
+    },
+    "PSL-PAW-v0.x-3": {
+      "upf": "e2352dfe-b9b9-4ac2-a92b-fa732af2905a",
+      "params": "ab897bf9-daf9-4a25-aa4f-a8b720f11d03",
+      "bands": "b90c7795-2d71-42e4-adcb-7e7df7a05b3f"
+    },
+    "PSL-PAW-v1-high-3": {
+      "upf": "e6b6868c-627d-4c6c-bdc0-d10166cc3f2f",
+      "params": "8537cbba-678e-4b4f-8a27-1059fc430618",
+      "bands": "ce70791e-6411-4869-b45b-835da0b372c3"
+    },
+    "PSL-PAW-v1-low-3": {
+      "upf": "9ec0638d-ca5a-4e56-8fd6-0363af9e3979",
+      "params": "fd023ecd-495b-4cd7-8b06-c801d03ac3f3",
+      "bands": "9ac639df-e8e9-4f3d-8706-df7055ece63b"
+    },
+    "JTH-1.1-std-3": {
+      "upf": "27de9ea0-e10e-42ca-8e45-80d47ffe6413",
+      "params": "8a4328a1-d36c-43f7-a353-6b423c4783f6",
+      "bands": "5a2a3cc3-1c70-496e-8904-58d709ed1178"
+    }
+  },
+  "Am": {
+    "PSL-US-v1-high-17": {
+      "upf": "eb6478c2-c734-4a33-ab74-5f2684eb404b",
+      "params": "48aa906d-02f7-4b9b-96b6-cbcad3419398",
+      "bands": "33994080-1f26-490c-923e-af24e04a1330"
+    },
+    "PSL-PAW-v1-high-17": {
+      "upf": "6a9a6093-5986-4b3d-9c9e-e09e115edd0b",
+      "params": "14d68699-c2a7-40f7-b681-5630b95aa634",
+      "bands": "193646c8-46d8-4940-8ef9-81ac21255519"
+    }
+  },
+  "Ar": {
+    "DOJO-041-std-8": {
+      "upf": "fbc1554f-a840-4d7d-8a02-d12beba5bf66",
+      "params": "b33ddd95-8307-48e9-8966-52860aa3dc26",
+      "bands": "82446b78-d394-4679-9264-7f0a1495e860"
+    },
+    "SPMS-8": {
+      "upf": "ae5cbb8d-d9e0-41fc-9af5-ef227b390c25",
+      "params": "e7b10759-6474-4421-bf8a-aae1a4ed2fb1",
+      "bands": "c603c56a-ea0c-4ec8-9e25-bcb72399dbf7"
+    },
+    "PSL-US-v1-high-8": {
+      "upf": "162a194c-6274-48c0-bc6c-e03fea4045e4",
+      "params": "eaf03ba6-9f1c-4fc0-add6-1791c905d70b",
+      "bands": "afcb5bd6-f0ec-4c63-913b-6c113a3be700"
+    },
+    "PSL-US-v1-low-8": {
+      "upf": "0caf3a8c-bc08-4534-bb43-065119bd0b84",
+      "params": "1ee6c643-5ff8-47b2-be02-ed2b7a38b7f8",
+      "bands": "f17a688b-b194-4a14-a4e4-0d2b306328f9"
+    },
+    "PSL-US-v0.x-8": {
+      "upf": "1dc7c5cd-a4f7-4e43-af48-afe29c8f78df",
+      "params": "8933fdab-4d38-47ce-a21a-f56f847f7a3f",
+      "bands": "61ff6d00-6807-4d24-a9a9-105fe6bca892"
+    },
+    "PSL-PAW-v0.x-8": {
+      "upf": "6cc2a2d7-989c-43e6-8898-ce4386aa2eea",
+      "params": "d7696e45-fb27-444a-a10b-5c6739b08c9c",
+      "bands": "f1e40d60-af6a-4c53-8e0e-73b474e86cc2"
+    },
+    "PSL-PAW-v1-high-8": {
+      "upf": "9a44628a-1fc9-42a5-9fa5-7cf5383e43ec",
+      "params": "ce6ace44-b92f-4f1b-a0e7-abe369c15fee",
+      "bands": "6c8cb43d-cdbb-4520-8579-2c001f42609b"
+    },
+    "PSL-PAW-v1-low-8": {
+      "upf": "be403b05-4533-4c13-8656-008905917a81",
+      "params": "ddca5500-0300-42fa-8d75-0334d306fdd0",
+      "bands": "00bc2589-d3ba-4f8a-b608-5b4bf148de78"
+    },
+    "JTH-1.1-std-8": {
+      "upf": "aee36364-93ca-4ce2-b5e4-98ac11c0cc8e",
+      "params": "cb6a969c-72bb-447c-bd80-4247c0a6c781",
+      "bands": "042e85cc-144f-46e3-88ea-285be8285d3c"
+    }
+  },
+  "As": {
+    "DOJO-041-std-15": {
+      "upf": "b1a765c4-ac72-4f7f-97a0-83a60dd240d5",
+      "params": "f20a676b-9b1e-471e-baa4-be3901deac0c",
+      "bands": "9f1315bc-2560-4009-a44e-3485f270fa57"
+    },
+    "DOJO-041-str-23": {
+      "upf": "9fb44799-ee78-4220-97d3-af638fd48e23",
+      "params": "f084597a-d48f-4ea4-964a-874b4534325f",
+      "bands": "4eb63f14-9777-4100-83db-7cb67379c4e8"
+    },
+    "SPMS-15": {
+      "upf": "688af293-dadc-42fd-9bdb-9b14fb841b95",
+      "params": "5acabff7-c454-4d63-b624-10eb56de68d6",
+      "bands": "bb79d4f9-fae8-4350-b98c-2c23281abd53"
+    },
+    "SG15-5": {
+      "upf": "292efcbd-c175-4e5c-a4ef-0e05007ddee3",
+      "params": "e031abf2-f1ee-4e8d-927b-48e64e31bed2",
+      "bands": "0b3ea5d4-a635-4b70-82c0-bec63ab6ab2c"
+    },
+    "GBRV-1.X-5": {
+      "upf": "0456de22-009e-4fc4-9df2-cd5c88bb3b4a",
+      "params": "2ecaeaf0-51cf-4908-9dfa-c3b7a1b09f7e",
+      "bands": "86b4032b-f54a-4361-92ef-5e0d3d8c085a"
+    },
+    "PSL-US-v1-high-15": {
+      "upf": "1f5fc385-b56a-42e9-9645-1f59d70921ed",
+      "params": "b104a5bd-f4bf-4a53-a73c-51af2fb4af14",
+      "bands": "c51611e4-a71d-4586-aace-b7034a8ac737"
+    },
+    "PSL-US-v1-low-5": {
+      "upf": "f86c34af-0a39-4031-893f-ef8d39918cae",
+      "params": "271e48ed-d915-4b53-87da-7916d40c8461",
+      "bands": "b788a040-267e-4d8d-99ee-a2d44533e287"
+    },
+    "PSL-US-v0.x-5": {
+      "upf": "e23918c5-d2ad-4526-94d5-47cb8dd89004",
+      "params": "80c6588f-11a3-495a-b3b1-3ce894c52099",
+      "bands": "d363634a-98e9-4ecd-bed3-6bdc5f86831b"
+    },
+    "PSL-PAW-v0.x-5": {
+      "upf": "cc6962e5-8ac3-4cc2-85e8-91908f117bb0",
+      "params": "1375e05f-abba-4569-9ab6-70dd501be521",
+      "bands": "0457610c-c96b-4eed-8b14-de7cea890a6c"
+    },
+    "PSL-PAW-v1-high-15": {
+      "upf": "e01bb76d-ea8d-497e-8390-52bc58c79085",
+      "params": "62848a29-4934-4287-9a00-2ce868c3cc06",
+      "bands": "175d3624-b6e0-4952-bab9-aca78197889d"
+    },
+    "PSL-PAW-v1-low-5": {
+      "upf": "3b4ed0af-dcf6-445e-a466-88315644fa97",
+      "params": "aa39068d-2a87-437a-bb9b-922c1f6ad0ca",
+      "bands": "1adc3e21-3bb8-4bff-ad79-6f3e102be005"
+    },
+    "JTH-1.1-std-15": {
+      "upf": "838a4b2b-2e40-4f52-a8ac-6225ed71bb8f",
+      "params": "435eb00f-0b55-4f17-b906-9ad1946eadf3",
+      "bands": "cc51dadd-eac7-47a3-8484-b5cd81a5da47"
+    },
+    "JTH-1.1-str-5": {
+      "upf": "538845dd-4d89-4d85-ad73-f3f2b654043f",
+      "params": "b5d5f989-7405-4743-ad77-2d18d4428286",
+      "bands": "da8720f1-5ea4-4b94-a89e-86e3a480d85b"
+    }
+  },
+  "At": {
+    "PSL-US-v1-high-17": {
+      "upf": "9f860467-fa0d-4885-b046-9d5c8871995e",
+      "params": "6d0aa3e8-5cd9-4f2a-a380-b1019c400d65",
+      "bands": "3f663419-997c-4532-8f16-971751e522f9"
+    },
+    "PSL-PAW-v1-high-17": {
+      "upf": "22044cf8-51d8-4cf9-97b3-70c82dac2389",
+      "params": "6d667319-47b7-41f7-b46a-5899c1b15032",
+      "bands": "8592c09e-98da-44d5-84a6-1104908d8ade"
+    },
+    "JTH-1.1-std-7": {
+      "upf": "6c36511a-7137-4c02-871a-a78091cb8ae1",
+      "params": "c06755b7-ff81-4800-832d-80436b096835",
+      "bands": "cc44338b-8c50-4820-b359-24c01997f392"
+    }
+  },
+  "Au": {
+    "DOJO-041-std-19": {
+      "upf": "3175b1a7-e8b4-4561-92e4-34a8d28ca0bc",
+      "params": "3dbf0c31-34bb-438b-ae23-312de1116612",
+      "bands": "9ec30538-9dc4-4f0f-ba01-bfc31529f5cf"
+    },
+    "SPMS-19": {
+      "upf": "f4c5ae77-764b-4977-a8e2-f216c2c54f86",
+      "params": "cce7bf24-d201-436f-b631-c2c8628dca59",
+      "bands": "26041355-7b47-45a5-a28b-d6d416501f03"
+    },
+    "SG15-19": {
+      "upf": "fbff4ea0-21e5-4093-ac11-e2f9fab93bf1",
+      "params": "ff3abbc4-1397-4318-bfdf-c98b87fae223",
+      "bands": "614d6bb3-ac09-498d-b4b1-21d8d8ad8a6b"
+    },
+    "GBRV-1.X-11": {
+      "upf": "8e620a40-a638-4643-86f6-ae602c0fa215",
+      "params": "f93f994f-36f1-411d-aac6-9fd9c3200a81",
+      "bands": "93c30624-5747-4966-8e34-6bba441060ee"
+    },
+    "PSL-US-v1-high-33": {
+      "upf": "25b2b1eb-7675-4461-b673-11437d567b00",
+      "params": "059aa1db-cbe7-4dc1-9126-159a5e0c0210",
+      "bands": "492c732c-6a8a-489e-bf5a-4c1330b4022a"
+    },
+    "PSL-US-v1-low-19": {
+      "upf": "2a0c8290-07f2-4464-80f1-11325ed22274",
+      "params": "407f0ccf-ca76-46ff-b6a1-6232304eec60",
+      "bands": "66c444b2-10f5-4643-9f33-437f48276572"
+    },
+    "PSL-US-v1-low-11": {
+      "upf": "300ba1c6-1414-475b-a0ea-d77acebecb18",
+      "params": "881064c9-6ce7-435f-956f-27ed8ffdb19d",
+      "bands": "b2c99130-4786-4d8d-87e7-530d4f2e5f51"
+    },
+    "PSL-US-v0.x-11": {
+      "upf": "c28a05e6-7360-4a1e-bfb8-a64d1e9aa1eb",
+      "params": "7b8ba359-04dc-495d-bdac-51138316fe54",
+      "bands": "c470326b-3e3e-423b-b053-f20efc4e0b5b"
+    },
+    "PSL-PAW-v0.x-11": {
+      "upf": "aa70cf81-ceef-4ea9-8104-3e5aa157d75b",
+      "params": "e11553f6-c4a7-4ccb-94fc-70b2d6acc6e4",
+      "bands": "1917706a-7430-41f8-8b9b-ae04adc72a97"
+    },
+    "PSL-PAW-v1-high-33": {
+      "upf": "1cbf3ef9-655e-4d12-8da9-58ec179cc44e",
+      "params": "598d11a6-da6b-411c-9a50-f6a88013e859",
+      "bands": "6ec65123-b432-4827-80cf-47490da8b6e5"
+    },
+    "PSL-PAW-v1-low-19": {
+      "upf": "292f0427-9908-4782-b627-ff93f21d97a0",
+      "params": "0233c045-adc5-4ece-8da9-0ba65843e424",
+      "bands": "7293c1e0-409e-4fec-ab91-706b2f687319"
+    },
+    "PSL-PAW-v1-low-11": {
+      "upf": "b573a394-6473-4b8f-bf95-5cd36d2c1783",
+      "params": "5255521d-c4e2-4125-9129-931e0beebd19",
+      "bands": "13e1833b-9452-4905-8d0a-4d4dd6b9aef7"
+    },
+    "JTH-1.1-std-11": {
+      "upf": "160e6b8a-2d0d-46b8-95d0-9db01e8ee7e7",
+      "params": "d20e1b7b-0cd3-4af2-89a3-d8f3ce1aeaed",
+      "bands": "9667efcd-0017-4926-a870-fd52f0d7d0e1"
+    }
+  },
+  "B": {
+    "DOJO-041-std-3": {
+      "upf": "037dee2f-891b-425a-8a21-195025f097f7",
+      "params": "d1c3b399-961f-4a76-a1e4-2bfefb484f1c",
+      "bands": "f78015e4-e744-4c6c-829a-582614787606"
+    },
+    "SPMS-3": {
+      "upf": "3b19c703-4258-4495-b568-0ea01cdad3f8",
+      "params": "f636feb9-7a8f-4aaa-a7e5-ed99fa9a0424",
+      "bands": "4a5afda1-ec89-4713-9a0f-610eb81da4ca"
+    },
+    "SG15-3": {
+      "upf": "1ec85fa3-e442-4235-8146-97943f451460",
+      "params": "d5793968-a652-4e1f-8d9c-e8cc0acfd374",
+      "bands": "f46b754f-7066-4541-9faf-2fc84c1bdf43"
+    },
+    "GBRV-1.X-3": {
+      "upf": "78794353-d823-4536-b313-b09c76e795ee",
+      "params": "02afc3d0-640d-49e6-b0fc-764f3432549e",
+      "bands": "a01ec4c6-2061-4709-8b11-a838e047fb75"
+    },
+    "PSL-US-v1-high-3": {
+      "upf": "5d261699-227a-432f-957c-d0c56060f152",
+      "params": "d447a772-d085-4e90-bb57-ecbf61834f23",
+      "bands": "3808e3e7-ebe9-42b1-8ba8-5c3809df8241"
+    },
+    "PSL-US-v0.x-3": {
+      "upf": "bc448951-d036-4381-b746-5cba1df9ee55",
+      "params": "bd4e5c16-79ca-48f4-94af-53fa50ccac90",
+      "bands": "eeb258fc-fc4c-4397-a449-806b100a92b0"
+    },
+    "PSL-PAW-v0.x-3": {
+      "upf": "3ba4cfda-6d06-44ee-8629-a6770e5e2ec2",
+      "params": "919bbb44-3243-459f-8d99-2577a053b7c7",
+      "bands": "e11da3ef-26a4-48a4-988f-4b10593cbcf7"
+    },
+    "PSL-PAW-v1-high-3": {
+      "upf": "c1e46734-5e60-4c90-97b5-8c3c0d2f7741",
+      "params": "06102c28-578e-48d7-918e-5b414e981269",
+      "bands": "97fde222-d3ae-47d0-b717-877b5abb71ff"
+    },
+    "JTH-1.1-std-3": {
+      "upf": "6e0dd581-74f1-42a9-89e2-a31a3bdb086b",
+      "params": "0222ad93-68f8-4e63-977a-6e5a174ba13e",
+      "bands": "d9bae1e1-6b87-49e6-b911-bcf13e699b6d"
+    }
+  },
+  "Ba": {
+    "DOJO-041-std-10": {
+      "upf": "f00814af-57c2-4049-bf99-8202d5cf9aba",
+      "params": "9825264d-192e-4431-b115-2229d8caa748",
+      "bands": "5a8a6875-a2fa-49d6-8ac3-7bceddebaabb"
+    },
+    "DOJO-041-str-10": {
+      "upf": "7038048a-6bb1-47a5-8325-bb09a733ce90",
+      "params": "ff7be5f1-ae44-4894-90c6-52d1e3c699d8",
+      "bands": "f0425ff0-cc68-4255-97d5-eb08e73ea0c9"
+    },
+    "DOJO-050-std-10": {
+      "upf": "5cc52b49-2ffc-4662-bfba-a7c2e0981bdb",
+      "params": "7277863b-7df9-44d9-905d-bded133e5b27",
+      "bands": "0c8d8b38-3a42-48e1-a437-2307e31a6d0a"
+    },
+    "SPMS-10": {
+      "upf": "681fa890-3fd4-40d0-86dc-d081c041c4a8",
+      "params": "74924af8-6051-414b-a7c3-6c4bd686bd91",
+      "bands": "9698f428-6839-486c-a09b-3fb4af4daff1"
+    },
+    "SG15-10": {
+      "upf": "fc21f725-474c-4bc5-8100-06e4a4af1b45",
+      "params": "93c5bf69-92ca-4e5f-827e-21db6199342c",
+      "bands": "7a503ade-1f33-4d6a-af83-e7dee7cf93b3"
+    },
+    "GBRV-1.X-10": {
+      "upf": "dee60ed4-6dd9-416a-8d63-c2dd094b33e7",
+      "params": "9db7237e-4268-4834-982e-4b51da53c26c",
+      "bands": "5b0ca6a4-12d8-46fd-83d7-f6075d32ecef"
+    },
+    "PSL-US-v1-high-10": {
+      "upf": "031c43a1-26db-4ff2-8029-a89b27991313",
+      "params": "1d0ffe55-b339-43cc-af2f-7559412191ee",
+      "bands": "62b6495f-116a-435d-a233-2e7d7c0b2aa6"
+    },
+    "PSL-PAW-v1-high-10": {
+      "upf": "d9f9c033-3b38-478e-b7d1-d767d41424af",
+      "params": "e68bd39f-8148-4c86-8133-002a49af3c24",
+      "bands": "993d7e68-8bea-48d8-b042-f762d028a9fc"
+    },
+    "JTH-1.1-std-10": {
+      "upf": "b8c21e9d-eb05-4d69-9a56-610b6a6cae22",
+      "params": "e764c178-9578-4846-badb-862c4f55c84e",
+      "bands": "26506fee-b5b6-49ca-b21e-57ae4e0a22af"
+    }
+  },
+  "Be": {
+    "DOJO-041-std-4": {
+      "upf": "4973bf7d-20e1-4195-b35a-ed5dfb247d8a",
+      "params": "b4f1fa5e-9b8f-43f2-883a-da034258a081",
+      "bands": "13e2c25e-ee71-48ad-adc3-822432898447"
+    },
+    "DOJO-041-str-4": {
+      "upf": "53c4ab1c-4a64-4e2e-a523-cdaa8397d6b3",
+      "params": "566b0456-d00a-4db1-bdf4-dbb9a9736e82",
+      "bands": "3904b8b2-8855-489f-9195-2ae5eb34ccc8"
+    },
+    "SPMS-4": {
+      "upf": "4c1de2e2-f5e1-4cad-97ed-0b213a3c8b58",
+      "params": "a29385a1-44c0-44f3-b1b8-430929387d73",
+      "bands": "70b5105e-ff8b-49ce-bac5-18a0e07492c6"
+    },
+    "SG15-4": {
+      "upf": "e8251c55-a187-4ed8-bee4-11a3e6b70096",
+      "params": "8ba35797-95d0-409b-b88f-5e91357f6a5f",
+      "bands": "49ead7d9-b623-41f3-94fc-4e695a7323e4"
+    },
+    "GBRV-1.X-4": {
+      "upf": "e7800a49-e47a-4417-9972-f2f587dd76e4",
+      "params": "5cf8a8c3-bd06-45ee-bd49-c0ccf14a8873",
+      "bands": "baa3147e-9d67-4c65-a762-695729d810ac"
+    },
+    "PSL-US-v1-high-4": {
+      "upf": "c80079b1-88ac-4d82-8273-bc592278311b",
+      "params": "bdc72d50-e6cc-481b-901b-c1d3c38edbd3",
+      "bands": "b31f9239-f7c0-4f36-899e-15972c808b09"
+    },
+    "PSL-US-v1-low-4": {
+      "upf": "df5ecddb-bd74-4d87-a2c0-16b5d4bde7f8",
+      "params": "3547c490-5352-4717-ba9a-3d26c23a588a",
+      "bands": "6e7d83ea-351f-4e95-b154-580f7cee44c7"
+    },
+    "PSL-US-v1-low-2": {
+      "upf": "49ed3aa1-d725-433e-99a5-268300a45fd8",
+      "params": "71ebaca3-e3d3-4501-b593-5030e70ff8a3",
+      "bands": "3e689faf-273b-4690-b198-bacc90eb51eb"
+    },
+    "PSL-PAW-v1-high-4": {
+      "upf": "611afa9b-a324-4816-b018-01e80a7c6053",
+      "params": "b854d814-d0f3-4996-b3a1-a635c0e901e5",
+      "bands": "60c92d4b-6850-4891-a290-667ba47cacef"
+    },
+    "PSL-PAW-v1-low-4": {
+      "upf": "fdfc2108-3b88-41dd-bcb9-bac7e826c5cd",
+      "params": "1ca4bd20-1ef0-4f91-a842-2ca542acde9c",
+      "bands": "b0748603-5066-45be-a29c-b0f0fa006b6c"
+    },
+    "PSL-PAW-v1-low-2": {
+      "upf": "6eb1bf85-b98d-4e79-af6d-5c01cb40e2ea",
+      "params": "2f2d077f-beb2-47f0-8953-e94ac769e64e",
+      "bands": "af05ce65-0292-4bb1-91a1-54f81915ec39"
+    },
+    "JTH-1.1-std-4": {
+      "upf": "a6306428-ed8c-4b5e-bea1-02898439467b",
+      "params": "e29dfbd4-2149-4c8f-b97f-93188c41f31a",
+      "bands": "d7ee4666-d241-445a-bf60-141b51c3c5ef"
+    }
+  },
+  "Bi": {
+    "DOJO-041-std-15": {
+      "upf": "eaf1f5bd-0896-4881-985f-c97c36a827d2",
+      "params": "c63b4849-9ce8-4885-bb17-901cdcc0c700",
+      "bands": "b7240d0b-db68-4ceb-bb1e-0d903aa68aac"
+    },
+    "DOJO-041-str-23": {
+      "upf": "cb85cf3f-c914-474a-9485-a5091e6750f9",
+      "params": "30335f5c-b64a-403b-a432-56a20003ebaf",
+      "bands": "f98480bc-2c0d-4c89-9fb5-05c773e5baff"
+    },
+    "DOJO-050-std-15": {
+      "upf": "6f4efcfe-799b-45fc-8065-f48979b81adb",
+      "params": "7a88c6c6-5152-4bef-a297-2d18d4bf7822",
+      "bands": "1f57a8a0-fb11-411f-a6c8-925f097dcfcc"
+    },
+    "SPMS-15": {
+      "upf": "9cc5eb8a-c637-4ceb-8412-be303e94e6e6",
+      "params": "bfad08bc-ac4f-4c86-8cfd-103d27653f29",
+      "bands": "2f77ca3b-e963-4323-8d91-e45288e5142b"
+    },
+    "SG15-15": {
+      "upf": "68269ada-e346-45d2-ac6f-5b383ed09d0a",
+      "params": "10c7c1ad-3909-40a8-92d3-1dfad58b030d",
+      "bands": "ebfe9aa0-1a12-4fb2-86a7-24dd7c7686c4"
+    },
+    "GBRV-1.X-15": {
+      "upf": "bb8c0b19-1fdc-461b-99b4-fe21b1b37c3d",
+      "params": "8e665d86-f6ed-4e5c-9b53-a8c2ec42f7e0",
+      "bands": "ec775cff-3c58-4a57-84f7-242798661e97"
+    },
+    "PSL-US-v1-high-15": {
+      "upf": "375cfa28-84ae-4daa-b135-407b23ce0426",
+      "params": "1c71ac10-59df-4170-b1a7-871d7eb948be",
+      "bands": "e0a48351-4912-4110-af3c-0a1ca466a01e"
+    },
+    "PSL-US-v0.x-15": {
+      "upf": "5fd28d3b-7f70-4f8c-9035-2e316c0951ac",
+      "params": "19c6368c-fd3a-4f86-bf16-ffda98ee1980",
+      "bands": "4bd055ab-f231-44de-a795-6ef5115f08c6"
+    },
+    "PSL-PAW-v0.x-15": {
+      "upf": "56b2061a-64d7-49b6-acef-2e568f814989",
+      "params": "f90471e1-23f5-4fae-b7bf-6833852e580c",
+      "bands": "f8d19c84-c21b-4336-bd92-b4196aadcc8f"
+    },
+    "PSL-PAW-v1-high-15": {
+      "upf": "4b8d2df3-7da3-4aed-8afd-9986db7bd6a0",
+      "params": "7c4a04d0-32ae-430c-951f-4d2a9e0c27ca",
+      "bands": "16625fcf-916f-4ce5-93b7-fc11ebb33d9d"
+    },
+    "JTH-1.1-std-15": {
+      "upf": "4c02f2cf-d0d4-428f-b9bc-0852842c346d",
+      "params": "c8ff2d1f-5c8a-4427-bb38-9a72fbc0b7c6",
+      "bands": "8d20ba5f-ea3d-4c17-86d7-b3507bc07290"
+    },
+    "JTH-1.1-str-5": {
+      "upf": "331fa088-403e-4e5c-b798-480f93aaf6a2",
+      "params": "e14e7ce5-d23c-47f7-a91d-e33c03266b4d",
+      "bands": "afb26583-e901-4d15-8904-e450bdc3e7de"
+    }
+  },
+  "Br": {
+    "DOJO-041-std-7": {
+      "upf": "e084d3fe-2df4-44fd-b3f8-f5db5d8d1f00",
+      "params": "6b11e0db-b79c-4d15-adbc-67f996abda65",
+      "bands": "06393cca-66c9-4bd0-9a55-ebff1e91cb3c"
+    },
+    "DOJO-041-str-17": {
+      "upf": "dedcfde7-5d06-43bd-8f34-19bbcb914f2c",
+      "params": "3ebd56eb-2139-4742-88f2-5dd1888c8ed6",
+      "bands": "f1361a52-3898-4159-9f33-0e0ea9e95758"
+    },
+    "SPMS-7": {
+      "upf": "046b46ac-054d-4ac9-b62e-aff29e25fb4c",
+      "params": "ad182aca-c89f-4f33-9e52-b808128834b1",
+      "bands": "35e46f87-e21e-42cf-b77c-7578b4027389"
+    },
+    "SG15-7": {
+      "upf": "af2638cc-9457-4bc1-9e63-1175cc224047",
+      "params": "c2772528-00ec-43e2-b46c-f534954e8a08",
+      "bands": "730b572f-2f8b-459f-afe3-87bdcfa670be"
+    },
+    "GBRV-1.X-7": {
+      "upf": "1a6611d7-def4-4a39-9358-4f2021dbd7ce",
+      "params": "50055fef-a3d8-4b4f-80f3-b6bde455b9a1",
+      "bands": "511d8bae-5fd8-4e42-941a-bbd140137ffa"
+    },
+    "PSL-US-v1-high-17": {
+      "upf": "31929e50-b661-4cb8-bc4a-64b100fdbc10",
+      "params": "d2329fc9-963e-4d3f-bcd4-e2a20740cdc9",
+      "bands": "f59abb2a-e90b-4c5a-a8e4-6dc88fb05934"
+    },
+    "PSL-US-v1-low-7": {
+      "upf": "1e8a253a-dd84-47df-9a1b-50c1a55442ef",
+      "params": "6d577bb5-ae93-4189-842c-75f4a4096b2a",
+      "bands": "7ccbeabb-bcd3-4f3c-a6a3-2e9db9b8c2a4"
+    },
+    "PSL-US-v0.x-7": {
+      "upf": "5318a5a2-81c9-4da7-9201-4ac61bd2d175",
+      "params": "f1de6592-56e3-4e43-8f6e-b677aa385b35",
+      "bands": "f1f11019-82b7-4d5c-8b42-a07e5ddc380e"
+    },
+    "PSL-PAW-v0.x-7": {
+      "upf": "7801560b-98c1-442e-93d4-33bd9babe030",
+      "params": "0b1cb365-5e69-4a72-984f-e30e7fc6570a",
+      "bands": "57ebbcbc-02ca-4ba5-b65b-3cadbc5d7f60"
+    },
+    "PSL-PAW-v1-high-17": {
+      "upf": "f344aadc-0207-421f-a54f-c299437d0945",
+      "params": "3502a325-88cd-4950-b2c5-90f214f79fca",
+      "bands": "03e70a7e-22ff-4e1a-ac6a-a4e674f5865d"
+    },
+    "PSL-PAW-v1-low-7": {
+      "upf": "6e2d3004-cd03-4bd9-9c28-6e2b54a99507",
+      "params": "7426db36-07bf-4dc5-8f4c-a482c97a5acc",
+      "bands": "31758ffd-f3cd-44b1-8c31-8bd03d625cc1"
+    },
+    "JTH-1.1-std-7": {
+      "upf": "44396048-bcdb-4c09-a394-d7c0519eaedc",
+      "params": "fe9b3b67-63a4-45db-b73d-8fc41d4b6267",
+      "bands": "054c04fd-d5f6-4598-8c26-acfed3ee2d05"
+    }
+  },
+  "C": {
+    "DOJO-041-std-4": {
+      "upf": "8eadbda7-2912-4827-a041-d30ad42a56b0",
+      "params": "9b2baf8a-49b8-4bed-ab0b-c9a769ae204c",
+      "bands": "1f1847de-bd45-40f1-b292-061f5356ce93"
+    },
+    "SPMS-4": {
+      "upf": "e4fa1d0d-862b-4d49-a96a-31f6a124931b",
+      "params": "5f681ea1-68df-4581-bdc6-b9df64ae152a",
+      "bands": "fb368a75-1c7d-4d1d-9ffa-1534d0a40ab1"
+    },
+    "SG15-4": {
+      "upf": "f33f7140-9e29-438f-ad9d-bec249465a34",
+      "params": "7dca95c5-4aa2-492d-a1ba-520b24341c83",
+      "bands": "b01c0bf7-9ffa-4686-ad70-3daae7c2a48e"
+    },
+    "GBRV-1.X-4": {
+      "upf": "caec4c52-5f09-46fc-b98b-f55693d0aa27",
+      "params": "05f0d566-9362-48e9-9dee-b67fb94ad192",
+      "bands": "5ba081ef-4e4d-46b2-afea-870b8978cdef"
+    },
+    "PSL-US-v1-high-4": {
+      "upf": "11048070-6916-4249-a401-3854be4613ca",
+      "params": "7221b9cc-4797-4897-a32f-878cb2119f6c",
+      "bands": "48a9fc15-cdd1-4fe0-9c3a-10a4c62999b0"
+    },
+    "PSL-US-v0.x-4": {
+      "upf": "540ac873-60f5-4db5-9a8f-7f3a43a24702",
+      "params": "ba30da70-0c48-40cd-b715-4a102464ef5b",
+      "bands": "c95bff1a-d217-43fb-9fff-dd9f564354de"
+    },
+    "PSL-PAW-v0.x-4": {
+      "upf": "d8125e13-67e3-43f4-bd26-778f5cc37c65",
+      "params": "153e2c8e-6573-42c6-9603-8dfc32f36eaa",
+      "bands": "bc1ce033-b51d-476a-85ca-1989134ade68"
+    },
+    "PSL-PAW-v1-high-4": {
+      "upf": "5327408f-08ad-42ad-9c5e-c58fa17fdd95",
+      "params": "8dd1de53-968f-4c00-9c4e-c60a9c6aafeb",
+      "bands": "e5ad9133-69c3-47cd-89a3-ee6dc163bd33"
+    },
+    "JTH-1.1-std-4": {
+      "upf": "e9123dc4-aefd-4bca-a41c-9703533b5b48",
+      "params": "81de3b5c-34f0-402c-b734-d3533ad8d4ba",
+      "bands": "abb287dd-ed84-454a-bf3d-e1e7f3b7da16"
+    }
+  },
+  "Ca": {
+    "DOJO-041-std-10": {
+      "upf": "b76ee639-5e89-41de-8f82-d7de857a8da3",
+      "params": "a43f407a-b9fe-4364-aa85-4f1922b5f547",
+      "bands": "458dfd9a-89fa-497d-9487-95eec1df9bef"
+    },
+    "SPMS-10": {
+      "upf": "79f678f6-5a5d-4cc5-8534-2c128bbf2bb6",
+      "params": "b4d0db03-270e-49fe-80f1-1689990a1fc0",
+      "bands": "0f0255ee-bc9f-4030-bbc6-5eb78ac685b7"
+    },
+    "SG15-10": {
+      "upf": "7098484f-3476-4654-aaf0-4ad8cac34445",
+      "params": "0c5dc70d-e322-49d4-a9f8-9f7035eacd78",
+      "bands": "f87dec8a-36dc-4146-a5f2-3e50043e54b9"
+    },
+    "GBRV-1.X-10": {
+      "upf": "6229b584-fd6c-495a-9d4f-4649fc78dacf",
+      "params": "677aaf98-ee96-4676-9a6c-e92a2793cfb0",
+      "bands": "c7d24f86-612d-4a8d-9b31-feaf62abd339"
+    },
+    "PSL-US-v1-high-10": {
+      "upf": "4103cd5c-b050-45b0-a3ea-baddfa0c4635",
+      "params": "8b866004-a7b1-4378-ac9d-201611308da6",
+      "bands": "6c37baa4-71cd-4fa3-913f-9b24badb867a"
+    },
+    "PSL-PAW-v1-high-10": {
+      "upf": "2a680d32-42bf-417b-bd06-513b89d85f0a",
+      "params": "86839c8a-0ed9-4047-bc35-8fb0d52a3be2",
+      "bands": "17a40dc6-437e-410b-9896-05734277498d"
+    },
+    "JTH-1.1-std-10": {
+      "upf": "8da6a6f0-1696-47f8-8318-c4713bbf425b",
+      "params": "722fbe22-dfa8-42c6-81c1-01e123982695",
+      "bands": "9746eef5-962b-407f-a70e-c28fbacd5d27"
+    }
+  },
+  "Cd": {
+    "DOJO-041-std-20": {
+      "upf": "fbaa4cb9-90e6-491f-8c56-78db28c55d2b",
+      "params": "b1cbffd2-9564-4c06-912f-3f76bdc791d7",
+      "bands": "7972486a-4ae3-41af-b7a5-536875af5fc2"
+    },
+    "DOJO-041-str-20": {
+      "upf": "25aee2e7-529f-4720-897a-c5723dc9065d",
+      "params": "f3d11e00-5161-4b8d-a1a7-a865dc0f43ca",
+      "bands": "92b8edfd-3b4c-4bf4-bb26-4bb15d6ef06c"
+    },
+    "SPMS-20": {
+      "upf": "eace7f3e-bc95-4fa7-af44-fdf7417a3e18",
+      "params": "107a92fd-0eec-456c-9463-2b57e63c815a",
+      "bands": "29ba2e0d-5065-4073-a8a1-c8d4c0795058"
+    },
+    "SG15-20": {
+      "upf": "a407fde8-e2d0-4877-bc88-1e615e658590",
+      "params": "6f57e75d-065e-4c1e-9a48-a4bdd5dae509",
+      "bands": "a3f90208-73b5-4694-a880-5b18e43d3336"
+    },
+    "GBRV-1.X-12": {
+      "upf": "fb883265-aa46-463a-9cc4-4ccb4e869518",
+      "params": "3b1da8a9-5d6e-44aa-9e1f-0692bdab93c0",
+      "bands": "a64663cc-1038-4123-b343-04b5a6483a38"
+    },
+    "PSL-US-v1-high-20": {
+      "upf": "d8877a39-9472-476f-a11c-86f60bb1699d",
+      "params": "4a881191-38ed-4df7-a402-b97800969982",
+      "bands": "ff59f5a1-ba81-48a6-a83f-e6ae133148fa"
+    },
+    "PSL-US-v1-low-12": {
+      "upf": "545d61a6-203f-47f3-a0ff-a091dfc9c198",
+      "params": "fb778c6f-1093-4409-9445-36e1001892d7",
+      "bands": "e76fd099-e151-46c6-acc7-0d06f8a1b720"
+    },
+    "PSL-US-v0.x-12": {
+      "upf": "d3222e8d-3e33-48f9-b8a9-14dd8aff8aad",
+      "params": "c6162e71-ae59-4725-acd5-056ddbfca90c",
+      "bands": "10b38938-b795-4d5e-b5e2-8828fe81af88"
+    },
+    "PSL-PAW-v0.x-12": {
+      "upf": "a70c0ccf-776e-4dc0-9cb9-49caab78d07a",
+      "params": "2ff77eb2-6613-4491-b16d-4f4364e864dc",
+      "bands": "438a4161-a5de-4b2a-abcf-c2cd7180ab34"
+    },
+    "PSL-PAW-v1-high-20": {
+      "upf": "6b8c6106-d327-4d40-a1f0-17951ecaa411",
+      "params": "2dda6af7-97e7-41ca-b7c8-40bb00f66ac7",
+      "bands": "4a1a9bb8-0477-4c0d-8dd8-e78578311a65"
+    },
+    "PSL-PAW-v1-low-12": {
+      "upf": "a260b5bf-359b-4c64-b29c-77eb8f8e71fa",
+      "params": "b40f201b-a6e3-4c2b-a05e-34d2d452c943",
+      "bands": "ff879b1e-0df5-4d97-88b8-bbc1f7868eb9"
+    },
+    "JTH-1.1-std-12": {
+      "upf": "c4d548fe-ad1b-407a-b4c0-714f79550dc5",
+      "params": "83cb01e7-33d7-4c6c-b92b-d2188217077a",
+      "bands": "607e26f2-9b35-4eee-87e0-10a97b0710cd"
+    }
+  },
+  "Ce": {
+    "PSL-US-v1-high-22": {
+      "upf": "bf57136b-5c1b-4c91-907a-00fd65f3c6a4",
+      "params": "bfd0c908-6717-4bd2-b0c7-e23d7ffd8a70",
+      "bands": "c7441a52-72fb-4cc2-b78b-d2552d0259e1"
+    },
+    "PSL-US-v1-low-11": {
+      "upf": "742cf8c8-547e-4a20-91d1-7739281bf25b",
+      "params": "fd0b34d1-a295-407d-9283-efb333ff3526",
+      "bands": "fd2bf556-1a6f-41e6-ae1c-a9338b7f92c0"
+    },
+    "PSL-PAW-v1-high-22": {
+      "upf": "47dba9ee-959e-4f23-9c81-ceb2ae113caf",
+      "params": "72abf6e7-bab0-4944-9424-13218fd809bc",
+      "bands": "3e9b1323-4b58-4831-98e3-5412c53b5a39"
+    },
+    "PSL-PAW-v1-low-11": {
+      "upf": "e56ae321-08b7-41b0-9097-c60ad198ca79",
+      "params": "888bd725-ef95-4c90-b42b-de1d0308b74f",
+      "bands": "c7c56469-d2ce-4600-8544-3377ac393638"
+    },
+    "JTH-1.1-std-12": {
+      "upf": "0933f48a-c07e-4702-9a76-ad36fa8a675d",
+      "params": "0b58fbee-b8aa-42fb-b626-4607a9c6a665",
+      "bands": "f4405119-0535-4421-873e-0debbc5f0682"
+    },
+    "Wentzcovitch-12": {
+      "upf": "4cf9c2fb-a5b6-43a2-aa52-24edd0ce4622",
+      "params": "2c308123-5425-4c6c-88e6-127c0398640e",
+      "bands": "647342b2-0fe2-4332-8764-714fa14fc8ac"
+    }
+  },
+  "Cl": {
+    "DOJO-041-std-7": {
+      "upf": "1cf89605-8eb2-42dd-b2ff-67fc53a443c9",
+      "params": "cd9857e8-3aa2-41c6-8b26-da26e74d82bc",
+      "bands": "3262a3c1-6870-42c5-8e34-feab0d39e878"
+    },
+    "DOJO-041-str-7": {
+      "upf": "f957b46c-3813-4fd7-82a5-00e2dc20fe08",
+      "params": "936dce83-4c1c-4b81-a9ed-b29db5ad43a8",
+      "bands": "b04fed23-389e-4949-90ac-48fcd8f2e571"
+    },
+    "SPMS-7": {
+      "upf": "e0cbd5e3-25e8-4018-8f49-adfd08dfa860",
+      "params": "08314d7c-2957-4f0b-95f0-c457a582fae6",
+      "bands": "f26818c3-473c-48c6-8b80-9925dd159554"
+    },
+    "SG15-7": {
+      "upf": "cb8382a0-5c84-4a0a-b3ad-4f57914c8b55",
+      "params": "d511534d-d4c8-4d2b-a460-8375676fb036",
+      "bands": "03e1c53c-114c-4385-9de4-85deb7dd810b"
+    },
+    "GBRV-1.X-7": {
+      "upf": "2ede7793-044a-49a7-895f-83bf0ec9d7d1",
+      "params": "23615ad3-c785-4f28-8b7f-8e99e4e12452",
+      "bands": "f26b801c-9c41-45c7-ae65-f1876d08a9f4"
+    },
+    "PSL-US-v1-high-7": {
+      "upf": "9f039f87-d94d-4ac1-bd8e-5272b842439d",
+      "params": "368d1b5b-d8d3-4a31-a252-dbe0e3e53304",
+      "bands": "4d41e4a3-10fa-4c09-b6db-514edbc130c8"
+    },
+    "PSL-US-v1-low-7": {
+      "upf": "afbb49ae-9c3a-43de-a2f7-66c2c475f892",
+      "params": "b7f1af4b-6420-4bab-b1da-8ae7d5c3ba9d",
+      "bands": "335534a6-56b8-43ba-9f97-24a4f01baa2d"
+    },
+    "PSL-US-v0.x-7": {
+      "upf": "471bada8-4c3e-447f-88c5-58a60c45ae34",
+      "params": "948c7353-461c-46cf-a440-f22e671994d3",
+      "bands": "48423253-6e12-4123-b7c1-6554e73b843b"
+    },
+    "PSL-PAW-v0.x-7": {
+      "upf": "1cdce8ee-a650-4adc-82e3-cc9cd29c2aac",
+      "params": "e7ea9db0-1939-487f-86b2-530f70148b18",
+      "bands": "d169e691-e388-4a52-aa3d-cba34b5b27dc"
+    },
+    "PSL-PAW-v1-high-7": {
+      "upf": "9805acd8-1368-4edf-80a6-2b58cecc79be",
+      "params": "55701f6b-aa88-4a8b-83b1-7026d7e80ecd",
+      "bands": "ef560e0e-98ba-445c-9541-fbb60863151a"
+    },
+    "PSL-PAW-v1-low-7": {
+      "upf": "f8466472-268a-409e-8d79-eaceca282958",
+      "params": "b8b1211a-20dc-4dbb-9a91-01efa4e2ddb0",
+      "bands": "609c6683-8e58-47eb-9da9-74107d008dc5"
+    },
+    "JTH-1.1-std-7": {
+      "upf": "27b0325d-4dcb-46f4-b269-864c9d3df133",
+      "params": "deaaa96e-87df-45b4-b2c5-134e3fa33870",
+      "bands": "bab8e2f3-a9e0-47bd-9533-d9b147d75ae5"
+    }
+  },
+  "Cm": {},
+  "Co": {
+    "DOJO-041-std-17": {
+      "upf": "a2f507fe-59e1-4571-b599-9f263afeb2cb",
+      "params": "6d98205f-4cef-4473-b855-fc426d2583e6",
+      "bands": "640b4aa5-243c-4ba6-8526-d025f15d18a6"
+    },
+    "DOJO-041-str-17": {
+      "upf": "b83c2749-9205-4de7-abb0-00c1fb7df3b5",
+      "params": "9e4a6edd-6fa4-4760-98b2-c9c71f3db54e",
+      "bands": "9842e0b6-9772-4604-aac1-ba0ecf1cf183"
+    },
+    "SPMS-17": {
+      "upf": "967b0a1a-7005-4ec3-9966-5e8a69b0e8bc",
+      "params": "d03d6ab8-fb5a-497d-bf86-f974c87cc54e",
+      "bands": "37b1620e-f0c9-4898-82bc-886b918bd18e"
+    },
+    "SG15-17": {
+      "upf": "3800b896-b5eb-4323-b99a-2d23d51f7ab3",
+      "params": "df7ec44f-bfb3-453d-ad96-bd1c5ed46efb",
+      "bands": "82f245b7-ee4d-4efc-8cf3-93f680c15015"
+    },
+    "GBRV-1.X-17": {
+      "upf": "7a320096-f517-49c9-9b02-33a4ae18b15f",
+      "params": "e4174b6f-b75c-4ede-83d5-e706da3bcc40",
+      "bands": "2c1b7d94-4a18-452c-ba22-2cc8429159bd"
+    },
+    "PSL-US-v1-high-17": {
+      "upf": "dab3186f-2523-49c4-81b4-b0b51af47637",
+      "params": "3c125dfc-5389-4113-b8c4-7e4920c9c140",
+      "bands": "6da5dfd9-a80c-4d5c-9d55-9bf73d397194"
+    },
+    "PSL-US-v1-low-9": {
+      "upf": "678bc8a9-c78a-4436-8b91-c3c35eeeffd6",
+      "params": "646c0ac8-9a72-4808-8ea4-6c4b7cd1e216",
+      "bands": "9ddc9ec4-7883-4978-baa4-dc3b33786060"
+    },
+    "PSL-PAW-v1-high-17": {
+      "upf": "29f15ce6-31a2-4b65-81cf-d13330ea8b0c",
+      "params": "567b39e9-601f-4431-9a17-50d245c32c49",
+      "bands": "4468d345-7448-4fe2-bb70-f57b42c95a74"
+    },
+    "PSL-PAW-v1-low-9": {
+      "upf": "df3602b8-f05d-4a7f-8c0e-821c9ca0bc10",
+      "params": "126f0044-b769-482c-99b4-01a7a8a90d4b",
+      "bands": "d368df5b-fcf5-430d-a1d7-ca364c60941f"
+    },
+    "JTH-1.1-std-17": {
+      "upf": "751479c3-3cbf-438d-a9d9-6eee039178d4",
+      "params": "736072ea-8a9c-4f5f-8679-e3d777aaac2f",
+      "bands": "ac6f5f08-75ed-493e-89f9-18e9394b5b41"
+    }
+  },
+  "Cr": {
+    "DOJO-041-std-14": {
+      "upf": "ee9cb9fc-d56e-4c5c-9996-e7f641233d5c",
+      "params": "e202adc0-6326-40ac-a0d8-b9d394650d0e",
+      "bands": "5b3d3b6a-e002-455d-bae1-902643fdfcd4"
+    },
+    "DOJO-041-str-14": {
+      "upf": "b5674975-c823-4764-aa16-50ccbe42bfad",
+      "params": "437d34c9-1342-4f72-ac55-985bc507ceb7",
+      "bands": "7f92f467-d87b-409d-923e-189d31998861"
+    },
+    "SPMS-14": {
+      "upf": "e3a355c4-2d23-413f-893b-3394e2574a8a",
+      "params": "d52f95a7-8a26-4f0e-ae33-ec22f6de0b7d",
+      "bands": "812a91d9-694d-4759-ba87-3c6e40a40c30"
+    },
+    "SG15-14": {
+      "upf": "180ba11f-5576-408a-a0e8-98818d68939f",
+      "params": "6585fa10-c5c4-4ab2-8921-84ec9996e527",
+      "bands": "dbc67527-07c0-4724-85ed-7bb01c2879ab"
+    },
+    "GBRV-1.X-14": {
+      "upf": "b5967617-dd38-4f8e-b3f6-55a1f1368e13",
+      "params": "5429933b-c65c-4028-9dd8-2fb4fc19b025",
+      "bands": "ac395782-cee7-4c1f-9062-f2d2bd4a0c65"
+    },
+    "PSL-US-v1-high-14": {
+      "upf": "2e944581-4969-40ef-8871-f8ebd85eea11",
+      "params": "24727fe8-2210-4cf4-a42a-c1ec50260b07",
+      "bands": "76638df8-bae9-4206-97d4-0a606f74156c"
+    },
+    "PSL-PAW-v1-high-14": {
+      "upf": "5c167fd8-4e59-479c-ac07-926065e621cb",
+      "params": "ce52d842-4dc4-48ea-96a3-26d0871b6205",
+      "bands": "cffd68a7-d475-437f-9100-2b715d463ad9"
+    },
+    "JTH-1.1-std-14": {
+      "upf": "15753bd2-19db-4a4f-bebb-88e5b1ce9774",
+      "params": "933380e1-15df-4761-9a59-ae7ed6960c46",
+      "bands": "722f7d3c-e212-4d2e-90b7-7299f94ccd89"
+    }
+  },
+  "Cs": {
+    "DOJO-041-std-9": {
+      "upf": "b20d94fa-1daf-42eb-bd38-3831f9c354b9",
+      "params": "3512a95c-531f-43ed-b50a-a6953837a2e1",
+      "bands": "ec8e654f-bcfa-4f15-883b-cabbab5c271b"
+    },
+    "SPMS-9": {
+      "upf": "51e761b1-877d-48f5-9392-c810d887b8c3",
+      "params": "790b863c-0d2a-4e41-8cb6-d07633480dfb",
+      "bands": "12abda1e-dc71-4d1f-9a9d-d1d8ca1aa4ab"
+    },
+    "SG15-9": {
+      "upf": "896211d4-25b3-4092-ae4f-1af891b615f3",
+      "params": "93a92f83-369e-4be2-b306-abc19233d5cf",
+      "bands": "74ac7609-9eb5-4b2a-bd02-7b450c950444"
+    },
+    "GBRV-1.X-9": {
+      "upf": "906f6910-0b5c-4b1d-8eb7-08654fb248ba",
+      "params": "45428a66-c209-48cc-bde6-6b6661d95e24",
+      "bands": "4b51ee0b-a0a4-441e-a4c2-fde0e3aecc41"
+    },
+    "PSL-US-v1-high-9": {
+      "upf": "06acab85-8703-4949-996b-a4908cd84af2",
+      "params": "1a64f40b-7066-42c7-92cb-8c574110e48e",
+      "bands": "1b2e573c-7bdd-4336-8fab-103ac566edd8"
+    },
+    "PSL-US-v1-low-9": {
+      "upf": "60c2ed7c-451e-40c4-9457-761954766c26",
+      "params": "5b1b9b31-3f9a-4e23-a512-921b83a61836",
+      "bands": "98e254a4-61c0-408b-8253-dafa06945de4"
+    },
+    "PSL-PAW-v1-high-9": {
+      "upf": "340c2897-d6b8-4567-bf73-0938d0c5d03b",
+      "params": "65e94a3f-0fd4-4c3a-add6-ff43d751878c",
+      "bands": "7bce172b-2af0-4d41-a721-2a33129dc269"
+    },
+    "PSL-PAW-v1-low-9": {
+      "upf": "6fcf7f9f-0d28-4a5d-b734-16d101393ccc",
+      "params": "b0718836-fa48-4fb1-986f-1b8deedc25c7",
+      "bands": "dcb7c5b9-23ae-413d-868d-8ac1fbabe998"
+    },
+    "JTH-1.1-std-9": {
+      "upf": "8ecea7ac-42ff-4262-87bc-84d1de97cc33",
+      "params": "6ca3f2b9-03ca-45d5-be30-ec0245dcc2e6",
+      "bands": "d2c9dae0-f6a7-4dfa-ab96-bdffbf4d6f7a"
+    }
+  },
+  "Cu": {
+    "DOJO-041-std-19": {
+      "upf": "e0d0f1e0-ca15-456b-b4c9-024319f22c1b",
+      "params": "f02953bf-db2f-4d86-9007-64f707f8994a",
+      "bands": "caf82c5e-fdcf-49b9-bdec-e436d06ff815"
+    },
+    "DOJO-041-str-19": {
+      "upf": "0b61b3e5-5d74-4096-9390-b4465c3defeb",
+      "params": "7665d59f-975c-4c40-9074-24c1e20e5912",
+      "bands": "9f9ddbe4-ec7f-4f10-b973-12e822461990"
+    },
+    "SPMS-19": {
+      "upf": "dc6abc88-63f7-4f3e-8a17-7bce261f74b0",
+      "params": "f7601d39-83b3-48e1-bcfe-6fd9f1ace219",
+      "bands": "76c8c814-7366-407c-83cd-e0971639defd"
+    },
+    "SG15-19": {
+      "upf": "041fff88-f7eb-484f-899d-54cbbf72528e",
+      "params": "bf82efc5-a504-4d1b-a735-ca13416c74c9",
+      "bands": "5b6c7f9c-6d62-44d2-bfd2-8fac765837af"
+    },
+    "GBRV-1.X-19": {
+      "upf": "1a946d68-42f7-4fed-8fc2-a1d8605107e0",
+      "params": "66358b9a-1f8f-4f4d-ace3-497c7ebe66e2",
+      "bands": "9f6465d7-ed0d-4fd6-afa8-12903a29280a"
+    },
+    "PSL-US-v1-high-19": {
+      "upf": "094e533b-9a61-452e-b49e-7600ffbba98a",
+      "params": "6665e3e5-dbfb-402d-b932-06e9f1338b9b",
+      "bands": "7be8c2c9-7885-4637-9e76-46288c2102a2"
+    },
+    "PSL-US-v1-low-11": {
+      "upf": "88681c52-c8d4-4faf-86f8-23db7dd1c946",
+      "params": "bb8b8cf8-6bcc-471f-bcbb-c4e80f6a3180",
+      "bands": "a5b184fd-3df2-41f9-b0f0-e65f5b7492d3"
+    },
+    "PSL-US-v0.x-11": {
+      "upf": "086b54bb-cf90-4421-8187-864421b69076",
+      "params": "a5ad1373-7630-441d-98bb-7d1f96c7461d",
+      "bands": "97af7ee3-30ad-4b16-b4f7-d2af4e4220d7"
+    },
+    "PSL-PAW-v0.x-11": {
+      "upf": "7f2641df-40cd-4f34-bd34-20d1165a58ab",
+      "params": "88220b79-efa7-4852-bb30-91a4d4e6bcf0",
+      "bands": "e4f52dfb-a434-456f-81a8-2e5ff2d39904"
+    },
+    "PSL-PAW-v1-high-19": {
+      "upf": "a34cd193-5ab5-46c5-872a-db3e30d8b212",
+      "params": "af762b0f-a999-4765-b000-6e1440befba3",
+      "bands": "176f3668-9fba-4a6d-ac81-cb5ca1fa206b"
+    },
+    "PSL-PAW-v1-low-11": {
+      "upf": "19bede47-994c-49d0-9c5e-333a84bbd462",
+      "params": "05e8777b-cacd-4ca3-a2a9-7a17e3649a77",
+      "bands": "6d7ae0d0-4280-441c-b552-b46868bf94f7"
+    },
+    "JTH-1.1-std-19": {
+      "upf": "b5b9c4f7-161a-464d-9b29-ab30b3a27530",
+      "params": "9276f2cb-2b1e-402b-a8d8-5276164e4b07",
+      "bands": "d1c7bfd4-c4f8-427e-8e02-409aca0d7666"
+    }
+  },
+  "Dy": {
+    "PSL-US-v1-high-30": {
+      "upf": "96df6798-d9d2-491b-82d4-db84121d85bb",
+      "params": "956c5f7d-f304-4e5c-a8aa-7b9c69fc2131",
+      "bands": "30ccd19d-dbaa-48de-9e40-fc9830a24d5c"
+    },
+    "PSL-US-v1-low-11": {
+      "upf": "054b3d6d-8a85-4af1-abc4-ecacc5a32610",
+      "params": "06ef5647-38fe-47cc-87ba-ac16e8d4d261",
+      "bands": "0e4203bd-76c6-44ac-a8b9-402f9a911694"
+    },
+    "PSL-PAW-v1-high-30": {
+      "upf": "ba62f5f8-329d-48e6-8370-3b5ef8391552",
+      "params": "1a5eb457-d2f9-434e-9b9a-b99404268efc",
+      "bands": "46f5a06b-9bef-454a-a21b-09b13a1a2b8a"
+    },
+    "PSL-PAW-v1-low-11": {
+      "upf": "334cb3a0-1d6c-4a4d-a198-75b95bca8782",
+      "params": "3098c37b-eecc-465e-92bf-520b7254f496",
+      "bands": "5f05831b-bb66-4ae0-9665-4af18dea4984"
+    },
+    "JTH-1.1-std-20": {
+      "upf": "6ca3b84e-d794-4226-af7d-6b4897c8d5c5",
+      "params": "bad7aaa7-1adf-4e88-a3f8-9e2aa081071a",
+      "bands": "87a0a3c0-87a1-4f73-ad40-6583f48a3a6c"
+    },
+    "Wentzcovitch-20": {
+      "upf": "34e35d0d-c93a-4560-9983-7deae2abc3d9",
+      "params": "59d34628-b925-40c4-b378-b2f5e5fddbad",
+      "bands": "26c860b1-300e-448a-9d6a-cd7bcbf83eaf"
+    }
+  },
+  "Er": {
+    "PSL-US-v1-high-32": {
+      "upf": "fa5c4b48-6df4-467f-8825-41d25ab1487c",
+      "params": "ffa8bc8c-c256-4c6a-af7f-6a7f0f92acef",
+      "bands": "c392fbce-4090-4d64-b0c2-4483edc7d6eb"
+    },
+    "PSL-US-v1-low-11": {
+      "upf": "fe4ae96a-b052-43b5-bed8-1bd44b628fda",
+      "params": "061fa287-53f7-42d9-b3f5-0943478f0f75",
+      "bands": "6dbad241-af9d-423a-9234-196d8ea5d59d"
+    },
+    "PSL-PAW-v1-high-32": {
+      "upf": "1e20caf8-e88e-454e-ac9e-b7e22c4d3288",
+      "params": "758b8eb7-b9a8-4c9e-ad4f-e1e2d28760bd",
+      "bands": "bcea9a7a-6146-4098-b3ef-3f689b674c97"
+    },
+    "PSL-PAW-v1-low-11": {
+      "upf": "671af29f-7ca7-46ab-8afa-732eb92957cf",
+      "params": "636fbff9-e606-448b-9199-1d0be06863e0",
+      "bands": "8b2e1437-263c-42cc-82cc-8111f018e2c7"
+    },
+    "JTH-1.1-std-22": {
+      "upf": "d3470ecf-e143-491f-89b0-189692cd760a",
+      "params": "5f6e3005-90c8-4dd8-ac39-6a1ca4b2fdae",
+      "bands": "84c527c2-a1b2-404e-8636-5fafee968e4d"
+    },
+    "Wentzcovitch-22": {
+      "upf": "c6f8fe65-9b9f-4a5f-846e-818fca8d29c5",
+      "params": "5b990b27-18fc-4f98-9923-57050e293b5f",
+      "bands": "351d2ce4-6310-476d-84b6-07f61cc5788e"
+    }
+  },
+  "Eu": {
+    "PSL-US-v1-high-27": {
+      "upf": "f258f0bf-2bf0-4095-be42-1bec113bf50f",
+      "params": "904add11-3818-43df-8ec2-dbd4dc773493",
+      "bands": "1657d224-855c-4f8e-ba8c-f156e49323e9"
+    },
+    "PSL-US-v1-low-11": {
+      "upf": "e9acd0a7-02ab-435c-9151-7fee968a9735",
+      "params": "067d5676-66d2-490a-8da4-3f8e7a39f02b",
+      "bands": "62b992c7-4685-4bde-8c20-635364ad27ec"
+    },
+    "PSL-US-v1-low-10": {
+      "upf": "1b774d2b-a2e3-4f72-a4a3-bec8450e78e1",
+      "params": "39ca3a15-20aa-4ac1-b929-bd4ada4c3b46",
+      "bands": "1ff60ba4-12ee-4fea-a78d-726972c73712"
+    },
+    "PSL-PAW-v1-high-27": {
+      "upf": "49405174-d5c8-405b-8881-41dd8ef144bf",
+      "params": "428e3b65-9286-4401-bd2d-79a00f85fd7a",
+      "bands": "e65ede91-547e-4973-a870-2e1ffe8ba36d"
+    },
+    "PSL-PAW-v1-low-11": {
+      "upf": "b27462cc-a617-43f3-9ea1-e80d9ecf7f6d",
+      "params": "4ff022ec-211e-4859-a843-e5a91988d39c",
+      "bands": "3d060783-96d7-40f1-8ecb-e09333038c08"
+    },
+    "PSL-PAW-v1-low-10": {
+      "upf": "ee076f65-129e-48fd-b411-3b06710e3d88",
+      "params": "2dde347c-43f2-4746-99f2-86f9fce501a1",
+      "bands": "34f3b5fa-1b0b-489c-a86c-d40b9cb9bed6"
+    },
+    "JTH-1.1-std-17": {
+      "upf": "c011f467-bfa4-4314-9ac9-3421012fe203",
+      "params": "2057a8b2-17a1-4cce-951f-febfef02aa55",
+      "bands": "26a604dd-2d0f-40c7-859f-f67bdd1318b1"
+    },
+    "Wentzcovitch-17": {
+      "upf": "4864c168-9bf6-449e-8ae7-785a331a0ac4",
+      "params": "787748d3-da96-495c-8703-f14b49d3edc1",
+      "bands": "48d84ff4-9424-4e84-bfe3-c8eae1b21775"
+    }
+  },
+  "F": {
+    "DOJO-041-std-7": {
+      "upf": "d2cb7f54-c6ae-4fd0-a414-7d2fbe8c48c7",
+      "params": "08f0200d-8891-4b2f-9c03-a72e00a45b3e",
+      "bands": "c9b488f5-609b-4a15-9f2f-4ea4d6e33295"
+    },
+    "SPMS-7": {
+      "upf": "b67fe777-a581-46e5-8fd2-5349b58b4482",
+      "params": "16d08335-4b2c-4641-a253-62ded2ace525",
+      "bands": "1acf4cbf-7be3-4575-91e2-13f41bd6414f"
+    },
+    "SG15-7": {
+      "upf": "dbe7aebf-38f3-44b3-8be3-9be21ef4d342",
+      "params": "fd1b77be-a840-417b-85eb-102b3190e492",
+      "bands": "cbec9a84-fb60-4df8-9374-d5301a19dd70"
+    },
+    "GBRV-1.X-7": {
+      "upf": "b8f55f04-0293-4763-84fd-db3b088ac8d2",
+      "params": "d05085a9-c6bd-49b5-a0f6-35ab77d393ef",
+      "bands": "ff01df1d-3007-47e4-9f2f-00f1b2d0c342"
+    },
+    "PSL-US-v1-high-7": {
+      "upf": "61593a4c-8cb9-4b8b-8f96-a548c4a28ab9",
+      "params": "eb4810cd-3666-4c6b-b1ca-4f4372a3ce74",
+      "bands": "ca712187-2f99-4807-9541-a3d15fcdbd3b"
+    },
+    "PSL-US-v0.x-7": {
+      "upf": "902377a5-3f33-4504-809b-c4d4f5dd9261",
+      "params": "cf3447d2-3c09-4a61-b411-53eb564130f1",
+      "bands": "ec1c66da-2ca3-46af-b575-abca76bec312"
+    },
+    "PSL-PAW-v0.x-7": {
+      "upf": "78677c21-3f5e-4da8-a22d-c36f2892d76d",
+      "params": "f87b9fab-9f55-45be-95d9-0876c97c5366",
+      "bands": "89fe2010-e338-4ae5-9c58-da54f0ec6419"
+    },
+    "PSL-PAW-v1-high-7": {
+      "upf": "bbf5be2a-27e4-4c59-ae95-2a8fed2294d1",
+      "params": "61d61d24-637b-48c8-b9cf-2cd008799034",
+      "bands": "330a71de-ccd2-41b1-b4ec-177fbc7b4678"
+    },
+    "JTH-1.1-std-7": {
+      "upf": "498719b4-cdfa-41fc-bc48-48f33c28857f",
+      "params": "d6d63e37-4580-4a8b-93e2-28bc19d0ba20",
+      "bands": "d9324b58-a23d-411b-a0e4-0bd2eeeabc89"
+    }
+  },
+  "Fe": {
+    "DOJO-041-std-16": {
+      "upf": "268350c0-20ed-4e6d-aa5d-73b987abb27f",
+      "params": "25678bab-d363-4c3b-89f4-fd1340b7444b",
+      "bands": "842d6c3e-cdcf-4f68-af8d-73e90b9cdd58"
+    },
+    "DOJO-041-str-16": {
+      "upf": "5f704b9f-6b88-4200-960f-951ef5db1023",
+      "params": "7f39f481-69e7-4aab-8703-15fe0e9ec28d",
+      "bands": "b91b8c9f-3c75-4091-90d3-34973c69661b"
+    },
+    "SPMS-16": {
+      "upf": "ee940bd4-4027-4d65-bb93-1a46046de43b",
+      "params": "6a4be61f-81e3-4905-94d3-20f8373841cd",
+      "bands": "de2366a8-f5a5-42c4-958d-dc270b8718eb"
+    },
+    "SG15-16": {
+      "upf": "ade4cb33-86e0-4686-a72b-c3f1da1b570c",
+      "params": "e180cd7b-42d0-4fa0-83bf-1d412e9f7cd4",
+      "bands": "6c96cf23-6374-4b4e-8db3-3f059aa66d28"
+    },
+    "GBRV-1.X-16": {
+      "upf": "d469abd5-a0cc-4c3a-88ec-1cdf7b398fae",
+      "params": "4a54aa47-f207-46b9-8e37-cf0e7ba54888",
+      "bands": "8da0d272-ac9f-4cd4-a87e-401615015ca8"
+    },
+    "PSL-US-v1-high-16": {
+      "upf": "c1ec026b-3244-441e-9b47-d53afab3d873",
+      "params": "1b19d85b-be6f-49aa-bfce-d7e5eae73784",
+      "bands": "746c7fe5-5b83-4f96-9e5c-d58223a5fbb0"
+    },
+    "PSL-US-v1-low-8": {
+      "upf": "23a81eaf-a712-4572-b1eb-35eb84db89c6",
+      "params": "5c46f71c-99b8-4a12-97f5-e65b54a6710f",
+      "bands": "f2e89176-4cc8-4eca-8f1a-af12c1698fc7"
+    },
+    "PSL-US-v0.x-16": {
+      "upf": "4d36de85-f3dc-4401-942f-0d244e70a54d",
+      "params": "2313df4d-0a1c-4277-bd65-0aee063702ca",
+      "bands": "b7991007-b6f8-4959-be71-a2f5c78bf2a2"
+    },
+    "PSL-PAW-v0.x-16": {
+      "upf": "e1214349-016a-4335-8244-029072423aee",
+      "params": "2549628b-67d3-41f8-b692-2ee901a9a94b",
+      "bands": "46dd59ba-ee61-4fb5-bd53-f20fe47b34db"
+    },
+    "PSL-PAW-v1-high-16": {
+      "upf": "7b0d5391-7a77-4ccb-a97d-e04566bf4765",
+      "params": "1969e709-a4d9-4f4e-b7e2-87dba3dcea19",
+      "bands": "bb599dc0-7057-4399-a4f0-e14c35092229"
+    },
+    "PSL-PAW-v1-low-8": {
+      "upf": "61fe1eee-ca2a-4c10-95ed-cc966e993d76",
+      "params": "0c5fe53e-9b8b-499f-899d-44e44c59b2fb",
+      "bands": "dcb973c3-aa09-46f9-9026-e8c8094426d3"
+    },
+    "JTH-1.1-std-16": {
+      "upf": "efa811e5-95b3-4a28-9389-849c58cfda99",
+      "params": "22a3da4f-cdce-4151-aaca-5a7fb6966f20",
+      "bands": "ea2f3e80-513d-4172-8a2b-e49178ae784a"
+    }
+  },
+  "Fr": {
+    "PSL-US-v1-high-19": {
+      "upf": "d0dfaa7e-bed5-4f6a-a7fb-5d562976dcf9",
+      "params": "9bd61388-2bcd-44f8-8a99-8aab6718ca5f",
+      "bands": "61b4883e-bc52-4a48-80ef-d865d8d4c52f"
+    },
+    "PSL-PAW-v1-high-19": {
+      "upf": "152eceb5-46a7-4d70-8d2d-b0913e60b440",
+      "params": "0bbf4107-7862-4dfc-ae16-e32186aecd88",
+      "bands": "7f11a8e4-d636-458c-8eb6-085d1a857b9a"
+    }
+  },
+  "Ga": {
+    "DOJO-041-std-13": {
+      "upf": "90a03a6b-45ae-4914-a6a9-f01e4ce34456",
+      "params": "925e75f8-8898-4c20-8ad9-734e9722013a",
+      "bands": "4356af96-49cf-444a-a915-5bafaaaeb28a"
+    },
+    "DOJO-041-str-21": {
+      "upf": "773650da-20bf-4237-bdc5-1222e0498664",
+      "params": "355ae7c2-0323-4de4-9a45-a4b3e0f4d606",
+      "bands": "67d423bd-4056-448f-ba72-2c70d8947118"
+    },
+    "SPMS-13": {
+      "upf": "d51f7dd1-e4ea-4298-bd38-17f100482ee5",
+      "params": "ca028f72-be86-40e7-9e69-aec228cc203d",
+      "bands": "3e53640c-1d11-436f-809b-ad13545fae73"
+    },
+    "SG15-13": {
+      "upf": "4e4c622a-d0ce-417d-afbe-037f82e9ea91",
+      "params": "d65c669b-e185-45a0-a8f5-41605dcbd248",
+      "bands": "fc94b28d-1aa6-4c29-90a6-747652f53733"
+    },
+    "GBRV-1.X-19": {
+      "upf": "182615e8-ac3b-4aff-aaba-093cdecdefcb",
+      "params": "97d1095e-882f-4022-a579-0bb5f2fbb7a8",
+      "bands": "d00a64c1-d827-4d1b-82a1-3f7fdb5d32b2"
+    },
+    "PSL-US-v1-high-13": {
+      "upf": "b66b8ff9-5e3c-439f-abff-f630b584880a",
+      "params": "2a318419-9299-4e0f-94a5-9b727f9c38bf",
+      "bands": "9c545160-b899-4d08-833d-be877424c16f"
+    },
+    "PSL-US-v1-low-13": {
+      "upf": "bae1b6a6-4ae3-4866-a835-c4eac945cef0",
+      "params": "48aefbd6-e441-4d55-a551-f72c754e6cf5",
+      "bands": "8d48f037-9c43-4635-9045-14c977ea6a27"
+    },
+    "PSL-US-v0.x-13": {
+      "upf": "2a360bb6-a7b8-40a8-af45-cf3152e86ad7",
+      "params": "ab5bdfc5-1d76-4eaa-9b7e-e09097175685",
+      "bands": "04e3bee8-1501-4988-b564-565324caf5ed"
+    },
+    "PSL-PAW-v0.x-13": {
+      "upf": "e71db29e-2101-44e8-abe7-cc1c9043a67a",
+      "params": "f4527c86-237e-4f9e-bd06-13a3194e7bea",
+      "bands": "89da68c4-54bf-4066-9234-d5431a75c5de"
+    },
+    "PSL-PAW-v1-high-13": {
+      "upf": "8e4c0252-e2c6-4cd2-987f-70c8d9173fd9",
+      "params": "a3e71b7c-84db-40ef-8dbc-45b7ced5f1bf",
+      "bands": "c83326a1-c9a0-439e-8063-d0476cc6504e"
+    },
+    "PSL-PAW-v1-low-13": {
+      "upf": "15541577-fb8c-407e-b820-167e82061cfe",
+      "params": "00c6b316-b931-46ec-9c50-4e31517243f4",
+      "bands": "94b96af4-5381-4ef0-a4fa-4f5c5e5f1d38"
+    },
+    "JTH-1.1-std-13": {
+      "upf": "4ebed007-794d-4945-8d4d-30826a3f7ceb",
+      "params": "fb8a77e2-dd55-42cb-9fc1-14c0f140f7a7",
+      "bands": "3301890a-f625-4d5c-89b9-579e9577727b"
+    }
+  },
+  "Gd": {
+    "PSL-US-v1-high-28": {
+      "upf": "4d9aa614-94e5-40e7-987c-894e641ff8ed",
+      "params": "5257383f-e60d-4ce7-8b3b-72318f7ba15a",
+      "bands": "29df3283-7f8e-4522-b4db-18ff34924289"
+    },
+    "PSL-US-v1-low-11": {
+      "upf": "fcd286c0-9b11-49d9-a224-a5a2a50d584d",
+      "params": "76b714b2-4e8d-498a-916f-9877c559baa6",
+      "bands": "e059f1d5-b58f-41aa-acf5-71e75ccc1aa2"
+    },
+    "PSL-PAW-v1-high-28": {
+      "upf": "48403d46-1484-421c-b1c7-a99ed8c88458",
+      "params": "f5c87aaf-2fe2-4df7-863d-b0450075d408",
+      "bands": "562f2e15-36cd-4f69-8e0c-684a0a88469c"
+    },
+    "PSL-PAW-v1-low-11": {
+      "upf": "faa3e8a6-70ab-4ad6-9217-71404c7afc1f",
+      "params": "87f22272-85ae-44f6-9819-9966a28cafa5",
+      "bands": "ff625431-0239-48bf-a880-0b62bfecb118"
+    },
+    "JTH-1.1-std-18": {
+      "upf": "337f66aa-34f5-4654-9b5d-e7101ae7c1ef",
+      "params": "8a14a99d-41b6-442b-8799-0856e8b32626",
+      "bands": "0bd62091-475e-4636-9352-3fb9d0c3552a"
+    },
+    "Wentzcovitch-18": {
+      "upf": "81e84be3-1a11-4640-8518-e12571489ee4",
+      "params": "f739cc42-82f4-4f9e-8be1-7fad52d7df77",
+      "bands": "722472df-38d6-4245-b85d-41bbbd3101f5"
+    }
+  },
+  "Ge": {
+    "DOJO-041-std-14": {
+      "upf": "d280139f-ce24-4c5e-ace7-215c9d6035b9",
+      "params": "68fbfa47-2b47-40ac-bf70-eb26af29f6d0",
+      "bands": "6267fbc4-4801-4601-8c04-8b578d61b207"
+    },
+    "DOJO-041-str-22": {
+      "upf": "f576515f-8d92-4734-91fb-52a3beea3a90",
+      "params": "07ac272e-82a5-44e8-800e-5821a73dccad",
+      "bands": "51306949-1273-4d97-8158-3321192cacc2"
+    },
+    "SPMS-14": {
+      "upf": "fa0983a3-cb81-46b6-bc7d-a21c68b12e08",
+      "params": "6aac2f95-0e38-4d9b-b6ac-45d694fd2dd9",
+      "bands": "91d43a8c-4092-4c9e-a204-27f16b70f98c"
+    },
+    "SG15-14": {
+      "upf": "7ee4465d-328d-467d-991e-f0c2263a0dde",
+      "params": "eb85d416-e75c-436e-bd80-b31adc5553ce",
+      "bands": "bc90f68d-7e3b-45cb-b28b-1d94d6dde11e"
+    },
+    "GBRV-1.X-14": {
+      "upf": "28ceb2a3-b209-453e-a9a1-dac9218dae83",
+      "params": "d325f573-b573-4672-9c3d-cfc5444f1519",
+      "bands": "8247cf03-2237-4d28-9256-820a98a54f71"
+    },
+    "PSL-US-v1-high-14": {
+      "upf": "9c9e4320-a907-4c91-bb05-cc727fefa7aa",
+      "params": "e9df8d5e-ba59-4c86-bfe4-613454c44611",
+      "bands": "448bc8b5-a41c-42ae-bb52-4a451677c62c"
+    },
+    "PSL-US-v1-low-4": {
+      "upf": "89fa0919-d866-465e-84c7-e59beb56008e",
+      "params": "7ed20194-8533-4840-aaf4-26877751db79",
+      "bands": "45dfa8f7-945a-4a59-a4a9-607f6aebb8b5"
+    },
+    "PSL-US-v0.x-14": {
+      "upf": "7e9014a6-5b1b-4a9b-ba5e-da7e08192b0a",
+      "params": "027d28e4-b244-489f-9b75-e406ba9a7859",
+      "bands": "ae477718-3c99-4d35-85bb-b9c0a1888a7d"
+    },
+    "PSL-PAW-v0.x-14": {
+      "upf": "adcc18c8-c3fa-45a4-b4fc-134a9d11f61c",
+      "params": "6c1aadcd-3d80-4d80-bf91-8c42d7db364f",
+      "bands": "aceb8cb7-9784-4917-9024-975c134ddc93"
+    },
+    "PSL-PAW-v1-high-14": {
+      "upf": "09ad7a9f-9b18-4e1e-b1d4-33b7a5e47829",
+      "params": "4d6daec4-2cbe-418a-9d78-5e00024b75a9",
+      "bands": "7c167224-74c5-44a7-955d-24e71ad54c9a"
+    },
+    "PSL-PAW-v1-low-4": {
+      "upf": "00c4a140-7023-4ae6-921f-29519baa4e7c",
+      "params": "f62c4bd4-0ed8-4254-ad09-da8cd19510b0",
+      "bands": "8f26ce3c-5a76-4f2b-aff4-79964f874c15"
+    },
+    "JTH-1.1-std-14": {
+      "upf": "c2f02255-54ad-497b-b26b-9f07275f97f3",
+      "params": "0d0b4478-8a61-4d70-a6cd-38ba629be62f",
+      "bands": "5c2112c5-7ea8-45e4-a759-83eec64d4675"
+    }
+  },
+  "H": {
+    "DOJO-041-std-1": {
+      "upf": "90c398c8-81dd-4f21-8ad1-7a6322cea326",
+      "params": "847ec122-658c-4325-a15e-fccb9d9493ad",
+      "bands": "0bf56b6e-80d7-4b69-bd43-5455f73e06e1"
+    },
+    "SPMS-1": {
+      "upf": "47b9a4d3-b83e-4238-b7e4-32820bd1700d",
+      "params": "b09bcafb-a37f-4a93-aff5-b71100b5f2ad",
+      "bands": "6e59d308-9047-440b-bb06-5bb85acada7e"
+    },
+    "SG15-1": {
+      "upf": "bf0d31aa-a2f4-48c9-8d91-044f5ef97cf6",
+      "params": "40afb62a-cce4-4638-99fe-a333246003e8",
+      "bands": "1a9a21d4-e0a3-48f2-b1ec-afcc16eecdb9"
+    },
+    "GBRV-1.X-1": {
+      "upf": "5c6cdafe-dd9f-4e72-a454-9b3caab5a0fc",
+      "params": "12c93b27-80f2-4262-930a-2895368a331d",
+      "bands": "a7ced4ff-0038-44ae-8b18-7069a2bd0556"
+    },
+    "PSL-US-v1-high-1": {
+      "upf": "7248955a-b3ed-4013-9c28-823f4cf746db",
+      "params": "6915ed2d-1ee7-4da5-9775-82a6736e1af7",
+      "bands": "640f6e55-9992-44ac-a67d-7ccb4c213154"
+    },
+    "PSL-US-v0.x-1": {
+      "upf": "8c7a2c32-ff9d-4418-91c6-a16d054ce36b",
+      "params": "c2c89f81-9005-4572-ba25-a675176a560c",
+      "bands": "07b29eb6-c5b8-4053-9b37-886464be8fcd"
+    },
+    "PSL-PAW-v0.x-1": {
+      "upf": "57e79626-cf29-4c4e-b7bc-a348678d6ba6",
+      "params": "e56283e8-769c-4ba2-a81d-973cc7eb0bf4",
+      "bands": "3e3993bc-1160-4e06-bdab-151101fff0db"
+    },
+    "PSL-PAW-v1-high-1": {
+      "upf": "98560efd-28b5-44ff-81a9-a59e05a6ba2a",
+      "params": "2f9e9e25-33b8-4869-94d4-e56fe0f83b78",
+      "bands": "2dffebd6-05fb-406a-b466-b6369eba6bb4"
+    },
+    "JTH-1.1-std-1": {
+      "upf": "13ddc9b8-ec2f-43ff-8cf9-288a3b406302",
+      "params": "be01915b-efe6-4637-a441-e5f6450aadfa",
+      "bands": "a0e43f35-e48c-4e7e-a9c7-58b81cc5b78d"
+    }
+  },
+  "He": {
+    "DOJO-041-std-2": {
+      "upf": "b026e777-ff74-461e-bea2-0db00973ab5e",
+      "params": "b0068384-3e74-4180-9140-3a6fdc65033f",
+      "bands": "1790f8af-df37-46d3-9118-cc173e8d009f"
+    },
+    "SPMS-2": {
+      "upf": "1806aa95-c016-4d93-aead-34be3cc2e5f2",
+      "params": "1f2aa285-4423-4c7e-9f61-16a647b76e4a",
+      "bands": "7c061399-48f5-4417-9799-69eb8bd6d95c"
+    },
+    "SG15-2": {
+      "upf": "6637c428-026b-4517-9b5f-08e39067cb2d",
+      "params": "0758cca5-d206-4a26-a4e9-cbdc46939af7",
+      "bands": "32186c24-645c-4a5a-98eb-31934fd86eef"
+    },
+    "PSL-US-v1-high-2": {
+      "upf": "5bc1117a-9400-43a2-9b43-1411fcd9f2a1",
+      "params": "dfbebe1c-48ae-458b-ba2c-7565b8931da3",
+      "bands": "c5070b39-c060-4708-ab58-27c2e899ebec"
+    },
+    "PSL-PAW-v1-high-2": {
+      "upf": "fc414a01-f351-44c9-aa1a-e7d203f4b61f",
+      "params": "4f42735a-1f60-46af-ba51-2da7d79bb52a",
+      "bands": "43b77acb-5428-4988-9e78-8be0ea6432f1"
+    },
+    "JTH-1.1-std-2": {
+      "upf": "81859fba-b1c8-4610-97c0-79d5d120bb73",
+      "params": "9ed99504-35c4-47fb-8975-9b8de76fd2e5",
+      "bands": "c45099fc-ae09-4334-8be0-8c2e35ddcf06"
+    }
+  },
+  "Hf": {
+    "DOJO-041-std-12": {
+      "upf": "559d9b56-0c53-4c8f-8ce2-c1821d2546c2",
+      "params": "caf6f9cd-1834-4811-ab79-504e2c1aa46a",
+      "bands": "217eb071-b993-499d-922c-53bc9baab1db"
+    },
+    "DOJO-041-str-26": {
+      "upf": "52896bfc-f0ff-42ac-9759-41e771e5a539",
+      "params": "05dfd826-cbca-414e-ad80-19196c615b69",
+      "bands": "ce72abc4-a7f7-42f2-8cc1-7d02fe2d87ba"
+    },
+    "SPMS-12": {
+      "upf": "10b50e45-dfd0-4fae-8cc6-28e20dd4b214",
+      "params": "d835bf4f-9275-4c55-b5a0-381af7015a7a",
+      "bands": "7e381c63-39db-4fef-a93d-4f5c55738e38"
+    },
+    "SG15-26": {
+      "upf": "8f3f020a-5472-4e49-8f92-b6a1ed3b0a4f",
+      "params": "9c76abc0-1c75-4d11-8a96-376e2bcf17dd",
+      "bands": "fc43d5a0-6a00-4c40-a111-dc3d29eebbf5"
+    },
+    "GBRV-1.X-12": {
+      "upf": "2f1449fc-7891-42f6-9c83-4ed988375483",
+      "params": "1c1e48a1-caea-4d8b-a9f2-1579a8688360",
+      "bands": "a7746b33-5e22-47cb-b43f-6f10adb69a87"
+    },
+    "PSL-US-v1-high-26": {
+      "upf": "02efeac1-0e99-4da1-a1bb-fd0fb7d81035",
+      "params": "14ecb5ba-a265-481a-b90d-4ae0753c0411",
+      "bands": "0fcc3387-4c2e-42af-a4b1-fc487b86b5de"
+    },
+    "PSL-US-v1-high-36": {
+      "upf": "33c05a57-22a4-442f-8cc0-ac35afcdc554",
+      "params": "35ba2378-1e6b-442f-96cd-81bcecc2b139",
+      "bands": "96ccc97e-a90f-4079-8bb8-cab04a8636a2"
+    },
+    "PSL-US-v1-low-12": {
+      "upf": "928cad02-71ea-4607-8811-f63da6328ebb",
+      "params": "d9d10df3-757a-43a2-88c7-500d7c183161",
+      "bands": "07b94746-b09c-4d24-8a34-bbdb5f1fc76a"
+    },
+    "PSL-PAW-v1-high-26": {
+      "upf": "bd24f168-c8d9-4546-9e1b-02ec3794507a",
+      "params": "a1d47538-0fae-4b3f-8beb-b9ae266a975d",
+      "bands": "e3a821ad-ae1e-464a-be89-6ab9efd91cdd"
+    },
+    "PSL-PAW-v1-high-36": {
+      "upf": "af2d6bff-5b59-4616-af87-36f997e02b8c",
+      "params": "2433bcb4-9e09-4d56-9cdc-daff387dc436",
+      "bands": "3f6f1832-f056-4de3-a51c-59f6b45a7bdc"
+    },
+    "PSL-PAW-v1-low-12": {
+      "upf": "2887622d-c252-4df4-b33d-85e4948a0fd9",
+      "params": "70b7d9a4-e695-4cb7-8847-0c1e12780364",
+      "bands": "5f2487b9-d4f4-4757-982f-683fd6a9c7cd"
+    },
+    "JTH-1.1-std-12": {
+      "upf": "5e473811-300b-410a-bc70-6e8d21f08e52",
+      "params": "1ff5a1be-3ff6-4dea-976e-5478bf0d0574",
+      "bands": "d16363c2-dd7d-4a90-b07c-07e01a3ccc8c"
+    }
+  },
+  "Hg": {
+    "DOJO-041-std-20": {
+      "upf": "a160ea4a-59cf-4bda-9a26-5acf0dcb35c2",
+      "params": "ab243fbf-b324-47de-9131-54b8fc8ed0be",
+      "bands": "e3de1501-cc92-4358-8ac4-0aef328051e9"
+    },
+    "DOJO-041-str-20": {
+      "upf": "195940cd-ad78-4810-8393-262031444fc9",
+      "params": "ff091aec-edcc-4882-ab08-2e2a663091fd",
+      "bands": "ebdcdf0f-2c52-48e7-bda7-0a461143535a"
+    },
+    "SPMS-20": {
+      "upf": "45b3dea7-dcfb-4ae0-aa7f-4c2bffdda774",
+      "params": "8b879e78-bfce-499d-a2e8-0d242bc5c90d",
+      "bands": "eb891b73-68a2-4fad-b262-2e9be6afeef6"
+    },
+    "SG15-20": {
+      "upf": "cf710091-1d83-4461-94f4-a433508b1c9d",
+      "params": "0633deec-b167-4111-8405-27b1cf7ff0de",
+      "bands": "93dafa12-e6f0-4c4d-8429-ba4efbcce14a"
+    },
+    "GBRV-1.X-12": {
+      "upf": "6a36e3a6-6b35-4d31-95eb-614216fe7662",
+      "params": "c0d093b4-3502-410b-8779-ce3533faeb1d",
+      "bands": "0ffcff98-b97d-4568-80a0-369c84344761"
+    },
+    "PSL-US-v1-high-20": {
+      "upf": "6567808d-76cd-496d-8fc5-6a6dd571d4e7",
+      "params": "9f24888e-68cb-4420-bcfd-2dcc32d53aa0",
+      "bands": "426adffa-c0b6-4c4b-a762-9fbf15cdcc8a"
+    },
+    "PSL-US-v1-low-12": {
+      "upf": "363eed07-dbb2-431e-9393-46d48654a314",
+      "params": "0afe17bc-4976-4b2e-ac15-deb423c47c91",
+      "bands": "3006e126-3fba-417f-80ab-9ed3c0078af2"
+    },
+    "PSL-US-v0.x-12": {
+      "upf": "65ada80f-d90d-4b25-8ca7-cb2ef5ffd490",
+      "params": "6dec50b2-7632-4b5a-92f4-a1c13ad4b53f",
+      "bands": "02e78e20-7134-4077-b01e-1375ec70509e"
+    },
+    "PSL-PAW-v0.x-12": {
+      "upf": "24f4318f-009c-45c9-90a9-ab69df3f18f6",
+      "params": "61543163-4bbe-4590-af66-073bbaf5e2cd",
+      "bands": "b71994ae-908d-4e6f-9294-fe06fb01ea8d"
+    },
+    "PSL-PAW-v1-high-20": {
+      "upf": "544b6f82-91ce-46f4-a330-a8de37cf1a1c",
+      "params": "7d3a0175-fd08-485f-b36c-9cfa8767668b",
+      "bands": "75107c8b-7eee-4cb8-a6a6-1affcc3fd1d2"
+    },
+    "PSL-PAW-v1-low-12": {
+      "upf": "d1f34c25-1bab-4cb1-a7b1-8a3a47c64716",
+      "params": "0d696961-00cf-4610-86e7-2b1f2477d192",
+      "bands": "b4c7cb93-0473-4cc8-b506-7ecc553952db"
+    },
+    "JTH-1.1-std-12": {
+      "upf": "d75b10e1-3efc-490f-ad9a-3ab864de5635",
+      "params": "916a7f84-ac04-4fc7-b932-3bd6ee82a760",
+      "bands": "a00b1886-2633-48d4-913f-0451776b62d1"
+    }
+  },
+  "Ho": {
+    "PSL-US-v1-high-31": {
+      "upf": "3d1c1f38-5a96-4e94-b3e4-f319aada9c36",
+      "params": "493144b7-c363-4479-8ff2-59e110a2ff09",
+      "bands": "6a2b777d-2a06-48dd-92eb-aee5624a7ca0"
+    },
+    "PSL-US-v1-low-11": {
+      "upf": "36bde82e-f652-419d-9bb7-f2ab5bcd877a",
+      "params": "10b296b9-70b2-45d7-ac4a-b51c29c4381c",
+      "bands": "b732f46c-5220-4fa5-852b-1e89acf8bea1"
+    },
+    "PSL-PAW-v1-high-31": {
+      "upf": "aade4603-e1a4-4be1-bb02-b1c3606e65ef",
+      "params": "fb48f26c-0168-4d50-a5ae-b0c9b86d5963",
+      "bands": "9e86705f-8d9b-4a06-9c9a-95668db7c57e"
+    },
+    "PSL-PAW-v1-low-11": {
+      "upf": "a384cc82-a7c2-4205-b1b7-7fd09a7e3332",
+      "params": "a8becbfc-9d12-4957-bd41-8547211ba822",
+      "bands": "d919b5d5-8ed6-44c1-a90e-982e57bf2b80"
+    },
+    "JTH-1.1-std-21": {
+      "upf": "f73f86f4-6804-4548-a639-d19e17f8c8ff",
+      "params": "429abe59-e7ab-4c17-a64d-435aac574cd6",
+      "bands": "8f2ad71d-4e4a-426b-9148-7fe9d34770cc"
+    },
+    "Wentzcovitch-21": {
+      "upf": "d3d6add1-0888-477c-94f0-227811552072",
+      "params": "549eead1-c4e4-4571-88f8-3ec86611bfd0",
+      "bands": "5dd3c940-4666-42cd-a3e9-f6b903bba014"
+    }
+  },
+  "I": {
+    "DOJO-041-std-7": {
+      "upf": "19328eb1-292f-433c-94a0-fec92e994288",
+      "params": "c648c11a-c5a1-4a45-8a4e-54cb7a194337",
+      "bands": "02987439-5b98-4b11-b68c-8f8ce97be86f"
+    },
+    "DOJO-041-str-17": {
+      "upf": "3e5a356c-f507-4fa9-9aee-3d46bc794e79",
+      "params": "5becf71c-f7a6-48d5-8687-ba3ab56c4139",
+      "bands": "83439e9e-6094-4e33-b4e8-8133d6aba181"
+    },
+    "DOJO-050-std-7": {
+      "upf": "d5721b85-0c7a-4ae7-ba44-fb5084b50a34",
+      "params": "a46dd721-308c-4408-86d3-b2f4444f63ea",
+      "bands": "cebea35a-86e4-41f6-af5e-eff07e2f2c79"
+    },
+    "SPMS-7": {
+      "upf": "78a8fa70-e9fc-4772-a49a-4a5bd63873be",
+      "params": "a6df0329-c2aa-4f1e-838b-7cbc2d515fa3",
+      "bands": "7ddc829d-aec5-44f9-ad46-a44f63e2f1a2"
+    },
+    "SG15-17": {
+      "upf": "a221df1a-1d1f-449c-9a9d-2bc187b6a8a2",
+      "params": "31131174-0c79-440b-b451-6d1458122701",
+      "bands": "858cfc5f-63ad-43a9-a6dd-27edb0af16a1"
+    },
+    "GBRV-1.X-7": {
+      "upf": "b9aa370d-2d40-48a2-8dbd-e8c7fc09ea03",
+      "params": "a7e4b972-c139-4c05-bcae-b8b3605aa5b9",
+      "bands": "12691826-4aeb-493b-a154-3f7f8a3d31e8"
+    },
+    "PSL-US-v1-high-17": {
+      "upf": "b1411bda-20f8-49e6-ba85-ed4535841ba5",
+      "params": "5852142b-c268-4d32-974a-1a1edd95d77e",
+      "bands": "315b81e3-8680-4b78-a5b8-dcd36963cac8"
+    },
+    "PSL-US-v1-low-7": {
+      "upf": "554ddc06-f858-4e9e-bd55-694b11d327db",
+      "params": "15529542-5de3-4b63-b7c6-067693bb975d",
+      "bands": "a5648bdc-a110-4b34-ab2d-fbe928c03b08"
+    },
+    "PSL-PAW-v1-high-17": {
+      "upf": "297a23cf-1aa5-4fa5-8e6a-d4b61a9eefdb",
+      "params": "e8759202-c8cf-4f80-ad9b-0a83ead21a0f",
+      "bands": "6567b160-79ee-4470-94f1-87bf255a8770"
+    },
+    "PSL-PAW-v1-low-7": {
+      "upf": "0dcc30f1-90ad-4ba2-b29b-1b3dbe6e4795",
+      "params": "8612243e-e0cd-4f72-b23f-c45817fc81ff",
+      "bands": "d2a7caa6-0d60-4acb-aa9b-c4d05752d577"
+    },
+    "JTH-1.1-std-7": {
+      "upf": "4a01b110-3c94-4b91-97c6-c5e20d316f66",
+      "params": "5932153f-d37e-49d4-8169-abcaa6b8b988",
+      "bands": "f8e3812e-c1e5-457b-9b19-f6f660f165e7"
+    }
+  },
+  "In": {
+    "DOJO-041-std-13": {
+      "upf": "77978514-5489-4905-a037-a3a613dfd028",
+      "params": "a2e2c435-1ad0-40bf-b7b4-aaec3040d6fd",
+      "bands": "f59bbf17-4501-4ec6-92cf-ac26e31ece58"
+    },
+    "DOJO-041-str-21": {
+      "upf": "b1573d86-efa6-47e6-8392-9987ae71b201",
+      "params": "9a138c89-f1d0-4086-9ddd-5b88d812f434",
+      "bands": "0d2719c8-b83f-4c94-ade0-b328382b816b"
+    },
+    "SPMS-13": {
+      "upf": "73bd201a-c8eb-4e97-a23d-d65223e97cce",
+      "params": "db9360d9-c426-413a-9739-f64287fe7c69",
+      "bands": "87cf7b1e-804d-4198-b774-95acc15056ca"
+    },
+    "SG15-13": {
+      "upf": "e07d6609-15b5-45ab-8260-bb92e09c323b",
+      "params": "f9d81421-b805-4080-ac8d-475cc11e843f",
+      "bands": "412347cd-df24-4bdf-9d9d-caa7b91162c1"
+    },
+    "GBRV-1.X-13": {
+      "upf": "7d140949-6eeb-470d-bf4a-427185858462",
+      "params": "841467e3-8fe2-4ac2-970b-8c7b8702a974",
+      "bands": "d13bf3a8-ea0e-4249-be29-ebad8ef4fbaf"
+    },
+    "PSL-US-v1-high-13": {
+      "upf": "648ea951-d400-429a-8a16-c3420d0180a3",
+      "params": "83da34c3-a3fa-4d4d-aef3-46293589dba1",
+      "bands": "d984acec-8f08-495b-ba6f-4d85f6c9dd96"
+    },
+    "PSL-US-v0.x-13": {
+      "upf": "462bf912-7d73-4d0f-9c33-86e1fcf8c590",
+      "params": "bc7b27d5-8879-4ce7-97c8-b230b92107c5",
+      "bands": "15e6a921-8ab3-410f-a136-34ebabf966cb"
+    },
+    "PSL-PAW-v0.x-13": {
+      "upf": "31cc22e2-7bdb-4d60-8fc2-f5d7860efc9a",
+      "params": "36fe7030-bb17-40c8-91e9-6773ef7bb704",
+      "bands": "707cd77f-ac3a-44e0-8b85-e6cdc5403a3e"
+    },
+    "PSL-PAW-v1-high-13": {
+      "upf": "56d9e279-8d92-464c-add9-4a3e7b8f04ef",
+      "params": "ddebdf9a-1851-4824-a4c6-328b1c82bade",
+      "bands": "5dabfd52-8985-4257-83a3-3d923c20028a"
+    },
+    "JTH-1.1-std-13": {
+      "upf": "c2ab1875-34ee-44ae-98d2-6f97b6235cfe",
+      "params": "98f5d5a8-274b-4b2a-8eb5-4982af18355d",
+      "bands": "ba1a56c2-bba3-404b-9bbd-d08e067dfe8c"
+    },
+    "JTH-1.1-str-3": {
+      "upf": "eedd7742-bdf4-4aa9-95ea-45e9407075e6",
+      "params": "0bd31b39-ad6e-4fd8-be68-8eea4a28ecda",
+      "bands": "6d09347b-723c-4435-baa6-486e38d8381c"
+    }
+  },
+  "Ir": {
+    "DOJO-041-std-17": {
+      "upf": "53b06f9c-3f06-4956-9f03-8c73b3b8079a",
+      "params": "51b82349-dbb9-4644-9266-37be23f2763a",
+      "bands": "45e0d1fc-7778-4354-b372-06abe493950e"
+    },
+    "SPMS-17": {
+      "upf": "df9bc0d8-2b26-4337-a08c-758b73d36d53",
+      "params": "e9d92092-a08e-48f0-980e-ca8400422755",
+      "bands": "15e9d385-3221-4e78-b0ca-978f22e33702"
+    },
+    "SG15-17": {
+      "upf": "5310579e-9381-49eb-a8f0-6c471f928168",
+      "params": "f318e6f3-4653-49d8-bcc1-70ccc698c6c5",
+      "bands": "0cc3d988-cad6-45d5-86db-0e2f576c4d80"
+    },
+    "GBRV-1.X-15": {
+      "upf": "8aef1844-2917-41d6-8db7-9b357049a5c4",
+      "params": "6cb62ca6-ce95-4018-8e05-4fe8bcabcbcc",
+      "bands": "d2727530-cd92-4060-b371-65dc7ab7ec72"
+    },
+    "PSL-US-v1-high-31": {
+      "upf": "375efce4-0afb-430e-8447-492a839fa50a",
+      "params": "770f7ef0-560b-4036-a6f2-2015c54a44dd",
+      "bands": "82cfde2c-fd46-4666-8eff-a71ae9c8b4f6"
+    },
+    "PSL-US-v1-low-17": {
+      "upf": "fde31525-833b-4ac2-aad4-e2193bb6af14",
+      "params": "86d3b645-bea7-4a57-b182-54b504d9ce76",
+      "bands": "4e19f75c-351c-4c22-9324-a6c7d2d93163"
+    },
+    "PSL-US-v1-low-9": {
+      "upf": "8c1bac26-d4fc-4f0d-b29d-81938567948e",
+      "params": "dbf56987-6800-4b44-9e40-0293e0d6f460",
+      "bands": "2b033ad9-fa0e-4c8e-a363-50210ad632a1"
+    },
+    "PSL-US-v0.x-9": {
+      "upf": "469475ef-9409-4b1e-afa1-ab36200a7924",
+      "params": "6378c698-74b0-4f16-b99b-3d111e904f9a",
+      "bands": "5b2b34ae-4b4b-4530-9ef7-59bd4b91c64c"
+    },
+    "PSL-PAW-v0.x-9": {
+      "upf": "f5b502c6-efbc-4244-88d2-419f2a92587d",
+      "params": "42fe9671-3aad-4375-ab97-10e144579c7b",
+      "bands": "afa663cb-0204-40e3-a6b8-7fff43573856"
+    },
+    "PSL-PAW-v1-high-31": {
+      "upf": "b7bff17e-3fed-448a-b055-1fd36a879690",
+      "params": "ec6d5f5b-0780-4a4d-9a41-deeb59e2d716",
+      "bands": "7b83a996-3cc0-4a23-93c9-7255dddb9db3"
+    },
+    "PSL-PAW-v1-low-17": {
+      "upf": "a19cea31-95e1-4744-a36c-b9d2a43a728b",
+      "params": "cef40e77-a54b-426e-adc2-42b28a2c9b08",
+      "bands": "a97b904c-a37e-441b-926c-ab2892199df7"
+    },
+    "PSL-PAW-v1-low-9": {
+      "upf": "a4a83253-14e6-4180-a6f1-b3840983b5d1",
+      "params": "f4757697-5640-4c9c-b128-26cd6f9d78c5",
+      "bands": "f92e73f6-3496-43cb-a9ed-fb4f2dc7a55c"
+    },
+    "JTH-1.1-std-15": {
+      "upf": "95f1ef30-e8bd-4fa9-9e76-69f206d3c581",
+      "params": "d00fb3fc-0f78-45f8-a923-9a122f7d7fc1",
+      "bands": "4d0f546a-0a34-4a94-9e12-fb72809773c4"
+    }
+  },
+  "K": {
+    "DOJO-041-std-9": {
+      "upf": "e62225c1-88c9-4f2b-9a40-4f4931ec3ea3",
+      "params": "c2b6d708-f87f-45e8-93d5-e468258ea046",
+      "bands": "e834f00b-b585-4fbb-88f1-3f85d7a7943f"
+    },
+    "SPMS-9": {
+      "upf": "de1d1e93-e9c3-4f10-9718-cd286ef96240",
+      "params": "50786f16-cfd1-44c5-a2f1-faed76699bbf",
+      "bands": "9ad41929-170c-4584-a4d2-218502c23a14"
+    },
+    "SG15-9": {
+      "upf": "5b376854-1b7e-4fc6-ae94-d077a12d4c0b",
+      "params": "5a4b0f13-eadc-4f14-bd20-4a91e68efe4b",
+      "bands": "a8a18a1d-e886-4d3e-9870-194c1755ef46"
+    },
+    "GBRV-1.X-9": {
+      "upf": "d4dd47c7-99ef-4d7c-9f8d-e94a04274f30",
+      "params": "685b905a-bfde-4760-9da3-92b31d5b3b5a",
+      "bands": "5da8780c-da70-4ff3-8ae1-4fc6c5fa99f8"
+    },
+    "PSL-US-v1-high-9": {
+      "upf": "bacb71b0-b92b-43be-a590-fb31e98fe758",
+      "params": "ae7db2e2-7856-41ea-a9e1-3df4f4dc4f51",
+      "bands": "caae6e6b-ec50-474d-a45a-c6bb45968866"
+    },
+    "PSL-PAW-v1-high-9": {
+      "upf": "fa7fdf09-7dd2-4f4b-966b-463940191a50",
+      "params": "429b2e55-0928-4b9d-a9d7-70426f0ac455",
+      "bands": "63506009-0623-4b9a-a38e-77dd00e2d9db"
+    },
+    "JTH-1.1-std-9": {
+      "upf": "9c59982c-7a54-44a1-8684-610fd22089fb",
+      "params": "8522ce33-5d7b-4b54-ab24-2ab091f83d6d",
+      "bands": "9f009c0b-22c7-4ff6-8e6e-cc5d6e4d16bf"
+    }
+  },
+  "Kr": {
+    "DOJO-041-std-8": {
+      "upf": "032013e9-57ea-449a-b0cf-af0ef48856d5",
+      "params": "e2f0fb5e-22b7-499a-b2ff-2547a1f0ee73",
+      "bands": "c268f517-9e7f-4830-8b21-1c9c27614a8a"
+    },
+    "SPMS-8": {
+      "upf": "4bc315f7-f735-44fc-b661-93163b91ae87",
+      "params": "d50524ed-7109-40c6-93dc-d890f20c50ae",
+      "bands": "24ae453b-0857-489b-8ac3-9a7fa537f076"
+    },
+    "SG15-8": {
+      "upf": "0263c27c-9a84-4181-862d-ea08c004d485",
+      "params": "be5c0197-77f4-4e24-9195-c42357906bb8",
+      "bands": "ccb3d545-0847-49b1-8a0a-cabe108c6ad9"
+    },
+    "PSL-US-v1-high-18": {
+      "upf": "d6a7038f-5b13-468a-8c91-6b2cb5c0b8c0",
+      "params": "6cde0d1f-66bd-428a-b38b-3bb0dc858a3c",
+      "bands": "4c6379f9-8953-43c7-a95b-da8e97add7af"
+    },
+    "PSL-PAW-v1-high-18": {
+      "upf": "d90ed11b-e695-4e01-8e36-da566e02a25d",
+      "params": "2a7d31c5-f1e7-4b2e-8ce7-469910c89c86",
+      "bands": "682a03af-533d-420f-8a93-5705609073ca"
+    },
+    "JTH-1.1-std-8": {
+      "upf": "78d3cddb-0ca8-4fae-a7fa-8c89d81163a7",
+      "params": "296ca87d-cd57-4acb-96d7-1c68fa352083",
+      "bands": "5cef3858-8463-4bfa-9fbc-1fad06fbbe00"
+    }
+  },
+  "La": {
+    "DOJO-041-std-11": {
+      "upf": "2654bfcd-3fd4-4bb7-a589-093e39f2160d",
+      "params": "ab4bb496-734f-455d-b6c6-6329bf780695",
+      "bands": "fc9fa09c-3da8-4fa4-8e62-1fa1835c874d"
+    },
+    "SPMS-11": {
+      "upf": "180d5db4-6213-4e6a-bff9-72f5a45e0bd3",
+      "params": "773bf348-94cf-4b04-adfb-6be186b047c8",
+      "bands": "020d9f16-7488-4afa-9e44-53563dff7f28"
+    },
+    "SG15-11": {
+      "upf": "c4f86e5f-7746-4887-a6d6-73d940dc133c",
+      "params": "49071c0f-2e36-43c3-b2ce-6d97e43c6834",
+      "bands": "38e49779-dc2b-4233-8318-42bc68bdd96d"
+    },
+    "GBRV-1.X-11": {
+      "upf": "f88061bd-581a-4e9c-96e7-1a9c83df6f5a",
+      "params": "3463b16e-2afa-43e1-b8db-b8cb0555d029",
+      "bands": "237c218f-97c6-46d5-aaee-c491c41b7885"
+    },
+    "PSL-US-v1-high-11": {
+      "upf": "52324aba-71fd-428a-b34b-294936574788",
+      "params": "9ac0a37d-3ab6-4799-9437-0dc21fba197c",
+      "bands": "ead3bd34-efbb-413f-a50b-619034f48098"
+    },
+    "PSL-US-v1-high-21": {
+      "upf": "35fca082-0b9a-4d75-b9df-96f3fa38a72e",
+      "params": "6bf5b564-ce6c-459e-a6d0-d6c6e362beb1",
+      "bands": "74bc8cf5-2821-4a44-a87f-268bbc928fff"
+    },
+    "PSL-PAW-v1-high-21": {
+      "upf": "d0f9f501-4146-4415-b6bd-efd64c379711",
+      "params": "520ef9b6-b3f2-49c1-bf32-8d2676051036",
+      "bands": "99a9eefa-6399-4afa-aa77-d6d5e3f0aa54"
+    },
+    "PSL-PAW-v1-high-11": {
+      "upf": "f17f306a-c7eb-47a4-8854-0362975e22d2",
+      "params": "8f708e40-f84f-4650-8fee-60709492b9c7",
+      "bands": "4793d29e-a4de-4393-9851-ac3d3ed45147"
+    },
+    "JTH-1.1-std-11": {
+      "upf": "35894acf-6513-4b8d-8cc6-363247455237",
+      "params": "779bae55-3eca-4888-b452-20f559efd7a4",
+      "bands": "296df72b-d947-4061-bb66-788b4b53301c"
+    },
+    "Wentzcovitch-11": {
+      "upf": "0f898096-3832-46b0-bdad-fc0943033a07",
+      "params": "1c73af93-72ca-4029-8a08-9f259bc75416",
+      "bands": "315e05f5-3dd4-48c0-80bc-b77dd6d8b379"
+    }
+  },
+  "Li": {
+    "DOJO-041-std-3": {
+      "upf": "1bec7e45-6df4-4217-ac8c-61b11f178caf",
+      "params": "3bd1cab2-56e3-4669-ade5-8d61e92ff5e6",
+      "bands": "d07ad7a9-23df-4adf-9524-2619a0c679e5"
+    },
+    "DOJO-041-str-3": {
+      "upf": "a12ad83d-407e-429f-8491-cc06d20e3bc5",
+      "params": "39142912-6576-48a2-ab33-1abe7b688e2f",
+      "bands": "0feb6047-b198-464e-bc56-082e691c5430"
+    },
+    "SPMS-3": {
+      "upf": "a45cdb84-4183-4c11-a70d-1b4927b966e5",
+      "params": "c5160114-72bf-4fbf-9957-012a894f35c6",
+      "bands": "5e5f7bc4-7966-4ee3-9908-580db8432b7d"
+    },
+    "SG15-3": {
+      "upf": "bbfead86-e752-43f3-b666-8b1b3bba9256",
+      "params": "42636bb2-3459-43e7-a509-0679ea360278",
+      "bands": "ea249df1-2828-4c91-8975-7b2587f0f8d5"
+    },
+    "GBRV-1.X-3": {
+      "upf": "c863cfac-586e-476a-8a95-15a690b29ebd",
+      "params": "ca7e6d13-cb08-4ef1-b8e9-0ae9df84c187",
+      "bands": "fc0c19e0-e858-483e-b07e-9ce0f0134ab7"
+    },
+    "PSL-US-v1-high-3": {
+      "upf": "81d7bbe2-742e-43ec-bb65-f00c7119f587",
+      "params": "40efab8b-7e46-42ca-bb33-0e069c01b3b3",
+      "bands": "59819b01-c356-417a-98ae-c93d5959d771"
+    },
+    "PSL-US-v1-low-3": {
+      "upf": "6e149a76-b4b5-486e-973d-11531d5887f6",
+      "params": "9861d567-2ce0-418e-a43e-30e5e8694eff",
+      "bands": "36ebb7c2-0904-4ada-81f6-359a5097fdbb"
+    },
+    "PSL-US-v0.x-3": {
+      "upf": "ddd25fbc-db55-4e38-b726-8f0bb014d055",
+      "params": "43bacd1c-d6c8-4614-b120-4d877e760ce6",
+      "bands": "883d11d2-8461-448b-b1ee-82772fb15ccc"
+    },
+    "PSL-PAW-v0.x-3": {
+      "upf": "eef2b8c7-0396-4c75-83fa-0dcf65263b66",
+      "params": "d40d24ec-714d-40c5-80a3-ee3a940b298d",
+      "bands": "c774f8b8-de3f-4b55-a4c9-60cab0824463"
+    },
+    "PSL-PAW-v1-high-3": {
+      "upf": "875b6272-6f28-4123-98c6-2e0cade427a3",
+      "params": "462db5d1-d734-49fe-80af-2eedb2da6615",
+      "bands": "afd3e00e-be1b-4cd9-92b9-58cea1f8a8bf"
+    },
+    "PSL-PAW-v1-low-3": {
+      "upf": "046e407b-f9a2-4ebd-bddf-5ecd60120f58",
+      "params": "8ac0692a-6528-4d5b-a478-2e35161409ec",
+      "bands": "62c46ea7-dcfc-4d58-b306-0bbd3446bb56"
+    },
+    "JTH-1.1-std-3": {
+      "upf": "410bfd98-dc42-4881-8294-ebef3890a73e",
+      "params": "4f4a876d-a28e-4d97-8051-306ed5dae186",
+      "bands": "19bb7906-fafc-4430-8c80-3f6aed993513"
+    }
+  },
+  "Lu": {
+    "DOJO-041-std-25": {
+      "upf": "9ebec27b-b86a-496e-a6bf-22ae45eefb9d",
+      "params": "726a92db-e71a-4e50-be2f-366ba7c84a15",
+      "bands": "46834aea-206d-4d5d-8711-aedcd5b13742"
+    },
+    "PSL-US-v1-high-35": {
+      "upf": "8f1b1d2b-6f7d-4cd8-9b85-879961b7a3c4",
+      "params": "c09f5e82-5697-4875-874f-e1eda6732d35",
+      "bands": "be4b248f-4b18-4eae-8f91-68a81e7fb5cf"
+    },
+    "PSL-US-v1-low-11": {
+      "upf": "981636d8-2d7a-4d21-9f8e-19f497739d28",
+      "params": "cd471f6f-c1ca-4417-be03-9dae7f18b631",
+      "bands": "b9234af3-6dcc-409f-80ae-c594d4f41f8d"
+    },
+    "PSL-PAW-v1-high-35": {
+      "upf": "042d76d3-9879-42b6-9de9-40ea9e0363c1",
+      "params": "0220bda2-324e-413d-8715-63780c0aec83",
+      "bands": "d6a44489-1d1a-4521-96c0-17fc7a0ca1f4"
+    },
+    "PSL-PAW-v1-low-11": {
+      "upf": "98de89c7-dede-473c-82e9-4399cec66adb",
+      "params": "9d2416c2-3d30-4474-93cf-6ffcdfcf700e",
+      "bands": "e384cf67-6421-4405-ba31-e411ca6276ee"
+    },
+    "JTH-1.1-std-25": {
+      "upf": "05fb70ba-e5ad-40fb-af37-61df19b94012",
+      "params": "796cf60e-fb03-425e-a1f5-a51cb997eab5",
+      "bands": "47858e73-8d38-4a98-9173-376c766bdcb8"
+    },
+    "Wentzcovitch-25": {
+      "upf": "2664e4d2-6133-4748-8eac-30784ad6d364",
+      "params": "62a7a307-1eba-440e-b050-3e6106955415",
+      "bands": "a6d34a0e-e2e7-4f62-aa92-6f9757a6455d"
+    }
+  },
+  "Mg": {
+    "DOJO-041-std-10": {
+      "upf": "8fe88a69-cdb1-4417-a27b-b96e86164448",
+      "params": "1c061e03-bcd2-45dc-afcb-12ee2cab2a3b",
+      "bands": "c660135f-3d44-473d-9472-47e082290926"
+    },
+    "SPMS-10": {
+      "upf": "dde9d4f7-2ffd-4674-a59b-742024cd8a3f",
+      "params": "181d06cf-32e2-4bdd-961c-ca17b8bdbabe",
+      "bands": "395ecad9-57d1-4df8-a128-c945f0f922a9"
+    },
+    "SG15-10": {
+      "upf": "c5b80d80-36f1-42ad-b9be-bbf8fcb13c9f",
+      "params": "8d597799-2793-47e5-b1f9-12940ff5146d",
+      "bands": "8bfefcfd-7909-4386-8d67-a96ca46222dc"
+    },
+    "GBRV-1.X-10": {
+      "upf": "5968cae0-053a-4be4-b15d-829c8088147a",
+      "params": "9bf1f4f3-87a0-40b0-8661-0fed88da1780",
+      "bands": "a5cae53e-77e7-4d37-ba27-a5b3df40b0ff"
+    },
+    "PSL-US-v1-high-10": {
+      "upf": "270d7d0e-bbd1-4b4d-ada4-c0d995b0688d",
+      "params": "10a53aad-be7b-4173-8bb0-15e91043a0b5",
+      "bands": "99ec033d-51e9-4282-8e7c-63b29de6da01"
+    },
+    "PSL-US-v1-low-10": {
+      "upf": "23144496-042f-4221-a9b8-e1daa5bfac66",
+      "params": "9ef5989a-9783-4d65-bf79-e9c71e6d65ef",
+      "bands": "1c3f9f3b-aa4a-47bc-8f06-22791c0ad414"
+    },
+    "PSL-PAW-v1-high-10": {
+      "upf": "ece65f74-7f28-45d7-9ed4-9754e6d7781b",
+      "params": "726c3ddb-2861-44fc-b66f-43da1f4d8669",
+      "bands": "7d30aeb3-8a89-4b10-9b06-fed42d7919c3"
+    },
+    "PSL-PAW-v1-low-10": {
+      "upf": "41beb8a5-adbd-470e-802e-e812962355f0",
+      "params": "793301cf-d34b-42dc-91cc-d8f70de17d47",
+      "bands": "c776d61e-69bf-4285-8d65-f56a9c47e56b"
+    },
+    "JTH-1.1-std-10": {
+      "upf": "05e2c7c8-3f1a-465a-8a52-23df8347f41b",
+      "params": "2e381792-9895-4707-97f9-800122bcd9c9",
+      "bands": "d09889b5-71aa-4fae-bb2d-177f78d16861"
+    }
+  },
+  "Mn": {
+    "DOJO-041-std-15": {
+      "upf": "e23cd464-9a5c-4d3f-b75f-0b970b3074ca",
+      "params": "6c78815b-3f52-4d77-8d1d-b7bb32ef38c6",
+      "bands": "c8096f0e-5235-4f6b-8c6e-ca056ecc7af1"
+    },
+    "DOJO-041-str-15": {
+      "upf": "8046ffca-637f-4d77-aacb-56fcc25d274b",
+      "params": "32ed941d-add4-428b-ae0b-8d3fab0cb94b",
+      "bands": "e2bf6308-dd8d-46ff-a738-81fc8fbbebde"
+    },
+    "SPMS-15": {
+      "upf": "404cf480-faca-40b3-9794-b9b0939e7b63",
+      "params": "ef6a2203-76c7-4d74-8104-772ae240c83e",
+      "bands": "6b03840f-b8c4-4ac3-b67d-830fc351fdcf"
+    },
+    "SG15-15": {
+      "upf": "8af3c96a-eb40-4400-baf2-dea53dbe373d",
+      "params": "a0ba242e-9cb2-4bec-a072-a9199fcf4a29",
+      "bands": "f1153214-32c9-443f-bffc-64a721f74406"
+    },
+    "GBRV-1.X-15": {
+      "upf": "a56c2c0c-f270-4a68-9b11-8881461b109a",
+      "params": "98bb25e0-60b5-4996-ad82-59b0216d4571",
+      "bands": "40ae9ee9-04c3-46e1-8fea-e5eadcd531fb"
+    },
+    "PSL-US-v1-high-15": {
+      "upf": "50c52355-19ab-4851-bfbd-93b75a091394",
+      "params": "d2c673ed-0183-455f-b0c4-b902a66d3dca",
+      "bands": "12f18ac5-6291-434e-955e-fbccc2e366e6"
+    },
+    "PSL-PAW-v1-high-15": {
+      "upf": "7abe3822-bb7c-43b0-b9da-2cf4047dc226",
+      "params": "666d6126-c03d-4eed-914c-4ef291364ea7",
+      "bands": "95d30e09-8822-4aa5-9893-29e6fdb35c56"
+    },
+    "JTH-1.1-std-15": {
+      "upf": "cdf5bb27-8be7-41f7-afc9-086315f80b53",
+      "params": "32118842-6ea0-4796-ae21-231b82eeb3b1",
+      "bands": "95590a15-bdcc-486a-a621-eae4daf5fa4b"
+    }
+  },
+  "Mo": {
+    "DOJO-041-std-14": {
+      "upf": "dfddef01-bbbb-42f0-9dec-e3e2a98e344c",
+      "params": "07fa5f6f-9249-499f-860f-c36ffeec2ddc",
+      "bands": "f04fc534-e0e3-4389-9874-4cecbb89bea8"
+    },
+    "SPMS-14": {
+      "upf": "69cfe39d-2e78-4d2c-9e67-27ed12dafe42",
+      "params": "ae154687-d2b9-4633-bca2-41e79439702c",
+      "bands": "444085a0-da28-47ad-b7d7-9fb406f4a8c7"
+    },
+    "SG15-14": {
+      "upf": "8c21efbc-3d00-4043-9d66-cdfedc05bec7",
+      "params": "90f7e344-481a-4909-958e-5fe6711af45d",
+      "bands": "cd403955-0e5f-4d69-b613-de551aa296c2"
+    },
+    "GBRV-1.X-14": {
+      "upf": "cb49f6e9-286f-4f9a-af02-b0d54bca85e1",
+      "params": "f6c3a637-bb90-4437-a4b4-11cf6270176b",
+      "bands": "f9ffd29e-28d5-4552-91b0-2345b9d84ae1"
+    },
+    "PSL-US-v1-high-14": {
+      "upf": "22f491a5-a9c7-45e3-8400-e05c9786cde9",
+      "params": "0df26c33-f277-4eb0-ab13-9df465db54d6",
+      "bands": "0020d223-0dc2-4705-a90f-a2b5e39fdbf5"
+    },
+    "PSL-US-v0.x-14": {
+      "upf": "90b15d65-128f-4b1e-9e9c-a7ca5a5ec803",
+      "params": "6a496189-b00c-491b-a44e-7b2e62234adc",
+      "bands": "a446b22c-fe7d-4d37-8a9d-b939a31e0293"
+    },
+    "PSL-PAW-v0.x-14": {
+      "upf": "9e876640-1f69-4c06-9b3c-03ac51007896",
+      "params": "04663ad5-7f39-47b7-8c24-55a0ed3f4664",
+      "bands": "90c7ce22-b905-4c73-9bb8-2ef9f2b7bbc9"
+    },
+    "PSL-PAW-v1-high-14": {
+      "upf": "523495bc-038c-4908-b962-2fba37571871",
+      "params": "e813ec6e-6c9a-4946-a7c6-73c3f83a91f8",
+      "bands": "d616790b-36c4-435c-bbfb-27cb0446c891"
+    },
+    "JTH-1.1-std-14": {
+      "upf": "650f6f2a-8285-452e-943a-58217a6296e8",
+      "params": "9e329c50-cd64-41b8-ac56-60f93dec3710",
+      "bands": "3d3585e6-d79e-4f4b-8035-7e21214707ad"
+    }
+  },
+  "N": {
+    "DOJO-041-std-5": {
+      "upf": "64d36526-5a68-4165-b53a-f4f87a9e3abb",
+      "params": "67283f63-2981-471f-95ea-183e6783c705",
+      "bands": "b58942eb-bf18-44a4-b8dd-0af64ad5171f"
+    },
+    "SPMS-5": {
+      "upf": "706321b3-db5e-433c-901d-37ab18d17eb9",
+      "params": "f2a499c9-a8ed-4c75-8221-058a98cdf287",
+      "bands": "d6d3760a-c74a-4571-9fbe-f0ad1a3c553b"
+    },
+    "SG15-5": {
+      "upf": "d4806146-f34a-459e-87b0-529cf091760d",
+      "params": "c1b8dc0c-752a-481b-a64b-bb1824656acf",
+      "bands": "a6c271b3-6a85-4566-b2c9-0d60acae6acd"
+    },
+    "GBRV-1.X-5": {
+      "upf": "86afcd95-45ac-4892-8fce-f6fdfcfa5307",
+      "params": "2692b86a-3b46-4da7-af4c-bbf7286a1c0a",
+      "bands": "bb8efeed-2a8e-4106-abc3-542a60f6c00f"
+    },
+    "PSL-US-v1-high-5": {
+      "upf": "75cac099-5d4e-453b-93a7-4dd4a15974d4",
+      "params": "7c671078-cb0f-4942-8749-73cbf29ac1d3",
+      "bands": "2783a584-d2da-4c9a-9145-b48e61da1a20"
+    },
+    "PSL-US-v0.x-5": {
+      "upf": "826ef655-e3b1-4852-ae9d-1e520ca258fd",
+      "params": "a6378eed-b8a5-44fe-9bf9-1e0e1222a201",
+      "bands": "d168c823-d994-4a33-8f01-86c8b70d1d88"
+    },
+    "PSL-PAW-v0.x-5": {
+      "upf": "023da95c-4e7a-4f73-b9dc-ce1f205f21be",
+      "params": "867b58d0-ccc0-41b9-942c-9dee491117c7",
+      "bands": "baa25f51-e41b-4414-a19e-a39861156f1e"
+    },
+    "PSL-PAW-v1-high-5": {
+      "upf": "6ffdd39b-0b15-4896-9ad2-80f57217a9a8",
+      "params": "f4e378a0-1b50-4b35-aa5c-924151168f43",
+      "bands": "c8327bbb-bbed-45ba-98b5-6794d0813c4c"
+    },
+    "JTH-1.1-std-5": {
+      "upf": "93bb6834-ac91-4c46-b422-990100539073",
+      "params": "96308996-28b0-4cf2-a5d5-181cfe251db0",
+      "bands": "a4dfb01f-b237-4b25-8b62-8f9ca90da77f"
+    }
+  },
+  "Na": {
+    "DOJO-041-std-9": {
+      "upf": "41e9d6a5-9219-4c40-83ae-2b118c8b05cd",
+      "params": "0604d425-344b-49df-b236-5d064c46867e",
+      "bands": "1eed3b0b-667b-47c5-ba72-bc8585e4ee57"
+    },
+    "SPMS-9": {
+      "upf": "3bf3f0b6-2994-4e0f-983f-2e11d23e1471",
+      "params": "77ee59df-60cb-449f-9f3a-96f84873a191",
+      "bands": "8e7668ad-ee79-40c3-b8b2-90fcda4a6bdc"
+    },
+    "SG15-9": {
+      "upf": "f470a580-918e-4d07-bfdf-87f6dfa8e7bc",
+      "params": "0fe3509b-9414-4563-ba28-68d934b20ddd",
+      "bands": "7880b113-ea87-4a5e-a207-d92d2e11d144"
+    },
+    "GBRV-1.X-9": {
+      "upf": "fc815123-77fa-41e6-8921-fdf1795ca3b0",
+      "params": "c05c9a8e-c091-457f-9f1c-fcd51c5304fb",
+      "bands": "c268a5b3-f5f8-477d-b56d-571ddedd9ff7"
+    },
+    "PSL-US-v1-high-9": {
+      "upf": "036f09ba-342e-4e1e-b6db-476d3cd42fd8",
+      "params": "d48fcc13-9838-48b0-86dd-400ebd310d66",
+      "bands": "ed58a113-d3f2-4f1a-b2ad-5a548f346f29"
+    },
+    "PSL-US-v1-low-9": {
+      "upf": "f936bc7c-b2e4-49a1-a861-dc710f41e868",
+      "params": "97bdbb41-820d-42c1-8357-45f1f6c6fb74",
+      "bands": "ab5ea9ef-a22c-455d-a45b-852d37c8246f"
+    },
+    "PSL-US-v0.x-9": {
+      "upf": "148f7cc5-728e-49cc-a313-1a5a4629d93f",
+      "params": "328930a7-473b-4cb0-b3e2-3279cf24f343",
+      "bands": "f8abd6d6-fffd-4023-b24b-181632559006"
+    },
+    "PSL-PAW-v0.x-9": {
+      "upf": "0a8d22c2-7437-437a-bbaa-0c732aedcef6",
+      "params": "d3d3b121-88ba-4e4f-9cd5-aa4cc11645d0",
+      "bands": "e876107c-6e98-4d25-8ed5-cdd839680d05"
+    },
+    "PSL-PAW-v1-high-9": {
+      "upf": "b51d8270-399b-4e2e-be60-3bef28e1d933",
+      "params": "257f83ef-0bab-4a82-ba32-11b53b6aaaee",
+      "bands": "8bf2ddad-7d59-4118-a5b5-15c535414db4"
+    },
+    "PSL-PAW-v1-low-9": {
+      "upf": "44163b51-7f32-4509-a0c6-d912ed4ba71a",
+      "params": "789956e5-57f5-47be-8f18-3d62ceb2c82c",
+      "bands": "a24c0f2b-6ae2-4e6a-90f7-11ea99d5735b"
+    },
+    "JTH-1.1-std-9": {
+      "upf": "e46aa0a0-3d12-4cd4-b08b-f55a13627618",
+      "params": "016916b0-429a-4cd3-a4e4-7f7791169a44",
+      "bands": "f8b10286-2109-4559-8599-1d811ff58957"
+    }
+  },
+  "Nb": {
+    "DOJO-041-std-13": {
+      "upf": "e1ed718a-fbe7-4b3b-989f-6aabfe6dfcb0",
+      "params": "a34186d3-c598-47eb-aede-f102f16d0b43",
+      "bands": "7416a227-15c3-402f-986f-793c6631665b"
+    },
+    "SPMS-13": {
+      "upf": "30b05916-ca13-4fbe-8b34-361e03f40546",
+      "params": "ed054f90-224b-488b-9463-934fcc503edd",
+      "bands": "eab82862-8746-4d65-ab00-b36b1fb3f153"
+    },
+    "SG15-13": {
+      "upf": "8b7c197a-b061-41b2-abe5-281739271113",
+      "params": "1baba351-2df6-4362-b9e7-ce05ab80d4aa",
+      "bands": "5be17e4c-e853-4895-884a-572c73f1f644"
+    },
+    "GBRV-1.X-13": {
+      "upf": "723259fe-975f-42f6-a17e-8a466a657c94",
+      "params": "d26491da-816e-43d0-a586-727060f85ce5",
+      "bands": "a402da9b-ec01-4171-a201-c5471d1753c8"
+    },
+    "PSL-US-v1-high-13": {
+      "upf": "171f4979-5aed-45e2-9956-fe93a8a1fc8b",
+      "params": "6b9060f8-c49a-4309-abe7-7d8bafc7b56a",
+      "bands": "74d291ae-be93-4e76-a3ce-64017cd90b40"
+    },
+    "PSL-US-v0.x-13": {
+      "upf": "f849b329-3c56-4803-99ee-6952db417b2c",
+      "params": "13c99ab8-2141-4380-9e53-6f8178940f08",
+      "bands": "2ea2b4ae-7227-42b0-adfc-b07cec3ed10c"
+    },
+    "PSL-PAW-v0.x-13": {
+      "upf": "e09e35fc-707b-4688-87ce-1e8a71ac6211",
+      "params": "899b7064-e4ea-4c6e-8caa-c280f87be943",
+      "bands": "a38f967c-a042-401f-ab6e-81dc9ab3a60d"
+    },
+    "PSL-PAW-v1-high-13": {
+      "upf": "da3ff5c4-086d-4397-9cf4-2f44617fcb08",
+      "params": "33bd20be-b2c0-4562-99aa-cb5361187863",
+      "bands": "282cdcd8-7170-40fe-ab2f-6bbdf19410ec"
+    },
+    "JTH-1.1-std-13": {
+      "upf": "817b193a-cde0-4352-82e3-d90afa961e9f",
+      "params": "843458f7-af3e-4d03-af40-9d7fb637a23b",
+      "bands": "7c6dcd46-bf24-472b-bf28-07fba1463e54"
+    }
+  },
+  "Nd": {
+    "PSL-US-v1-high-24": {
+      "upf": "51c576e3-383e-4ac8-964d-07284160fb2a",
+      "params": "1a97208e-329a-4fe9-824e-924d942af899",
+      "bands": "bdc5bbb4-5ac6-42be-b562-a9d250bff6f3"
+    },
+    "PSL-US-v1-low-11": {
+      "upf": "7c279048-c729-47c0-bb3d-30bb3ba6c1a8",
+      "params": "8e8d9cab-98c7-4e3b-a395-bfe966cdbcfb",
+      "bands": "8aeeab30-d1ce-47f8-a633-2d2c40f728f2"
+    },
+    "PSL-PAW-v1-high-24": {
+      "upf": "2dfb8670-f3e6-4a2b-8b55-7314b72d98b7",
+      "params": "8c8557fd-ce59-48e6-bea9-c5a5148756c7",
+      "bands": "aaff10e9-6688-4d74-ac27-68618e368810"
+    },
+    "PSL-PAW-v1-low-11": {
+      "upf": "42e45a05-d051-4373-b047-0ecf9a391368",
+      "params": "2661d421-326f-40c1-b50c-971297ea10a9",
+      "bands": "5db79ea7-6998-4b29-b220-d6c4e801cf6b"
+    },
+    "JTH-1.1-std-14": {
+      "upf": "8af4a945-0275-4062-addb-174c1ad2ff2b",
+      "params": "d806440d-6095-40bc-8eac-79e8e199915a",
+      "bands": "3b8984c3-ffa9-4a6b-8155-0bf240967913"
+    },
+    "Wentzcovitch-14": {
+      "upf": "d174235b-1f36-42f2-bce8-d00bb8f0623b",
+      "params": "6bbb615f-bfe4-43a4-8263-172d02250d61",
+      "bands": "14783713-f3cc-4845-a0e6-09f9873538ca"
+    }
+  },
+  "Ne": {
+    "DOJO-041-std-8": {
+      "upf": "d3ceefbb-5b5c-4163-bea9-5b4e80ac18ef",
+      "params": "7c5fd253-b35d-44a5-9915-eca77ef83543",
+      "bands": "c9708380-a15d-42f5-94a7-acacc35f698c"
+    },
+    "DOJO-041-str-8": {
+      "upf": "2939b5e7-ed93-494f-815e-92a69ca183a6",
+      "params": "0cd795ec-87a0-4843-89ed-2ba18766dbf5",
+      "bands": "acaf1b83-37cd-42e1-98a7-a14382fc68a2"
+    },
+    "SPMS-8": {
+      "upf": "828454e0-555c-4950-8b27-c4a5dfb6ede5",
+      "params": "32f10f54-08ee-4441-9a50-5e65672d9b2b",
+      "bands": "74676b4e-9808-4956-a488-6b1fc0037ab2"
+    },
+    "SG15-8": {
+      "upf": "c4499ccd-4bbf-4993-9653-d65681805ecf",
+      "params": "2ac2f7d9-00a0-4e0a-80d4-54acdbfd2c25",
+      "bands": "af9f0c79-eccd-456f-b0c3-221ac32e3709"
+    },
+    "PSL-US-v1-high-8": {
+      "upf": "07610660-b74c-4a4c-a49d-0ac7572fde9c",
+      "params": "7ee54a7c-3391-4bc7-b2c1-904f917c8847",
+      "bands": "16b1faaf-46f5-4af9-94a2-9b172ad5ea1a"
+    },
+    "PSL-PAW-v1-high-8": {
+      "upf": "2f4749b6-ed92-45a7-8e94-cfadf692975d",
+      "params": "da83002d-a994-4423-b440-abc6ae469a8b",
+      "bands": "4a2e455b-22c8-4d11-b68e-710bd20a00af"
+    },
+    "JTH-1.1-std-8": {
+      "upf": "ebf40495-6cac-42cd-9a97-bf623a908440",
+      "params": "2758b6be-cad0-4da7-8a70-3aedc6375ae6",
+      "bands": "040898a3-ef46-4a59-9faf-b7bf3c468c31"
+    }
+  },
+  "Ni": {
+    "DOJO-041-std-18": {
+      "upf": "9c396e4b-f0b3-452c-a68f-b6abf53edd31",
+      "params": "fe393f07-afb2-428b-afa3-40777146377e",
+      "bands": "6964a253-0853-425f-ae60-8e278dec308c"
+    },
+    "DOJO-041-str-18": {
+      "upf": "b1b3e27f-3152-47ad-9775-acad7697c03f",
+      "params": "11c42359-701b-4265-b431-d4b7fedf7ced",
+      "bands": "aefb3109-d35e-4c28-b066-dad0c0d4891a"
+    },
+    "SPMS-18": {
+      "upf": "208f664b-a3e7-4e24-91fe-aba9480f2ea8",
+      "params": "7ff118fb-dd68-4d73-b0ce-51c234cc03b2",
+      "bands": "c40a2636-7cd4-4522-bc6a-a370cf41a8ce"
+    },
+    "SG15-18": {
+      "upf": "2b028eb2-d5f2-4f5d-9bfc-aeb93ee6d58b",
+      "params": "c301465e-2e4b-46ce-adab-d73fa9875ef3",
+      "bands": "275e0d62-f77d-4279-9696-6465d3f76fe2"
+    },
+    "GBRV-1.X-18": {
+      "upf": "92a76fed-04d1-4aac-bdb7-a4daa71befdb",
+      "params": "f754a6e2-b500-4bfc-8712-99b4794dff0f",
+      "bands": "eaf424af-cbc8-41dd-bc57-34cdc17c4a0b"
+    },
+    "PSL-US-v1-high-18": {
+      "upf": "3b17efdd-273b-4562-81c8-5244ece7fce8",
+      "params": "b1db2dbe-a812-4f8d-8798-04897de157bc",
+      "bands": "682428a3-185a-425a-bcb7-e6550976c0e7"
+    },
+    "PSL-US-v1-low-10": {
+      "upf": "14971bfe-cf3b-4b00-b7a8-120cd9f27d13",
+      "params": "d2571552-6658-425e-bfd8-fb3e40584a95",
+      "bands": "6a3715e2-3104-467f-952a-93691fd007af"
+    },
+    "PSL-US-v0.x-10": {
+      "upf": "8dd861b6-0ca2-40fe-af5f-5ed2a3839c8a",
+      "params": "71fe5e26-8b64-422d-8a59-09633905081c",
+      "bands": "c217b757-ef4e-4e1e-b5c3-870b027eccbe"
+    },
+    "PSL-PAW-v0.x-10": {
+      "upf": "5387074b-c393-4ffc-a901-c1dcab7910d5",
+      "params": "94de2b96-f468-42d3-ac16-8b055d1817c7",
+      "bands": "4b39aa93-d404-49f9-b71c-cc45ebe01211"
+    },
+    "PSL-PAW-v1-high-18": {
+      "upf": "e5679475-06d5-4a7d-979d-30c6fc2fe52d",
+      "params": "940cd986-711d-4d68-873a-66a485a05961",
+      "bands": "40e1a82a-b97b-4cfb-8b23-db52432b7768"
+    },
+    "PSL-PAW-v1-low-10": {
+      "upf": "82268271-4022-4650-8ea8-16505727be35",
+      "params": "998635cd-92a2-496b-9b50-57dd34713c09",
+      "bands": "114583d1-9088-46c9-81eb-1285017f0e25"
+    },
+    "JTH-1.1-std-18": {
+      "upf": "ef48c803-cff5-4cad-b770-1f4dc1ec9dee",
+      "params": "921b8524-c92f-4d26-a440-28d9ca8023db",
+      "bands": "c5e03d88-6235-4174-8360-796d9021c0f7"
+    }
+  },
+  "Np": {
+    "PSL-US-v1-high-15": {
+      "upf": "53fddaf2-57aa-46eb-ba28-0cd1704fb952",
+      "params": "0742003d-cd51-4759-b4e1-d4fec0be8d8e",
+      "bands": "7a42dd99-f10f-4caa-a1b2-f53b84628d66"
+    },
+    "PSL-PAW-v1-high-15": {
+      "upf": "e4cdacbe-8300-41be-9699-e53575165359",
+      "params": "0b65f6f7-2cb6-44af-8266-e1eaf8b158eb",
+      "bands": "88dab329-3cc2-4b4d-af5f-63a31311001d"
+    }
+  },
+  "O": {
+    "DOJO-041-std-6": {
+      "upf": "c5336328-665e-4c5d-8178-bf2bd6827a24",
+      "params": "98272361-7264-4ee0-855c-ebbafac5b79e",
+      "bands": "53528029-62af-4c6e-a06e-06db1687fdcf"
+    },
+    "DOJO-041-str-6": {
+      "upf": "33ec30d5-9896-4364-9479-e30da09daa25",
+      "params": "06520bad-42b8-483b-9fd4-557a3c5be27b",
+      "bands": "116c3c1a-be36-4361-bb8a-2e1532d74f74"
+    },
+    "SPMS-6": {
+      "upf": "4a0dac81-0c58-4841-8d89-976a7af623bc",
+      "params": "6232f33e-0a0e-455d-b381-7e20d5cb3082",
+      "bands": "db55c270-ccce-48e0-a84e-180e033c335d"
+    },
+    "SG15-6": {
+      "upf": "f3cf7b29-a6fd-4a53-9dd7-636f16a57e0f",
+      "params": "d40212b0-6292-4b10-805c-a1c8736e17e2",
+      "bands": "a9ffa154-a1ca-47d0-9fcc-5fdac507c705"
+    },
+    "GBRV-1.X-6": {
+      "upf": "819e93b4-4842-4cff-b74b-d6409c1d8e1d",
+      "params": "1a8e87b6-81ee-4bfa-9815-6c536e783b43",
+      "bands": "60054ddd-25ce-468a-919d-d3872cdc1932"
+    },
+    "PSL-US-v1-high-6": {
+      "upf": "3597fa0a-ca9b-4be7-9535-2e17b5f702a3",
+      "params": "573298be-e368-48a0-81a9-e3530e8758e9",
+      "bands": "7ddd2899-87ab-47ab-8a92-c9d0895c7201"
+    },
+    "PSL-US-v1-low-6": {
+      "upf": "c249e6d4-3626-41fa-b78b-6d779850b3c1",
+      "params": "1d4bba26-5f4d-4b7d-8003-2635fe5a2ea4",
+      "bands": "8547e779-161c-4bde-8af0-640471956f8b"
+    },
+    "PSL-US-v0.x-6": {
+      "upf": "d5a1ec6b-6e39-422e-8b79-fa69b95a5c47",
+      "params": "150dc71e-90cc-4cf2-a9de-a1153caaf84f",
+      "bands": "d985cab4-ba3b-4ece-aad2-0254798ff877"
+    },
+    "PSL-PAW-v0.x-6": {
+      "upf": "96794ec6-0c9c-496a-8940-8bef9a4dd3aa",
+      "params": "8971e7c1-d506-4eac-9ef6-19b08a60e780",
+      "bands": "6f0697fc-2013-486b-a555-9e38eef61990"
+    },
+    "PSL-PAW-v1-high-6": {
+      "upf": "ef70f632-56a6-4353-b4fa-1a7ec3875ab8",
+      "params": "7bc040b5-624f-427f-b976-0d235c914f7d",
+      "bands": "19caecd2-6661-4e81-ad7d-8fe5664bc049"
+    },
+    "PSL-PAW-v1-low-6": {
+      "upf": "e508b0c0-f87e-4634-bc71-628d9ae3342b",
+      "params": "2faaea76-384c-4ae3-bb19-287ee14afa58",
+      "bands": "e30bd75f-7fda-457d-887b-94a613a340de"
+    },
+    "JTH-1.1-std-6": {
+      "upf": "79a15cd8-b1ed-4215-85cb-37da439f167e",
+      "params": "f1d00a72-ca50-41d9-a411-215d8fbcd3cd",
+      "bands": "8fdf4106-fed9-41f9-bdf1-efe46bd34eaa"
+    }
+  },
+  "Os": {
+    "DOJO-041-std-16": {
+      "upf": "5616716f-a899-4550-88c0-c1763b2734cd",
+      "params": "30aacfaf-5e12-409f-b570-bf2b10ae2657",
+      "bands": "42de42cf-77da-49ec-8233-5480a325d423"
+    },
+    "SPMS-16": {
+      "upf": "90bd9790-219a-4613-b8b9-7d07b11d0f96",
+      "params": "e040c855-fd1c-4b25-a297-7be4061471f3",
+      "bands": "dbdff865-fa37-4875-81a7-f6d09f2705f3"
+    },
+    "SG15-16": {
+      "upf": "91be639d-279b-4f83-8268-0721671819d7",
+      "params": "43ebbe98-175e-4b55-99c0-2846a3f790cc",
+      "bands": "06ddda6e-bc76-44f0-890f-5cae02a23cd6"
+    },
+    "GBRV-1.X-16": {
+      "upf": "6d5d9638-623e-40ef-a15f-2aee33359027",
+      "params": "fca1ed40-b1cb-4c2d-afcd-b278593f48c3",
+      "bands": "26053244-d63d-461a-9324-304d963dc16a"
+    },
+    "PSL-US-v1-high-30": {
+      "upf": "fec1f242-6f63-4d8b-8532-a23298e742a9",
+      "params": "3684ed66-94d6-48a2-9aec-33be10d50152",
+      "bands": "2b0dd581-9fa2-4c54-ab8e-a78c79593b1f"
+    },
+    "PSL-US-v1-low-16": {
+      "upf": "85d6f767-10ac-466b-a433-4603c079073f",
+      "params": "437f8844-624d-4996-9c5f-606fb1bdc6d0",
+      "bands": "25487d6b-003c-4bfb-a58f-8cabddc787a4"
+    },
+    "PSL-PAW-v1-high-30": {
+      "upf": "27b4f3d1-1cfc-4874-a723-3ba4bcef98b2",
+      "params": "fee5af28-7b2c-4071-92ed-c10be7f9167d",
+      "bands": "1278a7db-c78d-481e-9970-ec1e6e3d0f72"
+    },
+    "PSL-PAW-v1-low-16": {
+      "upf": "2ab575e2-bfd9-45c6-8554-31fbeb6ea113",
+      "params": "e3e0e01d-587f-4768-848d-f7590b5ff472",
+      "bands": "70505612-bed0-4c97-82f9-c8f9b187155c"
+    },
+    "JTH-1.1-std-8": {
+      "upf": "27a7ab42-5f40-4f98-a664-2bdaca759409",
+      "params": "ef3d3dff-c15f-4de5-aa2b-6f6537041cd3",
+      "bands": "757b3c5c-4893-4aff-8f1f-4108db2cd5da"
+    }
+  },
+  "P": {
+    "DOJO-041-std-5": {
+      "upf": "80dcb23f-7a51-48f9-84c9-bd0e1fc376be",
+      "params": "df9d0707-f6b9-4028-8bfa-3d9360ce0127",
+      "bands": "e1c4b098-656d-4229-9da8-f4ce00024448"
+    },
+    "DOJO-041-str-5": {
+      "upf": "f0b9908c-36be-4abf-ad4e-4e0505f786ad",
+      "params": "d9d27be4-a130-48ba-962b-ed848f4cfbaf",
+      "bands": "4a4b55e1-0206-4e34-ad69-3ba20ffcf4f6"
+    },
+    "SPMS-5": {
+      "upf": "de040cf3-9dc4-42fb-b7a1-c2d328392357",
+      "params": "026a7de9-9342-491a-8564-d700a37b7651",
+      "bands": "c7d4d9f2-cfbc-43e9-9918-4d56f222dbe0"
+    },
+    "SG15-5": {
+      "upf": "b7e516af-55fc-41cd-9eeb-141902ac4776",
+      "params": "41b5408a-4316-4cf3-a87f-fa79297d6ce7",
+      "bands": "b58bb22a-d324-44bb-bff4-335afa52c418"
+    },
+    "GBRV-1.X-5": {
+      "upf": "2f9d1aa4-f005-4130-99da-d15cc86511ea",
+      "params": "8e25085b-3ca5-4625-be29-23d47b0ad48d",
+      "bands": "c8f78c71-5032-45f5-92d7-e2aea34c1d3e"
+    },
+    "PSL-US-v1-high-5": {
+      "upf": "74b453db-3919-476b-8754-777fd0b15704",
+      "params": "36bc039d-54e9-4861-88a1-45ab53c39b1d",
+      "bands": "2468178a-6daf-4ed1-b23b-eb1fc7339b8a"
+    },
+    "PSL-US-v1-low-5": {
+      "upf": "05818e1a-2cd0-4f5b-bff9-f82e748a0d8f",
+      "params": "e50b4e71-31c6-4374-8250-2f6cbb024369",
+      "bands": "4315bedc-06f2-4ae1-bd9c-116063c34861"
+    },
+    "PSL-US-v0.x-5": {
+      "upf": "69678005-9de3-4ee6-96ee-7663638d448f",
+      "params": "bb1ba3bd-d073-40c1-8ee0-44f574841e5c",
+      "bands": "015e8686-c067-4148-b648-17b4df189caf"
+    },
+    "PSL-PAW-v0.x-5": {
+      "upf": "61db57e0-ea14-4c85-aa16-d43c330864d2",
+      "params": "6418f0d5-b220-4994-a406-ba5c6cd2fcfd",
+      "bands": "1c149a51-8852-4091-a58d-209b07a25453"
+    },
+    "PSL-PAW-v1-high-5": {
+      "upf": "f196e005-85bf-42e7-b988-ce15851313d5",
+      "params": "41f63b9d-ebc6-4467-a1dc-7841a41e4a76",
+      "bands": "e7f24694-d59c-49eb-9edc-fe4a98eb0090"
+    },
+    "PSL-PAW-v1-low-5": {
+      "upf": "269d047c-a6e5-4782-969c-930c9519094b",
+      "params": "2c7c9c72-7351-4dbf-8611-e05b9fca6698",
+      "bands": "52f861a1-dfff-4e01-9edc-7b71645cba14"
+    },
+    "JTH-1.1-std-5": {
+      "upf": "ec41604b-9915-4d5e-b537-7cc49a976518",
+      "params": "29f44bd3-4167-47e7-9f19-3b22241bd327",
+      "bands": "ca03a98d-5707-43bb-9cca-4e087fe764ed"
+    }
+  },
+  "Pa": {
+    "PSL-US-v1-high-13": {
+      "upf": "ad322dc2-f06c-47d6-a605-552cdf9e4c0a",
+      "params": "f656af2a-8c0f-4d1b-b330-b0ad0f9ee174",
+      "bands": "c1f0da07-d8ae-42db-aa37-8e9240c7759c"
+    },
+    "PSL-PAW-v1-high-13": {
+      "upf": "71307385-6692-46fb-aad8-880a886625f3",
+      "params": "085bb8c7-ee90-4131-a66e-7bc8de06c368",
+      "bands": "9c5958b6-cf4a-4537-be87-bb4c404d1794"
+    }
+  },
+  "Pb": {
+    "DOJO-041-std-14": {
+      "upf": "b9e0d8f1-7b78-4a48-9029-e3d1c4fb625a",
+      "params": "a559979c-0c3e-499c-bf58-0dbd8c8a7a66",
+      "bands": "e2f113ab-a4d9-45b8-a9af-8b568bdb423a"
+    },
+    "DOJO-041-str-22": {
+      "upf": "dd37b392-5aa2-404b-8cc1-4133e283242c",
+      "params": "756a88b1-1348-419f-960e-d45e718781a4",
+      "bands": "57f82c6b-1c1c-4c68-b2a7-571835056289"
+    },
+    "DOJO-050-std-14": {
+      "upf": "1e901a4b-0b52-4b4b-9db9-81128ffdd780",
+      "params": "9cccb90b-e8cd-49ab-ace2-04fc5a988216",
+      "bands": "91eb3cd3-0fb5-4839-896f-a7483828c530"
+    },
+    "SPMS-14": {
+      "upf": "0b977d08-736a-408a-95a8-b76c8ccac6d3",
+      "params": "18e5b31f-d6d8-4944-906e-ff5431ddc98c",
+      "bands": "60122d27-15fc-43a4-9181-67ecf98a8b45"
+    },
+    "SG15-14": {
+      "upf": "dfc2c1bd-7e6a-44ae-bfb1-0cf76aebff24",
+      "params": "22a8cd5b-4c1b-4660-a045-7fead3fca83e",
+      "bands": "ef2e35e6-4c89-4da3-b004-fb1a13a3b393"
+    },
+    "GBRV-1.X-14": {
+      "upf": "c27b5643-23ee-4161-ac35-c2bef91b094f",
+      "params": "85f67b38-afc5-4afd-b64f-913ea4521826",
+      "bands": "a9ccd326-e1d9-4bca-b585-b604ac39444d"
+    },
+    "PSL-US-v1-high-14": {
+      "upf": "60ca1bef-3353-4505-a4ba-848abc3e0989",
+      "params": "7ef0738d-e9cb-40b2-9582-5435ce8b040c",
+      "bands": "c6947620-c155-4ba5-af13-f8a8e52707e4"
+    },
+    "PSL-US-v0.x-14": {
+      "upf": "40a83609-e1e5-4524-a7c6-ff9225a29756",
+      "params": "1e372d23-8a15-4c7c-80e9-05fa564dd1e5",
+      "bands": "d12d984f-5c2c-4dee-b156-c557425d1148"
+    },
+    "PSL-PAW-v0.x-14": {
+      "upf": "dc77382d-e042-4724-9a0b-7aee4e60e6c8",
+      "params": "ce307fbd-93d2-48ea-9981-b386c5d21ba6",
+      "bands": "23a1ee64-e0a1-4549-9f52-1eb8ca3497a5"
+    },
+    "PSL-PAW-v1-high-14": {
+      "upf": "430502fe-e760-49b0-8e42-8c464244d54c",
+      "params": "810bf9e9-4415-4cef-be78-a477e093fbb1",
+      "bands": "2e74c673-7175-4c17-908f-6805da9bc940"
+    },
+    "JTH-1.1-std-14": {
+      "upf": "f64166f8-4850-4b32-a82d-da006813d1f6",
+      "params": "2ea45295-ca51-49ec-9fc1-c0da6fdfeffb",
+      "bands": "23087222-03d0-48ab-b967-c7f5db579503"
+    },
+    "JTH-1.1-str-4": {
+      "upf": "a66fd367-f68b-4131-b37c-9d3ac49eeea1",
+      "params": "f5f6ee30-9a2b-4805-9a97-846741019b3b",
+      "bands": "147a9b61-ce73-4a36-8701-3846e9ef8ed9"
+    }
+  },
+  "Pd": {
+    "DOJO-041-std-18": {
+      "upf": "2fb207fc-8a16-41dc-b833-3d9812d6c445",
+      "params": "a1ab395e-7068-46c1-a548-261d7d33bfd8",
+      "bands": "b18273a5-7ce8-4e54-8d6b-fbf3cf3f95ed"
+    },
+    "SPMS-18": {
+      "upf": "b69055e6-c8af-4db3-9903-d3d1bdc86cea",
+      "params": "3ce0e797-75e5-4d18-a079-5d035b2e0153",
+      "bands": "34d1a87e-06e0-49fd-be11-d580b22b29df"
+    },
+    "SG15-18": {
+      "upf": "3b701913-6d6c-4da5-9aa8-e1640c3daca8",
+      "params": "36480d82-fba9-4828-b5e5-cc2169ea2cfe",
+      "bands": "f4d12953-a402-4e82-9448-8e70701dfe87"
+    },
+    "GBRV-1.X-16": {
+      "upf": "94e4d499-b32b-4c8a-8d8b-8f57667edcc1",
+      "params": "754c350f-0480-4c6c-b3a1-e6d1abc23278",
+      "bands": "aad23ee0-f1ba-4231-9459-b3bf2a64c7c5"
+    },
+    "PSL-US-v1-high-18": {
+      "upf": "968b8469-6c54-453c-9116-6d0890418c1a",
+      "params": "2e3e64a0-eda8-4517-a530-9183382fae08",
+      "bands": "6157c947-11d7-47c5-94cf-a49cf15a0353"
+    },
+    "PSL-US-v1-low-10": {
+      "upf": "474797f6-8477-46ad-8fe0-8ec8cd031e36",
+      "params": "b6632b43-d1d6-4a07-864a-856eda7d28a9",
+      "bands": "96777893-6f87-40be-8397-81e8b1005f76"
+    },
+    "PSL-US-v0.x-10": {
+      "upf": "89a34b4b-d486-434f-82e3-f2cd7869b373",
+      "params": "d41c0f46-fffd-45c2-b6f5-a7a3034d095d",
+      "bands": "bbbdc280-aa42-43a7-be96-ac8777ddec25"
+    },
+    "PSL-PAW-v0.x-10": {
+      "upf": "fbeaee2d-72c4-45ff-adec-0376851dcdab",
+      "params": "a7b1a51d-cf73-44b5-b560-4bc6fed7ab45",
+      "bands": "4ffe1d6e-7063-4752-933b-a80229606b67"
+    },
+    "PSL-PAW-v1-high-18": {
+      "upf": "1c91b847-0330-4b8f-823e-3194c96745f9",
+      "params": "61c65707-9be9-4910-bde0-1fabeec9f3f2",
+      "bands": "1d150f52-e2e0-45f6-a803-6a266ca4ea06"
+    },
+    "PSL-PAW-v1-low-10": {
+      "upf": "54dc10ad-22c6-4fa2-a279-c1284974f522",
+      "params": "d31cdda8-e0ed-426a-a594-904e552da155",
+      "bands": "d805f09f-bc33-4c4c-87ee-e029c48adc5e"
+    },
+    "JTH-1.1-std-18": {
+      "upf": "3f4f35f6-8376-4edf-9444-fa64d7fe8393",
+      "params": "9100c967-b851-4d57-a0d2-548755947d9e",
+      "bands": "0178480e-6eb9-4f8e-a65f-ba580d612a5d"
+    }
+  },
+  "Pm": {
+    "PSL-US-v1-high-25": {
+      "upf": "40fe840f-4a48-4aa7-b47e-a9ac2e58b859",
+      "params": "53fefc58-e779-48ec-84aa-8cadeb8acc1e",
+      "bands": "21a3dbce-b9f1-4487-884b-4867e32f8d51"
+    },
+    "PSL-US-v1-low-11": {
+      "upf": "a7e42879-bd92-47a7-b370-f7f1150be20b",
+      "params": "c40b5d9a-44a4-4a7a-9391-59325bfcf31f",
+      "bands": "5857bd5b-932b-49be-bf5c-7bb8c35bc67e"
+    },
+    "PSL-PAW-v1-high-25": {
+      "upf": "7158df42-bc70-4a9c-81f9-a1615155b5de",
+      "params": "5c3d0ba4-f4d2-4b71-8df0-a903bab6d82b",
+      "bands": "d3611f3c-0bfd-4366-8f25-73866ce94541"
+    },
+    "PSL-PAW-v1-low-11": {
+      "upf": "0e0e5c26-496b-4dd5-bb93-489cb665e86f",
+      "params": "188a7214-142f-4831-bf60-d92fa99d37e4",
+      "bands": "454f82a4-4145-40e5-8441-988c86f92c6e"
+    },
+    "JTH-1.1-std-15": {
+      "upf": "c5614b79-d627-460c-9bfb-3536adb5515c",
+      "params": "579afc84-6c43-4309-b52a-7e76080faddb",
+      "bands": "c2501cb1-26c7-4b71-a163-c9e30f724cac"
+    },
+    "Wentzcovitch-15": {
+      "upf": "4395dd80-d58a-4360-985b-88470fb41dd0",
+      "params": "92d8a0a0-f63b-44f6-a019-1044f333f0b5",
+      "bands": "f017b963-98d7-4a1e-adcc-b63366fd0dbf"
+    }
+  },
+  "Po": {
+    "DOJO-041-std-16": {
+      "upf": "bc0fa931-68f5-4c80-ac36-58ed834142ca",
+      "params": "e6982c94-9a75-416f-b39f-6859dabdcfb4",
+      "bands": "753ee7d5-15bc-4bdb-8f44-5a109556acfa"
+    },
+    "DOJO-041-str-24": {
+      "upf": "cb5a0ba3-7813-4de1-9ee4-3a59252a7014",
+      "params": "0cd0d8ae-88c0-40c9-bcec-7ba224ad4e2e",
+      "bands": "92277279-9888-40b2-93ed-16bdc03014b1"
+    },
+    "DOJO-050-std-16": {
+      "upf": "a6820b8e-dd39-4398-a397-ad699b4f2dba",
+      "params": "15d14328-8291-49d7-aa2f-6f4c4847585c",
+      "bands": "c2549016-66fc-446b-8f9d-e3458eab795d"
+    },
+    "PSL-US-v1-high-16": {
+      "upf": "2cf8314b-4898-4682-b489-a694b4314bd7",
+      "params": "8a803b51-329a-4fa8-b5d6-5b7553c6b7f2",
+      "bands": "c596f72d-f2e2-4c37-8869-532172832778"
+    },
+    "PSL-PAW-v1-high-16": {
+      "upf": "1660a5b3-c351-4893-bb4e-7a7c321198e7",
+      "params": "ef6e3ff3-87ae-4820-b51c-48f326eb4cb4",
+      "bands": "098b39ea-016a-4568-8b8e-265e59ad305a"
+    },
+    "JTH-1.1-std-6": {
+      "upf": "2bce591d-12d0-4a3e-8ef1-b33468be570a",
+      "params": "72871e67-75f4-46b3-a58b-97bc4d64f87a",
+      "bands": "6980fe6c-e8fb-4e76-b82c-a3496e786ecd"
+    }
+  },
+  "Pr": {
+    "PSL-US-v1-high-23": {
+      "upf": "18e4010e-298d-4f5a-821d-33177f04e65c",
+      "params": "ce908bc3-d8d5-4394-92c6-39d253ce7819",
+      "bands": "637235f0-3895-43cf-9ad2-48a4df5b0400"
+    },
+    "PSL-US-v1-low-11": {
+      "upf": "a806f26b-5518-4019-b4f7-25d9b52f8daa",
+      "params": "72b28acf-07a2-4a7c-8d6f-729a48d22b36",
+      "bands": "fe4d0afd-66cd-4502-9c41-3bf46e51391c"
+    },
+    "PSL-PAW-v1-high-23": {
+      "upf": "ffd74875-8ba7-4039-b144-d6d64be45bee",
+      "params": "8ddf0c3b-49ec-43b3-9c30-440a45304eb2",
+      "bands": "6d6f7d87-35a3-46de-b2d9-743895335e03"
+    },
+    "PSL-PAW-v1-low-11": {
+      "upf": "12fbf86a-2f47-4455-bfb9-d61885bc2f37",
+      "params": "e5414247-9be5-4245-abef-e1474decaf46",
+      "bands": "66a53fdc-5317-418d-b614-4bd739da3b31"
+    },
+    "JTH-1.1-std-13": {
+      "upf": "8fe5734f-514a-475e-9fe4-a00bc72a0d5d",
+      "params": "bc590f5b-f3f8-4964-ad93-c9f7b35a0400",
+      "bands": "75aeb328-f3a5-4862-99db-1e0f51fea462"
+    },
+    "Wentzcovitch-13": {
+      "upf": "4f1bd0e6-97af-418b-a593-2fc001449dc3",
+      "params": "14a0f083-0da8-4a20-9b43-2c23580bdcdc",
+      "bands": "84856204-4a01-4f5f-9ff1-83b12fab8c0d"
+    }
+  },
+  "Pt": {
+    "DOJO-041-std-18": {
+      "upf": "9d7c0634-7a36-4c47-87f7-e6155fd3f199",
+      "params": "4588c3df-b8f3-4b8a-b797-a1ad52feeb74",
+      "bands": "0bfe3c78-36a4-4450-a548-c565ba07c366"
+    },
+    "SPMS-18": {
+      "upf": "8890b613-68fa-42d0-9a02-3e0fbcd8026a",
+      "params": "571d2a55-3021-4d66-a2f2-003a6302c9ca",
+      "bands": "a13d73fa-d5b6-4820-8f62-c3db14b25d20"
+    },
+    "SG15-18": {
+      "upf": "d738d971-8dc9-4747-9331-e6e82bdffaf9",
+      "params": "0a7e6cbf-1461-442a-b013-c21a8b9096f0",
+      "bands": "070cb426-9ac5-4df5-9544-fd2242d62442"
+    },
+    "GBRV-1.X-16": {
+      "upf": "dbc042ef-ca89-4364-b95f-8ea28539b716",
+      "params": "560bd099-e29e-40af-845e-20e6304e52b3",
+      "bands": "7f4a99de-204c-4e53-b7fd-25ea28764635"
+    },
+    "PSL-US-v1-high-32": {
+      "upf": "855f8c4f-306f-490c-ae38-26792d2fcea8",
+      "params": "021a9442-91fa-4093-97a5-60dc9efc9535",
+      "bands": "86245c86-6739-4c12-b057-4b98cf2db87e"
+    },
+    "PSL-US-v1-low-18": {
+      "upf": "b4d788c6-3722-4aa9-b457-187c7c44b3f0",
+      "params": "ae3a3077-e5e2-4cf8-a37c-7fbd07b39cd9",
+      "bands": "03f56ceb-7225-413f-a6c4-3a9fc8565b71"
+    },
+    "PSL-US-v1-low-10": {
+      "upf": "081505a0-f391-4b72-8faa-17c5a2f6853e",
+      "params": "0e6f761f-ce8e-4cf7-9ce2-c8c0ccece368",
+      "bands": "d3638e81-c11b-4c90-be2b-39b387f71d27"
+    },
+    "PSL-US-v0.x-10": {
+      "upf": "a335c557-35c9-4050-b99c-e593f437e543",
+      "params": "4f5acb47-f7c1-4eb3-b1d0-1c793e22b64c",
+      "bands": "1f2725d4-2f53-4c1d-994f-ac14f35a8072"
+    },
+    "PSL-PAW-v0.x-10": {
+      "upf": "df543dda-2802-425b-b153-9bf1c786e96a",
+      "params": "bef64915-0fe6-4b0b-9730-61622c432d16",
+      "bands": "4c490f51-0afd-4db9-b378-8ac0df97c2c7"
+    },
+    "PSL-PAW-v1-high-32": {
+      "upf": "284e9c4e-3ce0-4c8b-8d59-90f022a0ba9f",
+      "params": "755f7c89-84b0-45af-8bba-c889f8db932e",
+      "bands": "e1b5ff84-b411-40c4-bc16-5ed404d220a2"
+    },
+    "PSL-PAW-v1-low-18": {
+      "upf": "b1cc6c7c-ff8d-41ff-84ba-7e3906a65f3d",
+      "params": "e3a68b54-7042-401e-8287-036506ab440f",
+      "bands": "a8db66c3-5cc1-4be6-9269-343d8bd50f3b"
+    },
+    "PSL-PAW-v1-low-10": {
+      "upf": "5e9135a8-b4c4-402f-9dd7-712ba5056ccc",
+      "params": "b2680e0b-9f01-4eb3-b142-bc83d7d20821",
+      "bands": "44f79c97-3051-4cef-bc8c-28b441d718f5"
+    },
+    "JTH-1.1-std-10": {
+      "upf": "325e58d7-d93e-4349-9ad9-485598bb45c0",
+      "params": "48ea3bc5-ee2f-4ce3-86be-21bb6a3cb289",
+      "bands": "82742fc1-0140-4bd6-8c22-3ba82d8d181e"
+    }
+  },
+  "Pu": {
+    "PSL-US-v1-high-16": {
+      "upf": "11a30cbf-892d-4474-9e85-0ebdb73e6264",
+      "params": "d6994a03-633f-4066-be00-d5e6db4efd3b",
+      "bands": "1551ec00-8966-415b-b272-9fba756b51f2"
+    },
+    "PSL-PAW-v1-high-16": {
+      "upf": "48f74d51-fdfd-43e2-86b5-6963eea03ab9",
+      "params": "46a09e9a-b4e7-460f-b1c6-ded5844c076d",
+      "bands": "3d45d2fc-e013-440b-a2eb-9ede26182047"
+    }
+  },
+  "Ra": {
+    "PSL-US-v1-high-20": {
+      "upf": "48b8df7c-ffbc-43fc-b61a-19dbb5a1bbe5",
+      "params": "7eaf84fc-2b45-4c84-85a6-dcdf6fd2a544",
+      "bands": "21a2a76f-f448-4dfe-bc60-41970b1cf6ce"
+    },
+    "PSL-PAW-v1-high-20": {
+      "upf": "c55e171e-d338-424c-ac23-6477e42efc5e",
+      "params": "3445f836-0997-4fb6-8ae5-6cc4f3d7a796",
+      "bands": "e13e60f7-ed32-4762-a3ce-fbed73282e59"
+    }
+  },
+  "Rb": {
+    "DOJO-041-std-9": {
+      "upf": "0d852198-d963-4143-a854-52a5a72af096",
+      "params": "3bce373d-09a3-43a5-8d92-ae922b2f8836",
+      "bands": "7707a3e4-cf80-44ab-9e9e-636d7e4dff75"
+    },
+    "SPMS-9": {
+      "upf": "f2515489-edcc-46df-9767-f3e04a69fb46",
+      "params": "7aa06883-161d-4405-8d30-3e4d7e066161",
+      "bands": "a07102c5-6d2e-41a5-be51-b73a4c2180fb"
+    },
+    "SG15-9": {
+      "upf": "4d9dfb53-c87e-4d3b-9caa-608713309a8c",
+      "params": "de49993c-9db2-4882-a5d1-c1a0538757bb",
+      "bands": "815112bd-458d-404a-9bf6-67ebf19124e4"
+    },
+    "GBRV-1.X-9": {
+      "upf": "a0c381aa-750c-4ef6-b8ac-c2973db4286d",
+      "params": "2b8e3bba-5700-4f62-9138-2f8ef264664f",
+      "bands": "4480e345-ba6d-4d95-b51f-ca2195a68955"
+    },
+    "PSL-US-v1-high-9": {
+      "upf": "2764dc82-c560-4b59-bb4d-3ab636788397",
+      "params": "f726cac0-1861-42c0-bf65-6ba8c88e42cb",
+      "bands": "04216839-f476-43c5-b73e-e4124b3d15f3"
+    },
+    "PSL-PAW-v1-high-9": {
+      "upf": "e576f774-9800-49e2-8b98-19ecd26cd85a",
+      "params": "fe05c2ad-b717-4e9a-a6db-80b778600644",
+      "bands": "c5dd04b4-77a2-4bb2-82fa-9058152179eb"
+    },
+    "JTH-1.1-std-9": {
+      "upf": "3a740968-262a-4db3-a2d2-6d0c8d9cb90a",
+      "params": "8d03a743-4343-4b84-84a2-d0db488e2892",
+      "bands": "14b5c9a8-1968-43fa-a45f-5c9e7437e7aa"
+    }
+  },
+  "Re": {
+    "DOJO-041-std-15": {
+      "upf": "a7a346e9-d958-46ba-90cc-6f4f39d33960",
+      "params": "02281a89-7f48-40c5-91f7-54ddccacea4d",
+      "bands": "cb19b75f-1075-40fc-a77b-8f238d3f8902"
+    },
+    "SPMS-15": {
+      "upf": "a31d8941-70d8-459e-bea3-f3c2331829aa",
+      "params": "345edcc2-5136-4a3d-aa0b-b42389aca350",
+      "bands": "b90fe75e-cdb3-4ee3-9801-dd18be93465d"
+    },
+    "SG15-15": {
+      "upf": "15708316-097c-42ac-b360-9869cacb70af",
+      "params": "d0b33a22-e129-4f85-a802-256ed0cae843",
+      "bands": "f0f81361-07ba-4dba-949b-4bfd3fa5394e"
+    },
+    "GBRV-1.X-15": {
+      "upf": "06560fa2-262f-485c-888f-3bf5069575ab",
+      "params": "73000b43-e00f-464c-91f5-b9322cd102a2",
+      "bands": "9c9f8bc8-9673-42e6-a092-b80dd7e60334"
+    },
+    "PSL-US-v1-high-29": {
+      "upf": "09d092b8-daeb-424d-b759-6b97b1de9d02",
+      "params": "0b5bda6a-31f5-4a7f-83ca-2fe76c0bcd6e",
+      "bands": "cd4ae1c8-3222-437a-be45-52fcde9975a7"
+    },
+    "PSL-US-v1-low-15": {
+      "upf": "2b413451-2d69-4d57-80d1-09540dffa789",
+      "params": "ff0c6bc5-9f95-4916-95b6-5729e1d18e67",
+      "bands": "bd7275d9-b578-4b25-ac7c-0adeb384eca4"
+    },
+    "PSL-PAW-v1-high-29": {
+      "upf": "0a6eeac6-3614-4ab1-98e9-9075ef863f66",
+      "params": "2dc2aa1e-4b7b-4e65-9ea5-196d49a49189",
+      "bands": "eaea5274-3d65-45a7-9df1-db2984c5fa07"
+    },
+    "PSL-PAW-v1-low-15": {
+      "upf": "36ec0ed4-0362-4d39-a603-b723e063b493",
+      "params": "9edf7be8-a90d-49ec-b8dc-4dbe4429c93a",
+      "bands": "9f4363d2-4ae9-4590-bcb1-b7b31a07deb7"
+    },
+    "JTH-1.1-std-15": {
+      "upf": "292dad96-572e-4dfd-85a1-85efc7d9739b",
+      "params": "8d986585-611a-4e73-a6c1-414215b53a5f",
+      "bands": "0c932b64-bdfb-4e9b-b9b0-35fa94f26101"
+    }
+  },
+  "Rh": {
+    "DOJO-041-std-17": {
+      "upf": "f198ecee-c3cd-4fab-84b4-ba381869640a",
+      "params": "a3f66790-2d5a-4314-b1f4-43cc40ef5990",
+      "bands": "5fa2af51-ff0c-4681-9054-d62b465e4224"
+    },
+    "SPMS-17": {
+      "upf": "494c1175-fd55-4dbe-aa12-7df97c6ceac3",
+      "params": "4afee119-ce5e-4d34-a01f-6fa03c6d48df",
+      "bands": "f145026b-88c8-4735-8132-c7b52032c82d"
+    },
+    "SG15-17": {
+      "upf": "54999fc9-6f05-4734-b80a-51b77989e303",
+      "params": "e0e28f89-6d73-4162-86b7-c4f5399b75e7",
+      "bands": "71ebd225-9bce-42d0-8283-80d0f7229975"
+    },
+    "GBRV-1.X-15": {
+      "upf": "1457aeee-c41b-436c-997b-3952bc053829",
+      "params": "58dfed57-11cd-4e72-9e2c-1ba3d51dc043",
+      "bands": "383937ce-e721-4e64-8ec0-2dec50162deb"
+    },
+    "PSL-US-v1-high-17": {
+      "upf": "be5ddc3c-48f1-46a8-a75d-c0785ec19ff6",
+      "params": "7ac77825-15f1-4f91-8d9b-4cdc9ded9d9d",
+      "bands": "3deb1ce7-4ffa-42f3-8524-23e8a3bc6f36"
+    },
+    "PSL-US-v0.x-17": {
+      "upf": "7b275c39-6f6e-4e96-b969-a1dde0e6c56c",
+      "params": "11ce80cc-e3ac-4d07-af02-53b3ae491206",
+      "bands": "e79c32a4-30bb-48a3-8e13-b5ca521949ad"
+    },
+    "PSL-PAW-v0.x-17": {
+      "upf": "426433b3-c391-4389-a520-f462b6a0181b",
+      "params": "d1cc0675-4309-4ef7-973b-a01874c4b61e",
+      "bands": "800ab119-0325-4aef-8ffe-320445fc5925"
+    },
+    "PSL-PAW-v1-high-17": {
+      "upf": "d8f53b8f-949e-4e4a-b254-227f663cb151",
+      "params": "f7fd2a3a-1a46-4e62-857a-29aa5c5cb9db",
+      "bands": "84510336-1e84-4717-96db-0eb5d3bbfa4a"
+    },
+    "JTH-1.1-std-17": {
+      "upf": "cf8402c4-24e0-4571-a6bf-57016b5e2f87",
+      "params": "902bc912-d8d2-4e22-9281-0021ccaaa828",
+      "bands": "15abe3b7-3266-42b2-868e-e5c1c00bd4ea"
+    }
+  },
+  "Rn": {
+    "DOJO-041-std-18": {
+      "upf": "148bb176-5012-4b5c-a4fb-8f3b258fa82c",
+      "params": "db3c9a00-4081-4bb1-b0a9-b19366bcf81a",
+      "bands": "36483be7-6e6a-49e3-8d0d-268fb23027fe"
+    },
+    "PSL-US-v1-high-18": {
+      "upf": "5ffd757a-3c2b-4519-b6f0-54842e62c6a6",
+      "params": "1259d890-480d-4a82-a1d9-889ce54a226c",
+      "bands": "bc579a97-3c7a-4fc3-a320-edfc0e784915"
+    },
+    "PSL-PAW-v1-high-18": {
+      "upf": "eba3f930-f4f1-4eda-8d84-45d55c0bd4ce",
+      "params": "0753ed0f-2cf4-4bfc-b841-fe87036e1267",
+      "bands": "85d35e0b-58f7-4c69-9ff8-4eb50b565dab"
+    },
+    "JTH-1.1-std-8": {
+      "upf": "ecf1c567-85e1-4a34-a931-e2216ae36cda",
+      "params": "466b07c7-a5db-4cd4-a0f7-dea3dcb20d90",
+      "bands": "7a4103ac-d523-45c4-99d3-a082663ae9b7"
+    }
+  },
+  "Ru": {
+    "DOJO-041-std-16": {
+      "upf": "988c6700-b8bc-498f-ab0c-401185fcf208",
+      "params": "5106b53f-1039-4ef0-92a9-6056ef7270da",
+      "bands": "94a09c60-23d3-4d8e-81ec-9618413723fe"
+    },
+    "SPMS-16": {
+      "upf": "b8431d6f-3f83-4926-88b8-b81738030468",
+      "params": "ee0fccfe-db5e-4b93-baa9-484a373c66cc",
+      "bands": "f6ef888c-deb4-4724-9275-35bf9c49b6b0"
+    },
+    "SG15-16": {
+      "upf": "dbe5d1c5-2ade-4a82-af6b-99ceef1e5ead",
+      "params": "1787b528-70d0-4442-b395-c8e5d191b2de",
+      "bands": "97a9aa39-bb6f-4c6d-aedf-ccc99df61192"
+    },
+    "GBRV-1.X-16": {
+      "upf": "087ab261-b200-4778-ae7b-0d1af9802edc",
+      "params": "7a0ac1f7-c089-4498-a660-df9c59894463",
+      "bands": "6d08e217-7357-4f29-b399-872c71e7302a"
+    },
+    "PSL-US-v1-high-16": {
+      "upf": "8ed38fe7-9dc3-4efb-83c7-0624af7c11b4",
+      "params": "b6d21ec4-9d32-436d-84a9-0d13fba894ba",
+      "bands": "63249d6b-c159-4438-b19c-ae48564724ac"
+    },
+    "PSL-PAW-v1-high-16": {
+      "upf": "78df8f68-c8d1-44cf-9c77-7bf415751ecb",
+      "params": "a3f00e36-f215-4077-8ebc-41ec010e0a5e",
+      "bands": "c3436a1f-ae68-46fe-8725-4ff49978335d"
+    },
+    "JTH-1.1-std-16": {
+      "upf": "4618b933-d8a2-42cf-b142-05478aee5e25",
+      "params": "25f29d58-3302-4365-879d-7b5524fddb7c",
+      "bands": "16513324-f344-4cf1-9396-ee0532b9396b"
+    }
+  },
+  "S": {
+    "DOJO-041-std-6": {
+      "upf": "a026900e-b951-4a15-8b6e-1adf9f10a476",
+      "params": "1981e7a8-1be7-4aa8-9214-2fd777c2a5a0",
+      "bands": "60f8c854-aee4-4019-b10c-bc2f32013f46"
+    },
+    "SPMS-6": {
+      "upf": "f6080a10-8286-4b23-859a-a45bd5ab30ab",
+      "params": "03232894-bf73-4af7-8032-f437c23a528c",
+      "bands": "2aacff5d-2504-4172-9300-9ff5b857312d"
+    },
+    "SG15-6": {
+      "upf": "c63f5ee6-d2de-44c7-93cd-90ccc375aa0f",
+      "params": "c425cd7a-fa1f-466b-a7fc-6d40cb0641f2",
+      "bands": "f08df80f-2e69-4462-8c7c-ef67e6df75a5"
+    },
+    "GBRV-1.X-6": {
+      "upf": "ec5af1dd-d882-4855-9d53-9dff624df834",
+      "params": "6b67a00e-e1a0-4551-925d-25726cee5338",
+      "bands": "3e55f251-1c9d-4871-b361-ab0c2c0b5c37"
+    },
+    "PSL-US-v1-high-6": {
+      "upf": "2c26d4cc-e7af-49b0-a87f-903c0a48bb8b",
+      "params": "e900ff97-07ad-4391-8f03-c963635dd99b",
+      "bands": "08764a9a-eb9c-4714-83b5-7ed03d6c11b5"
+    },
+    "PSL-US-v1-low-6": {
+      "upf": "1fb557f9-d34c-4aae-9579-4015fab1edd0",
+      "params": "19fc65ec-f078-4321-a5fd-1bc6d4a35cec",
+      "bands": "b8180d77-75c7-4a27-bc2c-fce8b7593b66"
+    },
+    "PSL-US-v0.x-6": {
+      "upf": "5ad8e97f-1cc1-4724-a405-ed652b94d2f2",
+      "params": "080f1071-e794-4dce-aee0-21ce0a0e6b1d",
+      "bands": "78b1b84b-b479-4e14-a228-b6bf3deb75c2"
+    },
+    "PSL-PAW-v0.x-6": {
+      "upf": "fbf20acb-60ce-418e-9f51-ee98daef0348",
+      "params": "737436f8-cfb4-4eaf-a157-638b683a10e7",
+      "bands": "8486e88c-9a38-46cb-88c8-2e8ac59e2c7c"
+    },
+    "PSL-PAW-v1-high-6": {
+      "upf": "a68dd4de-ba50-4bb6-bd16-aa318eb9e08e",
+      "params": "2e9d1d5e-3e5d-4145-a3ee-f09e66def8a9",
+      "bands": "fc21cade-9e1d-48d3-a38b-dec897c6eebe"
+    },
+    "PSL-PAW-v1-low-6": {
+      "upf": "260b87bc-609c-439f-9bd3-c385934356f6",
+      "params": "fecc6b33-7a21-44ca-be3c-a1acd2ebd49f",
+      "bands": "909801c6-4b16-4803-af61-0b1ce103b6ed"
+    },
+    "JTH-1.1-std-6": {
+      "upf": "5a301b65-15aa-4dd1-94e3-32b2fd8dccef",
+      "params": "ef25f829-1f50-4f99-9b31-7712922b02fc",
+      "bands": "5fa56e45-a304-4c19-a456-612b3b4f93b5"
+    }
+  },
+  "Sb": {
+    "DOJO-041-std-15": {
+      "upf": "72233a9c-3d88-46ac-a0c7-3fa180fd9a5e",
+      "params": "e3ca133a-90c0-40aa-aa43-0dd0adadc5c5",
+      "bands": "33ebec59-218c-41a7-9833-843463c23805"
+    },
+    "DOJO-041-str-23": {
+      "upf": "35a54950-e876-4b0c-8ab7-db5f3fbe4765",
+      "params": "0c43274d-3d04-487a-b4d9-69ed3d4fc128",
+      "bands": "439a742e-45f2-4375-899e-5665823194c9"
+    },
+    "SPMS-15": {
+      "upf": "2b455472-6d49-47bc-ae8b-e3a35d470623",
+      "params": "1e928169-cdc4-4d4f-a3fe-acce9763aa85",
+      "bands": "456c88a9-3cdd-4777-8483-ebd1eefce9db"
+    },
+    "SG15-15": {
+      "upf": "035d2fd7-e987-4c01-bfd9-782ed4623308",
+      "params": "bedb7740-045e-44c2-9dfa-16ad500966ec",
+      "bands": "0bbd2fbc-e9fd-4213-b4d5-2d2eb68d309e"
+    },
+    "GBRV-1.X-15": {
+      "upf": "75534c1a-2998-415d-a6cf-9ea6a85cb2cf",
+      "params": "8879f134-0e0b-487b-8d38-8e618a568665",
+      "bands": "06d90b8e-d68d-41bc-887b-fe11e0da6d74"
+    },
+    "PSL-US-v1-high-15": {
+      "upf": "39189bd1-59ef-4d7e-b6d1-83a302182c39",
+      "params": "6fb9bb61-c276-45fb-ade7-1267521ac046",
+      "bands": "81309dfc-17fb-447d-8eaa-63f0e7079565"
+    },
+    "PSL-US-v1-low-5": {
+      "upf": "60565d4a-e643-4858-942a-6e387d1a0de7",
+      "params": "4ff52a2b-a213-4ac0-9ffe-10b0eeb7c68a",
+      "bands": "94c9f9bc-a4ad-4529-bdaf-753a5ebc9beb"
+    },
+    "PSL-PAW-v1-high-15": {
+      "upf": "1cc2f724-ffb4-4fdb-bc21-77866b281bb0",
+      "params": "616a0454-c923-4891-85d4-f957afb5e92d",
+      "bands": "53f69de5-467f-4832-8d22-cb24ae71f983"
+    },
+    "PSL-PAW-v1-low-5": {
+      "upf": "4c6a72e5-cde9-4dbd-8b03-7812839e80b2",
+      "params": "4096664e-9957-41a5-843b-9d76e57706f1",
+      "bands": "0b2d873f-7876-437c-9188-e1773b505977"
+    },
+    "JTH-1.1-std-15": {
+      "upf": "7480d3de-320e-437c-a3e0-8c7b9843414e",
+      "params": "dfd1d262-38dd-4258-9048-eb3bd829fdc0",
+      "bands": "e897084b-9ddd-4a67-8abc-0b4ca6ae01ab"
+    },
+    "JTH-1.1-str-5": {
+      "upf": "6523d3c5-7b9f-4c7f-8504-3ff7841a1dd0",
+      "params": "270ac813-2af9-45bf-945f-1e81885e8757",
+      "bands": "c76a155f-14b4-43e1-bca3-61e35a38f59d"
+    }
+  },
+  "Sc": {
+    "DOJO-041-std-11": {
+      "upf": "358ed28d-37a4-41a7-8135-d9ca6cfc5281",
+      "params": "ab319cc4-34ee-40c7-9d41-6e6262831c43",
+      "bands": "2665fa14-2e9a-4557-a1b5-aecfff9cacda"
+    },
+    "SPMS-11": {
+      "upf": "8d55d4cb-fadf-4cb2-9fa9-9d4e60644ac3",
+      "params": "8b657209-e18f-4b36-b844-78a6dcd035b4",
+      "bands": "9b821ab2-dadf-43a6-967b-54613a232e2a"
+    },
+    "SG15-11": {
+      "upf": "9d614f7c-f3bc-44b9-96e3-08dd881da79e",
+      "params": "99848b44-22e5-4d19-abb6-c87cf28b765e",
+      "bands": "6bc540ad-3ccd-4967-9edc-95a4856045ad"
+    },
+    "GBRV-1.X-11": {
+      "upf": "a2c3e5b9-eaef-41b9-9cc6-05bf31dfe75c",
+      "params": "ef4cbcd0-12a2-429e-84da-fe374fc0d794",
+      "bands": "49e211c4-8a9d-46b6-b420-b9023a1f4fee"
+    },
+    "PSL-US-v1-high-11": {
+      "upf": "fcc91761-228d-46e2-b8bd-b73af0b86419",
+      "params": "8fea0168-99d3-4aa8-9036-11d275ee36eb",
+      "bands": "9760795b-b43a-4dcf-a2dc-b8b2c6ce30c7"
+    },
+    "PSL-US-v0.x-11": {
+      "upf": "b74df9e7-e576-4627-9a22-8aceb4affb3c",
+      "params": "ab0afe19-8486-4ae6-aed0-9e352f7875f9",
+      "bands": "4cfa86a5-4a03-49ba-89ec-b2b48e6726bf"
+    },
+    "PSL-PAW-v0.x-11": {
+      "upf": "51f150e2-c5b5-438f-b263-de6371a61623",
+      "params": "6988ccfe-bcfb-421e-8479-58d9ee483c4d",
+      "bands": "bce79a81-0aa4-41cb-90d5-7ab42f984120"
+    },
+    "PSL-PAW-v1-high-11": {
+      "upf": "ce366cc1-ff6d-4e37-bd6a-79ce0f558276",
+      "params": "bd189b49-4977-40d3-930b-d64e96c5a7b1",
+      "bands": "55ffa63e-451b-40b0-a2cb-a527f6b1f4a7"
+    },
+    "JTH-1.1-std-11": {
+      "upf": "86cb4c1d-9bb3-421a-8d0b-37b2ed431590",
+      "params": "5ce45bbe-bfaa-41e9-9c55-8e09653f401b",
+      "bands": "32c6c72b-f67f-4177-b378-c6619f4b8394"
+    }
+  },
+  "Se": {
+    "DOJO-041-std-16": {
+      "upf": "41969fc8-4f51-4246-8c81-92ff0e2f2f04",
+      "params": "5be028d0-9dd7-4989-92fd-8090c3f1faed",
+      "bands": "fec4eaf6-5055-444b-b7e5-e6f13cbc941e"
+    },
+    "DOJO-041-str-24": {
+      "upf": "71aef544-3254-456a-af68-edb0d2b576ed",
+      "params": "8702b20f-3882-449f-8d00-77d84069b814",
+      "bands": "30382f98-7e92-400c-8d5e-250d8a0118c3"
+    },
+    "SPMS-16": {
+      "upf": "6c06db96-40bd-445d-a1dd-3645230b68ab",
+      "params": "3141c11d-9b99-458a-b844-d773af5c1a62",
+      "bands": "2cb40410-3da5-4efd-abac-303ad931ddac"
+    },
+    "SG15-6": {
+      "upf": "caa9da32-1348-4d08-a725-77e5d3a58553",
+      "params": "0d1f6d2b-9509-4851-800d-458fe14be07b",
+      "bands": "a943ecdc-5f1a-4d87-8894-5d146515406d"
+    },
+    "GBRV-1.X-6": {
+      "upf": "4a916793-aacd-4f5b-886c-460566371d48",
+      "params": "3a0044bc-352a-45a8-9481-75c86916730a",
+      "bands": "b550990d-f25c-4a5b-a18b-9fc4c5857fbc"
+    },
+    "PSL-US-v1-high-16": {
+      "upf": "c6e7552a-e33c-4fcc-8d04-4ccb746f1bef",
+      "params": "aee6caa3-81bd-4ea3-a527-821a540c7442",
+      "bands": "eaade36f-2ce0-48f1-8ec5-9695cf1fd414"
+    },
+    "PSL-US-v1-low-6": {
+      "upf": "7d46cf83-d28b-4b50-8db1-f8b6d0edfab5",
+      "params": "6822ec0b-15e3-4be4-86fa-4ba2f601e89e",
+      "bands": "e109d431-d2fb-473e-b771-314c3dc1d6ee"
+    },
+    "PSL-US-v0.x-6": {
+      "upf": "c5901312-7b3f-4407-878c-c8fbf876e491",
+      "params": "0ef5743b-3a4a-4921-aa5b-fa0f0c933492",
+      "bands": "489d45d7-79b7-4f8d-8b90-4574fefeee88"
+    },
+    "PSL-PAW-v0.x-6": {
+      "upf": "d7d26133-c5d9-4b8c-99e5-e709ca105802",
+      "params": "aa281918-df81-4c22-ace9-6327097fd7dc",
+      "bands": "2cdce5c8-339f-467a-882c-8c8adfb56a3a"
+    },
+    "PSL-PAW-v1-high-16": {
+      "upf": "a3e2a36f-ca23-4329-8afb-3d482b2c6655",
+      "params": "270648bc-39f2-4169-8df2-48c0b279c808",
+      "bands": "0c93832f-5322-4858-a38a-1efca628db4c"
+    },
+    "PSL-PAW-v1-low-6": {
+      "upf": "62ed7161-59b3-4a25-9147-cfdc167d8714",
+      "params": "cfc4c452-74c7-47dd-9f26-f94368d44921",
+      "bands": "7e792667-e013-4866-b2b6-10c83d7d6c81"
+    },
+    "JTH-1.1-std-6": {
+      "upf": "6a8789d8-f0e1-4c40-b1af-eed177b01a2a",
+      "params": "99eb590b-dd25-4bb9-9c8d-9458dec5400b",
+      "bands": "f859a371-cbf7-44a4-ab79-3e54fe34b94a"
+    }
+  },
+  "Si": {
+    "DOJO-041-std-4": {
+      "upf": "13ded128-29dd-4d45-a69d-4198205e1743",
+      "params": "01c272b9-e9b2-4edc-ac76-fd47476fa4d5",
+      "bands": "36659a76-894a-4453-bd47-07e37070e067"
+    },
+    "DOJO-041-str-4": {
+      "upf": "ecd8c7c8-0498-4b2c-8d35-a22472a88704",
+      "params": "486f0dc6-c360-4c65-a624-a792a35c9b7c",
+      "bands": "e142f851-8748-48bc-a67f-d40cde171768"
+    },
+    "SPMS-4": {
+      "upf": "a1da8157-f99d-448c-979f-b20c7152735c",
+      "params": "78e929ca-a852-42a7-95a5-9c912586b62c",
+      "bands": "821f8e82-b87a-4c1f-bd06-dd4e3e150c03"
+    },
+    "SG15-4": {
+      "upf": "81c37a0c-b717-475d-b449-4163f477377c",
+      "params": "c5708404-0dc2-4d74-b3f7-fbde4cbbc4d8",
+      "bands": "8cdbaa85-65b7-4d95-9b24-c8aa84202435"
+    },
+    "GBRV-1.X-4": {
+      "upf": "f2416323-1107-4b8e-a223-e494e166a28a",
+      "params": "b7ead6b3-74ed-48ad-938e-2b2e6fdd0f1d",
+      "bands": "05bb4d54-18ff-43a2-9260-733ea5ee6aa2"
+    },
+    "PSL-US-v1-high-4": {
+      "upf": "d6d253dd-5a9a-4535-8750-845d522c6237",
+      "params": "c86f224d-19dc-4490-9c10-52aa0f030b16",
+      "bands": "8fc0da79-8603-4e12-984a-622afba91461"
+    },
+    "PSL-US-v1-low-4": {
+      "upf": "19d4baff-b874-4f0b-a23b-1b5224ea5f50",
+      "params": "bdfe4d97-8466-4898-8912-7c509526267f",
+      "bands": "5f666383-c8f5-4b5c-8baa-9c08f1d1e437"
+    },
+    "PSL-US-v0.x-4": {
+      "upf": "ff6bfebb-fa12-40c2-a41a-aa312a18e36c",
+      "params": "876553d2-08a9-48ec-902e-5c0d334de126",
+      "bands": "cbf2c66d-209d-4152-a948-1db7e654afe2"
+    },
+    "PSL-PAW-v0.x-4": {
+      "upf": "b6e49d93-5b5d-42c9-adbf-0f91a6615803",
+      "params": "202eb45b-7c5a-4a2b-b36f-9e697f2886ae",
+      "bands": "cf5527c6-61a5-4b93-be2e-9f4b92c1800e"
+    },
+    "PSL-PAW-v1-high-4": {
+      "upf": "dfdb1d72-f63a-481e-b71a-9e87f909e499",
+      "params": "41ed236c-646f-4745-88b2-e9e5aa5967ec",
+      "bands": "e66a517b-5ddf-49ff-9277-05ef094cd02a"
+    },
+    "PSL-PAW-v1-low-4": {
+      "upf": "1bd7f31f-52fb-4186-a4bf-f5a4cdbd3ecf",
+      "params": "338ece77-bcfc-40e0-b296-f3a36ca6aecb",
+      "bands": "8ceb76a8-7c31-4d66-9ace-3fc894e2efe3"
+    },
+    "JTH-1.1-std-4": {
+      "upf": "003312ad-e8b3-47a0-b694-8d9b7c926e6a",
+      "params": "696ffe41-955f-438c-a25f-7e5cf7d7034a",
+      "bands": "fb8b1ac1-81d7-4fd9-95c4-cd787b6be42a"
+    }
+  },
+  "Sm": {
+    "PSL-US-v1-high-26": {
+      "upf": "b8ad5107-b840-458c-bb01-d15dafbff4bb",
+      "params": "46d2b78e-8e3d-4f16-8cbe-6db9a762fc0c",
+      "bands": "29f85b6f-f16a-426b-90c0-5a69c8710108"
+    },
+    "PSL-US-v1-low-11": {
+      "upf": "edcbf058-5e1d-47ec-8f03-14840fd17576",
+      "params": "d934da3a-0ec7-4896-8fcc-281d4a36c5b4",
+      "bands": "de446e33-21ea-4bea-8870-872e9088691d"
+    },
+    "PSL-PAW-v1-high-26": {
+      "upf": "93eaef74-6edd-4629-bd7e-ce6ac4264d6e",
+      "params": "42743a47-7904-4d26-b32d-357287bb8ca3",
+      "bands": "fb896819-60a7-4a4a-8751-147defdd3d0e"
+    },
+    "PSL-PAW-v1-low-11": {
+      "upf": "fb45a400-59b7-438a-a253-a65cba78866a",
+      "params": "712acf1b-dbb4-4ce3-8a6c-4d4aa2b34a9f",
+      "bands": "45953906-7314-4432-9807-69dffb7bc347"
+    },
+    "JTH-1.1-std-16": {
+      "upf": "f7972f2a-ad7f-4ca4-80ae-fcc2255c1d26",
+      "params": "e817da77-e7fe-40e2-8d7e-5bab409bd0de",
+      "bands": "51ed4187-462f-436e-bde0-64e69b545ebf"
+    },
+    "Wentzcovitch-16": {
+      "upf": "3e30359b-592a-4e21-8307-35fe889cb9a8",
+      "params": "54838367-9409-42fb-b660-2f9f6a7f16bb",
+      "bands": "83376bcf-b372-4394-b783-fe6723e59acb"
+    }
+  },
+  "Sn": {
+    "DOJO-041-std-14": {
+      "upf": "f55afc30-9d19-4d21-900f-da50a1d58bcb",
+      "params": "ae48d95c-b2e5-45c9-b968-460de25c5323",
+      "bands": "71cc526d-3a2a-49f6-9ae8-3f6c86c9849b"
+    },
+    "DOJO-041-str-22": {
+      "upf": "6ac94567-bb9a-4b33-8a84-b1d4bfe3bb83",
+      "params": "53df44fb-c028-4a68-ae9d-6579ad97fd9c",
+      "bands": "6d328f62-a61e-4159-bf7b-aa289d7c4987"
+    },
+    "SPMS-14": {
+      "upf": "3db14ca4-5caa-4836-8984-1f868981f6ff",
+      "params": "a63a5fb1-7d5c-4a69-9aad-6ea0f912cfdd",
+      "bands": "b0f55db5-c045-4451-ba6a-6f43a28e29a2"
+    },
+    "SG15-14": {
+      "upf": "c03c76e4-e3c6-422b-80b7-92f00b220e86",
+      "params": "7303ff38-eddf-4cd1-ace5-5dce9e3de09b",
+      "bands": "b2d527b9-749f-4c66-bce6-3dbe1f15c892"
+    },
+    "GBRV-1.X-14": {
+      "upf": "08db734e-5584-4afd-b8fa-48ef9e73ce82",
+      "params": "f83a2b86-c2d1-4b77-a81b-7f55e9417d6e",
+      "bands": "35ff3780-ee5d-4ea9-9221-3090d2ca18e9"
+    },
+    "PSL-US-v1-high-14": {
+      "upf": "e8d7b549-e349-4f52-a14d-03341c7b7b32",
+      "params": "2a572fdb-d9ab-4478-8d3d-b4a64f46b36a",
+      "bands": "70c360c8-35ea-42f4-b330-e69a4ed7be9e"
+    },
+    "PSL-PAW-v1-high-14": {
+      "upf": "0d9a899d-1e13-4a6c-b969-65759f1a5b7d",
+      "params": "085ec347-5a0d-40ef-9498-559c4be9f9d2",
+      "bands": "4f249cbc-721f-4cbf-ada9-ce94c6ddd1f1"
+    },
+    "JTH-1.1-std-14": {
+      "upf": "9f4e4322-49f1-462f-9ef5-a39ab844c466",
+      "params": "f0daab76-ecb2-4b58-be9b-309486bb9d7d",
+      "bands": "6274d59a-d786-47f6-bb63-dda17c6228d9"
+    },
+    "JTH-1.1-str-4": {
+      "upf": "51231027-5d32-4eb7-aba4-60a3d2738481",
+      "params": "792bb30d-e145-4398-ac1c-962193a3cfd1",
+      "bands": "def02867-6330-441c-b82d-dad28b1008c9"
+    }
+  },
+  "Sr": {
+    "DOJO-041-std-10": {
+      "upf": "48fcde7b-c500-4f49-b434-089571fea126",
+      "params": "e92f729f-c1fd-46af-bd5a-bdcb59c8011f",
+      "bands": "96e161a7-9650-467c-83aa-50dd940bdb2e"
+    },
+    "DOJO-041-str-10": {
+      "upf": "1bd1d1a1-fb93-4d5f-b600-fb0975ea37d6",
+      "params": "444aecc6-ad48-45b8-8ef0-a2fc01c47b41",
+      "bands": "fd4e91c5-e2d9-4143-a74c-4f219520d02b"
+    },
+    "SPMS-10": {
+      "upf": "414b9f32-fdc7-4e00-99b7-87584cd54eda",
+      "params": "c7ce052e-fddf-4945-82e6-7bbaa0d47cf4",
+      "bands": "bb67e1b4-20d6-4d93-90a3-e58a8f8aca1e"
+    },
+    "SG15-10": {
+      "upf": "6b0f7723-a6b5-4987-a8af-7c361012085a",
+      "params": "d739d4e9-d1c0-491a-8080-00b9ec61fccd",
+      "bands": "88f7f1a0-53d7-44bd-9953-175b1e7d0a6d"
+    },
+    "GBRV-1.X-10": {
+      "upf": "8e9d313f-bac9-4f2e-ba1a-77a16e89093a",
+      "params": "9f6292ab-67c8-46c7-9b80-32f6e0092259",
+      "bands": "21b1b010-39fa-4c03-8ace-9d85598e3bc0"
+    },
+    "PSL-US-v1-high-10": {
+      "upf": "d72e369b-b906-4158-a7d6-47c236140f40",
+      "params": "e446cef8-e3d0-4638-b4d7-8197216695a5",
+      "bands": "50cc8fa1-73d5-4dfb-b57d-8cac1e0f5c8a"
+    },
+    "PSL-US-v0.x-10": {
+      "upf": "fe41b488-3c65-4faf-acb1-9c7707d57d56",
+      "params": "6d7eab7d-cf15-42eb-b436-9d1b21ae5bfb",
+      "bands": "dbba3285-98e7-4845-af2f-1cd9d2f1e32c"
+    },
+    "PSL-PAW-v0.x-10": {
+      "upf": "3fb5dafe-179a-4928-afa2-c259666970d1",
+      "params": "3e05b7a0-47be-4974-82da-7e9bcbcbe02f",
+      "bands": "d71a7014-ea91-48c4-868f-a2d5e885e953"
+    },
+    "PSL-PAW-v1-high-10": {
+      "upf": "d3bff7fc-3778-4c2c-850d-c77b543cb562",
+      "params": "95d6e928-e8b5-4a2a-8997-f97981bf186e",
+      "bands": "3053e586-1080-4c99-b37b-d63fa66d340d"
+    },
+    "JTH-1.1-std-10": {
+      "upf": "6af5436d-b908-4fa4-9c83-20340dc6713d",
+      "params": "a479a17b-bc5b-457d-bda6-34530d0382fa",
+      "bands": "41c77d42-de73-4eac-b53b-20a0a52ddbaa"
+    }
+  },
+  "Ta": {
+    "DOJO-041-std-13": {
+      "upf": "2d84f379-f442-46cf-a579-e2f08e6b7d58",
+      "params": "c8f7b5f3-a4a7-46e7-8519-0f84fc3cd42e",
+      "bands": "1e34d54b-7976-4b30-bfbd-dc51db4454b8"
+    },
+    "DOJO-041-str-27": {
+      "upf": "b8e96616-1559-4b8b-b31c-943e77200c5e",
+      "params": "09928439-9b87-4dae-af6f-df01ee672c99",
+      "bands": "700f8687-0fd3-4cee-8533-3bb24d6c8814"
+    },
+    "SPMS-13": {
+      "upf": "009320ca-f7b2-4781-838f-b94b5a95ee25",
+      "params": "980b26ab-9c1d-4273-8363-d2e3ab775a13",
+      "bands": "14392a31-94a4-4fd0-85c1-ff88f3f400c6"
+    },
+    "SG15-27": {
+      "upf": "8a9d5e3f-eaab-44f8-a121-63a11e4a35ed",
+      "params": "d528f65d-4bcc-4611-a2a7-79c9e6403db4",
+      "bands": "d488cfeb-d3cc-4cb7-9810-9b8321eb1d50"
+    },
+    "GBRV-1.X-13": {
+      "upf": "a4e1307a-9621-44aa-a335-9790bd635133",
+      "params": "74d6d9ec-538a-4a7c-86ea-de1442a98145",
+      "bands": "50dcd1ff-b0bf-46e5-ab27-89b1f5ba602c"
+    },
+    "PSL-US-v1-high-27": {
+      "upf": "adc4f249-0b39-4b9a-a111-a14dd19d62f3",
+      "params": "2f753bf6-e25b-455e-9eac-6000e50d5e29",
+      "bands": "e4a2b5a9-fcc9-4de9-ae4d-ac32c27de758"
+    },
+    "PSL-US-v1-low-13": {
+      "upf": "e4357450-b5ff-4285-b752-d5e31019d27f",
+      "params": "e070a5fc-08d0-4679-bf40-5f3efead151b",
+      "bands": "1274cd80-bcdf-497a-9ac3-729bcaf4e63f"
+    },
+    "PSL-US-v0.x-13": {
+      "upf": "ebd506c7-1798-43b3-a8ab-a1c40caea0a8",
+      "params": "4c507efd-94bd-42a4-aba4-e9f29ac2db6b",
+      "bands": "31cc3f0f-b086-4b2e-9046-18e004e40dee"
+    },
+    "PSL-PAW-v0.x-13": {
+      "upf": "16c7ffa7-dcfa-4bdb-99a4-724a1ca9e65d",
+      "params": "589e6ebe-3513-4d24-a5f0-b0db62e37308",
+      "bands": "bb5df957-9443-47a3-be0a-7b5e06a34883"
+    },
+    "PSL-PAW-v1-high-27": {
+      "upf": "5ae345dd-b937-4357-a8be-94cc8ec677f0",
+      "params": "a9ec073f-a54a-4bf0-af3c-4cbaf14831a3",
+      "bands": "147c34ab-4594-4c0b-8487-1964040f462e"
+    },
+    "PSL-PAW-v1-low-13": {
+      "upf": "64fa32bb-5f8e-4c17-9ce4-64bc5d092127",
+      "params": "ec6a73cd-6461-46d4-a4ea-938483c78bd3",
+      "bands": "68ce8ab9-933e-41f6-a434-59a4da1d8ce4"
+    },
+    "JTH-1.1-std-13": {
+      "upf": "ffae07e9-1a12-4712-bbb8-5452e93092c7",
+      "params": "98b6ef61-4bfd-432b-8a88-fc7ceef57586",
+      "bands": "4e7aa811-5a25-4ed5-a0e0-3912233b64a9"
+    }
+  },
+  "Tb": {
+    "PSL-US-v1-high-29": {
+      "upf": "99c60dbc-4f7c-48e2-92a2-d2098f40a760",
+      "params": "fdd5e152-d690-40f2-84a6-b206a3f40d4a",
+      "bands": "320858c2-b386-4760-be26-fc5d953f9207"
+    },
+    "PSL-US-v1-low-11": {
+      "upf": "d81a9f91-f192-4143-801f-b6df36303004",
+      "params": "eacf9645-5989-4213-9aaf-59ae63c9ab29",
+      "bands": "6744b32c-73c8-4de8-b4b9-a0ebea31d1ef"
+    },
+    "PSL-PAW-v1-high-29": {
+      "upf": "a1021963-2c20-441c-a724-1ddde3f8d0fc",
+      "params": "4fca8df8-65c6-4eb7-8c5b-1fde94463f63",
+      "bands": "47c9cc2a-0700-49db-a9f5-a3c25d66efb3"
+    },
+    "PSL-PAW-v1-low-11": {
+      "upf": "28630950-9728-42f8-a115-ca0ccb55a11b",
+      "params": "02008b33-e3f6-410d-b182-3bd84c3dff5a",
+      "bands": "3051871c-24de-41ba-bc31-e3d12e40f197"
+    },
+    "JTH-1.1-std-19": {
+      "upf": "637d9a5b-2355-42ff-91b5-926850bf849a",
+      "params": "ff37e3ce-9832-4e37-ade9-1aff23aff2e6",
+      "bands": "598a25c7-21ab-4730-9823-e4ae18961b4a"
+    },
+    "Wentzcovitch-19": {
+      "upf": "e06e506a-72ee-45f9-a21a-096d718e775f",
+      "params": "d31771c1-3f7f-4e4b-83ef-7bc1cc7be2e4",
+      "bands": "47538459-406c-4991-90e7-9a2b050792d2"
+    }
+  },
+  "Tc": {
+    "DOJO-041-std-15": {
+      "upf": "e9b00c31-ca8d-43da-9dd2-9c0b91d683fb",
+      "params": "778c03e7-a6ee-4081-a9ae-02f693c206a6",
+      "bands": "f1f02ac6-d35a-4aa8-8439-e49415232844"
+    },
+    "SPMS-15": {
+      "upf": "e8ccba51-c741-4338-98b6-4693a9ebe0f2",
+      "params": "9ee9f78a-de00-4f94-bab7-a9f52e0d9099",
+      "bands": "62b19ab7-6741-447f-8f6a-791cf5b1b342"
+    },
+    "SG15-15": {
+      "upf": "cff1f64e-5b6d-40cd-b494-1cf006f0ef05",
+      "params": "1e1d2f81-9376-474d-b2a4-559698b77b5f",
+      "bands": "e5410108-b3f1-4b5f-864d-d5f585c86b8d"
+    },
+    "GBRV-1.X-15": {
+      "upf": "955a72c9-a06a-4715-ba63-8e035d2baa25",
+      "params": "6cd8d444-5a05-4620-87a2-f9cc6b359ee4",
+      "bands": "7e1cd617-d395-4d16-a923-d66613ceb291"
+    },
+    "PSL-US-v1-high-15": {
+      "upf": "18883fd9-cc6f-4bb5-8e15-3397166cd893",
+      "params": "cf67188d-d745-4e07-b1b7-0f93e8ede921",
+      "bands": "7506d325-7bd2-4019-bae2-fb7aafd767bb"
+    },
+    "PSL-US-v0.x-15": {
+      "upf": "c8dda59f-789e-4eca-8d71-6ff47ff4ab2d",
+      "params": "16c5b04e-2856-4704-aa81-269393e0e2d2",
+      "bands": "cea79639-ffd3-4872-a1c1-954eb9e7f9d1"
+    },
+    "PSL-PAW-v0.x-15": {
+      "upf": "cc137dd5-11c2-4686-8c0e-39ebc090ec3a",
+      "params": "ef7fc84a-0488-4f59-ba43-35107abe3a25",
+      "bands": "ae34a18d-97bc-48cc-93bd-64faaeb58135"
+    },
+    "PSL-PAW-v1-high-15": {
+      "upf": "49d1b56f-81b5-4ad8-b801-f23504f4ec25",
+      "params": "f8014964-453d-410e-aec0-79889c0625f6",
+      "bands": "7340a4eb-5a40-49aa-992f-b35107e0f722"
+    },
+    "JTH-1.1-std-15": {
+      "upf": "534aa8c5-d1a5-4392-a097-e23ddcf47f3e",
+      "params": "9d543fa9-9c18-4429-ab45-922b66722f84",
+      "bands": "5ed2de13-74b5-4161-b163-356f8fe588b7"
+    }
+  },
+  "Te": {
+    "DOJO-041-std-16": {
+      "upf": "d7b98617-0faf-422c-ae9f-c49d9932edf3",
+      "params": "e200122c-c003-46f3-9e77-60cbce5f3a33",
+      "bands": "bb9f7e87-09ea-4daa-91f4-a77db722be8c"
+    },
+    "DOJO-041-str-24": {
+      "upf": "d09c4d10-87cc-49e8-a59b-c1a2b3d68817",
+      "params": "0ae8c998-6e3d-48cf-b3e6-796c423737ae",
+      "bands": "ddfe34aa-a945-4bff-b5f2-b4a4598ea276"
+    },
+    "DOJO-050-std-16": {
+      "upf": "76856682-f6a4-41b3-9402-e5427b80347b",
+      "params": "c22e6895-67b8-4c48-ae39-bc198b48f18f",
+      "bands": "30f2d999-da8c-4439-a945-9f96cb1cbae4"
+    },
+    "SPMS-16": {
+      "upf": "a9b03fd5-8caf-4bab-9224-e69f94dc6a26",
+      "params": "5f1b67d1-e07d-4a71-a800-a3ecfa767c45",
+      "bands": "6d06c691-2944-4f52-85b1-4d35d517b2f6"
+    },
+    "SG15-16": {
+      "upf": "961bc8de-81ca-4535-af79-2660b0239c9f",
+      "params": "0d10788c-35d8-4be8-a7ff-ed71060eafb0",
+      "bands": "6127c3e3-5727-4405-9db5-734c1514b286"
+    },
+    "GBRV-1.X-6": {
+      "upf": "669ca837-1c14-4459-bc9a-92202f3a5ab1",
+      "params": "585a6e4f-1319-4603-803b-cba39ee738f0",
+      "bands": "9af91a90-875b-45d5-b215-aa68ecf97570"
+    },
+    "PSL-US-v1-high-16": {
+      "upf": "886b32f1-432c-46a4-a3a1-79becd47083f",
+      "params": "6141e558-ee46-4548-9a72-ff93d0f1d6af",
+      "bands": "a855412c-f421-47ae-90a3-d2c56ab61191"
+    },
+    "PSL-US-v1-low-6": {
+      "upf": "7b6c2327-7999-4fac-a04e-5d48fe5fa846",
+      "params": "acbbaf75-b2e1-4b7b-a781-424eb9f8da54",
+      "bands": "520b492a-7a98-46b2-a3ae-86a160fc6565"
+    },
+    "PSL-PAW-v1-high-16": {
+      "upf": "f84dafff-d2d6-4108-856d-a48afc9d98ef",
+      "params": "2e8238d2-7a2c-4226-ad67-21daf471d1bf",
+      "bands": "cbceb473-6432-4946-8a24-3af497a667ae"
+    },
+    "PSL-PAW-v1-low-6": {
+      "upf": "cc1dc7fe-a400-4c7b-9c96-b6f6687829bf",
+      "params": "71b6d1a6-4ba5-4f2b-aabd-41b14f568598",
+      "bands": "7205361c-2b49-4192-a37d-63b0a7d7a020"
+    },
+    "JTH-1.1-std-6": {
+      "upf": "0f108ff4-8796-4362-b96d-d5b882c464c5",
+      "params": "e2ccb77e-8516-4bf4-bba5-7162551a2d0a",
+      "bands": "f48f511c-f0a1-4bfe-a814-1b0a93f07b5c"
+    }
+  },
+  "Th": {
+    "PSL-US-v1-high-12": {
+      "upf": "f4a1a59c-891f-43fc-ab17-43f3feaa20a2",
+      "params": "9de4b650-45d2-4978-aa63-ca7a6ca1229c",
+      "bands": "65863d36-46a8-4f72-829c-22f2de8f8412"
+    },
+    "PSL-PAW-v1-high-12": {
+      "upf": "61a6fb0f-8cb8-4c5b-8709-548f0b36f2fa",
+      "params": "ea3e8d1c-96fe-4c68-88c1-294526165607",
+      "bands": "5980ca2a-205a-4c45-bad2-cc343a692001"
+    }
+  },
+  "Ti": {
+    "DOJO-041-std-12": {
+      "upf": "66ae2ebd-48e7-41ad-b8ca-90f47f0adffa",
+      "params": "78a61eab-6c52-433e-bd63-f11273768f91",
+      "bands": "ec593930-f2c7-4bcb-8917-51b7efd1d520"
+    },
+    "SPMS-12": {
+      "upf": "ac06a2a7-f0f2-4f72-b363-6a728c2c08a6",
+      "params": "cc56cebb-c74e-4356-bab8-e97fd82b1c6c",
+      "bands": "74dfcf81-97ea-42be-83ba-3ff2aa9d6cc5"
+    },
+    "SG15-12": {
+      "upf": "c4ec8e01-8ff0-4b5d-99df-1bd224572ffc",
+      "params": "fde0a725-77d8-48fa-9b8e-ddc25e9101bd",
+      "bands": "9f6fdbb9-80c0-41b8-bbfd-c7bbbd6f64d4"
+    },
+    "GBRV-1.X-12": {
+      "upf": "baee3337-a40a-46b8-83a9-ef39abb821e9",
+      "params": "bb74a1c5-3f46-42c3-b1d0-161c5865481a",
+      "bands": "80657206-a210-43de-86d5-a7a04d9a60df"
+    },
+    "PSL-US-v1-high-12": {
+      "upf": "42d328e0-df8f-4b7a-a2d0-3aff5f46e1ef",
+      "params": "424b5105-92ef-4c21-8270-29b596e49bba",
+      "bands": "97d3df32-6a7a-438e-bf02-bed76e48535e"
+    },
+    "PSL-PAW-v1-high-12": {
+      "upf": "e4bf0801-e51a-418d-8528-c66dc0c7936d",
+      "params": "3f9b3671-17d9-40e8-827e-88964942bbf9",
+      "bands": "0e67bb4b-38ec-45d2-bf77-e3e3faf5a370"
+    },
+    "JTH-1.1-std-12": {
+      "upf": "85a0a04f-93c1-4e2b-92c6-467eefcff290",
+      "params": "2a1480fc-557d-47bf-8b2a-e9a45a61d7d8",
+      "bands": "18d2133e-93a4-41f9-a48b-172e9ebad3a8"
+    }
+  },
+  "Tl": {
+    "DOJO-041-std-13": {
+      "upf": "96f3b92d-ef6a-47e7-9aa4-5687a315f364",
+      "params": "fa5b6ba7-80f8-48c1-865f-8e8f0409dae2",
+      "bands": "bd721719-e821-4097-a52c-4ce7863bc06a"
+    },
+    "DOJO-041-str-21": {
+      "upf": "e127fd03-c04b-47fc-9511-cf8b3d670f1d",
+      "params": "ae92da0d-36b1-451f-ad09-02c1cfc23436",
+      "bands": "4fa9c8bf-5995-4e52-804c-c4d79e10ed92"
+    },
+    "DOJO-050-std-13": {
+      "upf": "bee6eeff-a2ed-4581-9339-b261e565206f",
+      "params": "63a190a1-c765-4e6e-a43b-70b7fdd59f4b",
+      "bands": "f276559d-ba59-46a2-bc5c-3ba7040baef7"
+    },
+    "SPMS-13": {
+      "upf": "4dfb0eeb-8594-4f72-8b6e-fc9308f70fac",
+      "params": "515039cc-779b-49e7-9cf9-c3bfdc6296c3",
+      "bands": "4962ad0a-d1cd-4cc2-8c90-e2aa3d4cd4ff"
+    },
+    "SG15-13": {
+      "upf": "426a1ed0-6612-4bf7-84a3-aa1070a6e20f",
+      "params": "1e7a361e-76c7-462b-a3f9-52fa664b9ff1",
+      "bands": "688bd03c-86af-48e5-8ee3-15b1085e9420"
+    },
+    "GBRV-1.X-13": {
+      "upf": "3a3e0823-86fd-4722-82eb-e4fe14d0139b",
+      "params": "d3e38d1a-36b3-43a8-8057-8a5433cb600b",
+      "bands": "d66e08f6-0c5d-439f-bacb-70f74d7e51c3"
+    },
+    "PSL-US-v1-high-13": {
+      "upf": "5f6815a6-1ee2-423a-aa04-4841c254306b",
+      "params": "5cceafda-f476-4510-bcb8-429e6f340f48",
+      "bands": "5b0522a3-7c9a-4212-acd2-293ff15ce0b6"
+    },
+    "PSL-US-v0.x-13": {
+      "upf": "fd2d4e69-b5b2-4dc2-84a0-c595fff30a41",
+      "params": "40d22953-3ec4-458f-a6f3-974d5ba80ba7",
+      "bands": "cc637026-0d84-4352-9fce-a11c28d49f32"
+    },
+    "PSL-PAW-v0.x-13": {
+      "upf": "6d61c852-16b0-41f9-b0db-ac6fe84f3524",
+      "params": "b7777cfd-ce49-4a2e-837d-4478b0d87f02",
+      "bands": "bc5ea03e-6ab8-4e74-8ceb-bf8051e1a1e5"
+    },
+    "PSL-PAW-v1-high-13": {
+      "upf": "838d6e29-c37c-4f41-9617-449b027176db",
+      "params": "55d090dc-6aaa-4fd4-a450-64655b40f987",
+      "bands": "fe04c6d4-7515-4d39-9520-625cf5c4812f"
+    },
+    "JTH-1.1-std-13": {
+      "upf": "e7d48fc6-e03d-4855-9357-885da4718fdb",
+      "params": "ea8b6295-f088-4b45-8118-548dd14f5c27",
+      "bands": "8c233129-ad89-4228-b64b-d6f23c005b3d"
+    }
+  },
+  "Tm": {
+    "PSL-US-v1-high-33": {
+      "upf": "523d723c-682b-4ade-bfc8-034f98da9264",
+      "params": "04009b34-7be1-4fb8-adf9-02f0c0bdc0bc",
+      "bands": "e564416a-a76e-498a-bc2f-1bebb9db27d5"
+    },
+    "PSL-US-v1-low-11": {
+      "upf": "99d42329-db81-4088-a854-48d59dd6f348",
+      "params": "10684164-eee3-439a-8c57-584a05ae775a",
+      "bands": "c60f0011-7e1e-4291-bbe0-7578d9fa75f4"
+    },
+    "PSL-PAW-v1-high-33": {
+      "upf": "696725a5-f7b0-408c-b0dd-83c9d653d423",
+      "params": "ca9a4b92-bfc4-44aa-b846-1b625e32bcd6",
+      "bands": "b5593e55-0c68-4d82-8bd1-e5788f69cfa4"
+    },
+    "PSL-PAW-v1-low-11": {
+      "upf": "e5421cf3-5098-455b-984c-0be5975989c6",
+      "params": "70bcd66a-846a-4192-bcf4-afd8ec09bb20",
+      "bands": "5585d71b-825e-4d27-9ea8-fe5ffb606d22"
+    },
+    "JTH-1.1-std-23": {
+      "upf": "1c87a0b7-eca9-4177-aba5-d852d9d98050",
+      "params": "92ec2b90-1775-41dd-9673-704aa15266f4",
+      "bands": "4e68908e-af2c-4793-87ba-fae3dd3767d1"
+    },
+    "Wentzcovitch-23": {
+      "upf": "d167feb1-2af7-453a-bf41-8308e95852d3",
+      "params": "63c68494-c00b-4be1-a253-bc506a6308d5",
+      "bands": "7d3bb816-26a5-4a8f-8c79-f1a0ab652a9d"
+    }
+  },
+  "U": {
+    "PSL-US-v1-high-14": {
+      "upf": "54b1296d-8295-4fd1-894c-8c5cb022fe0b",
+      "params": "0a35493a-f3e4-466c-86c6-a678dfb30faf",
+      "bands": "c96bcc59-42a9-46c4-88ec-65aa06b6a6c6"
+    },
+    "PSL-PAW-v1-high-14": {
+      "upf": "26787195-d5b2-41dc-a7c8-d36d30ae3119",
+      "params": "bf0a2747-edcb-467d-abab-3145c8c4956b",
+      "bands": "83ab5975-b97f-4714-a29a-2339a5c17f52"
+    }
+  },
+  "V": {
+    "DOJO-041-std-13": {
+      "upf": "126dfba0-a4c2-4d6d-9a3a-cc7192d2261f",
+      "params": "ba668db2-83e6-4fcf-9a8c-245771249b58",
+      "bands": "084a4cd5-6421-4627-9846-256c5aa05ce3"
+    },
+    "SPMS-13": {
+      "upf": "f07f7658-498b-402b-86c9-2bc0fda3265d",
+      "params": "3a2cafbd-ffda-4f23-b76d-426ea83f8f21",
+      "bands": "42c8f8a0-1ef3-4391-9c62-3747d1bb810e"
+    },
+    "SG15-13": {
+      "upf": "aa4e080b-7177-45e9-8d9f-463f079733b5",
+      "params": "024f4d41-8be5-4222-aef6-0521f9f12fbb",
+      "bands": "543c32b5-58f0-4418-9392-ac30a449c4d2"
+    },
+    "GBRV-1.X-13": {
+      "upf": "0c429cc0-3d11-4a87-bab3-2fda7bdaca38",
+      "params": "2cda4963-0ba0-49a2-af85-01e14171c82f",
+      "bands": "fd9920f5-c88a-480e-a825-7631095602ad"
+    },
+    "PSL-US-v1-high-13": {
+      "upf": "4894cd2f-565f-42e0-9fe1-8f7218f28142",
+      "params": "10c5969d-da8f-42a1-a27f-d53e034eb50e",
+      "bands": "9a277aca-dbe2-49b4-98dc-d922d2f14d05"
+    },
+    "PSL-US-v1-low-13": {
+      "upf": "9244e0fc-c034-45f5-ad39-ac1c47e971ac",
+      "params": "415a1ced-3d07-434d-988b-5237d0230513",
+      "bands": "fff1bed3-fcb3-4569-b172-55b690b30977"
+    },
+    "PSL-PAW-v1-high-13": {
+      "upf": "d094af5e-e1a4-47b1-9447-ca52f4b000d6",
+      "params": "55f46329-96a0-47d8-8d04-2295044b450c",
+      "bands": "69b409ab-20e8-46fa-9268-15e2d9fe660e"
+    },
+    "PSL-PAW-v1-low-13": {
+      "upf": "f55c3637-1b95-4e20-b91e-cc8b01e1f833",
+      "params": "dccf0b69-a824-494c-b8f9-049b205154d3",
+      "bands": "6efce64a-5352-4a30-ac01-216ed299402e"
+    },
+    "JTH-1.1-std-13": {
+      "upf": "87704de9-c4cf-45e6-b7d1-939f0ff9dbdb",
+      "params": "30ebe60f-8ffd-45e0-b9e4-cbce0700e9cc",
+      "bands": "9979733b-ae41-488c-8063-134f0cea8903"
+    }
+  },
+  "W": {
+    "DOJO-041-std-14": {
+      "upf": "e92486b9-575d-4bce-8a5e-7ad200ecdd33",
+      "params": "38dc7eca-058b-4786-a1a8-351a44e41dbb",
+      "bands": "374fe741-0d0f-4353-9a86-c115e8aa2c36"
+    },
+    "SPMS-14": {
+      "upf": "aba19077-e0d1-4397-80ef-9cd6914ba7ac",
+      "params": "57d42d75-43f5-40d3-ab1a-961feab6fe2f",
+      "bands": "1ad4d47b-4897-45ee-9d6a-4444e0b730bb"
+    },
+    "SG15-28": {
+      "upf": "aeb18989-b02f-4640-b887-17c781196caf",
+      "params": "6b0b6bce-2e25-4498-8f12-f798bd52e9c2",
+      "bands": "555a4fc4-2b22-420f-a911-da7129dd2772"
+    },
+    "GBRV-1.X-14": {
+      "upf": "fefb6ce6-ed42-40df-9b7b-0cf473557aef",
+      "params": "ad60306b-c482-4ae9-830e-cf2bdbb0d68f",
+      "bands": "ab6c44be-5289-48b7-b24f-664ad79e77f3"
+    },
+    "PSL-US-v1-high-28": {
+      "upf": "a24c462b-e30b-467b-952e-c857dfaf9e94",
+      "params": "fbf5f3bb-f66c-468a-a1f1-7bdc2985faf7",
+      "bands": "f04d0614-64ea-45d3-ab48-29c86fb1688b"
+    },
+    "PSL-US-v1-low-14": {
+      "upf": "66265a7b-04b5-4db2-bbd7-4340ea895bec",
+      "params": "d4ec1c9c-f6ab-4d7d-a862-e372e0b3223d",
+      "bands": "d156cf77-2023-45fd-bc7b-d315bfe2cbe7"
+    },
+    "PSL-PAW-v1-high-28": {
+      "upf": "e48288f9-b516-41f6-ab62-d4f145b01eef",
+      "params": "97f8cec7-228c-49e3-87da-f56fe42473b7",
+      "bands": "97e6a253-ba41-4d65-9cdd-924e6a651015"
+    },
+    "PSL-PAW-v1-low-14": {
+      "upf": "2910b757-9a33-42fc-bdbe-0ec7d841c669",
+      "params": "c19809d1-b321-420e-a658-fa27597f393c",
+      "bands": "dfc382dc-e145-4791-8dcc-bcadb48be867"
+    },
+    "JTH-1.1-std-14": {
+      "upf": "b01b9bc7-d722-4731-8d5a-3e637e3a6325",
+      "params": "65956d53-1539-486f-bbd2-1f03d13ae5fc",
+      "bands": "b5364a84-835b-46ae-a212-b2bc2c1de15f"
+    }
+  },
+  "Xe": {
+    "DOJO-041-std-8": {
+      "upf": "caf2417c-c077-4af3-9510-27763aa68886",
+      "params": "2125b41c-6eb4-4eef-8a9f-7eaf7080c49f",
+      "bands": "06019453-c050-4c27-a891-8b33ced30dc8"
+    },
+    "SPMS-8": {
+      "upf": "8b1f8bf4-32b3-4ee0-8e70-17088a9f92f9",
+      "params": "7e684796-8e5a-45fd-a1eb-3c3b8268cd81",
+      "bands": "a7bf93cd-04ad-4237-9362-92e59959e4fc"
+    },
+    "SG15-18": {
+      "upf": "5ab3bfa5-5f92-4592-81d1-54308dbbfeb4",
+      "params": "594c2f3a-ebb9-4dc7-892c-df79bb01ff7f",
+      "bands": "4166b626-c128-40df-bbbc-a7987008a1c2"
+    },
+    "PSL-US-v1-high-18": {
+      "upf": "19badad7-d99a-4b64-aa44-bd31aef21386",
+      "params": "974377cb-4d85-421b-96fc-f1b9c88f6311",
+      "bands": "64190e6d-4a86-4ee4-b57d-7c605a97fb19"
+    },
+    "PSL-PAW-v1-high-18": {
+      "upf": "0f1b83f8-d71b-438c-9569-dbc32fe61358",
+      "params": "396c25b9-6db5-4f57-a657-3ed9a8b2a1e7",
+      "bands": "eb0e0a8a-b436-4222-934c-aed0de8be447"
+    },
+    "JTH-1.1-std-8": {
+      "upf": "826854db-7bcc-41a6-8874-c3f494d037c6",
+      "params": "40ba2f7d-178f-4e77-bd5f-ecd7403fd1ef",
+      "bands": "d7ac8bfb-1212-424e-870d-39ec4e2b3ff4"
+    }
+  },
+  "Y": {
+    "DOJO-041-std-11": {
+      "upf": "4319d216-622f-4340-8c7f-7765cdc5b411",
+      "params": "71aa9c20-ef54-4add-b5d8-132d50fd1104",
+      "bands": "886c093a-fddc-45a3-b14c-4fe1b6a8aff0"
+    },
+    "SPMS-11": {
+      "upf": "f552d748-240e-4282-b954-97474f58843f",
+      "params": "c6e779d3-3bd4-4ea6-8778-d7cf6e6ff949",
+      "bands": "63a01553-0e26-46fa-b5b0-f3beaa4f5669"
+    },
+    "SG15-11": {
+      "upf": "28da95f4-d751-4883-80e5-8e05346034f1",
+      "params": "4b6602fe-3ca2-4410-a598-9ad55e8fc5f9",
+      "bands": "d6e36b57-ec55-47ac-bead-1eea34e5fae5"
+    },
+    "GBRV-1.X-11": {
+      "upf": "b4b910ce-dc9c-4dd0-b459-d790265c6a16",
+      "params": "911ddb24-fdf0-440f-b1e4-53198be47759",
+      "bands": "55255392-22e7-43af-8553-cbf56ff5841c"
+    },
+    "PSL-US-v1-high-11": {
+      "upf": "171302b5-81b2-4663-8cc4-a68e78bb330e",
+      "params": "520e9a2e-2154-424f-a968-3b2517aaae35",
+      "bands": "cd548929-5beb-4ed9-a0a8-d695b0f256ec"
+    },
+    "PSL-PAW-v1-high-11": {
+      "upf": "337f035d-8008-4336-bc7b-3e9d6fde9c17",
+      "params": "08b02538-308b-4c53-9f48-f9ac2c0cd6b4",
+      "bands": "a93c608c-b99c-44f3-901b-3435cff8a181"
+    },
+    "JTH-1.1-std-11": {
+      "upf": "ab8de44e-9586-4ac4-ae98-613afc1f5417",
+      "params": "79e5ce2c-663a-4283-8424-0fd9b80477a5",
+      "bands": "f7a0cee5-3fd2-4080-8315-f1ca3d69dbb1"
+    }
+  },
+  "Yb": {
+    "PSL-US-v1-high-34": {
+      "upf": "7f1f3baa-735f-4ff1-8d3a-9848979cb52d",
+      "params": "3ea775cd-3b71-4d94-b3fd-969b0c1d54ac",
+      "bands": "8e35f624-9ba9-4a45-b27a-14f81c5468e7"
+    },
+    "PSL-US-v1-low-11": {
+      "upf": "beb230d0-98bc-44ff-9bdb-9433ddd2c44c",
+      "params": "a2e24d8f-f96f-45a4-b291-6461dd61e950",
+      "bands": "62756bda-df67-44a2-893d-2bd61d70b3bf"
+    },
+    "PSL-US-v1-low-10": {
+      "upf": "4e985377-bf14-4266-9d86-c51bb44cab61",
+      "params": "c1894156-1d2c-4f75-95d8-d024e2d7145b",
+      "bands": "62bbfa39-6249-4929-bd79-ee2972a527a9"
+    },
+    "PSL-PAW-v1-high-34": {
+      "upf": "a0e16a04-be68-4135-9b70-563c30e63402",
+      "params": "4e847a06-2077-46bd-97a8-5e844a045fa6",
+      "bands": "8c0cc4bd-3286-419a-8fb8-cf37581b6f2c"
+    },
+    "PSL-PAW-v1-low-11": {
+      "upf": "a5deb400-9cb4-4a08-9d29-02b5cdc59d75",
+      "params": "83553ead-c8a9-4f7f-a4e7-a6a1fcab731e",
+      "bands": "ce218dd1-2cfc-42fc-a395-c4393b8ac5ff"
+    },
+    "PSL-PAW-v1-low-10": {
+      "upf": "1c75e554-fbd8-4760-be5a-e313efd7e6a8",
+      "params": "7d8bf292-c7f0-48a7-a65a-d4e25aeebebe",
+      "bands": "514e8eb5-fa0c-4423-9d73-d1a1930b5ad9"
+    },
+    "JTH-1.1-std-24": {
+      "upf": "de1b5b3e-76dc-43af-89bb-ab6b001eef4d",
+      "params": "a9fb5193-5a4a-41a6-9c82-6e3a3e263e7f",
+      "bands": "dee82377-128b-4de9-b6ab-05f267e1173a"
+    },
+    "Wentzcovitch-24": {
+      "upf": "fca35b81-b190-45dc-a7a6-8bf4523ec4b9",
+      "params": "68310709-146e-4f8f-9120-c32ef96161bb",
+      "bands": "ffc78c88-64e1-4e3c-968c-41ad2c23aeb5"
+    }
+  },
+  "Zn": {
+    "DOJO-041-std-20": {
+      "upf": "c3dfb607-1d97-48df-a20e-7a0f057a19f2",
+      "params": "4de731e8-68ab-4f8d-b9d6-4ef21166a7a9",
+      "bands": "19b40324-0594-44df-ab0e-74d8b0c15296"
+    },
+    "DOJO-041-str-20": {
+      "upf": "335e1f7e-1860-42d8-8a3e-4eca9497e102",
+      "params": "b965742e-8c10-43d9-95c5-7bd8ab7141e0",
+      "bands": "0d79e6a4-ef9a-43fe-a829-0860b4db4f8a"
+    },
+    "SPMS-20": {
+      "upf": "bb1c4ca0-0fee-4a38-83f9-b8a6d787a03a",
+      "params": "12f6035e-aa7e-40d6-be52-6b233d2ad2a9",
+      "bands": "206e8acd-f20f-4e34-a1bb-b32c87b5095d"
+    },
+    "SG15-20": {
+      "upf": "68f85261-7d07-43c8-8399-a31899c9d6cd",
+      "params": "c6b638a1-1a0b-49cc-b705-97e633a844cd",
+      "bands": "473c55d4-0cf7-4e07-b598-e94d6abf5746"
+    },
+    "GBRV-1.X-20": {
+      "upf": "3b145556-99b6-499e-b67e-620b0facdfc0",
+      "params": "3ca7db7b-df70-4c13-8ca4-8592a2774b54",
+      "bands": "00b00ba3-7ff2-4361-baa8-742899cc856e"
+    },
+    "PSL-US-v1-high-20": {
+      "upf": "b4b2eece-68e3-438c-b32d-67fe48365839",
+      "params": "5e9629ea-9890-4de0-a304-6bbd3ef35816",
+      "bands": "7c8da4a5-1e3b-48eb-a3d6-104340af5649"
+    },
+    "PSL-US-v1-low-12": {
+      "upf": "6bb0bbdc-02a6-41d4-a7e7-2a62737abec4",
+      "params": "b6c72020-af8b-459e-b95d-c93a01128ef4",
+      "bands": "5fe76a5e-e4d9-488a-aa62-3cdd013c0d4a"
+    },
+    "PSL-PAW-v1-high-20": {
+      "upf": "13fe58ea-06d9-4282-ba64-b8ec41be6ab8",
+      "params": "ecc0dcdc-2d27-424a-94fd-245a7f70e659",
+      "bands": "ea01b40a-138d-463b-ae6f-491aac9937bf"
+    },
+    "PSL-PAW-v1-low-12": {
+      "upf": "19c477f2-447d-4f43-8dc1-6962e51a30b3",
+      "params": "3c80ceda-6378-409b-a45b-5d8d2eb0a241",
+      "bands": "0b9d461c-5d22-41b1-9d61-52ed304c0d00"
+    },
+    "JTH-1.1-std-12": {
+      "upf": "42b0dcd7-0dcc-47df-9f7e-c33feb1ae8be",
+      "params": "bd6c0e2a-5ceb-4d05-aef7-28e8118bb306",
+      "bands": "ae7d5d1e-f385-47fe-9a18-a9d58eb3072a"
+    }
+  },
+  "Zr": {
+    "DOJO-041-std-12": {
+      "upf": "9bfcc87a-0704-41d1-967c-de8495cb4889",
+      "params": "dd731465-0e55-428c-ab1e-382a4f91ad7a",
+      "bands": "c35a48e0-0376-45f6-b786-984e4a2f4c79"
+    },
+    "SPMS-12": {
+      "upf": "360b1a1b-4f8e-4329-8b29-c111afa24264",
+      "params": "fd277e25-05ac-4717-8a4c-07648650f084",
+      "bands": "930ee24e-149f-453e-90bb-bc2c839d87e5"
+    },
+    "SG15-12": {
+      "upf": "f06b2ce2-f351-49b8-a804-b7e169c70cb4",
+      "params": "0873c6d1-3c79-49ef-ad3a-ef70711ba09d",
+      "bands": "1637df65-6b1b-420c-b8f6-5d018c4904de"
+    },
+    "GBRV-1.X-12": {
+      "upf": "239f6a31-6c68-4982-b2bc-d0b8afcd9215",
+      "params": "704ec524-0412-4966-9013-98b737554c78",
+      "bands": "677e6d1d-57c5-4d2e-ae95-901e705ac162"
+    },
+    "PSL-US-v1-high-12": {
+      "upf": "90f7fc05-9410-4a51-bf7f-993f9cef6e23",
+      "params": "57aca335-56d2-49d3-8dee-b8cb808bff9b",
+      "bands": "41a11330-b60d-43b3-8fe6-9e18e9f8e986"
+    },
+    "PSL-US-v0.x-12": {
+      "upf": "89de4d3a-6b33-48cf-85a4-3f417acb928f",
+      "params": "44e741a5-e628-4d5f-9790-8baa3a5d4938",
+      "bands": "646d92cc-3e7b-4135-9ddb-f7e3d8ad6e8e"
+    },
+    "PSL-PAW-v0.x-12": {
+      "upf": "26a9fb3f-40ab-4ab4-afdf-173ed3512410",
+      "params": "c43158e8-92f2-4ed5-ab0c-551970cb4451",
+      "bands": "1d2d294b-86c4-4f82-99e3-5cf2448d37fe"
+    },
+    "PSL-PAW-v1-high-12": {
+      "upf": "ae0c407f-6029-4915-92be-e008e1f47752",
+      "params": "b493e16a-040a-4aff-8cf4-02c616c772b1",
+      "bands": "78915b3b-040e-4db7-8a87-1b79505977b4"
+    },
+    "JTH-1.1-std-12": {
+      "upf": "50d2cc6e-dbaa-4b7f-afce-963f1136e05d",
+      "params": "e8f5764a-99b3-423b-855c-badb013ce018",
+      "bands": "c52c0980-2942-47c9-9b77-eb138f561a5e"
+    }
+  }
+}
