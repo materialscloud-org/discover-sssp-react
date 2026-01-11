@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 import type {
   Config,
@@ -26,11 +26,6 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
 }) => {
   const plotRef = useRef<HTMLDivElement>(null);
 
-  const shortNames = useMemo(
-    () => pseudoFilenames.map(pseudoFilenameToShortname),
-    [pseudoFilenames]
-  );
-
   useEffect(() => {
     if (!plotRef.current) return;
 
@@ -47,8 +42,8 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
       const data: Data[] = [
         {
           z: values,
-          x: shortNames,
-          y: shortNames,
+          x: pseudoFilenames,
+          y: pseudoFilenames,
           colorscale: "Inferno",
           type: "heatmap",
           hovertemplate: `<b>%{x}   |   %{y}<br><b>Max ${title}:</b> %{z:.2f}<extra></extra>`,
@@ -83,8 +78,8 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         annotations: values
           .map((row, i) =>
             row.map((value, j) => ({
-              x: shortNames[j],
-              y: shortNames[i],
+              x: pseudoFilenames[j],
+              y: pseudoFilenames[i],
               text: value.toFixed(1),
               showarrow: false,
               font: {
@@ -152,57 +147,3 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
 };
 
 export default BandsChessboardPlot;
-
-const SUFFIXES_TO_REMOVE = new Set(["n", "spn", "spfn", "spdn", "spdfn", "sl"]);
-
-const FILENAME_TO_SHORTNAME_MAP: Record<string, string> = {
-  "dojo.v0.4.1-std": "DOJO-041-std",
-  "dojo.v0.4.1-str": "DOJO-041-str",
-  "dojo.v0.5.0-std": "DOJO-050-std",
-  "spms.v1": "SPMS",
-  "sg15.v0": "SG15",
-  "us+gbrv.v1": "GBRV-1.X",
-  "us+psl.v1.0.0-high": "PSL-US-v1-high",
-  "us+psl.v1.0.0-low": "PSL-US-v1-low",
-  "us+psl.v0": "PSL-US-v0.x",
-  "paw+psl.v0": "PSL-PAW-v0.x",
-  "paw+psl.v1.0.0-high": "PSL-PAW-v1-high",
-  "paw+psl.v1.0.0-low": "PSL-PAW-v1-low",
-  "paw+jth.v1.1-std": "JTH-1.1-std",
-  "paw+jth.v1.1-str": "JTH-1.1-str",
-  "paw+wentzcovitch.v1.0.legacy": "Wentzcovitch",
-  "paw+uni-marburg.v0": "MARBURG",
-};
-
-function pseudoFilenameToShortname(pseudo: string): string {
-  let parts = pseudo.split(".");
-  parts = parts.slice(1, parts.length - 1); // Remove element and file extension
-  if (SUFFIXES_TO_REMOVE.has(parts[parts.length - 1])) {
-    parts = parts.slice(0, parts.length - 1);
-  }
-
-  const category = parts[0]; // nc, us, paw
-  const prefix = category === "us" || category === "paw" ? `${category}+` : "";
-  const Z = parts[2].replace("z_", "");
-
-  let remaining = parts.slice(4).join(".");
-
-  // Handle special cases
-  if (remaining.includes("psl.v0")) {
-    remaining = remaining.split("v0")[0] + "v0";
-  } else {
-    const keys = ["gbrv.v1", "gbrv.v1.5"];
-    for (let key of keys) {
-      if (remaining.includes(key)) {
-        remaining = key;
-        break;
-      }
-    }
-  }
-
-  const key = prefix + remaining;
-
-  return key in FILENAME_TO_SHORTNAME_MAP
-    ? `${FILENAME_TO_SHORTNAME_MAP[key]}-${Z}`
-    : pseudo;
-}
