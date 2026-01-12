@@ -57,14 +57,12 @@ const buildBandsData = (
   bandShift: number,
   pseudosMetadata: Record<string, any>
 ) => {
-  let shift = 0;
   return activePseudos.flatMap((pseudo, index) => {
     const data = bandsPseudosMap[pseudo];
     if (!data) return [];
 
-    if (index === 0) {
-      shift = -data.fermiLevel || 0.0; // set fermi level to that of the reference pseudo
-    } else {
+    let shift = -data.fermiLevel || 0.0;
+    if (index === 1) {
       shift += bandShift;
     }
 
