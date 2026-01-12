@@ -21,7 +21,6 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
   pseudoFilenames,
   values,
   title,
-  colorMax,
   onTileClick: handleTileClick,
 }) => {
   const plotRef = useRef<HTMLDivElement>(null);
@@ -44,7 +43,28 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
           z: values,
           x: pseudoFilenames,
           y: pseudoFilenames,
-          colorscale: "Inferno",
+          colorscale: [
+            [0, "#157347"],
+            [0.05, "#2f7d4e"],
+            [0.1, "#478655"],
+            [0.15, "#5f8e5c"],
+            [0.2, "#779563"],
+            [0.25, "#8f9c6a"],
+            [0.3, "#a7a371"],
+            [0.35, "#bfa978"],
+            [0.4, "#d7b07f"],
+            [0.45, "#efb786"],
+            [0.5, "#f0a17c"],
+            [0.55, "#e58a70"],
+            [0.6, "#da7364"],
+            [0.65, "#ce5c58"],
+            [0.7, "#c2454c"],
+            [0.75, "#b62e40"],
+            [0.8, "#aa172f"],
+            [0.85, "#9e0e26"],
+            [0.9, "#920505"],
+            [1, "#870000"],
+          ],
           type: "heatmap",
           hovertemplate: `<b>%{x}   |   %{y}<br><b>Max ${title}:</b> %{z:.2f}<extra></extra>`,
         },
@@ -83,13 +103,13 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
               text: value.toFixed(1),
               showarrow: false,
               font: {
-                color: value > colorMax / 2 ? "white" : "black",
-                size: 10,
+                color: "white",
+                size: Math.max(8, 24 - pseudoFilenames.length),
               },
             }))
           )
           .flat(),
-        margin: { t: 160, r: 60, b: 40, l: 160 },
+        margin: { t: 160, r: 100, b: 40, l: 160 },
         paper_bgcolor: "rgba(0,0,0,0)",
         plot_bgcolor: "rgba(0,0,0,0)",
       };
@@ -141,7 +161,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         }
       }
     };
-  }, [pseudoFilenames, values, title, colorMax]);
+  }, [pseudoFilenames, values, title]);
 
   return <div ref={plotRef} className={styles["chessboard-plot"]} />;
 };
