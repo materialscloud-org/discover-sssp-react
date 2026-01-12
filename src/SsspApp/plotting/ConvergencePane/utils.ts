@@ -1,13 +1,13 @@
 import type {
   Annotations,
   Dash,
-  PlotData,
   Layout,
   MarkerSymbol,
+  PlotData,
   Shape,
 } from "plotly.js";
 
-import { Pseudo, ElementInfo, PseudosMetadata } from "@sssp/models";
+import { ElementInfo, Pseudo, PseudosMetadata } from "@sssp/models";
 
 const aboveScalar = 1.2; // offset for annotations above the efficiency line
 const belowScalar = 1.3; // offset for annotations below the efficiency line
@@ -64,7 +64,7 @@ const QUANTITIES: Record<string, Quantity> = {
   },
 };
 
-export function generateConvergencePlotData(
+export const generateConvergencePlotData = (
   element: string,
   conff: string,
   libraries: string[],
@@ -74,7 +74,7 @@ export function generateConvergencePlotData(
 ): {
   data: Partial<PlotData>[];
   layout: Partial<Layout>;
-} {
+} => {
   const windowHeight = offsetHeight / 4;
   const offsetsArray = activePseudos.map((_, i) => i * offsetHeight);
   const plotHeight =
@@ -353,10 +353,11 @@ export function generateConvergencePlotData(
       xref: "paper",
       x: -0.1,
       y: offset,
-      text: `<b>${pseudo.name}</b><br>Z<sub>val</sub> = ${pseudo.Z}<br>${metadataText}`,
+      text: `<span style="color:#0d6efd"><b>${pseudo.name}</b></span><br>Z<sub>val</sub> = ${pseudo.Z}<br>${metadataText}`,
       showarrow: false,
       align: "left",
       font: { size: 10 },
+      captureevents: true,
     });
 
     // Recommended pseudo highlight
@@ -462,12 +463,12 @@ export function generateConvergencePlotData(
   };
 
   return { data, layout };
-}
+};
 
-function generateDataSeries(
+export const generateDataSeries = (
   quantity: Quantity,
   color: string
-): Partial<PlotData> {
+): Partial<PlotData> => {
   return {
     name: quantity.label,
     type: "scatter",
@@ -478,4 +479,4 @@ function generateDataSeries(
     legendgroup: quantity.label,
     hoverinfo: "skip",
   };
-}
+};

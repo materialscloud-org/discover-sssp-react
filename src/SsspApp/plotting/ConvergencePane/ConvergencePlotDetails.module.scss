@@ -1,0 +1,17 @@
+#convergence-plot-description {
+  margin-bottom: 1rem;
+
+  #convergence-plot-legend-table {
+    width: fit-content;
+
+    th,
+    td {
+      padding: 0.25rem 0.5rem;
+    }
+
+    th:nth-child(odd),
+    td:nth-child(odd) {
+      text-align: center;
+    }
+  }
+}

@@ -9,6 +9,7 @@ import { SsspDataService } from "@sssp/services";
 
 import { ConvergencePlotProps } from "./ConvergencePlot.models";
 import styles from "./ConvergencePlot.module.scss";
+import UpfModal from "./UpfModal";
 import { generateConvergencePlotData } from "./utils";
 
 const config: Partial<Config> = {
@@ -25,6 +26,9 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
   const { libraries } = useContext(LibraryContext);
   const { elementsInfo } = useContext(ElementsInfoContext);
   const [summaryData, setSummaryData] = useState({} as PseudoConvergenceData);
+  const [showUpfModal, setShowUpfModal] = useState(false);
+  const [upfPseudoName, setUpfPseudoName] = useState("");
+  const [upfZ, setUpfZ] = useState<number>();
   const plotRef = useRef<HTMLDivElement>(null);
 
   const activePseudos = useMemo(() => {
@@ -86,6 +90,29 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
       );
 
       await Plotly.react(plotRef.current, data, layout, config);
+
+      const gd: any = plotRef.current;
+      if (gd?.removeAllListeners) {
+        gd.removeAllListeners("plotly_clickannotation");
+      }
+
+      if (gd?.on) {
+        gd.on("plotly_clickannotation", async (event: any) => {
+          const text: string = event?.annotation?.text || "";
+
+          const pseudoMatch = text.match(/<b>(.*?)<\/b>/);
+          const pseudo = pseudoMatch?.[1];
+          if (!pseudo) return;
+
+          const zMatch = text.match(/Z<sub>val<\/sub>\s*=\s*(\d+)/);
+          const z = zMatch ? Number.parseInt(zMatch[1], 10) : NaN;
+          if (!Number.isFinite(z)) return;
+
+          setUpfPseudoName(pseudo);
+          setUpfZ(z);
+          setShowUpfModal(true);
+        });
+      }
     })();
 
     return () => {
@@ -106,7 +133,16 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
   ) : !activePseudos.length ? (
     <NoDataMessage />
   ) : (
-    <div ref={plotRef} id={styles["convergence-plot"]} />
+    <>
+      <div ref={plotRef} id={styles["convergence-plot"]} />
+      <UpfModal
+        show={showUpfModal}
+        element={element}
+        pseudoName={upfPseudoName}
+        Z={upfZ}
+        onHide={() => setShowUpfModal(false)}
+      />
+    </>
   );
 };
 

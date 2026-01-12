@@ -1,3 +1,3 @@
 export * from "./element";
-export * from "./metadata";
+export * from "./info";
 export * from "./plotting";

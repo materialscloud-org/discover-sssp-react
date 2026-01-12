@@ -41,17 +41,11 @@ export interface EosPlotData {
   E0?: number;
 }
 
-export interface EosPseudosMap {
-  [pseudo: string]: EosPlotData;
-}
+export type EosPseudosMap = Record<string, EosPlotData>;
 
-export interface EosConfigMap {
-  [configuration: string]: EosPseudosMap;
-}
+export type EosConfigMap = Record<string, EosPseudosMap>;
 
-export interface EosData {
-  [element: string]: EosConfigMap;
-}
+export type EosData = Record<string, EosConfigMap>;
 
 export interface Path {
   length: number;
@@ -71,15 +65,7 @@ export interface BandsData {
   fermiLevel: number;
 }
 
-export interface BandsPseudosMap {
-  [pseudo: string]: BandsData;
-}
-
-export interface PseudoBandsCalcUUIDs {
-  upf: string;
-  params: string;
-  bands: string;
-}
+export type BandsPseudosMap = Record<string, BandsData>;
 
 interface BandChessboardDistanceData {
   eta_c: number[][];
@@ -93,12 +79,14 @@ export interface BandChessboardsData {
   v10_distance: BandChessboardDistanceData;
 }
 
+interface DataPoint {
+  node_uuid: string;
+  value: number | null;
+}
+
 interface DataSeries {
   X_series: string;
-  points: {
-    node_uuid: string;
-    value: number | null;
-  }[];
+  points: DataPoint[];
   type: string;
   units: string;
 }
@@ -110,11 +98,7 @@ interface XSeries {
   values: number[];
 }
 
-interface YSeries {
-  [key: string]: {
-    [key: string]: DataSeries;
-  };
-}
+type YSeries = Record<string, Record<string, DataSeries>>;
 
 interface DefaultSeries {
   cohesiveEnergy: {
@@ -143,12 +127,8 @@ interface Framework {
 }
 
 export interface ElementData {
-  X_series: {
-    [key: string]: XSeries;
-  };
-  Y_series: {
-    [key: string]: YSeries;
-  };
+  X_series: Record<string, XSeries>;
+  Y_series: Record<string, YSeries>;
   default: DefaultSeries;
   framework: Framework[];
 }

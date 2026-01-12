@@ -5,13 +5,9 @@ export interface ElementInfo {
   Z: number;
 }
 
-export interface LibraryElementsInfo {
-  [element: string]: ElementInfo;
-}
+export type LibraryElementsInfo = Record<string, ElementInfo>;
 
-export interface ElementsInfo {
-  [library: string]: LibraryElementsInfo;
-}
+export type ElementsInfo = Record<string, LibraryElementsInfo>;
 
 export interface ElementModel {
   number: number;

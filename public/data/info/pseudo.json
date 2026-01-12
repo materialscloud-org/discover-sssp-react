@@ -2,97 +2,81 @@
   "DOJO-041-std": {
     "category": "nc",
     "color": "#ffa500",
-    "display_name": "nc-dojo-v0.4.1-std",
-    "short_name": "DOJO-041-std"
+    "display_name": "nc-dojo-v0.4.1-std"
   },
   "SPMS": {
     "category": "nc",
     "color": "#7f8001",
-    "display_name": "nc-spms-oncvpsp4",
-    "short_name": "SPMS"
+    "display_name": "nc-spms-oncvpsp4"
   },
   "DOJO-041-str": {
     "category": "nc",
     "color": "#ffb500",
-    "display_name": "nc-dojo-v0.4.1-str",
-    "short_name": "DOJO-041-str"
+    "display_name": "nc-dojo-v0.4.1-str"
   },
   "DOJO-050-std": {
     "category": "nc",
     "color": "#ffc500",
-    "display_name": "nc-dojo-v0.5.0-std",
-    "short_name": "DOJO-050-std"
+    "display_name": "nc-dojo-v0.5.0-std"
   },
   "SG15": {
     "category": "nc",
     "color": "#8C99A6",
-    "display_name": "nc-sg15-oncvpsp4",
-    "short_name": "SG15"
+    "display_name": "nc-sg15-oncvpsp4"
   },
   "GBRV-1.X": {
     "category": "us",
     "color": "#00cdcd",
-    "display_name": "us-gbrv-v1.x-upf2",
-    "short_name": "GBRV-1.X"
+    "display_name": "us-gbrv-v1.x-upf2"
   },
   "PSL-US-v1-high": {
     "category": "us",
     "color": "#ff0000",
-    "display_name": "us-psl-v1.0.0-high",
-    "short_name": "PSL-US-v1-high"
+    "display_name": "us-psl-v1.0.0-high"
   },
   "PSL-US-v1-low": {
     "category": "us",
     "color": "#fa0000",
-    "display_name": "us-psl-v1.0.0-low",
-    "short_name": "PSL-US-v1-low"
+    "display_name": "us-psl-v1.0.0-low"
   },
   "PSL-US-v0.x": {
     "category": "us",
     "color": "#0000ff",
-    "display_name": "us-psl-v0.x",
-    "short_name": "PSL-US-v0.x"
+    "display_name": "us-psl-v0.x"
   },
   "JTH-1.1-std": {
     "category": "paw",
     "color": "#984ea3",
-    "display_name": "paw-jth-v1.1-std",
-    "short_name": "JTH-1.1-std"
+    "display_name": "paw-jth-v1.1-std"
   },
   "JTH-1.1-str": {
     "category": "paw",
     "color": "#984fa3",
-    "display_name": "paw-jth-v1.1-str",
-    "short_name": "JTH-1.1-str"
+    "display_name": "paw-jth-v1.1-str"
   },
   "Wentzcovitch": {
     "category": "paw",
     "color": "#610b5e",
-    "display_name": "paw-lanthanides-wentzcovitch",
-    "short_name": "Wentzcovitch"
+    "display_name": "paw-lanthanides-wentzcovitch"
   },
   "PSL-PAW-v0.x": {
     "category": "paw",
     "color": "#ff00ff",
-    "display_name": "paw-psl-v0.x",
-    "short_name": "PSL-PAW-v0.x"
+    "display_name": "paw-psl-v0.x"
   },
   "PSL-PAW-v1-high": {
     "category": "paw",
     "color": "#008b00",
-    "display_name": "paw-psl-v1.0.0-high",
-    "short_name": "PSL-PAW-v1-high"
+    "display_name": "paw-psl-v1.0.0-high"
   },
   "PSL-PAW-v1-low": {
     "category": "paw",
     "color": "#008c00",
-    "display_name": "paw-psl-v1.0.0-low",
-    "short_name": "PSL-PAW-v1-low"
+    "display_name": "paw-psl-v1.0.0-low"
   },
   "MARBURG": {
     "category": "paw",
     "color": "#ea388e",
-    "display_name": "paw-actinides-marburg",
-    "short_name": "MARBURG"
+    "display_name": "paw-actinides-marburg"
   }
 }
