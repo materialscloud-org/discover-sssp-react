@@ -12,11 +12,32 @@
   border-radius: 20%;
   cursor: pointer;
   opacity: 1;
-  transition: opacity 0.5s ease-in-out;
-  -webkit-transition: opacity 0.5s ease-in-out;
-  -moz-transition: opacity 0.5s ease-in-out;
-  -ms-transition: opacity 0.5s ease-in-out;
-  -o-transition: opacity 0.5s ease-in-out;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  z-index: 1;
+  transition:
+    opacity 0.5s ease-in-out,
+    transform 0.25s ease,
+    z-index 0.25s ease;
+  -webkit-transition:
+    opacity 0.5s ease-in-out,
+    transform 0.25s ease,
+    z-index 0.25s ease;
+  -moz-transition:
+    opacity 0.5s ease-in-out,
+    transform 0.25s ease,
+    z-index 0.25s ease;
+  -ms-transition:
+    opacity 0.5s ease-in-out,
+    transform 0.25s ease,
+    z-index 0.25s ease;
+  -o-transition:
+    opacity 0.5s ease-in-out,
+    transform 0.25s ease,
+    z-index 0.25s ease;
 
   &.disabled {
     pointer-events: none;
@@ -33,11 +54,6 @@
     -moz-transform: scale(1.2);
     -ms-transform: scale(1.2);
     -o-transform: scale(1.2);
-    transition: transform 0.25s;
-    -webkit-transition: transform 0.25s;
-    -moz-transition: transform 0.25s;
-    -ms-transition: transform 0.25s;
-    -o-transition: transform 0.25s;
   }
 
   &.element-2 {
