@@ -56,13 +56,7 @@ const ConvergencePlotDetails: React.FC = () => (
             <br />
             The markers correspond to the following quantities:
           </p>
-          <Table
-            id={styles["convergence-plot-legend-table"]}
-            bordered
-            striped
-            responsive
-            size="sm"
-          >
+          <Table id={styles["convergence-plot-legend-table"]} bordered striped>
             <thead>
               <tr>
                 <th>Marker</th>
