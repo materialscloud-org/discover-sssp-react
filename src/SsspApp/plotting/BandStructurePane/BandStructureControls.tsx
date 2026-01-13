@@ -61,7 +61,7 @@ const BandStructureControls: React.FC<BandStructureControlsProps> = ({
             <Form.Control
               name="pseudo-shift-number"
               type="number"
-              value={pseudoShift}
+              value={pseudoShift.toFixed(3)}
               min={-5}
               max={5}
               step={0.001}
