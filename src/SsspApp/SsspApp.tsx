@@ -6,13 +6,13 @@ import "@sssp/assets/styles/main.scss";
 import { useRoutedTabs } from "@sssp/common/hooks";
 
 import { LibraryProvider } from "@sssp/context";
-import { AboutPage, InvalidPage, PseudosPage } from "@sssp/pages";
+import { AboutPage, DownloadPage, InvalidPage, PseudosPage } from "@sssp/pages";
 
 import SsspProps from "./SsspApp.models";
 import styles from "./SsspApp.module.scss";
-
 const tabs = {
   pseudopotentials: "Pseudopotentials",
+  download: "Download",
   about: "About",
 };
 
@@ -59,6 +59,7 @@ const SsspAppContent: React.FC = () => {
               </LibraryProvider>
             }
           />
+          <Route path="download" element={<DownloadPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route
             path="/"
