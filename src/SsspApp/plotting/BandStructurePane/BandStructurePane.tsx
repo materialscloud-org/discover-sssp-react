@@ -29,6 +29,7 @@ const BandStructurePane: React.FC<BandStructurePaneProps> = ({
     setLoadingData(true);
     setBandsPseudosMap({} as BandsPseudosMap);
     setPseudos([]);
+    setBandShift(0);
 
     SsspDataService.fetchBandsData(element)
       .then((data) => {
