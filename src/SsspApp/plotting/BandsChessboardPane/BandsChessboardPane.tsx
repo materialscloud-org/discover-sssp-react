@@ -72,6 +72,7 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
               title="η<sub>v</sub>"
               pseudoFilenames={pseudoFilenames}
               values={etaV}
+              zMax={30}
               onTileClick={tileClickHandler}
             />
           </Col>
@@ -80,6 +81,7 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
               title="η10"
               pseudoFilenames={pseudoFilenames}
               values={etaV10}
+              zMax={60}
               onTileClick={tileClickHandler}
             />
           </Col>

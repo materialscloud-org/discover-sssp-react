@@ -18,9 +18,10 @@ const config: Partial<Config> = {
 };
 
 const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
+  title,
   pseudoFilenames,
   values,
-  title,
+  zMax,
   onTileClick: handleTileClick,
 }) => {
   const plotRef = useRef<HTMLDivElement>(null);
@@ -38,35 +39,43 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
 
       if (destroyed || !plotRef.current) return;
 
+      const zOffDiagonal = values.map((row, i) =>
+        row.map((value, j) => (i === j ? null : value))
+      );
+
+      const zDiagonalMask = values.map((row, i) =>
+        row.map((_, j) => (i === j ? 1 : null))
+      );
+
       const data: Data[] = [
         {
-          z: values,
+          z: zOffDiagonal,
           x: pseudoFilenames,
           y: pseudoFilenames,
+          zmin: 0,
+          zmax: zMax,
           colorscale: [
             [0, "#157347"],
-            [0.05, "#2f7d4e"],
-            [0.1, "#478655"],
-            [0.15, "#5f8e5c"],
-            [0.2, "#779563"],
-            [0.25, "#8f9c6a"],
-            [0.3, "#a7a371"],
-            [0.35, "#bfa978"],
-            [0.4, "#d7b07f"],
-            [0.45, "#efb786"],
             [0.5, "#f0a17c"],
-            [0.55, "#e58a70"],
-            [0.6, "#da7364"],
-            [0.65, "#ce5c58"],
-            [0.7, "#c2454c"],
-            [0.75, "#b62e40"],
-            [0.8, "#aa172f"],
-            [0.85, "#9e0e26"],
-            [0.9, "#920505"],
             [1, "#870000"],
           ],
           type: "heatmap",
-          hovertemplate: `<b>%{x}   |   %{y}<br><b>Max ${title}:</b> %{z:.2f}<extra></extra>`,
+          hoverongaps: false,
+          hovertemplate: `<b>x:</b> %{x}<br /><b>y:</b> %{y}<br><b>Max ${title}:</b> %{z:.2f}<extra></extra>`,
+        },
+        {
+          z: zDiagonalMask,
+          x: pseudoFilenames,
+          y: pseudoFilenames,
+          zmin: 0,
+          zmax: 1,
+          colorscale: [
+            [0, "#ffffff"],
+            [1, "#ffffff"],
+          ],
+          showscale: false,
+          type: "heatmap",
+          hoverinfo: "skip",
         },
         {
           yaxis: "y2",
@@ -79,37 +88,44 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         xaxis: {
           side: "top",
           title: { text: "" },
+          linecolor: "black",
+          mirror: true,
           fixedrange: true,
-          tickangle: -90,
+          tickangle: -45,
         },
         yaxis: {
           autorange: "reversed",
           title: { text: "" },
+          linecolor: "black",
+          mirror: true,
           fixedrange: true,
+          tickangle: -45,
         },
         yaxis2: {
           overlaying: "y",
           side: "right",
-          title: { text: `Max ${title}`, standoff: 100 },
+          title: { text: `Max ${title}`, standoff: 100, font: { size: 20 } },
           showticklabels: false,
           fixedrange: true,
         },
         hoverlabel: { namelength: 0 },
         annotations: values
           .map((row, i) =>
-            row.map((value, j) => ({
-              x: pseudoFilenames[j],
-              y: pseudoFilenames[i],
-              text: value.toFixed(1),
-              showarrow: false,
-              font: {
-                color: "white",
-                size: Math.max(8, 24 - pseudoFilenames.length),
-              },
-            }))
+            row
+              .map((value, j) => ({
+                x: pseudoFilenames[j],
+                y: pseudoFilenames[i],
+                text: value.toFixed(1),
+                showarrow: false,
+                font: {
+                  color: "white",
+                  size: Math.max(8, 24 - pseudoFilenames.length),
+                },
+              }))
+              .filter((_, j) => j !== i)
           )
           .flat(),
-        margin: { t: 160, r: 100, b: 40, l: 160 },
+        margin: { t: 160, r: 110, b: 40, l: 160 },
         paper_bgcolor: "rgba(0,0,0,0)",
         plot_bgcolor: "rgba(0,0,0,0)",
       };
@@ -161,7 +177,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         }
       }
     };
-  }, [pseudoFilenames, values, title]);
+  }, [pseudoFilenames, values, title, zMax]);
 
   return <div ref={plotRef} className={styles["chessboard-plot"]} />;
 };
