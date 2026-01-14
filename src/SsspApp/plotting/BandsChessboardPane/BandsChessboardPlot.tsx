@@ -115,7 +115,10 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
               .map((value, j) => ({
                 x: pseudoFilenames[j],
                 y: pseudoFilenames[i],
-                text: value.toFixed(1),
+                text:
+                  value >= 100
+                    ? value.toExponential(0).toString().replace("e+", "e")
+                    : value.toFixed(1),
                 showarrow: false,
                 font: {
                   color: "white",

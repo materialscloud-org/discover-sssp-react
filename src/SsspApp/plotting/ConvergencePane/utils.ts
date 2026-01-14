@@ -96,7 +96,9 @@ export const generateConvergencePlotData = (
       freqError: number[] = [],
       pressure: number[] = [],
       cohesiveEnergy: number[] = [],
-      eos: number[] = [];
+      eos: number[] = [],
+      eta_c: number[] = [],
+      max_diff_c: number[] = [];
 
     if (quantities.phononFrequencies) {
       frequencies = quantities.phononFrequencies.values.map(
@@ -164,8 +166,8 @@ export const generateConvergencePlotData = (
 
     if (quantities.bands) {
       const x = quantities.bands.cutoffs;
-      const eta_c: number[] = quantities.bands.eta_c;
-      const max_diff_c: number[] = quantities.bands.max_diff_c;
+      eta_c = quantities.bands.eta_c;
+      max_diff_c = quantities.bands.max_diff_c;
 
       // Above BS values
       // Label
@@ -183,7 +185,11 @@ export const generateConvergencePlotData = (
         y: eta_c.map(() => offset + aboveScalar * windowHeight),
         type: "scatter",
         mode: "text",
-        text: eta_c.map((v) => v.toFixed(2)),
+        text: eta_c.map((v) =>
+          v >= 100
+            ? v.toExponential(0).toString().replace("e+", "e")
+            : v.toFixed(2)
+        ),
         showlegend: false,
         textfont: { size: fontSize },
         hoverinfo: "skip",
@@ -236,7 +242,11 @@ export const generateConvergencePlotData = (
         y: max_diff_c.map(() => offset - belowScalar * windowHeight),
         type: "scatter",
         mode: "text",
-        text: max_diff_c.map((v) => v.toFixed(2)),
+        text: max_diff_c.map((v) =>
+          v >= 100
+            ? v.toExponential(0).toString().replace("e+", "e")
+            : v.toFixed(2)
+        ),
         showlegend: false,
         textfont: { size: fontSize },
         hoverinfo: "skip",
@@ -278,21 +288,21 @@ export const generateConvergencePlotData = (
     const cutoffs = pseudo.quantities.bands?.cutoffs || [];
 
     const customData = [cutoffs];
-    const hoverLines = [`E<sub>wfc</sub> = %{customdata[0]} Ry<br>`];
+    const hoverLines = [`E<sub>wfc</sub> = %{customdata[0]} Ry`];
 
     let colIndex = 1;
 
     // Phonon frequency (and optional error)
     if (frequencies.length) {
       customData.push(frequencies);
-      let line = `δω = %{customdata[${colIndex}]:.3f}`;
+      let line = `<br />δω = %{customdata[${colIndex}]:.3f}`;
       colIndex += 1;
       if (freqError.length) {
         customData.push(freqError);
         line += ` &plusmn; %{customdata[${colIndex}]:.1e}`;
         colIndex += 1;
       }
-      line += `%<br>`;
+      line += `%`;
       hoverLines.push(line);
     }
 
@@ -300,7 +310,7 @@ export const generateConvergencePlotData = (
     if (pressure.length) {
       customData.push(pressure);
       hoverLines.push(
-        `δV<sub>press</sub> = %{customdata[${colIndex}]:.3f}%<br>`
+        `<br />δV<sub>press</sub> = %{customdata[${colIndex}]:.3f}%`
       );
       colIndex += 1;
     }
@@ -309,7 +319,7 @@ export const generateConvergencePlotData = (
     if (cohesiveEnergy.length) {
       customData.push(cohesiveEnergy);
       hoverLines.push(
-        `δE<sub>coh</sub> = %{customdata[${colIndex}]:.3f} meV<br>`
+        `<br />δE<sub>coh</sub> = %{customdata[${colIndex}]:.3f} meV`
       );
       colIndex += 1;
     }
@@ -317,7 +327,23 @@ export const generateConvergencePlotData = (
     // Equation of state
     if (eos.length) {
       customData.push(eos);
-      hoverLines.push(`δv = %{customdata[${colIndex}]:.3f}`);
+      hoverLines.push(`<br />δv = %{customdata[${colIndex}]:.3f}`);
+      colIndex += 1;
+    }
+
+    // Band structures
+    if (eta_c.length) {
+      customData.push(eta_c);
+      hoverLines.push(
+        `<br />η<sub>10</sub> = %{customdata[${colIndex}]:.3f} meV`
+      );
+      colIndex += 1;
+    }
+    if (max_diff_c.length) {
+      customData.push(max_diff_c);
+      hoverLines.push(
+        `<br />max η<sub>10</sub> = %{customdata[${colIndex}]:.3f} meV`
+      );
       colIndex += 1;
     }
 
@@ -337,7 +363,7 @@ export const generateConvergencePlotData = (
         bordercolor: "black",
       },
       hovertemplate:
-        `<b>${pseudo.name}</b><br>` + hoverLines.join("") + `<extra></extra>`,
+        `<b>${pseudo.name}</b><br />` + hoverLines.join("") + `<extra></extra>`,
     });
 
     // Pseudo metadata annotation
@@ -345,15 +371,17 @@ export const generateConvergencePlotData = (
     const metadataText = metadata
       ? `ν<sub>avg</sub> = ${metadata.avg_nu.toFixed(
           2
-        )}<br>ν<sub>max</sub> = ${metadata.max_nu.toFixed(2)} (${
+        )}<br />ν<sub>max</sub> = ${metadata.max_nu.toFixed(2)} (${
           metadata.max_conf
-        })<br>ν<sub>avg</sub> (w/o XO3) = ${metadata.avg_nu_wo_xo3.toFixed(2)}`
+        })<br />ν<sub>avg</sub> (w/o XO3) = ${metadata.avg_nu_wo_xo3.toFixed(
+          2
+        )}`
       : "not all EOS valid";
     annotations.push({
       xref: "paper",
       x: -0.1,
       y: offset,
-      text: `<span style="color:#0d6efd"><b>${pseudo.name}</b></span><br>Z<sub>val</sub> = ${pseudo.Z}<br>${metadataText}`,
+      text: `<span style="color:#0d6efd"><b>${pseudo.name}</b></span><br />Z<sub>val</sub> = ${pseudo.Z}<br />${metadataText}`,
       showarrow: false,
       align: "left",
       font: { size: 10 },
