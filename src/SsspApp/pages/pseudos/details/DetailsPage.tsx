@@ -1,23 +1,14 @@
-import { lazy, Suspense, useContext, useEffect, useState } from "react";
-import { Button, Card, Dropdown, Tab, Tabs } from "react-bootstrap";
+import { useContext, useEffect, useState } from "react";
+import { Button, Dropdown, Tab, Tabs } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { useRoutedTabs } from "@sssp/common/hooks";
 import { elementSymbols } from "@sssp/common/symbols";
-import { LoadingSpinner } from "@sssp/components";
 import { LibraryContext } from "@sssp/context";
 import { InvalidPage } from "@sssp/pages";
 
 import styles from "./DetailsPage.module.scss";
-
-const ConvergencePlots = lazy(() => import("@sssp/plotting/ConvergencePane"));
-const BandsChessboardPlots = lazy(
-  () => import("@sssp/plotting/BandsChessboardPane")
-);
-const EosPlots = lazy(() => import("@sssp/plotting/EosPane"));
-const BandStructurePlot = lazy(
-  () => import("@sssp/plotting/BandStructurePane")
-);
+import PlotPane from "./PlotPane";
 
 const tabs = {
   "convergence-summary": "Convergence Summary",
@@ -26,8 +17,6 @@ const tabs = {
   "band-structure": "Band Structure",
   // "More",
 };
-
-type PlotType = keyof typeof tabs;
 
 const DetailsPage: React.FC = () => {
   const navigate = useNavigate();
@@ -91,7 +80,7 @@ const DetailsPage: React.FC = () => {
           {Object.entries(tabs).map(([key, title]) => (
             <Tab key={key} eventKey={key} title={title}>
               <PlotPane
-                type={key as PlotType}
+                type={key}
                 element={element}
                 chessboardPseudos={chessboardPseudos}
                 bandShift={bandShift}
@@ -108,62 +97,3 @@ const DetailsPage: React.FC = () => {
 };
 
 export default DetailsPage;
-
-const PlotPane: React.FC<{
-  type: PlotType;
-  element: string;
-  chessboardPseudos: string[];
-  bandShift: number;
-  setChessboardPseudos: React.Dispatch<React.SetStateAction<string[]>>;
-  setBandShift: React.Dispatch<React.SetStateAction<number>>;
-  onSelectTab: (tab: PlotType) => void;
-}> = ({
-  type,
-  element,
-  chessboardPseudos,
-  bandShift,
-  setChessboardPseudos,
-  setBandShift,
-  onSelectTab,
-}) => {
-  let plot: React.ReactNode = null;
-
-  switch (type) {
-    case "convergence-summary":
-      plot = <ConvergencePlots element={element} />;
-      break;
-    case "band-chessboards":
-      plot = (
-        <BandsChessboardPlots
-          element={element}
-          setChessboardPseudos={setChessboardPseudos}
-          setBandShift={setBandShift}
-          onTileClick={() => {
-            onSelectTab("band-structure");
-          }}
-        />
-      );
-      break;
-    case "equation-of-state":
-      plot = <EosPlots element={element} />;
-      break;
-    case "band-structure":
-      plot = (
-        <BandStructurePlot
-          element={element}
-          chessboardPseudos={chessboardPseudos}
-          bandShift={bandShift}
-        />
-      );
-      break;
-    default:
-      console.error(`Invalid plot type: ${type}`);
-      plot = null;
-  }
-
-  return (
-    <Card.Body id="plot-card">
-      <Suspense fallback={<LoadingSpinner />}>{plot}</Suspense>
-    </Card.Body>
-  );
-};
