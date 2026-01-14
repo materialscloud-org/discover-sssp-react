@@ -465,7 +465,7 @@ export const generateConvergencePlotData = (
   return { data, layout };
 };
 
-export const generateDataSeries = (
+const generateDataSeries = (
   quantity: Quantity,
   color: string
 ): Partial<PlotData> => {

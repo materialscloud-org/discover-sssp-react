@@ -99,7 +99,7 @@ const ConvergencePlotDetails: React.FC = () => (
                 <td>■</td>
                 <td>δν</td>
                 <td>-</td>
-                <td>Discrepancy in band structure</td>
+                <td>Discrepancy in equation of state</td>
               </tr>
             </tbody>
           </Table>
