@@ -69,17 +69,17 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
         <Row className="justify-content-center g-0">
           <Col>
             <BandsChessboardPlot
+              title="η<sub>v</sub>"
               pseudoFilenames={pseudoFilenames}
               values={etaV}
-              title="v"
               onTileClick={tileClickHandler}
             />
           </Col>
           <Col>
             <BandsChessboardPlot
+              title="η10"
               pseudoFilenames={pseudoFilenames}
               values={etaV10}
-              title="v10"
               onTileClick={tileClickHandler}
             />
           </Col>
