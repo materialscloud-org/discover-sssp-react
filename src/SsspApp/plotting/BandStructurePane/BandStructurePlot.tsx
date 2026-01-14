@@ -62,9 +62,7 @@ const buildBandsData = (
     if (!data) return [];
 
     let shift = -data.fermiLevel || 0.0;
-    if (index === 1) {
-      shift += bandShift;
-    }
+    if (index === 1) shift += bandShift / 1000;
 
     return [
       {
