@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Button, Dropdown, Tab, Tabs } from "react-bootstrap";
+import { Button, Tab, Tabs } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { useRoutedTabs } from "@sssp/common/hooks";
@@ -8,6 +8,7 @@ import { LibraryContext } from "@sssp/context";
 import { InvalidPage } from "@sssp/pages";
 
 import styles from "./DetailsPage.module.scss";
+import ElementSelector from "./ElementSelector";
 import PlotPane from "./PlotPane";
 
 const tabs = {
@@ -47,26 +48,11 @@ const DetailsPage: React.FC = () => {
       </Button>
       <div id={styles["element-header"]}>
         <div id={styles["element-label"]}>Element:</div>
-        <Dropdown>
-          <Dropdown.Toggle
-            className={styles["element-dropdown-toggle"]}
-            variant="success"
-            size="lg"
-          >
-            {element || "None provided"}
-          </Dropdown.Toggle>
-          <Dropdown.Menu className={styles["element-dropdown-menu"]}>
-            {elementSymbols.slice(1).map((el) => (
-              <Dropdown.Item
-                key={el}
-                onClick={() => navigate(`/pseudopotentials/${el}/${activeTab}`)}
-                active={el === element}
-              >
-                {el}
-              </Dropdown.Item>
-            ))}
-          </Dropdown.Menu>
-        </Dropdown>
+        <ElementSelector
+          element={element}
+          navigate={navigate}
+          activeTab={activeTab}
+        />
       </div>
       {element && (
         <Tabs
