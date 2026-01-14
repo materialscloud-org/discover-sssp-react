@@ -13,7 +13,7 @@ const DownloadPage: React.FC = () => {
         </p>
       </header>
 
-      <Table id={styles["older-versions-table"]} striped bordered responsive>
+      <Table striped bordered responsive className="text-center">
         <thead>
           <tr>
             <th rowSpan={2}>Version</th>
