@@ -14,15 +14,7 @@ const BandStructurePlot = lazy(
   () => import("@sssp/plotting/BandStructurePane")
 );
 
-const PlotPane: React.FC<PlotPaneProps> = ({
-  type,
-  element,
-  chessboardPseudos,
-  bandShift,
-  setChessboardPseudos,
-  setBandShift,
-  onSelectTab,
-}) => {
+const PlotPane: React.FC<PlotPaneProps> = ({ type, element, onSelectTab }) => {
   let plot: React.ReactNode = null;
 
   switch (type) {
@@ -33,8 +25,6 @@ const PlotPane: React.FC<PlotPaneProps> = ({
       plot = (
         <BandsChessboardPlots
           element={element}
-          setChessboardPseudos={setChessboardPseudos}
-          setBandShift={setBandShift}
           onTileClick={() => {
             onSelectTab("band-structure");
           }}
@@ -45,13 +35,7 @@ const PlotPane: React.FC<PlotPaneProps> = ({
       plot = <EosPlots element={element} />;
       break;
     case "band-structure":
-      plot = (
-        <BandStructurePlot
-          element={element}
-          chessboardPseudos={chessboardPseudos}
-          bandShift={bandShift}
-        />
-      );
+      plot = <BandStructurePlot element={element} />;
       break;
     default:
       console.error(`Invalid plot type: ${type}`);

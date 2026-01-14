@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Button, Tab, Tabs } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { useRoutedTabs } from "@sssp/common/hooks";
 import { elementSymbols } from "@sssp/common/symbols";
-import { LibraryContext } from "@sssp/context";
+import { LibraryContext, PlottingProvider } from "@sssp/context";
 import { InvalidPage } from "@sssp/pages";
 
 import styles from "./DetailsPage.module.scss";
@@ -28,13 +28,6 @@ const DetailsPage: React.FC = () => {
     segmentIndex: 3,
     resetAfterIndex: true,
   });
-  const [chessboardPseudos, setChessboardPseudos] = useState<string[]>([]);
-  const [bandShift, setBandShift] = useState(0);
-
-  useEffect(() => {
-    setChessboardPseudos([]);
-    setBandShift(0);
-  }, [element]);
 
   return element && !elementSymbols.includes(element) ? (
     <InvalidPage />
@@ -65,15 +58,13 @@ const DetailsPage: React.FC = () => {
         >
           {Object.entries(tabs).map(([key, title]) => (
             <Tab key={key} eventKey={key} title={title}>
-              <PlotPane
-                type={key}
-                element={element}
-                chessboardPseudos={chessboardPseudos}
-                bandShift={bandShift}
-                setChessboardPseudos={setChessboardPseudos}
-                setBandShift={setBandShift}
-                onSelectTab={selectTab}
-              />
+              <PlottingProvider element={element}>
+                <PlotPane
+                  type={key}
+                  element={element}
+                  onSelectTab={selectTab}
+                />
+              </PlottingProvider>
             </Tab>
           ))}
         </Tabs>

@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
 import { LoadingSpinner, NoDataMessage } from "@sssp/components";
-import { PseudosContext } from "@sssp/context";
+import { PlottingContext, PseudosContext } from "@sssp/context";
 import { BandsPseudosMap } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
@@ -11,12 +11,10 @@ import BandStructurePaneProps from "./BandStructurePane.models";
 import styles from "./BandStructurePane.module.scss";
 import BandStructurePlot from "./BandStructurePlot";
 
-const BandStructurePane: React.FC<BandStructurePaneProps> = ({
-  element,
-  chessboardPseudos,
-  bandShift: chessboardBandShift,
-}) => {
+const BandStructurePane: React.FC<BandStructurePaneProps> = ({ element }) => {
   const { loadingMetadata, pseudosMetadata } = useContext(PseudosContext);
+  const { chessboardPseudos, chessboardBandShift } =
+    useContext(PlottingContext);
   const [loadingData, setLoadingData] = useState(true);
   const [bandsPseudosMap, setBandsPseudosMap] = useState({} as BandsPseudosMap);
   const [pseudos, setPseudos] = useState([] as string[]);

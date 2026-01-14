@@ -2,20 +2,20 @@ import { useContext, useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 
 import { LoadingSpinner } from "@sssp/components";
-import { PseudosContext } from "@sssp/context";
+import { PlottingContext, PseudosContext } from "@sssp/context";
 
 import { SsspDataService } from "@sssp/services";
-import BandsChessboardPlot from "./BandsChessboardPlot";
 import BandsChessboardPaneProps from "./BandsChessboardPane.models";
 import styles from "./BandsChessboardPane.module.scss";
+import BandsChessboardPlot from "./BandsChessboardPlot";
 
 const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
   element,
-  setChessboardPseudos,
-  setBandShift,
   onTileClick: goToBands,
 }) => {
   const { loadingMetadata } = useContext(PseudosContext);
+  const { setChessboardPseudos, setChessboardBandShift } =
+    useContext(PlottingContext);
   const [loadingData, setLoadingData] = useState(true);
   const [pseudoFilenames, setPseudoFilenames] = useState([] as string[]);
   const [etaV, setEtaV] = useState([] as number[][]);
@@ -57,7 +57,7 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
     pointIndex: number[]
   ) => {
     setChessboardPseudos(pseudos);
-    setBandShift(shifts[plotIndex][pointIndex[0]][pointIndex[1]]);
+    setChessboardBandShift(shifts[plotIndex][pointIndex[0]][pointIndex[1]]);
     goToBands();
   };
 

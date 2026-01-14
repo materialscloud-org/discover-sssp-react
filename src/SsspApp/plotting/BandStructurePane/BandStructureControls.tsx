@@ -9,8 +9,8 @@ import styles from "./BandStructureControls.module.scss";
 const BandStructureControls: React.FC<BandStructureControlsProps> = ({
   pseudos,
   activePseudos,
-  bandShift: pseudoShift,
   onPseudoSelect: setActivePseudos,
+  bandShift: pseudoShift,
   onBandShiftChange: setPseudoShift,
 }) => {
   return (
