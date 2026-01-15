@@ -68,9 +68,8 @@ export interface BandsData {
 export type BandsPseudosMap = Record<string, BandsData>;
 
 interface BandChessboardDistanceData {
-  eta_c: number[][];
-  max_diff_c: number[][];
-  shift_c: number[][];
+  eta: number[][];
+  shift: number[][];
 }
 
 export interface BandChessboardsData {

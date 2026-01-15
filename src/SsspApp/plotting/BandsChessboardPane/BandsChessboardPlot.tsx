@@ -77,17 +77,12 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
           type: "heatmap",
           hoverinfo: "skip",
         },
-        {
-          yaxis: "y2",
-          mode: "none",
-          showlegend: false,
-        },
       ];
 
       const layout: Partial<Layout> = {
         xaxis: {
           side: "top",
-          title: { text: "" },
+          title: { text: title, standoff: 10, font: { size: 20 } },
           linecolor: "black",
           mirror: true,
           fixedrange: true,
@@ -95,18 +90,11 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         },
         yaxis: {
           autorange: "reversed",
-          title: { text: "" },
+          title: { text: `Max ${title}`, standoff: 10, font: { size: 20 } },
           linecolor: "black",
           mirror: true,
           fixedrange: true,
           tickangle: -45,
-        },
-        yaxis2: {
-          overlaying: "y",
-          side: "right",
-          title: { text: `Max ${title}`, standoff: 100, font: { size: 20 } },
-          showticklabels: false,
-          fixedrange: true,
         },
         hoverlabel: { namelength: 0 },
         annotations: values

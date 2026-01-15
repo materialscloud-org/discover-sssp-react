@@ -34,9 +34,9 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
     SsspDataService.fetchBandChessboardData(element)
       .then((data) => {
         setPseudoFilenames(data.pseudos);
-        setEtaV(data.v_distance.max_diff_c);
-        setEtaV10(data.v10_distance.max_diff_c);
-        const bandShifts = [data.v_distance.shift_c, data.v10_distance.shift_c];
+        setEtaV(data.v_distance.eta);
+        setEtaV10(data.v10_distance.eta);
+        const bandShifts = [data.v_distance.shift, data.v10_distance.shift];
         setShifts(bandShifts);
       })
       .catch((error) => {
