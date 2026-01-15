@@ -4,9 +4,11 @@ import type { Config, Data, Layout, PlotlyHTMLElement } from "plotly.js";
 
 import { PseudosContext } from "@sssp/context";
 import { EosPlotData } from "@sssp/models";
+import { formatSubscripts } from "@sssp/plotting/utils";
 
 import EosPlotProps from "./EosPlot.models";
 import styles from "./EosPlot.module.scss";
+import { BM } from "./utils";
 
 const refRes = 1000;
 const hoverDigits = 2;
@@ -23,16 +25,6 @@ const config: Partial<Config> = {
     "select2d",
   ],
 };
-
-const BM = (V: number[], V0: number, E0: number, B0: number, B1: number) =>
-  V.map((v) => {
-    const eta = Math.pow(v / V0, 2 / 3);
-    return (
-      E0 +
-      ((9 * B0 * V0) / 16) *
-        (Math.pow(eta - 1, 3) * B1 + Math.pow(eta - 1, 2) * (6 - 4 * eta))
-    );
-  });
 
 const EosPlot: React.FC<EosPlotProps> = ({
   configuration,
@@ -112,7 +104,7 @@ const EosPlot: React.FC<EosPlotProps> = ({
         });
 
       const layout: Partial<Layout> = {
-        title: { text: configuration, x: 0.55, y: 0.9 },
+        title: { text: formatSubscripts(configuration), x: 0.55, y: 0.9 },
         xaxis: { title: { text: "Volume [Å³/atom]" }, showgrid: false },
         yaxis: { title: { text: "Energy [eV/atom]" }, showgrid: false },
         showlegend: false,

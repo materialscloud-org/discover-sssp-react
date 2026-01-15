@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Dropdown } from "react-bootstrap";
 
 import { elementSymbols } from "@sssp/common/symbols";
@@ -11,6 +11,10 @@ const ElementSelector: React.FC<ElementSelectorProps> = ({
   navigate,
   activeTab,
 }) => {
+  const selectorSymbols = useMemo(() => {
+    return elementSymbols.slice(1).sort();
+  }, []);
+
   return (
     <Dropdown>
       <Dropdown.Toggle
@@ -21,7 +25,7 @@ const ElementSelector: React.FC<ElementSelectorProps> = ({
         {element || "None provided"}
       </Dropdown.Toggle>
       <Dropdown.Menu id={styles["element-dropdown-menu"]}>
-        {elementSymbols.slice(1).map((el) => (
+        {selectorSymbols.map((el) => (
           <Dropdown.Item
             key={el}
             onClick={() => navigate(`/pseudopotentials/${el}/${activeTab}`)}

@@ -3,9 +3,11 @@ import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import type { Config } from "plotly.js";
 
 import { LoadingSpinner, NoDataMessage } from "@sssp/components";
-import { ElementsInfoContext, LibraryContext } from "@sssp/context";
-import { PseudoConvergenceData } from "@sssp/models";
-import { SsspDataService } from "@sssp/services";
+import {
+  ElementsInfoContext,
+  LibraryContext,
+  PlottingContext,
+} from "@sssp/context";
 
 import { ConvergencePlotProps } from "./ConvergencePlot.models";
 import styles from "./ConvergencePlot.module.scss";
@@ -22,10 +24,10 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
   element,
   pseudosMetadata,
 }) => {
-  const [loadingData, setLoadingData] = useState(true);
   const { libraries } = useContext(LibraryContext);
   const { elementsInfo } = useContext(ElementsInfoContext);
-  const [summaryData, setSummaryData] = useState({} as PseudoConvergenceData);
+  const { loadingConvergenceData, summaryData } = useContext(PlottingContext);
+
   const [showUpfModal, setShowUpfModal] = useState(false);
   const [upfPseudoName, setUpfPseudoName] = useState("");
   const [upfZ, setUpfZ] = useState<number>();
@@ -50,26 +52,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
   );
 
   useEffect(() => {
-    if (!element) return;
-
-    setLoadingData(true);
-    setSummaryData({} as PseudoConvergenceData);
-
-    SsspDataService.fetchPseudosSummaryData(element)
-      .then((data) => {
-        setSummaryData(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setSummaryData({} as PseudoConvergenceData);
-      })
-      .finally(() => {
-        setLoadingData(false);
-      });
-  }, [element]);
-
-  useEffect(() => {
-    if (loadingData || !activePseudos.length || !plotRef.current) {
+    if (loadingConvergenceData || !activePseudos.length || !plotRef.current) {
       return;
     }
 
@@ -119,7 +102,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
       destroyed = true;
     };
   }, [
-    loadingData,
+    loadingConvergenceData,
     element,
     summaryData,
     libraries,
@@ -128,7 +111,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
     pseudosMetadata,
   ]);
 
-  return loadingData ? (
+  return loadingConvergenceData ? (
     <LoadingSpinner />
   ) : !activePseudos.length ? (
     <NoDataMessage />

@@ -16,7 +16,7 @@ export interface Pseudo {
     metadata?: {
       avg_nu: number;
       max_nu: number;
-      avg_nu_wo_xo3: number;
+      avg_nu_wo_max: number;
       max_conf: string;
     };
     phononFrequencies?: PseudoQuantity & { error: number[]; ref: number };

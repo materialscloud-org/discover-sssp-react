@@ -9,6 +9,8 @@ import type {
 
 import { ElementInfo, Pseudo, PseudosMetadata } from "@sssp/models";
 
+import { formatSubscripts } from "@sssp/plotting/utils";
+
 const aboveScalar = 1.2; // offset for annotations above the efficiency line
 const belowScalar = 1.3; // offset for annotations below the efficiency line
 const annotationOffset = 0.13; // offset for last point annotations
@@ -368,15 +370,14 @@ export const generateConvergencePlotData = (
 
     // Pseudo metadata annotation
     const { metadata } = pseudo.quantities;
-    const metadataText = metadata
-      ? `ν<sub>avg</sub> = ${metadata.avg_nu.toFixed(
-          2
-        )}<br />ν<sub>max</sub> = ${metadata.max_nu.toFixed(2)} (${
-          metadata.max_conf
-        })<br />ν<sub>avg</sub> (w/o XO3) = ${metadata.avg_nu_wo_xo3.toFixed(
-          2
-        )}`
-      : "not all EOS valid";
+    let metadataText = "not all EOS valid";
+    if (metadata) {
+      const avg_nu = metadata.avg_nu.toFixed(2);
+      const max_nu = metadata.max_nu.toFixed(2);
+      const max_conf = formatSubscripts(metadata.max_conf);
+      const avg_nu_wo_max = metadata.avg_nu_wo_max.toFixed(2);
+      metadataText = `ν<sub>avg</sub> = ${avg_nu}<br />ν<sub>max</sub> = ${max_nu} (${max_conf})<br />ν<sub>avg</sub> (w/o max) = ${avg_nu_wo_max}`;
+    }
     annotations.push({
       xref: "paper",
       x: -0.1,
