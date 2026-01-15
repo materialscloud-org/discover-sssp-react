@@ -14,8 +14,7 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
   onTileClick: goToBands,
 }) => {
   const { loadingMetadata } = useContext(PseudosContext);
-  const { setChessboardPseudos, setChessboardBandShift } =
-    useContext(PlottingContext);
+  const { setChessboardPseudos, setBandShift } = useContext(PlottingContext);
   const [loadingData, setLoadingData] = useState(true);
   const [pseudoFilenames, setPseudoFilenames] = useState([] as string[]);
   const [etaV, setEtaV] = useState([] as number[][]);
@@ -57,7 +56,7 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
     pointIndex: number[]
   ) => {
     setChessboardPseudos(pseudos);
-    setChessboardBandShift(shifts[plotIndex][pointIndex[0]][pointIndex[1]]);
+    setBandShift(shifts[plotIndex][pointIndex[0]][pointIndex[1]]);
     goToBands();
   };
 

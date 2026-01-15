@@ -48,26 +48,26 @@ const DetailsPage: React.FC = () => {
         />
       </div>
       {element && (
-        <Tabs
-          id="sssp-pseudos-tabs"
-          defaultActiveKey={defaultTab}
-          activeKey={activeTab}
-          onSelect={selectTab}
-          mountOnEnter
-          unmountOnExit
-        >
-          {Object.entries(tabs).map(([key, title]) => (
-            <Tab key={key} eventKey={key} title={title}>
-              <PlottingProvider element={element}>
+        <PlottingProvider element={element}>
+          <Tabs
+            id="sssp-pseudos-tabs"
+            defaultActiveKey={defaultTab}
+            activeKey={activeTab}
+            onSelect={selectTab}
+            mountOnEnter
+            unmountOnExit
+          >
+            {Object.entries(tabs).map(([key, title]) => (
+              <Tab key={key} eventKey={key} title={title}>
                 <PlotPane
                   type={key}
                   element={element}
                   onSelectTab={selectTab}
                 />
-              </PlottingProvider>
-            </Tab>
-          ))}
-        </Tabs>
+              </Tab>
+            ))}
+          </Tabs>
+        </PlottingProvider>
       )}
     </div>
   );

@@ -13,13 +13,12 @@ import BandStructurePlot from "./BandStructurePlot";
 
 const BandStructurePane: React.FC<BandStructurePaneProps> = ({ element }) => {
   const { loadingMetadata, pseudosMetadata } = useContext(PseudosContext);
-  const { chessboardPseudos, chessboardBandShift } =
+  const { chessboardPseudos, bandShift, setBandShift } =
     useContext(PlottingContext);
   const [loadingData, setLoadingData] = useState(true);
   const [bandsPseudosMap, setBandsPseudosMap] = useState({} as BandsPseudosMap);
   const [pseudos, setPseudos] = useState([] as string[]);
   const [activePseudos, setActivePseudos] = useState(chessboardPseudos);
-  const [bandShift, setBandShift] = useState(chessboardBandShift);
 
   useEffect(() => {
     if (!element) return;
@@ -27,7 +26,6 @@ const BandStructurePane: React.FC<BandStructurePaneProps> = ({ element }) => {
     setLoadingData(true);
     setBandsPseudosMap({} as BandsPseudosMap);
     setPseudos([]);
-    setBandShift(0);
 
     SsspDataService.fetchBandsData(element)
       .then((data) => {
@@ -60,8 +58,6 @@ const BandStructurePane: React.FC<BandStructurePaneProps> = ({ element }) => {
       return [pseudos[0], pseudos[0]];
     });
   }, [pseudos, chessboardPseudos, element]);
-
-  useEffect(() => setBandShift(bandShift), [bandShift]);
 
   const isLoading = loadingData || loadingMetadata;
 

@@ -6,8 +6,8 @@ import { createContext, useEffect, useState } from "react";
 type PlottingContextType = {
   chessboardPseudos: string[];
   setChessboardPseudos: (pseudos: string[]) => void;
-  chessboardBandShift: number;
-  setChessboardBandShift: (number: number) => void;
+  bandShift: number;
+  setBandShift: (number: number) => void;
   loadingConvergenceData: boolean;
   summaryData: PseudoConvergenceData;
 };
@@ -24,7 +24,7 @@ export const PlottingProvider: React.FC<PlottingProviderProps> = ({
   element,
 }) => {
   const [chessboardPseudos, setChessboardPseudos] = useState([] as string[]);
-  const [chessboardBandShift, setChessboardBandShift] = useState(0);
+  const [bandShift, setBandShift] = useState(0);
   const [loadingConvergenceData, setLoadingConvergenceData] = useState(true);
   const [summaryData, setSummaryData] = useState({} as PseudoConvergenceData);
 
@@ -34,7 +34,7 @@ export const PlottingProvider: React.FC<PlottingProviderProps> = ({
     setLoadingConvergenceData(true);
     setSummaryData({} as PseudoConvergenceData);
     setChessboardPseudos([]);
-    setChessboardBandShift(0);
+    setBandShift(0);
 
     SsspDataService.fetchPseudosSummaryData(element)
       .then((data) => {
@@ -54,8 +54,8 @@ export const PlottingProvider: React.FC<PlottingProviderProps> = ({
       value={{
         chessboardPseudos,
         setChessboardPseudos,
-        chessboardBandShift,
-        setChessboardBandShift,
+        bandShift: bandShift,
+        setBandShift: setBandShift,
         loadingConvergenceData,
         summaryData,
       }}
