@@ -43,7 +43,7 @@ const EosPlot: React.FC<EosPlotProps> = ({
     let resizeHandler: (() => void) | null = null;
 
     const volumes = Object.values(eosPseudosMap).flatMap(
-      (eosData) => eosData.volumes || []
+      (eosData) => eosData.volumes || [],
     );
     const minVolume = Math.min(...volumes);
     const maxVolume = Math.max(...volumes);
@@ -56,7 +56,8 @@ const EosPlot: React.FC<EosPlotProps> = ({
       const data: Data[] = Object.entries(eosPseudosMap)
         .filter(([pseudo]) => activePseudos.includes(pseudo))
         .map(([pseudo, eosData]: [string, EosPlotData]) => {
-          const color = pseudosMetadata[pseudo]?.color || "black";
+          const pseudoName = pseudo.split("-Z=")[0];
+          const color = pseudosMetadata[pseudoName]?.color || "black";
           if (pseudo !== "REF" && eosData.volumes && eosData.energies) {
             const sorted = eosData.volumes
               .map((volume: number, i: number) => ({
@@ -65,7 +66,7 @@ const EosPlot: React.FC<EosPlotProps> = ({
               }))
               .sort(
                 (a: { volume: number }, b: { volume: number }) =>
-                  a.volume - b.volume
+                  a.volume - b.volume,
               );
             const x = sorted.map((p: { volume: any }) => p.volume);
             const y = sorted.map((p: { energy: any }) => p.energy);
@@ -87,7 +88,8 @@ const EosPlot: React.FC<EosPlotProps> = ({
           } else {
             const x = Array.from(
               { length: refRes },
-              (_, i) => minVolume + (i * (maxVolume - minVolume)) / (refRes - 1)
+              (_, i) =>
+                minVolume + (i * (maxVolume - minVolume)) / (refRes - 1),
             );
             return {
               x,
@@ -105,10 +107,13 @@ const EosPlot: React.FC<EosPlotProps> = ({
 
       const layout: Partial<Layout> = {
         title: { text: formatSubscripts(configuration), x: 0.55, y: 0.9 },
-        xaxis: { title: { text: "Volume [Å³/atom]" }, showgrid: false },
+        xaxis: {
+          title: { text: "Volume [Å³/atom]", standoff: 10 },
+          showgrid: false,
+        },
         yaxis: { title: { text: "Energy [eV/atom]" }, showgrid: false },
         showlegend: false,
-        margin: { l: 70, r: 20, t: 30, b: 60 },
+        margin: { l: 70, r: 20, t: 30, b: 40 },
         autosize: true,
       };
 
@@ -116,7 +121,7 @@ const EosPlot: React.FC<EosPlotProps> = ({
         plotRef.current,
         data,
         layout,
-        config
+        config,
       )) as PlotlyHTMLElement;
 
       const handleResize = (gd: PlotlyHTMLElement) => {

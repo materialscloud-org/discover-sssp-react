@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 
 import { LoadingSpinner, NoDataMessage } from "@sssp/components";
-import { PlottingContext, PseudosContext } from "@sssp/context";
-import { EosConfigMap } from "@sssp/models";
+import { PseudosContext } from "@sssp/context";
+import { EosPlotData, EosPseudosMap } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
 import EosPaneProps from "./EosPane.models";
@@ -14,38 +14,53 @@ import PseudosCheckboxes from "./PseudosCheckboxes";
 
 const EosPane: React.FC<EosPaneProps> = ({ element }) => {
   const { loadingMetadata } = useContext(PseudosContext);
-  const { loadingConvergenceData, summaryData } = useContext(PlottingContext);
   const [loadingData, setLoadingData] = useState(true);
-  const [eosConfigMap, setEosConfigMap] = useState({} as EosConfigMap);
+  const [eosPseudosMap, setEosPseudosMap] = useState({} as EosPseudosMap);
   const [pseudos, setPseudos] = useState([] as string[]);
   const [activePseudos, setActivePseudos] = useState([] as string[]);
+
+  const eosConfigPseudoMap = useMemo(() => {
+    const map: { [configuration: string]: { [pseudo: string]: EosPlotData } } =
+      {};
+    Object.entries(eosPseudosMap).forEach(([pseudo, pseudoData]) => {
+      Object.entries(pseudoData.configurations).forEach(
+        ([configuration, eosData]) => {
+          if (!map[configuration]) {
+            map[configuration] = {};
+          }
+          map[configuration][pseudo] = eosData;
+        },
+      );
+    });
+    return map;
+  }, [eosPseudosMap]);
 
   useEffect(() => {
     if (!element) return;
 
     setLoadingData(true);
-    setEosConfigMap({} as EosConfigMap);
+    setEosPseudosMap({} as EosPseudosMap);
     setPseudos([]);
     setActivePseudos([]);
 
     SsspDataService.fetchEosData()
       .then((data) => {
-        const configMap = data[element];
-        setEosConfigMap(configMap);
-        const pseudos = Object.keys(Object.values(configMap)[0]);
+        const eosPseudosMap = data[element];
+        setEosPseudosMap(eosPseudosMap);
+        const pseudos = Object.keys(eosPseudosMap);
         setPseudos(pseudos);
         setActivePseudos(pseudos);
       })
       .catch((error) => {
         console.error("Error fetching EOS data:", error);
-        setEosConfigMap({} as EosConfigMap);
+        setEosPseudosMap({} as EosPseudosMap);
         setPseudos([]);
         setActivePseudos([]);
       })
       .finally(() => setLoadingData(false));
   }, [element]);
 
-  const isLoading = loadingData || loadingMetadata || loadingConvergenceData;
+  const isLoading = loadingData || loadingMetadata;
 
   return isLoading ? (
     <LoadingSpinner />
@@ -64,7 +79,7 @@ const EosPane: React.FC<EosPaneProps> = ({ element }) => {
           </Col>
           <Col>
             <Row>
-              {Object.entries(eosConfigMap).map(
+              {Object.entries(eosConfigPseudoMap).map(
                 ([configuration, eosPseudosMap]) => (
                   <Col lg={6} xl={4} xxl={3} key={configuration}>
                     <EosPlot
@@ -73,18 +88,28 @@ const EosPane: React.FC<EosPaneProps> = ({ element }) => {
                       activePseudos={activePseudos}
                     />
                   </Col>
-                )
+                ),
               )}
             </Row>
+            <div id={styles["eos-note"]}>
+              Comparison of equations of state for different pseudopotentials
+              and their Birch-Murnaghan fits.
+              <br />
+              "REF (AE average)" refers to the all-electron average values from
+              the reference dataset published in{" "}
+              <a
+                href="https://www.nature.com/articles/s42254-023-00655-3"
+                target="_blank"
+              >
+                Bosoni et al., <em>Nature Reviews Physics</em> <b>6</b>, 45-58
+                (2024)
+              </a>
+            </div>
           </Col>
         </Row>
-        <div id={styles["eos-note"]}>
-          Comparison of the Birch-Murnaghan fit of the pseudopotential equation
-          of state ("Fit") with the reference all-electron results ("Wien2k").
-        </div>
       </div>
       <hr />
-      <EosTable eosConfigMap={eosConfigMap} summaryData={summaryData} />
+      <EosTable eosPseudosMap={eosPseudosMap} />
     </div>
   );
 };

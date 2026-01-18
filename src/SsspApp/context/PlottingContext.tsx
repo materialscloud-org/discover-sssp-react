@@ -1,6 +1,3 @@
-import { PseudoConvergenceData } from "@sssp/models";
-import { SsspDataService } from "@sssp/services";
-
 import { createContext, useEffect, useState } from "react";
 
 type PlottingContextType = {
@@ -8,8 +5,6 @@ type PlottingContextType = {
   setChessboardPseudos: (pseudos: string[]) => void;
   bandShift: number;
   setBandShift: (number: number) => void;
-  loadingConvergenceData: boolean;
-  summaryData: PseudoConvergenceData;
 };
 
 export const PlottingContext = createContext({} as PlottingContextType);
@@ -25,28 +20,10 @@ export const PlottingProvider: React.FC<PlottingProviderProps> = ({
 }) => {
   const [chessboardPseudos, setChessboardPseudos] = useState([] as string[]);
   const [bandShift, setBandShift] = useState(0);
-  const [loadingConvergenceData, setLoadingConvergenceData] = useState(true);
-  const [summaryData, setSummaryData] = useState({} as PseudoConvergenceData);
 
   useEffect(() => {
-    if (!element) return;
-
-    setLoadingConvergenceData(true);
-    setSummaryData({} as PseudoConvergenceData);
     setChessboardPseudos([]);
     setBandShift(0);
-
-    SsspDataService.fetchPseudosSummaryData(element)
-      .then((data) => {
-        setSummaryData(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setSummaryData({} as PseudoConvergenceData);
-      })
-      .finally(() => {
-        setLoadingConvergenceData(false);
-      });
   }, [element]);
 
   return (
@@ -56,8 +33,6 @@ export const PlottingProvider: React.FC<PlottingProviderProps> = ({
         setChessboardPseudos,
         bandShift: bandShift,
         setBandShift: setBandShift,
-        loadingConvergenceData,
-        summaryData,
       }}
     >
       {children}

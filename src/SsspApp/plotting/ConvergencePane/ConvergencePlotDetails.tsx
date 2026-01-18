@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "./ConvergencePlotDetails.module.scss";
 
 const ConvergencePlotDetails: React.FC = () => (
-  <Accordion id={styles["convergence-plot-description"]}>
+  <Accordion>
     <Accordion.Item eventKey="0">
       <Accordion.Header>
         About the SSSP protocol convergence pattern plots

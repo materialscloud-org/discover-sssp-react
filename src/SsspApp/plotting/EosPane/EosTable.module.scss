@@ -1,0 +1,26 @@
+table {
+  border-left: 1px solid var(--bs-border-color);
+  border-right: 1px solid var(--bs-border-color);
+}
+
+td:nth-child(1) {
+  min-width: 12rem;
+}
+
+td:nth-child(n + 4) {
+  min-width: max-content;
+}
+
+td:nth-child(n + 6) {
+  width: 7.5rem;
+}
+
+th.gap,
+td.gap {
+  width: 1rem;
+}
+
+th:not(.gap),
+td:not(.gap) {
+  border: 1px solid var(--bs-border-color);
+}

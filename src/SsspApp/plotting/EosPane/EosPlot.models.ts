@@ -1,7 +1,7 @@
-import { EosPseudosMap } from "@sssp/models";
+import { EosPlotData } from "@sssp/models";
 
 export default interface EosPlotProps {
   configuration: string;
-  eosPseudosMap: EosPseudosMap;
+  eosPseudosMap: Record<string, EosPlotData>;
   activePseudos: string[];
 }

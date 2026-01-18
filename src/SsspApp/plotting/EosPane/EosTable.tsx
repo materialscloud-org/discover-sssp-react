@@ -1,8 +1,7 @@
 import { Table } from "react-bootstrap";
 
-import { EosPseudosMap } from "@sssp/models";
-
 import EosTableProps from "./EosTable.models";
+import styles from "./EosTable.module.scss";
 import { formatSubscripts } from "./utils";
 
 const CONFIGURATIONS = [
@@ -18,99 +17,80 @@ const CONFIGURATIONS = [
   "X2O5",
 ];
 
-const EosTable: React.FC<EosTableProps> = ({ eosConfigMap, summaryData }) => {
-  const pseudosEosData: {
-    [pseudo: string]: {
-      Z: number;
-      avg_nu: string;
-      avg_nu_wo_max: string;
-      nu: { [configuration: string]: string };
-    };
-  } = {};
-
-  summaryData.pseudos.forEach((pseudo) => {
-    const avg_nu =
-      pseudo.quantities.metadata?.avg_nu !== undefined
-        ? pseudo.quantities.metadata.avg_nu.toFixed(2)
-        : "-";
-    const avg_nu_wo_max =
-      pseudo.quantities.metadata?.avg_nu_wo_max !== undefined
-        ? pseudo.quantities.metadata.avg_nu_wo_max.toFixed(2)
-        : "-";
-    pseudosEosData[pseudo.name] = {
-      Z: pseudo.Z,
-      avg_nu: avg_nu,
-      avg_nu_wo_max: avg_nu_wo_max,
-      nu: {},
-    };
-  });
-
-  Object.entries(eosConfigMap).forEach(
-    ([configuration, eosPseudosMap]: [string, EosPseudosMap]) => {
-      Object.entries(eosPseudosMap).forEach(
-        ([pseudoName, eosPlotData]: [string, any]) => {
-          const nu =
-            eosPlotData.nu !== undefined ? eosPlotData.nu.toFixed(2) : "-";
-          if (pseudosEosData[pseudoName]) {
-            pseudosEosData[pseudoName].nu[configuration] = nu;
-          }
-        }
-      );
-    }
-  );
-
+const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
   return (
-    <Table bordered responsive className="text-center">
+    <Table borderless responsive className="text-center">
       <thead>
         <tr>
           <th rowSpan={2}>Library</th>
           <th rowSpan={2}>
             Z<sub>val</sub>
           </th>
-          <th colSpan={2}>EoS Avg.</th>
-          <th colSpan={10}>Configuration</th>
+          <th rowSpan={2} className={styles.gap}></th>
+          <th colSpan={2}>Rho Cutoff</th>
+          <th rowSpan={2} className={styles.gap}></th>
+          <th colSpan={10}>ν</th>
+          <th rowSpan={2} className={styles.gap}></th>
+          <th colSpan={2}>Average ν</th>
         </tr>
         <tr>
-          <th>w/ max</th>
-          <th>w/o max</th>
+          <th>Efficiency</th>
+          <th>Precision</th>
           {CONFIGURATIONS.map((config) => (
             <th key={config}>{formatSubscripts(config)}</th>
           ))}
+          <th className="text-nowrap">w/ max</th>
+          <th className="text-nowrap">w/o max</th>
         </tr>
       </thead>
       <tbody>
-        {pseudosEosData &&
-          Object.entries(pseudosEosData).map(([pseudo, eosData]) => (
-            <tr key={pseudo}>
-              <td>{pseudo}</td>
-              <td>{eosData.Z}</td>
-              <td>{eosData.avg_nu}</td>
-              <td>{eosData.avg_nu_wo_max}</td>
-              {CONFIGURATIONS.map((config: string, idx: number) => {
-                const nu = eosData.nu[config] || "-";
-                return (
-                  <td
-                    key={idx}
-                    style={{
-                      backgroundColor:
-                        nu === "-"
-                          ? "white"
-                          : parseFloat(nu) <= 0.1
-                          ? "#B7E1CD"
-                          : parseFloat(nu) >= 0.33
-                          ? "#EA9999"
-                          : "#FFE599",
-                    }}
-                  >
-                    {nu}
-                  </td>
-                );
-              })}
-            </tr>
-          ))}
+        {eosPseudosMap &&
+          Object.entries(eosPseudosMap)
+            .filter(([pseudo]) => pseudo.includes("-Z="))
+            .map(([pseudo, eosConfigMap]) => {
+              const [pseudoName, Z] = pseudo.split("-Z=");
+              return (
+                <tr key={pseudo}>
+                  <td>{pseudoName}</td>
+                  <td>{Z}</td>
+                  <td className={styles.gap}></td>
+                  <td>{eosPseudosMap[pseudo].ecutrho.efficiency.toFixed(2)}</td>
+                  <td>{eosPseudosMap[pseudo].ecutrho.precision.toFixed(2)}</td>
+                  <td className={styles.gap}></td>
+                  {CONFIGURATIONS.map((config) => {
+                    const nu = eosConfigMap.configurations[config]?.nu;
+                    return (
+                      <td key={config} style={{ backgroundColor: nuColor(nu) }}>
+                        {nu !== undefined ? nu.toFixed(2) : "-"}
+                      </td>
+                    );
+                  })}
+                  <td className={styles.gap}></td>
+                  {Object.entries(eosPseudosMap[pseudo].avgNu).map(
+                    ([key, avgNu]) => {
+                      return (
+                        <td
+                          key={key}
+                          style={{ backgroundColor: nuColor(avgNu) }}
+                        >
+                          {avgNu !== undefined ? avgNu.toFixed(2) : "-"}
+                        </td>
+                      );
+                    },
+                  )}
+                </tr>
+              );
+            })}
       </tbody>
     </Table>
   );
 };
 
 export default EosTable;
+
+const nuColor = (nu: number | undefined): string => {
+  if (nu === undefined) return "white";
+  if (nu <= 0.1) return "#B7E1CD"; // green
+  if (nu >= 0.33) return "#EA9999"; // red
+  return "#FFE599"; // yellow
+};

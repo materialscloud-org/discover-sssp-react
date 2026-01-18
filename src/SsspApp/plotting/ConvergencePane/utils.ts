@@ -68,11 +68,10 @@ const QUANTITIES: Record<string, Quantity> = {
 
 export const generateConvergencePlotData = (
   element: string,
-  conff: string,
   libraries: string[],
   recommendedPseudos: { [key: string]: ElementInfo },
   activePseudos: Pseudo[],
-  pseudosMetadata: PseudosMetadata
+  pseudosMetadata: PseudosMetadata,
 ): {
   data: Partial<PlotData>[];
   layout: Partial<Layout>;
@@ -104,7 +103,7 @@ export const generateConvergencePlotData = (
 
     if (quantities.phononFrequencies) {
       frequencies = quantities.phononFrequencies.values.map(
-        (v) => (v * 2) / PHONON_C_FACTOR
+        (v) => (v * 2) / PHONON_C_FACTOR,
       );
       let dataSeries = generateDataSeries(QUANTITIES.phononFrequencies, color);
       dataSeries.x = quantities.phononFrequencies.cutoffs;
@@ -133,7 +132,7 @@ export const generateConvergencePlotData = (
     if (quantities.pressure) {
       let dataSeries = generateDataSeries(QUANTITIES.pressure, color);
       pressure = quantities.pressure.values.map(
-        (v) => (v * 2) / PRESSURE_C_FACTOR
+        (v) => (v * 2) / PRESSURE_C_FACTOR,
       );
       dataSeries.x = quantities.pressure.cutoffs;
       dataSeries.y = pressure.map((v) => v + offset);
@@ -190,7 +189,7 @@ export const generateConvergencePlotData = (
         text: eta_c.map((v) =>
           v >= 100
             ? v.toExponential(0).toString().replace("e+", "e")
-            : v.toFixed(2)
+            : v.toFixed(2),
         ),
         showlegend: false,
         textfont: { size: fontSize },
@@ -247,7 +246,7 @@ export const generateConvergencePlotData = (
         text: max_diff_c.map((v) =>
           v >= 100
             ? v.toExponential(0).toString().replace("e+", "e")
-            : v.toFixed(2)
+            : v.toFixed(2),
         ),
         showlegend: false,
         textfont: { size: fontSize },
@@ -312,7 +311,7 @@ export const generateConvergencePlotData = (
     if (pressure.length) {
       customData.push(pressure);
       hoverLines.push(
-        `<br />δV<sub>press</sub> = %{customdata[${colIndex}]:.3f}%`
+        `<br />δV<sub>press</sub> = %{customdata[${colIndex}]:.3f}%`,
       );
       colIndex += 1;
     }
@@ -321,7 +320,7 @@ export const generateConvergencePlotData = (
     if (cohesiveEnergy.length) {
       customData.push(cohesiveEnergy);
       hoverLines.push(
-        `<br />δE<sub>coh</sub> = %{customdata[${colIndex}]:.3f} meV`
+        `<br />δE<sub>coh</sub> = %{customdata[${colIndex}]:.3f} meV`,
       );
       colIndex += 1;
     }
@@ -337,14 +336,14 @@ export const generateConvergencePlotData = (
     if (eta_c.length) {
       customData.push(eta_c);
       hoverLines.push(
-        `<br />η<sub>10</sub> = %{customdata[${colIndex}]:.3f} meV`
+        `<br />η<sub>10</sub> = %{customdata[${colIndex}]:.3f} meV`,
       );
       colIndex += 1;
     }
     if (max_diff_c.length) {
       customData.push(max_diff_c);
       hoverLines.push(
-        `<br />max η<sub>10</sub> = %{customdata[${colIndex}]:.3f} meV`
+        `<br />max η<sub>10</sub> = %{customdata[${colIndex}]:.3f} meV`,
       );
       colIndex += 1;
     }
@@ -441,9 +440,6 @@ export const generateConvergencePlotData = (
   });
 
   const layout: Partial<Layout> = {
-    title: {
-      text: `Verification summary: ${element} (${conff})`,
-    },
     xaxis: {
       title: {
         text: `Wavefunction cutoff [Ry]; Charge density cutoff [Ry] = ${dual} x Ewfc (PAW/US) | 4 x Ewfc (NC); q-point = [0.5, 0.5, 0.5]`,
@@ -488,7 +484,7 @@ export const generateConvergencePlotData = (
     shapes: shapes,
     hovermode: "closest",
     height: plotHeight,
-    margin: { l: 160, r: 80, t: 40, b: 80 },
+    margin: { l: 160, r: 80, t: 10, b: 70 },
   };
 
   return { data, layout };
@@ -496,7 +492,7 @@ export const generateConvergencePlotData = (
 
 const generateDataSeries = (
   quantity: Quantity,
-  color: string
+  color: string,
 ): Partial<PlotData> => {
   return {
     name: quantity.label,

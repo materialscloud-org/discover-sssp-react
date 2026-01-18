@@ -34,6 +34,7 @@ const PseudosCheckboxes: React.FC<PseudosCheckboxesProps> = ({
       />
       {pseudos.map((pseudo) => {
         const label = pseudo + (pseudo === "REF" ? " (AE average)" : "");
+        const pseudoName = pseudo.split("-Z=")[0];
         return (
           <Form.Check
             key={pseudo}
@@ -53,7 +54,7 @@ const PseudosCheckboxes: React.FC<PseudosCheckboxesProps> = ({
             disabled={pseudo === "REF"}
             className={styles["pseudo-checkbox"]}
             style={{
-              color: pseudosMetadata[pseudo]?.color || "black",
+              color: pseudosMetadata[pseudoName]?.color || "black",
             }}
             onChange={(event) => {
               setActivePseudos(
