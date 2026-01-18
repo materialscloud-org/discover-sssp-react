@@ -51,8 +51,8 @@ const BandStructureControls: React.FC<BandStructureControlsProps> = ({
               id={styles["pseudo-shift-range"]}
               name="pseudo-shift-range"
               value={pseudoShift}
-              min={-1000}
-              max={1000}
+              min={-5000}
+              max={5000}
               step={1}
               onChange={(e) => setPseudoShift(Number(e.target.value))}
             />
@@ -62,8 +62,8 @@ const BandStructureControls: React.FC<BandStructureControlsProps> = ({
               name="pseudo-shift-number"
               type="number"
               value={pseudoShift.toFixed(0)}
-              min={-1000}
-              max={1000}
+              min={-5000}
+              max={5000}
               step={1}
               onChange={(e) => setPseudoShift(Number(e.target.value))}
             />
