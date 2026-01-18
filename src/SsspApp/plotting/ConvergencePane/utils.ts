@@ -395,30 +395,32 @@ export const generateConvergencePlotData = (
         recommendedPseudos[library].Z === pseudo.Z
       ) {
         const cutoff = recommendedPseudos[library].cutoff_wfc;
-        let shapeType, sizeScalar, fillColor, lineColor;
         if (library === "efficiency") {
-          shapeType = "rect";
-          sizeScalar = 0.5;
-          fillColor = "lightgreen";
-          lineColor = "green";
+          shapes.push({
+            type: "rect",
+            x0: cutoff - deltaX,
+            x1: cutoff + deltaX,
+            y0: offsetsArray[i] - windowHeight,
+            y1: offsetsArray[i] + windowHeight,
+            fillcolor: "lightgreen",
+            line: { width: 1, color: "green" },
+            opacity: 0.5,
+          });
         } else {
-          shapeType = "circle";
-          sizeScalar = 0.4;
-          fillColor = "lightcoral";
-          lineColor = "red";
+          const x0 = cutoff - deltaX;
+          const x1 = cutoff + deltaX;
+          const y0 = offsetsArray[i] - windowHeight;
+          const y1 = offsetsArray[i] + windowHeight;
+          const xm = (x0 + x1) / 2;
+          const ym = (y0 + y1) / 2;
+          shapes.push({
+            type: "path",
+            path: `M ${xm} ${y1} L ${x1} ${ym} L ${xm} ${y0} L ${x0} ${ym} Z`,
+            fillcolor: "lightcoral",
+            line: { width: 1, color: "darkred" },
+            opacity: 0.5,
+          });
         }
-        shapes.push({
-          type: shapeType as any,
-          xref: "x",
-          yref: "y",
-          x0: cutoff - deltaX * sizeScalar * 2,
-          x1: cutoff + deltaX * sizeScalar * 2,
-          y0: offsetsArray[i] - windowHeight * sizeScalar,
-          y1: offsetsArray[i] + windowHeight * sizeScalar,
-          fillcolor: fillColor,
-          line: { width: 1, color: lineColor },
-          opacity: 0.5,
-        });
       }
     });
   });
