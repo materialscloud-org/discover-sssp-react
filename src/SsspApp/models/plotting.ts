@@ -32,6 +32,7 @@ export interface Pseudo {
 }
 
 export interface EosPlotData {
+  uuid: string;
   volumes?: number[];
   energies?: number[];
   V0: number;

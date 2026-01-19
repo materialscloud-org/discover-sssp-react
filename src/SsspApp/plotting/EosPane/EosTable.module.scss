@@ -15,7 +15,6 @@ td:nth-child(n + 6) {
   width: 7.5rem;
 }
 
-th.gap,
 td.gap {
   width: 1rem;
 }
@@ -23,4 +22,14 @@ td.gap {
 th:not(.gap),
 td:not(.gap) {
   border: 1px solid var(--bs-border-color);
+}
+
+td.nuTd {
+  position: relative;
+
+  &:hover {
+    z-index: 1;
+    outline: 2px solid var(--sssp-link-color);
+    outline-offset: -1px;
+  }
 }

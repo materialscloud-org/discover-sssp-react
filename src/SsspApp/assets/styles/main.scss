@@ -1,3 +1,7 @@
+:root {
+  --sssp-link-color: #4682b4;
+}
+
 .card {
   border: 0;
 
@@ -28,5 +32,14 @@
     &:hover {
       color: #4682b4;
     }
+  }
+}
+
+.sssp-link {
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: var(--sssp-link-color) !important;
   }
 }

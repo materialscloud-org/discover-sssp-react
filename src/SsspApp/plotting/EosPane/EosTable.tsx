@@ -26,11 +26,11 @@ const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
           <th rowSpan={2}>
             Z<sub>val</sub>
           </th>
-          <th rowSpan={2} className={styles.gap}></th>
+          <td rowSpan={2} className={styles.gap}></td>
           <th colSpan={2}>Rho Cutoff</th>
-          <th rowSpan={2} className={styles.gap}></th>
+          <td rowSpan={2} className={styles.gap}></td>
           <th colSpan={10}>ν</th>
-          <th rowSpan={2} className={styles.gap}></th>
+          <td rowSpan={2} className={styles.gap}></td>
           <th colSpan={2}>Average ν</th>
         </tr>
         <tr>
@@ -54,29 +54,42 @@ const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
                   <td>{pseudoName}</td>
                   <td>{Z}</td>
                   <td className={styles.gap}></td>
-                  <td>{eosPseudosMap[pseudo].ecutrho.efficiency.toFixed(2)}</td>
-                  <td>{eosPseudosMap[pseudo].ecutrho.precision.toFixed(2)}</td>
+                  {Object.entries(eosPseudosMap[pseudo].ecutrho).map(
+                    ([key, value]) => (
+                      <td key={key}>{value ? value.toFixed(2) : "-"}</td>
+                    ),
+                  )}
                   <td className={styles.gap}></td>
                   {CONFIGURATIONS.map((config) => {
                     const nu = eosConfigMap.configurations[config]?.nu;
+                    const uuid = eosConfigMap.configurations[config]?.uuid;
                     return (
-                      <td key={config} style={{ backgroundColor: nuColor(nu) }}>
-                        {nu !== undefined ? nu.toFixed(2) : "-"}
+                      <td
+                        key={config}
+                        style={{ backgroundColor: nuColor(nu) }}
+                        className={nu !== undefined ? styles.nuTd : undefined}
+                      >
+                        {nu !== undefined ? (
+                          <a
+                            href={`https://www.materialscloud.org/explore/sssp-v2/${uuid}`}
+                            target="_blank"
+                            className="link-dark stretched-link sssp-link"
+                          >
+                            {nu.toFixed(2)}
+                          </a>
+                        ) : (
+                          "-"
+                        )}
                       </td>
                     );
                   })}
                   <td className={styles.gap}></td>
                   {Object.entries(eosPseudosMap[pseudo].avgNu).map(
-                    ([key, avgNu]) => {
-                      return (
-                        <td
-                          key={key}
-                          style={{ backgroundColor: nuColor(avgNu) }}
-                        >
-                          {avgNu !== undefined ? avgNu.toFixed(2) : "-"}
-                        </td>
-                      );
-                    },
+                    ([key, avgNu]) => (
+                      <td key={key} style={{ backgroundColor: nuColor(avgNu) }}>
+                        {avgNu !== undefined ? avgNu.toFixed(2) : "-"}
+                      </td>
+                    ),
                   )}
                 </tr>
               );
