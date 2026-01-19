@@ -12,7 +12,6 @@ import { BM } from "./utils";
 
 const refRes = 1000;
 const hoverDigits = 2;
-const hoverTemplate = `(%{x:.${hoverDigits}f}, %{y:.${hoverDigits}f})`;
 
 const config: Partial<Config> = {
   displaylogo: false,
@@ -81,8 +80,13 @@ const EosPlot: React.FC<EosPlotProps> = ({
                 color: color,
               },
               hovertemplate:
-                hoverTemplate +
-                `<br>\u03BD = ${eosData.nu?.toFixed(hoverDigits)}`,
+                pseudo +
+                `<br>Volume = %{x:.${hoverDigits}f} Å³/atom` +
+                `<br>Energy = %{y:.${hoverDigits}f} eV/atom` +
+                (eosData.nu
+                  ? `<br>\u03BD = ${eosData.nu?.toFixed(hoverDigits)}`
+                  : "") +
+                "<extra></extra>",
               hoverlabel: { align: "left" },
             };
           } else {
@@ -100,7 +104,12 @@ const EosPlot: React.FC<EosPlotProps> = ({
                 color: color,
               },
               name: pseudo,
-              hovertemplate: hoverTemplate,
+              hovertemplate:
+                pseudo +
+                `<br>Volume = %{x:.${hoverDigits}f} Å³/atom` +
+                `<br>Energy = %{y:.${hoverDigits}f} eV/atom` +
+                "<extra></extra>",
+              hoverlabel: { align: "left" },
             };
           }
         });
