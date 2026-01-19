@@ -17,15 +17,9 @@ const ConvergencePane: React.FC<ConvergencePaneProps> = ({ element }) => {
     useContext(PseudosContext);
   const [activeCategories, setActiveCategories] = useState(categories);
 
-  const activePseudosMetadata = useMemo(() => {
-    const activePseudos: Record<string, any> = {};
-    Object.entries(pseudosMetadata).forEach(([pseudo, metadata]) => {
-      if (activeCategories.includes(metadata.category)) {
-        activePseudos[pseudo] = metadata;
-      }
-    });
-    return activePseudos;
-  }, [activeCategories, pseudosMetadata]);
+  useEffect(() => {
+    setActiveCategories(categories);
+  }, [categories]);
 
   useEffect(() => {
     if (!element) return;
@@ -45,6 +39,16 @@ const ConvergencePane: React.FC<ConvergencePaneProps> = ({ element }) => {
         setLoadingData(false);
       });
   }, [element]);
+
+  const activePseudosMetadata = useMemo(() => {
+    const activePseudos: Record<string, any> = {};
+    Object.entries(pseudosMetadata).forEach(([pseudo, metadata]) => {
+      if (activeCategories.includes(metadata.category)) {
+        activePseudos[pseudo] = metadata;
+      }
+    });
+    return activePseudos;
+  }, [activeCategories, pseudosMetadata]);
 
   const isLoading = loadingData || loadingMetadata;
 
