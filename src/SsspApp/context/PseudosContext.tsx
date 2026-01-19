@@ -15,8 +15,6 @@ type PseudosContextType = {
   bandsCalcUUIDs: BandsCalcUUIDsMap;
   pseudoFilenames: PseudoFilenames;
   maxPseudoWidth: number;
-  activeCategories: string[];
-  setActiveCategories: (categories: string[]) => void;
   getUpfUuid: (element: string, pseudoName: string, zVal: number) => string;
   getPseudoFilename: (
     element: string,
@@ -38,7 +36,6 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
   const [loadingFiles, setLoadingFiles] = useState(true);
   const [categories, setCategories] = useState([] as string[]);
   const [pseudosMetadata, setPseudosMetadata] = useState({} as PseudosMetadata);
-  const [activeCategories, setActiveCategories] = useState([] as string[]);
   const [bandsCalcUUIDs, setBandsCalcUUIDs] = useState({} as BandsCalcUUIDsMap);
   const [pseudoFilenames, setPseudoFilenames] = useState({} as PseudoFilenames);
 
@@ -59,7 +56,6 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
           uniqueCategories.add(meta.category);
         });
         setCategories([...uniqueCategories]);
-        setActiveCategories([...uniqueCategories]);
       })
       .catch((error) => {
         console.error("Error fetching pseudos metadata:", error);
@@ -114,8 +110,6 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
         bandsCalcUUIDs,
         pseudoFilenames,
         maxPseudoWidth,
-        activeCategories,
-        setActiveCategories,
         getUpfUuid,
         getPseudoFilename,
       }}
