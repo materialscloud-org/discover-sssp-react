@@ -21,7 +21,7 @@ type PseudosContextType = {
   getPseudoFilename: (
     element: string,
     pseudoName: string,
-    zVal: number
+    zVal: number,
   ) => string;
 };
 
@@ -45,9 +45,9 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
   const maxPseudoWidth = useMemo(
     () =>
       Math.max(
-        ...Object.keys(pseudosMetadata).map((pseudo) => pseudo.length * 12)
+        ...Object.keys(pseudosMetadata).map((pseudo) => pseudo.length * 12),
       ),
-    [pseudosMetadata]
+    [pseudosMetadata],
   );
 
   useEffect(() => {
@@ -98,7 +98,7 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
   const getPseudoFilename = (
     element: string,
     pseudoName: string,
-    zVal: number
+    zVal: number,
   ) => {
     const key = `${pseudoName}-${zVal}`;
     return pseudoFilenames?.[element]?.[key] || "";
