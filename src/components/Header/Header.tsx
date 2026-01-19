@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle, doi_ids, logo }) => (
             ))}
           </div>
         </div>
-        <img src={logo} id={styles["logo"]} />
+        <img id={styles["logo"]} src={logo} alt="SSSP logo" />
       </div>
     </Card.Body>
   </Card>
