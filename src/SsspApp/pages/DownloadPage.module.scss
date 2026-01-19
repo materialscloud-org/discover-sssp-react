@@ -1,4 +1,19 @@
-#download-page {
-  max-width: 1000px;
+#downloadPage {
+  max-width: 800px;
   margin: 0 auto;
+}
+
+#downloadTable {
+  text-align: center;
+  width: fit-content;
+  margin: 0 auto 0.75rem;
+
+  th:first-child {
+    width: fit-content;
+  }
+
+  th,
+  td {
+    padding: 0.5rem 1rem;
+  }
 }

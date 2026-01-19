@@ -122,42 +122,43 @@ const UpfModal: React.FC<UpfModalProps> = ({
         </Modal.Title>
       </Modal.Header>
 
-      <Modal.Body className={styles["modalBody"]}>
+      <Modal.Body className={styles.modalBody}>
         {error ? (
-          <div className={styles["message"]}>{error}</div>
+          <div className={styles.message}>{error}</div>
         ) : loadingContent ? (
           <LoadingSpinner />
         ) : !content ? (
           !isBackendConfigured ? (
-            <div className={styles["message"]}>
+            <div className={styles.message}>
               Backend not configured. UPF download/viewing is unavailable.
             </div>
           ) : !uuid ? (
-            <div className={styles["message"]}>
+            <div className={styles.message}>
               No UPF UUID found for this pseudopotential.
             </div>
           ) : (
-            <div className={styles["loadContainer"]}>
+            <div className={styles.loadContainer}>
               <Button variant="primary" onClick={loadUpfContent}>
                 Load UPF content
               </Button>
-              <div className={styles["hint"]}>May take some time</div>
+              <div className={styles.hint}>May take some time</div>
             </div>
           )
         ) : (
-          <div className={styles["content"]}>
-            <pre className={styles["pre"]}>{content}</pre>
+          <div className={styles.content}>
+            <pre className={styles.pre}>{content}</pre>
           </div>
         )}
       </Modal.Body>
 
-      <Modal.Footer>
+      <Modal.Footer className="justify-content-start">
         <Button
+          id={styles.downloadUpfButton}
           variant="primary"
           onClick={downloadUpf}
           disabled={disableActions || downloading}
         >
-          <span id={styles["downloadUpfText"]}>Download UPF file</span>
+          <span id={styles.downloadUpfText}>Download UPF file</span>
           {downloading ? (
             <div
               className="spinner-border spinner-border-sm text-light"
@@ -169,7 +170,7 @@ const UpfModal: React.FC<UpfModalProps> = ({
             <BsDownload />
           )}
         </Button>
-        <h4 id={styles["filename"]}>{resolvedFilename}</h4>
+        <span id={styles.filename}>{resolvedFilename}</span>
       </Modal.Footer>
     </Modal>
   );

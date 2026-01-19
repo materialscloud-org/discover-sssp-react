@@ -29,11 +29,9 @@
 
 .hint {
   color: #6c757d;
-  font-size: 0.95rem;
 }
 
 .message {
-  font-size: large;
   padding: 1rem;
   text-align: center;
 }
@@ -46,12 +44,18 @@
 #filename {
   flex-grow: 1;
   margin-left: 0.5rem;
-
-  @media (max-width: 991px) {
-    text-align: center;
-  }
 }
 
 #downloadUpfText {
   margin-right: 0.5rem;
+}
+
+@media (max-width: 991px) {
+  #filename {
+    text-align: center;
+  }
+
+  #downloadUpfButton {
+    width: 100%;
+  }
 }

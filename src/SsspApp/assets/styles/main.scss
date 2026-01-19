@@ -1,5 +1,5 @@
 :root {
-  --sssp-link-color: #4682b4;
+  --sssp-link-color: purple;
 }
 
 .card {
@@ -35,7 +35,7 @@
   }
 }
 
-.sssp-link {
+a:not(.button-link) {
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 

@@ -4,16 +4,16 @@ import styles from "./DownloadPage.module.scss";
 
 const DownloadPage: React.FC = () => {
   return (
-    <div id={styles["download-page"]}>
+    <div id={styles.downloadPage}>
       <header className="text-center">
         <h1 className="display-5">Download SSSP</h1>
         <p className="lead">
-          The latest version of the SSSP libraries (and older versions) can be
-          downloaded using the links below.
+          All versions of the SSSP library can be downloaded using the links
+          below.
         </p>
       </header>
 
-      <Table striped bordered responsive className="text-center">
+      <Table id={styles.downloadTable} striped bordered responsive>
         <thead>
           <tr>
             <th rowSpan={2}>Version</th>
@@ -171,37 +171,41 @@ const DownloadPage: React.FC = () => {
               </a>
             </td>
           </tr>
+
+          <tr>
+            <td>1.0</td>
+            <td colSpan={4}>
+              <a
+                href="https://legacy.materialscloud.org/discover/data/discover/sssp/downloads/tarball_1.0/SSSP_1.0_pseudos.tar.gz"
+                download
+              >
+                Download
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td>0.7</td>
+            <td colSpan={4}>
+              <a
+                href="https://legacy.materialscloud.org/discover/data/discover/sssp/downloads/tarball_0.7/SSSP_0.7_pseudos.tar.gz"
+                download
+              >
+                Download
+              </a>
+            </td>
+          </tr>
         </tbody>
       </Table>
 
-      <ul>
-        <li>
-          <a
-            href="https://legacy.materialscloud.org/discover/data/discover/sssp/downloads/tarball_1.0/SSSP_1.0_pseudos.tar.gz"
-            download
-          >
-            SSSP v1.0
-          </a>{" "}
-          (all libraries)
-        </li>
-        <li>
-          <a
-            href="https://legacy.materialscloud.org/discover/data/discover/sssp/downloads/tarball_1.0/SSSP_1.0_plots.tar.gz"
-            download
-          >
-            SSSP v1.0 convergence plots
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://legacy.materialscloud.org/discover/data/discover/sssp/downloads/tarball_0.7/SSSP_0.7_pseudos.tar.gz"
-            download
-          >
-            SSSP v0.7
-          </a>{" "}
-          (all libraries)
-        </li>
-      </ul>
+      <div className="text-center">
+        <a
+          href="https://legacy.materialscloud.org/discover/data/discover/sssp/downloads/tarball_1.0/SSSP_1.0_plots.tar.gz"
+          download
+        >
+          SSSP v1.0 convergence plots
+        </a>
+      </div>
     </div>
   );
 };

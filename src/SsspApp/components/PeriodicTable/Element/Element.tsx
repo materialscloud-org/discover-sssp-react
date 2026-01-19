@@ -39,7 +39,7 @@ const Element: React.FC<ElementProps> = ({ number, symbol, color, info }) => {
 
   return (
     <Link
-      className={classes.join(" ")}
+      className={`${classes.join(" ")} button-link`}
       style={{ background: color }}
       onMouseEnter={() => setHoveredElement(objectify())}
       onMouseLeave={() => setHoveredElement(undefined)}
