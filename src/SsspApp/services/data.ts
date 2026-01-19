@@ -2,7 +2,6 @@ import { API_URL, DATA_URL } from "@sssp/common/config";
 import {
   BandChessboardsData,
   BandsCalcUUIDsMap,
-  BandsData,
   BandsPseudosMap,
   ElementsInfo,
   EosElementMap,
@@ -17,7 +16,7 @@ export default class SsspDataService {
   private static bandsCalcUUIDsCache: BandsCalcUUIDsMap | null = null;
 
   private static resolveUpfRepositoryPath = async (
-    upfNodeUuid: string
+    upfNodeUuid: string,
   ): Promise<{ path: string; filename: string }> => {
     if (!API_URL) {
       throw new Error("UPF retrieval requires VITE_API_URL to be set");
@@ -39,10 +38,10 @@ export default class SsspDataService {
 
   private static findFirstRepositoryFilePath = (
     repoObjects: Record<string, any>,
-    preferExtensions: string[] = [".upf", ".UPF"]
+    preferExtensions: string[] = [".upf", ".UPF"],
   ): string | null => {
     const entries = Object.entries(repoObjects || {}).filter(
-      ([name]) => name !== "zipped"
+      ([name]) => name !== "zipped",
     );
 
     const fileEntries: Array<[string, any]> = [];
@@ -68,7 +67,7 @@ export default class SsspDataService {
     for (const [dirName, meta] of dirEntries) {
       const nested = SsspDataService.findFirstRepositoryFilePath(
         meta?.objects || {},
-        preferExtensions
+        preferExtensions,
       );
       if (nested) return `${dirName}/${nested}`;
     }
@@ -77,7 +76,7 @@ export default class SsspDataService {
   };
 
   static fetchBandsCalcUUIDs = async (
-    element: string
+    element: string,
   ): Promise<PseudoBandsCalcUUIDsMap> => {
     const content = await SsspDataService.fetchBandsCalcUUIDsAll();
     return (content?.[element] || {}) as PseudoBandsCalcUUIDsMap;
@@ -107,7 +106,7 @@ export default class SsspDataService {
   };
 
   static fetchUpfFile = async (
-    upfNodeUuid: string
+    upfNodeUuid: string,
   ): Promise<{ filename: string; content: string }> => {
     const { filename, blob } = await SsspDataService.fetchUpfBlob(upfNodeUuid);
     const content = await blob.text();
@@ -115,18 +114,17 @@ export default class SsspDataService {
   };
 
   static fetchUpfBlob = async (
-    upfNodeUuid: string
+    upfNodeUuid: string,
   ): Promise<{ filename: string; blob: Blob }> => {
     if (!API_URL) {
       throw new Error("UPF retrieval requires VITE_API_URL to be set");
     }
 
-    const { path, filename } = await SsspDataService.resolveUpfRepositoryPath(
-      upfNodeUuid
-    );
+    const { path, filename } =
+      await SsspDataService.resolveUpfRepositoryPath(upfNodeUuid);
 
     const contentsUrl = `${API_URL}/nodes/${upfNodeUuid}/repo/contents?filename=${encodeURIComponent(
-      path
+      path,
     )}`;
     const contentsResponse = await fetch(contentsUrl);
     const blob = await contentsResponse.blob();
@@ -148,35 +146,14 @@ export default class SsspDataService {
   };
 
   static fetchBandsData = async (element: string): Promise<BandsPseudosMap> => {
-    const fetchBandsDataFromApi = async (): Promise<BandsPseudosMap> => {
-      const data = await SsspDataService.fetchBandsCalcUUIDs(element);
-      const urlPromises = Object.entries(data).map(async ([pseudo, uuids]) => {
-        let url = `${API_URL}/nodes/${uuids.bands}/download?format=json`;
-        let response = await fetch(url);
-        const bandsData: BandsData = await response.json();
-        url = `${API_URL}/nodes/${uuids.params}/attributes`;
-        response = await fetch(url);
-        const json = await response.json();
-        bandsData.fermiLevel = json["data"]["attributes"]["fermi_energy"];
-        return [pseudo, bandsData] as [string, BandsData];
-      });
-      const entries = await Promise.all(urlPromises);
-      const bandsPseudoMap: BandsPseudosMap = Object.fromEntries(entries);
-      return bandsPseudoMap || ({} as BandsPseudosMap);
-    };
-
-    const fetchBandsDataFromDataUrl = async (): Promise<BandsPseudosMap> => {
-      const url = `${DATA_URL}/bands/${element}.json`;
-      const response = await fetch(url);
-      const bandsPseudoMap: BandsPseudosMap = await response.json();
-      return bandsPseudoMap || ({} as BandsPseudosMap);
-    };
-
-    return API_URL ? fetchBandsDataFromApi() : fetchBandsDataFromDataUrl();
+    const url = `${DATA_URL}/bands/${element}.json`;
+    const response = await fetch(url);
+    const bandsPseudoMap: BandsPseudosMap = await response.json();
+    return bandsPseudoMap || ({} as BandsPseudosMap);
   };
 
   static fetchBandChessboardData = async (
-    element: string
+    element: string,
   ): Promise<BandChessboardsData> => {
     const url = `${DATA_URL}/chessboards/${element}.json`;
     const response = await fetch(url);
@@ -192,7 +169,7 @@ export default class SsspDataService {
   };
 
   static fetchPseudosSummaryData = async (
-    element: string
+    element: string,
   ): Promise<PseudoConvergenceData> => {
     const url = `${DATA_URL}/summary/${element}.json`;
     const response = await fetch(url);
