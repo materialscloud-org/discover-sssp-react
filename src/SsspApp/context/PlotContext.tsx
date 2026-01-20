@@ -185,18 +185,23 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
     const isValidPair = (pair: string[]) =>
       pair.length === 2 && pair.every((p) => bandsPseudos.includes(p));
 
+    const samePair = (a: string[], b: string[]) =>
+      a.length === b.length && a.every((v, i) => v === b[i]);
+
     if (!bandsPseudos.length) {
-      setActiveBandsPseudos([]);
+      setActiveBandsPseudos((prev) => (prev.length ? [] : prev));
       return;
     }
 
-    let nextActive: string[] = [bandsPseudos[0], bandsPseudos[0]];
+    setActiveBandsPseudos((prev) => {
+      let nextActive: string[] = [bandsPseudos[0], bandsPseudos[0]];
 
-    if (isValidPair(chessboardPseudos)) nextActive = chessboardPseudos;
-    else if (isValidPair(activeBandsPseudos)) nextActive = activeBandsPseudos;
+      if (isValidPair(chessboardPseudos)) nextActive = chessboardPseudos;
+      else if (isValidPair(prev)) nextActive = prev;
 
-    setActiveBandsPseudos(nextActive);
-  }, [bandsPseudos, chessboardPseudos, element]);
+      return samePair(prev, nextActive) ? prev : nextActive;
+    });
+  }, [bandsPseudos, chessboardPseudos]);
 
   return (
     <PlotContext.Provider

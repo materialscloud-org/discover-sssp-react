@@ -17,3 +17,13 @@ export type PseudoBandsCalcUUIDsMap = Record<string, PseudoBandsCalcUUIDs>;
 export type BandsCalcUUIDsMap = Record<string, PseudoBandsCalcUUIDsMap>;
 
 export type PseudoFilenames = Record<string, Record<string, string>>;
+
+export type RepositoryFileObject = {
+  type: "FILE" | "DIRECTORY";
+  binary?: boolean;
+  size?: number;
+  download?: string;
+  objects?: Record<string, RepositoryFileObject>;
+};
+
+export type RepositoryMetadata = Record<string, RepositoryFileObject>;

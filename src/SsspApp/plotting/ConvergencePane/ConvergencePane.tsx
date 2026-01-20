@@ -2,6 +2,7 @@ import { useContext, useMemo } from "react";
 
 import { CategorySelector, LoadingSpinner } from "@sssp/components";
 import { ElementContext, PlotContext, PseudoContext } from "@sssp/context";
+import { PseudosMetadata } from "@sssp/models";
 
 import styles from "./ConvergencePane.module.scss";
 import ConvergencePlot from "./ConvergencePlot";
@@ -19,7 +20,7 @@ const ConvergencePane: React.FC = () => {
   const { loadingConvergenceData, convergenceData } = useContext(PlotContext);
 
   const activePseudosMetadata = useMemo(() => {
-    const activePseudos: Record<string, any> = {};
+    const activePseudos: PseudosMetadata = {};
     Object.entries(pseudosMetadata).forEach(([pseudo, metadata]) => {
       if (activeCategories.includes(metadata.category)) {
         activePseudos[pseudo] = metadata;

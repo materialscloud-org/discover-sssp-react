@@ -92,7 +92,7 @@ export const PseudoProvider: React.FC<PseudoProviderProps> = ({ children }) => {
 
   useEffect(() => {
     setActiveCategories(categories);
-  }, [element]);
+  }, [categories, element]);
 
   const getUpfUuid = (element: string, pseudoName: string, zVal: number) => {
     const key = `${pseudoName}-${zVal}`;

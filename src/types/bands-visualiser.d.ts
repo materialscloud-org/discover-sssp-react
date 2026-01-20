@@ -1,4 +1,6 @@
 declare module "bands-visualiser" {
+  import { Layout } from "plotly.js";
+
   export function BandsVisualiser(
     container: HTMLDivElement,
     options: {
@@ -7,9 +9,7 @@ declare module "bands-visualiser" {
         dosData?: any;
         traceFormat?: any;
       }[];
-      settings?: {
-        showlegend?: boolean;
-      };
-    }
+      settings?: Partial<Layout>;
+    },
   ): void;
 }

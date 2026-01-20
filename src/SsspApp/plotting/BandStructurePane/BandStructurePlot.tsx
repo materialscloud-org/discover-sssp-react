@@ -14,32 +14,34 @@ const BandStructurePlot: React.FC<BandStructurePlotProps> = ({
   const plotRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (bandsPseudosMap && plotRef.current) {
+    (async () => {
+      if (!bandsPseudosMap || !plotRef.current) return;
+
       const pseudosData = buildBandsData(
         activePseudos,
         bandsPseudosMap,
         bandShift,
-        pseudosMetadata
+        pseudosMetadata,
       );
 
       if (!pseudosData.length) return;
 
-      let BandsVisualiser: any | null = null;
+      let BandsVisualiser:
+        | typeof import("bands-visualiser").BandsVisualiser
+        | null = null;
 
-      (async () => {
-        BandsVisualiser = (await import("bands-visualiser")).BandsVisualiser;
+      BandsVisualiser = (await import("bands-visualiser")).BandsVisualiser;
 
-        BandsVisualiser(plotRef.current, {
-          bandsDataArray: pseudosData,
-          settings: {
-            showlegend: false,
-            yaxis: {
-              range: [-20, 20],
-            },
+      BandsVisualiser(plotRef.current, {
+        bandsDataArray: pseudosData,
+        settings: {
+          showlegend: false,
+          yaxis: {
+            range: [-20, 20],
           },
-        });
-      })();
-    }
+        },
+      });
+    })();
   }, [activePseudos, bandsPseudosMap, pseudosMetadata, bandShift]);
 
   return (
@@ -55,7 +57,7 @@ const buildBandsData = (
   activePseudos: string[],
   bandsPseudosMap: BandsPseudosMap,
   bandShift: number,
-  pseudosMetadata: Record<string, any>
+  pseudosMetadata: Record<string, { color?: string }>,
 ) => {
   return activePseudos.flatMap((pseudo, index) => {
     const data = bandsPseudosMap[pseudo];

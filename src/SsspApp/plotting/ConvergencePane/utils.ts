@@ -101,11 +101,13 @@ export const generateConvergencePlotData = (
       eta_c: number[] = [],
       max_diff_c: number[] = [];
 
+    let dataSeries;
+
     if (quantities.phononFrequencies) {
       frequencies = quantities.phononFrequencies.values.map(
         (v) => (v * 2) / PHONON_C_FACTOR,
       );
-      let dataSeries = generateDataSeries(QUANTITIES.phononFrequencies, color);
+      dataSeries = generateDataSeries(QUANTITIES.phononFrequencies, color);
       dataSeries.x = quantities.phononFrequencies.cutoffs;
       dataSeries.y = frequencies.map((v) => v + offset);
       freqError = quantities.phononFrequencies.error;
@@ -130,7 +132,7 @@ export const generateConvergencePlotData = (
     }
 
     if (quantities.pressure) {
-      let dataSeries = generateDataSeries(QUANTITIES.pressure, color);
+      dataSeries = generateDataSeries(QUANTITIES.pressure, color);
       pressure = quantities.pressure.values.map(
         (v) => (v * 2) / PRESSURE_C_FACTOR,
       );
@@ -140,7 +142,7 @@ export const generateConvergencePlotData = (
     }
 
     if (quantities.cohesiveEnergy) {
-      let dataSeries = generateDataSeries(QUANTITIES.cohesiveEnergy, color);
+      dataSeries = generateDataSeries(QUANTITIES.cohesiveEnergy, color);
       cohesiveEnergy = quantities.cohesiveEnergy.values;
       dataSeries.x = quantities.cohesiveEnergy.cutoffs;
       dataSeries.y = cohesiveEnergy.map((v) => v + offset);
@@ -158,7 +160,7 @@ export const generateConvergencePlotData = (
     }
 
     if (quantities.eos) {
-      let dataSeries = generateDataSeries(QUANTITIES.eos, color);
+      dataSeries = generateDataSeries(QUANTITIES.eos, color);
       eos = quantities.eos.values.map((v) => (v * 2) / EOS_C_FACTOR);
       dataSeries.x = quantities.eos.cutoffs;
       dataSeries.y = eos.map((v) => v + offset);

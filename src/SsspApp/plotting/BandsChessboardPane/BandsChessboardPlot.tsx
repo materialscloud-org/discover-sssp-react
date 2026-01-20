@@ -29,7 +29,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
   useEffect(() => {
     if (!plotRef.current) return;
 
-    let Plotly: any | null = null;
+    let Plotly: typeof import("plotly.js") | null = null;
     let graphDiv: PlotlyHTMLElement | null = null;
     let destroyed = false;
     let resizeHandler: (() => void) | null = null;
@@ -40,11 +40,11 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
       if (destroyed || !plotRef.current) return;
 
       const zOffDiagonal = values.map((row, i) =>
-        row.map((value, j) => (i === j ? null : value))
+        row.map((value, j) => (i === j ? null : value)),
       );
 
       const zDiagonalMask = values.map((row, i) =>
-        row.map((_, j) => (i === j ? 1 : null))
+        row.map((_, j) => (i === j ? 1 : null)),
       );
 
       const data: Data[] = [
@@ -113,7 +113,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
                   size: Math.max(8, 24 - pseudoFilenames.length),
                 },
               }))
-              .filter((_, j) => j !== i)
+              .filter((_, j) => j !== i),
           )
           .flat(),
         margin: { t: 160, r: 110, b: 40, l: 160 },
@@ -125,7 +125,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         plotRef.current,
         data,
         layout,
-        config
+        config,
       )) as PlotlyHTMLElement;
 
       graphDiv.on("plotly_click", (event: PlotMouseEvent) => {
@@ -134,7 +134,9 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         handleTileClick(
           plotIndex,
           [y as string, x as string],
-          pointIndex as any // `any` because Plotly incorrectly defines it as `number` instead of `number[]`
+          // `any` because Plotly incorrectly defines it as `number` instead of `number[]`
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          pointIndex as any,
         );
       });
 
@@ -144,7 +146,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
           width: gd.offsetWidth,
           height: gd.offsetWidth,
         };
-        Plotly.relayout(gd, update);
+        if (Plotly) Plotly.relayout(gd, update);
       };
 
       resizeHandler = () => handleResize(graphDiv!);
@@ -152,6 +154,8 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
       handleResize(graphDiv);
 
       return () => {
+        destroyed = true;
+        if (resizeHandler) window.removeEventListener("resize", resizeHandler);
         if (graphDiv) graphDiv.removeAllListeners?.("plotly_click");
       };
     })();
@@ -168,7 +172,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         }
       }
     };
-  }, [pseudoFilenames, values, title, zMax]);
+  }, [pseudoFilenames, values, title, zMax, handleTileClick]);
 
   return <div ref={plotRef} className={styles["chessboard-plot"]} />;
 };

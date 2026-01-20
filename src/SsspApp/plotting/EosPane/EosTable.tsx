@@ -2,7 +2,6 @@ import { Table } from "react-bootstrap";
 
 import EosTableProps from "./EosTable.models";
 import styles from "./EosTable.module.scss";
-import { formatSubscripts } from "./utils";
 
 const CONFIGURATIONS = [
   "SC",
@@ -100,6 +99,12 @@ const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
 };
 
 export default EosTable;
+
+const formatSubscripts = (text: string) => {
+  return text
+    .split(/(\d+)/)
+    .map((part, i) => (/\d+/.test(part) ? <sub key={i}>{part}</sub> : part));
+};
 
 const nuColor = (nu: number | undefined): string => {
   if (nu === undefined) return "white";

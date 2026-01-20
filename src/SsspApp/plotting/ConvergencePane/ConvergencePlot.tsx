@@ -1,6 +1,6 @@
 import { useContext, useEffect, useMemo, useRef, useState } from "react";
 
-import type { Config } from "plotly.js";
+import type { Config, PlotlyHTMLElement } from "plotly.js";
 
 import { NoDataMessage } from "@sssp/components";
 import { ElementContext, LibraryContext } from "@sssp/context";
@@ -31,9 +31,9 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
   const activePseudos = useMemo(() => {
     if (!summaryData || !summaryData.pseudos) return [];
     return summaryData.pseudos
-      .filter((pseudo) => pseudosMetadata.hasOwnProperty(pseudo.name))
+      .filter((pseudo) => pseudosMetadata?.[pseudo.name])
       .reverse(); // reversed because we build it bottom-up in the plot
-  }, [summaryData?.pseudos, pseudosMetadata]);
+  }, [summaryData, pseudosMetadata]);
 
   const recommendedPseudos = useMemo(
     () =>
@@ -52,9 +52,11 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
     }
 
     let destroyed = false;
+    let Plotly: typeof import("plotly.js") | null = null;
+    let graphDiv: PlotlyHTMLElement | null = null;
 
     (async () => {
-      const Plotly = (await import("@sssp/plotting/PlotlyLoader")).default;
+      Plotly = (await import("@sssp/plotting/PlotlyLoader")).default;
 
       if (destroyed || !plotRef.current) return;
 
@@ -66,34 +68,38 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
         pseudosMetadata,
       );
 
-      await Plotly.react(plotRef.current, data, layout, config);
+      graphDiv = (await Plotly.react(
+        plotRef.current,
+        data,
+        layout,
+        config,
+      )) as PlotlyHTMLElement;
 
-      const gd: any = plotRef.current;
-      if (gd?.removeAllListeners) {
-        gd.removeAllListeners("plotly_clickannotation");
-      }
+      graphDiv.removeAllListeners?.("plotly_clickannotation");
+      graphDiv.on("plotly_clickannotation", async (event: unknown) => {
+        const annotationText =
+          event && typeof event === "object" && "annotation" in event
+            ? (event as { annotation?: { text?: unknown } }).annotation?.text
+            : undefined;
 
-      if (gd?.on) {
-        gd.on("plotly_clickannotation", async (event: any) => {
-          const text: string = event?.annotation?.text || "";
+        const text = typeof annotationText === "string" ? annotationText : "";
+        const pseudoMatch = text.match(/<b>(.*?)<\/b>/);
+        const pseudo = pseudoMatch?.[1];
+        if (!pseudo) return;
 
-          const pseudoMatch = text.match(/<b>(.*?)<\/b>/);
-          const pseudo = pseudoMatch?.[1];
-          if (!pseudo) return;
+        const zMatch = text.match(/Z<sub>val<\/sub>\s*=\s*(\d+)/);
+        const z = zMatch ? Number.parseInt(zMatch[1], 10) : NaN;
+        if (!Number.isFinite(z)) return;
 
-          const zMatch = text.match(/Z<sub>val<\/sub>\s*=\s*(\d+)/);
-          const z = zMatch ? Number.parseInt(zMatch[1], 10) : NaN;
-          if (!Number.isFinite(z)) return;
-
-          setUpfPseudoName(pseudo);
-          setUpfZ(z);
-          setShowUpfModal(true);
-        });
-      }
+        setUpfPseudoName(pseudo);
+        setUpfZ(z);
+        setShowUpfModal(true);
+      });
     })();
 
     return () => {
       destroyed = true;
+      if (graphDiv) graphDiv.removeAllListeners?.("plotly_clickannotation");
     };
   }, [
     element,

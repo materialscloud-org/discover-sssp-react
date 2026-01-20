@@ -68,8 +68,10 @@ const UpfModal: React.FC<UpfModalProps> = ({
       const { filename, content } = await SsspDataService.fetchUpfFile(uuid);
       setResolvedFilename((current) => current || filename);
       setContent(content);
-    } catch (e: any) {
-      setError(e?.message || "Failed to load UPF file");
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error.message || "Failed to load UPF file");
+      }
     } finally {
       setLoadingContent(false);
     }
@@ -105,8 +107,10 @@ const UpfModal: React.FC<UpfModalProps> = ({
       a.click();
       a.remove();
       URL.revokeObjectURL(url);
-    } catch (e: any) {
-      setError(e?.message || "Failed to download UPF file");
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error?.message || "Failed to download UPF file");
+      }
     } finally {
       setDownloading(false);
     }

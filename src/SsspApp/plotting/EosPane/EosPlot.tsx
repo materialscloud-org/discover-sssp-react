@@ -8,7 +8,6 @@ import { formatSubscripts } from "@sssp/plotting/utils";
 
 import EosPlotProps from "./EosPlot.models";
 import styles from "./EosPlot.module.scss";
-import { BM } from "./utils";
 
 const refRes = 1000;
 const hoverDigits = 2;
@@ -36,7 +35,7 @@ const EosPlot: React.FC<EosPlotProps> = ({
   useEffect(() => {
     if (!plotRef.current) return;
 
-    let Plotly: any | null = null;
+    let Plotly: typeof import("plotly.js") | null = null;
     let graphDiv: PlotlyHTMLElement | null = null;
     let destroyed = false;
     let resizeHandler: (() => void) | null = null;
@@ -67,8 +66,8 @@ const EosPlot: React.FC<EosPlotProps> = ({
                 (a: { volume: number }, b: { volume: number }) =>
                   a.volume - b.volume,
               );
-            const x = sorted.map((p: { volume: any }) => p.volume);
-            const y = sorted.map((p: { energy: any }) => p.energy);
+            const x = sorted.map((p) => p.volume);
+            const y = sorted.map((p) => p.energy);
             return {
               x,
               y,
@@ -135,7 +134,7 @@ const EosPlot: React.FC<EosPlotProps> = ({
 
       const handleResize = (gd: PlotlyHTMLElement) => {
         if (!gd) return;
-        Plotly.Plots.resize(gd);
+        if (Plotly) Plotly.Plots.resize(gd);
       };
 
       resizeHandler = () => handleResize(graphDiv!);
@@ -146,17 +145,20 @@ const EosPlot: React.FC<EosPlotProps> = ({
     return () => {
       destroyed = true;
       if (resizeHandler) window.removeEventListener("resize", resizeHandler);
-      if (Plotly && graphDiv) {
-        try {
-          Plotly.purge(graphDiv);
-        } catch (error) {
-          console.error("Error purging EosPlot:", error);
-        }
-      }
     };
-  }, [activePseudos]);
+  }, [activePseudos, configuration, eosPseudosMap, pseudosMetadata]);
 
   return <div ref={plotRef} className={styles["eos-plot"]}></div>;
 };
 
 export default EosPlot;
+
+const BM = (V: number[], V0: number, E0: number, B0: number, B1: number) =>
+  V.map((v) => {
+    const eta = Math.pow(v / V0, 2 / 3);
+    return (
+      E0 +
+      ((9 * B0 * V0) / 16) *
+        (Math.pow(eta - 1, 3) * B1 + Math.pow(eta - 1, 2) * (6 - 4 * eta))
+    );
+  });

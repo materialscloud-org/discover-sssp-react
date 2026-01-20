@@ -10,6 +10,8 @@ import {
   PseudoConvergenceData,
   PseudoFilenames,
   PseudosMetadata,
+  RepositoryFileObject,
+  RepositoryMetadata,
 } from "@sssp/models";
 
 export default class SsspDataService {
@@ -26,9 +28,9 @@ export default class SsspDataService {
     const metaUrl = `${API_URL}/nodes/${upfNodeUuid}/repo/metadata`;
     const metaResponse = await fetch(metaUrl);
     const metaJson = await metaResponse.json();
-    const repoObjects = metaJson?.data?.attributes || {};
+    const repoMetadata: RepositoryMetadata = metaJson?.data?.attributes || {};
 
-    const path = SsspDataService.findFirstRepositoryFilePath(repoObjects);
+    const path = SsspDataService.findFirstRepositoryFilePath(repoMetadata);
     if (!path) {
       throw new Error("No repository files found for this UPF node");
     }
@@ -38,15 +40,15 @@ export default class SsspDataService {
   };
 
   private static findFirstRepositoryFilePath = (
-    repoObjects: Record<string, any>,
+    repoMetadata: RepositoryMetadata,
     preferExtensions: string[] = [".upf", ".UPF"],
   ): string | null => {
-    const entries = Object.entries(repoObjects || {}).filter(
+    const entries = Object.entries(repoMetadata || {}).filter(
       ([name]) => name !== "zipped",
     );
 
-    const fileEntries: Array<[string, any]> = [];
-    const dirEntries: Array<[string, any]> = [];
+    const fileEntries: Array<[string, RepositoryFileObject]> = [];
+    const dirEntries: Array<[string, RepositoryFileObject]> = [];
 
     for (const [name, meta] of entries) {
       if (meta?.type === "FILE") fileEntries.push([name, meta]);

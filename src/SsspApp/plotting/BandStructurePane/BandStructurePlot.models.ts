@@ -1,7 +1,7 @@
-import { BandsPseudosMap } from "@sssp/models";
+import { BandsPseudosMap, PseudosMetadata } from "@sssp/models";
 
 export default interface BandStructurePlotProps {
-  pseudosMetadata: Record<string, any>;
+  pseudosMetadata: PseudosMetadata;
   bandsPseudosMap: BandsPseudosMap;
   activePseudos: string[];
   bandShift: number;

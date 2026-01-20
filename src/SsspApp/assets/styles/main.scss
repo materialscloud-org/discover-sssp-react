@@ -35,7 +35,7 @@
   }
 }
 
-a:not(.button-link) {
+a:not(.button-link):not(.dropdown-item) {
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 

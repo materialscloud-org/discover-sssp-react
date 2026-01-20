@@ -4,11 +4,9 @@ import { ElementModel } from "@sssp/models";
 
 type HoverContextType = {
   hoveredPseudo: string;
-  setHoveredPseudo: React.Dispatch<React.SetStateAction<string>>;
+  setHoveredPseudo: (value: string) => void;
   hoveredElement?: ElementModel;
-  setHoveredElement: React.Dispatch<
-    React.SetStateAction<ElementModel | undefined>
-  >;
+  setHoveredElement: (value?: ElementModel) => void;
 };
 
 export const HoverContext = createContext({} as HoverContextType);
@@ -20,10 +18,10 @@ type HoverProviderProps = {
 export const HoverProvider: React.FC<HoverProviderProps> = ({ children }) => {
   const [hoveredPseudo, setHoveredPseudo] = useState("");
   const [hoveredElement, setHoveredElement] = useState<ElementModel>();
-  const timeoutRef = useRef<number | undefined>();
+  const timeoutRef = useRef<number>();
 
-  const debounceHoverHandler = (handler: React.Dispatch<any>) => {
-    return (value: any) => {
+  const debounceHoverHandler = <T,>(handler: (value: T) => void) => {
+    return (value: T) => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }

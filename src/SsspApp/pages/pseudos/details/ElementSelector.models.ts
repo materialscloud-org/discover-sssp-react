@@ -1,4 +1,4 @@
 export default interface ElementSelectorProps {
-  navigate: any;
+  navigate: (string: string) => void;
   activeTab: string;
 }
