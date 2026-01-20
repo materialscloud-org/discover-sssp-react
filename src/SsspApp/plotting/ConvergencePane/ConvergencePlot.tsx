@@ -3,7 +3,7 @@ import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import type { Config } from "plotly.js";
 
 import { NoDataMessage } from "@sssp/components";
-import { ElementsInfoContext, LibraryContext } from "@sssp/context";
+import { ElementContext, LibraryContext } from "@sssp/context";
 
 import { ConvergencePlotProps } from "./ConvergencePlot.models";
 import styles from "./ConvergencePlot.module.scss";
@@ -22,7 +22,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
   pseudosMetadata,
 }) => {
   const { libraries } = useContext(LibraryContext);
-  const { elementsInfo } = useContext(ElementsInfoContext);
+  const { elementsInfo } = useContext(ElementContext);
   const [showUpfModal, setShowUpfModal] = useState(false);
   const [upfPseudoName, setUpfPseudoName] = useState("");
   const [upfZ, setUpfZ] = useState<number>();

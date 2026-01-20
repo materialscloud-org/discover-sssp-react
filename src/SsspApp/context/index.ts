@@ -1,8 +1,5 @@
-export {
-  ElementsInfoContext,
-  ElementsInfoProvider,
-} from "./ElementsInfoContext";
+export { ElementContext, ElementProvider } from "./ElementContext";
 export { HoverContext, HoverProvider } from "./HoverContext";
 export { LibraryContext, LibraryProvider } from "./LibraryContext";
-export { PlottingContext, PlottingProvider } from "./PlottingContext";
-export { PseudosContext, PseudosProvider } from "./PseudosContext";
+export { PlotContext, PlotProvider } from "./PlotContext";
+export { PseudoContext, PseudoProvider } from "./PseudoContext";

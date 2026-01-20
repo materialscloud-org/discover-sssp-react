@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import { LoadingSpinner } from "@sssp/components";
-import { HoverContext, PseudosContext } from "@sssp/context";
+import { HoverContext, PseudoContext } from "@sssp/context";
 
 import styles from "./Legend.module.scss";
 
@@ -9,7 +9,7 @@ const PseudosLegend: React.FC = () => {
   const { hoveredPseudo, hoveredElement, setHoveredPseudo } =
     useContext(HoverContext);
   const { loadingMetadata, pseudosMetadata, maxPseudoWidth } =
-    useContext(PseudosContext);
+    useContext(PseudoContext);
 
   return loadingMetadata ? (
     <LoadingSpinner />
@@ -24,9 +24,9 @@ const PseudosLegend: React.FC = () => {
                 !(hoveredPseudo || hoveredElement)
                   ? ""
                   : hoveredPseudo === pseudo ||
-                    hoveredElement?.info.pseudopotential === pseudo
-                  ? styles["highlighted"]
-                  : styles["transparent"]
+                      hoveredElement?.info.pseudopotential === pseudo
+                    ? styles["highlighted"]
+                    : styles["transparent"]
               }
             `}
           onMouseEnter={() => setHoveredPseudo(pseudo)}

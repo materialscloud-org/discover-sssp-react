@@ -1,65 +1,26 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
 import { LoadingSpinner, NoDataMessage } from "@sssp/components";
-import { PlottingContext, PseudosContext } from "@sssp/context";
-import { BandsPseudosMap } from "@sssp/models";
-import { SsspDataService } from "@sssp/services";
+import { PlotContext, PseudoContext } from "@sssp/context";
 
 import BandStructureControls from "./BandStructureControls";
-import BandStructurePaneProps from "./BandStructurePane.models";
 import styles from "./BandStructurePane.module.scss";
 import BandStructurePlot from "./BandStructurePlot";
 
-const BandStructurePane: React.FC<BandStructurePaneProps> = ({ element }) => {
-  const { loadingMetadata, pseudosMetadata } = useContext(PseudosContext);
-  const { chessboardPseudos, bandShift, setBandShift } =
-    useContext(PlottingContext);
-  const [loadingData, setLoadingData] = useState(true);
-  const [bandsPseudosMap, setBandsPseudosMap] = useState({} as BandsPseudosMap);
-  const [pseudos, setPseudos] = useState([] as string[]);
-  const [activePseudos, setActivePseudos] = useState(chessboardPseudos);
+const BandStructurePane: React.FC = () => {
+  const { loadingMetadata, pseudosMetadata } = useContext(PseudoContext);
+  const {
+    loadingBandsData,
+    bandsPseudosMap,
+    bandsPseudos,
+    activeBandsPseudos,
+    setActiveBandsPseudos,
+    bandShift,
+    setBandShift,
+  } = useContext(PlotContext);
 
-  useEffect(() => {
-    if (!element) return;
-
-    setLoadingData(true);
-    setBandsPseudosMap({} as BandsPseudosMap);
-    setPseudos([]);
-
-    SsspDataService.fetchBandsData(element)
-      .then((data) => {
-        setBandsPseudosMap(data);
-        const pseudos = data && Object.keys(data);
-        setPseudos(pseudos);
-      })
-      .catch((error) => {
-        console.error("Error fetching bands data:", error);
-        setBandsPseudosMap({} as BandsPseudosMap);
-        setPseudos([]);
-      })
-      .finally(() => {
-        setLoadingData(false);
-      });
-  }, [element]);
-
-  useEffect(() => {
-    const isValidPair = (pair: string[]) =>
-      pair.length === 2 && pair.every((p) => pseudos.includes(p));
-
-    if (!pseudos.length) {
-      setActivePseudos([]);
-      return;
-    }
-
-    setActivePseudos((prev) => {
-      if (isValidPair(chessboardPseudos)) return chessboardPseudos;
-      if (isValidPair(prev)) return prev;
-      return [pseudos[0], pseudos[0]];
-    });
-  }, [pseudos, chessboardPseudos, element]);
-
-  const isLoading = loadingData || loadingMetadata;
+  const isLoading = loadingBandsData || loadingMetadata;
 
   const hasData = Object.keys(bandsPseudosMap || {}).length > 0;
 
@@ -72,10 +33,10 @@ const BandStructurePane: React.FC<BandStructurePaneProps> = ({ element }) => {
       <Row>
         <Col lg="3">
           <BandStructureControls
-            pseudos={pseudos}
-            activePseudos={activePseudos}
+            pseudos={bandsPseudos}
+            activePseudos={activeBandsPseudos}
             bandShift={bandShift}
-            onPseudoSelect={setActivePseudos}
+            onPseudoSelect={setActiveBandsPseudos}
             onBandShiftChange={setBandShift}
           />
         </Col>
@@ -83,7 +44,7 @@ const BandStructurePane: React.FC<BandStructurePaneProps> = ({ element }) => {
           <BandStructurePlot
             pseudosMetadata={pseudosMetadata}
             bandsPseudosMap={bandsPseudosMap}
-            activePseudos={activePseudos}
+            activePseudos={activeBandsPseudos}
             bandShift={bandShift}
           />
         </Col>

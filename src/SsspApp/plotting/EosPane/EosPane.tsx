@@ -1,23 +1,24 @@
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useContext, useMemo } from "react";
 import { Col, Row } from "react-bootstrap";
 
 import { LoadingSpinner, NoDataMessage } from "@sssp/components";
-import { PseudosContext } from "@sssp/context";
-import { EosPlotData, EosPseudosMap } from "@sssp/models";
-import { SsspDataService } from "@sssp/services";
+import { PlotContext, PseudoContext } from "@sssp/context";
+import { EosPlotData } from "@sssp/models";
 
-import EosPaneProps from "./EosPane.models";
 import styles from "./EosPane.module.scss";
 import EosPlot from "./EosPlot";
 import EosTable from "./EosTable";
 import PseudosCheckboxes from "./PseudosCheckboxes";
 
-const EosPane: React.FC<EosPaneProps> = ({ element }) => {
-  const { loadingMetadata } = useContext(PseudosContext);
-  const [loadingData, setLoadingData] = useState(true);
-  const [eosPseudosMap, setEosPseudosMap] = useState({} as EosPseudosMap);
-  const [pseudos, setPseudos] = useState([] as string[]);
-  const [activePseudos, setActivePseudos] = useState([] as string[]);
+const EosPane: React.FC = () => {
+  const { loadingMetadata } = useContext(PseudoContext);
+  const {
+    loadingEosData,
+    eosPseudosMap,
+    eosPseudos,
+    activeEosPseudos,
+    setActiveEosPseudos,
+  } = useContext(PlotContext);
 
   const eosConfigPseudoMap = useMemo(() => {
     const map: { [configuration: string]: { [pseudo: string]: EosPlotData } } =
@@ -35,36 +36,11 @@ const EosPane: React.FC<EosPaneProps> = ({ element }) => {
     return map;
   }, [eosPseudosMap]);
 
-  useEffect(() => {
-    if (!element) return;
-
-    setLoadingData(true);
-    setEosPseudosMap({} as EosPseudosMap);
-    setPseudos([]);
-    setActivePseudos([]);
-
-    SsspDataService.fetchEosData()
-      .then((data) => {
-        const eosPseudosMap = data[element];
-        setEosPseudosMap(eosPseudosMap);
-        const pseudos = Object.keys(eosPseudosMap);
-        setPseudos(pseudos);
-        setActivePseudos(pseudos);
-      })
-      .catch((error) => {
-        console.error("Error fetching EOS data:", error);
-        setEosPseudosMap({} as EosPseudosMap);
-        setPseudos([]);
-        setActivePseudos([]);
-      })
-      .finally(() => setLoadingData(false));
-  }, [element]);
-
-  const isLoading = loadingData || loadingMetadata;
+  const isLoading = loadingEosData || loadingMetadata;
 
   return isLoading ? (
     <LoadingSpinner />
-  ) : !pseudos.length ? (
+  ) : !eosPseudos.length ? (
     <NoDataMessage />
   ) : (
     <div id="eos-pane">
@@ -72,9 +48,9 @@ const EosPane: React.FC<EosPaneProps> = ({ element }) => {
         <Row>
           <Col md={4} lg={3} xxl={2} className={styles["pseudo-controls"]}>
             <PseudosCheckboxes
-              pseudos={pseudos}
-              activePseudos={activePseudos}
-              setActivePseudos={setActivePseudos}
+              pseudos={eosPseudos}
+              activePseudos={activeEosPseudos}
+              setActivePseudos={setActiveEosPseudos}
             />
           </Col>
           <Col>
@@ -85,7 +61,7 @@ const EosPane: React.FC<EosPaneProps> = ({ element }) => {
                     <EosPlot
                       configuration={configuration}
                       eosPseudosMap={eosPseudosMap}
-                      activePseudos={activePseudos}
+                      activePseudos={activeEosPseudos}
                     />
                   </Col>
                 ),

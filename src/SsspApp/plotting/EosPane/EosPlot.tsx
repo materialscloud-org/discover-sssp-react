@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef } from "react";
 
 import type { Config, Data, Layout, PlotlyHTMLElement } from "plotly.js";
 
-import { PseudosContext } from "@sssp/context";
+import { PseudoContext } from "@sssp/context";
 import { EosPlotData } from "@sssp/models";
 import { formatSubscripts } from "@sssp/plotting/utils";
 
@@ -30,7 +30,7 @@ const EosPlot: React.FC<EosPlotProps> = ({
   eosPseudosMap,
   activePseudos,
 }) => {
-  const { pseudosMetadata } = useContext(PseudosContext);
+  const { pseudosMetadata } = useContext(PseudoContext);
   const plotRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

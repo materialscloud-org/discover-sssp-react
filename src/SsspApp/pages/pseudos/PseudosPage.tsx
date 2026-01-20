@@ -1,11 +1,7 @@
 import { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
-import {
-  ElementsInfoProvider,
-  LibraryContext,
-  PseudosProvider,
-} from "@sssp/context";
+import { LibraryContext } from "@sssp/context";
 import { InvalidPage } from "@sssp/pages";
 
 import DetailsPage from "./details";
@@ -16,27 +12,23 @@ const PseudosPage: React.FC = () => {
 
   return (
     <div id="pseudos-page">
-      <PseudosProvider>
-        <ElementsInfoProvider>
-          <Routes>
-            {libraries.map((library) => (
-              <Route key={library} path={library} element={<TablePage />} />
-            ))}
-            <Route
-              path=":element"
-              element={<Navigate to="convergence-summary" replace />}
-            />
-            <Route path=":element/:tab" element={<DetailsPage />} />
-            <Route
-              path="/"
-              element={
-                activeLibrary ? <Navigate to={activeLibrary} replace /> : null
-              }
-            />
-            <Route path="*" element={<InvalidPage />} />
-          </Routes>
-        </ElementsInfoProvider>
-      </PseudosProvider>
+      <Routes>
+        {libraries.map((library) => (
+          <Route key={library} path={library} element={<TablePage />} />
+        ))}
+        <Route
+          path=":element"
+          element={<Navigate to="convergence-summary" replace />}
+        />
+        <Route path=":element/:tab" element={<DetailsPage />} />
+        <Route
+          path="/"
+          element={
+            activeLibrary ? <Navigate to={activeLibrary} replace /> : null
+          }
+        />
+        <Route path="*" element={<InvalidPage />} />
+      </Routes>
     </div>
   );
 };

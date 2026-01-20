@@ -5,6 +5,7 @@ import {
   BandsPseudosMap,
   ElementsInfo,
   EosElementMap,
+  EosPseudosMap,
   PseudoBandsCalcUUIDsMap,
   PseudoConvergenceData,
   PseudoFilenames,
@@ -138,11 +139,11 @@ export default class SsspDataService {
     return elementsInfo || ({} as ElementsInfo);
   };
 
-  static fetchEosData = async (): Promise<EosElementMap> => {
+  static fetchEosData = async (element: string): Promise<EosPseudosMap> => {
     const url = `${DATA_URL}/eos.json`;
     const response = await fetch(url);
     const eosData: EosElementMap = await response.json();
-    return eosData || ({} as EosElementMap);
+    return eosData[element] || ({} as EosPseudosMap);
   };
 
   static fetchBandsData = async (element: string): Promise<BandsPseudosMap> => {
@@ -168,7 +169,7 @@ export default class SsspDataService {
     return pseudosMetadata || ({} as PseudosMetadata);
   };
 
-  static fetchPseudosSummaryData = async (
+  static fetchPseudosConvergenceData = async (
     element: string,
   ): Promise<PseudoConvergenceData> => {
     const url = `${DATA_URL}/summary/${element}.json`;

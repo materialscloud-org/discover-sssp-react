@@ -4,7 +4,7 @@ import { Button, Modal } from "react-bootstrap";
 
 import { API_URL } from "@sssp/common/config";
 import LoadingSpinner from "@sssp/components/Spinner";
-import { PseudosContext } from "@sssp/context";
+import { PseudoContext } from "@sssp/context";
 import { SsspDataService } from "@sssp/services";
 import { BsDownload } from "react-icons/bs";
 import { UpfModalProps } from "./UpfModal.models";
@@ -17,7 +17,7 @@ const UpfModal: React.FC<UpfModalProps> = ({
   Z,
   onHide,
 }) => {
-  const { getUpfUuid, getPseudoFilename } = useContext(PseudosContext);
+  const { getUpfUuid, getPseudoFilename } = useContext(PseudoContext);
   const [content, setContent] = useState("");
   const [resolvedFilename, setResolvedFilename] = useState("");
   const [loadingContent, setLoadingContent] = useState(false);

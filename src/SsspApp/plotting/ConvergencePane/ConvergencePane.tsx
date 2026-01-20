@@ -1,44 +1,22 @@
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useContext, useMemo } from "react";
 
 import { CategorySelector, LoadingSpinner } from "@sssp/components";
-import { PseudosContext } from "@sssp/context";
-import { PseudoConvergenceData } from "@sssp/models";
-import SsspDataService from "@sssp/services/data";
+import { ElementContext, PlotContext, PseudoContext } from "@sssp/context";
 
-import ConvergencePaneProps from "./ConvergencePane.models";
 import styles from "./ConvergencePane.module.scss";
 import ConvergencePlot from "./ConvergencePlot";
 import ConvergencePlotDetails from "./ConvergencePlotDetails";
 
-const ConvergencePane: React.FC<ConvergencePaneProps> = ({ element }) => {
-  const [loadingData, setLoadingData] = useState(true);
-  const [summaryData, setSummaryData] = useState({} as PseudoConvergenceData);
-  const { loadingMetadata, categories, pseudosMetadata } =
-    useContext(PseudosContext);
-  const [activeCategories, setActiveCategories] = useState(categories);
-
-  useEffect(() => {
-    setActiveCategories(categories);
-  }, [categories]);
-
-  useEffect(() => {
-    if (!element) return;
-
-    setLoadingData(true);
-    setSummaryData({} as PseudoConvergenceData);
-
-    SsspDataService.fetchPseudosSummaryData(element)
-      .then((data) => {
-        setSummaryData(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setSummaryData({} as PseudoConvergenceData);
-      })
-      .finally(() => {
-        setLoadingData(false);
-      });
-  }, [element]);
+const ConvergencePane: React.FC = () => {
+  const { element } = useContext(ElementContext);
+  const {
+    loadingMetadata,
+    categories,
+    pseudosMetadata,
+    activeCategories,
+    setActiveCategories,
+  } = useContext(PseudoContext);
+  const { loadingConvergenceData, convergenceData } = useContext(PlotContext);
 
   const activePseudosMetadata = useMemo(() => {
     const activePseudos: Record<string, any> = {};
@@ -50,7 +28,7 @@ const ConvergencePane: React.FC<ConvergencePaneProps> = ({ element }) => {
     return activePseudos;
   }, [activeCategories, pseudosMetadata]);
 
-  const isLoading = loadingData || loadingMetadata;
+  const isLoading = loadingMetadata || loadingConvergenceData;
 
   return isLoading ? (
     <LoadingSpinner />
@@ -58,7 +36,7 @@ const ConvergencePane: React.FC<ConvergencePaneProps> = ({ element }) => {
     <div id="convergence-summary">
       <div id={styles["convergence-summary-header"]}>
         <h2 className="display-6">
-          Verification summary: {element} ({summaryData.conff})
+          Verification summary: {element} ({convergenceData.conff})
         </h2>
         <CategorySelector
           categories={categories}
@@ -69,7 +47,7 @@ const ConvergencePane: React.FC<ConvergencePaneProps> = ({ element }) => {
       <div id={styles["convergence-plot-container"]}>
         <ConvergencePlot
           element={element}
-          summaryData={summaryData}
+          summaryData={convergenceData}
           pseudosMetadata={activePseudosMetadata}
         />
       </div>

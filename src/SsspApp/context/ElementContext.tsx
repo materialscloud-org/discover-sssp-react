@@ -3,22 +3,25 @@ import { createContext, useEffect, useState } from "react";
 import { ElementsInfo } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
-type ElementsInfoContextType = {
+type ElementContextType = {
   loadingInfo: boolean;
+  element: string;
   elementsInfo: ElementsInfo;
+  setElement: (element: string) => void;
 };
 
-export const ElementsInfoContext = createContext({} as ElementsInfoContextType);
+export const ElementContext = createContext({} as ElementContextType);
 
-interface ElementsInfoProviderProps {
+interface ElementProviderProps {
   children: JSX.Element | JSX.Element[];
 }
 
-export const ElementsInfoProvider: React.FC<ElementsInfoProviderProps> = ({
+export const ElementProvider: React.FC<ElementProviderProps> = ({
   children,
 }) => {
   const [loadingInfo, setLoadingInfo] = useState(true);
   const [elementsInfo, setElementsInfo] = useState({} as ElementsInfo);
+  const [element, setElement] = useState("");
 
   useEffect(() => {
     SsspDataService.fetchElementsInfo()
@@ -34,13 +37,15 @@ export const ElementsInfoProvider: React.FC<ElementsInfoProviderProps> = ({
   }, []);
 
   return (
-    <ElementsInfoContext.Provider
+    <ElementContext.Provider
       value={{
         loadingInfo,
         elementsInfo,
+        element,
+        setElement,
       }}
     >
       {children}
-    </ElementsInfoContext.Provider>
+    </ElementContext.Provider>
   );
 };

@@ -2,10 +2,13 @@ import { Card, Tab, Tabs } from "react-bootstrap";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import "@sssp/assets/styles/main.scss";
-
 import { useRoutedTabs } from "@sssp/common/hooks";
-
-import { LibraryProvider } from "@sssp/context";
+import {
+  ElementProvider,
+  LibraryProvider,
+  PlotProvider,
+  PseudoProvider,
+} from "@sssp/context";
 import { AboutPage, DownloadPage, InvalidPage, PseudosPage } from "@sssp/pages";
 
 import SsspProps from "./SsspApp.models";
@@ -37,37 +40,38 @@ const SsspAppContent: React.FC = () => {
 
   return (
     <>
-      <Card.Header id={styles["tab-controls"]}>
-        <Tabs
-          id="main-tabs"
-          defaultActiveKey={defaultTab}
-          activeKey={activeTab}
-          onSelect={selectTab}
-        >
-          {Object.entries(tabs).map(([key, value]) => (
-            <Tab key={key} eventKey={key} title={value} />
-          ))}
-        </Tabs>
-      </Card.Header>
-      <Card.Body id={styles["sssp-card"]}>
-        <Routes>
-          <Route
-            path="pseudopotentials/*"
-            element={
-              <LibraryProvider>
-                <PseudosPage />
-              </LibraryProvider>
-            }
-          />
-          <Route path="download" element={<DownloadPage />} />
-          <Route path="about" element={<AboutPage />} />
-          <Route
-            path="/"
-            element={<Navigate to="pseudopotentials" replace />}
-          />
-          <Route path="*" element={<InvalidPage />} />
-        </Routes>
-      </Card.Body>
+      <LibraryProvider>
+        <ElementProvider>
+          <PseudoProvider>
+            <PlotProvider>
+              <Card.Header id={styles["tab-controls"]}>
+                <Tabs
+                  id="main-tabs"
+                  defaultActiveKey={defaultTab}
+                  activeKey={activeTab}
+                  onSelect={selectTab}
+                >
+                  {Object.entries(tabs).map(([key, value]) => (
+                    <Tab key={key} eventKey={key} title={value} />
+                  ))}
+                </Tabs>
+              </Card.Header>
+              <Card.Body id={styles["sssp-card"]}>
+                <Routes>
+                  <Route path="pseudopotentials/*" element={<PseudosPage />} />
+                  <Route path="download" element={<DownloadPage />} />
+                  <Route path="about" element={<AboutPage />} />
+                  <Route
+                    path="/"
+                    element={<Navigate to="pseudopotentials" replace />}
+                  />
+                  <Route path="*" element={<InvalidPage />} />
+                </Routes>
+              </Card.Body>
+            </PlotProvider>
+          </PseudoProvider>
+        </ElementProvider>
+      </LibraryProvider>
     </>
   );
 };

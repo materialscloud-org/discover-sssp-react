@@ -1,66 +1,38 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Col, Row } from "react-bootstrap";
 
 import { LoadingSpinner } from "@sssp/components";
-import { PlottingContext, PseudosContext } from "@sssp/context";
+import { PlotContext, PseudoContext } from "@sssp/context";
 
-import { SsspDataService } from "@sssp/services";
 import BandsChessboardPaneProps from "./BandsChessboardPane.models";
 import styles from "./BandsChessboardPane.module.scss";
 import BandsChessboardPlot from "./BandsChessboardPlot";
 
 const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
-  element,
   onTileClick: goToBands,
 }) => {
-  const { loadingMetadata } = useContext(PseudosContext);
-  const { setChessboardPseudos, setBandShift } = useContext(PlottingContext);
-  const [loadingData, setLoadingData] = useState(true);
-  const [pseudoFilenames, setPseudoFilenames] = useState([] as string[]);
-  const [etaV, setEtaV] = useState([] as number[][]);
-  const [etaV10, setEtaV10] = useState([] as number[][]);
-  const [shifts, setShifts] = useState([] as number[][][]);
-
-  useEffect(() => {
-    if (!element) return;
-
-    setLoadingData(true);
-    setPseudoFilenames([]);
-    setEtaV([]);
-    setEtaV10([]);
-    setShifts([]);
-
-    SsspDataService.fetchBandChessboardData(element)
-      .then((data) => {
-        setPseudoFilenames(data.pseudos);
-        setEtaV(data.v_distance.eta);
-        setEtaV10(data.v10_distance.eta);
-        const bandShifts = [data.v_distance.shift, data.v10_distance.shift];
-        setShifts(bandShifts);
-      })
-      .catch((error) => {
-        console.error("Error fetching band chessboard data:", error);
-        setPseudoFilenames([]);
-        setEtaV([]);
-        setEtaV10([]);
-        setShifts([]);
-      })
-      .finally(() => {
-        setLoadingData(false);
-      });
-  }, [element]);
+  const { loadingMetadata } = useContext(PseudoContext);
+  const {
+    loadingChessboardData,
+    setChessboardPseudos,
+    setBandShift,
+    pseudoFilenames,
+    etaV,
+    etaV10,
+    shifts,
+  } = useContext(PlotContext);
 
   const tileClickHandler = (
     plotIndex: number,
     pseudos: string[],
-    pointIndex: number[]
+    pointIndex: number[],
   ) => {
     setChessboardPseudos(pseudos);
     setBandShift(shifts[plotIndex][pointIndex[0]][pointIndex[1]]);
     goToBands();
   };
 
-  return loadingMetadata || loadingData ? (
+  return loadingMetadata || loadingChessboardData ? (
     <LoadingSpinner />
   ) : (
     <div id="chessboard-page">

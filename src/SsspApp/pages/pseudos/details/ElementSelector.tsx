@@ -1,16 +1,18 @@
-import React, { useMemo } from "react";
+import React, { useContext, useMemo } from "react";
 import { Dropdown } from "react-bootstrap";
 
 import { elementSymbols } from "@sssp/common/symbols";
+import { ElementContext } from "@sssp/context";
 
 import ElementSelectorProps from "./ElementSelector.models";
 import styles from "./ElementSelector.module.scss";
 
 const ElementSelector: React.FC<ElementSelectorProps> = ({
-  element,
   navigate,
   activeTab,
 }) => {
+  const { element } = useContext(ElementContext);
+
   const selectorSymbols = useMemo(() => {
     return elementSymbols.slice(1).sort();
   }, []);

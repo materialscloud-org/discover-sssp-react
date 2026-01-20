@@ -1,4 +1,4 @@
-import { createContext, useEffect, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 import {
   BandsCalcUUIDsMap,
@@ -6,12 +6,15 @@ import {
   PseudosMetadata,
 } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
+import { ElementContext } from "./ElementContext";
 
-type PseudosContextType = {
+type PseudoContextType = {
   loadingMetadata: boolean;
   loadingFiles: boolean;
-  categories: string[];
   pseudosMetadata: PseudosMetadata;
+  categories: string[];
+  activeCategories: string[];
+  setActiveCategories: (categories: string[]) => void;
   bandsCalcUUIDs: BandsCalcUUIDsMap;
   pseudoFilenames: PseudoFilenames;
   maxPseudoWidth: number;
@@ -23,19 +26,19 @@ type PseudosContextType = {
   ) => string;
 };
 
-export const PseudosContext = createContext({} as PseudosContextType);
+export const PseudoContext = createContext({} as PseudoContextType);
 
-interface PseudosProviderProps {
+interface PseudoProviderProps {
   children: JSX.Element | JSX.Element[];
 }
 
-export const PseudosProvider: React.FC<PseudosProviderProps> = ({
-  children,
-}) => {
+export const PseudoProvider: React.FC<PseudoProviderProps> = ({ children }) => {
   const [loadingMetadata, setLoadingMetadata] = useState(true);
   const [loadingFiles, setLoadingFiles] = useState(true);
-  const [categories, setCategories] = useState([] as string[]);
+  const { element } = useContext(ElementContext);
   const [pseudosMetadata, setPseudosMetadata] = useState({} as PseudosMetadata);
+  const [categories, setCategories] = useState([] as string[]);
+  const [activeCategories, setActiveCategories] = useState(categories);
   const [bandsCalcUUIDs, setBandsCalcUUIDs] = useState({} as BandsCalcUUIDsMap);
   const [pseudoFilenames, setPseudoFilenames] = useState({} as PseudoFilenames);
 
@@ -56,6 +59,7 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
           uniqueCategories.add(meta.category);
         });
         setCategories([...uniqueCategories]);
+        setActiveCategories([...uniqueCategories]);
       })
       .catch((error) => {
         console.error("Error fetching pseudos metadata:", error);
@@ -86,6 +90,10 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
       });
   }, []);
 
+  useEffect(() => {
+    setActiveCategories(categories);
+  }, [element]);
+
   const getUpfUuid = (element: string, pseudoName: string, zVal: number) => {
     const key = `${pseudoName}-${zVal}`;
     return bandsCalcUUIDs?.[element]?.[key]?.upf || "";
@@ -101,12 +109,14 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
   };
 
   return (
-    <PseudosContext.Provider
+    <PseudoContext.Provider
       value={{
         loadingMetadata,
         loadingFiles,
-        categories,
         pseudosMetadata,
+        categories,
+        activeCategories,
+        setActiveCategories,
         bandsCalcUUIDs,
         pseudoFilenames,
         maxPseudoWidth,
@@ -115,6 +125,6 @@ export const PseudosProvider: React.FC<PseudosProviderProps> = ({
       }}
     >
       {children}
-    </PseudosContext.Provider>
+    </PseudoContext.Provider>
   );
 };

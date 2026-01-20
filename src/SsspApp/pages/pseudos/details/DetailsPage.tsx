@@ -1,11 +1,9 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Button, Tab, Tabs } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { useRoutedTabs } from "@sssp/common/hooks";
-import { elementSymbols } from "@sssp/common/symbols";
-import { LibraryContext, PlottingProvider } from "@sssp/context";
-import { InvalidPage } from "@sssp/pages";
+import { ElementContext, LibraryContext } from "@sssp/context";
 
 import styles from "./DetailsPage.module.scss";
 import ElementSelector from "./ElementSelector";
@@ -23,15 +21,18 @@ const DetailsPage: React.FC = () => {
   const navigate = useNavigate();
   const params = useParams();
   const { activeLibrary } = useContext(LibraryContext);
-  const { element } = params;
+  const { setElement } = useContext(ElementContext);
+
+  useEffect(() => {
+    setElement(params.element || "");
+  }, [params.element, setElement]);
+
   const { activeTab, defaultTab, selectTab } = useRoutedTabs(tabs, {
     segmentIndex: 3,
     resetAfterIndex: true,
   });
 
-  return element && !elementSymbols.includes(element) ? (
-    <InvalidPage />
-  ) : (
+  return (
     <div id="details-page">
       <Button
         id={styles["back-button"]}
@@ -41,34 +42,22 @@ const DetailsPage: React.FC = () => {
       </Button>
       <div id={styles["element-header"]}>
         <div id={styles["element-label"]}>Element:</div>
-        <ElementSelector
-          element={element}
-          navigate={navigate}
-          activeTab={activeTab}
-        />
+        <ElementSelector navigate={navigate} activeTab={activeTab} />
       </div>
-      {element && (
-        <PlottingProvider element={element}>
-          <Tabs
-            id="sssp-pseudos-tabs"
-            defaultActiveKey={defaultTab}
-            activeKey={activeTab}
-            onSelect={selectTab}
-            mountOnEnter
-            unmountOnExit
-          >
-            {Object.entries(tabs).map(([key, title]) => (
-              <Tab key={key} eventKey={key} title={title}>
-                <PlotPane
-                  type={key}
-                  element={element}
-                  onSelectTab={selectTab}
-                />
-              </Tab>
-            ))}
-          </Tabs>
-        </PlottingProvider>
-      )}
+      <Tabs
+        id="sssp-pseudos-tabs"
+        defaultActiveKey={defaultTab}
+        activeKey={activeTab}
+        onSelect={selectTab}
+        mountOnEnter
+        unmountOnExit
+      >
+        {Object.entries(tabs).map(([key, title]) => (
+          <Tab key={key} eventKey={key} title={title}>
+            <PlotPane type={key} onSelectTab={selectTab} />
+          </Tab>
+        ))}
+      </Tabs>
     </div>
   );
 };

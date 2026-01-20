@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Form, OverlayTrigger, Tooltip } from "react-bootstrap";
 
-import { PseudosContext } from "@sssp/context";
+import { PseudoContext } from "@sssp/context";
 
 import PseudosCheckboxesProps from "./PseudosCheckboxes.models";
 import styles from "./PseudosCheckboxes.module.scss";
@@ -11,12 +11,10 @@ const PseudosCheckboxes: React.FC<PseudosCheckboxesProps> = ({
   activePseudos,
   setActivePseudos,
 }) => {
-  const { pseudosMetadata } = useContext(PseudosContext);
-  const [allPseudosChecked, setAllPseudosChecked] = useState(false);
-
-  useEffect(() => {
-    setAllPseudosChecked(activePseudos.length === pseudos.length);
-  }, [activePseudos, pseudos.length]);
+  const { pseudosMetadata } = useContext(PseudoContext);
+  const [allPseudosChecked, setAllPseudosChecked] = useState(
+    activePseudos.length === pseudos.length,
+  );
 
   return (
     <div className={styles["pseudos-checkboxes"]}>
@@ -60,12 +58,12 @@ const PseudosCheckboxes: React.FC<PseudosCheckboxesProps> = ({
               setActivePseudos(
                 !event.target.checked
                   ? activePseudos.filter((p) => p !== pseudo)
-                  : [...activePseudos, pseudo]
+                  : [...activePseudos, pseudo],
               );
               setAllPseudosChecked(
                 event.target.checked
                   ? activePseudos.length + 1 === pseudos.length
-                  : false
+                  : false,
               );
             }}
           />

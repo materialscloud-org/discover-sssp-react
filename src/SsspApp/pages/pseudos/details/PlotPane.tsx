@@ -7,35 +7,34 @@ import PlotPaneProps from "./PlotPane.models";
 
 const ConvergencePlots = lazy(() => import("@sssp/plotting/ConvergencePane"));
 const BandsChessboardPlots = lazy(
-  () => import("@sssp/plotting/BandsChessboardPane")
+  () => import("@sssp/plotting/BandsChessboardPane"),
 );
 const EosPlots = lazy(() => import("@sssp/plotting/EosPane"));
 const BandStructurePlot = lazy(
-  () => import("@sssp/plotting/BandStructurePane")
+  () => import("@sssp/plotting/BandStructurePane"),
 );
 
-const PlotPane: React.FC<PlotPaneProps> = ({ type, element, onSelectTab }) => {
+const PlotPane: React.FC<PlotPaneProps> = ({ type, onSelectTab }) => {
   let plot: React.ReactNode = null;
 
   switch (type) {
     case "convergence-summary":
-      plot = <ConvergencePlots element={element} />;
+      plot = <ConvergencePlots />;
+      break;
+    case "equation-of-state":
+      plot = <EosPlots />;
       break;
     case "band-chessboards":
       plot = (
         <BandsChessboardPlots
-          element={element}
           onTileClick={() => {
             onSelectTab("band-structure");
           }}
         />
       );
       break;
-    case "equation-of-state":
-      plot = <EosPlots element={element} />;
-      break;
     case "band-structure":
-      plot = <BandStructurePlot element={element} />;
+      plot = <BandStructurePlot />;
       break;
     default:
       console.error(`Invalid plot type: ${type}`);
