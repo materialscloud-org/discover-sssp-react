@@ -1,7 +1,9 @@
-#convergence-plot-legend-table {
-  width: fit-content;
+#metadataTable,
+#legendTable {
   margin: 0 auto 1rem;
+}
 
+#legendTable {
   th:nth-child(odd),
   td:nth-child(odd) {
     text-align: center;

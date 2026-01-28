@@ -14,54 +14,81 @@ const ConvergencePlotDetails: React.FC = () => (
           <p>
             We report here the zone-boundary phonons, cohesive energy, pressure,
             and band structure versus the wavefunction cutoff for all the
-            considered pseudopotential libraries.
-          </p>
-          <p>
-            The colored horizontal dashed lines correspond to the thresholds of
-            the SSSP efficiency criteria, whereas the gray dotted lines
-            correspond to the precision criteria. <br /> The recommended
-            efficiency (precision) pseudopotential is marked with a{" "}
-            <span style={{ color: "green" }}>rectangle</span> (
+            considered pseudopotential libraries. The colored horizontal dashed
+            lines correspond to the thresholds of the SSSP efficiency criteria,
+            whereas the gray dotted lines correspond to the precision criteria.
+            The recommended efficiency (precision) pseudopotential is marked
+            with a <span style={{ color: "green" }}>rectangle</span> (
             <span style={{ color: "red" }}>diamond</span>) at the recommended
             cutoff.
           </p>
         </section>
         <section>
-          <h5>Metadata</h5>
-          We report on the left of the plot:
-          <ul>
-            <li>the number of valence electrons of the pseudopotential</li>
-            <li>
-              the average of <b>ν</b>, a *metric relating to the equation of
-              state, across 10 structures
-            </li>
-            <li>
-              the maximum <b>ν</b> value
-            </li>
-            <li>
-              the average of <b>ν</b>, excluding the XO<sub>3</sub> structure
-            </li>
-          </ul>
+          <h5>Categories</h5>
           <p>
-            Tip: click a pseudopotential label on the left to open its UPF
-            viewer (available when an API backend is configured).
+            You can use the pseudopotential category checkboxes to filter the
+            pseudopotentials shown in the plots.
+          </p>
+        </section>
+        <section>
+          <h5>Metadata</h5>
+          <p>We report on the left of the plot:</p>
+          <Table id={styles.metadataTable} striped bordered responsive>
+            <thead>
+              <tr>
+                <th>Quantity</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Z<sub>val</sub>
+                </td>
+                <td>Number of valence electrons of the pseudopotential</td>
+              </tr>
+              <tr>
+                <td>
+                  ν<sub>avg</sub>
+                </td>
+                <td>
+                  Average of <b>ν</b> across 10 configurations
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  ν<sub>max</sub> (#)
+                </td>
+                <td>
+                  Maximum <b>ν</b> value across 10 configurations and the
+                  corresponding configuration (#)
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  ν<sub>avg</sub> (w/o #)
+                </td>
+                <td>
+                  Average of <b>ν</b>, excluding the configuration with the
+                  largest discrepancy (#)
+                </td>
+              </tr>
+            </tbody>
+          </Table>
+          <p>
+            <em>
+              Click on the metadata to open a UPF viewer to view/download the
+              UPF file for the pseudopotential (requires an API backend).
+            </em>
           </p>
         </section>
         <section>
           <h5>Legend</h5>
           <p>
-            Each pseudopotential is represented in its own color. The legend
-            items are kept in black and reflect the corresponding
-            quantity/discrepancy across all pseudopotentials.
-            <br />
-            The markers correspond to the following quantities:
+            The legend reflects the corresponding quantity/discrepancy across
+            all pseudopotentials:
           </p>
-          <Table
-            id={styles["convergence-plot-legend-table"]}
-            striped
-            bordered
-            responsive
-          >
+          <Table id={styles.legendTable} striped bordered responsive>
             <thead>
               <tr>
                 <th>Marker</th>
@@ -104,15 +131,10 @@ const ConvergencePlotDetails: React.FC = () => (
             </tbody>
           </Table>
           <p>
-            A single click on a legend item toggles its visibility, while a
-            double click isolates it.
-          </p>
-        </section>
-        <section>
-          <h5>Categories</h5>
-          <p>
-            You can use the pseudopotential category checkboxes to filter the
-            pseudopotentials shown in the plots.
+            <em>
+              Click once on a legend item to toggle its visibility. Double-click
+              to exclude all other items.
+            </em>
           </p>
         </section>
         <section>
@@ -127,9 +149,9 @@ const ConvergencePlotDetails: React.FC = () => (
               Verification of the precision of DFT implementations via AiiDA
               common workflows
             </a>{" "}
-            app to learn more about how <b>ν</b> is computed. <br />
-            All calculations are performed on the ground-state elemental solids
-            unless stated otherwise (i.e. rare-earths and flourine). See{" "}
+            app to learn more about how <b>ν</b> is computed. All calculations
+            are performed on the ground-state elemental solids unless stated
+            otherwise (i.e. rare-earths and flourine). See{" "}
             <Link to="/about" style={{ textDecoration: "none" }}>
               About SSSP
             </Link>{" "}

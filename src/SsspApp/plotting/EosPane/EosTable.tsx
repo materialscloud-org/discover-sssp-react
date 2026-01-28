@@ -18,7 +18,7 @@ const CONFIGURATIONS = [
 
 const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
   return (
-    <Table borderless responsive className="text-center">
+    <Table id={styles.eosTable} borderless responsive className="text-center">
       <thead>
         <tr>
           <th rowSpan={2}>Library</th>

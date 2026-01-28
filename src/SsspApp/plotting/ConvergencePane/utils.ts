@@ -377,7 +377,7 @@ export const generateConvergencePlotData = (
       const max_nu = metadata.max_nu.toFixed(2);
       const max_conf = formatSubscripts(metadata.max_conf);
       const avg_nu_wo_max = metadata.avg_nu_wo_max.toFixed(2);
-      metadataText = `ν<sub>avg</sub> = ${avg_nu}<br />ν<sub>max</sub> = ${max_nu} (${max_conf})<br />ν<sub>avg</sub> (w/o max) = ${avg_nu_wo_max}`;
+      metadataText = `ν<sub>avg</sub> = ${avg_nu}<br />ν<sub>max</sub> = ${max_nu} (${max_conf})<br />ν<sub>avg</sub> (w/o ${max_conf}) = ${avg_nu_wo_max}`;
     }
     annotations.push({
       xref: "paper",
