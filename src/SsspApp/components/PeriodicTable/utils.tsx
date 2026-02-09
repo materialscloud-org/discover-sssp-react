@@ -9,7 +9,7 @@ class ElementsGenerator {
 
   constructor(
     libraryElementsInfo: LibraryElementsInfo,
-    pseudosMetadata: PseudosMetadata
+    pseudosMetadata: PseudosMetadata,
   ) {
     this.libraryElementsInfo = libraryElementsInfo;
     this.pseudosMetadata = pseudosMetadata;
@@ -20,11 +20,10 @@ class ElementsGenerator {
       (i) => {
         const symbol = elementSymbols[i];
         const info = this.libraryElementsInfo[symbol];
-        const color = info
-          ? info.pseudopotential in this.pseudosMetadata
+        const color =
+          info && info.pseudopotential in this.pseudosMetadata
             ? this.pseudosMetadata[info.pseudopotential].color
-            : "#ddd"
-          : "#fff";
+            : "#222";
 
         return (
           <Element
@@ -35,7 +34,7 @@ class ElementsGenerator {
             info={info}
           />
         );
-      }
+      },
     );
   }
 }

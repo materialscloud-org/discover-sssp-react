@@ -19,13 +19,15 @@ const Element: React.FC<ElementProps> = ({ number, symbol, color, info }) => {
     cutoffText = (
       <div className={styles["info"]}>
         {wfcCutoff}
-        <sub>({rhoCutoff})</sub>
+        <sub>{rhoCutoff}</sub>
       </div>
     );
 
     if (hoveredPseudo && hoveredPseudo !== info.pseudopotential) {
       classes.push(styles["transparent"]);
     }
+  } else if (hoveredPseudo) {
+    classes.push(styles["transparent"]);
   } else {
     classes.push(styles["disabled"]);
   }
