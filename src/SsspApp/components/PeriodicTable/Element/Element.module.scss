@@ -41,6 +41,8 @@
 
   &.disabled {
     pointer-events: none;
+    border: 1px solid black;
+    color: black;
   }
 
   &.transparent {
