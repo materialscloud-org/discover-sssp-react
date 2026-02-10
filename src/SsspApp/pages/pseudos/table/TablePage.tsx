@@ -10,7 +10,7 @@ import styles from "./TablePage.module.scss";
 
 const TablePage: React.FC = () => {
   const location = useLocation();
-  const { setActiveLibrary } = useContext(LibraryContext);
+  const { activeLibrary, setActiveLibrary } = useContext(LibraryContext);
 
   useEffect(() => {
     const currentLibrary = location.pathname.split("/")[2];
@@ -18,21 +18,24 @@ const TablePage: React.FC = () => {
   }, [location.pathname, setActiveLibrary]);
 
   return (
+    <div id={styles.tablePage}>
+      <header className="text-center">
+        <h1 className="display-5 mb-3">SSSP {activeLibrary} (PBE)</h1>
+      </header>
     <HoverProvider>
-      <div id={styles["table-page"]}>
-        <Row>
-          <Col xxl="auto">
+        <Row className="g-3">
+          <Col xxl="auto" className="mx-auto">
             <PseudosLegend />
           </Col>
           <Col>
-            <div id={styles["table-container"]}>
+            <div id={styles.tableContainer}>
               <LibraryToggle />
               <PeriodicTable />
             </div>
           </Col>
         </Row>
+      </HoverProvider>
       </div>
-    </HoverProvider>
   );
 };
 
