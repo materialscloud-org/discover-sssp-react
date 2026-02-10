@@ -4,8 +4,8 @@ import styles from "./DownloadPage.module.scss";
 
 const DownloadPage: React.FC = () => (
   <div id={styles.downloadPage}>
-    <header className="text-center">
-      <h1 className="display-5">Download SSSP</h1>
+    <header className="page-title">
+      <h1 className="display-6">Download SSSP</h1>
       <p className="lead">
         All versions of the SSSP library can be downloaded using the links
         below.

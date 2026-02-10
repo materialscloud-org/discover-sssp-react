@@ -19,10 +19,10 @@ const TablePage: React.FC = () => {
 
   return (
     <div id={styles.tablePage}>
-      <header className="text-center">
-        <h1 className="display-5 mb-3">SSSP {activeLibrary} (PBE)</h1>
+      <header className="page-title">
+        <h1 className="display-6">SSSP {activeLibrary} (PBE)</h1>
       </header>
-    <HoverProvider>
+      <HoverProvider>
         <Row className="g-3">
           <Col xxl="auto" className="mx-auto">
             <PseudosLegend />
@@ -35,7 +35,7 @@ const TablePage: React.FC = () => {
           </Col>
         </Row>
       </HoverProvider>
-      </div>
+    </div>
   );
 };
 
