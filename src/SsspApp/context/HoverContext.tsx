@@ -1,4 +1,4 @@
-import { createContext, useRef, useState } from "react";
+import { createContext, useState } from "react";
 
 import { ElementModel } from "@sssp/models";
 
@@ -18,26 +18,14 @@ type HoverProviderProps = {
 export const HoverProvider: React.FC<HoverProviderProps> = ({ children }) => {
   const [hoveredPseudo, setHoveredPseudo] = useState("");
   const [hoveredElement, setHoveredElement] = useState<ElementModel>();
-  const timeoutRef = useRef<number>();
-
-  const debounceHoverHandler = <T,>(handler: (value: T) => void) => {
-    return (value: T) => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-      timeoutRef.current = window.setTimeout(() => {
-        handler(value);
-      }, 10);
-    };
-  };
 
   return (
     <HoverContext.Provider
       value={{
         hoveredPseudo,
-        setHoveredPseudo: debounceHoverHandler(setHoveredPseudo),
+        setHoveredPseudo: setHoveredPseudo,
         hoveredElement,
-        setHoveredElement: debounceHoverHandler(setHoveredElement),
+        setHoveredElement: setHoveredElement,
       }}
     >
       {children}
