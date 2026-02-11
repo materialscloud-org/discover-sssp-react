@@ -14,10 +14,10 @@ export interface Pseudo {
   Z: number;
   quantities: {
     metadata?: {
-      avg_nu: number;
-      max_nu: number;
-      avg_nu_wo_max: number;
-      max_conf: string;
+      avgNu: number;
+      maxNu: number;
+      avgNuWoMax: number;
+      maxConf: string;
     };
     phononFrequencies?: PseudoQuantity & { error: number[]; ref: number };
     pressure?: PseudoQuantity;
@@ -25,8 +25,8 @@ export interface Pseudo {
     eos?: PseudoQuantity;
     bands?: {
       cutoffs: number[];
-      eta_c: number[];
-      max_diff_c: number[];
+      etaC: number[];
+      maxDiffC: number[];
     };
   };
 }

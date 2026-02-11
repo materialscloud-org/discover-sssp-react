@@ -169,8 +169,8 @@ export const generateConvergencePlotData = (
 
     if (quantities.bands) {
       const x = quantities.bands.cutoffs;
-      eta_c = quantities.bands.eta_c;
-      max_diff_c = quantities.bands.max_diff_c;
+      eta_c = quantities.bands.etaC;
+      max_diff_c = quantities.bands.maxDiffC;
 
       // Above BS values
       // Label
@@ -373,10 +373,10 @@ export const generateConvergencePlotData = (
     const { metadata } = pseudo.quantities;
     let metadataText = "not all EOS valid";
     if (metadata) {
-      const avg_nu = metadata.avg_nu.toFixed(2);
-      const max_nu = metadata.max_nu.toFixed(2);
-      const max_conf = formatSubscripts(metadata.max_conf);
-      const avg_nu_wo_max = metadata.avg_nu_wo_max.toFixed(2);
+      const avg_nu = metadata.avgNu.toFixed(2);
+      const max_nu = metadata.maxNu.toFixed(2);
+      const max_conf = formatSubscripts(metadata.maxConf);
+      const avg_nu_wo_max = metadata.avgNuWoMax.toFixed(2);
       metadataText = `ν<sub>avg</sub> = ${avg_nu}<br />ν<sub>max</sub> = ${max_nu} (${max_conf})<br />ν<sub>avg</sub> (w/o ${max_conf}) = ${avg_nu_wo_max}`;
     }
     annotations.push({
