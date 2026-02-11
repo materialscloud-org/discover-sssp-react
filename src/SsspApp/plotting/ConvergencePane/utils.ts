@@ -22,7 +22,7 @@ const fontSize = 10;
 const topMargin = 40;
 const bottomMargin = 80;
 
-const deltaX = 2; // highlight rectangle half-width
+const deltaX = 1.5; // highlight rectangle half-width
 
 const offsetHeight = 8; // offset between pseudos
 const PIXELS_PER_PSEUDO = 120; // fixed
@@ -65,6 +65,16 @@ const QUANTITIES: Record<string, Quantity> = {
     dash: "solid",
   },
 };
+
+export const CONVERGENCE_X_MIN = 25;
+export const CONVERGENCE_X_MAX = 205;
+
+// The visible x-axis window size (in Ry) for the convergence plot.
+// This stays fixed; smaller viewports simply clip the plot.
+export const CONVERGENCE_X_WINDOW_RY = 100;
+
+// Fixed pixel width for the Plotly canvas (keeps data scale stable).
+export const CONVERGENCE_PLOT_WIDTH_PX = 1200;
 
 export const generateConvergencePlotData = (
   element: string,
@@ -123,10 +133,12 @@ export const generateConvergencePlotData = (
       // Max phonon frequency annotation
       const omegaRef = quantities.phononFrequencies.ref.toFixed(2);
       annotations.push({
-        x: 203.1,
-        y: offset - 1,
+        xref: "paper",
+        x: 1.133,
+        y: offset - 0.6,
         text: `ω<sub>max</sub> = ${omegaRef} cm<sup>-1</sup>`,
         showarrow: false,
+        align: "left",
         font: { size: fontSize },
       });
     }
@@ -151,9 +163,11 @@ export const generateConvergencePlotData = (
       // Cohesive energy ref
       const cohesiveRef = quantities.cohesiveEnergy.ref.toFixed(2);
       annotations.push({
-        x: 205,
-        y: offset + 1,
+        xref: "paper",
+        x: 1.16,
+        y: offset + 0.6,
         text: `E<sub>coh</sub> = ${cohesiveRef} <i>meV/atom</i>`,
+        align: "left",
         showarrow: false,
         font: { size: fontSize },
       });
@@ -174,14 +188,6 @@ export const generateConvergencePlotData = (
 
       // Above BS values
       // Label
-      annotations.push({
-        x: 24,
-        y: offset + aboveScalar * windowHeight + annotationOffset,
-        text: "       <i>η</i><sub>10</sub> = ",
-        showarrow: false,
-        align: "left",
-        font: { size: fontSize },
-      });
       // Text
       data.push({
         x: x,
@@ -199,9 +205,10 @@ export const generateConvergencePlotData = (
       });
       // Units
       annotations.push({
-        x: 205,
+        xref: "paper",
+        x: 1.08,
         y: offset + aboveScalar * windowHeight + annotationOffset,
-        text: "[meV]",
+        text: "<i>η</i><sub>10</sub> [meV]",
         showarrow: false,
         align: "left",
         font: { size: fontSize },
@@ -230,15 +237,6 @@ export const generateConvergencePlotData = (
       });
 
       // Below BS values
-      // Label
-      annotations.push({
-        x: 24,
-        y: offset - belowScalar * windowHeight + annotationOffset,
-        text: "max <i>η</i><sub>10</sub> = ",
-        showarrow: false,
-        align: "left",
-        font: { size: fontSize },
-      });
       // Text
       data.push({
         x: x,
@@ -256,9 +254,10 @@ export const generateConvergencePlotData = (
       });
       // Units
       annotations.push({
-        x: 205,
+        xref: "paper",
+        x: 1.08,
         y: offset - belowScalar * windowHeight + annotationOffset,
-        text: "[meV]",
+        text: "<i>η</i><sub>10</sub> [meV]",
         showarrow: false,
         align: "left",
         font: { size: fontSize },
@@ -279,8 +278,8 @@ export const generateConvergencePlotData = (
     // Zero line
     shapes.push({
       type: "line",
-      x0: 18,
-      x1: 216,
+      x0: CONVERGENCE_X_MIN,
+      x1: CONVERGENCE_X_MAX,
       y0: offset,
       y1: offset,
       opacity: 0.25,
@@ -381,9 +380,9 @@ export const generateConvergencePlotData = (
     }
     annotations.push({
       xref: "paper",
-      x: -0.1,
+      x: -0.18,
       y: offset,
-      text: `<span style="color:#0d6efd"><b>${pseudo.name}</b></span><br />Z<sub>val</sub> = ${pseudo.Z}<br />${metadataText}`,
+      text: `<span style="color:${pseudo.color}"><b>${pseudo.name}</b></span><br />Z<sub>val</sub> = ${pseudo.Z}<br />${metadataText}`,
       showarrow: false,
       align: "left",
       font: { size: 10 },
@@ -411,8 +410,8 @@ export const generateConvergencePlotData = (
         } else {
           const x0 = cutoff - deltaX;
           const x1 = cutoff + deltaX;
-          const y0 = offsetsArray[i] - windowHeight;
-          const y1 = offsetsArray[i] + windowHeight;
+          const y0 = offsetsArray[i] - windowHeight / 2;
+          const y1 = offsetsArray[i] + windowHeight / 2;
           const xm = (x0 + x1) / 2;
           const ym = (y0 + y1) / 2;
           shapes.push({
@@ -454,14 +453,10 @@ export const generateConvergencePlotData = (
       tickvals: [...Array.from({ length: 18 }, (_, i) => i * 10 + 30)],
       ticks: "inside",
       ticklen: 5,
-      range: [18, 216],
-      fixedrange: true,
+      range: [CONVERGENCE_X_MIN, CONVERGENCE_X_MIN + CONVERGENCE_X_WINDOW_RY],
     },
     yaxis: {
-      side: "right",
-      title: {
-        text: `Error w.r.t. ref. wavefunction cutoff`,
-      },
+      side: "left",
       zeroline: false,
       showgrid: false,
       showline: true,
@@ -476,8 +471,8 @@ export const generateConvergencePlotData = (
     },
     showlegend: true,
     legend: {
-      x: 1.05,
-      y: 1,
+      x: -0.18,
+      yref: "container",
       xanchor: "left",
       yanchor: "top",
       font: { size: fontSize, color: "black" },
@@ -487,8 +482,11 @@ export const generateConvergencePlotData = (
     annotations: annotations,
     shapes: shapes,
     hovermode: "closest",
+    dragmode: "pan",
+    autosize: false,
+    width: CONVERGENCE_PLOT_WIDTH_PX,
     height: plotHeight,
-    margin: { l: 160, r: 80, t: 10, b: 70 },
+    margin: { l: 180, r: 180, t: 0, b: 70 },
   };
 
   return { data, layout };

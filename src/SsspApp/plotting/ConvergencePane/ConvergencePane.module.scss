@@ -1,17 +1,58 @@
-#convergence-summary-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 0.75rem;
-}
+#convergencePane {
+  position: relative;
 
-#convergence-plot-container {
-  overflow-x: auto;
-  width: 100%;
-}
+  #convergenceSummaryHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
 
-#convergence-plot-details-container {
-  margin: 1rem auto 0;
-  max-width: 1000px;
-  overflow-x: auto;
+  #convergencePlotContainer {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  #selectedPseudosTitle {
+    text-align: center;
+
+    #efficiencyPseudo {
+      color: green;
+    }
+
+    #precisionPseudo {
+      color: red;
+    }
+  }
+
+  #plotControls,
+  #plotTitle {
+    z-index: 1;
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    right: 0;
+  }
+
+  #plotControls {
+    display: flex;
+    justify-content: center;
+  }
+
+  #plotTitle {
+    top: 5rem;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  #noCategorySelected {
+    margin-top: 4rem;
+  }
+
+  #convergencePlotDetailsContainer {
+    margin: 1rem auto 0;
+    max-width: 1000px;
+    overflow-x: auto;
+  }
 }
