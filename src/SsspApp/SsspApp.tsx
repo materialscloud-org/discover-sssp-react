@@ -13,6 +13,7 @@ import { AboutPage, DownloadPage, InvalidPage, PseudosPage } from "@sssp/pages";
 
 import SsspProps from "./SsspApp.models";
 import styles from "./SsspApp.module.scss";
+
 const tabs = {
   pseudopotentials: "Pseudopotentials",
   download: "Download",
@@ -21,7 +22,7 @@ const tabs = {
 
 const SsspApp: React.FC<SsspProps> = ({ urlBase }) => {
   return (
-    <Card id={styles["sssp-app"]}>
+    <Card id={styles.ssspApp}>
       <BrowserRouter basename={urlBase}>
         <SsspAppContent />
       </BrowserRouter>
@@ -44,7 +45,7 @@ const SsspAppContent: React.FC = () => {
         <ElementProvider>
           <PseudoProvider>
             <PlotProvider>
-              <Card.Header id={styles["tab-controls"]}>
+              <Card.Header id={styles.tabControls}>
                 <Tabs
                   id="main-tabs"
                   defaultActiveKey={defaultTab}
@@ -56,7 +57,7 @@ const SsspAppContent: React.FC = () => {
                   ))}
                 </Tabs>
               </Card.Header>
-              <Card.Body id={styles["sssp-card"]}>
+              <Card.Body id={styles.ssspCardBody}>
                 <Routes>
                   <Route path="pseudopotentials/*" element={<PseudosPage />} />
                   <Route path="download" element={<DownloadPage />} />

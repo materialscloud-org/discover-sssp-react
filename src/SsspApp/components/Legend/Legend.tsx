@@ -14,29 +14,29 @@ const PseudosLegend: React.FC = () => {
   return loadingMetadata ? (
     <LoadingSpinner />
   ) : (
-    <ul id={styles["pseudos-legend"]} onMouseLeave={() => setHoveredPseudo("")}>
+    <ul id={styles.pseudosLegend} onMouseLeave={() => setHoveredPseudo("")}>
       {Object.entries(pseudosMetadata).map(([pseudo, metadata]) => (
         <li
           key={pseudo}
           className={`
-            ${styles["pseudo-item"]}
-              ${
-                !(hoveredPseudo || hoveredElement)
-                  ? ""
-                  : hoveredPseudo === pseudo ||
-                      hoveredElement?.info.pseudopotential === pseudo
-                    ? styles["highlighted"]
-                    : styles["transparent"]
-              }
-            `}
+              ${styles.pseudoItem}
+                ${
+                  !(hoveredPseudo || hoveredElement)
+                    ? ""
+                    : hoveredPseudo === pseudo ||
+                        hoveredElement?.info.pseudopotential === pseudo
+                      ? styles.highlighted
+                      : styles.transparent
+                }
+              `}
           onMouseEnter={() => setHoveredPseudo(pseudo)}
         >
           <span
-            className={styles["pseudo-list-marker"]}
+            className={styles.pseudoListMarker}
             style={{ backgroundColor: metadata.color }}
           ></span>
           <span
-            className={styles["pseudo-name"]}
+            className={styles.pseudoName}
             style={{ width: maxPseudoWidth + 12 }}
           >
             {metadata.display_name}

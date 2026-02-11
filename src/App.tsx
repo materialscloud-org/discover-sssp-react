@@ -1,3 +1,5 @@
+import { Container } from "react-bootstrap";
+
 import MaterialsCloudHeader from "mc-react-header";
 
 import { BASE_URL } from "@sssp/common/config";
@@ -20,13 +22,15 @@ const App = () => (
       },
     ]}
   >
-    <Header
-      title={`Standard solid-state pseudopotentials (SSSP v${ssspVersion})`}
-      subtitle="A standard solid-state pseudopotentials (SSSP) library optimized for precision or efficiency."
-      doi_ids={["f3-ym"]}
-      logo={logo}
-    />
-    <SsspApp urlBase={BASE_URL} />
+    <Container fluid={"xxl"}>
+      <Header
+        title={`Standard solid-state pseudopotentials (SSSP v${ssspVersion})`}
+        subtitle="A standard solid-state pseudopotentials (SSSP) library optimized for precision or efficiency."
+        doi_ids={["f3-ym"]}
+        logo={logo}
+      />
+      <SsspApp urlBase={BASE_URL} />
+    </Container>
   </MaterialsCloudHeader>
 );
 
