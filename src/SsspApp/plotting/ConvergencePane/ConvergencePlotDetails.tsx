@@ -18,9 +18,9 @@ const ConvergencePlotDetails: React.FC = () => (
             lines correspond to the thresholds of the SSSP efficiency criteria,
             whereas the gray dotted lines correspond to the precision criteria.
             The recommended efficiency (precision) pseudopotential is marked
-            with a <span style={{ color: "green" }}>rectangle</span> (
-            <span style={{ color: "red" }}>diamond</span>) at the recommended
-            cutoff.
+            with a <span style={{ color: "rgb(0, 128, 0)" }}>rectangle</span> (
+            <span style={{ color: "rgb(128, 0, 128)" }}>rhombus</span>) at the
+            recommended cutoff.
           </p>
         </section>
         <section>

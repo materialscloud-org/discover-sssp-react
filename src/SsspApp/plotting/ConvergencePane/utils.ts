@@ -27,6 +27,16 @@ const deltaX = 1.5; // highlight rectangle half-width
 const offsetHeight = 8; // offset between pseudos
 const PIXELS_PER_PSEUDO = 120; // fixed
 
+export const CONVERGENCE_X_MIN = 25;
+export const CONVERGENCE_X_MAX = 205;
+
+// The visible x-axis window size (in Ry) for the convergence plot.
+// This stays fixed; smaller viewports simply clip the plot.
+export const CONVERGENCE_X_WINDOW_RY = 100;
+
+// Fixed pixel width for the Plotly canvas (keeps data scale stable).
+export const CONVERGENCE_PLOT_WIDTH_PX = 1200;
+
 const HIGH_DUAL_ELEMENTS = new Set(["O", "Fe", "Mn", "Hf", "Co", "Ni", "Cr"]);
 
 const EOS_C_FACTOR = 0.2;
@@ -66,16 +76,6 @@ const QUANTITIES: Record<string, Quantity> = {
   },
 };
 
-export const CONVERGENCE_X_MIN = 25;
-export const CONVERGENCE_X_MAX = 205;
-
-// The visible x-axis window size (in Ry) for the convergence plot.
-// This stays fixed; smaller viewports simply clip the plot.
-export const CONVERGENCE_X_WINDOW_RY = 100;
-
-// Fixed pixel width for the Plotly canvas (keeps data scale stable).
-export const CONVERGENCE_PLOT_WIDTH_PX = 1200;
-
 export const generateConvergencePlotData = (
   element: string,
   libraries: string[],
@@ -113,13 +113,47 @@ export const generateConvergencePlotData = (
 
     let dataSeries;
 
+    // Efficiency line
+    // Above
+    data.push({
+      x: [-1000, 1000],
+      y: [offset + windowHeight, offset + windowHeight],
+      type: "scatter",
+      mode: "lines",
+      text: eta_c.map((v) => v.toFixed(2)),
+      showlegend: false,
+      line: { color: color, width: lineWidth, dash: "dashdot" },
+      hoverinfo: "skip",
+    });
+    // Below
+    data.push({
+      x: [-1000, 1000],
+      y: [offset - windowHeight, offset - windowHeight],
+      type: "scatter",
+      mode: "lines",
+      text: max_diff_c.map((v) => v.toFixed(2)),
+      showlegend: false,
+      line: { color: color, width: lineWidth, dash: "dashdot" },
+      hoverinfo: "skip",
+    });
+
+    // Precision line
+    data.push({
+      x: [-1000, 1000],
+      y: [offset + windowHeight * 0.5, offset + windowHeight * 0.5],
+      type: "scatter",
+      mode: "lines",
+      text: eta_c.map((v) => v.toFixed(2)),
+      showlegend: false,
+      line: { color: "lightgray", width: lineWidth, dash: "dot" },
+      hoverinfo: "skip",
+    });
+
     if (quantities.phononFrequencies) {
-      frequencies = quantities.phononFrequencies.values.map(
-        (v) => (v * 2) / PHONON_C_FACTOR,
-      );
+      frequencies = quantities.phononFrequencies.values;
       dataSeries = generateDataSeries(QUANTITIES.phononFrequencies, color);
       dataSeries.x = quantities.phononFrequencies.cutoffs;
-      dataSeries.y = frequencies.map((v) => v + offset);
+      dataSeries.y = frequencies.map((v) => (v * 2) / PHONON_C_FACTOR + offset);
       freqError = quantities.phononFrequencies.error;
       dataSeries.error_y = {
         type: "data",
@@ -145,17 +179,15 @@ export const generateConvergencePlotData = (
 
     if (quantities.pressure) {
       dataSeries = generateDataSeries(QUANTITIES.pressure, color);
-      pressure = quantities.pressure.values.map(
-        (v) => (v * 2) / PRESSURE_C_FACTOR,
-      );
+      pressure = quantities.pressure.values;
       dataSeries.x = quantities.pressure.cutoffs;
-      dataSeries.y = pressure.map((v) => v + offset);
+      dataSeries.y = pressure.map((v) => (v * 2) / PRESSURE_C_FACTOR + offset);
       data.push(dataSeries);
     }
 
     if (quantities.cohesiveEnergy) {
-      dataSeries = generateDataSeries(QUANTITIES.cohesiveEnergy, color);
       cohesiveEnergy = quantities.cohesiveEnergy.values;
+      dataSeries = generateDataSeries(QUANTITIES.cohesiveEnergy, color);
       dataSeries.x = quantities.cohesiveEnergy.cutoffs;
       dataSeries.y = cohesiveEnergy.map((v) => v + offset);
       data.push(dataSeries);
@@ -174,10 +206,10 @@ export const generateConvergencePlotData = (
     }
 
     if (quantities.eos) {
+      eos = quantities.eos.values;
       dataSeries = generateDataSeries(QUANTITIES.eos, color);
-      eos = quantities.eos.values.map((v) => (v * 2) / EOS_C_FACTOR);
       dataSeries.x = quantities.eos.cutoffs;
-      dataSeries.y = eos.map((v) => v + offset);
+      dataSeries.y = eos.map((v) => (v * 2) / EOS_C_FACTOR + offset);
       data.push(dataSeries);
     }
 
@@ -186,9 +218,7 @@ export const generateConvergencePlotData = (
       eta_c = quantities.bands.etaC;
       max_diff_c = quantities.bands.maxDiffC;
 
-      // Above BS values
-      // Label
-      // Text
+      // η10
       data.push({
         x: x,
         y: eta_c.map(() => offset + aboveScalar * windowHeight),
@@ -203,41 +233,17 @@ export const generateConvergencePlotData = (
         textfont: { size: fontSize },
         hoverinfo: "skip",
       });
-      // Units
       annotations.push({
         xref: "paper",
-        x: 1.08,
-        y: offset + aboveScalar * windowHeight + annotationOffset,
-        text: "<i>η</i><sub>10</sub> [meV]",
+        x: 1.11,
+        y: offset - belowScalar * windowHeight + annotationOffset,
+        text: "max <i>η</i><sub>10</sub> [meV]",
         showarrow: false,
         align: "left",
         font: { size: fontSize },
       });
-      // Efficiency line
-      data.push({
-        x: [0, 250],
-        y: [offset + windowHeight, offset + windowHeight],
-        type: "scatter",
-        mode: "lines",
-        text: eta_c.map((v) => v.toFixed(2)),
-        showlegend: false,
-        line: { color: color, width: lineWidth, dash: "dashdot" },
-        hoverinfo: "skip",
-      });
-      // Precision line
-      data.push({
-        x: [0, 250],
-        y: [offset + windowHeight / 2, offset + windowHeight / 2],
-        type: "scatter",
-        mode: "lines",
-        text: eta_c.map((v) => v.toFixed(2)),
-        showlegend: false,
-        line: { color: "lightgray", width: lineWidth, dash: "dot" },
-        hoverinfo: "skip",
-      });
 
-      // Below BS values
-      // Text
+      // max η10
       data.push({
         x: x,
         y: max_diff_c.map(() => offset - belowScalar * windowHeight),
@@ -252,34 +258,22 @@ export const generateConvergencePlotData = (
         textfont: { size: fontSize },
         hoverinfo: "skip",
       });
-      // Units
       annotations.push({
         xref: "paper",
         x: 1.08,
-        y: offset - belowScalar * windowHeight + annotationOffset,
+        y: offset + aboveScalar * windowHeight + annotationOffset,
         text: "<i>η</i><sub>10</sub> [meV]",
         showarrow: false,
         align: "left",
         font: { size: fontSize },
-      });
-      // Line
-      data.push({
-        x: [0, 250],
-        y: [offset - windowHeight, offset - windowHeight],
-        type: "scatter",
-        mode: "lines",
-        text: max_diff_c.map((v) => v.toFixed(2)),
-        showlegend: false,
-        line: { color: color, width: lineWidth, dash: "dashdot" },
-        hoverinfo: "skip",
       });
     }
 
     // Zero line
     shapes.push({
       type: "line",
-      x0: CONVERGENCE_X_MIN,
-      x1: CONVERGENCE_X_MAX,
+      x0: -1000,
+      x1: 1000,
       y0: offset,
       y1: offset,
       opacity: 0.25,
@@ -399,26 +393,26 @@ export const generateConvergencePlotData = (
         if (library === "efficiency") {
           shapes.push({
             type: "rect",
-            x0: cutoff - deltaX,
-            x1: cutoff + deltaX,
+            x0: cutoff - deltaX * 0.5,
+            x1: cutoff + deltaX * 0.5,
             y0: offsetsArray[i] - windowHeight,
             y1: offsetsArray[i] + windowHeight,
-            fillcolor: "lightgreen",
-            line: { width: 1, color: "green" },
+            fillcolor: "rgba(0, 128, 0, 0.5)",
+            line: { width: 1, color: "rgb(0, 128, 0)" },
             opacity: 0.5,
           });
         } else {
           const x0 = cutoff - deltaX;
           const x1 = cutoff + deltaX;
-          const y0 = offsetsArray[i] - windowHeight / 2;
-          const y1 = offsetsArray[i] + windowHeight / 2;
-          const xm = (x0 + x1) / 2;
-          const ym = (y0 + y1) / 2;
+          const y0 = offsetsArray[i] - windowHeight * 0.5;
+          const y1 = offsetsArray[i] + windowHeight * 0.5;
+          const xm = (x0 + x1) * 0.5;
+          const ym = (y0 + y1) * 0.5;
           shapes.push({
             type: "path",
             path: `M ${xm} ${y1} L ${x1} ${ym} L ${xm} ${y0} L ${x0} ${ym} Z`,
-            fillcolor: "lightcoral",
-            line: { width: 1, color: "darkred" },
+            fillcolor: "rgba(128, 0, 128, 0.5)",
+            line: { width: 1, color: "rgb(128, 0, 128)" },
             opacity: 0.5,
           });
         }
@@ -447,6 +441,7 @@ export const generateConvergencePlotData = (
       title: {
         text: `Wavefunction cutoff [Ry]; Charge density cutoff [Ry] = ${dual} x Ewfc (PAW/US) | 4 x Ewfc (NC); q-point = [0.5, 0.5, 0.5]`,
       },
+      zeroline: false,
       showgrid: false,
       showline: true,
       mirror: true,
