@@ -1,7 +1,7 @@
-import { PseudoConvergenceData, PseudosMetadata } from "@sssp/models";
+import { Pseudo, PseudosMetadata } from "@sssp/models";
 
 export interface ConvergencePlotProps {
   element: string;
-  summaryData: PseudoConvergenceData;
+  activePseudos: Pseudo[];
   pseudosMetadata: PseudosMetadata;
 }

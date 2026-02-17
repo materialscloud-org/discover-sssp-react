@@ -7,12 +7,7 @@ import { ElementContext, LibraryContext } from "@sssp/context";
 import { ConvergencePlotProps } from "./ConvergencePlot.models";
 import styles from "./ConvergencePlot.module.scss";
 import UpfModal from "./UpfModal";
-import {
-  CONVERGENCE_X_MAX,
-  CONVERGENCE_X_MIN,
-  CONVERGENCE_X_WINDOW_RY,
-  generateConvergencePlotData,
-} from "./utils";
+import { xMax, xMin, generateConvergencePlotData } from "./utils";
 
 const config: Partial<Config> = {
   responsive: false,
@@ -45,7 +40,7 @@ const getEventXRange = (event: unknown): { x0: number; x1: number } | null => {
 
 const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
   element,
-  summaryData,
+  activePseudos,
   pseudosMetadata,
 }) => {
   const { libraries } = useContext(LibraryContext);
@@ -54,13 +49,6 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
   const [upfPseudoName, setUpfPseudoName] = useState("");
   const [upfZ, setUpfZ] = useState<number>();
   const plotRef = useRef<HTMLDivElement>(null);
-
-  const activePseudos = useMemo(() => {
-    if (!summaryData || !summaryData.pseudos) return [];
-    return summaryData.pseudos
-      .filter((pseudo) => pseudosMetadata?.[pseudo.name])
-      .reverse(); // reversed because we build it bottom-up in the plot
-  }, [summaryData, pseudosMetadata]);
 
   const recommendedPseudos = useMemo(
     () =>
@@ -109,12 +97,11 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
         if (!Plotly || !graphDiv) return;
 
         const nextRange = getEventXRange(event);
-        const windowSize = CONVERGENCE_X_WINDOW_RY;
 
         // If Plotly tries to autorange/reset, force our fixed window.
         if (!nextRange) {
           await Plotly.relayout(graphDiv, {
-            "xaxis.range": [CONVERGENCE_X_MIN, CONVERGENCE_X_MIN + windowSize],
+            "xaxis.range": [xMin, xMax],
           });
           return;
         }
@@ -126,10 +113,10 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
         const desiredWindow =
           Number.isFinite(currentWindow) && currentWindow > 0
             ? currentWindow
-            : windowSize;
+            : xMax - xMin;
 
-        const maxStart = CONVERGENCE_X_MAX - desiredWindow;
-        const clamped0 = clamp(raw0, CONVERGENCE_X_MIN, maxStart);
+        const maxStart = xMax - desiredWindow;
+        const clamped0 = clamp(raw0, xMin, maxStart);
         const clamped1 = clamped0 + desiredWindow;
 
         const changed =
@@ -170,18 +157,11 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
         graphDiv.removeAllListeners?.("plotly_relayout");
       }
     };
-  }, [
-    element,
-    summaryData,
-    libraries,
-    recommendedPseudos,
-    activePseudos,
-    pseudosMetadata,
-  ]);
+  }, [element, libraries, recommendedPseudos, activePseudos, pseudosMetadata]);
 
   return (
     <>
-      <div ref={plotRef} id={styles["convergence-plot"]} />
+      <div ref={plotRef} id={styles.convergencePlot} />
       <UpfModal
         show={showUpfModal}
         element={element}

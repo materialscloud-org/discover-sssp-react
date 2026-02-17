@@ -22,20 +22,13 @@ const fontSize = 10;
 const topMargin = 40;
 const bottomMargin = 80;
 
-const deltaX = 1.5; // highlight rectangle half-width
+const deltaX = 1.6; // highlight rectangle half-width
 
 const offsetHeight = 8; // offset between pseudos
 const PIXELS_PER_PSEUDO = 120; // fixed
 
-export const CONVERGENCE_X_MIN = 25;
-export const CONVERGENCE_X_MAX = 205;
-
-// The visible x-axis window size (in Ry) for the convergence plot.
-// This stays fixed; smaller viewports simply clip the plot.
-export const CONVERGENCE_X_WINDOW_RY = 100;
-
-// Fixed pixel width for the Plotly canvas (keeps data scale stable).
-export const CONVERGENCE_PLOT_WIDTH_PX = 1200;
+export const xMin = 25;
+export const xMax = 125;
 
 const HIGH_DUAL_ELEMENTS = new Set(["O", "Fe", "Mn", "Hf", "Co", "Ni", "Cr"]);
 
@@ -168,7 +161,7 @@ export const generateConvergencePlotData = (
       const omegaRef = quantities.phononFrequencies.ref.toFixed(2);
       annotations.push({
         xref: "paper",
-        x: 1.133,
+        x: 1.149,
         y: offset - 0.6,
         text: `ω<sub>max</sub> = ${omegaRef} cm<sup>-1</sup>`,
         showarrow: false,
@@ -196,7 +189,7 @@ export const generateConvergencePlotData = (
       const cohesiveRef = quantities.cohesiveEnergy.ref.toFixed(2);
       annotations.push({
         xref: "paper",
-        x: 1.16,
+        x: 1.17,
         y: offset + 0.6,
         text: `E<sub>coh</sub> = ${cohesiveRef} <i>meV/atom</i>`,
         align: "left",
@@ -235,7 +228,7 @@ export const generateConvergencePlotData = (
       });
       annotations.push({
         xref: "paper",
-        x: 1.11,
+        x: 1.12,
         y: offset - belowScalar * windowHeight + annotationOffset,
         text: "max <i>η</i><sub>10</sub> [meV]",
         showarrow: false,
@@ -260,7 +253,7 @@ export const generateConvergencePlotData = (
       });
       annotations.push({
         xref: "paper",
-        x: 1.08,
+        x: 1.09,
         y: offset + aboveScalar * windowHeight + annotationOffset,
         text: "<i>η</i><sub>10</sub> [meV]",
         showarrow: false,
@@ -437,6 +430,12 @@ export const generateConvergencePlotData = (
   });
 
   const layout: Partial<Layout> = {
+    title: {
+      text: "Error w.r.t. ref. wavefunction cutoff",
+      font: { size: 14 },
+      yref: "container",
+      y: 0.995,
+    },
     xaxis: {
       title: {
         text: `Wavefunction cutoff [Ry]; Charge density cutoff [Ry] = ${dual} x Ewfc (PAW/US) | 4 x Ewfc (NC); q-point = [0.5, 0.5, 0.5]`,
@@ -448,7 +447,7 @@ export const generateConvergencePlotData = (
       tickvals: [...Array.from({ length: 18 }, (_, i) => i * 10 + 30)],
       ticks: "inside",
       ticklen: 5,
-      range: [CONVERGENCE_X_MIN, CONVERGENCE_X_MIN + CONVERGENCE_X_WINDOW_RY],
+      range: [xMin, xMax],
     },
     yaxis: {
       side: "left",
@@ -466,12 +465,14 @@ export const generateConvergencePlotData = (
     },
     showlegend: true,
     legend: {
-      x: -0.18,
+      orientation: "h",
+      xref: "container",
       yref: "container",
-      xanchor: "left",
+      x: 0.153,
+      y: 1,
       yanchor: "top",
       font: { size: fontSize, color: "black" },
-      bordercolor: "lightgrey",
+      bordercolor: "black",
       borderwidth: 1,
     },
     annotations: annotations,
@@ -479,9 +480,9 @@ export const generateConvergencePlotData = (
     hovermode: "closest",
     dragmode: "pan",
     autosize: false,
-    width: CONVERGENCE_PLOT_WIDTH_PX,
+    width: 1170,
     height: plotHeight,
-    margin: { l: 180, r: 180, t: 0, b: 70 },
+    margin: { l: 180, r: 150, t: 0, b: 70 },
   };
 
   return { data, layout };

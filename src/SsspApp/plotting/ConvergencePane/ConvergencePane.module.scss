@@ -1,21 +1,20 @@
 #convergencePane {
-  position: relative;
-
   #convergenceSummaryHeader {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 0.75rem;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    h2 {
+      margin: 0;
+    }
   }
 
-  #convergencePlotContainer {
-    overflow-x: hidden;
-    width: 100%;
-    position: relative;
-  }
-
-  #selectedPseudosTitle {
-    text-align: center;
+  #selectedPseudos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
     #efficiencyPseudo {
       color: rgb(0, 128, 0);
@@ -24,35 +23,19 @@
     #precisionPseudo {
       color: rgb(128, 0, 128);
     }
+
+    @media (min-width: 600px) {
+      gap: 1rem;
+    }
   }
 
-  #plotControls,
-  #plotTitle {
-    z-index: 1;
-    position: absolute;
-    top: 2rem;
-    left: 0;
-    right: 0;
-  }
-
-  #plotControls {
-    display: flex;
-    justify-content: center;
-  }
-
-  #plotTitle {
-    top: 5rem;
-    text-align: center;
-    pointer-events: none;
-  }
-
-  #noCategorySelected {
-    margin-top: 4rem;
+  #convergencePlotContainer {
+    overflow-x: auto;
+    width: 100%;
   }
 
   #convergencePlotDetailsContainer {
     margin: 1rem auto 0;
     max-width: 1000px;
-    overflow-x: auto;
   }
 }
