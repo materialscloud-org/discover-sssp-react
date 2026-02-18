@@ -28,7 +28,8 @@ const offsetHeight = 8; // offset between pseudos
 const PIXELS_PER_PSEUDO = 120; // fixed
 
 export const xMin = 25;
-export const xMax = 125;
+export const xMax = 205;
+export const windowSize = 100;
 
 const HIGH_DUAL_ELEMENTS = new Set(["O", "Fe", "Mn", "Hf", "Co", "Ni", "Cr"]);
 
@@ -447,7 +448,7 @@ export const generateConvergencePlotData = (
       tickvals: [...Array.from({ length: 18 }, (_, i) => i * 10 + 30)],
       ticks: "inside",
       ticklen: 5,
-      range: [xMin, xMax],
+      range: [xMin, xMin + windowSize],
     },
     yaxis: {
       side: "left",
@@ -502,4 +503,25 @@ const generateDataSeries = (
     legendgroup: quantity.label,
     hoverinfo: "skip",
   };
+};
+
+export const getEventXRange = (
+  event: unknown,
+): { x0: number; x1: number } | null => {
+  if (!event || typeof event !== "object") return null;
+
+  const e = event as Record<string, unknown>;
+
+  const rangeArray = e["xaxis.range"];
+  if (Array.isArray(rangeArray) && rangeArray.length >= 2) {
+    const x0 = Number(rangeArray[0]);
+    const x1 = Number(rangeArray[1]);
+    if (Number.isFinite(x0) && Number.isFinite(x1)) return { x0, x1 };
+  }
+
+  const x0 = Number(e["xaxis.range[0]"]);
+  const x1 = Number(e["xaxis.range[1]"]);
+  if (Number.isFinite(x0) && Number.isFinite(x1)) return { x0, x1 };
+
+  return null;
 };
