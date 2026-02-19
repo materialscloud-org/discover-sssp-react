@@ -81,20 +81,21 @@ const ConvergencePane: React.FC = () => {
       </div>
       {!hasData ? (
         <NoDataMessage />
-      ) : (
-        <div id={styles.convergencePlotContainer}>
-          {!activePseudos.length ? (
-            <div id={styles.noCategorySelected}>
-              <NoDataMessage />
-            </div>
-          ) : (
-            <ConvergencePlot
-              element={element}
-              activePseudos={activePseudos}
-              pseudosMetadata={activePseudosMetadata}
-            />
-          )}
+      ) : !activePseudos.length ? (
+        <div id={styles.noCategorySelected}>
+          <NoDataMessage />
         </div>
+      ) : (
+        <>
+          <div id={styles.plotTitle}>
+            <h6>Error w.r.t. ref. wavefunction cutoff</h6>
+          </div>
+          <ConvergencePlot
+            element={element}
+            activePseudos={activePseudos}
+            pseudosMetadata={activePseudosMetadata}
+          />
+        </>
       )}
       <div id={styles.convergencePlotDetailsContainer}>
         <ConvergencePlotDetails />

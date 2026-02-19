@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 
     h2 {
       margin: 0;
@@ -29,9 +29,9 @@
     }
   }
 
-  #convergencePlotContainer {
-    overflow-x: auto;
-    width: 100%;
+  #plotTitle {
+    text-align: center;
+    margin: 0.5rem 0;
   }
 
   #convergencePlotDetailsContainer {

@@ -25,7 +25,9 @@ const bottomMargin = 80;
 const deltaX = 1.6; // highlight rectangle half-width
 
 const offsetHeight = 8; // offset between pseudos
-const PIXELS_PER_PSEUDO = 120; // fixed
+const pixelsPerPseudo = 120; // fixed
+
+export const plotMargins = { l: 170, r: 170, t: 40, b: 80 };
 
 export const xMin = 25;
 export const xMax = 205;
@@ -83,7 +85,7 @@ export const generateConvergencePlotData = (
   const windowHeight = offsetHeight / 4;
   const offsetsArray = activePseudos.map((_, i) => i * offsetHeight);
   const plotHeight =
-    activePseudos.length * PIXELS_PER_PSEUDO + (topMargin + bottomMargin);
+    activePseudos.length * pixelsPerPseudo + (topMargin + bottomMargin);
 
   const dual = HIGH_DUAL_ELEMENTS.has(element) ? 18 : 8;
 
@@ -162,7 +164,9 @@ export const generateConvergencePlotData = (
       const omegaRef = quantities.phononFrequencies.ref.toFixed(2);
       annotations.push({
         xref: "paper",
-        x: 1.149,
+        x: 1,
+        xanchor: "left",
+        xshift: 20,
         y: offset - 0.6,
         text: `ω<sub>max</sub> = ${omegaRef} cm<sup>-1</sup>`,
         showarrow: false,
@@ -190,7 +194,9 @@ export const generateConvergencePlotData = (
       const cohesiveRef = quantities.cohesiveEnergy.ref.toFixed(2);
       annotations.push({
         xref: "paper",
-        x: 1.17,
+        x: 1,
+        xanchor: "left",
+        xshift: 20,
         y: offset + 0.6,
         text: `E<sub>coh</sub> = ${cohesiveRef} <i>meV/atom</i>`,
         align: "left",
@@ -229,7 +235,9 @@ export const generateConvergencePlotData = (
       });
       annotations.push({
         xref: "paper",
-        x: 1.12,
+        x: 1,
+        xanchor: "left",
+        xshift: 20,
         y: offset - belowScalar * windowHeight + annotationOffset,
         text: "max <i>η</i><sub>10</sub> [meV]",
         showarrow: false,
@@ -254,7 +262,9 @@ export const generateConvergencePlotData = (
       });
       annotations.push({
         xref: "paper",
-        x: 1.09,
+        x: 1,
+        xanchor: "left",
+        xshift: 20,
         y: offset + aboveScalar * windowHeight + annotationOffset,
         text: "<i>η</i><sub>10</sub> [meV]",
         showarrow: false,
@@ -368,7 +378,9 @@ export const generateConvergencePlotData = (
     }
     annotations.push({
       xref: "paper",
-      x: -0.18,
+      x: 0,
+      xanchor: "right",
+      xshift: -30,
       y: offset,
       text: `<span style="color:${pseudo.color}"><b>${pseudo.name}</b></span><br />Z<sub>val</sub> = ${pseudo.Z}<br />${metadataText}`,
       showarrow: false,
@@ -431,15 +443,9 @@ export const generateConvergencePlotData = (
   });
 
   const layout: Partial<Layout> = {
-    title: {
-      text: "Error w.r.t. ref. wavefunction cutoff",
-      font: { size: 14 },
-      yref: "container",
-      y: 0.995,
-    },
     xaxis: {
       title: {
-        text: `Wavefunction cutoff [Ry]; Charge density cutoff [Ry] = ${dual} x Ewfc (PAW/US) | 4 x Ewfc (NC); q-point = [0.5, 0.5, 0.5]`,
+        text: `Wavefunction cutoff [Ry]<br><br>Charge density cutoff [Ry] = ${dual} x Ewfc (PAW/US) | 4 x Ewfc (NC); q-point = [0.5, 0.5, 0.5]`,
       },
       zeroline: false,
       showgrid: false,
@@ -467,23 +473,21 @@ export const generateConvergencePlotData = (
     showlegend: true,
     legend: {
       orientation: "h",
-      xref: "container",
+      xref: "paper",
       yref: "container",
-      x: 0.153,
+      x: 0.5,
       y: 1,
+      xanchor: "center",
       yanchor: "top",
-      font: { size: fontSize, color: "black" },
-      bordercolor: "black",
-      borderwidth: 1,
+      font: { size: 12, color: "black" },
     },
     annotations: annotations,
     shapes: shapes,
     hovermode: "closest",
     dragmode: "pan",
-    autosize: false,
-    width: 1170,
+    autosize: true,
     height: plotHeight,
-    margin: { l: 180, r: 150, t: 0, b: 70 },
+    margin: plotMargins,
   };
 
   return { data, layout };

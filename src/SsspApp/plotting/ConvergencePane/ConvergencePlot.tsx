@@ -16,7 +16,7 @@ import {
 } from "./utils";
 
 const config: Partial<Config> = {
-  responsive: false,
+  responsive: true,
   displayModeBar: false,
   displaylogo: false,
   scrollZoom: false,
