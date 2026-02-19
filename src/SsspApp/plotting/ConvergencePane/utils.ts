@@ -4,6 +4,7 @@ import type {
   Layout,
   MarkerSymbol,
   PlotData,
+  PlotlyHTMLElement,
   Shape,
 } from "plotly.js";
 
@@ -27,7 +28,10 @@ const deltaX = 1.6; // highlight rectangle half-width
 const offsetHeight = 8; // offset between pseudos
 const pixelsPerPseudo = 120; // fixed
 
-export const plotMargins = { l: 170, r: 170, t: 40, b: 80 };
+const plotMargins = { l: 170, r: 170, t: 40, b: 80 };
+
+const xTickStepSize = 10;
+const xTickSpacePixels = 80;
 
 export const xMin = 25;
 export const xMax = 205;
@@ -48,6 +52,8 @@ type Quantity = {
   symbol: MarkerSymbol;
   dash: Dash;
 };
+
+export type XRange = { min: number; max: number };
 
 const QUANTITIES: Record<string, Quantity> = {
   phononFrequencies: {
@@ -528,4 +534,109 @@ export const getEventXRange = (
   if (Number.isFinite(x0) && Number.isFinite(x1)) return { x0, x1 };
 
   return null;
+};
+
+/** Plotly relayout events are not strongly typed and can vary in shape. */
+export const isPlotlyXAutoRangeEvent = (event: unknown): boolean => {
+  if (!event || typeof event !== "object") return false;
+  const record = event as Record<string, unknown>;
+  return record["xaxis.autorange"] === true;
+};
+
+/**
+ * Returns the usable plot area width (inside margins) in pixels.
+ * This is used to keep tick spacing constant in *pixels* by adjusting the shown x-span.
+ */
+export const getPlotAreaWidthPx = (host: HTMLDivElement | null): number => {
+  if (!host) return 0;
+  const hostWidthPx = host.getBoundingClientRect().width;
+  const plotAreaWidthPx = hostWidthPx - plotMargins.l - plotMargins.r;
+  return Math.max(0, plotAreaWidthPx);
+};
+
+/**
+ * Clamp an x-range to [xMin, xMax] while enforcing a fixed window span.
+ * If Plotly gives an odd range (non-finite or wrong span), we snap to a sensible range.
+ */
+export const clampXRangeToDomain = (
+  requestedRange: XRange,
+  windowSpanRy: number,
+): XRange => {
+  const domainSpanRy = xMax - xMin;
+  const clampedWindowSpanRy = Math.min(Math.max(windowSpanRy, 1), domainSpanRy);
+
+  let min = requestedRange.min;
+  let max = requestedRange.max;
+
+  if (!Number.isFinite(min) || !Number.isFinite(max)) {
+    min = xMin;
+    max = xMin + clampedWindowSpanRy;
+  } else if (Math.abs(max - min - clampedWindowSpanRy) > 1e-6) {
+    const center = (min + max) * 0.5;
+    min = center - clampedWindowSpanRy * 0.5;
+    max = center + clampedWindowSpanRy * 0.5;
+  }
+
+  if (min < xMin) {
+    min = xMin;
+    max = xMin + clampedWindowSpanRy;
+  } else if (max > xMax) {
+    max = xMax;
+    min = xMax - clampedWindowSpanRy;
+  }
+
+  return { min, max };
+};
+
+/**
+ * Compute the visible x-span (in Ry) such that a tick step of `xTickStepSize` Ry
+ * appears approximately `xTickSpacePixels` pixels apart.
+ */
+export const computeXWindowSpanRyForPlotWidth = (
+  plotAreaWidthPx: number,
+): number => {
+  if (!plotAreaWidthPx) return windowSize;
+
+  // Keep a constant scale: xWindowSpanRy = plotAreaWidthPx * (tickStepRy / tickSpacingPx)
+  const spanRy = (plotAreaWidthPx * xTickStepSize) / xTickSpacePixels;
+  const domainSpanRy = xMax - xMin;
+
+  // Keep a sensible minimum window so the plot doesn't get unusably zoomed in.
+  return Math.min(Math.max(spanRy, 30), domainSpanRy);
+};
+
+export const getGraphDivXRange = (
+  graphDiv: PlotlyHTMLElement,
+): XRange | null => {
+  const currentRange = graphDiv.layout?.xaxis?.range as
+    | [number, number]
+    | undefined;
+  if (!currentRange) return null;
+  const min = currentRange[0];
+  const max = currentRange[1];
+  if (!Number.isFinite(min) || !Number.isFinite(max)) return null;
+  return { min, max };
+};
+
+/**
+ * Plotly uses margin to reserve space for the legend.
+ * We tweak the top margin for very small x-windows to reduce legend overlap.
+ */
+export const getMarginsForXWindowSpan = (windowSpanRy: number) => {
+  return {
+    ...plotMargins,
+    // Note: larger top margin gives more room for the wrapped legend.
+    t: windowSpanRy < 35 ? 70 : 40,
+  };
+};
+
+export const scheduleNextFrame = (callback: FrameRequestCallback) => {
+  if (
+    typeof window !== "undefined" &&
+    typeof window.requestAnimationFrame === "function"
+  ) {
+    window.requestAnimationFrame(callback);
+    return;
+  }
+  setTimeout(callback, 0);
 };
