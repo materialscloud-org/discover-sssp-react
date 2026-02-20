@@ -28,7 +28,7 @@ const deltaX = 1.6; // highlight rectangle half-width
 const offsetHeight = 8; // offset between pseudos
 const pixelsPerPseudo = 120; // fixed
 
-const plotMargins = { l: 170, r: 170, t: 40, b: 80 };
+const plotMargins = { l: 180, r: 180, t: 40, b: 80 };
 
 const xTickStepSize = 10;
 const xTickSpacePixels = 80;

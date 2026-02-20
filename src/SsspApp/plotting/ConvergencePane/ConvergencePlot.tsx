@@ -86,22 +86,6 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
         config,
       )) as PlotlyHTMLElement;
 
-      // Resize-driven x-window (keeps tick spacing fixed in pixels)
-      {
-        const plotAreaWidthPx = getPlotAreaWidthPx(plotRef.current);
-        xWindowSpanRyRef.current =
-          computeXWindowSpanRyForPlotWidth(plotAreaWidthPx);
-
-        const boundedRange = clampXRangeToDomain(
-          { min: xMin, max: xMin + xWindowSpanRyRef.current },
-          xWindowSpanRyRef.current,
-        );
-
-        await Plotly.relayout(graphDiv, {
-          "xaxis.range": [boundedRange.min, boundedRange.max],
-        });
-      }
-
       resizeObserver = new ResizeObserver(async () => {
         if (!Plotly || !graphDiv) return;
 
