@@ -1,9 +1,11 @@
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+import styles from "./InvalidPage.module.scss";
+
 const InvalidPage: React.FC = () => {
   return (
-    <div style={{ textAlign: "center", padding: "4rem" }}>
+    <div id={styles.invalidPage}>
       <h1>404</h1>
       <p>Sorry, this page doesn't exist</p>
       <Link replace to="/pseudopotentials/efficiency">
