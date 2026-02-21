@@ -2,15 +2,18 @@ import { useContext, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 
+import { ssspVersion } from "@sssp";
+import { capitalize } from "@sssp/common/utils";
 import { PeriodicTable, PseudosLegend } from "@sssp/components";
-import { HoverProvider, LibraryContext } from "@sssp/context";
+import { FamilyContext, HoverProvider } from "@sssp/context";
 
 import LibraryToggle from "./LibraryToggle";
 import styles from "./TablePage.module.scss";
 
 const TablePage: React.FC = () => {
   const location = useLocation();
-  const { activeLibrary, setActiveLibrary } = useContext(LibraryContext);
+  const { activeLibrary, setActiveLibrary, activeFunctional } =
+    useContext(FamilyContext);
 
   useEffect(() => {
     const currentLibrary = location.pathname.split("/")[2];
@@ -20,7 +23,9 @@ const TablePage: React.FC = () => {
   return (
     <div id={styles.tablePage}>
       <header className="page-title">
-        <h1 className="display-6">SSSP {activeLibrary} (PBE)</h1>
+        <h1 className="display-6">
+          SSSP {activeFunctional} {capitalize(activeLibrary)} v{ssspVersion}
+        </h1>
       </header>
       <HoverProvider>
         <Row className="g-3">

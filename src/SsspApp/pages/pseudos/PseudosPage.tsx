@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
-import { LibraryContext } from "@sssp/context";
+import { FamilyContext } from "@sssp/context";
 import { InvalidPage } from "@sssp/pages";
 
 import DetailsPage from "./details";
 import TablePage from "./table";
 
 const PseudosPage: React.FC = () => {
-  const { libraries, activeLibrary } = useContext(LibraryContext);
+  const { libraries, activeLibrary } = useContext(FamilyContext);
 
   return (
     <div id="pseudos-page">

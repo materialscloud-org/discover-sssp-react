@@ -5,7 +5,7 @@ import "@sssp/assets/styles/main.scss";
 import { useRoutedTabs } from "@sssp/common/hooks";
 import {
   ElementProvider,
-  LibraryProvider,
+  FamilyProvider,
   PlotProvider,
   PseudoProvider,
 } from "@sssp/context";
@@ -41,7 +41,7 @@ const SsspAppContent: React.FC = () => {
 
   return (
     <>
-      <LibraryProvider>
+      <FamilyProvider>
         <ElementProvider>
           <PseudoProvider>
             <PlotProvider>
@@ -72,7 +72,7 @@ const SsspAppContent: React.FC = () => {
             </PlotProvider>
           </PseudoProvider>
         </ElementProvider>
-      </LibraryProvider>
+      </FamilyProvider>
     </>
   );
 };

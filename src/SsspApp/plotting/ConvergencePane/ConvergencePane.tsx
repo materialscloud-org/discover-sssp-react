@@ -58,17 +58,17 @@ const ConvergencePane: React.FC = () => {
     <div id={styles.convergencePane}>
       <div id={styles.convergenceSummaryHeader}>
         <h2 className="display-6">
-          Verification summary: {element}{" "}
+          Verification Summary: {element}{" "}
           {convergenceData.conff ? `(${convergenceData.conff})` : ""}
         </h2>
         {hasData && (
           <>
             <div id={styles.selectedPseudos}>
               <span id={styles.efficiencyPseudo}>
-                <b>SSSP efficiency</b>: {selectedPseudos.efficiency}
+                <b>SSSP Efficiency</b>: {selectedPseudos.efficiency}
               </span>
               <span id={styles.precisionPseudo}>
-                <b>SSSP precision</b>: {selectedPseudos.precision}
+                <b>SSSP Precision</b>: {selectedPseudos.precision}
               </span>
             </div>
             <CategorySelector

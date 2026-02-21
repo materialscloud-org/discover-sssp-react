@@ -2,7 +2,7 @@ import { useContext, useEffect, useMemo, useRef, useState } from "react";
 
 import type { Config, PlotlyHTMLElement } from "plotly.js";
 
-import { ElementContext, LibraryContext } from "@sssp/context";
+import { ElementContext, FamilyContext } from "@sssp/context";
 
 import { ConvergencePlotProps } from "./ConvergencePlot.models";
 import styles from "./ConvergencePlot.module.scss";
@@ -36,7 +36,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
   activePseudos,
   pseudosMetadata,
 }) => {
-  const { libraries } = useContext(LibraryContext);
+  const { libraries } = useContext(FamilyContext);
   const { elementsInfo } = useContext(ElementContext);
   const [showUpfModal, setShowUpfModal] = useState(false);
   const [upfPseudoName, setUpfPseudoName] = useState("");

@@ -3,7 +3,7 @@ import { Button, Tab, Tabs } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { useRoutedTabs } from "@sssp/common/hooks";
-import { ElementContext, LibraryContext } from "@sssp/context";
+import { ElementContext, FamilyContext } from "@sssp/context";
 
 import styles from "./DetailsPage.module.scss";
 import ElementSelector from "./ElementSelector";
@@ -20,7 +20,7 @@ const tabs = {
 const DetailsPage: React.FC = () => {
   const navigate = useNavigate();
   const params = useParams();
-  const { activeLibrary } = useContext(LibraryContext);
+  const { activeLibrary } = useContext(FamilyContext);
   const { setElement } = useContext(ElementContext);
 
   useEffect(() => {

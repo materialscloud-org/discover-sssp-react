@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 
 import { LoadingSpinner } from "@sssp/components";
-import { ElementContext, LibraryContext, PseudoContext } from "@sssp/context";
+import { ElementContext, FamilyContext, PseudoContext } from "@sssp/context";
 
 import DetailsBox from "./DetailsBox";
 import styles from "./PeriodicTable.module.scss";
 import ElementsGenerator from "./utils";
 
 const PeriodicTable: React.FC = () => {
-  const { activeLibrary } = useContext(LibraryContext);
+  const { activeLibrary } = useContext(FamilyContext);
   const { loadingMetadata, pseudosMetadata } = useContext(PseudoContext);
   const { loadingInfo, elementsInfo } = useContext(ElementContext);
 
