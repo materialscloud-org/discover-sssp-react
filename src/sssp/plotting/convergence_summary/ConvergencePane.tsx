@@ -4,13 +4,14 @@ import { LoadingSpinner, NoDataMessage } from "@sssp/components";
 import { ElementContext, PlotContext, PseudoContext } from "@sssp/context";
 import { PseudosMetadata } from "@sssp/models";
 
+import PlotPaneHeader from "../PlotPaneHeader";
 import CategorySelector from "./CategorySelector";
 import styles from "./ConvergencePane.module.scss";
 import ConvergencePlot from "./ConvergencePlot";
 import ConvergencePlotDetails from "./ConvergencePlotDetails";
 
 const ConvergencePane: React.FC = () => {
-  const { element, elementsInfo } = useContext(ElementContext);
+  const { element } = useContext(ElementContext);
   const {
     loadingMetadata,
     categories,
@@ -19,14 +20,6 @@ const ConvergencePane: React.FC = () => {
     setActiveCategories,
   } = useContext(PseudoContext);
   const { loadingConvergenceData, convergenceData } = useContext(PlotContext);
-
-  const selectedPseudos = useMemo(
-    () => ({
-      efficiency: elementsInfo.efficiency[element]?.pseudopotential,
-      precision: elementsInfo.precision[element]?.pseudopotential,
-    }),
-    [element, elementsInfo],
-  );
 
   const activePseudosMetadata = useMemo(() => {
     const activePseudos: PseudosMetadata = {};
@@ -53,29 +46,18 @@ const ConvergencePane: React.FC = () => {
     <LoadingSpinner />
   ) : (
     <div id={styles.convergencePane}>
-      <div id={styles.convergenceSummaryHeader}>
-        <h2 className="display-6">
-          Verification Summary: {element}{" "}
-          {convergenceData.conff ? `(${convergenceData.conff})` : ""}
-        </h2>
-        {hasData && (
-          <>
-            <div id={styles.selectedPseudos}>
-              <span id={styles.efficiencyPseudo}>
-                <b>SSSP Efficiency</b>: {selectedPseudos.efficiency}
-              </span>
-              <span id={styles.precisionPseudo}>
-                <b>SSSP Precision</b>: {selectedPseudos.precision}
-              </span>
-            </div>
-            <CategorySelector
-              categories={categories}
-              activeCategories={activeCategories}
-              onCategorySelect={setActiveCategories}
-            />
-          </>
-        )}
-      </div>
+      <PlotPaneHeader
+        title={`Verification Summary: ${element} ${convergenceData.conff ? `(${convergenceData.conff})` : ""}`}
+      />
+      {hasData && (
+        <div id={styles.categorySelectorContainer}>
+          <CategorySelector
+            categories={categories}
+            activeCategories={activeCategories}
+            onCategorySelect={setActiveCategories}
+          />
+        </div>
+      )}
       {!hasData ? (
         <NoDataMessage />
       ) : !activePseudos.length ? (
@@ -83,7 +65,7 @@ const ConvergencePane: React.FC = () => {
           <NoDataMessage />
         </div>
       ) : (
-        <>
+        <div id={styles.convergenceSummaryContent}>
           <div id={styles.plotTitle}>
             <h6>Error w.r.t. ref. wavefunction cutoff</h6>
           </div>
@@ -92,7 +74,7 @@ const ConvergencePane: React.FC = () => {
             activePseudos={activePseudos}
             pseudosMetadata={activePseudosMetadata}
           />
-        </>
+        </div>
       )}
       <div id={styles.convergencePlotDetailsContainer}>
         <ConvergencePlotDetails />

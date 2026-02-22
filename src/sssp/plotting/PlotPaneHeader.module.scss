@@ -1,0 +1,29 @@
+#plotPaneHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+
+  h2 {
+    margin: 0;
+  }
+
+  #selectedPseudos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    #efficiencyPseudo {
+      color: rgb(0, 128, 0);
+    }
+
+    #precisionPseudo {
+      color: rgb(128, 0, 128);
+    }
+
+    @media (min-width: 600px) {
+      gap: 1rem;
+    }
+  }
+}

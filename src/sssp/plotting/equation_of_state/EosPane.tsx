@@ -5,6 +5,7 @@ import { LoadingSpinner, NoDataMessage } from "@sssp/components";
 import { ElementContext, PlotContext, PseudoContext } from "@sssp/context";
 import { EosPlotData } from "@sssp/models";
 
+import PlotPaneHeader from "../PlotPaneHeader";
 import styles from "./EosPane.module.scss";
 import EosPlot from "./EosPlot";
 import EosTable from "./EosTable";
@@ -42,54 +43,59 @@ const EosPane: React.FC = () => {
 
   return isLoading ? (
     <LoadingSpinner />
-  ) : !eosPseudos.length ? (
-    <NoDataMessage />
   ) : (
-    <div id="eos-pane">
-      <div id="eos-plots">
-        <Row>
-          <Col md={4} lg={3} id={styles.sidebar}>
-            <PseudosCheckboxes
-              pseudos={eosPseudos}
-              activePseudos={activeEosPseudos}
-              setActivePseudos={setActiveEosPseudos}
-            />
-          </Col>
-          <Col>
+    <div id={styles.eosPane}>
+      <PlotPaneHeader title={`Equation of State: ${element}`} />
+      {!eosPseudos.length ? (
+        <NoDataMessage />
+      ) : (
+        <div id={styles.eosContent}>
+          <div id={styles.eosPlots}>
             <Row>
-              {Object.entries(eosConfigPseudoMap).map(
-                ([configuration, eosPseudosMap]) => {
-                  return (
-                    <Col lg={6} xl={4} key={configuration}>
-                      <EosPlot
-                        configuration={configuration}
-                        eosPseudosMap={eosPseudosMap}
-                        activePseudos={activeEosPseudos}
-                      />
-                    </Col>
-                  );
-                },
-              )}
+              <Col md={4} lg={3} id={styles.sidebar}>
+                <PseudosCheckboxes
+                  pseudos={eosPseudos}
+                  activePseudos={activeEosPseudos}
+                  setActivePseudos={setActiveEosPseudos}
+                />
+              </Col>
+              <Col>
+                <Row>
+                  {Object.entries(eosConfigPseudoMap).map(
+                    ([configuration, eosPseudosMap]) => {
+                      return (
+                        <Col lg={6} xl={4} key={configuration}>
+                          <EosPlot
+                            configuration={configuration}
+                            eosPseudosMap={eosPseudosMap}
+                            activePseudos={activeEosPseudos}
+                          />
+                        </Col>
+                      );
+                    },
+                  )}
+                </Row>
+                <div id={styles.eosNote}>
+                  Comparison of equations of state for different
+                  pseudopotentials and their Birch-Murnaghan fits.
+                  <br />
+                  "REF (AE average)" refers to the all-electron average values
+                  from the reference dataset published in{" "}
+                  <a
+                    href="https://www.nature.com/articles/s42254-023-00655-3"
+                    target="_blank"
+                  >
+                    Bosoni et al., <em>Nature Reviews Physics</em> <b>6</b>,
+                    45-58 (2024)
+                  </a>
+                </div>
+              </Col>
             </Row>
-            <div id={styles.eosNote}>
-              Comparison of equations of state for different pseudopotentials
-              and their Birch-Murnaghan fits.
-              <br />
-              "REF (AE average)" refers to the all-electron average values from
-              the reference dataset published in{" "}
-              <a
-                href="https://www.nature.com/articles/s42254-023-00655-3"
-                target="_blank"
-              >
-                Bosoni et al., <em>Nature Reviews Physics</em> <b>6</b>, 45-58
-                (2024)
-              </a>
-            </div>
-          </Col>
-        </Row>
-      </div>
-      <hr />
-      <EosTable eosPseudosMap={eosPseudosMap} />
+          </div>
+          <hr />
+          <EosTable eosPseudosMap={eosPseudosMap} />
+        </div>
+      )}
     </div>
   );
 };

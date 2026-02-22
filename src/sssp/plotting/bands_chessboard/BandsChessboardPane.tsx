@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { Col, Row } from "react-bootstrap";
 
-import { LoadingSpinner } from "@sssp/components";
-import { PlotContext, PseudoContext } from "@sssp/context";
+import { LoadingSpinner, NoDataMessage } from "@sssp/components";
+import { ElementContext, PlotContext, PseudoContext } from "@sssp/context";
 
+import PlotPaneHeader from "../PlotPaneHeader";
 import BandsChessboardPaneProps from "./BandsChessboardPane.models";
 import styles from "./BandsChessboardPane.module.scss";
 import BandsChessboardPlot from "./BandsChessboardPlot";
@@ -11,6 +12,7 @@ import BandsChessboardPlot from "./BandsChessboardPlot";
 const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
   onTileClick: goToBands,
 }) => {
+  const { element } = useContext(ElementContext);
   const { loadingMetadata } = useContext(PseudoContext);
   const {
     loadingChessboardData,
@@ -32,11 +34,16 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
     goToBands();
   };
 
+  const hasData = etaV.length > 0 && etaV10.length > 0;
+
   return loadingMetadata || loadingChessboardData ? (
     <LoadingSpinner />
   ) : (
-    <div id="chessboard-page">
-      <div id={styles["chessboard-plots"]}>
+    <div id={styles.chessboardsPage}>
+      <PlotPaneHeader title={`Band Chessboards: ${element}`} />
+      {!hasData ? (
+        <NoDataMessage />
+      ) : (
         <Row className="justify-content-center g-0">
           <Col>
             <BandsChessboardPlot
@@ -57,7 +64,7 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
             />
           </Col>
         </Row>
-      </div>
+      )}
     </div>
   );
 };
