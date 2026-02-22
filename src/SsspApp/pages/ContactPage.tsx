@@ -5,6 +5,7 @@ const ContactPage: React.FC = () => (
     <header className="page-title">
       <h1 className="display-6">Contact us</h1>
     </header>
+
     <main>
       <p>
         For any questions, suggestions, or issues regarding the SSSP libraries,

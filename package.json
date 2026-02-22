@@ -17,6 +17,7 @@
     "bands-visualiser": "^0.0.2",
     "bootstrap": "^5.3.3",
     "buffer": "^6.0.3",
+    "katex": "^0.16.28",
     "mc-react-header": "^0.3.1",
     "mc-react-library": "^0.3.0",
     "plotly.js": "^3.2.0",

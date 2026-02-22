@@ -1,69 +1,16 @@
+import { Link } from "react-router-dom";
+
 import { ssspVersion } from "@sssp";
+import { Citation } from "@sssp/components";
 
 import styles from "./CitationPage.module.scss";
-
-type CitationProps = {
-  label: string;
-  link?: string;
-  content: React.ReactNode;
-  license?: string;
-  versions?: {
-    name: string;
-    content?: React.ReactNode;
-  }[];
-};
-
-const Citation: React.FC<CitationProps> = ({
-  label,
-  link,
-  content,
-  license,
-  versions,
-}) => (
-  <div>
-    {link ? (
-      <a href={link} target="_blank">
-        {label}
-      </a>
-    ) : (
-      label
-    )}
-    : {content}
-    <br />
-    {license && (
-      <small className={styles.license}>
-        <em>License: {license}</em>
-      </small>
-    )}
-    {versions && (
-      <>
-        <div className={styles.versions}>
-          Versions
-          <ul>
-            {versions.map((version) => (
-              <li key={version.name}>
-                <b>{version.name}</b>
-                {version.content ? (
-                  <span>
-                    <b>:</b> {version.content}
-                  </span>
-                ) : (
-                  ""
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </>
-    )}
-  </div>
-);
 
 const CitationPage: React.FC = () => (
   <div id={styles.citationPage}>
     <header className="page-title">
       <h1 className="display-6">How to cite the SSSP libraries</h1>
     </header>
+
     <main>
       <section>
         If you use the SSSP libraries in your work, please:
@@ -123,16 +70,14 @@ const CitationPage: React.FC = () => (
         </ul>
       </section>
 
-      <hr />
-
       <section>
-        <h3>Verification</h3>
+        <h4>Verification</h4>
         <ul>
           <li>
             <em>placeholder for SSSP v2 paper</em>
           </li>
           <li>
-            E. Bosoni et al.,
+            E. Bosoni et al.,{" "}
             <a
               href="https://www.nature.com/articles/s42254-023-00655-3"
               target="_blank"
@@ -170,7 +115,7 @@ const CitationPage: React.FC = () => (
       </section>
 
       <section>
-        <h3>Libraries</h3>
+        <h4>Libraries</h4>
         <ul>
           <li>
             <Citation
@@ -278,13 +223,13 @@ const CitationPage: React.FC = () => (
           <li>
             <Citation
               label="Pslibrary 0.3.1"
-              link="http://theossrv1.epfl.ch/Main/Pseudopotentials"
+              link="https://dalcorso.github.io/pslibrary"
               content={
                 <span>
                   E. Küçükbenli et al.,{" "}
                   <a href="http://arxiv.org/abs/1404.3015" target="_blank">
                     arXiv:1404.3015
-                  </a>
+                  </a>{" "}
                   (2014).
                 </span>
               }
@@ -302,7 +247,7 @@ const CitationPage: React.FC = () => (
           <li>
             <Citation
               label="Pslibrary 1.0.0"
-              link="http://www.quantum-espresso.org/pseudopotentials"
+              link="https://dalcorso.github.io/pslibrary"
               content={
                 <span>
                   A. Dal Corso,{" "}
@@ -423,7 +368,7 @@ const CitationPage: React.FC = () => (
                     target="_blank"
                   >
                     <em>Inorg. Chem.</em> <b>60</b>, 21, 16686-16699
-                  </a>
+                  </a>{" "}
                   (2021).
                 </span>
               }
@@ -438,12 +383,12 @@ const CitationPage: React.FC = () => (
       </section>
 
       <section>
-        <h3>Methods</h3>
+        <h4>Methods</h4>
         <ul>
           <li>
             <Citation
               label="Ultrasoft pseudopotentials"
-              link="http://physics.rutgers.edu/~dhv/uspp"
+              link="https://www.physics.rutgers.edu/~dhv/uspp/"
               content={
                 <span>
                   D. Vanderbilt,{" "}
@@ -518,21 +463,14 @@ const CitationPage: React.FC = () => (
         </ul>
       </section>
 
-      <section>
-        <h3>Other sites</h3>
-        <ul>
-          <li>
-            <a href="http://www.pseudo-dojo.org" target="_blank">
-              http://www.pseudo-dojo.org
-            </a>
-          </li>
-          <li>
-            <a href="https://dalcorso.github.io/pslibrary" target="_blank">
-              https://dalcorso.github.io/pslibrary
-            </a>
-          </li>
-        </ul>
-      </section>
+      <hr />
+
+      <p>
+        Please <Link to="/contact">contact us</Link> if you think we should add
+        more citations to the list above, if any of the information is
+        incorrect, or if you have any questions about how to cite the SSSP
+        libraries.
+      </p>
     </main>
   </div>
 );
