@@ -2,7 +2,7 @@ import { useContext, useMemo } from "react";
 import { Col, Row } from "react-bootstrap";
 
 import { LoadingSpinner, NoDataMessage } from "@sssp/components";
-import { PlotContext, PseudoContext } from "@sssp/context";
+import { ElementContext, PlotContext, PseudoContext } from "@sssp/context";
 import { EosPlotData } from "@sssp/models";
 
 import styles from "./EosPane.module.scss";
@@ -11,6 +11,7 @@ import EosTable from "./EosTable";
 import PseudosCheckboxes from "./PseudosCheckboxes";
 
 const EosPane: React.FC = () => {
+  const { element } = useContext(ElementContext);
   const { loadingMetadata } = useContext(PseudoContext);
   const {
     loadingEosData,
@@ -24,17 +25,18 @@ const EosPane: React.FC = () => {
     const map: { [configuration: string]: { [pseudo: string]: EosPlotData } } =
       {};
     Object.entries(eosPseudosMap).forEach(([pseudo, pseudoData]) => {
-      Object.entries(pseudoData.configurations).forEach(
-        ([configuration, eosData]) => {
-          if (!map[configuration]) {
-            map[configuration] = {};
-          }
-          map[configuration][pseudo] = eosData;
-        },
-      );
+      Object.entries(pseudoData.configurations).forEach(([conf, eosData]) => {
+        const configuration = conf.includes("X")
+          ? conf.replace("X", element)
+          : `${element}-${conf === "DC" ? "Diamond" : conf}`;
+        if (!map[configuration]) {
+          map[configuration] = {};
+        }
+        map[configuration][pseudo] = eosData;
+      });
     });
     return map;
-  }, [eosPseudosMap]);
+  }, [element, eosPseudosMap]);
 
   const isLoading = loadingEosData || loadingMetadata;
 
@@ -46,7 +48,7 @@ const EosPane: React.FC = () => {
     <div id="eos-pane">
       <div id="eos-plots">
         <Row>
-          <Col md={4} lg={3} xxl={2} className={styles["pseudo-controls"]}>
+          <Col md={4} lg={3} id={styles.sidebar}>
             <PseudosCheckboxes
               pseudos={eosPseudos}
               activePseudos={activeEosPseudos}
@@ -56,18 +58,20 @@ const EosPane: React.FC = () => {
           <Col>
             <Row>
               {Object.entries(eosConfigPseudoMap).map(
-                ([configuration, eosPseudosMap]) => (
-                  <Col lg={6} xl={4} xxl={3} key={configuration}>
-                    <EosPlot
-                      configuration={configuration}
-                      eosPseudosMap={eosPseudosMap}
-                      activePseudos={activeEosPseudos}
-                    />
-                  </Col>
-                ),
+                ([configuration, eosPseudosMap]) => {
+                  return (
+                    <Col lg={6} xl={4} key={configuration}>
+                      <EosPlot
+                        configuration={configuration}
+                        eosPseudosMap={eosPseudosMap}
+                        activePseudos={activeEosPseudos}
+                      />
+                    </Col>
+                  );
+                },
               )}
             </Row>
-            <div id={styles["eos-note"]}>
+            <div id={styles.eosNote}>
               Comparison of equations of state for different pseudopotentials
               and their Birch-Murnaghan fits.
               <br />

@@ -6,16 +6,16 @@
     min-width: 12rem;
   }
 
-  td:nth-child(n + 4) {
-    min-width: max-content;
-  }
-
-  td:nth-child(n + 6) {
-    width: 7.5rem;
+  td:nth-child(n + 7) {
+    min-width: 120px;
   }
 
   td.gap {
-    width: 1rem;
+    min-width: 1rem;
+  }
+
+  td:nth-child(n + 18) {
+    min-width: fit-content;
   }
 
   th:not(.gap),
@@ -28,8 +28,8 @@
 
     &:hover {
       z-index: 1;
-      outline: 2px solid var(--sssp-link-color);
-      outline-offset: -1px;
+      outline: 4px solid var(--sssp-link-color);
+      outline-offset: -2px;
     }
   }
 }

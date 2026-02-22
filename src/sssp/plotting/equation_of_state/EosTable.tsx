@@ -1,4 +1,7 @@
+import { useContext } from "react";
 import { Table } from "react-bootstrap";
+
+import { ElementContext } from "@sssp/context";
 
 import EosTableProps from "./EosTable.models";
 import styles from "./EosTable.module.scss";
@@ -17,6 +20,7 @@ const CONFIGURATIONS = [
 ];
 
 const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
+  const { element } = useContext(ElementContext);
   return (
     <Table id={styles.eosTable} borderless responsive className="text-center">
       <thead>
@@ -35,9 +39,12 @@ const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
         <tr>
           <th>Efficiency</th>
           <th>Precision</th>
-          {CONFIGURATIONS.map((config) => (
-            <th key={config}>{formatSubscripts(config)}</th>
-          ))}
+          {CONFIGURATIONS.map((conf) => {
+            const configuration = conf.includes("X")
+              ? conf.replace("X", element)
+              : `${element}-${conf === "DC" ? "Diamond" : conf}`;
+            return <th key={conf}>{formatSubscripts(configuration)}</th>;
+          })}
           <th className="text-nowrap">w/ max</th>
           <th className="text-nowrap">w/o max</th>
         </tr>
@@ -59,12 +66,12 @@ const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
                     ),
                   )}
                   <td className={styles.gap}></td>
-                  {CONFIGURATIONS.map((config) => {
-                    const nu = eosConfigMap.configurations[config]?.nu;
-                    const uuid = eosConfigMap.configurations[config]?.uuid;
+                  {CONFIGURATIONS.map((conf) => {
+                    const nu = eosConfigMap.configurations[conf]?.nu;
+                    const uuid = eosConfigMap.configurations[conf]?.uuid;
                     return (
                       <td
-                        key={config}
+                        key={conf}
                         style={{ backgroundColor: nuColor(nu) }}
                         className={nu !== undefined ? styles.nuTd : undefined}
                       >
