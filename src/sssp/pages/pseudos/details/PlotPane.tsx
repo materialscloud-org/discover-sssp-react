@@ -5,14 +5,14 @@ import { LoadingSpinner } from "@sssp/components";
 
 import PlotPaneProps from "./PlotPane.models";
 
-const ConvergencePlots = lazy(() => import("@sssp/plotting/ConvergencePane"));
+const ConvergencePlots = lazy(
+  () => import("@sssp/plotting/convergence_summary"),
+);
 const BandsChessboardPlots = lazy(
-  () => import("@sssp/plotting/BandsChessboardPane"),
+  () => import("@sssp/plotting/bands_chessboard"),
 );
-const EosPlots = lazy(() => import("@sssp/plotting/EosPane"));
-const BandStructurePlot = lazy(
-  () => import("@sssp/plotting/BandStructurePane"),
-);
+const EosPlots = lazy(() => import("@sssp/plotting/equation_of_state"));
+const BandStructurePlot = lazy(() => import("@sssp/plotting/band_structure"));
 
 const PlotPane: React.FC<PlotPaneProps> = ({ type, onSelectTab }) => {
   let plot: React.ReactNode = null;

@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { LoadingSpinner } from "@sssp/components";
 import { HoverContext, PseudoContext } from "@sssp/context";
 
-import styles from "./Legend.module.scss";
+import styles from "./PseudosLegend.module.scss";
 
 const PseudosLegend: React.FC = () => {
   const { hoveredPseudo, hoveredElement, setHoveredPseudo } =

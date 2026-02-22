@@ -1,13 +1,10 @@
 import { useContext, useMemo } from "react";
 
-import {
-  CategorySelector,
-  LoadingSpinner,
-  NoDataMessage,
-} from "@sssp/components";
+import { LoadingSpinner, NoDataMessage } from "@sssp/components";
 import { ElementContext, PlotContext, PseudoContext } from "@sssp/context";
 import { PseudosMetadata } from "@sssp/models";
 
+import CategorySelector from "./CategorySelector";
 import styles from "./ConvergencePane.module.scss";
 import ConvergencePlot from "./ConvergencePlot";
 import ConvergencePlotDetails from "./ConvergencePlotDetails";

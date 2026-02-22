@@ -4,8 +4,8 @@ import { LoadingSpinner } from "@sssp/components";
 import { ElementContext, FamilyContext, PseudoContext } from "@sssp/context";
 
 import DetailsBox from "./DetailsBox";
+import ElementsGenerator from "./ElementsGenerator";
 import styles from "./PeriodicTable.module.scss";
-import ElementsGenerator from "./utils";
 
 const PeriodicTable: React.FC = () => {
   const { activeLibrary } = useContext(FamilyContext);

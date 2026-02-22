@@ -4,10 +4,11 @@ import { useLocation } from "react-router-dom";
 
 import { ssspVersion } from "@sssp";
 import { capitalize } from "@sssp/common/utils";
-import { PeriodicTable, PseudosLegend } from "@sssp/components";
 import { FamilyContext, HoverProvider } from "@sssp/context";
 
 import LibraryToggle from "./LibraryToggle";
+import PeriodicTable from "./periodic";
+import PseudosLegend from "./PseudosLegend";
 import styles from "./TablePage.module.scss";
 
 const TablePage: React.FC = () => {

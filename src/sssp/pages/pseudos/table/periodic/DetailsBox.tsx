@@ -4,7 +4,7 @@ import { HoverContext } from "@sssp/context";
 
 import styles from "./DetailsBox.module.scss";
 
-const DetailsBox = () => {
+const DetailsBox: React.FC = () => {
   const { hoveredElement } = useContext(HoverContext);
   if (!hoveredElement) return <></>;
   const { number, symbol, color, info } = hoveredElement;
