@@ -15,11 +15,11 @@
     justify-content: center;
 
     #efficiencyPseudo {
-      color: rgb(0, 128, 0);
+      color: var(--efficiency-color);
     }
 
     #precisionPseudo {
-      color: rgb(128, 0, 128);
+      color: var(--precision-color);
     }
 
     @media (min-width: 600px) {

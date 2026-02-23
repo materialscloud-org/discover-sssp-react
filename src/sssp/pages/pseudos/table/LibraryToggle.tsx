@@ -12,14 +12,27 @@ const LibraryToggle: React.FC = () => {
   const { libraries, activeLibrary } = useContext(FamilyContext);
   return (
     <ToggleButtonGroup
-      id={styles["library-controls"]}
+      id={styles.libraryToggles}
       type="radio"
       name="library"
       value={activeLibrary}
       onChange={(value) => navigate(`../${value}`)}
     >
       {libraries.map((library) => (
-        <ToggleButton key={library} id={library} value={library}>
+        <ToggleButton
+          id={library}
+          key={library}
+          value={library}
+          className={styles.libraryToggle}
+          style={{
+            backgroundColor: `var(--${library}-color)`,
+            borderColor: `var(--${library}-color)`,
+            boxShadow:
+              library === activeLibrary
+                ? `0 0 0 0.25rem var(--${library}-color-light)`
+                : "none",
+          }}
+        >
           {capitalize(library)}
         </ToggleButton>
       ))}
