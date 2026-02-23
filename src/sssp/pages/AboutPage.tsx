@@ -1,6 +1,6 @@
 import { Table } from "react-bootstrap";
 
-import { KaTeX } from "@sssp/components";
+import { BlockMath, InlineMath } from "react-katex";
 
 import styles from "./AboutPage.module.scss";
 
@@ -246,26 +246,26 @@ const AboutPage: React.FC = () => (
           <ul>
             <li>
               Highest frequency &gt; 100 cm<sup>-1</sup> (percentage):
-              <KaTeX
-                expression={
+              <BlockMath
+                math={
                   "circle = \\left( \\frac{1}{N} \\sum_{i=1}^N \\left[ \\frac{\\omega_i(\\text{cutoff}) - \\omega_i(200\\text{Ry})}{\\omega_i(200\\text{Ry})} \\right] \\right)^{1/2} \\times 100"
                 }
               />
-              <KaTeX
-                expression={
+              <BlockMath
+                math={
                   "half\\ error\\ bar = \\max \\left| \\left[ \\frac{\\omega_i(\\text{cutoff}) - \\omega_i(200\\text{Ry})}{\\omega_i(200\\text{Ry})} \\right] \\right| \\times 100"
                 }
               />
             </li>
             <li>
               Highest frequency &lt; 100 cm<sup>-1</sup> (absolute value):
-              <KaTeX
-                expression={
+              <BlockMath
+                math={
                   "circle = ( \\frac{1}{N} \\sum_{i=1}^N [ \\omega_i(\\text{cutoff}) - \\omega_i(200\\text{Ry}) ]^2 )^{1/2}"
                 }
               />
-              <KaTeX
-                expression={
+              <BlockMath
+                math={
                   "half\\ error\\ bar = \\max |\\omega_i(\\text{cutoff}) - \\omega_i(200\\text{Ry})|"
                 }
               />
@@ -273,7 +273,7 @@ const AboutPage: React.FC = () => (
           </ul>
           <div style={{ paddingLeft: "1rem" }}>
             <p>
-              <KaTeX inline expression="N" /> is the total number of frequencies
+              <InlineMath math="N" /> is the total number of frequencies
             </p>
             <p>
               For some elements, we have neglected the first <code>n</code>{" "}
