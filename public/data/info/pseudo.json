@@ -1,82 +1,82 @@
 {
   "DOJO-041-std": {
     "category": "nc",
-    "color": "#ffa500",
+    "color": "#ffcc80",
     "display_name": "nc-dojo-v0.4.1-std"
   },
   "DOJO-041-str": {
     "category": "nc",
-    "color": "#ffb500",
+    "color": "#ff8c00",
     "display_name": "nc-dojo-v0.4.1-str"
   },
   "DOJO-050-std": {
     "category": "nc",
-    "color": "#ffc500",
+    "color": "#c65100",
     "display_name": "nc-dojo-v0.5.0-std"
   },
   "SPMS": {
     "category": "nc",
-    "color": "#7f8001",
+    "color": "#5c6b00",
     "display_name": "nc-spms-oncvpsp4"
   },
   "SG15": {
     "category": "nc",
-    "color": "#8C99A6",
+    "color": "#3d5a80",
     "display_name": "nc-sg15-oncvpsp4"
   },
   "GBRV-1.X": {
     "category": "us",
-    "color": "#00cdcd",
+    "color": "#009999",
     "display_name": "us-gbrv-v1.x-upf2"
   },
   "PSL-US-v0.x": {
     "category": "us",
-    "color": "#0000ff",
+    "color": "#0033cc",
     "display_name": "us-psl-v0.x"
   },
   "PSL-US-v1-low": {
     "category": "us",
-    "color": "#fa0000",
+    "color": "#ff9e9e",
     "display_name": "us-psl-v1.0.0-low"
   },
   "PSL-US-v1-high": {
     "category": "us",
-    "color": "#ff0000",
+    "color": "#b30000",
     "display_name": "us-psl-v1.0.0-high"
   },
   "PSL-PAW-v0.x": {
     "category": "paw",
-    "color": "#ff00ff",
+    "color": "#cc00cc",
     "display_name": "paw-psl-v0.x"
   },
   "PSL-PAW-v1-low": {
     "category": "paw",
-    "color": "#008c00",
+    "color": "#66cc66",
     "display_name": "paw-psl-v1.0.0-low"
   },
   "PSL-PAW-v1-high": {
     "category": "paw",
-    "color": "#008b00",
+    "color": "#005500",
     "display_name": "paw-psl-v1.0.0-high"
   },
   "JTH-1.1-std": {
     "category": "paw",
-    "color": "#984ea3",
+    "color": "#c77dff",
     "display_name": "paw-jth-v1.1-std"
   },
   "JTH-1.1-str": {
     "category": "paw",
-    "color": "#984fa3",
+    "color": "#5a189a",
     "display_name": "paw-jth-v1.1-str"
   },
   "Wentzcovitch": {
     "category": "paw",
-    "color": "#610b5e",
+    "color": "#4a044a",
     "display_name": "paw-lanthanides-wentzcovitch"
   },
   "MARBURG": {
     "category": "paw",
-    "color": "#ea388e",
+    "color": "#b0005a",
     "display_name": "paw-actinides-marburg"
   }
 }
