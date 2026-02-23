@@ -23,9 +23,9 @@ export const HoverProvider: React.FC<HoverProviderProps> = ({ children }) => {
     <HoverContext.Provider
       value={{
         hoveredPseudo,
-        setHoveredPseudo: setHoveredPseudo,
+        setHoveredPseudo,
         hoveredElement,
-        setHoveredElement: setHoveredElement,
+        setHoveredElement,
       }}
     >
       {children}

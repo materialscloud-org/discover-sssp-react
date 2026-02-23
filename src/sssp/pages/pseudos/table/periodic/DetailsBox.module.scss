@@ -1,59 +1,88 @@
-#details {
+#detailsBox {
   display: flex;
   position: absolute;
   top: 12px;
-  left: calc((var(--element-box-size) + 5px) * 3);
-  width: fit-content;
+  left: calc((var(--element-box-size) + 4px) * 4 - 5px);
   padding: 5px;
   border: 5px solid;
 
-  #element-info {
-    width: 120px;
+  #elementDetails {
+    display: flex;
+    width: 225px;
 
-    #z-value {
-      font-size: 24px;
-      font-weight: bold;
-      text-align: center;
-    }
+    #elementInfo {
+      width: 120px;
 
-    #label-info {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      margin-bottom: 6px;
-
-      #atomic-number {
-        text-align: right;
-        line-height: 2;
-        padding-right: 2px;
+      #zValue {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
       }
 
-      #symbol {
-        font-size: 48px;
+      #labelInfo {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 6px;
+
+        #atomicNumber {
+          text-align: right;
+          line-height: 2;
+          padding-right: 2px;
+        }
+
+        #symbol {
+          font-size: 48px;
+          font-weight: bold;
+          line-height: 1;
+        }
+      }
+    }
+
+    #cutoffsInfo {
+      margin-left: 8px;
+      padding-right: 12px;
+      text-align: left;
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        .cutoffLabel {
+          font-family: monospace;
+        }
+      }
+
+      #cutoffHeader {
+        font-size: 24px;
         font-weight: bold;
-        line-height: 1;
       }
     }
   }
 
-  #cutoffs-info {
-    margin-left: 8px;
-    padding-right: 12px;
-    text-align: left;
+  #pseudoDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 12px;
+    width: 225px;
 
-    ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
+    #pseudoInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-      .cutoff-label {
-        font-family: monospace;
+      #pseudoName {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
       }
-    }
 
-    #cutoff-header {
-      font-size: 24px;
-      font-weight: bold;
+      #pseudoCategory {
+        font-size: 18px;
+        text-align: center;
+      }
     }
   }
 }
