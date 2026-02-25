@@ -18,4 +18,10 @@
   hr {
     margin: 1.5rem 0;
   }
+
+  #librariesSection {
+    li:last-child {
+      margin-bottom: 0.5rem;
+    }
+  }
 }

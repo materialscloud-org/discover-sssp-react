@@ -1,31 +1,47 @@
+import ReactMarkdown from "react-markdown";
+
+import styles from "./Citation.module.scss";
+
 type CitationProps = {
-  label: string;
-  link?: string;
-  content: React.ReactNode;
+  label?: string;
+  website?: string;
+  citation?: string;
   license?: string;
   versions?: {
     name: string;
-    content?: React.ReactNode;
+    content?: string;
   }[];
 };
 
 const Citation: React.FC<CitationProps> = ({
   label,
-  link,
-  content,
+  website,
+  citation,
   license,
   versions,
 }) => (
-  <div>
-    {link ? (
-      <a href={link} target="_blank">
-        {label}
-      </a>
-    ) : (
-      label
+  <div className={styles.citation}>
+    {label && (
+      <span className={styles.citationLabel}>
+        {website ? (
+          <a href={website} target="_blank">
+            {label}
+          </a>
+        ) : (
+          label
+        )}
+        {citation ? ": " : ""}
+      </span>
     )}
-    : {content}
-    <br />
+    {citation && (
+      <ReactMarkdown
+        components={{
+          p: (props) => <span>{props.children}</span>,
+        }}
+      >
+        {citation}
+      </ReactMarkdown>
+    )}
     {license && (
       <small>
         <em>License: {license}</em>
@@ -34,15 +50,19 @@ const Citation: React.FC<CitationProps> = ({
     {versions && (
       <>
         <div>
-          Versions
+          Versions:
           <ul>
             {versions.map((version) => (
               <li key={version.name}>
                 <b>{version.name}</b>
                 {version.content ? (
-                  <span>
-                    <b>:</b> {version.content}
-                  </span>
+                  <ReactMarkdown
+                    components={{
+                      p: (props) => <span>: {props.children}</span>,
+                    }}
+                  >
+                    {version.content}
+                  </ReactMarkdown>
                 ) : (
                   ""
                 )}

@@ -1,0 +1,53 @@
+{
+  "Pseudo Dojo": {
+    "website": "http://www.pseudo-dojo.org/",
+    "citation": "M.J. van Setten, M. Giantomassi, E. Bousquet, M.J. Verstraete, D.R. Hamann, X. Gonze, and G.-M. Rignanese, [_Comp. Phys. Comm._ **226**, 39-54](https://doi.org/10.1016/j.cpc.2018.01.012) (2018).",
+    "license": "GNU Lesser General Public License (version 3.1 or later)",
+    "versions": ["DOJO-041-std", "DOJO-041-str", "DOJO-050-std"]
+  },
+  "SPMS": {
+    "authors": "M. F. Shojaei, J. E. Pask, A. J. Medford, P. Suryanarayana",
+    "citation": "M. F. Shojaei, J. E. Pask, A. J. Medford, and P. Suryanarayana, [_Comput. Phys. Commun._ **283**, 108594](http://dx.doi.org/10.1016/j.cpc.2015.05.011) (2023).",
+    "versions": ["SPMS"]
+  },
+  "SG15": {
+    "citation": "M. Schlipf and F. Gygi, [_Comput. Phys. Commun._ **196**, 36-44](http://dx.doi.org/10.1016/j.cpc.2015.05.011) (2015).",
+    "versions": ["SG15"]
+  },
+  "GBRV": {
+    "website": "https://www.physics.rutgers.edu/gbrv/",
+    "citation": "K. F. Garrity, J. W. Bennett, K. M. Rabe, and D. Vanderbilt, [_Comput. Mater. Sci._ **81**, 446-452](http://dx.doi.org/10.1016/j.commatsci.2013.08.053) (2014).",
+    "license": "GNU General Public License (version 3)",
+    "versions": ["GBRV-1.X"]
+  },
+  "Pslibrary 0.3.1": {
+    "website": "https://dalcorso.github.io/pslibrary/",
+    "citation": "E. Kucukbenli, M. Monni, B.I. Adetunji, X. Ge, G.A. Adebayo, N. Marzari, S. de Gironcoli, A. Dal Corso, [_arXiv:1404.3015](http://arxiv.org/abs/1404.3015) (2014).",
+    "versions": ["PSL-US-v0.x", "PSL-PAW-v0.x"]
+  },
+  "Pslibrary 1.0.0": {
+    "website": "https://dalcorso.github.io/pslibrary/",
+    "citation": "A. Dal Corso, [_Comput. Mater. Sci._ **95**, 337-350](http://dx.doi.org/10.1016/j.commatsci.2014.07.043) (2014).",
+    "versions": [
+      "PSL-US-v1-high",
+      "PSL-US-v1-low",
+      "PSL-PAW-v1-high",
+      "PSL-PAW-v1-low"
+    ]
+  },
+  "Goedecker": {
+    "authors": "A. Willand, Y. O. Kvashnin, L. Genovese, A. Vázquez-Mayagoitia, A. K. Deb, A. Sadeghi, T. Deutsch, and S. Goedecker",
+    "citation": "A. Willand, Y. O. Kvashnin, L. Genovese, A. Vázquez-Mayagoitia, A. K. Deb, A. Sadeghi, T. Deutsch, and S. Goedecker, [_J. Chem. Phys._ **138**, 104109](http://dx.doi.org/10.1063/1.4793260) (2013).",
+    "versions": ["JTH-1.1-std", "JTH-1.1-str"]
+  },
+  "RE Wentzcovitch": {
+    "website": "http://www.mineralscloud.com/resources/repaw/index.shtml",
+    "citation": "M. Topsakal and R. M. Wentzcovitch, [_Comput. Mater. Sci._ **95**, 263-270](http://dx.doi.org/10.1016/j.commatsci.2014.07.030) (2014).",
+    "versions": ["Wentzcovitch"]
+  },
+  "Actinides MalteSachs": {
+    "authors": "M. Sachs, M. F. Glaner, and R. E. Cohen",
+    "citation": "M. Sachs, M. F. Glaner, and R. E. Cohen, [_Inorg. Chem._ **60**, 16686-16699](https://doi.org/10.1021/acs.inorgchem.1c02578) (2021).",
+    "versions": ["MARBURG"]
+  }
+}

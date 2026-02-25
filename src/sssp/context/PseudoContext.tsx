@@ -2,7 +2,10 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 import {
   BandsCalcUUIDsMap,
+  Citation,
+  MethodMetadata,
   PseudoFilenames,
+  PseudoLibraryMetadata,
   PseudosMetadata,
 } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
@@ -11,6 +14,9 @@ import { ElementContext } from "./ElementContext";
 type PseudoContextType = {
   loadingMetadata: boolean;
   loadingFiles: boolean;
+  verificationMetadata: Record<string, Citation>;
+  libraryMetadata: Record<string, PseudoLibraryMetadata>;
+  methodsMetadata: Record<string, MethodMetadata>;
   pseudosMetadata: PseudosMetadata;
   categories: string[];
   activeCategories: string[];
@@ -36,6 +42,15 @@ export const PseudoProvider: React.FC<PseudoProviderProps> = ({ children }) => {
   const [loadingMetadata, setLoadingMetadata] = useState(true);
   const [loadingFiles, setLoadingFiles] = useState(true);
   const { element } = useContext(ElementContext);
+  const [verificationMetadata, setVerificationMetadata] = useState(
+    {} as Record<string, Citation>,
+  );
+  const [libraryMetadata, setLibraryMetadata] = useState(
+    {} as Record<string, PseudoLibraryMetadata>,
+  );
+  const [methodsMetadata, setMethodsMetadata] = useState(
+    {} as Record<string, MethodMetadata>,
+  );
   const [pseudosMetadata, setPseudosMetadata] = useState({} as PseudosMetadata);
   const [categories, setCategories] = useState([] as string[]);
   const [activeCategories, setActiveCategories] = useState(categories);
@@ -51,18 +66,32 @@ export const PseudoProvider: React.FC<PseudoProviderProps> = ({ children }) => {
   );
 
   useEffect(() => {
-    SsspDataService.fetchPseudosMetadata()
-      .then((metadata) => {
-        setPseudosMetadata(metadata);
+    setLoadingMetadata(true);
+
+    Promise.all([
+      SsspDataService.fetchPseudosVerificationMetadata(),
+      SsspDataService.fetchPseudoslibraryMetadata(),
+      SsspDataService.fetchPseudosMethodsMetadata(),
+      SsspDataService.fetchPseudosMetadata(),
+    ])
+      .then(([verificationMeta, libraryMeta, methodsMeta, pseudosMeta]) => {
+        setVerificationMetadata(verificationMeta || {});
+        setLibraryMetadata(libraryMeta || {});
+        setMethodsMetadata(methodsMeta || {});
+        setPseudosMetadata(pseudosMeta || {});
         const uniqueCategories = new Set<string>();
-        Object.values(metadata).forEach((meta) => {
+        Object.values(pseudosMeta || {}).forEach((meta) => {
           uniqueCategories.add(meta.category);
         });
         setCategories([...uniqueCategories]);
-        setActiveCategories([...uniqueCategories]);
       })
       .catch((error) => {
         console.error("Error fetching pseudos metadata:", error);
+        setVerificationMetadata({});
+        setLibraryMetadata({});
+        setMethodsMetadata({});
+        setPseudosMetadata({});
+        setCategories([]);
       })
       .finally(() => {
         setLoadingMetadata(false);
@@ -113,6 +142,9 @@ export const PseudoProvider: React.FC<PseudoProviderProps> = ({ children }) => {
       value={{
         loadingMetadata,
         loadingFiles,
+        verificationMetadata,
+        libraryMetadata,
+        methodsMetadata,
         pseudosMetadata,
         categories,
         activeCategories,

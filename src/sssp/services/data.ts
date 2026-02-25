@@ -3,12 +3,15 @@ import {
   BandChessboardsData,
   BandsCalcUUIDsMap,
   BandsPseudosMap,
+  Citation,
   ElementsInfo,
   EosElementMap,
   EosPseudosMap,
+  MethodMetadata,
   PseudoBandsCalcUUIDsMap,
   PseudoConvergenceData,
   PseudoFilenames,
+  PseudoLibraryMetadata,
   PseudosMetadata,
   RepositoryFileObject,
   RepositoryMetadata,
@@ -165,10 +168,40 @@ export default class SsspDataService {
   };
 
   static fetchPseudosMetadata = async (): Promise<PseudosMetadata> => {
-    const url = `${DATA_URL}/info/pseudo.json`;
+    const url = `${DATA_URL}/info/pseudo/pseudos.json`;
     const response = await fetch(url);
     const pseudosMetadata: PseudosMetadata = await response.json();
     return pseudosMetadata || ({} as PseudosMetadata);
+  };
+
+  static fetchPseudoslibraryMetadata = async (): Promise<
+    Record<string, PseudoLibraryMetadata>
+  > => {
+    const url = `${DATA_URL}/info/pseudo/libraries.json`;
+    const response = await fetch(url);
+    const familyMetadata: Record<string, PseudoLibraryMetadata> =
+      await response.json();
+    return familyMetadata || {};
+  };
+
+  static fetchPseudosMethodsMetadata = async (): Promise<
+    Record<string, MethodMetadata>
+  > => {
+    const url = `${DATA_URL}/info/pseudo/methods.json`;
+    const response = await fetch(url);
+    const methodsMetadata: Record<string, MethodMetadata> =
+      await response.json();
+    return methodsMetadata || {};
+  };
+
+  static fetchPseudosVerificationMetadata = async (): Promise<
+    Record<string, Citation>
+  > => {
+    const url = `${DATA_URL}/info/pseudo/verification.json`;
+    const response = await fetch(url);
+    const verificationMetadata: Record<string, Citation> =
+      await response.json();
+    return verificationMetadata || {};
   };
 
   static fetchPseudosConvergenceData = async (

@@ -1,7 +1,21 @@
+export interface Citation {
+  citation?: string;
+}
+
+export interface MethodMetadata extends Citation {
+  website?: string;
+}
+
+export interface PseudoLibraryMetadata extends MethodMetadata {
+  license?: string;
+  versions?: string[];
+}
+
 export interface PseudoMetadata {
   category: string;
   color: string;
-  display_name: string;
+  displayName: string;
+  description?: string;
 }
 
 export type PseudosMetadata = Record<string, PseudoMetadata>;

@@ -39,7 +39,7 @@ const PseudosLegend: React.FC = () => {
             className={styles.pseudoName}
             style={{ width: maxPseudoWidth + 12 }}
           >
-            {metadata.display_name}
+            {metadata.displayName}
           </span>
         </li>
       ))}
