@@ -46,7 +46,7 @@ const BandStructureControls: React.FC<BandStructureControlsProps> = ({
           Compared bands shift (meV):
         </Form.Label>
         <Row style={{ alignItems: "center" }}>
-          <Col xs="8" sm="9" md="10" lg="6" xl="7">
+          <Col xs="8" sm="9" md="10" lg="6">
             <Form.Range
               id={styles.pseudoShiftRange}
               name={styles.pseudoShiftRange}
