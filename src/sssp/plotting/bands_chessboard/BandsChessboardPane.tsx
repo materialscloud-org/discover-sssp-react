@@ -15,7 +15,7 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
   const { element } = useContext(ElementContext);
   const { loadingMetadata } = useContext(PseudoContext);
   const {
-    loadingChessboardData,
+    loadingPlotData,
     setActiveChessboardPseudos,
     setBandShift,
     chessboardPseudos,
@@ -36,7 +36,7 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
 
   const hasData = etaV.length > 0 && etaV10.length > 0;
 
-  return loadingMetadata || loadingChessboardData ? (
+  return loadingMetadata || loadingPlotData ? (
     <LoadingSpinner />
   ) : (
     <div id={styles.chessboardsPage}>

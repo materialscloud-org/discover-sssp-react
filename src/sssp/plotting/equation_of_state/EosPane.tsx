@@ -15,7 +15,7 @@ const EosPane: React.FC = () => {
   const { element } = useContext(ElementContext);
   const { loadingMetadata } = useContext(PseudoContext);
   const {
-    loadingEosData,
+    loadingPlotData,
     eosPseudosMap,
     eosPseudos,
     activeEosPseudos,
@@ -39,7 +39,7 @@ const EosPane: React.FC = () => {
     return map;
   }, [element, eosPseudosMap]);
 
-  const isLoading = loadingEosData || loadingMetadata;
+  const isLoading = loadingPlotData || loadingMetadata;
 
   return isLoading ? (
     <LoadingSpinner />

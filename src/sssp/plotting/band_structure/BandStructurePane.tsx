@@ -13,7 +13,7 @@ const BandStructurePane: React.FC = () => {
   const { element } = useContext(ElementContext);
   const { loadingMetadata, pseudosMetadata } = useContext(PseudoContext);
   const {
-    loadingBandsData,
+    loadingPlotData,
     bandsPseudosMap,
     bandsPseudos,
     activeBandsPseudos,
@@ -22,7 +22,7 @@ const BandStructurePane: React.FC = () => {
     setBandShift,
   } = useContext(PlotContext);
 
-  const isLoading = loadingBandsData || loadingMetadata;
+  const isLoading = loadingPlotData || loadingMetadata;
 
   const hasData = Object.keys(bandsPseudosMap || {}).length > 0;
 

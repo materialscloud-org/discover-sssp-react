@@ -19,7 +19,7 @@ const ConvergencePane: React.FC = () => {
     activeCategories,
     setActiveCategories,
   } = useContext(PseudoContext);
-  const { loadingConvergenceData, convergenceData } = useContext(PlotContext);
+  const { loadingPlotData, convergenceData } = useContext(PlotContext);
 
   const activePseudosMetadata = useMemo(() => {
     const activePseudos: PseudosMetadata = {};
@@ -38,7 +38,7 @@ const ConvergencePane: React.FC = () => {
       .reverse(); // reversed because we build it bottom-up in the plot
   }, [convergenceData, activePseudosMetadata]);
 
-  const isLoading = loadingMetadata || loadingConvergenceData;
+  const isLoading = loadingMetadata || loadingPlotData;
 
   const hasData = Object.keys(convergenceData).length > 0;
 
