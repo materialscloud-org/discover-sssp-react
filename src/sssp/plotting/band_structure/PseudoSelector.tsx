@@ -23,6 +23,7 @@ const PseudoSelector: React.FC<PseudoSelectorProps> = ({
       <Form.Label htmlFor={`${which}-select`}>{capitalize(which)}:</Form.Label>
       <Form.Select
         id={`${which}-select`}
+        name={`${which}-select`}
         value={value}
         onChange={(e) => onSelect(e.target.value)}
       >

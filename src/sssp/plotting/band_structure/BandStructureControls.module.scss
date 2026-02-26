@@ -1,29 +1,29 @@
-#band-structure-controls {
+#bandStructureControls {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 
-  .pseudo-selector {
+  .pseudoSelector {
     font-weight: bold;
   }
 
-  #reference-pseudo-selector {
-    @extend .pseudo-selector;
+  #referencePseudoSelector {
+    @extend .pseudoSelector;
 
     label {
       color: black;
     }
   }
 
-  #compared-pseudo-selector {
-    @extend .pseudo-selector;
+  #comparedPseudoSelector {
+    @extend .pseudoSelector;
 
     label {
       color: red;
     }
   }
 
-  #pseudo-shift-range {
+  #pseudoShiftRange {
     height: 0.75rem;
   }
 }

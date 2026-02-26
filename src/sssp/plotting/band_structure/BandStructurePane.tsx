@@ -45,7 +45,7 @@ const BandStructurePane: React.FC = () => {
                 onBandShiftChange={setBandShift}
               />
             </Col>
-            <Col lg="auto" className="ms-lg-5">
+            <Col lg="auto">
               <BandStructurePlot
                 pseudosMetadata={pseudosMetadata}
                 bandsPseudosMap={bandsPseudosMap}

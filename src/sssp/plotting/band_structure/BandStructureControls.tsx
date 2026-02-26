@@ -14,11 +14,11 @@ const BandStructureControls: React.FC<BandStructureControlsProps> = ({
   onBandShiftChange: setPseudoShift,
 }) => {
   return (
-    <div id={styles["band-structure-controls"]}>
+    <div id={styles.bandStructureControls}>
       <Row className="gap-3">
         <Col sm="6" lg="12">
           <PseudoSelector
-            id={styles["reference-pseudo-selector"]}
+            id={styles.referencePseudoSelector}
             which="reference"
             pseudos={pseudos}
             value={activePseudos[0]}
@@ -30,7 +30,7 @@ const BandStructureControls: React.FC<BandStructureControlsProps> = ({
         </Col>
         <Col>
           <PseudoSelector
-            id={styles["compared-pseudo-selector"]}
+            id={styles.comparedPseudoSelector}
             which="compared"
             pseudos={pseudos}
             value={activePseudos[1]}
@@ -42,14 +42,14 @@ const BandStructureControls: React.FC<BandStructureControlsProps> = ({
         </Col>
       </Row>
       <Form.Group>
-        <Form.Label htmlFor={styles["pseudo-shift-range"]}>
+        <Form.Label htmlFor={styles.pseudoShiftRange}>
           Compared bands shift (meV):
         </Form.Label>
         <Row style={{ alignItems: "center" }}>
-          <Col xs="8" sm="9" md="10" lg="6" xl="7" xxl="8">
+          <Col xs="8" sm="9" md="10" lg="6" xl="7">
             <Form.Range
-              id={styles["pseudo-shift-range"]}
-              name="pseudo-shift-range"
+              id={styles.pseudoShiftRange}
+              name={styles.pseudoShiftRange}
               value={pseudoShift}
               min={-5000}
               max={5000}
@@ -59,7 +59,8 @@ const BandStructureControls: React.FC<BandStructureControlsProps> = ({
           </Col>
           <Col>
             <Form.Control
-              name="pseudo-shift-number"
+              id={styles.pseudoShiftNumber}
+              name={styles.pseudoShiftNumber}
               type="number"
               value={pseudoShift.toFixed(0)}
               min={-5000}
