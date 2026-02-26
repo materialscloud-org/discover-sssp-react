@@ -42,6 +42,7 @@ const Citation: React.FC<CitationProps> = ({
         {citation}
       </ReactMarkdown>
     )}
+    <br />
     {license && (
       <small>
         <em>License: {license}</em>

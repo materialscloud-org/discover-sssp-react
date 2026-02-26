@@ -12,6 +12,7 @@ export interface PseudoLibraryMetadata extends MethodMetadata {
 }
 
 export interface PseudoMetadata {
+  library: string;
   category: string;
   color: string;
   displayName: string;
