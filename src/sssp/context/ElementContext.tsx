@@ -1,13 +1,19 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useMemo, useState } from "react";
 
 import { ElementsInfo } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
+
+type SsspPseudos = {
+  efficiency?: string;
+  precision?: string;
+};
 
 type ElementContextType = {
   loadingInfo: boolean;
   element: string;
   elementsInfo: ElementsInfo;
   setElement: (element: string) => void;
+  ssspPseudos: SsspPseudos;
 };
 
 export const ElementContext = createContext({} as ElementContextType);
@@ -36,6 +42,17 @@ export const ElementProvider: React.FC<ElementProviderProps> = ({
       });
   }, []);
 
+  const ssspPseudos = useMemo(
+    () =>
+      Object.keys(elementsInfo).length
+        ? {
+            efficiency: elementsInfo.efficiency[element]?.pseudopotential,
+            precision: elementsInfo.precision[element]?.pseudopotential,
+          }
+        : ({} as SsspPseudos),
+    [element, elementsInfo],
+  );
+
   return (
     <ElementContext.Provider
       value={{
@@ -43,6 +60,7 @@ export const ElementProvider: React.FC<ElementProviderProps> = ({
         elementsInfo,
         element,
         setElement,
+        ssspPseudos,
       }}
     >
       {children}
