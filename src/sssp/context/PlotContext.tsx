@@ -233,8 +233,8 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
         // Cross-bands data
         activeChessboardPseudos,
         setActiveChessboardPseudos,
-        bandShift: bandShift,
-        setBandShift: setBandShift,
+        bandShift,
+        setBandShift,
       }}
     >
       {children}
