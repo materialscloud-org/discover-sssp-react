@@ -19,7 +19,6 @@ import {
   LicensePage,
   PseudosPage,
 } from "@sssp/pages";
-import "katex/dist/katex.min.css";
 
 import SsspProps from "./SsspApp.models";
 import styles from "./SsspApp.module.scss";
