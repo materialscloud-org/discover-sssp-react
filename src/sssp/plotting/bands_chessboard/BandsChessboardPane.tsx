@@ -56,7 +56,7 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
           </Col>
           <Col>
             <BandsChessboardPlot
-              title="η10"
+              title="η<sub>10</sub>"
               chessboardPseudos={chessboardPseudos}
               values={etaV10}
               zMax={60}
