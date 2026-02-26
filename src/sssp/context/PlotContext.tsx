@@ -21,7 +21,7 @@ type PlotContextType = {
   setActiveEosPseudos: (pseudos: string[]) => void;
   // Chessboard data
   loadingChessboardData: boolean;
-  pseudoFilenames: string[];
+  chessboardPseudos: string[];
   etaV: number[][];
   etaV10: number[][];
   shifts: number[][][];
@@ -32,8 +32,8 @@ type PlotContextType = {
   activeBandsPseudos: string[];
   setActiveBandsPseudos: (pseudos: string[]) => void;
   // Cross-bands data
-  chessboardPseudos: string[];
-  setChessboardPseudos: (pseudos: string[]) => void;
+  activeChessboardPseudos: string[];
+  setActiveChessboardPseudos: (pseudos: string[]) => void;
   bandShift: number;
   setBandShift: (number: number) => void;
 };
@@ -62,7 +62,7 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
 
   // Chessboard data
   const [loadingChessboardData, setLoadingChessboardData] = useState(true);
-  const [pseudoFilenames, setPseudoFilenames] = useState([] as string[]);
+  const [chessboardPseudos, setChessboardPseudos] = useState([] as string[]);
   const [etaV, setEtaV] = useState([] as number[][]);
   const [etaV10, setEtaV10] = useState([] as number[][]);
   const [shifts, setShifts] = useState([] as number[][][]);
@@ -74,7 +74,9 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
   const [activeBandsPseudos, setActiveBandsPseudos] = useState([] as string[]);
 
   // Cross-bands data
-  const [chessboardPseudos, setChessboardPseudos] = useState([] as string[]);
+  const [activeChessboardPseudos, setActiveChessboardPseudos] = useState(
+    [] as string[],
+  );
   const [bandShift, setBandShift] = useState(0);
 
   useEffect(() => {
@@ -128,7 +130,7 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
     if (!element) return;
 
     setLoadingChessboardData(true);
-    setPseudoFilenames([]);
+    setChessboardPseudos([]);
     setEtaV([]);
     setEtaV10([]);
     setShifts([]);
@@ -137,7 +139,7 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
 
     SsspDataService.fetchBandChessboardData(element)
       .then((data) => {
-        setPseudoFilenames(data.pseudos);
+        setChessboardPseudos(data.pseudos);
         setEtaV(data.v_distance.eta);
         setEtaV10(data.v10_distance.eta);
         const bandShifts = [data.v_distance.shift, data.v10_distance.shift];
@@ -145,7 +147,7 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
       })
       .catch((error) => {
         console.error("Error fetching band chessboard data:", error);
-        setPseudoFilenames([]);
+        setChessboardPseudos([]);
         setEtaV([]);
         setEtaV10([]);
         setShifts([]);
@@ -196,12 +198,13 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
     setActiveBandsPseudos((prev) => {
       let nextActive: string[] = [bandsPseudos[0], bandsPseudos[0]];
 
-      if (isValidPair(chessboardPseudos)) nextActive = chessboardPseudos;
+      if (isValidPair(activeChessboardPseudos))
+        nextActive = activeChessboardPseudos;
       else if (isValidPair(prev)) nextActive = prev;
 
       return samePair(prev, nextActive) ? prev : nextActive;
     });
-  }, [bandsPseudos, chessboardPseudos]);
+  }, [bandsPseudos, activeChessboardPseudos]);
 
   return (
     <PlotContext.Provider
@@ -217,7 +220,7 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
         setActiveEosPseudos,
         // Chessboard data
         loadingChessboardData,
-        pseudoFilenames,
+        chessboardPseudos,
         etaV,
         etaV10,
         shifts,
@@ -228,8 +231,8 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
         activeBandsPseudos,
         setActiveBandsPseudos,
         // Cross-bands data
-        chessboardPseudos,
-        setChessboardPseudos,
+        activeChessboardPseudos,
+        setActiveChessboardPseudos,
         bandShift: bandShift,
         setBandShift: setBandShift,
       }}

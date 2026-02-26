@@ -1,11 +1,11 @@
 export default interface BandsChessboardPlotProps {
   title: string;
-  pseudoFilenames: string[];
+  chessboardPseudos: string[];
   values: number[][];
   zMax: number;
   onTileClick: (
     plotIndex: number,
     pseudos: string[],
-    pointIndex: number[]
+    pointIndex: number[],
   ) => void;
 }

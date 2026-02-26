@@ -16,9 +16,9 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
   const { loadingMetadata } = useContext(PseudoContext);
   const {
     loadingChessboardData,
-    setChessboardPseudos,
+    setActiveChessboardPseudos,
     setBandShift,
-    pseudoFilenames,
+    chessboardPseudos,
     etaV,
     etaV10,
     shifts,
@@ -29,7 +29,7 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
     pseudos: string[],
     pointIndex: number[],
   ) => {
-    setChessboardPseudos(pseudos);
+    setActiveChessboardPseudos(pseudos);
     setBandShift(shifts[plotIndex][pointIndex[0]][pointIndex[1]]);
     goToBands();
   };
@@ -48,7 +48,7 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
           <Col>
             <BandsChessboardPlot
               title="η<sub>v</sub>"
-              pseudoFilenames={pseudoFilenames}
+              chessboardPseudos={chessboardPseudos}
               values={etaV}
               zMax={30}
               onTileClick={tileClickHandler}
@@ -57,7 +57,7 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
           <Col>
             <BandsChessboardPlot
               title="η10"
-              pseudoFilenames={pseudoFilenames}
+              chessboardPseudos={chessboardPseudos}
               values={etaV10}
               zMax={60}
               onTileClick={tileClickHandler}

@@ -19,7 +19,7 @@ const config: Partial<Config> = {
 
 const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
   title,
-  pseudoFilenames,
+  chessboardPseudos,
   values,
   zMax,
   onTileClick: handleTileClick,
@@ -50,8 +50,8 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
       const data: Data[] = [
         {
           z: zOffDiagonal,
-          x: pseudoFilenames,
-          y: pseudoFilenames,
+          x: chessboardPseudos,
+          y: chessboardPseudos,
           zmin: 0,
           zmax: zMax,
           colorscale: [
@@ -65,8 +65,8 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         },
         {
           z: zDiagonalMask,
-          x: pseudoFilenames,
-          y: pseudoFilenames,
+          x: chessboardPseudos,
+          y: chessboardPseudos,
           zmin: 0,
           zmax: 1,
           colorscale: [
@@ -101,8 +101,8 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
           .map((row, i) =>
             row
               .map((value, j) => ({
-                x: pseudoFilenames[j],
-                y: pseudoFilenames[i],
+                x: chessboardPseudos[j],
+                y: chessboardPseudos[i],
                 text:
                   value >= 100
                     ? value.toExponential(0).toString().replace("e+", "e")
@@ -110,7 +110,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
                 showarrow: false,
                 font: {
                   color: "white",
-                  size: Math.max(8, 24 - pseudoFilenames.length),
+                  size: Math.max(8, 24 - chessboardPseudos.length),
                 },
               }))
               .filter((_, j) => j !== i),
@@ -172,7 +172,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         }
       }
     };
-  }, [pseudoFilenames, values, title, zMax, handleTileClick]);
+  }, [chessboardPseudos, values, title, zMax, handleTileClick]);
 
   return <div ref={plotRef} className={styles["chessboard-plot"]} />;
 };
