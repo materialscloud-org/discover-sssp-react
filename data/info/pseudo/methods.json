@@ -1,0 +1,18 @@
+{
+  "Ultrasoft pseudopotentials": {
+    "website": "https://www.physics.rutgers.edu/~dhv/uspp/",
+    "citation": "D. Vanderbilt, [_Phys. Rev. B._ **41**, 7892](https://doi.org/10.1103/PhysRevB.41.7892) (1990)."
+  },
+  "Projector-augmented-wave method": {
+    "citation": "P. E. Blöchl, [_Phys. Rev. B._ **50**, 17953](https://doi.org/10.1103/PhysRevB.50.17953) (1994)."
+  },
+  "Norm-conserving, multiple projectors pseudopotentials": {
+    "website": "http://www.mat-simresearch.com/",
+    "citation": "D. R. Hamann, [_Phys. Rev. B._ **88**, 085117](https://doi.org/10.1103/PhysRevB.88.085117) (2013)."
+  },
+  "Separable dual-space Gaussian pseudopotentials": {
+    "website": "http://cp2k.web.psi.ch/potentials",
+    "citation": "S. Goedecker, M. Teter, J. Hutter, [_Phys. Rev. B._ **54**, 1703](https://doi.org/10.1103/PhysRevB.54.1703) (1996)."
+  },
+  "Car-Parrinello molecular dynamics with Vanderbilt ultrasoft pseudopotentials": {}
+}
