@@ -1,85 +1,101 @@
 {
   "DOJO-041-std": {
+    "library": "Pseudo Dojo",
     "category": "nc",
     "color": "#ffcc80",
     "displayName": "nc-dojo-v0.4.1-std"
   },
   "DOJO-041-str": {
+    "library": "Pseudo Dojo",
     "category": "nc",
     "color": "#ff8c00",
     "displayName": "nc-dojo-v0.4.1-str"
   },
   "DOJO-050-std": {
+    "library": "Pseudo Dojo",
     "category": "nc",
     "color": "#c65100",
     "displayName": "nc-dojo-v0.5.0-std"
   },
   "SPMS": {
+    "library": "SPMS",
     "category": "nc",
     "color": "#5c6b00",
     "displayName": "nc-spms-oncvpsp4"
   },
   "SG15": {
+    "library": "SG15",
     "category": "nc",
     "color": "#3d5a80",
     "displayName": "nc-sg15-oncvpsp4"
   },
   "GBRV-1.X": {
+    "library": "GBRV",
     "category": "us",
     "color": "#009999",
     "displayName": "us-gbrv-v1.x-upf2",
-    "description": "GBRV v1.x pseudopotentials; UPF files generated with the conversion from K. Lasssonen et al., _Phys. Rev. B._ **47**, 10142 (1993)."
+    "description": "GBRV v1.x pseudopotentials; UPF files generated with the conversion from K. Lasssonen et al., *Phys. Rev. B.* **47**, 10142 (1993)."
   },
   "PSL-US-v0.x": {
+    "library": "Pslibrary 0.3.1",
     "category": "us",
     "color": "#0033cc",
     "displayName": "us-psl-v0.x"
   },
   "PSL-PAW-v0.x": {
+    "library": "Pslibrary 0.3.1",
     "category": "paw",
     "color": "#cc00cc",
     "displayName": "paw-psl-v0.x"
   },
   "PSL-US-v1-high": {
+    "library": "Pslibrary 1.0.0",
     "category": "us",
     "color": "#b30000",
     "displayName": "us-psl-v1.0.0-high",
     "description": "Ultrasoft pseudopotentials; \"high\" version (highest number of semicore states and smaller cut-off radii)"
   },
   "PSL-US-v1-low": {
+    "library": "Pslibrary 1.0.0",
     "category": "us",
     "color": "#ff9e9e",
     "displayName": "us-psl-v1.0.0-low",
     "description": "Ultrasoft pseudopotentials; \"low\" version (optimized for lower kinetic energy cut-offs at the cost of accuracy)"
   },
   "PSL-PAW-v1-high": {
+    "library": "Pslibrary 1.0.0",
     "category": "paw",
     "color": "#005500",
     "displayName": "paw-psl-v1.0.0-high",
     "description": "PAW pseudopotentials; \"high\" version (highest number of semicore states and smaller cut-off radii)"
   },
   "PSL-PAW-v1-low": {
+    "library": "Pslibrary 1.0.0",
     "category": "paw",
     "color": "#66cc66",
     "displayName": "paw-psl-v1.0.0-low",
     "description": "PAW pseudopotentials; \"low\" version (optimized for lower kinetic energy cut-offs at the cost of accuracy)"
   },
   "JTH-1.1-std": {
+    "library": "Goedecker",
     "category": "paw",
     "color": "#c77dff",
     "displayName": "paw-jth-v1.1-std"
   },
   "JTH-1.1-str": {
+    "library": "Goedecker",
     "category": "paw",
     "color": "#5a189a",
     "displayName": "paw-jth-v1.1-str"
   },
   "Wentzcovitch": {
+    "library": "RE Wentzcovitch",
     "category": "paw",
     "color": "#4a044a",
     "displayName": "paw-lanthanides-wentzcovitch"
   },
   "MARBURG": {
+    "library": "Actinides MalteSachs",
     "category": "paw",
     "color": "#b0005a",
     "displayName": "paw-actinides-marburg"
