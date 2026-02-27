@@ -23,13 +23,12 @@ const LibraryToggle: React.FC = () => {
           id={library}
           key={library}
           value={library}
+          variant="secondary"
           className={styles.libraryToggle}
           style={{
-            backgroundColor: `var(--${library}-color)`,
-            borderColor: `var(--${library}-color)`,
             boxShadow:
               library === activeLibrary
-                ? `0 0 0 0.25rem var(--${library}-color-light)`
+                ? "0 0 0 0.25rem rgba(0,0,0,0.25)"
                 : "none",
           }}
         >
