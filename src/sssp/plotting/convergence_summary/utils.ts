@@ -385,8 +385,8 @@ export const generateConvergencePlotData = (
     annotations.push({
       xref: "paper",
       x: 0,
-      xanchor: "right",
-      xshift: -30,
+      xanchor: "left",
+      xshift: -150,
       y: offset,
       text: `<span style="color:${color}"><b>${pseudo.name}</b></span><br />Z<sub>val</sub> = ${pseudo.Z}<br />${metadataText}`,
       showarrow: false,
