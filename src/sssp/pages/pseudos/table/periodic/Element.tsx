@@ -27,7 +27,7 @@ const Element: React.FC<ElementProps> = ({ number, symbol, color, info }) => {
       </div>
     );
 
-    if (hoveredPseudo && hoveredPseudo !== info.pseudopotential) {
+    if (hoveredPseudo && hoveredPseudo !== info.library) {
       classes.push(styles.transparent);
     }
   } else if (hoveredPseudo) {

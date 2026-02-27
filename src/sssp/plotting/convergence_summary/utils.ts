@@ -398,7 +398,7 @@ export const generateConvergencePlotData = (
     // Recommended pseudo highlight
     libraries.forEach((library) => {
       if (
-        recommendedPseudos[library].pseudopotential === pseudo.name &&
+        recommendedPseudos[library]?.library === pseudo.name &&
         recommendedPseudos[library].Z === pseudo.Z
       ) {
         const cutoff = recommendedPseudos[library].cutoff_wfc;
@@ -409,8 +409,8 @@ export const generateConvergencePlotData = (
             x1: cutoff + deltaX * 0.5,
             y0: offsetsArray[i] - windowHeight,
             y1: offsetsArray[i] + windowHeight,
-            fillcolor: "rgba(0, 128, 0, 0.5)",
-            line: { width: 1, color: "rgb(0, 128, 0)" },
+            fillcolor: "rgba(0, 0, 0, 0.25)",
+            line: { width: 1 },
             opacity: 0.5,
           });
         } else {
@@ -423,8 +423,8 @@ export const generateConvergencePlotData = (
           shapes.push({
             type: "path",
             path: `M ${xm} ${y1} L ${x1} ${ym} L ${xm} ${y0} L ${x0} ${ym} Z`,
-            fillcolor: "rgba(128, 0, 128, 0.5)",
-            line: { width: 1, color: "rgb(128, 0, 128)" },
+            fillcolor: "rgba(0, 0, 0, 0.5)",
+            line: { width: 1 },
             opacity: 0.5,
           });
         }

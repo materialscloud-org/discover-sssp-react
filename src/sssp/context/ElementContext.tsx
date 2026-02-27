@@ -1,11 +1,11 @@
 import { createContext, useEffect, useMemo, useState } from "react";
 
-import { ElementsInfo } from "@sssp/models";
+import { ElementInfo, ElementsInfo } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 
 type SsspPseudos = {
-  efficiency?: string;
-  precision?: string;
+  efficiency: ElementInfo;
+  precision: ElementInfo;
 };
 
 type ElementContextType = {
@@ -44,12 +44,10 @@ export const ElementProvider: React.FC<ElementProviderProps> = ({
 
   const ssspPseudos = useMemo(
     () =>
-      Object.keys(elementsInfo).length
-        ? {
-            efficiency: elementsInfo.efficiency[element]?.pseudopotential,
-            precision: elementsInfo.precision[element]?.pseudopotential,
-          }
-        : ({} as SsspPseudos),
+      ({
+        efficiency: elementsInfo?.efficiency?.[element],
+        precision: elementsInfo?.precision?.[element],
+      }) as SsspPseudos,
     [element, elementsInfo],
   );
 

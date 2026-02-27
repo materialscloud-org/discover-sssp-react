@@ -21,8 +21,8 @@ class ElementsGenerator {
         const symbol = elementSymbols[i];
         const info = this.libraryElementsInfo[symbol];
         const color =
-          info && info.pseudopotential in this.pseudosMetadata
-            ? this.pseudosMetadata[info.pseudopotential].color
+          info && info.library in this.pseudosMetadata
+            ? this.pseudosMetadata[info.library].color
             : "#fff";
 
         return (

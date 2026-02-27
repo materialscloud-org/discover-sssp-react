@@ -24,7 +24,7 @@ const PseudosLegend: React.FC = () => {
                   !(hoveredPseudo || hoveredElement)
                     ? ""
                     : hoveredPseudo === pseudo ||
-                        hoveredElement?.info.pseudopotential === pseudo
+                        hoveredElement?.info.library === pseudo
                       ? styles.highlighted
                       : styles.transparent
                 }

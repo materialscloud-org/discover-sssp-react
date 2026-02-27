@@ -1,8 +1,9 @@
 export interface ElementInfo {
-  pseudopotential: string;
+  library: string;
+  Z: number;
   cutoff_wfc: number;
   cutoff_rho: number;
-  Z: number;
+  filename: string;
 }
 
 export type LibraryElementsInfo = Record<string, ElementInfo>;

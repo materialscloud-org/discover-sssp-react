@@ -14,12 +14,8 @@
     flex-wrap: wrap;
     justify-content: center;
 
-    #efficiencyPseudo {
-      color: var(--efficiency-color);
-    }
-
-    #precisionPseudo {
-      color: var(--precision-color);
+    .pseudoLabel {
+      font-weight: 500;
     }
 
     @media (min-width: 600px) {
