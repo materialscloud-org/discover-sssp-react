@@ -5,6 +5,7 @@ import { ElementContext } from "@sssp/context";
 
 import EosTableProps from "./EosTable.models";
 import styles from "./EosTable.module.scss";
+import { Link } from "react-router-dom";
 
 const CONFIGURATIONS = [
   "SC",
@@ -30,9 +31,11 @@ const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
             Z<sub>val</sub>
           </th>
           <td rowSpan={2} className={styles.gap}></td>
-          <th colSpan={2}>Rho Cutoff</th>
+          <th colSpan={2}>Wavefunction Cutoff</th>
           <td rowSpan={2} className={styles.gap}></td>
-          <th colSpan={10}>ν</th>
+          <th colSpan={10}>
+            ν (click <Link to="/about">here</Link> for details)
+          </th>
           <td rowSpan={2} className={styles.gap}></td>
           <th colSpan={2}>Average ν</th>
         </tr>
