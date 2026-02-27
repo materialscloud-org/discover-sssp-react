@@ -43,7 +43,7 @@ type PlotProviderProps = {
 };
 
 export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
-  const { element } = useContext(ElementContext);
+  const { element, ssspPseudos } = useContext(ElementContext);
 
   const [loadingPlotData, setLoadingPlotData] = useState(true);
 
@@ -96,6 +96,10 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
 
     setBandShift(0);
 
+    const ssspPseudoLibraries = Object.values(ssspPseudos)
+      .flat()
+      .map((pseudo) => pseudo && `${pseudo.library}-Z=${pseudo.Z}`);
+
     Promise.all([
       SsspDataService.fetchPseudosConvergenceData(element),
       SsspDataService.fetchEosData(element),
@@ -108,7 +112,7 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
         setEosPseudosMap(eosData);
         const eosPseudos = Object.keys(eosData);
         setEosPseudos(eosPseudos);
-        setActiveEosPseudos(eosPseudos);
+        setActiveEosPseudos(ssspPseudoLibraries);
 
         setChessboardPseudos(chessboardData.pseudos);
         setEtaV(chessboardData.v_distance.eta);
@@ -143,7 +147,7 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
       .finally(() => {
         setLoadingPlotData(false);
       });
-  }, [element]);
+  }, [element, ssspPseudos]);
 
   useEffect(() => {
     const isValidPair = (pair: string[]) =>
