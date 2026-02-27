@@ -96,8 +96,6 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
 
     setBandShift(0);
 
-    // console.log("fetching plot data");
-
     Promise.all([
       SsspDataService.fetchPseudosConvergenceData(element),
       SsspDataService.fetchEosData(element),
