@@ -1,1301 +1,1301 @@
 {
   "efficiency": {
     "H": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "H.us.pbe.z_1.uspp.gbrv.v1.4.upf",
+      "library": "GBRV-1.X",
+      "Z": 1,
       "cutoff_wfc": 30,
       "cutoff_rho": 120,
-      "Z": 1
+      "filename": "H.us.pbe.z_1.uspp.gbrv.v1.4.upf"
     },
     "He": {
-      "pseudopotential": "SG15",
-      "filename": "He.nc.pbe.z_2.oncvpsp4.sg15.v0.upf",
+      "library": "SG15",
+      "Z": 2,
       "cutoff_wfc": 50,
       "cutoff_rho": 150,
-      "Z": 2
+      "filename": "He.nc.pbe.z_2.oncvpsp4.sg15.v0.upf"
     },
     "Li": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Li.us.pbe.z_3.uspp.gbrv.v1.4.upf",
+      "library": "GBRV-1.X",
+      "Z": 3,
       "cutoff_wfc": 35,
       "cutoff_rho": 140,
-      "Z": 3
+      "filename": "Li.us.pbe.z_3.uspp.gbrv.v1.4.upf"
     },
     "Be": {
-      "pseudopotential": "PSL-US-v1-low",
-      "filename": "Be.us.pbe.z_2.ld1.psl.v1.0.0-low.n.upf",
+      "library": "PSL-US-v1-low",
+      "Z": 2,
       "cutoff_wfc": 30,
       "cutoff_rho": 105,
-      "Z": 2
+      "filename": "Be.us.pbe.z_2.ld1.psl.v1.0.0-low.n.upf"
     },
     "B": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "B.paw.pbe.z_3.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 3,
       "cutoff_wfc": 30,
       "cutoff_rho": 60,
-      "Z": 3
+      "filename": "B.paw.pbe.z_3.atompaw.jth.v1.1-std.upf"
     },
     "C": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "C.us.pbe.z_4.uspp.gbrv.v1.2.upf",
+      "library": "GBRV-1.X",
+      "Z": 4,
       "cutoff_wfc": 30,
       "cutoff_rho": 105,
-      "Z": 4
+      "filename": "C.us.pbe.z_4.uspp.gbrv.v1.2.upf"
     },
     "N": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "N.us.pbe.z_5.uspp.gbrv.v1.2.upf",
+      "library": "GBRV-1.X",
+      "Z": 5,
       "cutoff_wfc": 35,
       "cutoff_rho": 140,
-      "Z": 5
+      "filename": "N.us.pbe.z_5.uspp.gbrv.v1.2.upf"
     },
     "O": {
-      "pseudopotential": "PSL-PAW-v0.x",
-      "filename": "O.paw.pbe.z_6.ld1.psl.v0.1.upf",
+      "library": "PSL-PAW-v0.x",
+      "Z": 6,
       "cutoff_wfc": 45,
       "cutoff_rho": 540,
-      "Z": 6
+      "filename": "O.paw.pbe.z_6.ld1.psl.v0.1.upf"
     },
     "F": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "F.us.pbe.z_7.uspp.gbrv.v1.4.upf",
+      "library": "GBRV-1.X",
+      "Z": 7,
       "cutoff_wfc": 45,
       "cutoff_rho": 158,
-      "Z": 7
+      "filename": "F.us.pbe.z_7.uspp.gbrv.v1.4.upf"
     },
     "Na": {
-      "pseudopotential": "PSL-PAW-v0.x",
-      "filename": "Na.paw.pbe.z_9.ld1.psl.v0.2.upf",
+      "library": "PSL-PAW-v0.x",
+      "Z": 9,
       "cutoff_wfc": 50,
       "cutoff_rho": 150,
-      "Z": 9
+      "filename": "Na.paw.pbe.z_9.ld1.psl.v0.2.upf"
     },
     "Mg": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Mg.us.pbe.z_10.uspp.gbrv.v1.4.upf",
+      "library": "GBRV-1.X",
+      "Z": 10,
       "cutoff_wfc": 40,
       "cutoff_rho": 160,
-      "Z": 10
+      "filename": "Mg.us.pbe.z_10.uspp.gbrv.v1.4.upf"
     },
     "Al": {
-      "pseudopotential": "PSL-US-v1-low",
-      "filename": "Al.us.pbe.z_3.ld1.psl.v1.0.0-low.upf",
+      "library": "PSL-US-v1-low",
+      "Z": 3,
       "cutoff_wfc": 30,
       "cutoff_rho": 60,
-      "Z": 3
+      "filename": "Al.us.pbe.z_3.ld1.psl.v1.0.0-low.upf"
     },
     "Si": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "Si.us.pbe.z_4.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 4,
       "cutoff_wfc": 30,
       "cutoff_rho": 150,
-      "Z": 4
+      "filename": "Si.us.pbe.z_4.ld1.psl.v1.0.0-high.upf"
     },
     "P": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "P.us.pbe.z_5.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 5,
       "cutoff_wfc": 30,
       "cutoff_rho": 90,
-      "Z": 5
+      "filename": "P.us.pbe.z_5.ld1.psl.v1.0.0-high.upf"
     },
     "S": {
-      "pseudopotential": "SPMS",
-      "filename": "S.nc.pbe.z_6.oncvpsp3.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 6,
       "cutoff_wfc": 30,
       "cutoff_rho": 90,
-      "Z": 6
+      "filename": "S.nc.pbe.z_6.oncvpsp3.spms.v1.upf"
     },
     "Cl": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "Cl.us.pbe.z_7.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 7,
       "cutoff_wfc": 35,
       "cutoff_rho": 210,
-      "Z": 7
+      "filename": "Cl.us.pbe.z_7.ld1.psl.v1.0.0-high.upf"
     },
     "Ar": {
-      "pseudopotential": "PSL-PAW-v1-low",
-      "filename": "Ar.paw.pbe.z_8.ld1.psl.v1.0.0-low.upf",
+      "library": "PSL-PAW-v1-low",
+      "Z": 8,
       "cutoff_wfc": 75,
       "cutoff_rho": 300,
-      "Z": 8
+      "filename": "Ar.paw.pbe.z_8.ld1.psl.v1.0.0-low.upf"
     },
     "K": {
-      "pseudopotential": "SG15",
-      "filename": "K.nc.pbe.z_9.oncvpsp4.sg15.v0.upf",
+      "library": "SG15",
+      "Z": 9,
       "cutoff_wfc": 35,
       "cutoff_rho": 105,
-      "Z": 9
+      "filename": "K.nc.pbe.z_9.oncvpsp4.sg15.v0.upf"
     },
     "Ca": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Ca.us.pbe.z_10.uspp.gbrv.v1.4.upf",
+      "library": "GBRV-1.X",
+      "Z": 10,
       "cutoff_wfc": 30,
       "cutoff_rho": 105,
-      "Z": 10
+      "filename": "Ca.us.pbe.z_10.uspp.gbrv.v1.4.upf"
     },
     "Sc": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Sc.us.pbe.z_11.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 11,
       "cutoff_wfc": 30,
       "cutoff_rho": 135,
-      "Z": 11
+      "filename": "Sc.us.pbe.z_11.uspp.gbrv.v1.upf"
     },
     "Ti": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Ti.us.pbe.z_12.uspp.gbrv.v1.4.upf",
+      "library": "GBRV-1.X",
+      "Z": 12,
       "cutoff_wfc": 30,
       "cutoff_rho": 180,
-      "Z": 12
+      "filename": "Ti.us.pbe.z_12.uspp.gbrv.v1.4.upf"
     },
     "V": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "V.us.pbe.z_13.uspp.gbrv.v1.4.upf",
+      "library": "GBRV-1.X",
+      "Z": 13,
       "cutoff_wfc": 35,
       "cutoff_rho": 140,
-      "Z": 13
+      "filename": "V.us.pbe.z_13.uspp.gbrv.v1.4.upf"
     },
     "Cr": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Cr.us.pbe.z_14.uspp.gbrv.v1.5.upf",
+      "library": "GBRV-1.X",
+      "Z": 14,
       "cutoff_wfc": 35,
       "cutoff_rho": 175,
-      "Z": 14
+      "filename": "Cr.us.pbe.z_14.uspp.gbrv.v1.5.upf"
     },
     "Mn": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Mn.us.pbe.z_15.uspp.gbrv.v1.5.upf",
+      "library": "GBRV-1.X",
+      "Z": 15,
       "cutoff_wfc": 40,
       "cutoff_rho": 160,
-      "Z": 15
+      "filename": "Mn.us.pbe.z_15.uspp.gbrv.v1.5.upf"
     },
     "Fe": {
-      "pseudopotential": "PSL-PAW-v0.x",
-      "filename": "Fe.paw.pbe.z_16.ld1.psl.v0.2.1.upf",
+      "library": "PSL-PAW-v0.x",
+      "Z": 16,
       "cutoff_wfc": 80,
       "cutoff_rho": 400,
-      "Z": 16
+      "filename": "Fe.paw.pbe.z_16.ld1.psl.v0.2.1.upf"
     },
     "Co": {
-      "pseudopotential": "SPMS",
-      "filename": "Co.nc.pbe.z_17.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 17,
       "cutoff_wfc": 55,
       "cutoff_rho": 165,
-      "Z": 17
+      "filename": "Co.nc.pbe.z_17.oncvpsp4.spms.v1.upf"
     },
     "Ni": {
-      "pseudopotential": "SPMS",
-      "filename": "Ni.nc.pbe.z_18.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 18,
       "cutoff_wfc": 65,
       "cutoff_rho": 195,
-      "Z": 18
+      "filename": "Ni.nc.pbe.z_18.oncvpsp4.spms.v1.upf"
     },
     "Cu": {
-      "pseudopotential": "PSL-PAW-v1-low",
-      "filename": "Cu.paw.pbe.z_11.ld1.psl.v1.0.0-low.upf",
+      "library": "PSL-PAW-v1-low",
+      "Z": 11,
       "cutoff_wfc": 55,
       "cutoff_rho": 165,
-      "Z": 11
+      "filename": "Cu.paw.pbe.z_11.ld1.psl.v1.0.0-low.upf"
     },
     "Zn": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "Zn.paw.pbe.z_12.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 12,
       "cutoff_wfc": 45,
       "cutoff_rho": 225,
-      "Z": 12
+      "filename": "Zn.paw.pbe.z_12.atompaw.jth.v1.1-std.upf"
     },
     "Ga": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "Ga.paw.pbe.z_13.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 13,
       "cutoff_wfc": 30,
       "cutoff_rho": 150,
-      "Z": 13
+      "filename": "Ga.paw.pbe.z_13.atompaw.jth.v1.1-std.upf"
     },
     "Ge": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Ge.us.pbe.z_14.uspp.gbrv.v1.4.upf",
+      "library": "GBRV-1.X",
+      "Z": 14,
       "cutoff_wfc": 40,
       "cutoff_rho": 160,
-      "Z": 14
+      "filename": "Ge.us.pbe.z_14.uspp.gbrv.v1.4.upf"
     },
     "As": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "As.paw.pbe.z_15.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 15,
       "cutoff_wfc": 30,
       "cutoff_rho": 180,
-      "Z": 15
+      "filename": "As.paw.pbe.z_15.atompaw.jth.v1.1-std.upf"
     },
     "Se": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Se.us.pbe.z_6.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 6,
       "cutoff_wfc": 30,
       "cutoff_rho": 120,
-      "Z": 6
+      "filename": "Se.us.pbe.z_6.uspp.gbrv.v1.upf"
     },
     "Br": {
-      "pseudopotential": "SPMS",
-      "filename": "Br.nc.pbe.z_7.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 7,
       "cutoff_wfc": 30,
       "cutoff_rho": 75,
-      "Z": 7
+      "filename": "Br.nc.pbe.z_7.oncvpsp4.spms.v1.upf"
     },
     "Rb": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Rb.us.pbe.z_9.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 9,
       "cutoff_wfc": 30,
       "cutoff_rho": 90,
-      "Z": 9
+      "filename": "Rb.us.pbe.z_9.uspp.gbrv.v1.upf"
     },
     "Sr": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Sr.us.pbe.z_10.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 10,
       "cutoff_wfc": 30,
       "cutoff_rho": 120,
-      "Z": 10
+      "filename": "Sr.us.pbe.z_10.uspp.gbrv.v1.upf"
     },
     "Y": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Y.us.pbe.z_11.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 11,
       "cutoff_wfc": 30,
       "cutoff_rho": 150,
-      "Z": 11
+      "filename": "Y.us.pbe.z_11.uspp.gbrv.v1.upf"
     },
     "Zr": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Zr.us.pbe.z_12.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 12,
       "cutoff_wfc": 30,
       "cutoff_rho": 90,
-      "Z": 12
+      "filename": "Zr.us.pbe.z_12.uspp.gbrv.v1.upf"
     },
     "Nb": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "Nb.paw.pbe.z_13.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 13,
       "cutoff_wfc": 30,
       "cutoff_rho": 90,
-      "Z": 13
+      "filename": "Nb.paw.pbe.z_13.atompaw.jth.v1.1-std.upf"
     },
     "Mo": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "Mo.paw.pbe.z_14.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 14,
       "cutoff_wfc": 30,
       "cutoff_rho": 60,
-      "Z": 14
+      "filename": "Mo.paw.pbe.z_14.atompaw.jth.v1.1-std.upf"
     },
     "Tc": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Tc.us.pbe.z_15.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 15,
       "cutoff_wfc": 30,
       "cutoff_rho": 120,
-      "Z": 15
+      "filename": "Tc.us.pbe.z_15.uspp.gbrv.v1.upf"
     },
     "Ru": {
-      "pseudopotential": "SG15",
-      "filename": "Ru.nc.pbe.z_16.oncvpsp4.sg15.v0.upf",
+      "library": "SG15",
+      "Z": 16,
       "cutoff_wfc": 35,
       "cutoff_rho": 70,
-      "Z": 16
+      "filename": "Ru.nc.pbe.z_16.oncvpsp4.sg15.v0.upf"
     },
     "Rh": {
-      "pseudopotential": "SG15",
-      "filename": "Rh.nc.pbe.z_17.oncvpsp4.sg15.v0.upf",
+      "library": "SG15",
+      "Z": 17,
       "cutoff_wfc": 35,
       "cutoff_rho": 122,
-      "Z": 17
+      "filename": "Rh.nc.pbe.z_17.oncvpsp4.sg15.v0.upf"
     },
     "Pd": {
-      "pseudopotential": "SG15",
-      "filename": "Pd.nc.pbe.z_18.oncvpsp4.sg15.v0.upf",
+      "library": "SG15",
+      "Z": 18,
       "cutoff_wfc": 45,
       "cutoff_rho": 135,
-      "Z": 18
+      "filename": "Pd.nc.pbe.z_18.oncvpsp4.sg15.v0.upf"
     },
     "Ag": {
-      "pseudopotential": "SPMS",
-      "filename": "Ag.nc.pbe.z_19.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 19,
       "cutoff_wfc": 40,
       "cutoff_rho": 160,
-      "Z": 19
+      "filename": "Ag.nc.pbe.z_19.oncvpsp4.spms.v1.upf"
     },
     "Cd": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "Cd.paw.pbe.z_12.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 12,
       "cutoff_wfc": 40,
       "cutoff_rho": 80,
-      "Z": 12
+      "filename": "Cd.paw.pbe.z_12.atompaw.jth.v1.1-std.upf"
     },
     "In": {
-      "pseudopotential": "PSL-US-v0.x",
-      "filename": "In.us.pbe.z_13.ld1.psl.v0.2.2.upf",
+      "library": "PSL-US-v0.x",
+      "Z": 13,
       "cutoff_wfc": 50,
       "cutoff_rho": 150,
-      "Z": 13
+      "filename": "In.us.pbe.z_13.ld1.psl.v0.2.2.upf"
     },
     "Sn": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "Sn.paw.pbe.z_14.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 14,
       "cutoff_wfc": 40,
       "cutoff_rho": 140,
-      "Z": 14
+      "filename": "Sn.paw.pbe.z_14.atompaw.jth.v1.1-std.upf"
     },
     "Sb": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "Sb.paw.pbe.z_15.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 15,
       "cutoff_wfc": 30,
       "cutoff_rho": 120,
-      "Z": 15
+      "filename": "Sb.paw.pbe.z_15.atompaw.jth.v1.1-std.upf"
     },
     "Te": {
-      "pseudopotential": "PSL-US-v1-low",
-      "filename": "Te.us.pbe.z_6.ld1.psl.v1.0.0-low.upf",
+      "library": "PSL-US-v1-low",
+      "Z": 6,
       "cutoff_wfc": 30,
       "cutoff_rho": 60,
-      "Z": 6
+      "filename": "Te.us.pbe.z_6.ld1.psl.v1.0.0-low.upf"
     },
     "I": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "I.us.pbe.z_7.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 7,
       "cutoff_wfc": 30,
       "cutoff_rho": 120,
-      "Z": 7
+      "filename": "I.us.pbe.z_7.uspp.gbrv.v1.upf"
     },
     "Xe": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "Xe.paw.pbe.z_8.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 8,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 8
+      "filename": "Xe.paw.pbe.z_8.atompaw.jth.v1.1-std.upf"
     },
     "Cs": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "Cs.us.pbe.z_9.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 9,
       "cutoff_wfc": 30,
       "cutoff_rho": 105,
-      "Z": 9
+      "filename": "Cs.us.pbe.z_9.ld1.psl.v1.0.0-high.upf"
     },
     "Ba": {
-      "pseudopotential": "SPMS",
-      "filename": "Ba.nc.pbe.z_10.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 10,
       "cutoff_wfc": 30,
       "cutoff_rho": 45,
-      "Z": 10
+      "filename": "Ba.nc.pbe.z_10.oncvpsp4.spms.v1.upf"
     },
     "Ce": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Ce.paw.pbe.z_12.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 12,
       "cutoff_wfc": 35,
       "cutoff_rho": 70,
-      "Z": 12
+      "filename": "Ce.paw.pbe.z_12.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Pr": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Pr.paw.pbe.z_13.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 13,
       "cutoff_wfc": 30,
       "cutoff_rho": 75,
-      "Z": 13
+      "filename": "Pr.paw.pbe.z_13.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Nd": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Nd.paw.pbe.z_14.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 14,
       "cutoff_wfc": 35,
       "cutoff_rho": 210,
-      "Z": 14
+      "filename": "Nd.paw.pbe.z_14.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Pm": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Pm.paw.pbe.z_15.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 15,
       "cutoff_wfc": 35,
       "cutoff_rho": 105,
-      "Z": 15
+      "filename": "Pm.paw.pbe.z_15.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Sm": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "Sm.us.pbe.z_26.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 26,
       "cutoff_wfc": 200,
       "cutoff_rho": 400,
-      "Z": 26
+      "filename": "Sm.us.pbe.z_26.ld1.psl.v1.0.0-high.upf"
     },
     "Eu": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Eu.paw.pbe.z_17.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 17,
       "cutoff_wfc": 35,
       "cutoff_rho": 105,
-      "Z": 17
+      "filename": "Eu.paw.pbe.z_17.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Gd": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Gd.paw.pbe.z_18.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 18,
       "cutoff_wfc": 35,
       "cutoff_rho": 140,
-      "Z": 18
+      "filename": "Gd.paw.pbe.z_18.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Tb": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Tb.paw.pbe.z_19.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 19,
       "cutoff_wfc": 40,
       "cutoff_rho": 140,
-      "Z": 19
+      "filename": "Tb.paw.pbe.z_19.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Dy": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Dy.paw.pbe.z_20.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 20,
       "cutoff_wfc": 40,
       "cutoff_rho": 160,
-      "Z": 20
+      "filename": "Dy.paw.pbe.z_20.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Ho": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Ho.paw.pbe.z_21.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 21,
       "cutoff_wfc": 40,
       "cutoff_rho": 160,
-      "Z": 21
+      "filename": "Ho.paw.pbe.z_21.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Er": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Er.paw.pbe.z_22.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 22,
       "cutoff_wfc": 80,
       "cutoff_rho": 160,
-      "Z": 22
+      "filename": "Er.paw.pbe.z_22.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Tm": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Tm.paw.pbe.z_23.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 23,
       "cutoff_wfc": 40,
       "cutoff_rho": 160,
-      "Z": 23
+      "filename": "Tm.paw.pbe.z_23.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Yb": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Yb.paw.pbe.z_24.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 24,
       "cutoff_wfc": 80,
       "cutoff_rho": 560,
-      "Z": 24
+      "filename": "Yb.paw.pbe.z_24.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Lu": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Lu.paw.pbe.z_25.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 25,
       "cutoff_wfc": 45,
       "cutoff_rho": 180,
-      "Z": 25
+      "filename": "Lu.paw.pbe.z_25.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Hf": {
-      "pseudopotential": "SPMS",
-      "filename": "Hf.nc.pbe.z_12.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 12,
       "cutoff_wfc": 30,
       "cutoff_rho": 90,
-      "Z": 12
+      "filename": "Hf.nc.pbe.z_12.oncvpsp4.spms.v1.upf"
     },
     "Ta": {
-      "pseudopotential": "SPMS",
-      "filename": "Ta.nc.pbe.z_13.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 13,
       "cutoff_wfc": 30,
       "cutoff_rho": 75,
-      "Z": 13
+      "filename": "Ta.nc.pbe.z_13.oncvpsp4.spms.v1.upf"
     },
     "W": {
-      "pseudopotential": "SPMS",
-      "filename": "W.nc.pbe.z_14.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 14,
       "cutoff_wfc": 30,
       "cutoff_rho": 90,
-      "Z": 14
+      "filename": "W.nc.pbe.z_14.oncvpsp4.spms.v1.upf"
     },
     "Re": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Re.us.pbe.z_15.uspp.gbrv.v1.2.upf",
+      "library": "GBRV-1.X",
+      "Z": 15,
       "cutoff_wfc": 30,
       "cutoff_rho": 120,
-      "Z": 15
+      "filename": "Re.us.pbe.z_15.uspp.gbrv.v1.2.upf"
     },
     "Os": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Os.us.pbe.z_16.uspp.gbrv.v1.2.upf",
+      "library": "GBRV-1.X",
+      "Z": 16,
       "cutoff_wfc": 35,
       "cutoff_rho": 140,
-      "Z": 16
+      "filename": "Os.us.pbe.z_16.uspp.gbrv.v1.2.upf"
     },
     "Ir": {
-      "pseudopotential": "PSL-PAW-v1-low",
-      "filename": "Ir.paw.pbe.z_9.ld1.psl.v1.0.0-low.n.upf",
+      "library": "PSL-PAW-v1-low",
+      "Z": 9,
       "cutoff_wfc": 35,
       "cutoff_rho": 88,
-      "Z": 9
+      "filename": "Ir.paw.pbe.z_9.ld1.psl.v1.0.0-low.n.upf"
     },
     "Pt": {
-      "pseudopotential": "PSL-US-v1-low",
-      "filename": "Pt.us.pbe.z_10.ld1.psl.v1.0.0-low.n.upf",
+      "library": "PSL-US-v1-low",
+      "Z": 10,
       "cutoff_wfc": 30,
       "cutoff_rho": 120,
-      "Z": 10
+      "filename": "Pt.us.pbe.z_10.ld1.psl.v1.0.0-low.n.upf"
     },
     "Au": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Au.us.pbe.z_11.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 11,
       "cutoff_wfc": 30,
       "cutoff_rho": 105,
-      "Z": 11
+      "filename": "Au.us.pbe.z_11.uspp.gbrv.v1.upf"
     },
     "Hg": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Hg.us.pbe.z_12.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 12,
       "cutoff_wfc": 30,
       "cutoff_rho": 120,
-      "Z": 12
+      "filename": "Hg.us.pbe.z_12.uspp.gbrv.v1.upf"
     },
     "Tl": {
-      "pseudopotential": "SPMS",
-      "filename": "Tl.nc.pbe.z_13.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 13,
       "cutoff_wfc": 30,
       "cutoff_rho": 90,
-      "Z": 13
+      "filename": "Tl.nc.pbe.z_13.oncvpsp4.spms.v1.upf"
     },
     "Pb": {
-      "pseudopotential": "SPMS",
-      "filename": "Pb.nc.pbe.z_14.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 14,
       "cutoff_wfc": 30,
       "cutoff_rho": 75,
-      "Z": 14
+      "filename": "Pb.nc.pbe.z_14.oncvpsp4.spms.v1.upf"
     },
     "Bi": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Bi.us.pbe.z_15.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 15,
       "cutoff_wfc": 45,
       "cutoff_rho": 180,
-      "Z": 15
+      "filename": "Bi.us.pbe.z_15.uspp.gbrv.v1.upf"
     },
     "Po": {
-      "pseudopotential": "DOJO-041-std",
-      "filename": "Po.nc.pbe.z_16.oncvpsp3.dojo.v0.4.1-std.upf",
+      "library": "DOJO-041-std",
+      "Z": 16,
       "cutoff_wfc": 60,
       "cutoff_rho": 180,
-      "Z": 16
+      "filename": "Po.nc.pbe.z_16.oncvpsp3.dojo.v0.4.1-std.upf"
     },
     "At": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "At.paw.pbe.z_7.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 7,
       "cutoff_wfc": 30,
       "cutoff_rho": 90,
-      "Z": 7
+      "filename": "At.paw.pbe.z_7.atompaw.jth.v1.1-std.upf"
     },
     "Rn": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "Rn.paw.pbe.z_8.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 8,
       "cutoff_wfc": 30,
       "cutoff_rho": 135,
-      "Z": 8
+      "filename": "Rn.paw.pbe.z_8.atompaw.jth.v1.1-std.upf"
     },
     "Fr": {
-      "pseudopotential": "PSL-PAW-v1-high",
-      "filename": "Fr.paw.pbe.z_19.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-PAW-v1-high",
+      "Z": 19,
       "cutoff_wfc": 150,
       "cutoff_rho": 675,
-      "Z": 19
+      "filename": "Fr.paw.pbe.z_19.ld1.psl.v1.0.0-high.upf"
     },
     "Ra": {
-      "pseudopotential": "PSL-PAW-v1-high",
-      "filename": "Ra.paw.pbe.z_20.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-PAW-v1-high",
+      "Z": 20,
       "cutoff_wfc": 150,
       "cutoff_rho": 600,
-      "Z": 20
+      "filename": "Ra.paw.pbe.z_20.ld1.psl.v1.0.0-high.upf"
     },
     "Ac": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "Ac.us.pbe.z_11.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 11,
       "cutoff_wfc": 40,
       "cutoff_rho": 100,
-      "Z": 11
+      "filename": "Ac.us.pbe.z_11.ld1.psl.v1.0.0-high.upf"
     },
     "Th": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "Th.us.pbe.z_12.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 12,
       "cutoff_wfc": 75,
       "cutoff_rho": 255,
-      "Z": 12
+      "filename": "Th.us.pbe.z_12.ld1.psl.v1.0.0-high.upf"
     },
     "Pa": {
-      "pseudopotential": "MARBURG",
-      "filename": "Pa.paw.pbe.z_13.ld1.uni-marburg.v0.upf",
+      "library": "MARBURG",
+      "Z": 13,
       "cutoff_wfc": 40,
       "cutoff_rho": 240,
-      "Z": 13
+      "filename": "Pa.paw.pbe.z_13.ld1.uni-marburg.v0.upf"
     },
     "U": {
-      "pseudopotential": "MARBURG",
-      "filename": "U.paw.pbe.z_14.ld1.uni-marburg.v0.upf",
+      "library": "MARBURG",
+      "Z": 14,
       "cutoff_wfc": 45,
       "cutoff_rho": 180,
-      "Z": 14
+      "filename": "U.paw.pbe.z_14.ld1.uni-marburg.v0.upf"
     },
     "Np": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "Np.us.pbe.z_15.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 15,
       "cutoff_wfc": 90,
       "cutoff_rho": 180,
-      "Z": 15
+      "filename": "Np.us.pbe.z_15.ld1.psl.v1.0.0-high.upf"
     },
     "Pu": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "Pu.us.pbe.z_16.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 16,
       "cutoff_wfc": 40,
       "cutoff_rho": 160,
-      "Z": 16
+      "filename": "Pu.us.pbe.z_16.ld1.psl.v1.0.0-high.upf"
     },
     "Am": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "Am.us.pbe.z_17.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 17,
       "cutoff_wfc": 45,
       "cutoff_rho": 100,
-      "Z": 17
+      "filename": "Am.us.pbe.z_17.ld1.psl.v1.0.0-high.upf"
     }
   },
   "precision": {
     "H": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "H.us.pbe.z_1.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 1,
       "cutoff_wfc": 45,
       "cutoff_rho": 360,
-      "Z": 1
+      "filename": "H.us.pbe.z_1.ld1.psl.v1.0.0-high.upf"
     },
     "He": {
-      "pseudopotential": "PSL-PAW-v1-high",
-      "filename": "He.paw.pbe.z_2.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-PAW-v1-high",
+      "Z": 2,
       "cutoff_wfc": 100,
       "cutoff_rho": 800,
-      "Z": 2
+      "filename": "He.paw.pbe.z_2.ld1.psl.v1.0.0-high.upf"
     },
     "Li": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Li.us.pbe.z_3.uspp.gbrv.v1.4.upf",
+      "library": "GBRV-1.X",
+      "Z": 3,
       "cutoff_wfc": 40,
       "cutoff_rho": 320,
-      "Z": 3
+      "filename": "Li.us.pbe.z_3.uspp.gbrv.v1.4.upf"
     },
     "Be": {
-      "pseudopotential": "PSL-US-v1-low",
-      "filename": "Be.us.pbe.z_2.ld1.psl.v1.0.0-low.n.upf",
+      "library": "PSL-US-v1-low",
+      "Z": 2,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 2
+      "filename": "Be.us.pbe.z_2.ld1.psl.v1.0.0-low.n.upf"
     },
     "B": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "B.paw.pbe.z_3.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 3,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 3
+      "filename": "B.paw.pbe.z_3.atompaw.jth.v1.1-std.upf"
     },
     "C": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "C.us.pbe.z_4.uspp.gbrv.v1.2.upf",
+      "library": "GBRV-1.X",
+      "Z": 4,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 4
+      "filename": "C.us.pbe.z_4.uspp.gbrv.v1.2.upf"
     },
     "N": {
-      "pseudopotential": "PSL-PAW-v0.x",
-      "filename": "N.paw.pbe.z_5.ld1.psl.v0.1.upf",
+      "library": "PSL-PAW-v0.x",
+      "Z": 5,
       "cutoff_wfc": 40,
       "cutoff_rho": 320,
-      "Z": 5
+      "filename": "N.paw.pbe.z_5.ld1.psl.v0.1.upf"
     },
     "O": {
-      "pseudopotential": "PSL-PAW-v0.x",
-      "filename": "O.paw.pbe.z_6.ld1.psl.v0.1.upf",
+      "library": "PSL-PAW-v0.x",
+      "Z": 6,
       "cutoff_wfc": 50,
       "cutoff_rho": 600,
-      "Z": 6
+      "filename": "O.paw.pbe.z_6.ld1.psl.v0.1.upf"
     },
     "F": {
-      "pseudopotential": "PSL-US-v0.x",
-      "filename": "F.us.pbe.z_7.ld1.psl.v0.1.upf",
+      "library": "PSL-US-v0.x",
+      "Z": 7,
       "cutoff_wfc": 75,
       "cutoff_rho": 600,
-      "Z": 7
+      "filename": "F.us.pbe.z_7.ld1.psl.v0.1.upf"
     },
     "Ne": {
-      "pseudopotential": "PSL-PAW-v1-high",
-      "filename": "Ne.paw.pbe.z_8.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-PAW-v1-high",
+      "Z": 8,
       "cutoff_wfc": 200,
       "cutoff_rho": 1600,
-      "Z": 8
+      "filename": "Ne.paw.pbe.z_8.ld1.psl.v1.0.0-high.upf"
     },
     "Na": {
-      "pseudopotential": "PSL-PAW-v0.x",
-      "filename": "Na.paw.pbe.z_9.ld1.psl.v0.2.upf",
+      "library": "PSL-PAW-v0.x",
+      "Z": 9,
       "cutoff_wfc": 55,
       "cutoff_rho": 440,
-      "Z": 9
+      "filename": "Na.paw.pbe.z_9.ld1.psl.v0.2.upf"
     },
     "Mg": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Mg.us.pbe.z_10.uspp.gbrv.v1.4.upf",
+      "library": "GBRV-1.X",
+      "Z": 10,
       "cutoff_wfc": 40,
       "cutoff_rho": 320,
-      "Z": 10
+      "filename": "Mg.us.pbe.z_10.uspp.gbrv.v1.4.upf"
     },
     "Al": {
-      "pseudopotential": "PSL-US-v1-low",
-      "filename": "Al.us.pbe.z_3.ld1.psl.v1.0.0-low.upf",
+      "library": "PSL-US-v1-low",
+      "Z": 3,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 3
+      "filename": "Al.us.pbe.z_3.ld1.psl.v1.0.0-low.upf"
     },
     "Si": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "Si.us.pbe.z_4.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 4,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 4
+      "filename": "Si.us.pbe.z_4.ld1.psl.v1.0.0-high.upf"
     },
     "P": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "P.us.pbe.z_5.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 5,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 5
+      "filename": "P.us.pbe.z_5.ld1.psl.v1.0.0-high.upf"
     },
     "S": {
-      "pseudopotential": "SPMS",
-      "filename": "S.nc.pbe.z_6.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 6,
       "cutoff_wfc": 35,
       "cutoff_rho": 140,
-      "Z": 6
+      "filename": "S.nc.pbe.z_6.oncvpsp4.spms.v1.upf"
     },
     "Cl": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "Cl.us.pbe.z_7.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 7,
       "cutoff_wfc": 35,
       "cutoff_rho": 280,
-      "Z": 7
+      "filename": "Cl.us.pbe.z_7.ld1.psl.v1.0.0-high.upf"
     },
     "Ar": {
-      "pseudopotential": "PSL-PAW-v1-low",
-      "filename": "Ar.paw.pbe.z_8.ld1.psl.v1.0.0-low.upf",
+      "library": "PSL-PAW-v1-low",
+      "Z": 8,
       "cutoff_wfc": 120,
       "cutoff_rho": 960,
-      "Z": 8
+      "filename": "Ar.paw.pbe.z_8.ld1.psl.v1.0.0-low.upf"
     },
     "K": {
-      "pseudopotential": "SG15",
-      "filename": "K.nc.pbe.z_9.oncvpsp4.sg15.v0.upf",
+      "library": "SG15",
+      "Z": 9,
       "cutoff_wfc": 35,
       "cutoff_rho": 140,
-      "Z": 9
+      "filename": "K.nc.pbe.z_9.oncvpsp4.sg15.v0.upf"
     },
     "Ca": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Ca.us.pbe.z_10.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 10,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 10
+      "filename": "Ca.us.pbe.z_10.uspp.gbrv.v1.upf"
     },
     "Sc": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Sc.us.pbe.z_11.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 11,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 11
+      "filename": "Sc.us.pbe.z_11.uspp.gbrv.v1.upf"
     },
     "Ti": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Ti.us.pbe.z_12.uspp.gbrv.v1.4.upf",
+      "library": "GBRV-1.X",
+      "Z": 12,
       "cutoff_wfc": 35,
       "cutoff_rho": 280,
-      "Z": 12
+      "filename": "Ti.us.pbe.z_12.uspp.gbrv.v1.4.upf"
     },
     "V": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "V.us.pbe.z_13.uspp.gbrv.v1.4.upf",
+      "library": "GBRV-1.X",
+      "Z": 13,
       "cutoff_wfc": 40,
       "cutoff_rho": 320,
-      "Z": 13
+      "filename": "V.us.pbe.z_13.uspp.gbrv.v1.4.upf"
     },
     "Cr": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Cr.us.pbe.z_14.uspp.gbrv.v1.5.upf",
+      "library": "GBRV-1.X",
+      "Z": 14,
       "cutoff_wfc": 40,
       "cutoff_rho": 480,
-      "Z": 14
+      "filename": "Cr.us.pbe.z_14.uspp.gbrv.v1.5.upf"
     },
     "Mn": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Mn.us.pbe.z_15.uspp.gbrv.v1.5.upf",
+      "library": "GBRV-1.X",
+      "Z": 15,
       "cutoff_wfc": 40,
       "cutoff_rho": 480,
-      "Z": 15
+      "filename": "Mn.us.pbe.z_15.uspp.gbrv.v1.5.upf"
     },
     "Fe": {
-      "pseudopotential": "PSL-PAW-v0.x",
-      "filename": "Fe.paw.pbe.z_16.ld1.psl.v0.2.1.upf",
+      "library": "PSL-PAW-v0.x",
+      "Z": 16,
       "cutoff_wfc": 90,
       "cutoff_rho": 1080,
-      "Z": 16
+      "filename": "Fe.paw.pbe.z_16.ld1.psl.v0.2.1.upf"
     },
     "Co": {
-      "pseudopotential": "SPMS",
-      "filename": "Co.nc.pbe.z_17.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 17,
       "cutoff_wfc": 55,
       "cutoff_rho": 660,
-      "Z": 17
+      "filename": "Co.nc.pbe.z_17.oncvpsp4.spms.v1.upf"
     },
     "Ni": {
-      "pseudopotential": "SPMS",
-      "filename": "Ni.nc.pbe.z_18.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 18,
       "cutoff_wfc": 65,
       "cutoff_rho": 780,
-      "Z": 18
+      "filename": "Ni.nc.pbe.z_18.oncvpsp4.spms.v1.upf"
     },
     "Cu": {
-      "pseudopotential": "PSL-PAW-v1-low",
-      "filename": "Cu.paw.pbe.z_11.ld1.psl.v1.0.0-low.upf",
+      "library": "PSL-PAW-v1-low",
+      "Z": 11,
       "cutoff_wfc": 55,
       "cutoff_rho": 440,
-      "Z": 11
+      "filename": "Cu.paw.pbe.z_11.ld1.psl.v1.0.0-low.upf"
     },
     "Zn": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "Zn.paw.pbe.z_12.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 12,
       "cutoff_wfc": 50,
       "cutoff_rho": 400,
-      "Z": 12
+      "filename": "Zn.paw.pbe.z_12.atompaw.jth.v1.1-std.upf"
     },
     "Ga": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "Ga.paw.pbe.z_13.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 13,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 13
+      "filename": "Ga.paw.pbe.z_13.atompaw.jth.v1.1-std.upf"
     },
     "Ge": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Ge.us.pbe.z_14.uspp.gbrv.v1.4.upf",
+      "library": "GBRV-1.X",
+      "Z": 14,
       "cutoff_wfc": 40,
       "cutoff_rho": 320,
-      "Z": 14
+      "filename": "Ge.us.pbe.z_14.uspp.gbrv.v1.4.upf"
     },
     "As": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "As.paw.pbe.z_15.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 15,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 15
+      "filename": "As.paw.pbe.z_15.atompaw.jth.v1.1-std.upf"
     },
     "Se": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Se.us.pbe.z_6.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 6,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 6
+      "filename": "Se.us.pbe.z_6.uspp.gbrv.v1.upf"
     },
     "Br": {
-      "pseudopotential": "SPMS",
-      "filename": "Br.nc.pbe.z_7.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 7,
       "cutoff_wfc": 30,
       "cutoff_rho": 120,
-      "Z": 7
+      "filename": "Br.nc.pbe.z_7.oncvpsp4.spms.v1.upf"
     },
     "Rb": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Rb.us.pbe.z_9.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 9,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 9
+      "filename": "Rb.us.pbe.z_9.uspp.gbrv.v1.upf"
     },
     "Sr": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Sr.us.pbe.z_10.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 10,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 10
+      "filename": "Sr.us.pbe.z_10.uspp.gbrv.v1.upf"
     },
     "Y": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Y.us.pbe.z_11.uspp.gbrv.v1.4.upf",
+      "library": "GBRV-1.X",
+      "Z": 11,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 11
+      "filename": "Y.us.pbe.z_11.uspp.gbrv.v1.4.upf"
     },
     "Zr": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Zr.us.pbe.z_12.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 12,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 12
+      "filename": "Zr.us.pbe.z_12.uspp.gbrv.v1.upf"
     },
     "Nb": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "Nb.paw.pbe.z_13.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 13,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 13
+      "filename": "Nb.paw.pbe.z_13.atompaw.jth.v1.1-std.upf"
     },
     "Mo": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "Mo.paw.pbe.z_14.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 14,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 14
+      "filename": "Mo.paw.pbe.z_14.atompaw.jth.v1.1-std.upf"
     },
     "Tc": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Tc.us.pbe.z_15.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 15,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 15
+      "filename": "Tc.us.pbe.z_15.uspp.gbrv.v1.upf"
     },
     "Ru": {
-      "pseudopotential": "SG15",
-      "filename": "Ru.nc.pbe.z_16.oncvpsp4.sg15.v0.upf",
+      "library": "SG15",
+      "Z": 16,
       "cutoff_wfc": 35,
       "cutoff_rho": 140,
-      "Z": 16
+      "filename": "Ru.nc.pbe.z_16.oncvpsp4.sg15.v0.upf"
     },
     "Rh": {
-      "pseudopotential": "SPMS",
-      "filename": "Rh.nc.pbe.z_17.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 17,
       "cutoff_wfc": 45,
       "cutoff_rho": 180,
-      "Z": 17
+      "filename": "Rh.nc.pbe.z_17.oncvpsp4.spms.v1.upf"
     },
     "Pd": {
-      "pseudopotential": "SG15",
-      "filename": "Pd.nc.pbe.z_18.oncvpsp4.sg15.v0.upf",
+      "library": "SG15",
+      "Z": 18,
       "cutoff_wfc": 45,
       "cutoff_rho": 180,
-      "Z": 18
+      "filename": "Pd.nc.pbe.z_18.oncvpsp4.sg15.v0.upf"
     },
     "Ag": {
-      "pseudopotential": "SPMS",
-      "filename": "Ag.nc.pbe.z_19.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 19,
       "cutoff_wfc": 45,
       "cutoff_rho": 180,
-      "Z": 19
+      "filename": "Ag.nc.pbe.z_19.oncvpsp4.spms.v1.upf"
     },
     "Cd": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "Cd.paw.pbe.z_12.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 12,
       "cutoff_wfc": 150,
       "cutoff_rho": 1200,
-      "Z": 12
+      "filename": "Cd.paw.pbe.z_12.atompaw.jth.v1.1-std.upf"
     },
     "In": {
-      "pseudopotential": "PSL-US-v0.x",
-      "filename": "In.us.pbe.z_13.ld1.psl.v0.2.2.upf",
+      "library": "PSL-US-v0.x",
+      "Z": 13,
       "cutoff_wfc": 50,
       "cutoff_rho": 400,
-      "Z": 13
+      "filename": "In.us.pbe.z_13.ld1.psl.v0.2.2.upf"
     },
     "Sn": {
-      "pseudopotential": "JTH-1.1-std",
-      "filename": "Sn.paw.pbe.z_14.atompaw.jth.v1.1-std.upf",
+      "library": "JTH-1.1-std",
+      "Z": 14,
       "cutoff_wfc": 150,
       "cutoff_rho": 1200,
-      "Z": 14
+      "filename": "Sn.paw.pbe.z_14.atompaw.jth.v1.1-std.upf"
     },
     "Sb": {
-      "pseudopotential": "SPMS",
-      "filename": "Sb.nc.pbe.z_15.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 15,
       "cutoff_wfc": 50,
       "cutoff_rho": 200,
-      "Z": 15
+      "filename": "Sb.nc.pbe.z_15.oncvpsp4.spms.v1.upf"
     },
     "Te": {
-      "pseudopotential": "PSL-US-v1-low",
-      "filename": "Te.us.pbe.z_6.ld1.psl.v1.0.0-low.upf",
+      "library": "PSL-US-v1-low",
+      "Z": 6,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 6
+      "filename": "Te.us.pbe.z_6.ld1.psl.v1.0.0-low.upf"
     },
     "I": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "I.us.pbe.z_7.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 7,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 7
+      "filename": "I.us.pbe.z_7.uspp.gbrv.v1.upf"
     },
     "Xe": {
-      "pseudopotential": "DOJO-050-std",
-      "filename": "Xe.nc.pbe.z_8.oncvpsp4.dojo.v0.5.0-std.upf",
+      "library": "DOJO-050-std",
+      "Z": 8,
       "cutoff_wfc": 150,
       "cutoff_rho": 600,
-      "Z": 8
+      "filename": "Xe.nc.pbe.z_8.oncvpsp4.dojo.v0.5.0-std.upf"
     },
     "Cs": {
-      "pseudopotential": "SPMS",
-      "filename": "Cs.nc.pbe.z_9.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 9,
       "cutoff_wfc": 40,
       "cutoff_rho": 160,
-      "Z": 9
+      "filename": "Cs.nc.pbe.z_9.oncvpsp4.spms.v1.upf"
     },
     "Ba": {
-      "pseudopotential": "DOJO-050-std",
-      "filename": "Ba.nc.pbe.z_10.oncvpsp4.dojo.v0.5.0-std.upf",
+      "library": "DOJO-050-std",
+      "Z": 10,
       "cutoff_wfc": 55,
       "cutoff_rho": 220,
-      "Z": 10
+      "filename": "Ba.nc.pbe.z_10.oncvpsp4.dojo.v0.5.0-std.upf"
     },
     "Ce": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Ce.paw.pbe.z_12.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 12,
       "cutoff_wfc": 35,
       "cutoff_rho": 280,
-      "Z": 12
+      "filename": "Ce.paw.pbe.z_12.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Pr": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Pr.paw.pbe.z_13.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 13,
       "cutoff_wfc": 90,
       "cutoff_rho": 720,
-      "Z": 13
+      "filename": "Pr.paw.pbe.z_13.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Nd": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Nd.paw.pbe.z_14.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 14,
       "cutoff_wfc": 40,
       "cutoff_rho": 320,
-      "Z": 14
+      "filename": "Nd.paw.pbe.z_14.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Pm": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Pm.paw.pbe.z_15.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 15,
       "cutoff_wfc": 50,
       "cutoff_rho": 400,
-      "Z": 15
+      "filename": "Pm.paw.pbe.z_15.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Sm": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "Sm.us.pbe.z_26.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 26,
       "cutoff_wfc": 200,
       "cutoff_rho": 1600,
-      "Z": 26
+      "filename": "Sm.us.pbe.z_26.ld1.psl.v1.0.0-high.upf"
     },
     "Eu": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Eu.paw.pbe.z_17.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 17,
       "cutoff_wfc": 35,
       "cutoff_rho": 280,
-      "Z": 17
+      "filename": "Eu.paw.pbe.z_17.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Gd": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Gd.paw.pbe.z_18.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 18,
       "cutoff_wfc": 50,
       "cutoff_rho": 400,
-      "Z": 18
+      "filename": "Gd.paw.pbe.z_18.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Tb": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Tb.paw.pbe.z_19.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 19,
       "cutoff_wfc": 55,
       "cutoff_rho": 440,
-      "Z": 19
+      "filename": "Tb.paw.pbe.z_19.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Dy": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Dy.paw.pbe.z_20.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 20,
       "cutoff_wfc": 200,
       "cutoff_rho": 1600,
-      "Z": 20
+      "filename": "Dy.paw.pbe.z_20.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Ho": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Ho.paw.pbe.z_21.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 21,
       "cutoff_wfc": 120,
       "cutoff_rho": 960,
-      "Z": 21
+      "filename": "Ho.paw.pbe.z_21.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Er": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Er.paw.pbe.z_22.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 22,
       "cutoff_wfc": 150,
       "cutoff_rho": 1200,
-      "Z": 22
+      "filename": "Er.paw.pbe.z_22.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Tm": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Tm.paw.pbe.z_23.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 23,
       "cutoff_wfc": 200,
       "cutoff_rho": 1600,
-      "Z": 23
+      "filename": "Tm.paw.pbe.z_23.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Yb": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Yb.paw.pbe.z_24.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 24,
       "cutoff_wfc": 150,
       "cutoff_rho": 1200,
-      "Z": 24
+      "filename": "Yb.paw.pbe.z_24.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Lu": {
-      "pseudopotential": "Wentzcovitch",
-      "filename": "Lu.paw.pbe.z_25.atompaw.wentzcovitch.v1.0.legacy.upf",
+      "library": "Wentzcovitch",
+      "Z": 25,
       "cutoff_wfc": 50,
       "cutoff_rho": 400,
-      "Z": 25
+      "filename": "Lu.paw.pbe.z_25.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Hf": {
-      "pseudopotential": "SG15",
-      "filename": "Hf.nc.pbe.z_26.oncvpsp4.sg15.v0.upf",
+      "library": "SG15",
+      "Z": 26,
       "cutoff_wfc": 60,
       "cutoff_rho": 240,
-      "Z": 26
+      "filename": "Hf.nc.pbe.z_26.oncvpsp4.sg15.v0.upf"
     },
     "Ta": {
-      "pseudopotential": "SPMS",
-      "filename": "Ta.nc.pbe.z_13.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 13,
       "cutoff_wfc": 30,
       "cutoff_rho": 120,
-      "Z": 13
+      "filename": "Ta.nc.pbe.z_13.oncvpsp4.spms.v1.upf"
     },
     "W": {
-      "pseudopotential": "SPMS",
-      "filename": "W.nc.pbe.z_14.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 14,
       "cutoff_wfc": 30,
       "cutoff_rho": 120,
-      "Z": 14
+      "filename": "W.nc.pbe.z_14.oncvpsp4.spms.v1.upf"
     },
     "Re": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Re.us.pbe.z_15.uspp.gbrv.v1.2.upf",
+      "library": "GBRV-1.X",
+      "Z": 15,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 15
+      "filename": "Re.us.pbe.z_15.uspp.gbrv.v1.2.upf"
     },
     "Os": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Os.us.pbe.z_16.uspp.gbrv.v1.2.upf",
+      "library": "GBRV-1.X",
+      "Z": 16,
       "cutoff_wfc": 40,
       "cutoff_rho": 320,
-      "Z": 16
+      "filename": "Os.us.pbe.z_16.uspp.gbrv.v1.2.upf"
     },
     "Ir": {
-      "pseudopotential": "SPMS",
-      "filename": "Ir.nc.pbe.z_17.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 17,
       "cutoff_wfc": 30,
       "cutoff_rho": 120,
-      "Z": 17
+      "filename": "Ir.nc.pbe.z_17.oncvpsp4.spms.v1.upf"
     },
     "Pt": {
-      "pseudopotential": "PSL-US-v1-low",
-      "filename": "Pt.us.pbe.z_10.ld1.psl.v1.0.0-low.n.upf",
+      "library": "PSL-US-v1-low",
+      "Z": 10,
       "cutoff_wfc": 35,
       "cutoff_rho": 280,
-      "Z": 10
+      "filename": "Pt.us.pbe.z_10.ld1.psl.v1.0.0-low.n.upf"
     },
     "Au": {
-      "pseudopotential": "SPMS",
-      "filename": "Au.nc.pbe.z_19.oncvpsp4.spms.v1.upf",
+      "library": "SPMS",
+      "Z": 19,
       "cutoff_wfc": 35,
       "cutoff_rho": 140,
-      "Z": 19
+      "filename": "Au.nc.pbe.z_19.oncvpsp4.spms.v1.upf"
     },
     "Hg": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Hg.us.pbe.z_12.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 12,
       "cutoff_wfc": 30,
       "cutoff_rho": 240,
-      "Z": 12
+      "filename": "Hg.us.pbe.z_12.uspp.gbrv.v1.upf"
     },
     "Tl": {
-      "pseudopotential": "SG15",
-      "filename": "Tl.nc.pbe.z_13.oncvpsp4.sg15.v0.upf",
+      "library": "SG15",
+      "Z": 13,
       "cutoff_wfc": 35,
       "cutoff_rho": 140,
-      "Z": 13
+      "filename": "Tl.nc.pbe.z_13.oncvpsp4.sg15.v0.upf"
     },
     "Pb": {
-      "pseudopotential": "SG15",
-      "filename": "Pb.nc.pbe.z_14.oncvpsp4.sg15.v0.upf",
+      "library": "SG15",
+      "Z": 14,
       "cutoff_wfc": 35,
       "cutoff_rho": 140,
-      "Z": 14
+      "filename": "Pb.nc.pbe.z_14.oncvpsp4.sg15.v0.upf"
     },
     "Bi": {
-      "pseudopotential": "GBRV-1.X",
-      "filename": "Bi.us.pbe.z_15.uspp.gbrv.v1.upf",
+      "library": "GBRV-1.X",
+      "Z": 15,
       "cutoff_wfc": 45,
       "cutoff_rho": 360,
-      "Z": 15
+      "filename": "Bi.us.pbe.z_15.uspp.gbrv.v1.upf"
     },
     "Po": {
-      "pseudopotential": "DOJO-041-std",
-      "filename": "Po.nc.pbe.z_16.oncvpsp3.dojo.v0.4.1-std.upf",
+      "library": "DOJO-041-std",
+      "Z": 16,
       "cutoff_wfc": 65,
       "cutoff_rho": 260,
-      "Z": 16
+      "filename": "Po.nc.pbe.z_16.oncvpsp3.dojo.v0.4.1-std.upf"
     },
     "At": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "At.us.pbe.z_17.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 17,
       "cutoff_wfc": 120,
       "cutoff_rho": 960,
-      "Z": 17
+      "filename": "At.us.pbe.z_17.ld1.psl.v1.0.0-high.upf"
     },
     "Rn": {
-      "pseudopotential": "PSL-PAW-v1-high",
-      "filename": "Rn.paw.pbe.z_18.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-PAW-v1-high",
+      "Z": 18,
       "cutoff_wfc": 200,
       "cutoff_rho": 1600,
-      "Z": 18
+      "filename": "Rn.paw.pbe.z_18.ld1.psl.v1.0.0-high.upf"
     },
     "Fr": {
-      "pseudopotential": "PSL-PAW-v1-high",
-      "filename": "Fr.paw.pbe.z_19.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-PAW-v1-high",
+      "Z": 19,
       "cutoff_wfc": 200,
       "cutoff_rho": 1600,
-      "Z": 19
+      "filename": "Fr.paw.pbe.z_19.ld1.psl.v1.0.0-high.upf"
     },
     "Ra": {
-      "pseudopotential": "PSL-PAW-v1-high",
-      "filename": "Ra.paw.pbe.z_20.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-PAW-v1-high",
+      "Z": 20,
       "cutoff_wfc": 150,
       "cutoff_rho": 1200,
-      "Z": 20
+      "filename": "Ra.paw.pbe.z_20.ld1.psl.v1.0.0-high.upf"
     },
     "Ac": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "Ac.us.pbe.z_11.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 11,
       "cutoff_wfc": 40,
       "cutoff_rho": 320,
-      "Z": 11
+      "filename": "Ac.us.pbe.z_11.ld1.psl.v1.0.0-high.upf"
     },
     "Th": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "Th.us.pbe.z_12.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 12,
       "cutoff_wfc": 80,
       "cutoff_rho": 640,
-      "Z": 12
+      "filename": "Th.us.pbe.z_12.ld1.psl.v1.0.0-high.upf"
     },
     "Pa": {
-      "pseudopotential": "MARBURG",
-      "filename": "Pa.paw.pbe.z_13.ld1.uni-marburg.v0.upf",
+      "library": "MARBURG",
+      "Z": 13,
       "cutoff_wfc": 40,
       "cutoff_rho": 320,
-      "Z": 13
+      "filename": "Pa.paw.pbe.z_13.ld1.uni-marburg.v0.upf"
     },
     "U": {
-      "pseudopotential": "MARBURG",
-      "filename": "U.paw.pbe.z_14.ld1.uni-marburg.v0.upf",
+      "library": "MARBURG",
+      "Z": 14,
       "cutoff_wfc": 50,
       "cutoff_rho": 400,
-      "Z": 14
+      "filename": "U.paw.pbe.z_14.ld1.uni-marburg.v0.upf"
     },
     "Np": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "Np.us.pbe.z_15.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 15,
       "cutoff_wfc": 150,
       "cutoff_rho": 1200,
-      "Z": 15
+      "filename": "Np.us.pbe.z_15.ld1.psl.v1.0.0-high.upf"
     },
     "Pu": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "Pu.us.pbe.z_16.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 16,
       "cutoff_wfc": 60,
       "cutoff_rho": 480,
-      "Z": 16
+      "filename": "Pu.us.pbe.z_16.ld1.psl.v1.0.0-high.upf"
     },
     "Am": {
-      "pseudopotential": "PSL-US-v1-high",
-      "filename": "Am.us.pbe.z_17.ld1.psl.v1.0.0-high.upf",
+      "library": "PSL-US-v1-high",
+      "Z": 17,
       "cutoff_wfc": 65,
       "cutoff_rho": 520,
-      "Z": 17
+      "filename": "Am.us.pbe.z_17.ld1.psl.v1.0.0-high.upf"
     }
   }
 }
