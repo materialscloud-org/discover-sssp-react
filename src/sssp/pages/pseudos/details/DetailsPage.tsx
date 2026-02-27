@@ -8,6 +8,7 @@ import { ElementContext, FamilyContext } from "@sssp/context";
 import styles from "./DetailsPage.module.scss";
 import ElementSelector from "./ElementSelector";
 import PlotPane from "./PlotPane";
+import { elementSymbols } from "@sssp/common/symbols";
 
 const tabs = {
   "convergence-summary": "Convergence Summary",
@@ -24,8 +25,13 @@ const DetailsPage: React.FC = () => {
   const { setElement } = useContext(ElementContext);
 
   useEffect(() => {
-    setElement(params.element || "");
-  }, [params.element, setElement]);
+    const element = params.element || "";
+    if (!elementSymbols.includes(element)) {
+      navigate("/", { replace: true });
+      return;
+    }
+    setElement(element);
+  }, [navigate, params.element, setElement]);
 
   const { activeTab, defaultTab, selectTab } = useRoutedTabs(tabs, {
     segmentIndex: 3,
