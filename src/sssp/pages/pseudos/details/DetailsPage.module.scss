@@ -1,16 +1,18 @@
-#back-button {
-  position: absolute;
-}
+#detailsPage {
+  #backButton {
+    position: absolute;
+  }
 
-#element-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  font-size: 20px;
-  margin-bottom: 0.75em;
-}
+  #elementHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 20px;
+    margin-bottom: 0.75em;
+  }
 
-#element-label {
-  line-height: 1;
+  #elementLabel {
+    line-height: 1;
+  }
 }

@@ -39,15 +39,15 @@ const DetailsPage: React.FC = () => {
   });
 
   return (
-    <div id="details-page">
+    <div id={styles.detailsPage}>
       <Button
-        id={styles["back-button"]}
+        id={styles.backButton}
         onClick={() => navigate(`/pseudopotentials/${activeLibrary}`)}
       >
         Back to table
       </Button>
-      <div id={styles["element-header"]}>
-        <div id={styles["element-label"]}>Element:</div>
+      <div id={styles.elementHeader}>
+        <div id={styles.elementLabel}>Element:</div>
         <ElementSelector navigate={navigate} activeTab={activeTab} />
       </div>
       <Tabs
