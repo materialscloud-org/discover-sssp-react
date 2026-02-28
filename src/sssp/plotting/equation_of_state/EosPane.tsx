@@ -75,22 +75,22 @@ const EosPane: React.FC = () => {
                     },
                   )}
                 </Row>
-                <div id={styles.eosNote}>
-                  Comparison of equations of state for different
-                  pseudopotentials and their Birch-Murnaghan fits.
-                  <br />
-                  "REF (AE average)" refers to the all-electron average values
-                  from the reference dataset published in{" "}
-                  <a
-                    href="https://www.nature.com/articles/s42254-023-00655-3"
-                    target="_blank"
-                  >
-                    Bosoni et al., <em>Nature Reviews Physics</em> <b>6</b>,
-                    45-58 (2024)
-                  </a>
-                </div>
               </Col>
             </Row>
+            <div id={styles.eosNote}>
+              Comparison of equations of state for different pseudopotentials
+              and their Birch-Murnaghan fits.
+              <br />
+              "REF (AE average)" refers to the all-electron average values from
+              the reference dataset published in{" "}
+              <a
+                href="https://www.nature.com/articles/s42254-023-00655-3"
+                target="_blank"
+              >
+                Bosoni et al., <em>Nature Reviews Physics</em> <b>6</b>, 45-58
+                (2024)
+              </a>
+            </div>
           </div>
           <hr />
           <EosTable eosPseudosMap={eosPseudosMap} />

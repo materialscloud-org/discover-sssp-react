@@ -1,7 +1,7 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { Table } from "react-bootstrap";
 
-import { ElementContext } from "@sssp/context";
+import { ElementContext, PseudoContext } from "@sssp/context";
 
 import EosTableProps from "./EosTable.models";
 import styles from "./EosTable.module.scss";
@@ -21,7 +21,40 @@ const CONFIGURATIONS = [
 ];
 
 const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
-  const { element } = useContext(ElementContext);
+  const { element, ssspPseudos } = useContext(ElementContext);
+  const { pseudosMetadata } = useContext(PseudoContext);
+
+  const ssspPseudoMap = useMemo(
+    () =>
+      ssspPseudos
+        ? Object.entries(ssspPseudos).reduce(
+            (map, [, info]) => {
+              if (!info) return map;
+              const { Z, library } = info;
+              const color = pseudosMetadata[info.library]?.color || "inherit";
+              map[`${library}-Z=${Z}`] = {
+                color,
+                efficiency:
+                  info.library === ssspPseudos.efficiency?.library &&
+                  info.Z === ssspPseudos.efficiency?.Z,
+                precision:
+                  info.library === ssspPseudos.precision?.library &&
+                  info.Z === ssspPseudos.precision?.Z,
+              };
+              return map;
+            },
+            {} as {
+              [pseudo: string]: {
+                color: string;
+                efficiency: boolean;
+                precision: boolean;
+              };
+            },
+          )
+        : {},
+    [ssspPseudos, pseudosMetadata],
+  );
+
   return (
     <Table id={styles.eosTable} borderless responsive className="text-center">
       <thead>
@@ -31,7 +64,7 @@ const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
             Z<sub>val</sub>
           </th>
           <td rowSpan={2} className={styles.gap}></td>
-          <th colSpan={2}>Wavefunction Cutoff</th>
+          <th colSpan={2}>Ψ Cutoff (Ry)</th>
           <td rowSpan={2} className={styles.gap}></td>
           <th colSpan={10}>
             ν (click <Link to="/about">here</Link> for details)
@@ -58,15 +91,35 @@ const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
             .filter(([pseudo]) => pseudo.includes("-Z="))
             .map(([pseudo, eosConfigMap]) => {
               const [pseudoName, Z] = pseudo.split("-Z=");
+              const style = ssspPseudoMap[pseudo]
+                ? {
+                    color: ssspPseudoMap[pseudo].color,
+                    fontWeight:
+                      ssspPseudoMap[pseudo].efficiency ||
+                      ssspPseudoMap[pseudo].precision
+                        ? "bold"
+                        : "normal",
+                  }
+                : {};
               return (
                 <tr key={pseudo}>
-                  <td>{pseudoName}</td>
-                  <td>{Z}</td>
+                  <td style={style}>{pseudoName}</td>
+                  <td style={style}>{Z}</td>
                   <td className={styles.gap}></td>
                   {Object.entries(eosPseudosMap[pseudo].ecutrho).map(
-                    ([key, value]) => (
-                      <td key={key}>{value ? value.toFixed(2) : "-"}</td>
-                    ),
+                    ([key, value]) => {
+                      const applyStyle = (ssspPseudoMap[pseudo] || {})
+                        .efficiency
+                        ? key === "efficiency"
+                        : (ssspPseudoMap[pseudo] || {}).precision
+                          ? key === "precision"
+                          : false;
+                      return (
+                        <td key={key} style={applyStyle ? style : undefined}>
+                          {value || "-"}
+                        </td>
+                      );
+                    },
                   )}
                   <td className={styles.gap}></td>
                   {CONFIGURATIONS.map((conf) => {
