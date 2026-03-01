@@ -22,7 +22,7 @@ export const FamilyProvider: React.FC<FamilyProviderProps> = ({ children }) => {
   const defaultLibrary = libraries[0];
   const [activeLibrary, setActiveLibrary] = useState(libraries[0]);
 
-  const functionals = ["PBE", "PBEsol"];
+  const functionals = ["PBE"];
   const defaultFunctional = functionals[0];
   const [activeFunctional, setActiveFunctional] = useState(defaultFunctional);
 
