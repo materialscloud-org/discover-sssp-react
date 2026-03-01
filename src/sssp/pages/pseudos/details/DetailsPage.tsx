@@ -21,7 +21,7 @@ const tabs = {
 const DetailsPage: React.FC = () => {
   const navigate = useNavigate();
   const params = useParams();
-  const { activeLibrary } = useContext(FamilyContext);
+  const { activeLibrary, activeFunctional } = useContext(FamilyContext);
   const { setElement } = useContext(ElementContext);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const DetailsPage: React.FC = () => {
   }, [navigate, params.element, setElement]);
 
   const { activeTab, defaultTab, selectTab } = useRoutedTabs(tabs, {
-    segmentIndex: 3,
+    segmentIndex: 4,
     resetAfterIndex: true,
   });
 
@@ -42,7 +42,9 @@ const DetailsPage: React.FC = () => {
     <div id={styles.detailsPage}>
       <Button
         id={styles.backButton}
-        onClick={() => navigate(`/pseudopotentials/${activeLibrary}`)}
+        onClick={() =>
+          navigate(`/pseudopotentials/${activeFunctional}/${activeLibrary}`)
+        }
       >
         Back to table
       </Button>

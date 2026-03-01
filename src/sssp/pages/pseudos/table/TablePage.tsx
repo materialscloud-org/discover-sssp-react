@@ -17,8 +17,9 @@ const TablePage: React.FC = () => {
     useContext(FamilyContext);
 
   useEffect(() => {
-    const currentLibrary = location.pathname.split("/")[2];
-    setActiveLibrary(currentLibrary);
+    const segments = location.pathname.split("/").filter(Boolean);
+    const currentLibrary = segments[segments.length - 1] || "";
+    if (currentLibrary) setActiveLibrary(currentLibrary);
   }, [location.pathname, setActiveLibrary]);
 
   return (
