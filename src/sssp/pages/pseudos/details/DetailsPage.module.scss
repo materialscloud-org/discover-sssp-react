@@ -3,16 +3,28 @@
     position: absolute;
   }
 
-  #elementHeader {
+  #detailControls {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 12px;
     font-size: 20px;
     margin-bottom: 0.75em;
-  }
 
-  #elementLabel {
-    line-height: 1;
+    .selectorContainer {
+      display: flex;
+      align-items: center;
+
+      .selectorLabel {
+        font-size: 16px;
+      }
+
+      .selector {
+        width: 110px;
+        height: 38px;
+        padding: 0 0.75rem;
+        font-size: 16px;
+      }
+    }
   }
 }

@@ -1,14 +1,14 @@
 import { useContext, useEffect } from "react";
 import { Button, Tab, Tabs } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
+import Select from "react-select";
 
 import { useRoutedTabs } from "@sssp/common/hooks";
+import { elementSymbols } from "@sssp/common/symbols";
 import { ElementContext, FamilyContext } from "@sssp/context";
 
 import styles from "./DetailsPage.module.scss";
-import ElementSelector from "./ElementSelector";
 import PlotPane from "./PlotPane";
-import { elementSymbols } from "@sssp/common/symbols";
 
 const tabs = {
   "convergence-summary": "Convergence Summary",
@@ -21,8 +21,10 @@ const tabs = {
 const DetailsPage: React.FC = () => {
   const navigate = useNavigate();
   const params = useParams();
-  const { activeLibrary, activeFunctional } = useContext(FamilyContext);
-  const { setElement } = useContext(ElementContext);
+  const { activeLibrary, activeFunctional, functionals } =
+    useContext(FamilyContext);
+  const { element, setElement } = useContext(ElementContext);
+  const elementValue = element || params.element || "";
 
   useEffect(() => {
     const element = params.element || "";
@@ -48,9 +50,53 @@ const DetailsPage: React.FC = () => {
       >
         Back to table
       </Button>
-      <div id={styles.elementHeader}>
-        <div id={styles.elementLabel}>Element:</div>
-        <ElementSelector navigate={navigate} activeTab={activeTab} />
+      <div id={styles.detailControls}>
+        <div id={styles.elementSelector} className={styles.selectorContainer}>
+          <div className={styles.selectorLabel}>Element:</div>
+          <Select
+            className={styles.selector}
+            value={{ value: elementValue, label: elementValue }}
+            options={elementSymbols
+              .slice(1)
+              .sort()
+              .map((el) => ({ value: el, label: el }))}
+            onChange={(selectedOption) => {
+              const selectedElement = selectedOption?.value;
+              if (selectedElement) {
+                navigate(
+                  `/pseudopotentials/${activeFunctional}/${selectedElement}/${activeTab}`,
+                );
+              }
+            }}
+            isSearchable
+          />
+        </div>
+        <div
+          id={styles.functionalSelector}
+          className={styles.selectorContainer}
+        >
+          <div className={styles.selectorLabel}>Functional:</div>
+          <Select
+            className={styles.selector}
+            value={{
+              value: activeFunctional,
+              label: activeFunctional.toUpperCase(),
+            }}
+            options={functionals.map((functional) => ({
+              value: functional,
+              label: functional.toUpperCase(),
+            }))}
+            onChange={(selectedOption) => {
+              const selectedFunctional = selectedOption?.value;
+              if (selectedFunctional && elementValue) {
+                navigate(
+                  `/pseudopotentials/${selectedFunctional}/${elementValue}/${activeTab}`,
+                );
+              }
+            }}
+            isSearchable
+          />
+        </div>
       </div>
       <Tabs
         id="sssp-pseudos-tabs"

@@ -29,6 +29,7 @@
     "react-markdown": "^10.1.0",
     "react-router-dom": "^6.21.3",
     "react-router-hash-link": "^2.4.3",
+    "react-select": "^5.10.2",
     "vite-plugin-node-polyfills": "^0.22.0"
   },
   "devDependencies": {
