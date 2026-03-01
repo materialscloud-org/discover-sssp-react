@@ -82,18 +82,21 @@ export default class SsspDataService {
   };
 
   static fetchBandsCalcUUIDs = async (
+    functional: string,
     element: string,
   ): Promise<PseudoBandsCalcUUIDsMap> => {
-    const content = await SsspDataService.fetchBandsCalcUUIDsAll();
+    const content = await SsspDataService.fetchBandsCalcUUIDsAll(functional);
     return (content?.[element] || {}) as PseudoBandsCalcUUIDsMap;
   };
 
-  static fetchBandsCalcUUIDsAll = async (): Promise<BandsCalcUUIDsMap> => {
+  static fetchBandsCalcUUIDsAll = async (
+    functional: string,
+  ): Promise<BandsCalcUUIDsMap> => {
     if (SsspDataService.bandsCalcUUIDsCache) {
       return SsspDataService.bandsCalcUUIDsCache;
     }
 
-    const url = `${DATA_URL}/info/bands.json`;
+    const url = `${DATA_URL}/${functional}/info/bands.json`;
     const response = await fetch(url);
     const content = (await response.json()) as BandsCalcUUIDsMap;
 
@@ -101,10 +104,12 @@ export default class SsspDataService {
     return SsspDataService.bandsCalcUUIDsCache;
   };
 
-  static fetchPseudoFilenames = async (): Promise<PseudoFilenames> => {
+  static fetchPseudoFilenames = async (
+    functional: string,
+  ): Promise<PseudoFilenames> => {
     if (SsspDataService.filenamesCache) return SsspDataService.filenamesCache;
 
-    const url = `${DATA_URL}/info/filenames.json`;
+    const url = `${DATA_URL}/${functional}/info/filenames.json`;
     const response = await fetch(url);
     const content = (await response.json()) as PseudoFilenames;
     SsspDataService.filenamesCache = content || {};
@@ -137,38 +142,57 @@ export default class SsspDataService {
     return { filename, blob };
   };
 
-  static fetchElementsInfo = async (): Promise<ElementsInfo> => {
-    const url = `${DATA_URL}/info/element.json`;
+  static fetchElementsInfo = async (
+    functional: string,
+  ): Promise<ElementsInfo> => {
+    const url = `${DATA_URL}/${functional}/info/element.json`;
     const response = await fetch(url);
     const elementsInfo: ElementsInfo = await response.json();
     return elementsInfo || ({} as ElementsInfo);
   };
 
-  static fetchEosData = async (element: string): Promise<EosPseudosMap> => {
-    const url = `${DATA_URL}/eos.json`;
+  static fetchEosData = async (
+    functional: string,
+    element: string,
+  ): Promise<EosPseudosMap> => {
+    const url = `${DATA_URL}/${functional}/eos.json`;
     const response = await fetch(url);
     const eosData: EosElementMap = await response.json();
     return eosData[element] || ({} as EosPseudosMap);
   };
 
-  static fetchBandsData = async (element: string): Promise<BandsPseudosMap> => {
-    const url = `${DATA_URL}/bands/${element}.json`;
+  static fetchBandsData = async (
+    functional: string,
+    element: string,
+  ): Promise<BandsPseudosMap> => {
+    const url = `${DATA_URL}/${functional}/bands/${element}.json`;
     const response = await fetch(url);
     const bandsPseudoMap: BandsPseudosMap = await response.json();
     return bandsPseudoMap || ({} as BandsPseudosMap);
   };
 
   static fetchBandChessboardData = async (
+    functional: string,
     element: string,
   ): Promise<BandChessboardsData> => {
-    const url = `${DATA_URL}/chessboards/${element}.json`;
+    const url = `${DATA_URL}/${functional}/chessboards/${element}.json`;
     const response = await fetch(url);
     const bandChessboardsData: BandChessboardsData = await response.json();
     return bandChessboardsData || {};
   };
 
+  static fetchPseudosConvergenceData = async (
+    functional: string,
+    element: string,
+  ): Promise<PseudoConvergenceData> => {
+    const url = `${DATA_URL}/${functional}/summary/${element}.json`;
+    const response = await fetch(url);
+    const pseudoConvergenceData: PseudoConvergenceData = await response.json();
+    return pseudoConvergenceData || ({} as PseudoConvergenceData);
+  };
+
   static fetchPseudosMetadata = async (): Promise<PseudosMetadata> => {
-    const url = `${DATA_URL}/info/pseudo/pseudos.json`;
+    const url = `${DATA_URL}/pseudos.json`;
     const response = await fetch(url);
     const pseudosMetadata: PseudosMetadata = await response.json();
     return pseudosMetadata || ({} as PseudosMetadata);
@@ -177,7 +201,7 @@ export default class SsspDataService {
   static fetchPseudoslibraryMetadata = async (): Promise<
     Record<string, PseudoLibraryMetadata>
   > => {
-    const url = `${DATA_URL}/info/pseudo/libraries.json`;
+    const url = `${DATA_URL}/libraries.json`;
     const response = await fetch(url);
     const familyMetadata: Record<string, PseudoLibraryMetadata> =
       await response.json();
@@ -187,7 +211,7 @@ export default class SsspDataService {
   static fetchPseudosMethodsMetadata = async (): Promise<
     Record<string, MethodMetadata>
   > => {
-    const url = `${DATA_URL}/info/pseudo/methods.json`;
+    const url = `${DATA_URL}/methods.json`;
     const response = await fetch(url);
     const methodsMetadata: Record<string, MethodMetadata> =
       await response.json();
@@ -197,19 +221,10 @@ export default class SsspDataService {
   static fetchPseudosVerificationMetadata = async (): Promise<
     Record<string, Citation>
   > => {
-    const url = `${DATA_URL}/info/pseudo/verification.json`;
+    const url = `${DATA_URL}/verification.json`;
     const response = await fetch(url);
     const verificationMetadata: Record<string, Citation> =
       await response.json();
     return verificationMetadata || {};
-  };
-
-  static fetchPseudosConvergenceData = async (
-    element: string,
-  ): Promise<PseudoConvergenceData> => {
-    const url = `${DATA_URL}/summary/${element}.json`;
-    const response = await fetch(url);
-    const pseudoConvergenceData: PseudoConvergenceData = await response.json();
-    return pseudoConvergenceData || ({} as PseudoConvergenceData);
   };
 }

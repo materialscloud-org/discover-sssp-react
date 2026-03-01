@@ -1,7 +1,9 @@
-import { createContext, useEffect, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 import { ElementInfo, ElementsInfo } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
+
+import { FamilyContext } from "./FamilyContext";
 
 type SsspPseudos = {
   efficiency: ElementInfo;
@@ -25,12 +27,13 @@ interface ElementProviderProps {
 export const ElementProvider: React.FC<ElementProviderProps> = ({
   children,
 }) => {
+  const { activeFunctional } = useContext(FamilyContext);
   const [loadingInfo, setLoadingInfo] = useState(true);
   const [elementsInfo, setElementsInfo] = useState({} as ElementsInfo);
   const [element, setElement] = useState("");
 
   useEffect(() => {
-    SsspDataService.fetchElementsInfo()
+    SsspDataService.fetchElementsInfo(activeFunctional)
       .then((info) => {
         setElementsInfo(info);
       })
@@ -40,7 +43,7 @@ export const ElementProvider: React.FC<ElementProviderProps> = ({
       .finally(() => {
         setLoadingInfo(false);
       });
-  }, []);
+  }, [activeFunctional]);
 
   const ssspPseudos = useMemo(
     () =>

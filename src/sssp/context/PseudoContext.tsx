@@ -10,6 +10,7 @@ import {
 } from "@sssp/models";
 import { SsspDataService } from "@sssp/services";
 import { ElementContext } from "./ElementContext";
+import { FamilyContext } from "./FamilyContext";
 
 type PseudoContextType = {
   loadingMetadata: boolean;
@@ -39,6 +40,7 @@ interface PseudoProviderProps {
 }
 
 export const PseudoProvider: React.FC<PseudoProviderProps> = ({ children }) => {
+  const { activeFunctional } = useContext(FamilyContext);
   const [loadingMetadata, setLoadingMetadata] = useState(true);
   const [loadingFiles, setLoadingFiles] = useState(true);
   const { element } = useContext(ElementContext);
@@ -102,8 +104,8 @@ export const PseudoProvider: React.FC<PseudoProviderProps> = ({ children }) => {
     setLoadingFiles(true);
 
     Promise.all([
-      SsspDataService.fetchBandsCalcUUIDsAll(),
-      SsspDataService.fetchPseudoFilenames(),
+      SsspDataService.fetchBandsCalcUUIDsAll(activeFunctional),
+      SsspDataService.fetchPseudoFilenames(activeFunctional),
     ])
       .then(([bands, filenames]) => {
         setBandsCalcUUIDs(bands || {});
@@ -117,7 +119,7 @@ export const PseudoProvider: React.FC<PseudoProviderProps> = ({ children }) => {
       .finally(() => {
         setLoadingFiles(false);
       });
-  }, []);
+  }, [activeFunctional]);
 
   useEffect(() => {
     setActiveCategories(categories);

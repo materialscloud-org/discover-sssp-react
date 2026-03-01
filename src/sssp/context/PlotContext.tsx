@@ -8,6 +8,7 @@ import {
 import SsspDataService from "@sssp/services/data";
 
 import { ElementContext } from "./ElementContext";
+import { FamilyContext } from "./FamilyContext";
 
 type PlotContextType = {
   // Convergence data
@@ -43,6 +44,7 @@ type PlotProviderProps = {
 };
 
 export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
+  const { activeFunctional } = useContext(FamilyContext);
   const { element, ssspPseudos } = useContext(ElementContext);
 
   const [loadingPlotData, setLoadingPlotData] = useState(true);
@@ -101,10 +103,10 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
       .map((pseudo) => pseudo && `${pseudo.library}-Z=${pseudo.Z}`);
 
     Promise.all([
-      SsspDataService.fetchPseudosConvergenceData(element),
-      SsspDataService.fetchEosData(element),
-      SsspDataService.fetchBandChessboardData(element),
-      SsspDataService.fetchBandsData(element),
+      SsspDataService.fetchPseudosConvergenceData(activeFunctional, element),
+      SsspDataService.fetchEosData(activeFunctional, element),
+      SsspDataService.fetchBandChessboardData(activeFunctional, element),
+      SsspDataService.fetchBandsData(activeFunctional, element),
     ])
       .then(([convergenceData, eosData, chessboardData, bandsData]) => {
         setConvergenceData(convergenceData);
@@ -147,7 +149,7 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
       .finally(() => {
         setLoadingPlotData(false);
       });
-  }, [element, ssspPseudos]);
+  }, [activeFunctional, element, ssspPseudos]);
 
   useEffect(() => {
     const isValidPair = (pair: string[]) =>
