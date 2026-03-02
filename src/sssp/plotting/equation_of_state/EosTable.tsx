@@ -108,12 +108,12 @@ const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
                   <td className={styles.gap}></td>
                   {Object.entries(eosPseudosMap[pseudo].ecutrho).map(
                     ([key, value]) => {
-                      const applyStyle = (ssspPseudoMap[pseudo] || {})
-                        .efficiency
-                        ? key === "efficiency"
-                        : (ssspPseudoMap[pseudo] || {}).precision
-                          ? key === "precision"
-                          : false;
+                      const applyStyle =
+                        key === "efficiency"
+                          ? ssspPseudoMap[pseudo]?.efficiency
+                          : key === "precision"
+                            ? ssspPseudoMap[pseudo]?.precision
+                            : false;
                       return (
                         <td key={key} style={applyStyle ? style : undefined}>
                           {value || "-"}
