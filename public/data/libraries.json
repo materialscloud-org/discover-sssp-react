@@ -36,9 +36,8 @@
       "PSL-PAW-v1-low"
     ]
   },
-  "Goedecker": {
-    "website": "https://www.abinit.org/pseudopotential.html",
-    "citation": "A. Willand *et al.*, [*J. Chem. Phys.* **138**, 104109](http://dx.doi.org/10.1063/1.4793260) (2013).",
+  "JTH 1.1": {
+    "citation": "F. Jollet, M. Torrent, and N. Holzwarth, [*Comput. Phys. Commun.* **185**, 4, 1246-1254](https://doi.org/10.1016/j.cpc.2013.12.023) (2014).",
     "versions": ["JTH-1.1-std", "JTH-1.1-str"]
   },
   "RE Wentzcovitch": {
