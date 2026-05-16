@@ -43,23 +43,22 @@ const DetailsBox: React.FC = () => {
       </div>
     );
   } else if (hoveredPseudo) {
-    const { color, category } = pseudosMetadata[hoveredPseudo];
+    const metadata = pseudosMetadata[hoveredPseudo];
     const longCategory =
-      category === "nc"
+      metadata.category === "nc"
         ? "Norm-conserving"
-        : category === "us"
+        : metadata.category === "us"
           ? "Ultrasoft"
-          : category === "paw"
+          : metadata.category === "paw"
             ? "PAW"
-            : category;
+            : metadata.category;
     Details = () => {
       return (
-        <div id={styles.detailsBox} style={{ color: color }}>
+        <div id={styles.detailsBox} style={{ color: metadata.color }}>
           <div id={styles.pseudoDetails}>
-            <div id={styles.pseudoInfo}>
-              <span id={styles.pseudoName}>{hoveredPseudo}</span>
-              <div id={styles.pseudoCategory}>{longCategory}</div>
-            </div>
+            <div id={styles.pseudoLibrary}>{metadata.library}</div>
+            <div id={styles.pseudoCategory}>{longCategory}</div>
+            {/* <small id={styles.pseudoDescription}>{metadata.description}</small> */}
           </div>
         </div>
       );
