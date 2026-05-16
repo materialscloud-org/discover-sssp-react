@@ -22,7 +22,7 @@ const Citation: React.FC<CitationProps> = ({
 }) => (
   <div className={styles.citation}>
     {label && (
-      <span className={styles.citationLabel}>
+      <b>
         {website ? (
           <a href={website} target="_blank">
             {label}
@@ -31,7 +31,7 @@ const Citation: React.FC<CitationProps> = ({
           label
         )}
         {citation ? ": " : ""}
-      </span>
+      </b>
     )}
     {citation && (
       <ReactMarkdown

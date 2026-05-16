@@ -113,7 +113,7 @@ const CitationPage: React.FC = () => {
                   versions={library.versions?.map((version) => {
                     const versionMetadata = pseudosMetadata[version];
                     return {
-                      name: versionMetadata.displayName,
+                      name: version,
                       content: versionMetadata.description
                         ? versionMetadata.description
                         : undefined,
