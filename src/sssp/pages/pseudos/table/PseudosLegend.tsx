@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 
 import { LoadingSpinner } from "@sssp/components";
 import { HoverContext, PseudoContext } from "@sssp/context";
@@ -8,8 +8,15 @@ import styles from "./PseudosLegend.module.scss";
 const PseudosLegend: React.FC = () => {
   const { hoveredPseudo, hoveredElement, setHoveredPseudo } =
     useContext(HoverContext);
-  const { loadingMetadata, pseudosMetadata, maxPseudoWidth } =
-    useContext(PseudoContext);
+  const { loadingMetadata, pseudosMetadata } = useContext(PseudoContext);
+
+  const maxPseudoWidth = useMemo(
+    () =>
+      Math.max(
+        ...Object.keys(pseudosMetadata).map((pseudo) => pseudo.length * 10),
+      ),
+    [pseudosMetadata],
+  );
 
   return loadingMetadata ? (
     <LoadingSpinner />
@@ -29,18 +36,14 @@ const PseudosLegend: React.FC = () => {
                       : styles.transparent
                 }
               `}
+          style={{ width: maxPseudoWidth + 16 }}
           onMouseEnter={() => setHoveredPseudo(pseudo)}
         >
           <span
             className={styles.pseudoListMarker}
             style={{ backgroundColor: metadata.color }}
           ></span>
-          <span
-            className={styles.pseudoName}
-            style={{ width: maxPseudoWidth + 12 }}
-          >
-            {metadata.displayName}
-          </span>
+          <span className={styles.pseudoName}>{pseudo}</span>
         </li>
       ))}
     </ul>

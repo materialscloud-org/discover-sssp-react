@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 import {
   BandsCalcUUIDsMap,
@@ -24,7 +24,6 @@ type PseudoContextType = {
   setActiveCategories: (categories: string[]) => void;
   bandsCalcUUIDs: BandsCalcUUIDsMap;
   pseudoFilenames: PseudoFilenames;
-  maxPseudoWidth: number;
   getUpfUuid: (element: string, pseudoName: string, zVal: number) => string;
   getPseudoFilename: (
     element: string,
@@ -58,14 +57,6 @@ export const PseudoProvider: React.FC<PseudoProviderProps> = ({ children }) => {
   const [activeCategories, setActiveCategories] = useState(categories);
   const [bandsCalcUUIDs, setBandsCalcUUIDs] = useState({} as BandsCalcUUIDsMap);
   const [pseudoFilenames, setPseudoFilenames] = useState({} as PseudoFilenames);
-
-  const maxPseudoWidth = useMemo(
-    () =>
-      Math.max(
-        ...Object.keys(pseudosMetadata).map((pseudo) => pseudo.length * 12),
-      ),
-    [pseudosMetadata],
-  );
 
   useEffect(() => {
     setLoadingMetadata(true);
@@ -153,7 +144,6 @@ export const PseudoProvider: React.FC<PseudoProviderProps> = ({ children }) => {
         setActiveCategories,
         bandsCalcUUIDs,
         pseudoFilenames,
-        maxPseudoWidth,
         getUpfUuid,
         getPseudoFilename,
       }}
