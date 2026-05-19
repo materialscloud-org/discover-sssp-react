@@ -388,7 +388,7 @@ export const generateConvergencePlotData = (
       xanchor: "left",
       xshift: -150,
       y: offset,
-      text: `<span style="color:${color}"><b>${pseudo.name}</b></span><br />Z<sub>val</sub> = ${pseudo.Z}<br />${metadataText}`,
+      text: `<span style="color:${color}"><b>${pseudo.name}<br />Z<sub>val</sub> = ${pseudo.Z}</b></span><br />${metadataText}`,
       showarrow: false,
       align: "left",
       font: { size: 10 },
