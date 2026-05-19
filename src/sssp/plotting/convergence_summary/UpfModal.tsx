@@ -1,12 +1,13 @@
 import { useContext, useEffect, useMemo, useState } from "react";
 
 import { Button, Modal } from "react-bootstrap";
+import { BsDownload } from "react-icons/bs";
 
 import { API_URL } from "@sssp/common/config";
 import LoadingSpinner from "@sssp/components/Spinner";
 import { PseudoContext } from "@sssp/context";
 import { SsspDataService } from "@sssp/services";
-import { BsDownload } from "react-icons/bs";
+
 import { UpfModalProps } from "./UpfModal.models";
 import styles from "./UpfModal.module.scss";
 

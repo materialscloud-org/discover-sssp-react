@@ -62,7 +62,7 @@ const PseudosCheckboxes: React.FC<PseudosCheckboxesProps> = ({
               );
               setAllPseudosChecked(
                 event.target.checked
-                  ? activePseudos.length + 1 === pseudos.length
+                  ? activePseudos.length + 1 === pseudos.length // +1 for REF
                   : false,
               );
             }}

@@ -114,7 +114,8 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
         setEosPseudosMap(eosData);
         const eosPseudos = Object.keys(eosData);
         setEosPseudos(eosPseudos);
-        setActiveEosPseudos(["REF", ...ssspPseudoLibraries]);
+        // Deduplicate if SSSP-selected pseudos are the same pseudo
+        setActiveEosPseudos(["REF", ...new Set(ssspPseudoLibraries)]);
 
         setChessboardPseudos(chessboardData.pseudos);
         setEtaV(chessboardData.v_distance.eta);
