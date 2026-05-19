@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 
 import type {
+  Annotations,
   Config,
   Data,
   Layout,
@@ -80,10 +81,110 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         },
       ];
 
+      const constantShapes: Partial<Shape>[] = [
+        // top
+        {
+          type: "line",
+          xref: "paper",
+          yref: "paper",
+          x0: 0,
+          x1: 1,
+          y0: 1,
+          y1: 1,
+          line: { color: "purple", width: 4 },
+        },
+        // right
+        {
+          type: "line",
+          xref: "paper",
+          yref: "paper",
+          x0: 1,
+          x1: 1,
+          y0: 0,
+          y1: 1,
+          line: { color: "purple", width: 4 },
+        },
+        // bottom
+        {
+          type: "line",
+          xref: "paper",
+          yref: "paper",
+          x0: 0,
+          x1: 1,
+          y0: 0,
+          y1: 0,
+          line: { color: "blue", width: 4 },
+        },
+        // left
+        {
+          type: "line",
+          xref: "paper",
+          yref: "paper",
+          x0: 0,
+          x1: 0,
+          y0: 0,
+          y1: 1,
+          line: { color: "blue", width: 4 },
+        },
+        // diagonal upper
+        {
+          type: "line",
+          xref: "paper",
+          yref: "paper",
+          x0: -0.15,
+          y0: 1.15,
+          x1: 1,
+          y1: 0,
+          line: { color: "black", width: 2, dash: "dash" },
+        },
+      ];
+
+      const bandDiffAnnotations = values
+        .map((row, i) =>
+          row
+            .map((value, j) => ({
+              x: chessboardPseudos[j],
+              y: chessboardPseudos[i],
+              text:
+                value >= 100
+                  ? value.toExponential(0).toString().replace("e+", "e")
+                  : value.toFixed(1),
+              showarrow: false,
+              font: {
+                color: "white",
+                size: Math.max(8, 24 - chessboardPseudos.length),
+              },
+            }))
+            .filter((_, j) => j !== i),
+        )
+        .flat();
+
+      const etaAnnotations: Partial<Annotations>[] = [
+        {
+          xref: "paper",
+          yref: "paper",
+          x: -0.11,
+          y: 1.16,
+          text: title,
+          showarrow: false,
+          textangle: "45",
+          font: { color: "purple", size: 24, weight: "bold" },
+        },
+        {
+          xref: "paper",
+          yref: "paper",
+          x: -0.2,
+          y: 1.15,
+          text: `max ${title}`,
+          showarrow: false,
+          textangle: "45",
+          font: { color: "blue", size: 24, weight: "bold" },
+        },
+      ];
+
       const layout: Partial<Layout> = {
         xaxis: {
           side: "top",
-          title: { text: title, standoff: 50, font: { size: 20 } },
           linecolor: "black",
           mirror: true,
           fixedrange: true,
@@ -94,7 +195,6 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         },
         yaxis: {
           autorange: "reversed",
-          title: { text: `Max ${title}`, standoff: 50, font: { size: 20 } },
           linecolor: "black",
           mirror: true,
           fixedrange: true,
@@ -104,26 +204,8 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
           ticktext: chessboardPseudos,
         },
         hoverlabel: { namelength: 0 },
-        shapes: [],
-        annotations: values
-          .map((row, i) =>
-            row
-              .map((value, j) => ({
-                x: chessboardPseudos[j],
-                y: chessboardPseudos[i],
-                text:
-                  value >= 100
-                    ? value.toExponential(0).toString().replace("e+", "e")
-                    : value.toFixed(1),
-                showarrow: false,
-                font: {
-                  color: "white",
-                  size: Math.max(8, 24 - chessboardPseudos.length),
-                },
-              }))
-              .filter((_, j) => j !== i),
-          )
-          .flat(),
+        shapes: constantShapes,
+        annotations: [...bandDiffAnnotations, ...etaAnnotations],
         margin: { t: 160, r: 110, b: 40, l: 160 },
         paper_bgcolor: "rgba(0,0,0,0)",
         plot_bgcolor: "rgba(0,0,0,0)",
@@ -193,7 +275,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
       const clearHighlight = (gd: PlotlyHTMLElement) => {
         if (!Plotly) return;
         const update: Record<string, unknown> = {
-          shapes: [],
+          shapes: constantShapes,
           "xaxis.ticktext": chessboardPseudos,
           "yaxis.ticktext": chessboardPseudos,
         };
@@ -219,7 +301,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         if (xIndex < 0 || yIndex < 0) return;
 
         const update: Record<string, unknown> = {
-          shapes: getHighlightShapes(xIndex, yIndex),
+          shapes: [...constantShapes, ...getHighlightShapes(xIndex, yIndex)],
           "xaxis.ticktext": getBoldTickText(xValue),
           "yaxis.ticktext": getBoldTickText(yValue),
         };
