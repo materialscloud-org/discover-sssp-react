@@ -77,13 +77,13 @@
     "description": "PAW pseudopotentials; \"low\" version (optimized for lower kinetic energy cut-offs at the cost of accuracy)"
   },
   "JTH-1.1-std": {
-    "library": "Goedecker",
+    "library": "JTH 1.1",
     "category": "paw",
     "color": "#c77dff",
     "displayName": "paw-jth-v1.1-std"
   },
   "JTH-1.1-str": {
-    "library": "Goedecker",
+    "library": "JTH 1.1",
     "category": "paw",
     "color": "#5a189a",
     "displayName": "paw-jth-v1.1-str"

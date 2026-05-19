@@ -70,6 +70,13 @@
       "cutoff_rho": 150,
       "filename": "Na.paw.pbe.z_9.ld1.psl.v0.2.upf"
     },
+    "Ne": {
+      "library": "SPMS",
+      "Z": 8,
+      "cutoff_wfc": 50,
+      "cutoff_rho": 200,
+      "filename": "Ne.nc.pbe.z_8.oncvpsp4.spms.v1.upf"
+    },
     "Mg": {
       "library": "GBRV-1.X",
       "Z": 10,
