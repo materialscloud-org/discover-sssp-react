@@ -200,13 +200,14 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
           fixedrange: true,
           tickangle: -45,
           tickmode: "array",
+          ticklabelstandoff: 5,
           tickvals: chessboardPseudos,
           ticktext: chessboardPseudos,
         },
         hoverlabel: { namelength: 0 },
         shapes: constantShapes,
         annotations: [...bandDiffAnnotations, ...etaAnnotations],
-        margin: { t: 160, r: 110, b: 40, l: 160 },
+        margin: { t: 160, r: 110, b: 60, l: 160 },
         paper_bgcolor: "rgba(0,0,0,0)",
         plot_bgcolor: "rgba(0,0,0,0)",
       };
@@ -315,7 +316,8 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         handleTileClick(
           plotIndex,
           [y as string, x as string],
-          // `any` because Plotly incorrectly defines it as `number` instead of `number[]`
+          // Plotly's TypeScript types define `pointIndex` as `number`, but for this trace
+          // it can be an array of indices at runtime.
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           pointIndex as any,
         );
