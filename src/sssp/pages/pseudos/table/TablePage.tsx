@@ -1,19 +1,20 @@
 import { useContext, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { ssspVersion } from "@sssp";
 import { capitalize } from "@sssp/common/utils";
+import Toggle from "@sssp/components/Toggle";
 import { FamilyContext, HoverProvider } from "@sssp/context";
 
-import LibraryToggle from "./LibraryToggle";
 import PeriodicTable from "./periodic";
 import PseudosLegend from "./PseudosLegend";
 import styles from "./TablePage.module.scss";
 
 const TablePage: React.FC = () => {
   const location = useLocation();
-  const { activeLibrary, setActiveLibrary, activeFunctional } =
+  const navigate = useNavigate();
+  const { libraries, activeLibrary, setActiveLibrary, activeFunctional } =
     useContext(FamilyContext);
 
   useEffect(() => {
@@ -36,7 +37,12 @@ const TablePage: React.FC = () => {
           </Col>
           <Col>
             <div id={styles.tableContainer}>
-              <LibraryToggle />
+              <Toggle
+                name="library"
+                items={libraries}
+                activeItem={activeLibrary}
+                onChange={(value) => navigate(`../${value}`)}
+              />
               <PeriodicTable />
             </div>
           </Col>
