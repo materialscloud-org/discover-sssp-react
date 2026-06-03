@@ -31,15 +31,17 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
   useEffect(() => {
     if (!plotRef.current) return;
 
+    let destroyed = false;
     let Plotly: typeof import("plotly.js") | null = null;
     let graphDiv: PlotlyHTMLElement | null = null;
-    let destroyed = false;
     let resizeHandler: (() => void) | null = null;
 
     (async () => {
       Plotly = (await import("@sssp/plotting/PlotlyLoader")).default;
 
       if (destroyed || !plotRef.current) return;
+
+      if (!Plotly) return;
 
       const zOffDiagonal = values.map((row, i) =>
         row.map((value, j) => (i === j ? null : value)),
@@ -341,33 +343,23 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         if (Plotly) Plotly.relayout(gd, update);
       };
 
-      resizeHandler = () => handleResize(graphDiv!);
+      resizeHandler = () => {
+        if (!graphDiv) return;
+        handleResize(graphDiv);
+      };
       window.addEventListener("resize", resizeHandler);
       handleResize(graphDiv);
-
-      return () => {
-        destroyed = true;
-        if (resizeHandler) window.removeEventListener("resize", resizeHandler);
-        if (graphDiv) {
-          graphDiv.removeAllListeners?.("plotly_click");
-          graphDiv.removeAllListeners?.("plotly_hover");
-          graphDiv.removeAllListeners?.("plotly_unhover");
-        }
-      };
     })();
 
     return () => {
       destroyed = true;
-      if (resizeHandler) window.removeEventListener("resize", resizeHandler);
-      if (Plotly && graphDiv) {
-        try {
-          graphDiv.removeAllListeners?.("plotly_click");
-          graphDiv.removeAllListeners?.("plotly_hover");
-          graphDiv.removeAllListeners?.("plotly_unhover");
-          Plotly.purge(graphDiv);
-        } catch (error) {
-          console.error("Error purging BandsChessboardPlot:", error);
-        }
+      if (resizeHandler) {
+        window.removeEventListener("resize", resizeHandler);
+      }
+      if (graphDiv) {
+        graphDiv.removeAllListeners?.("plotly_click");
+        graphDiv.removeAllListeners?.("plotly_hover");
+        graphDiv.removeAllListeners?.("plotly_unhover");
       }
     };
   }, [chessboardPseudos, values, title, zMax, handleTileClick]);
