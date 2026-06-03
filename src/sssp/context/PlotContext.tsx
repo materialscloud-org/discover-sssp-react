@@ -1,9 +1,11 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 import {
+  BandChessboardsData,
   BandsPseudosMap,
   EosPseudosMap,
   PseudoConvergenceData,
+  ChessboardDataFlavor,
 } from "@sssp/models";
 import SsspDataService from "@sssp/services/data";
 
@@ -20,10 +22,10 @@ type PlotContextType = {
   activeEosPseudos: string[];
   setActiveEosPseudos: (pseudos: string[]) => void;
   // Chessboard data
-  chessboardPseudos: string[];
-  etaV: number[][];
-  etaV10: number[][];
-  shifts: number[][][];
+  chessboardData: BandChessboardsData;
+  chessboardDataFlavors: ChessboardDataFlavor[];
+  activeChessboardDataFlavor: ChessboardDataFlavor;
+  setActiveChessboardDataFlavor: (flavor: ChessboardDataFlavor) => void;
   // Bands data
   bandsPseudosMap: BandsPseudosMap;
   bandsPseudos: string[];
@@ -60,10 +62,13 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
   const [activeEosPseudos, setActiveEosPseudos] = useState([] as string[]);
 
   // Chessboard data
-  const [chessboardPseudos, setChessboardPseudos] = useState([] as string[]);
-  const [etaV, setEtaV] = useState([] as number[][]);
-  const [etaV10, setEtaV10] = useState([] as number[][]);
-  const [shifts, setShifts] = useState([] as number[][][]);
+  const [chessboardData, setChessboardData] = useState(
+    {} as BandChessboardsData,
+  );
+  const chessboardDataFlavors: ChessboardDataFlavor[] = ["grid", "path"];
+  const [activeChessboardDataFlavor, setActiveChessboardDataFlavor] = useState(
+    "grid" as ChessboardDataFlavor,
+  );
 
   // Bands data
   const [bandsPseudosMap, setBandsPseudosMap] = useState({} as BandsPseudosMap);
@@ -87,10 +92,7 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
     setEosPseudos([]);
     setActiveEosPseudos([]);
 
-    setChessboardPseudos([]);
-    setEtaV([]);
-    setEtaV10([]);
-    setShifts([]);
+    setChessboardData({} as BandChessboardsData);
 
     setBandsPseudosMap({} as BandsPseudosMap);
     setBandsPseudos([]);
@@ -117,15 +119,7 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
         // Deduplicate if SSSP-selected pseudos are the same pseudo
         setActiveEosPseudos(["REF", ...new Set(ssspPseudoLibraries)]);
 
-        setChessboardPseudos(chessboardData.pseudos);
-        setEtaV(chessboardData.v_distance.eta);
-        setEtaV10(chessboardData.v10_distance.eta);
-        const bandShifts = [
-          chessboardData.v_distance.shift,
-          chessboardData.v10_distance.shift,
-        ];
-        setShifts(bandShifts);
-
+        setChessboardData(chessboardData);
         setBandsPseudosMap(bandsData);
         const bandsPseudos = Object.keys(bandsData);
         setBandsPseudos(bandsPseudos);
@@ -134,16 +128,10 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
         console.error("Error fetching plot data:", error);
 
         setConvergenceData({} as PseudoConvergenceData);
-
         setEosPseudosMap({} as EosPseudosMap);
         setEosPseudos([]);
         setActiveEosPseudos([]);
-
-        setChessboardPseudos([]);
-        setEtaV([]);
-        setEtaV10([]);
-        setShifts([]);
-
+        setChessboardData({} as BandChessboardsData);
         setBandsPseudosMap({} as BandsPseudosMap);
         setBandsPseudos([]);
       })
@@ -187,10 +175,10 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
         activeEosPseudos,
         setActiveEosPseudos,
         // Chessboard data
-        chessboardPseudos,
-        etaV,
-        etaV10,
-        shifts,
+        chessboardData,
+        chessboardDataFlavors,
+        activeChessboardDataFlavor,
+        setActiveChessboardDataFlavor,
         // Bands data
         bandsPseudosMap,
         bandsPseudos,

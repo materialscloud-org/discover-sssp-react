@@ -1,9 +1,11 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { Col, Row } from "react-bootstrap";
 
 import { LoadingSpinner, NoDataMessage } from "@sssp/components";
 import { ElementContext, PlotContext, PseudoContext } from "@sssp/context";
 
+import Toggle from "@sssp/components/Toggle";
+import { ChessboardDataFlavor } from "@sssp/models";
 import PlotPaneHeader from "../PlotPaneHeader";
 import BandsChessboardPaneProps from "./BandsChessboardPane.models";
 import styles from "./BandsChessboardPane.module.scss";
@@ -19,11 +21,20 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
     loadingPlotData,
     setActiveChessboardPseudos,
     setBandShift,
-    chessboardPseudos,
-    etaV,
-    etaV10,
-    shifts,
+    chessboardData,
+    chessboardDataFlavors,
+    activeChessboardDataFlavor,
+    setActiveChessboardDataFlavor,
   } = useContext(PlotContext);
+
+  const etaV = useMemo(
+    () => chessboardData.v_distance[activeChessboardDataFlavor].eta,
+    [chessboardData, activeChessboardDataFlavor],
+  );
+  const etaV10 = useMemo(
+    () => chessboardData.v10_distance[activeChessboardDataFlavor].eta,
+    [chessboardData, activeChessboardDataFlavor],
+  );
 
   const tileClickHandler = (
     plotIndex: number,
@@ -31,7 +42,9 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
     pointIndex: number[],
   ) => {
     setActiveChessboardPseudos(pseudos);
-    setBandShift(shifts[plotIndex][pointIndex[0]][pointIndex[1]]);
+    const plotKey = plotIndex === 0 ? "v_distance" : "v10_distance";
+    const data = chessboardData[plotKey][activeChessboardDataFlavor];
+    setBandShift(data.shift[pointIndex[0]][pointIndex[1]]);
     goToBands();
   };
 
@@ -46,11 +59,19 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
         <NoDataMessage />
       ) : (
         <>
+          <Toggle
+            name="chessboard-data"
+            items={chessboardDataFlavors}
+            activeItem={activeChessboardDataFlavor}
+            onChange={(value) =>
+              setActiveChessboardDataFlavor(value as ChessboardDataFlavor)
+            }
+          />
           <Row className="justify-content-center g-0">
             <Col>
               <BandsChessboardPlot
                 title="η<sub>v</sub>"
-                chessboardPseudos={chessboardPseudos}
+                chessboardPseudos={chessboardData.pseudos}
                 values={etaV}
                 zMax={30}
                 onTileClick={tileClickHandler}
@@ -59,7 +80,7 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
             <Col>
               <BandsChessboardPlot
                 title="η<sub>10</sub>"
-                chessboardPseudos={chessboardPseudos}
+                chessboardPseudos={chessboardData.pseudos}
                 values={etaV10}
                 zMax={60}
                 onTileClick={tileClickHandler}

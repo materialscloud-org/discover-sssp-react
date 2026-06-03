@@ -81,15 +81,22 @@ export interface BandsData {
 
 export type BandsPseudosMap = Record<string, BandsData>;
 
+export type ChessboardDataFlavor = "grid" | "path";
+
 interface BandChessboardDistanceData {
   eta: number[][];
   shift: number[][];
 }
 
+interface BandChessboardFlavoredDistanceData {
+  grid: BandChessboardDistanceData;
+  path: BandChessboardDistanceData;
+}
+
 export interface BandChessboardsData {
   pseudos: string[];
-  v_distance: BandChessboardDistanceData;
-  v10_distance: BandChessboardDistanceData;
+  v_distance: BandChessboardFlavoredDistanceData;
+  v10_distance: BandChessboardFlavoredDistanceData;
 }
 
 interface DataPoint {
