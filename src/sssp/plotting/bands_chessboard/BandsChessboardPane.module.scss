@@ -5,6 +5,11 @@
   overflow-x: auto;
   max-width: 100%;
 
+  #bandsChessboardPlotsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
   #bandsChessboardPlotDetailsContainer {
     margin: 1.5rem auto 0;
     width: 100%;

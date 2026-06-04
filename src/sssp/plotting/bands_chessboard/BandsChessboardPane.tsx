@@ -1,5 +1,4 @@
 import { useContext, useMemo } from "react";
-import { Col, Row } from "react-bootstrap";
 
 import { LoadingSpinner, NoDataMessage } from "@sssp/components";
 import { ElementContext, PlotContext, PseudoContext } from "@sssp/context";
@@ -67,26 +66,22 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
               setActiveChessboardDataFlavor(value as ChessboardDataFlavor)
             }
           />
-          <Row className="justify-content-center g-0">
-            <Col>
-              <BandsChessboardPlot
-                title="η<sub>v</sub>"
-                chessboardPseudos={chessboardData.pseudos}
-                values={etaV}
-                zMax={30}
-                onTileClick={tileClickHandler}
-              />
-            </Col>
-            <Col>
-              <BandsChessboardPlot
-                title="η<sub>10</sub>"
-                chessboardPseudos={chessboardData.pseudos}
-                values={etaV10}
-                zMax={60}
-                onTileClick={tileClickHandler}
-              />
-            </Col>
-          </Row>
+          <div id={styles.bandsChessboardPlotsContainer}>
+            <BandsChessboardPlot
+              title="η<sub>v</sub>"
+              chessboardPseudos={chessboardData.pseudos}
+              values={etaV}
+              zMax={30}
+              onTileClick={tileClickHandler}
+            />
+            <BandsChessboardPlot
+              title="η<sub>10</sub>"
+              chessboardPseudos={chessboardData.pseudos}
+              values={etaV10}
+              zMax={60}
+              onTileClick={tileClickHandler}
+            />
+          </div>
           <div id={styles.bandsChessboardPlotDetailsContainer}>
             <BandsChessboardPlotDetails />
           </div>
