@@ -10,7 +10,6 @@ import BandsChessboardPaneProps from "./BandsChessboardPane.models";
 import styles from "./BandsChessboardPane.module.scss";
 import BandsChessboardPlot from "./BandsChessboardPlot";
 import BandsChessboardPlotDetails from "./BandsChessboardPlotDetails";
-import { Alert } from "react-bootstrap";
 
 const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
   onTileClick: goToBands,
@@ -67,17 +66,6 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
               setActiveChessboardDataFlavor(value as ChessboardDataFlavor)
             }
           />
-          {activeChessboardDataFlavor === "path" && (
-            <Alert variant="warning" id={styles.warningAlert}>
-              <Alert.Heading>Fake data for illustration only!</Alert.Heading>
-              <p>
-                Band distances computed on a brillouin zone path are shown here
-                only for illustration purposes.
-                <br />
-                <b>Real data coming soon!</b>
-              </p>
-            </Alert>
-          )}
           <div id={styles.bandsChessboardPlotsContainer}>
             <BandsChessboardPlot
               title="η<sub>v</sub>"
