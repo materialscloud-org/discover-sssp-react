@@ -178,7 +178,7 @@ const ConvergencePlot: React.FC<ConvergencePlotProps> = ({
             : undefined;
 
         const text = typeof annotationText === "string" ? annotationText : "";
-        const pseudoMatch = text.match(/<b>(.*?)<\/b>/);
+        const pseudoMatch = text.match(/<b>(.*?)<br \/>/);
         const pseudo = pseudoMatch?.[1];
         if (!pseudo) return;
 
