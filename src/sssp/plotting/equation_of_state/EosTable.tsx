@@ -20,6 +20,8 @@ const CONFIGURATIONS = [
   "X2O5",
 ];
 
+// TODO restore links when archive is deployed for MC Explore
+
 const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
   const { element, ssspPseudos } = useContext(ElementContext);
   const { pseudosMetadata } = useContext(PseudoContext);
@@ -132,21 +134,21 @@ const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
                   <td className={styles.gap}></td>
                   {CONFIGURATIONS.map((conf) => {
                     const nu = eosConfigMap.configurations[conf]?.nu;
-                    const uuid = eosConfigMap.configurations[conf]?.uuid;
+                    // const uuid = eosConfigMap.configurations[conf]?.uuid;
                     return (
                       <td
                         key={conf}
                         style={{ backgroundColor: nuColor(nu) }}
-                        className={nu !== undefined ? styles.nuTd : undefined}
+                        // className={nu !== undefined ? styles.nuTd : undefined}
                       >
                         {nu !== undefined ? (
-                          <a
-                            href={`https://www.materialscloud.org/explore/sssp-v2/${uuid}`}
-                            target="_blank"
-                            className="link-dark stretched-link sssp-link"
-                          >
-                            {nu.toFixed(2)}
-                          </a>
+                          // <a
+                          //   href={`https://www.materialscloud.org/explore/sssp-v2/${uuid}`}
+                          //   target="_blank"
+                          //   className="link-dark stretched-link sssp-link"
+                          // >
+                          // </a>
+                          <span>{nu.toFixed(2)}</span>
                         ) : (
                           "-"
                         )}
