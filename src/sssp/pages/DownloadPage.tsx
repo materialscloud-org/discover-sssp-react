@@ -2,6 +2,9 @@ import { Table } from "react-bootstrap";
 
 import styles from "./DownloadPage.module.scss";
 
+const SSSP_V2_ARCHIVE_URL =
+  "https://raw.githubusercontent.com/unkcpz/sssp-verify-scripts/refs/heads/main/2-experiments/finalized_scripts";
+
 const DownloadPage: React.FC = () => (
   <div id={styles.downloadPage}>
     <header className="page-title">
@@ -31,7 +34,7 @@ const DownloadPage: React.FC = () => (
             <td>2.0</td>
             <td>
               <a
-                href="https://github.com/unkcpz/sssp-verify-scripts/raw/refs/heads/main/2-experiments/2025-10-extract-library/SSSP-lib-pbe-eff-v2.tar.gz"
+                href={`${SSSP_V2_ARCHIVE_URL}/010-extract-eff-lib/SSSP-lib-pbe-eff-v2.tar.gz`}
                 download
               >
                 Pseudos
@@ -39,7 +42,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://raw.githubusercontent.com/unkcpz/sssp-verify-scripts/refs/heads/main/2-experiments/finalized_scripts/010-extract-eff-lib/cutoffs.json"
+                href={`${SSSP_V2_ARCHIVE_URL}/010-extract-eff-lib/cutoffs.json`}
                 download
               >
                 Cutoffs
@@ -47,7 +50,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://github.com/unkcpz/sssp-verify-scripts/raw/refs/heads/main/2-experiments/2025-10-extract-library/SSSP-lib-pbesol-eff-v2.tar.gz"
+                href={`${SSSP_V2_ARCHIVE_URL}/010-extract-eff-lib/SSSP-lib-pbesol-eff-v2.tar.gz`}
                 download
               >
                 Pseudos
@@ -55,7 +58,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://raw.githubusercontent.com/unkcpz/sssp-verify-scripts/refs/heads/main/2-experiments/finalized_scripts/010-extract-eff-lib/cutoffs.json"
+                href={`${SSSP_V2_ARCHIVE_URL}/010-extract-eff-lib/cutoffs.json`}
                 download
               >
                 Cutoffs
@@ -63,7 +66,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://github.com/unkcpz/sssp-verify-scripts/raw/refs/heads/main/2-experiments/2025-10-prec-lib/SSSP-lib-pbe-prec-v2.tar.gz"
+                href={`${SSSP_V2_ARCHIVE_URL}/011-extract-prec-lib/SSSP-lib-pbe-prec-v2.tar.gz`}
                 download
               >
                 Pseudos
@@ -71,7 +74,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://raw.githubusercontent.com/unkcpz/sssp-verify-scripts/refs/heads/main/2-experiments/finalized_scripts/011-extract-prec-lib/cutoffs.json"
+                href={`${SSSP_V2_ARCHIVE_URL}/011-extract-prec-lib/cutoffs.json`}
                 download
               >
                 Cutoffs
@@ -79,7 +82,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://github.com/unkcpz/sssp-verify-scripts/raw/refs/heads/main/2-experiments/2025-10-prec-lib/SSSP-lib-pbesol-prec-v2.tar.gz"
+                href={`${SSSP_V2_ARCHIVE_URL}/011-extract-prec-lib/SSSP-lib-pbesol-prec-v2.tar.gz`}
                 download
               >
                 Pseudos
@@ -87,7 +90,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://raw.githubusercontent.com/unkcpz/sssp-verify-scripts/refs/heads/main/2-experiments/finalized_scripts/011-extract-prec-lib/cutoffs.json"
+                href={`${SSSP_V2_ARCHIVE_URL}/011-extract-prec-lib/cutoffs.json`}
                 download
               >
                 Cutoffs
