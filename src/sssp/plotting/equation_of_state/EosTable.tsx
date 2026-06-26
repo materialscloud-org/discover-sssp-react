@@ -66,23 +66,23 @@ const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
           <td rowSpan={2} className={styles.gap}></td>
           <th colSpan={2}>Ψ Cutoff (Ry)</th>
           <td rowSpan={2} className={styles.gap}></td>
+          <th colSpan={2}>Average ν</th>
+          <td rowSpan={2} className={styles.gap}></td>
           <th colSpan={10}>
             ν (click <Link to="/about">here</Link> for details)
           </th>
-          <td rowSpan={2} className={styles.gap}></td>
-          <th colSpan={2}>Average ν</th>
         </tr>
         <tr>
           <th>Efficiency</th>
           <th>Precision</th>
+          <th className="text-nowrap">w/ max</th>
+          <th className="text-nowrap">w/o max</th>
           {CONFIGURATIONS.map((conf) => {
             const configuration = conf.includes("X")
               ? conf.replace("X", element)
               : `${element}-${conf === "DC" ? "Diamond" : conf}`;
             return <th key={conf}>{formatSubscripts(configuration)}</th>;
           })}
-          <th className="text-nowrap">w/ max</th>
-          <th className="text-nowrap">w/o max</th>
         </tr>
       </thead>
       <tbody>
@@ -122,6 +122,14 @@ const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
                     },
                   )}
                   <td className={styles.gap}></td>
+                  {Object.entries(eosPseudosMap[pseudo].avgNu).map(
+                    ([key, avgNu]) => (
+                      <td key={key} style={{ backgroundColor: nuColor(avgNu) }}>
+                        {avgNu !== undefined ? avgNu.toFixed(2) : "-"}
+                      </td>
+                    ),
+                  )}
+                  <td className={styles.gap}></td>
                   {CONFIGURATIONS.map((conf) => {
                     const nu = eosConfigMap.configurations[conf]?.nu;
                     const uuid = eosConfigMap.configurations[conf]?.uuid;
@@ -145,14 +153,6 @@ const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
                       </td>
                     );
                   })}
-                  <td className={styles.gap}></td>
-                  {Object.entries(eosPseudosMap[pseudo].avgNu).map(
-                    ([key, avgNu]) => (
-                      <td key={key} style={{ backgroundColor: nuColor(avgNu) }}>
-                        {avgNu !== undefined ? avgNu.toFixed(2) : "-"}
-                      </td>
-                    ),
-                  )}
                 </tr>
               );
             })}
