@@ -392,7 +392,7 @@ export const generateConvergencePlotData = (
       showarrow: false,
       align: "left",
       font: { size: 10 },
-      captureevents: true,
+      captureevents: false, // TODO set to `true` when archive is deployed
     });
 
     // Recommended pseudo highlight
