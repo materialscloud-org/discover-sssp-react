@@ -26,14 +26,12 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
     setActiveChessboardDataFlavor,
   } = useContext(PlotContext);
 
-  const etaV = useMemo(
-    () => chessboardData.v_distance[activeChessboardDataFlavor].eta,
-    [chessboardData, activeChessboardDataFlavor],
-  );
-  const etaV10 = useMemo(
-    () => chessboardData.v10_distance[activeChessboardDataFlavor].eta,
-    [chessboardData, activeChessboardDataFlavor],
-  );
+  const [etaV, etaV10] = useMemo(() => {
+    return [
+      chessboardData?.v_distance?.[activeChessboardDataFlavor]?.eta,
+      chessboardData?.v10_distance?.[activeChessboardDataFlavor]?.eta,
+    ];
+  }, [chessboardData, activeChessboardDataFlavor]);
 
   const tileClickHandler = (
     plotIndex: number,
@@ -42,12 +40,12 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
   ) => {
     setActiveChessboardPseudos(pseudos);
     const plotKey = plotIndex === 0 ? "v_distance" : "v10_distance";
-    const data = chessboardData[plotKey][activeChessboardDataFlavor];
-    setBandShift(data.shift[pointIndex[0]][pointIndex[1]]);
+    const data = chessboardData?.[plotKey]?.[activeChessboardDataFlavor];
+    setBandShift(data?.shift?.[pointIndex[0]]?.[pointIndex[1]] ?? 0);
     goToBands();
   };
 
-  const hasData = etaV.length > 0 && etaV10.length > 0;
+  const hasData = etaV?.length > 0 && etaV10?.length > 0;
 
   return loadingMetadata || loadingPlotData ? (
     <LoadingSpinner />
