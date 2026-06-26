@@ -57,109 +57,123 @@ const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
     [ssspPseudos, pseudosMetadata],
   );
 
+  let someDidNotConverge = false;
+
   return (
-    <Table id={styles.eosTable} borderless responsive className="text-center">
-      <thead>
-        <tr>
-          <th rowSpan={2}>Library</th>
-          <th rowSpan={2}>
-            Z<sub>val</sub>
-          </th>
-          <td rowSpan={2} className={styles.gap}></td>
-          <th colSpan={2}>Ψ Cutoff (Ry)</th>
-          <td rowSpan={2} className={styles.gap}></td>
-          <th colSpan={2}>Average ν</th>
-          <td rowSpan={2} className={styles.gap}></td>
-          <th colSpan={10}>
-            ν (click <Link to="/about">here</Link> for details)
-          </th>
-        </tr>
-        <tr>
-          <th>Efficiency</th>
-          <th>Precision</th>
-          <th className="text-nowrap">w/ max</th>
-          <th className="text-nowrap">w/o max</th>
-          {CONFIGURATIONS.map((conf) => {
-            const configuration = conf.includes("X")
-              ? conf.replace("X", element)
-              : `${element}-${conf === "DC" ? "Diamond" : conf}`;
-            return <th key={conf}>{formatSubscripts(configuration)}</th>;
-          })}
-        </tr>
-      </thead>
-      <tbody>
-        {eosPseudosMap &&
-          Object.entries(eosPseudosMap)
-            .filter(([pseudo]) => pseudo.includes("-Z="))
-            .map(([pseudo, eosConfigMap]) => {
-              const [pseudoName, Z] = pseudo.split("-Z=");
-              const style = ssspPseudoMap[pseudo]
-                ? {
-                    color: ssspPseudoMap[pseudo].color,
-                    fontWeight:
-                      ssspPseudoMap[pseudo].efficiency ||
-                      ssspPseudoMap[pseudo].precision
-                        ? "bold"
-                        : "normal",
-                  }
-                : {};
-              return (
-                <tr key={pseudo}>
-                  <td style={style}>{pseudoName}</td>
-                  <td style={style}>{Z}</td>
-                  <td className={styles.gap}></td>
-                  {Object.entries(eosPseudosMap[pseudo].ecutrho).map(
-                    ([key, value]) => {
-                      const applyStyle =
-                        key === "efficiency"
-                          ? ssspPseudoMap[pseudo]?.efficiency
-                          : key === "precision"
-                            ? ssspPseudoMap[pseudo]?.precision
-                            : false;
+    <>
+      <Table id={styles.eosTable} borderless responsive className="text-center">
+        <thead>
+          <tr>
+            <th rowSpan={2}>Library</th>
+            <th rowSpan={2}>
+              Z<sub>val</sub>
+            </th>
+            <td rowSpan={2} className={styles.gap}></td>
+            <th colSpan={2}>Ψ Cutoff (Ry)</th>
+            <td rowSpan={2} className={styles.gap}></td>
+            <th colSpan={2}>Average ν</th>
+            <td rowSpan={2} className={styles.gap}></td>
+            <th colSpan={10}>
+              ν (click <Link to="/about">here</Link> for details)
+            </th>
+          </tr>
+          <tr>
+            <th>Efficiency</th>
+            <th>Precision</th>
+            <th className="text-nowrap">w/ max</th>
+            <th className="text-nowrap">w/o max</th>
+            {CONFIGURATIONS.map((conf) => {
+              const configuration = conf.includes("X")
+                ? conf.replace("X", element)
+                : `${element}-${conf === "DC" ? "Diamond" : conf}`;
+              return <th key={conf}>{formatSubscripts(configuration)}</th>;
+            })}
+          </tr>
+        </thead>
+        <tbody>
+          {eosPseudosMap &&
+            Object.entries(eosPseudosMap)
+              .filter(([pseudo]) => pseudo.includes("-Z="))
+              .map(([pseudo, eosConfigMap]) => {
+                const [pseudoName, Z] = pseudo.split("-Z=");
+                const style = ssspPseudoMap[pseudo]
+                  ? {
+                      color: ssspPseudoMap[pseudo].color,
+                      fontWeight:
+                        ssspPseudoMap[pseudo].efficiency ||
+                        ssspPseudoMap[pseudo].precision
+                          ? "bold"
+                          : "normal",
+                    }
+                  : {};
+                return (
+                  <tr key={pseudo}>
+                    <td style={style}>{pseudoName}</td>
+                    <td style={style}>{Z}</td>
+                    <td className={styles.gap}></td>
+                    {Object.entries(eosPseudosMap[pseudo].ecutrho).map(
+                      ([key, value]) => {
+                        const applyStyle =
+                          key === "efficiency"
+                            ? ssspPseudoMap[pseudo]?.efficiency
+                            : key === "precision"
+                              ? ssspPseudoMap[pseudo]?.precision
+                              : false;
+                        someDidNotConverge = someDidNotConverge || !value;
+                        return (
+                          <td key={key} style={applyStyle ? style : undefined}>
+                            {value || ">200*"}
+                          </td>
+                        );
+                      },
+                    )}
+                    <td className={styles.gap}></td>
+                    {Object.entries(eosPseudosMap[pseudo].avgNu).map(
+                      ([key, avgNu]) => (
+                        <td
+                          key={key}
+                          style={{ backgroundColor: nuColor(avgNu) }}
+                        >
+                          {avgNu !== undefined ? avgNu.toFixed(2) : "-"}
+                        </td>
+                      ),
+                    )}
+                    <td className={styles.gap}></td>
+                    {CONFIGURATIONS.map((conf) => {
+                      const nu = eosConfigMap.configurations[conf]?.nu;
+                      // const uuid = eosConfigMap.configurations[conf]?.uuid;
                       return (
-                        <td key={key} style={applyStyle ? style : undefined}>
-                          {value || "-"}
+                        <td
+                          key={conf}
+                          style={{ backgroundColor: nuColor(nu) }}
+                          // className={nu !== undefined ? styles.nuTd : undefined}
+                        >
+                          {nu !== undefined ? (
+                            // <a
+                            //   href={`https://www.materialscloud.org/explore/sssp-v2/${uuid}`}
+                            //   target="_blank"
+                            //   className="link-dark stretched-link sssp-link"
+                            // >
+                            // </a>
+                            <span>{nu.toFixed(2)}</span>
+                          ) : (
+                            "-"
+                          )}
                         </td>
                       );
-                    },
-                  )}
-                  <td className={styles.gap}></td>
-                  {Object.entries(eosPseudosMap[pseudo].avgNu).map(
-                    ([key, avgNu]) => (
-                      <td key={key} style={{ backgroundColor: nuColor(avgNu) }}>
-                        {avgNu !== undefined ? avgNu.toFixed(2) : "-"}
-                      </td>
-                    ),
-                  )}
-                  <td className={styles.gap}></td>
-                  {CONFIGURATIONS.map((conf) => {
-                    const nu = eosConfigMap.configurations[conf]?.nu;
-                    // const uuid = eosConfigMap.configurations[conf]?.uuid;
-                    return (
-                      <td
-                        key={conf}
-                        style={{ backgroundColor: nuColor(nu) }}
-                        // className={nu !== undefined ? styles.nuTd : undefined}
-                      >
-                        {nu !== undefined ? (
-                          // <a
-                          //   href={`https://www.materialscloud.org/explore/sssp-v2/${uuid}`}
-                          //   target="_blank"
-                          //   className="link-dark stretched-link sssp-link"
-                          // >
-                          // </a>
-                          <span>{nu.toFixed(2)}</span>
-                        ) : (
-                          "-"
-                        )}
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
-      </tbody>
-    </Table>
+                    })}
+                  </tr>
+                );
+              })}
+        </tbody>
+      </Table>
+      {someDidNotConverge && (
+        <div id={styles.nonConvergedNote}>
+          * Pseudopotential did not converge at the highest cutoff tested in
+          this work (200 Ry)
+        </div>
+      )}
+    </>
   );
 };
 
