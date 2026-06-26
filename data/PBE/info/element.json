@@ -63,6 +63,13 @@
       "cutoff_rho": 158,
       "filename": "F.us.pbe.z_7.uspp.gbrv.v1.4.upf"
     },
+    "Ne": {
+      "library": "SPMS",
+      "Z": 8,
+      "cutoff_wfc": 70,
+      "cutoff_rho": 280,
+      "filename": "Ne.nc.pbe.z_8.oncvpsp4.spms.v1.upf"
+    },
     "Na": {
       "library": "PSL-PAW-v0.x",
       "Z": 9,
@@ -238,6 +245,13 @@
       "cutoff_rho": 75,
       "filename": "Br.nc.pbe.z_7.oncvpsp4.spms.v1.upf"
     },
+    "Kr": {
+      "library": "DOJO-041-std",
+      "Z": 8,
+      "cutoff_wfc": 65,
+      "cutoff_rho": 260,
+      "filename": "Kr.nc.pbe.z_8.oncvpsp3.dojo.v0.4.1-std.upf"
+    },
     "Rb": {
       "library": "GBRV-1.X",
       "Z": 9,
@@ -377,6 +391,13 @@
       "cutoff_wfc": 30,
       "cutoff_rho": 45,
       "filename": "Ba.nc.pbe.z_10.oncvpsp4.spms.v1.upf"
+    },
+    "La": {
+      "library": "PSL-PAW-v1-high",
+      "Z": 11,
+      "cutoff_wfc": 55,
+      "cutoff_rho": 440,
+      "filename": "La.paw.pbe.z_11.ld1.psl.v1.0.0-high.spfn.upf"
     },
     "Ce": {
       "library": "Wentzcovitch",
@@ -891,6 +912,13 @@
       "cutoff_rho": 120,
       "filename": "Br.nc.pbe.z_7.oncvpsp4.spms.v1.upf"
     },
+    "Kr": {
+      "library": "PSL-PAW-v1-high",
+      "Z": 18,
+      "cutoff_wfc": 200,
+      "cutoff_rho": 1600,
+      "filename": "Kr.paw.pbe.z_18.ld1.psl.v1.0.0-high.upf"
+    },
     "Rb": {
       "library": "GBRV-1.X",
       "Z": 9,
@@ -1030,6 +1058,13 @@
       "cutoff_wfc": 55,
       "cutoff_rho": 220,
       "filename": "Ba.nc.pbe.z_10.oncvpsp4.dojo.v0.5.0-std.upf"
+    },
+    "La": {
+      "library": "PSL-PAW-v1-high",
+      "Z": 11,
+      "cutoff_wfc": 60,
+      "cutoff_rho": 480,
+      "filename": "La.paw.pbe.z_11.ld1.psl.v1.0.0-high.spfn.upf"
     },
     "Ce": {
       "library": "Wentzcovitch",
