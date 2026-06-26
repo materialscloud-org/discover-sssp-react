@@ -148,7 +148,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
               x: chessboardPseudos[j],
               y: chessboardPseudos[i],
               text:
-                value >= 100
+                value >= 1000
                   ? value.toExponential(0).toString().replace("e+", "e")
                   : value.toFixed(1),
               showarrow: false,
