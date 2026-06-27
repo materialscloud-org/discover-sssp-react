@@ -23,7 +23,7 @@ class ElementsGenerator {
         const color =
           info && info.library in this.pseudosMetadata
             ? this.pseudosMetadata[info.library].color
-            : "#fff";
+            : "white";
 
         return (
           <Element
