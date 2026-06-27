@@ -1,21 +1,16 @@
 #chessboardsPage {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  overflow-x: auto;
-  max-width: 100%;
-
-  #warningAlert {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
 
   #bandsChessboardPlotsContainer {
     display: flex;
     flex-direction: column;
+    max-width: 100%;
+    overflow-x: auto;
+
+    .dataFlavorToggle {
+      margin-top: 1rem;
+    }
   }
 
   #bandsChessboardPlotDetailsContainer {

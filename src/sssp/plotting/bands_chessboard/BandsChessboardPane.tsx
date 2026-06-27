@@ -56,15 +56,17 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
         <NoDataMessage />
       ) : (
         <>
-          <Toggle
-            name="chessboard-data"
-            items={chessboardDataFlavors}
-            activeItem={activeChessboardDataFlavor}
-            onChange={(value) =>
-              setActiveChessboardDataFlavor(value as ChessboardDataFlavor)
-            }
-          />
           <div id={styles.bandsChessboardPlotsContainer}>
+            <div className={styles.dataFlavorToggle}>
+              <Toggle
+                name="chessboard-data"
+                items={chessboardDataFlavors}
+                activeItem={activeChessboardDataFlavor}
+                onChange={(value) =>
+                  setActiveChessboardDataFlavor(value as ChessboardDataFlavor)
+                }
+              />
+            </div>
             <BandsChessboardPlot
               title="η<sub>v</sub>"
               chessboardPseudos={chessboardData.pseudos}

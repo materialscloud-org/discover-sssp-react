@@ -58,25 +58,21 @@ const ConvergencePane: React.FC = () => {
           />
         </div>
       )}
-      <div id={styles.convergencePlotContainer}>
-        {!hasData ? (
-          <NoDataMessage />
-        ) : !activePseudos.length ? (
-          <NoDataMessage />
-        ) : (
-          <>
-            <h4 id={styles.plotTitle}>Error w.r.t. ref. wavefunction cutoff</h4>
-            <ConvergencePlot
-              element={element}
-              activePseudos={activePseudos}
-              pseudosMetadata={activePseudosMetadata}
-            />
-          </>
-        )}
-      </div>
-      <div id={styles.convergencePlotDetailsContainer}>
-        <ConvergencePlotDetails />
-      </div>
+      {!hasData || !activePseudos.length ? (
+        <NoDataMessage />
+      ) : (
+        <div id={styles.convergencePlotContainer}>
+          <h4 id={styles.plotTitle}>Error w.r.t. ref. wavefunction cutoff</h4>
+          <ConvergencePlot
+            element={element}
+            activePseudos={activePseudos}
+            pseudosMetadata={activePseudosMetadata}
+          />
+          <div id={styles.convergencePlotDetailsContainer}>
+            <ConvergencePlotDetails />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
