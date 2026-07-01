@@ -18,13 +18,6 @@ const PseudosLegend: React.FC = () => {
     [pseudosMetadata],
   );
 
-  const getDynamicClassName = (pseudo: string) => {
-    if (!hoveredPseudo && !hoveredElement) return "";
-    if (hoveredPseudo === pseudo) return styles.highlighted;
-    if (hoveredElement?.info?.library === pseudo) return styles.highlighted;
-    return styles.transparent;
-  };
-
   return loadingMetadata ? (
     <LoadingSpinner />
   ) : (
@@ -32,7 +25,17 @@ const PseudosLegend: React.FC = () => {
       {Object.entries(pseudosMetadata).map(([pseudo, metadata]) => (
         <li
           key={pseudo}
-          className={`${styles.pseudoItem} ${getDynamicClassName(pseudo)}`}
+          className={`
+              ${styles.pseudoItem}
+                ${
+                  !(hoveredPseudo || hoveredElement)
+                    ? ""
+                    : hoveredPseudo === pseudo ||
+                        hoveredElement?.info.library === pseudo
+                      ? styles.highlighted
+                      : styles.transparent
+                }
+              `}
           style={{ width: maxPseudoWidth + 16 }}
           onMouseEnter={() => setHoveredPseudo(pseudo)}
         >

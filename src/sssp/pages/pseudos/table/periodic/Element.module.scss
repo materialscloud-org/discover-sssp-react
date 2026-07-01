@@ -40,6 +40,7 @@
     z-index 0.25s ease;
 
   &.disabled {
+    pointer-events: none;
     border: 1px solid black;
     color: black;
   }

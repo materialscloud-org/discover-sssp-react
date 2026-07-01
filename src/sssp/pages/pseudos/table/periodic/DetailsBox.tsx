@@ -15,14 +15,11 @@ const DetailsBox: React.FC = () => {
   if (hoveredElement) {
     const { number, symbol, color, info } = hoveredElement;
     Details = () => (
-      <div
-        id={styles.detailsBox}
-        style={{ color: color === "white" ? "black" : color }}
-      >
+      <div id={styles.detailsBox} style={{ color: color }}>
         <div id={styles.elementDetails}>
           <div id={styles.elementInfo}>
             <span id={styles.zValue}>
-              Z<sub>val</sub> = {info?.Z || "?"}
+              Z<sub>val</sub> = {info.Z}
             </span>
             <div id={styles.labelInfo}>
               <span id={styles.atomicNumber}>{number}</span>
@@ -33,12 +30,12 @@ const DetailsBox: React.FC = () => {
             <span id={styles.cutoffHeader}>Cutoffs</span>
             <ul>
               <li>
-                <span className={styles.cutoffLabel}>Ψ</span>:{" "}
-                {(info && `${info.cutoff_wfc} Ry`) || "?"}
+                <span className={styles.cutoffLabel}>Ψ</span>: {info.cutoff_wfc}{" "}
+                Ry
               </li>
               <li>
-                <span className={styles.cutoffLabel}>ρ</span>:{" "}
-                {(info && `${info.cutoff_rho} Ry`) || "?"}
+                <span className={styles.cutoffLabel}>ρ</span>: {info.cutoff_rho}{" "}
+                Ry
               </li>
             </ul>
           </div>
