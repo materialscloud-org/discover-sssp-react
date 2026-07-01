@@ -32,7 +32,7 @@ const PseudosCheckboxes: React.FC<PseudosCheckboxesProps> = ({
       />
       {pseudos.map((pseudo) => {
         const label = pseudo + (pseudo === "REF" ? " (AE average)" : "");
-        const pseudoName = pseudo.split("-Z=")[0];
+        const pseudoName = pseudo.split(" ")[0];
         return (
           <Form.Check
             key={pseudo}

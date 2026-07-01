@@ -27,7 +27,7 @@ const PlotPaneHeader: React.FC<PlotHeaderProps> = ({ title }) => {
                     "black",
                 }}
               >
-                {`${ssspPseudos.efficiency?.library}-Z=${ssspPseudos.efficiency?.Z}`}
+                {`${ssspPseudos.efficiency?.library} (Z=${ssspPseudos.efficiency?.Z})`}
               </span>
             ) : (
               <span style={{ color: "gray" }}>N/A</span>
@@ -42,7 +42,7 @@ const PlotPaneHeader: React.FC<PlotHeaderProps> = ({ title }) => {
                   "black",
               }}
             >
-              {`${ssspPseudos.precision?.library}-Z=${ssspPseudos.precision?.Z}`}
+              {`${ssspPseudos.precision?.library} (Z=${ssspPseudos.precision?.Z})`}
             </span>
           </div>
         </div>

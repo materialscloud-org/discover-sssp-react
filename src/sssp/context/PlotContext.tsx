@@ -102,7 +102,7 @@ export const PlotProvider: React.FC<PlotProviderProps> = ({ children }) => {
 
     const ssspPseudoLibraries = Object.values(ssspPseudos)
       .flat()
-      .map((pseudo) => pseudo && `${pseudo.library}-Z=${pseudo.Z}`);
+      .map((pseudo) => pseudo && `${pseudo.library} (Z=${pseudo.Z})`);
 
     Promise.all([
       SsspDataService.fetchPseudosConvergenceData(activeFunctional, element),

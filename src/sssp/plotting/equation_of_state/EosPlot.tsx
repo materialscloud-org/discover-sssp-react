@@ -54,7 +54,7 @@ const EosPlot: React.FC<EosPlotProps> = ({
       const data: Data[] = Object.entries(eosPseudosMap)
         .filter(([pseudo]) => activePseudos.includes(pseudo))
         .map(([pseudo, eosData]: [string, EosPlotData]) => {
-          const pseudoName = pseudo.split("-Z=")[0];
+          const pseudoName = pseudo.split(" ")[0];
           const color = pseudosMetadata[pseudoName]?.color || "black";
           if (pseudo !== "REF" && eosData.volumes && eosData.energies) {
             const sorted = eosData.volumes

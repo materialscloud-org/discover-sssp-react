@@ -34,7 +34,7 @@ const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
               if (!info) return map;
               const { Z, library } = info;
               const color = pseudosMetadata[info.library]?.color || "inherit";
-              map[`${library}-Z=${Z}`] = {
+              map[`${library} (Z=${Z})`] = {
                 color,
                 efficiency:
                   info.library === ssspPseudos.efficiency?.library &&
@@ -93,9 +93,11 @@ const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
         <tbody>
           {eosPseudosMap &&
             Object.entries(eosPseudosMap)
-              .filter(([pseudo]) => pseudo.includes("-Z="))
+              .filter(([pseudo]) => pseudo.includes("(Z="))
               .map(([pseudo, eosConfigMap]) => {
-                const [pseudoName, Z] = pseudo.split("-Z=");
+                const parts = pseudo.split(" ");
+                const pseudoName = parts[0];
+                const Z = parts[1].replace("(Z=", "").replace(")", "");
                 const style = ssspPseudoMap[pseudo]
                   ? {
                       color: ssspPseudoMap[pseudo].color,

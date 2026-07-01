@@ -400,28 +400,28 @@
       "filename": "La.paw.pbe.z_11.ld1.psl.v1.0.0-high.spfn.upf"
     },
     "Ce": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 12,
       "cutoff_wfc": 35,
       "cutoff_rho": 70,
       "filename": "Ce.paw.pbe.z_12.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Pr": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 13,
       "cutoff_wfc": 30,
       "cutoff_rho": 75,
       "filename": "Pr.paw.pbe.z_13.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Nd": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 14,
       "cutoff_wfc": 35,
       "cutoff_rho": 210,
       "filename": "Nd.paw.pbe.z_14.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Pm": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 15,
       "cutoff_wfc": 35,
       "cutoff_rho": 105,
@@ -435,63 +435,63 @@
       "filename": "Sm.us.pbe.z_26.ld1.psl.v1.0.0-high.upf"
     },
     "Eu": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 17,
       "cutoff_wfc": 35,
       "cutoff_rho": 105,
       "filename": "Eu.paw.pbe.z_17.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Gd": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 18,
       "cutoff_wfc": 35,
       "cutoff_rho": 140,
       "filename": "Gd.paw.pbe.z_18.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Tb": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 19,
       "cutoff_wfc": 40,
       "cutoff_rho": 140,
       "filename": "Tb.paw.pbe.z_19.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Dy": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 20,
       "cutoff_wfc": 40,
       "cutoff_rho": 160,
       "filename": "Dy.paw.pbe.z_20.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Ho": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 21,
       "cutoff_wfc": 40,
       "cutoff_rho": 160,
       "filename": "Ho.paw.pbe.z_21.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Er": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 22,
       "cutoff_wfc": 80,
       "cutoff_rho": 160,
       "filename": "Er.paw.pbe.z_22.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Tm": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 23,
       "cutoff_wfc": 40,
       "cutoff_rho": 160,
       "filename": "Tm.paw.pbe.z_23.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Yb": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 24,
       "cutoff_wfc": 80,
       "cutoff_rho": 560,
       "filename": "Yb.paw.pbe.z_24.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Lu": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 25,
       "cutoff_wfc": 45,
       "cutoff_rho": 180,
@@ -631,14 +631,14 @@
       "filename": "Th.us.pbe.z_12.ld1.psl.v1.0.0-high.upf"
     },
     "Pa": {
-      "library": "MARBURG",
+      "library": "MK21",
       "Z": 13,
       "cutoff_wfc": 40,
       "cutoff_rho": 240,
       "filename": "Pa.paw.pbe.z_13.ld1.uni-marburg.v0.upf"
     },
     "U": {
-      "library": "MARBURG",
+      "library": "MK21",
       "Z": 14,
       "cutoff_wfc": 45,
       "cutoff_rho": 180,
@@ -1067,28 +1067,28 @@
       "filename": "La.paw.pbe.z_11.ld1.psl.v1.0.0-high.spfn.upf"
     },
     "Ce": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 12,
       "cutoff_wfc": 35,
       "cutoff_rho": 280,
       "filename": "Ce.paw.pbe.z_12.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Pr": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 13,
       "cutoff_wfc": 90,
       "cutoff_rho": 720,
       "filename": "Pr.paw.pbe.z_13.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Nd": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 14,
       "cutoff_wfc": 40,
       "cutoff_rho": 320,
       "filename": "Nd.paw.pbe.z_14.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Pm": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 15,
       "cutoff_wfc": 50,
       "cutoff_rho": 400,
@@ -1102,63 +1102,63 @@
       "filename": "Sm.us.pbe.z_26.ld1.psl.v1.0.0-high.upf"
     },
     "Eu": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 17,
       "cutoff_wfc": 35,
       "cutoff_rho": 280,
       "filename": "Eu.paw.pbe.z_17.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Gd": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 18,
       "cutoff_wfc": 50,
       "cutoff_rho": 400,
       "filename": "Gd.paw.pbe.z_18.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Tb": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 19,
       "cutoff_wfc": 55,
       "cutoff_rho": 440,
       "filename": "Tb.paw.pbe.z_19.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Dy": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 20,
       "cutoff_wfc": 200,
       "cutoff_rho": 1600,
       "filename": "Dy.paw.pbe.z_20.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Ho": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 21,
       "cutoff_wfc": 120,
       "cutoff_rho": 960,
       "filename": "Ho.paw.pbe.z_21.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Er": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 22,
       "cutoff_wfc": 150,
       "cutoff_rho": 1200,
       "filename": "Er.paw.pbe.z_22.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Tm": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 23,
       "cutoff_wfc": 200,
       "cutoff_rho": 1600,
       "filename": "Tm.paw.pbe.z_23.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Yb": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 24,
       "cutoff_wfc": 150,
       "cutoff_rho": 1200,
       "filename": "Yb.paw.pbe.z_24.atompaw.wentzcovitch.v1.0.legacy.upf"
     },
     "Lu": {
-      "library": "Wentzcovitch",
+      "library": "WT14",
       "Z": 25,
       "cutoff_wfc": 50,
       "cutoff_rho": 400,
@@ -1298,14 +1298,14 @@
       "filename": "Th.us.pbe.z_12.ld1.psl.v1.0.0-high.upf"
     },
     "Pa": {
-      "library": "MARBURG",
+      "library": "MK21",
       "Z": 13,
       "cutoff_wfc": 40,
       "cutoff_rho": 320,
       "filename": "Pa.paw.pbe.z_13.ld1.uni-marburg.v0.upf"
     },
     "U": {
-      "library": "MARBURG",
+      "library": "MK21",
       "Z": 14,
       "cutoff_wfc": 50,
       "cutoff_rho": 400,
