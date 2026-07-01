@@ -92,12 +92,14 @@
     "library": "RE Wentzcovitch",
     "category": "paw",
     "color": "#4a044a",
-    "displayName": "paw-lanthanides-wentzcovitch"
+    "displayName": "paw-lanthanides-wentzcovitch",
+    "description": "lanthanides only"
   },
   "MARBURG": {
     "library": "Actinides MalteSachs",
     "category": "paw",
     "color": "#b0005a",
-    "displayName": "paw-actinides-marburg"
+    "displayName": "paw-actinides-marburg",
+    "description": "actinides only"
   }
 }
