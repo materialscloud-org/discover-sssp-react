@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useMemo } from "react";
 import { Button, Tab, Tabs } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import Select from "react-select";
@@ -23,8 +23,16 @@ const DetailsPage: React.FC = () => {
   const params = useParams();
   const { activeLibrary, activeFunctional, functionals } =
     useContext(FamilyContext);
-  const { element, setElement } = useContext(ElementContext);
+  const { element, setElement, elementsInfo } = useContext(ElementContext);
   const elementValue = element || params.element || "";
+
+  const elementOptions = useMemo(
+    () =>
+      elementSymbols
+        .filter((el) => elementsInfo?.[activeLibrary]?.[el])
+        .map((el) => ({ value: el, label: el })),
+    [activeLibrary, elementsInfo],
+  );
 
   useEffect(() => {
     const element = params.element || "";
@@ -56,10 +64,7 @@ const DetailsPage: React.FC = () => {
           <Select
             className={styles.selector}
             value={{ value: elementValue, label: elementValue }}
-            options={elementSymbols
-              .slice(1)
-              .sort()
-              .map((el) => ({ value: el, label: el }))}
+            options={elementOptions}
             onChange={(selectedOption) => {
               const selectedElement = selectedOption?.value;
               if (selectedElement) {
