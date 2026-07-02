@@ -533,18 +533,18 @@
       "filename": "Os.us.pbe.z_16.uspp.gbrv.v1.2.upf"
     },
     "Ir": {
-      "library": "PSL-PAW-v1-low",
-      "Z": 9,
-      "cutoff_wfc": 35,
-      "cutoff_rho": 88,
-      "filename": "Ir.paw.pbe.z_9.ld1.psl.v1.0.0-low.n.upf"
-    },
-    "Pt": {
-      "library": "PSL-US-v1-low",
-      "Z": 10,
+      "library": "SPMS",
+      "Z": 17,
       "cutoff_wfc": 30,
       "cutoff_rho": 120,
-      "filename": "Pt.us.pbe.z_10.ld1.psl.v1.0.0-low.n.upf"
+      "filename": "Ir.nc.pbe.z_17.oncvpsp4.spms.v1.upf"
+    },
+    "Pt": {
+      "library": "GBRV-1.X",
+      "Z": 16,
+      "cutoff_wfc": 35,
+      "cutoff_rho": 200,
+      "filename": "Pt.us.pbe.z_16.uspp.gbrv.v1.4.upf"
     },
     "Au": {
       "library": "GBRV-1.X",
