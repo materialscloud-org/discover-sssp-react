@@ -200,7 +200,6 @@
     "PSL-PAW-v1-low-7": "Cl.paw.pbe.z_7.ld1.psl.v1.0.0-low.upf",
     "JTH-1.1-std-7": "Cl.paw.pbe.z_7.atompaw.jth.v1.1-std.upf"
   },
-  "Cm": {},
   "Co": {
     "DOJO-041-std-17": "Co.nc.pbe.z_17.oncvpsp3.dojo.v0.4.1-std.upf",
     "DOJO-041-str-17": "Co.nc.pbe.z_17.oncvpsp3.dojo.v0.4.1-str.upf",
