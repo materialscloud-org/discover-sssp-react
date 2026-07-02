@@ -44,22 +44,19 @@ export interface EosPlotData {
 
 export type EosConfigMap = Record<string, EosPlotData>;
 
-export type EosPseudosMap = Record<
-  string,
-  {
-    ecutrho: {
-      efficiency: number;
-      precision: number;
-    };
-    configurations: EosConfigMap;
-    avgNu: {
-      withMax: number;
-      withoutMax: number;
-    };
-  }
->;
+export interface EosPseudoMap {
+  ecutrho: {
+    efficiency: number;
+    precision: number;
+  };
+  configurations: EosConfigMap;
+  avgNu: {
+    withMax: number;
+    withoutMax: number;
+  };
+}
 
-export type EosElementMap = Record<string, EosPseudosMap>;
+export type EosPseudosMap = Record<string, EosPseudoMap>;
 
 export interface Path {
   length: number;

@@ -5,7 +5,6 @@ import {
   BandsPseudosMap,
   Citation,
   ElementsInfo,
-  EosElementMap,
   EosPseudosMap,
   MethodMetadata,
   PseudoBandsCalcUUIDsMap,
@@ -155,10 +154,10 @@ export default class SsspDataService {
     functional: string,
     element: string,
   ): Promise<EosPseudosMap> => {
-    const url = `${DATA_URL}/${functional}/eos.json`;
+    const url = `${DATA_URL}/${functional}/eos/${element}.json`;
     const response = await fetch(url);
-    const eosData: EosElementMap = await response.json();
-    return eosData[element] || ({} as EosPseudosMap);
+    const eosData: EosPseudosMap = await response.json();
+    return eosData || ({} as EosPseudosMap);
   };
 
   static fetchBandsData = async (
