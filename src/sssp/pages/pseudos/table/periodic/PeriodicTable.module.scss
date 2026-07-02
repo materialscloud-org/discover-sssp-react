@@ -22,7 +22,7 @@
       display: grid;
       width: fit-content;
       grid-template-columns: repeat(18, var(--element-box-size));
-      gap: 2px;
+      gap: 1px;
     }
 
     .starPlaceholder {
