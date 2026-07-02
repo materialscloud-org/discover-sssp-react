@@ -88,16 +88,18 @@
     "color": "#5a189a",
     "displayName": "paw-jth-v1.1-str"
   },
-  "Wentzcovitch": {
-    "library": "RE Wentzcovitch",
+  "WT14": {
+    "library": "WT14",
     "category": "paw",
     "color": "#4a044a",
-    "displayName": "paw-lanthanides-wentzcovitch"
+    "displayName": "paw-lanthanides-wentzcovitch",
+    "description": "lanthanides only"
   },
-  "MARBURG": {
-    "library": "Actinides MalteSachs",
+  "MK21": {
+    "library": "MK21",
     "category": "paw",
     "color": "#b0005a",
-    "displayName": "paw-actinides-marburg"
+    "displayName": "paw-actinides-marburg",
+    "description": "actinides only"
   }
 }

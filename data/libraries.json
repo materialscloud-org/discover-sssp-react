@@ -40,13 +40,13 @@
     "citation": "F. Jollet, M. Torrent, and N. Holzwarth, [*Comput. Phys. Commun.* **185**, 4, 1246-1254](https://doi.org/10.1016/j.cpc.2013.12.023) (2014).",
     "versions": ["JTH-1.1-std", "JTH-1.1-str"]
   },
-  "RE Wentzcovitch": {
+  "WT14": {
     "website": "http://www.mineralscloud.com/resources/repaw/index.shtml",
     "citation": "M. Topsakal and R. M. Wentzcovitch, [*Comput. Mater. Sci.* **95**, 263-270](http://dx.doi.org/10.1016/j.commatsci.2014.07.030) (2014).",
-    "versions": ["Wentzcovitch"]
+    "versions": ["WT14"]
   },
-  "Actinides MalteSachs": {
-    "citation": "M. Sachs, M. F. Glaner, and R. E. Cohen, [*Inorg. Chem.* **60**, 16686-16699](https://doi.org/10.1021/acs.inorgchem.1c02578) (2021).",
-    "versions": ["MARBURG"]
+  "MK21": {
+    "citation": "M. Sachs, S. I. Ivlev, M. Etter, M. Conrad, A. J. Karttunen and F. Kraus, [*Inorg. Chem.* **60**, 16686-16699](https://doi.org/10.1021/acs.inorgchem.1c02578) (2021).",
+    "versions": ["MK21"]
   }
 }

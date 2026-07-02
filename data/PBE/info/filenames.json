@@ -184,7 +184,7 @@
     "PSL-PAW-v1-high-22": "Ce.paw.pbe.z_22.ld1.psl.v1.0.0-high.upf",
     "PSL-PAW-v1-low-11": "Ce.paw.pbe.z_11.ld1.psl.v1.0.0-low.upf",
     "JTH-1.1-std-12": "Ce.paw.pbe.z_12.atompaw.jth.v1.1-std.upf",
-    "Wentzcovitch-12": "Ce.paw.pbe.z_12.atompaw.wentzcovitch.v1.0.legacy.upf"
+    "WT14-12": "Ce.paw.pbe.z_12.atompaw.wentzcovitch.v1.0.legacy.upf"
   },
   "Cl": {
     "DOJO-041-std-7": "Cl.nc.pbe.z_7.oncvpsp3.dojo.v0.4.1-std.upf",
@@ -200,7 +200,6 @@
     "PSL-PAW-v1-low-7": "Cl.paw.pbe.z_7.ld1.psl.v1.0.0-low.upf",
     "JTH-1.1-std-7": "Cl.paw.pbe.z_7.atompaw.jth.v1.1-std.upf"
   },
-  "Cm": {},
   "Co": {
     "DOJO-041-std-17": "Co.nc.pbe.z_17.oncvpsp3.dojo.v0.4.1-std.upf",
     "DOJO-041-str-17": "Co.nc.pbe.z_17.oncvpsp3.dojo.v0.4.1-str.upf",
@@ -254,7 +253,7 @@
     "PSL-PAW-v1-high-30": "Dy.paw.pbe.z_30.ld1.psl.v1.0.0-high.upf",
     "PSL-PAW-v1-low-11": "Dy.paw.pbe.z_11.ld1.psl.v1.0.0-low.upf",
     "JTH-1.1-std-20": "Dy.paw.pbe.z_20.atompaw.jth.v1.1-std.upf",
-    "Wentzcovitch-20": "Dy.paw.pbe.z_20.atompaw.wentzcovitch.v1.0.legacy.upf"
+    "WT14-20": "Dy.paw.pbe.z_20.atompaw.wentzcovitch.v1.0.legacy.upf"
   },
   "Er": {
     "PSL-US-v1-high-32": "Er.us.pbe.z_32.ld1.psl.v1.0.0-high.upf",
@@ -262,7 +261,7 @@
     "PSL-PAW-v1-high-32": "Er.paw.pbe.z_32.ld1.psl.v1.0.0-high.upf",
     "PSL-PAW-v1-low-11": "Er.paw.pbe.z_11.ld1.psl.v1.0.0-low.upf",
     "JTH-1.1-std-22": "Er.paw.pbe.z_22.atompaw.jth.v1.1-std.upf",
-    "Wentzcovitch-22": "Er.paw.pbe.z_22.atompaw.wentzcovitch.v1.0.legacy.upf"
+    "WT14-22": "Er.paw.pbe.z_22.atompaw.wentzcovitch.v1.0.legacy.upf"
   },
   "Eu": {
     "PSL-US-v1-high-27": "Eu.us.pbe.z_27.ld1.psl.v1.0.0-high.upf",
@@ -272,7 +271,7 @@
     "PSL-PAW-v1-low-11": "Eu.paw.pbe.z_11.ld1.psl.v1.0.0-low.spdn.upf",
     "PSL-PAW-v1-low-10": "Eu.paw.pbe.z_10.ld1.psl.v1.0.0-low.spn.upf",
     "JTH-1.1-std-17": "Eu.paw.pbe.z_17.atompaw.jth.v1.1-std.upf",
-    "Wentzcovitch-17": "Eu.paw.pbe.z_17.atompaw.wentzcovitch.v1.0.legacy.upf"
+    "WT14-17": "Eu.paw.pbe.z_17.atompaw.wentzcovitch.v1.0.legacy.upf"
   },
   "F": {
     "DOJO-041-std-7": "F.nc.pbe.z_7.oncvpsp3.dojo.v0.4.1-std.upf",
@@ -323,7 +322,7 @@
     "PSL-PAW-v1-high-28": "Gd.paw.pbe.z_28.ld1.psl.v1.0.0-high.upf",
     "PSL-PAW-v1-low-11": "Gd.paw.pbe.z_11.ld1.psl.v1.0.0-low.upf",
     "JTH-1.1-std-18": "Gd.paw.pbe.z_18.atompaw.jth.v1.1-std.upf",
-    "Wentzcovitch-18": "Gd.paw.pbe.z_18.atompaw.wentzcovitch.v1.0.legacy.upf"
+    "WT14-18": "Gd.paw.pbe.z_18.atompaw.wentzcovitch.v1.0.legacy.upf"
   },
   "Ge": {
     "DOJO-041-std-14": "Ge.nc.pbe.z_14.oncvpsp3.dojo.v0.4.1-std.upf",
@@ -392,7 +391,7 @@
     "PSL-PAW-v1-high-31": "Ho.paw.pbe.z_31.ld1.psl.v1.0.0-high.upf",
     "PSL-PAW-v1-low-11": "Ho.paw.pbe.z_11.ld1.psl.v1.0.0-low.upf",
     "JTH-1.1-std-21": "Ho.paw.pbe.z_21.atompaw.jth.v1.1-std.upf",
-    "Wentzcovitch-21": "Ho.paw.pbe.z_21.atompaw.wentzcovitch.v1.0.legacy.upf"
+    "WT14-21": "Ho.paw.pbe.z_21.atompaw.wentzcovitch.v1.0.legacy.upf"
   },
   "I": {
     "DOJO-041-std-7": "I.nc.pbe.z_7.oncvpsp3.dojo.v0.4.1-std.upf",
@@ -462,7 +461,7 @@
     "PSL-PAW-v1-high-21": "La.paw.pbe.z_21.ld1.psl.v1.0.0-high.spdfn.upf",
     "PSL-PAW-v1-high-11": "La.paw.pbe.z_11.ld1.psl.v1.0.0-high.spfn.upf",
     "JTH-1.1-std-11": "La.paw.pbe.z_11.atompaw.jth.v1.1-std.upf",
-    "Wentzcovitch-11": "La.paw.pbe.z_11.atompaw.wentzcovitch.v1.0.legacy.upf"
+    "WT14-11": "La.paw.pbe.z_11.atompaw.wentzcovitch.v1.0.legacy.upf"
   },
   "Li": {
     "DOJO-041-std-3": "Li.nc.pbe.z_3.oncvpsp3.dojo.v0.4.1-std.upf",
@@ -485,7 +484,7 @@
     "PSL-PAW-v1-high-35": "Lu.paw.pbe.z_35.ld1.psl.v1.0.0-high.upf",
     "PSL-PAW-v1-low-11": "Lu.paw.pbe.z_11.ld1.psl.v1.0.0-low.upf",
     "JTH-1.1-std-25": "Lu.paw.pbe.z_25.atompaw.jth.v1.1-std.upf",
-    "Wentzcovitch-25": "Lu.paw.pbe.z_25.atompaw.wentzcovitch.v1.0.legacy.upf"
+    "WT14-25": "Lu.paw.pbe.z_25.atompaw.wentzcovitch.v1.0.legacy.upf"
   },
   "Mg": {
     "DOJO-041-std-10": "Mg.nc.pbe.z_10.oncvpsp3.dojo.v0.4.1-std.upf",
@@ -560,7 +559,7 @@
     "PSL-PAW-v1-high-24": "Nd.paw.pbe.z_24.ld1.psl.v1.0.0-high.upf",
     "PSL-PAW-v1-low-11": "Nd.paw.pbe.z_11.ld1.psl.v1.0.0-low.upf",
     "JTH-1.1-std-14": "Nd.paw.pbe.z_14.atompaw.jth.v1.1-std.upf",
-    "Wentzcovitch-14": "Nd.paw.pbe.z_14.atompaw.wentzcovitch.v1.0.legacy.upf"
+    "WT14-14": "Nd.paw.pbe.z_14.atompaw.wentzcovitch.v1.0.legacy.upf"
   },
   "Ne": {
     "DOJO-041-std-8": "Ne.nc.pbe.z_8.oncvpsp3.dojo.v0.4.1-std.upf",
@@ -665,7 +664,7 @@
     "PSL-PAW-v1-high-25": "Pm.paw.pbe.z_25.ld1.psl.v1.0.0-high.upf",
     "PSL-PAW-v1-low-11": "Pm.paw.pbe.z_11.ld1.psl.v1.0.0-low.upf",
     "JTH-1.1-std-15": "Pm.paw.pbe.z_15.atompaw.jth.v1.1-std.upf",
-    "Wentzcovitch-15": "Pm.paw.pbe.z_15.atompaw.wentzcovitch.v1.0.legacy.upf"
+    "WT14-15": "Pm.paw.pbe.z_15.atompaw.wentzcovitch.v1.0.legacy.upf"
   },
   "Po": {
     "DOJO-041-std-16": "Po.nc.pbe.z_16.oncvpsp3.dojo.v0.4.1-std.upf",
@@ -681,7 +680,7 @@
     "PSL-PAW-v1-high-23": "Pr.paw.pbe.z_23.ld1.psl.v1.0.0-high.upf",
     "PSL-PAW-v1-low-11": "Pr.paw.pbe.z_11.ld1.psl.v1.0.0-low.upf",
     "JTH-1.1-std-13": "Pr.paw.pbe.z_13.atompaw.jth.v1.1-std.upf",
-    "Wentzcovitch-13": "Pr.paw.pbe.z_13.atompaw.wentzcovitch.v1.0.legacy.upf"
+    "WT14-13": "Pr.paw.pbe.z_13.atompaw.wentzcovitch.v1.0.legacy.upf"
   },
   "Pt": {
     "DOJO-041-std-18": "Pt.nc.pbe.z_18.oncvpsp3.dojo.v0.4.1-std.upf",
@@ -823,7 +822,7 @@
     "PSL-PAW-v1-high-26": "Sm.paw.pbe.z_26.ld1.psl.v1.0.0-high.upf",
     "PSL-PAW-v1-low-11": "Sm.paw.pbe.z_11.ld1.psl.v1.0.0-low.upf",
     "JTH-1.1-std-16": "Sm.paw.pbe.z_16.atompaw.jth.v1.1-std.upf",
-    "Wentzcovitch-16": "Sm.paw.pbe.z_16.atompaw.wentzcovitch.v1.0.legacy.upf"
+    "WT14-16": "Sm.paw.pbe.z_16.atompaw.wentzcovitch.v1.0.legacy.upf"
   },
   "Sn": {
     "DOJO-041-std-14": "Sn.nc.pbe.z_14.oncvpsp3.dojo.v0.4.1-std.upf",
@@ -868,7 +867,7 @@
     "PSL-PAW-v1-high-29": "Tb.paw.pbe.z_29.ld1.psl.v1.0.0-high.upf",
     "PSL-PAW-v1-low-11": "Tb.paw.pbe.z_11.ld1.psl.v1.0.0-low.upf",
     "JTH-1.1-std-19": "Tb.paw.pbe.z_19.atompaw.jth.v1.1-std.upf",
-    "Wentzcovitch-19": "Tb.paw.pbe.z_19.atompaw.wentzcovitch.v1.0.legacy.upf"
+    "WT14-19": "Tb.paw.pbe.z_19.atompaw.wentzcovitch.v1.0.legacy.upf"
   },
   "Tc": {
     "DOJO-041-std-15": "Tc.nc.pbe.z_15.oncvpsp3.dojo.v0.4.1-std.upf",
@@ -926,7 +925,7 @@
     "PSL-PAW-v1-high-33": "Tm.paw.pbe.z_33.ld1.psl.v1.0.0-high.upf",
     "PSL-PAW-v1-low-11": "Tm.paw.pbe.z_11.ld1.psl.v1.0.0-low.upf",
     "JTH-1.1-std-23": "Tm.paw.pbe.z_23.atompaw.jth.v1.1-std.upf",
-    "Wentzcovitch-23": "Tm.paw.pbe.z_23.atompaw.wentzcovitch.v1.0.legacy.upf"
+    "WT14-23": "Tm.paw.pbe.z_23.atompaw.wentzcovitch.v1.0.legacy.upf"
   },
   "U": {
     "PSL-US-v1-high-14": "U.us.pbe.z_14.ld1.psl.v1.0.0-high.upf",
@@ -979,7 +978,7 @@
     "PSL-PAW-v1-low-11": "Yb.paw.pbe.z_11.ld1.psl.v1.0.0-low.spdn.upf",
     "PSL-PAW-v1-low-10": "Yb.paw.pbe.z_10.ld1.psl.v1.0.0-low.spn.upf",
     "JTH-1.1-std-24": "Yb.paw.pbe.z_24.atompaw.jth.v1.1-std.upf",
-    "Wentzcovitch-24": "Yb.paw.pbe.z_24.atompaw.wentzcovitch.v1.0.legacy.upf"
+    "WT14-24": "Yb.paw.pbe.z_24.atompaw.wentzcovitch.v1.0.legacy.upf"
   },
   "Zn": {
     "DOJO-041-std-20": "Zn.nc.pbe.z_20.oncvpsp3.dojo.v0.4.1-std.upf",
