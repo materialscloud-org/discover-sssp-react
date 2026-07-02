@@ -20,7 +20,7 @@ const config: Partial<Config> = {
 };
 
 const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
-  title,
+  which,
   chessboardPseudos,
   values,
   zMax,
@@ -165,9 +165,9 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         {
           xref: "paper",
           yref: "paper",
-          x: -0.11,
-          y: 1.16,
-          text: title,
+          x: -0.145,
+          y: 1.205,
+          text: `${which} η<sub>10</sub>`,
           showarrow: false,
           textangle: "45",
           font: { color: "purple", size: 24, weight: "bold" },
@@ -177,7 +177,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
           yref: "paper",
           x: -0.2,
           y: 1.15,
-          text: `max ${title}`,
+          text: `${which} η<sub>val</sub>`,
           showarrow: false,
           textangle: "45",
           font: { color: "blue", size: 24, weight: "bold" },
@@ -314,7 +314,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
 
       graphDiv.on("plotly_click", (event: PlotMouseEvent) => {
         const { x, y, pointIndex } = event.points[0];
-        const plotIndex = title == "v" ? 0 : 1;
+        const plotIndex = which == "v" ? 0 : 1;
         handleTileClick(
           plotIndex,
           [y as string, x as string],
@@ -362,7 +362,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         graphDiv.removeAllListeners?.("plotly_unhover");
       }
     };
-  }, [chessboardPseudos, values, title, zMax, handleTileClick]);
+  }, [chessboardPseudos, values, which, zMax, handleTileClick]);
 
   return <div ref={plotRef} className={styles["chessboard-plot"]} />;
 };

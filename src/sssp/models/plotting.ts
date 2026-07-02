@@ -95,8 +95,8 @@ interface BandChessboardFlavoredDistanceData {
 
 export interface BandChessboardsData {
   pseudos: string[];
-  v_distance: BandChessboardFlavoredDistanceData;
-  v10_distance: BandChessboardFlavoredDistanceData;
+  average: BandChessboardFlavoredDistanceData;
+  maximum: BandChessboardFlavoredDistanceData;
 }
 
 interface DataPoint {

@@ -26,10 +26,10 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
     setActiveChessboardDataFlavor,
   } = useContext(PlotContext);
 
-  const [etaV, etaV10] = useMemo(() => {
+  const [average, maximum] = useMemo(() => {
     return [
-      chessboardData?.v_distance?.[activeChessboardDataFlavor]?.eta,
-      chessboardData?.v10_distance?.[activeChessboardDataFlavor]?.eta,
+      chessboardData?.average?.[activeChessboardDataFlavor].eta ?? [],
+      chessboardData?.maximum?.[activeChessboardDataFlavor].eta ?? [],
     ];
   }, [chessboardData, activeChessboardDataFlavor]);
 
@@ -39,13 +39,13 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
     pointIndex: number[],
   ) => {
     setActiveChessboardPseudos(pseudos);
-    const plotKey = plotIndex === 0 ? "v_distance" : "v10_distance";
+    const plotKey = plotIndex === 0 ? "average" : "maximum";
     const data = chessboardData?.[plotKey]?.[activeChessboardDataFlavor];
     setBandShift(data?.shift?.[pointIndex[0]]?.[pointIndex[1]] ?? 0);
     goToBands();
   };
 
-  const hasData = etaV?.length > 0 && etaV10?.length > 0;
+  const hasData = average?.length > 0 && maximum?.length > 0;
 
   return loadingMetadata || loadingPlotData ? (
     <LoadingSpinner />
@@ -68,16 +68,16 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
               />
             </div>
             <BandsChessboardPlot
-              title="η<sub>v</sub>"
+              which="avg"
               chessboardPseudos={chessboardData.pseudos}
-              values={etaV}
-              zMax={30}
+              values={average}
+              zMax={60}
               onTileClick={tileClickHandler}
             />
             <BandsChessboardPlot
-              title="η<sub>10</sub>"
+              which="max"
               chessboardPseudos={chessboardData.pseudos}
-              values={etaV10}
+              values={maximum}
               zMax={60}
               onTileClick={tileClickHandler}
             />

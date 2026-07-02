@@ -1,5 +1,5 @@
 export default interface BandsChessboardPlotProps {
-  title: string;
+  which: string;
   chessboardPseudos: string[];
   values: number[][];
   zMax: number;
