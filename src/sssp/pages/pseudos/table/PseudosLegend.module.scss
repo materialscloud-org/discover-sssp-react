@@ -42,6 +42,11 @@
       font-size: 0.8rem;
     }
 
+    .pseudoLink {
+      text-decoration: none;
+      color: inherit;
+    }
+
     &.transparent {
       opacity: 0.25;
     }

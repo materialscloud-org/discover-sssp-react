@@ -1,4 +1,5 @@
 import { useContext, useMemo } from "react";
+import { Link } from "react-router-dom";
 
 import { LoadingSpinner } from "@sssp/components";
 import { HoverContext, PseudoContext } from "@sssp/context";
@@ -40,7 +41,14 @@ const PseudosLegend: React.FC = () => {
             className={styles.pseudoListMarker}
             style={{ backgroundColor: metadata.color }}
           ></span>
-          <span className={styles.pseudoName}>{pseudo}</span>
+          <span className={styles.pseudoName}>
+            <Link
+              className={styles.pseudoLink}
+              to={`/cite#${metadata.citeKey}`}
+            >
+              {pseudo}
+            </Link>
+          </span>
         </li>
       ))}
     </ul>

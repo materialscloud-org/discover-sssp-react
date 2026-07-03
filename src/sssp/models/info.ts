@@ -12,6 +12,7 @@ export interface PseudoLibraryMetadata extends MethodMetadata {
 }
 
 export interface PseudoMetadata {
+  citeKey: string;
   library: string;
   version?: string;
   accuracy?: string;

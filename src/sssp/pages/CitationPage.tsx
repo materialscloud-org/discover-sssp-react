@@ -104,7 +104,10 @@ const CitationPage: React.FC = () => {
           <h2>Libraries</h2>
           <ul>
             {Object.entries(libraryMetadata).map(([libraryKey, library]) => (
-              <li key={libraryKey}>
+              <li
+                id={libraryKey.toLowerCase().replace(" ", "-")}
+                key={libraryKey}
+              >
                 <Citation
                   label={libraryKey}
                   website={library.website}

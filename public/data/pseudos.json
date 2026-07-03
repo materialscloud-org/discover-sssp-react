@@ -1,5 +1,6 @@
 {
   "DOJO-041-std": {
+    "citeKey": "pseudo-dojo",
     "library": "Pseudo Dojo",
     "version": "0.4.1",
     "accuracy": "standard",
@@ -8,6 +9,7 @@
     "displayName": "nc-dojo-v0.4.1-std"
   },
   "DOJO-041-str": {
+    "citeKey": "pseudo-dojo",
     "library": "Pseudo Dojo",
     "version": "0.4.1",
     "accuracy": "stringent",
@@ -16,6 +18,7 @@
     "displayName": "nc-dojo-v0.4.1-str"
   },
   "DOJO-050-std": {
+    "citeKey": "pseudo-dojo",
     "library": "Pseudo Dojo",
     "version": "0.5.0",
     "accuracy": "standard",
@@ -24,18 +27,21 @@
     "displayName": "nc-dojo-v0.5.0-std"
   },
   "SPMS": {
+    "citeKey": "spms",
     "library": "SPMS",
     "category": "nc",
     "color": "#5c6b00",
     "displayName": "nc-spms-oncvpsp4"
   },
   "SG15": {
+    "citeKey": "sg15",
     "library": "SG15",
     "category": "nc",
     "color": "#3d5a80",
     "displayName": "nc-sg15-oncvpsp4"
   },
   "GBRV-1.X": {
+    "citeKey": "gbrv",
     "library": "GBRV",
     "version": "1.X",
     "category": "us",
@@ -44,6 +50,7 @@
     "description": "GBRV v1.x pseudopotentials; UPF files generated with the conversion from K. Lasssonen et al., *Phys. Rev. B.* **47**, 10142 (1993)."
   },
   "PSL-US-v0.x": {
+    "citeKey": "pslibrary-0.3.1",
     "library": "Pslibrary",
     "version": "0.3.1",
     "category": "us",
@@ -51,6 +58,7 @@
     "displayName": "us-psl-v0.x"
   },
   "PSL-PAW-v0.x": {
+    "citeKey": "pslibrary-0.3.1",
     "library": "Pslibrary",
     "version": "0.3.1",
     "category": "paw",
@@ -58,6 +66,7 @@
     "displayName": "paw-psl-v0.x"
   },
   "PSL-US-v1-high": {
+    "citeKey": "pslibrary-1.0.0",
     "library": "Pslibrary",
     "version": "1.0.0",
     "accuracy": "high",
@@ -67,6 +76,7 @@
     "description": "Ultrasoft pseudopotentials; \"high\" version (highest number of semicore states and smaller cut-off radii)"
   },
   "PSL-US-v1-low": {
+    "citeKey": "pslibrary-1.0.0",
     "library": "Pslibrary",
     "version": "1.0.0",
     "accuracy": "low",
@@ -76,6 +86,7 @@
     "description": "Ultrasoft pseudopotentials; \"low\" version (optimized for lower kinetic energy cut-offs at the cost of accuracy)"
   },
   "PSL-PAW-v1-high": {
+    "citeKey": "pslibrary-1.0.0",
     "library": "Pslibrary",
     "version": "1.0.0",
     "accuracy": "high",
@@ -85,6 +96,7 @@
     "description": "PAW pseudopotentials; \"high\" version (highest number of semicore states and smaller cut-off radii)"
   },
   "PSL-PAW-v1-low": {
+    "citeKey": "pslibrary-1.0.0",
     "library": "Pslibrary",
     "version": "1.0.0",
     "accuracy": "low",
@@ -94,6 +106,7 @@
     "description": "PAW pseudopotentials; \"low\" version (optimized for lower kinetic energy cut-offs at the cost of accuracy)"
   },
   "JTH-1.1-std": {
+    "citeKey": "jth-1.1",
     "library": "JTH",
     "version": "1.1",
     "accuracy": "standard",
@@ -102,6 +115,7 @@
     "displayName": "paw-jth-v1.1-std"
   },
   "JTH-1.1-str": {
+    "citeKey": "jth-1.1",
     "library": "JTH",
     "version": "1.1",
     "accuracy": "stringent",
@@ -110,6 +124,7 @@
     "displayName": "paw-jth-v1.1-str"
   },
   "WT14": {
+    "citeKey": "wt14",
     "library": "WT14",
     "category": "paw",
     "color": "#4a044a",
@@ -117,6 +132,7 @@
     "description": "lanthanides only"
   },
   "MK21": {
+    "citeKey": "mk21",
     "library": "MK21",
     "category": "paw",
     "color": "#b0005a",
