@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { HoverContext, PseudoContext } from "@sssp/context";
 
 import styles from "./DetailsBox.module.scss";
+import { capitalize } from "@sssp/common/utils";
 
 const DetailsBox: React.FC = () => {
   const { pseudosMetadata } = useContext(PseudoContext);
@@ -44,6 +45,10 @@ const DetailsBox: React.FC = () => {
     );
   } else if (hoveredPseudo) {
     const metadata = pseudosMetadata[hoveredPseudo];
+    let library = metadata.library;
+    if (metadata.version) {
+      library += ` v${metadata.version}`;
+    }
     const longCategory =
       metadata.category === "nc"
         ? "Norm-conserving"
@@ -56,9 +61,13 @@ const DetailsBox: React.FC = () => {
       return (
         <div id={styles.detailsBox} style={{ color: metadata.color }}>
           <div id={styles.pseudoDetails}>
-            <div id={styles.pseudoLibrary}>{metadata.library}</div>
-            <div id={styles.pseudoCategory}>{longCategory}</div>
-            {/* <small id={styles.pseudoDescription}>{metadata.description}</small> */}
+            <div id={styles.pseudoLibrary}>{library}</div>
+            <div id={styles.pseudoCategory}>Category: {longCategory}</div>
+            {metadata.accuracy && (
+              <div id={styles.pseudoAccuracy}>
+                Accuracy: {capitalize(metadata.accuracy)}
+              </div>
+            )}
           </div>
         </div>
       );
