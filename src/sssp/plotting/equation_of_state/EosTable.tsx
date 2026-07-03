@@ -74,7 +74,8 @@ const EosTable: React.FC<EosTableProps> = ({ eosPseudosMap }) => {
             <th colSpan={2}>Average ν</th>
             <td rowSpan={2} className={styles.gap}></td>
             <th colSpan={10}>
-              ν (click <Link to="/about">here</Link> for details)
+              ν (click <Link to="/about#computational-details">here</Link> for
+              details)
             </th>
           </tr>
           <tr>

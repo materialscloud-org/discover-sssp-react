@@ -40,7 +40,7 @@ const AboutPage: React.FC = () => (
         </p>
       </section>
       <section>
-        <h4>Transferability</h4>
+        <h4 id="transferability">Transferability</h4>
         <ul>
           <li>
             Equation of State (EOS): The equation of state (EOS) is computed
@@ -112,7 +112,7 @@ const AboutPage: React.FC = () => (
         </p>
       </section>
       <section>
-        <h4>Baseline of selection criteria for SSSP</h4>
+        <h4 id="selection-criteria">Baseline of selection criteria for SSSP</h4>
         <p>
           The table below summarizes the baseline selection criteria. For
           efficiency, some pseudopotentials are chosen with relaxed requirements
@@ -190,14 +190,11 @@ const AboutPage: React.FC = () => (
       </section>
 
       <section>
-        <h4>Computational details</h4>
+        <h4 id="computational-details">Computational details</h4>
         <p>
           We provide here the computational details for the convergence tests
-          and the transferability tests. For more details, please refer to the{" "}
-          <a href="" target="_blank">
-            SSSP reference paper
-          </a>
-          .
+          and the transferability tests. Further details will be provided in the
+          SSSP reference paper once published.
         </p>
         <h6>Input Structures</h6>
         <ul>

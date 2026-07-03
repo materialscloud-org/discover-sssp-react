@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import "@sssp/assets/styles/main.scss";
 import { useRoutedTabs } from "@sssp/common/hooks";
+import { ScrollToHash } from "@sssp/components";
 import {
   ElementProvider,
   FamilyProvider,
@@ -65,6 +66,7 @@ const SsspApp: React.FC<SsspProps> = ({ urlBase }) => {
   return (
     <Card id={styles.ssspApp}>
       <BrowserRouter basename={urlBase}>
+        <ScrollToHash />
         <SsspAppContent />
       </BrowserRouter>
     </Card>

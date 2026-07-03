@@ -150,7 +150,10 @@ const ConvergencePlotDetails: React.FC = () => (
             app to learn more about how <b>ν</b> is computed. All calculations
             are performed on the ground-state elemental solids unless stated
             otherwise (i.e. rare-earths and flourine). See{" "}
-            <Link to="/about" style={{ textDecoration: "none" }}>
+            <Link
+              to="/about#computational-details"
+              style={{ textDecoration: "none" }}
+            >
               About SSSP
             </Link>{" "}
             for more details.
