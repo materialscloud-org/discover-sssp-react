@@ -86,39 +86,37 @@ const SsspAppContent: React.FC = () => {
   );
 
   return (
-    <>
-      <FamilyProvider>
-        <ElementProvider>
-          <PseudoProvider>
-            <PlotProvider>
-              <Card.Header id={styles.tabControls}>
-                <Tabs
-                  id="main-tabs"
-                  defaultActiveKey={defaultTab}
-                  activeKey={activeTab}
-                  onSelect={selectTab}
-                >
-                  {Object.entries(pages).map(([key, { tab }]) => (
-                    <Tab key={key} eventKey={key} title={tab} />
-                  ))}
-                </Tabs>
-              </Card.Header>
-              <Card.Body id={styles.ssspCardBody}>
-                <Routes>
-                  {Object.entries(pages).map(([key, { path, element }]) => (
-                    <Route key={key} path={path} element={element} />
-                  ))}
-                  <Route
-                    path="/"
-                    element={<Navigate to="pseudopotentials" replace />}
-                  />
-                  <Route path="*" element={<InvalidPage />} />
-                </Routes>
-              </Card.Body>
-            </PlotProvider>
-          </PseudoProvider>
-        </ElementProvider>
-      </FamilyProvider>
-    </>
+    <FamilyProvider>
+      <ElementProvider>
+        <PseudoProvider>
+          <PlotProvider>
+            <Card.Header id={styles.tabControls}>
+              <Tabs
+                id="main-tabs"
+                defaultActiveKey={defaultTab}
+                activeKey={activeTab}
+                onSelect={selectTab}
+              >
+                {Object.entries(pages).map(([key, { tab }]) => (
+                  <Tab key={key} eventKey={key} title={tab} />
+                ))}
+              </Tabs>
+            </Card.Header>
+            <Card.Body id={styles.ssspCardBody}>
+              <Routes>
+                {Object.entries(pages).map(([key, { path, element }]) => (
+                  <Route key={key} path={path} element={element} />
+                ))}
+                <Route
+                  path="/"
+                  element={<Navigate to="pseudopotentials" replace />}
+                />
+                <Route path="*" element={<InvalidPage />} />
+              </Routes>
+            </Card.Body>
+          </PlotProvider>
+        </PseudoProvider>
+      </ElementProvider>
+    </FamilyProvider>
   );
 };
