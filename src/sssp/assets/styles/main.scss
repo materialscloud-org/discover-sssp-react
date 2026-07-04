@@ -4,6 +4,7 @@
   --precision-color: rgb(128, 0, 128);
   --efficiency-color-light: rgba(0, 128, 0, 0.5);
   --precision-color-light: rgba(128, 0, 128, 0.5);
+  --mc-color: #d22118;
 }
 
 .card {
@@ -50,4 +51,14 @@ a:not(.button-link):not(.dropdown-item) {
 
 .page-title {
   text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li {
+  scroll-margin-top: 1rem;
 }
