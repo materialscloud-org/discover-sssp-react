@@ -14,8 +14,8 @@ import BandsChessboardPlotDetails from "./BandsChessboardPlotDetails";
 const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
   onTileClick: goToBands,
 }) => {
-  const { element } = useContext(ElementContext);
-  const { loadingMetadata } = useContext(PseudoContext);
+  const { element, ssspPseudos } = useContext(ElementContext);
+  const { loadingMetadata, pseudosMetadata } = useContext(PseudoContext);
   const {
     loadingPlotData,
     setActiveChessboardPseudos,
@@ -32,6 +32,20 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
       chessboardData?.maximum?.[activeChessboardDataFlavor].eta ?? [],
     ];
   }, [chessboardData, activeChessboardDataFlavor]);
+
+  const ssspPseudoColors = useMemo(
+    () =>
+      Object.values(ssspPseudos || {}).reduce(
+        (map, info) => {
+          if (!info) return map;
+          const key = `${info.library} (Z=${info.Z})`;
+          map[key] = pseudosMetadata[info.library]?.color || "inherit";
+          return map;
+        },
+        {} as Record<string, string>,
+      ),
+    [ssspPseudos, pseudosMetadata],
+  );
 
   const tileClickHandler = (
     plotIndex: number,
@@ -70,6 +84,7 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
             <BandsChessboardPlot
               which="avg"
               chessboardPseudos={chessboardData.pseudos}
+              ssspPseudoColors={ssspPseudoColors}
               values={average}
               zMax={60}
               onTileClick={tileClickHandler}
@@ -77,6 +92,7 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
             <BandsChessboardPlot
               which="max"
               chessboardPseudos={chessboardData.pseudos}
+              ssspPseudoColors={ssspPseudoColors}
               values={maximum}
               zMax={60}
               onTileClick={tileClickHandler}

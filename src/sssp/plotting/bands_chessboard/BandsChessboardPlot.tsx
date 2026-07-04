@@ -22,6 +22,7 @@ const config: Partial<Config> = {
 const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
   which,
   chessboardPseudos,
+  ssspPseudoColors,
   values,
   zMax,
   onTileClick: handleTileClick,
@@ -184,6 +185,25 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         },
       ];
 
+      const formatTickLabel = (value: string, isBold = false) => {
+        const color = ssspPseudoColors[value];
+        if (!color && !isBold) return value;
+
+        const style = [
+          color ? `color:${color}` : "",
+          isBold ? "font-weight:700" : "",
+        ]
+          .filter(Boolean)
+          .join(";");
+
+        return `<span style="${style}">${value}</span>`;
+      };
+
+      const getTickText = (activeValue?: string) =>
+        chessboardPseudos.map((value) =>
+          formatTickLabel(value, value === activeValue),
+        );
+
       const layout: Partial<Layout> = {
         xaxis: {
           side: "top",
@@ -193,7 +213,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
           tickangle: -45,
           tickmode: "array",
           tickvals: chessboardPseudos,
-          ticktext: chessboardPseudos,
+          ticktext: getTickText(),
         },
         yaxis: {
           autorange: "reversed",
@@ -204,7 +224,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
           tickmode: "array",
           ticklabelstandoff: 5,
           tickvals: chessboardPseudos,
-          ticktext: chessboardPseudos,
+          ticktext: getTickText(),
         },
         hoverlabel: { namelength: 0 },
         shapes: constantShapes,
@@ -279,17 +299,12 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         if (!Plotly) return;
         const update: Record<string, unknown> = {
           shapes: constantShapes,
-          "xaxis.ticktext": chessboardPseudos,
-          "yaxis.ticktext": chessboardPseudos,
+          "xaxis.ticktext": getTickText(),
+          "yaxis.ticktext": getTickText(),
         };
 
         Plotly.relayout(gd, update as unknown as Partial<Layout>);
       };
-
-      const getBoldTickText = (activeValue: string) =>
-        chessboardPseudos.map((value) =>
-          value === activeValue ? `<b>${value}</b>` : value,
-        );
 
       const setHighlight = (
         gd: PlotlyHTMLElement,
@@ -305,8 +320,8 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
 
         const update: Record<string, unknown> = {
           shapes: [...constantShapes, ...getHighlightShapes(xIndex, yIndex)],
-          "xaxis.ticktext": getBoldTickText(xValue),
-          "yaxis.ticktext": getBoldTickText(yValue),
+          "xaxis.ticktext": getTickText(xValue),
+          "yaxis.ticktext": getTickText(yValue),
         };
 
         Plotly.relayout(gd, update as unknown as Partial<Layout>);
@@ -362,7 +377,14 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         graphDiv.removeAllListeners?.("plotly_unhover");
       }
     };
-  }, [chessboardPseudos, values, which, zMax, handleTileClick]);
+  }, [
+    chessboardPseudos,
+    ssspPseudoColors,
+    values,
+    which,
+    zMax,
+    handleTileClick,
+  ]);
 
   return <div ref={plotRef} className={styles["chessboard-plot"]} />;
 };
