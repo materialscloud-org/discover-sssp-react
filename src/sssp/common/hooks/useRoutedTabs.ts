@@ -25,19 +25,19 @@ export type UseRoutedTabsOptions<TTab extends string> = {
 
 const useRoutedTabs = <TTab extends string>(
   tabs: TabsMap<TTab>,
-  options: UseRoutedTabsOptions<TTab>
+  options: UseRoutedTabsOptions<TTab>,
 ) => {
   const navigate = useNavigate();
   const location = useLocation();
 
   const defaultTab = useMemo(
     () => options.defaultTab ?? (Object.keys(tabs)[0] as TTab),
-    [options.defaultTab, tabs]
+    [options.defaultTab, tabs],
   );
 
   const isValidTabKey = useCallback(
     (tab: string): tab is TTab => tab in tabs,
-    [tabs]
+    [tabs],
   );
 
   const getTabFromPathname = useCallback(
@@ -46,11 +46,11 @@ const useRoutedTabs = <TTab extends string>(
       const fromPath = segments[options.segmentIndex] || "";
       return fromPath && isValidTabKey(fromPath) ? fromPath : defaultTab;
     },
-    [defaultTab, isValidTabKey, options.segmentIndex]
+    [defaultTab, isValidTabKey, options.segmentIndex],
   );
 
   const [activeTab, setActiveTab] = useState(() =>
-    getTabFromPathname(location.pathname)
+    getTabFromPathname(location.pathname),
   );
 
   /**
@@ -78,7 +78,7 @@ const useRoutedTabs = <TTab extends string>(
         location.pathname,
         options.segmentIndex,
         normalizedTab,
-        options.resetAfterIndex ?? false
+        options.resetAfterIndex ?? false,
       );
 
       navigate(
@@ -87,7 +87,7 @@ const useRoutedTabs = <TTab extends string>(
           search: location.search,
           hash: location.hash,
         },
-        { replace: true }
+        { replace: true },
       );
       return;
     }
@@ -117,7 +117,7 @@ const useRoutedTabs = <TTab extends string>(
         : undefined;
 
       if (remembered) {
-        navigate(remembered);
+        navigate(stripHashFromPath(remembered));
         return;
       }
 
@@ -125,29 +125,28 @@ const useRoutedTabs = <TTab extends string>(
         location.pathname,
         options.segmentIndex,
         tab,
-        options.resetAfterIndex ?? false
+        options.resetAfterIndex ?? false,
       );
 
       navigate(
         {
           pathname: targetPathname,
           search: location.search,
-          hash: location.hash,
+          hash: "",
         },
-        { replace: false }
+        { replace: false },
       );
     },
     [
       activeTab,
       isValidTabKey,
-      location.hash,
       location.pathname,
       location.search,
       navigate,
       options.rememberLastPath,
       options.resetAfterIndex,
       options.segmentIndex,
-    ]
+    ],
   );
 
   return { activeTab, defaultTab, selectTab };
@@ -168,7 +167,7 @@ const buildPathWithSegment = (
   pathname: string,
   segmentIndex: number,
   segmentValue: string,
-  resetAfterIndex: boolean
+  resetAfterIndex: boolean,
 ) => {
   const segments = getSegments(pathname);
   while (segments.length <= segmentIndex) segments.push("");
@@ -186,4 +185,9 @@ const buildPathWithSegment = (
   if (nextPath.length > 1) nextPath = nextPath.replace(/\/+$/, "");
 
   return nextPath;
+};
+
+const stripHashFromPath = (path: string) => {
+  const hashIndex = path.indexOf("#");
+  return hashIndex === -1 ? path : path.slice(0, hashIndex);
 };
