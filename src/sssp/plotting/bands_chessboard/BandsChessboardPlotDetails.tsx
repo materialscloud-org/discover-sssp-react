@@ -7,39 +7,31 @@ const BandsChessboardPlotDetails: React.FC = () => (
       <Accordion.Body>
         <section>
           <p>
-            The band chessboard plots report the average and maximum distances
-            between bands computed with the pseudopotentials considered in the
-            SSSP study for the selected element. The quantities are computed by
-            considering all bands up to the Fermi level (
+            The band chessboard plots report the average (top plot) and maximum
+            (bottom plot) distances between bands computed with the
+            pseudopotentials considered in the SSSP study for the selected
+            element. The quantities are computed both on a Brillouin zone grid
+            and on a k-path by considering bands above -10 eV up to the Fermi
+            level (
             <b>
-              η<sub>v</sub>
+              η<sub>val</sub> -{" "}
+              <span style={{ color: "blue" }}>lower triangle</span>
             </b>
-            ), as well as 10 eV above it (
+            ) and 10 eV above it (
             <b>
-              η<sub>10</sub>
+              η<sub>10</sub> -{" "}
+              <span style={{ color: "purple" }}>upper triangle</span>
             </b>
             ).
           </p>
           <p>
-            In each plot, the average band distance between two pseudopotentials
-            is given in the{" "}
-            <span style={{ color: "purple" }}>
-              <b>upper right triangle</b>
-            </span>
-            , while the maximum band distance is given in the{" "}
-            <span style={{ color: "blue" }}>
-              <b>lower left triangle</b>
-            </span>
-            .
-          </p>
-          <p>
             Clicking on a plot tile will redirect you to the{" "}
             <b>Band Structure</b> panel, where you can compare the band
-            structures computed with the y-axis pseudopotential (
+            structures computed with the x-axis pseudopotential (
             <span style={{ color: "red" }}>
               <b>compared</b>
             </span>
-            ) against the x-axis pseudopotential (<b>reference</b>).
+            ) against the y-axis pseudopotential (<b>reference</b>).
           </p>
         </section>
       </Accordion.Body>
