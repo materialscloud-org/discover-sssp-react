@@ -4,6 +4,7 @@ export interface Citation {
 
 export interface MethodMetadata extends Citation {
   website?: string;
+  comment?: string;
 }
 
 export interface PseudoLibraryMetadata extends MethodMetadata {

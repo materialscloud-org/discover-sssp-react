@@ -113,6 +113,7 @@ const CitationPage: React.FC = () => {
                   website={library.website}
                   citation={library.citation}
                   license={library.license}
+                  comment={library.comment}
                   versions={library.versions?.map((version) => {
                     const versionMetadata = pseudosMetadata[version];
                     return {
