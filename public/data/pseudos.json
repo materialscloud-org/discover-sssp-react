@@ -123,17 +123,17 @@
     "color": "#5a189a",
     "displayName": "paw-jth-v1.1-str"
   },
-  "WT14": {
-    "citeKey": "wt14",
-    "library": "WT14",
+  "TW14": {
+    "citeKey": "tw14",
+    "library": "TW14",
     "category": "paw",
     "color": "#4a044a",
     "displayName": "paw-lanthanides-wentzcovitch",
     "description": "lanthanides only"
   },
-  "MK21": {
-    "citeKey": "mk21",
-    "library": "MK21",
+  "SK21": {
+    "citeKey": "sk21",
+    "library": "SK21",
     "category": "paw",
     "color": "#b0005a",
     "displayName": "paw-actinides-marburg",
