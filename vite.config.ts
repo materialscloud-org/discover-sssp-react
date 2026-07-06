@@ -13,8 +13,6 @@ export default defineConfig({
   server: {
     port: 3000,
   },
-  // Set base path for gh-pages (https://materialscloud-org.github.io/discover-sssp-react/)
-  base: "/discover-sssp-react",
   resolve: {
     alias: {
       "@sssp": "/src/sssp",
