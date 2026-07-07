@@ -4,6 +4,8 @@ import { BlockMath, InlineMath } from "react-katex";
 
 import styles from "./AboutPage.module.scss";
 
+import "katex/dist/katex.min.css";
+
 const AboutPage: React.FC = () => (
   <div id={styles.aboutPage}>
     <header className="page-title">
@@ -44,7 +46,8 @@ const AboutPage: React.FC = () => (
         <ul>
           <li>
             Equation of State (EOS): The equation of state (EOS) is computed
-            following the ACWF protocol (Bosoni et al., 2024) and compared with
+            following the ACWF protocol (<a href="https://doi.org/10.1038/s42254-023-00655-3" target="_blank" rel="noopener noreferrer">
+            Bosoni <em>et al.</em> (2024)</a>) and compared with
             reference all-electron WIEN2k/FLEUR results from the corresponding
             benchmark study.
           </li>
@@ -57,11 +60,8 @@ const AboutPage: React.FC = () => (
         </ul>
         <p>
           For convergence verification, the Quantum ESPRESSO parameters follow
-          those reported by Gabriel de Miranda Nascimento et al. (
-          <a href="https://arxiv.org/pdf/2504.03962" target="_blank">
-            2025, arXiv:2504.03962
-          </a>
-          ). The convergence tests are carried out across five material
+          those reported by <a href="https://doi.org/10.1038/s41524-026-02097-8" target="_blank" rel="noopener noreferrer">
+          Nascimento <em>et al.</em> (2026) </a>. The convergence tests are carried out across five material
           properties:
         </p>
         <ul>
@@ -70,7 +70,7 @@ const AboutPage: React.FC = () => (
             respect to the converged value
           </li>
           <li>
-            The discrepancy of all phonon frequencies, δω̄, at the zone boundary,
+            The discrepancy of all phonon frequencies, <InlineMath math="\delta\bar\omega" />, at the zone boundary,
             with respect to the converged value
           </li>
           <li>
@@ -135,7 +135,7 @@ const AboutPage: React.FC = () => (
           </thead>
           <tbody>
             <tr>
-              <td>Phonon frequencies (δω̄)</td>
+              <td>Phonon frequencies (<InlineMath math="\delta\bar\omega" />)</td>
               <td>&lt; 2%</td>
               <td>&lt; 1%</td>
               <td></td>
@@ -223,7 +223,7 @@ const AboutPage: React.FC = () => (
           <li>k-points: 20×20×20</li>
           <li>Smearing (degauss): Marzari-Vanderbilt, 0.002 Ry</li>
           <li>
-            Non-spin-polarized calculations except Mn (antiferrimagnetic), O and
+            Non-spin-polarized calculations except Mn (antiferromagnetic), O and
             Cr (antiferromagnetic), Fe, Co, and Ni (ferromagnetic).
           </li>
         </ul>
@@ -284,12 +284,27 @@ const AboutPage: React.FC = () => (
         </div>
 
         <h6>Bands calculations</h6>
+        <p>
+          For the band structure calculations on a grid the following parameters were used:
+        </p>
         <ul>
           <li>k-points for the self-consistent calculation: 20×20×20</li>
           <li>k-points for the bands calculation: 6×6×6</li>
           <li>Smearing: Marzari-Vanderbilt, 0.02 Ry;</li>
           <li>All calculations are non-spin-polarized.</li>
         </ul>
+        <p>
+          The band structures calculations on a path were calculated using the{" "}
+          <a href="https://github.com/aiidateam/aiida-quantumespresso"
+          target="_blank" rel="noopener noreferrer">
+          AiiDA Quantum ESPRESSO
+          </a>
+          {" "}plugin and especially the <code>PwBandsWorkChain</code>. 
+          Band structures are compared using a band-distance metric,{" "}
+          <strong>η</strong>, following{" "} <a href="https://doi.org/10.1038/s41524-018-0127-2" target="_blank" rel="noopener noreferrer">
+          Prandini <em>et al.</em> (2018) </a>. We report two variants: η<sub>v</sub>, over occupied states, and η
+          <sub>10</sub>, extending to conduction band, all calculated with a window of 10&nbsp;eV from the Fermi level.
+        </p>
       </section>
     </main>
   </div>
