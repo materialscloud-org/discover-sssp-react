@@ -14,5 +14,7 @@
     "website": "http://cp2k.web.psi.ch/potentials",
     "citation": "S. Goedecker, M. Teter, J. Hutter, [*Phys. Rev. B.* **54**, 1703](https://doi.org/10.1103/PhysRevB.54.1703) (1996)."
   },
-  "Car-Parrinello molecular dynamics with Vanderbilt ultrasoft pseudopotentials": {}
+  "Car-Parrinello molecular dynamics with Vanderbilt ultrasoft pseudopotentials": {
+    "citation": "K. Laasonen et al., [*Phys. Rev. B.* **47**, 10142](https://doi.org/10.1103/PhysRevB.47.10142) (1993)."
+  }
 }
