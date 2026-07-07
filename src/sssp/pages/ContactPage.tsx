@@ -13,23 +13,59 @@ const ContactPage: React.FC = () => (
       </p>
       <ul>
         <li>
-          <a href="mailto:giovanni.pizzi@psi.ch">Giovanni Pizzi</a>
+          <a
+            href="https://ethz.ch/staffnet/de/organisation/abteilungen/informatikdienste/personen/person-detail.Mzc2MTQ0.TGlzdC8zODgsLTg1MzU3NzMxNA==.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Jusong Yu
+          </a>
         </li>
         <li>
-          <a href="mailto:jusong.yu@ethz.ch">Jusong Yu</a>
+          <a
+            href="https://www.psi.ch/en/lms/people/michail-minotakis"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Michail Minotakis
+          </a>
         </li>
         <li>
-          <a href="mailto:michail.minotakis@psi.ch">Michail Minotakis</a>
+          <a
+            href="https://www.psi.ch/en/lms/people/edan-bainglass"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Edan Bainglass
+          </a>{" "}
+          (SSSP app developer)
         </li>
         <li>
-          <a href="mailto:timo.reents@psi.ch">Timo Reents</a>
+          <a
+            href="https://www.psi.ch/en/lms/people/timo-reents"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Timo Reents
+          </a>
         </li>
         <li>
-          <a href="mailto:nicola.marzari@psi.ch">Nicola Marzari</a>
+          <a
+            href="https://www.phy.cam.ac.uk/profile/prof-nicola-marzari/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Nicola Marzari
+          </a>
         </li>
         <li>
-          <a href="mailto:edan.bainglass@psi.ch">Edan Bainglass</a> (SSSP app
-          developer)
+          <a
+            href="https://www.psi.ch/en/lms/people/giovanni-pizzi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Giovanni Pizzi
+          </a>
         </li>
       </ul>
       <p>
@@ -38,6 +74,7 @@ const ContactPage: React.FC = () => (
         <a
           href="https://github.com/materialscloud-org/discover-sssp-react/issues"
           target="_blank"
+          rel="noopener noreferrer"
         >
           GitHub repository
         </a>
