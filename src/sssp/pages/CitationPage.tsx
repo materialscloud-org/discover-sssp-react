@@ -44,22 +44,33 @@ const CitationPage: React.FC = () => {
               For example: "SSSP PBEsol Precision v{ssspVersion}"
             </li>
             <li>
-              In addition, also cite the SSSP paper and website:
+              In addition, also cite the SSSP papers and app:
               <ul>
                 <li>
-                  G. Prandini, A. Marrazzo, I. E. Castelli, N. Mounet and N.
+                  <span className={styles.citationPreLabel}>SSSP v2:</span> J.
+                  Yu et al., <em>in preparation</em>.
+                </li>
+                <li>
+                  <span className={styles.citationPreLabel}>SSSP v1:</span> G.
+                  Prandini, A. Marrazzo, I. E. Castelli, N. Mounet and N.
                   Marzari,{" "}
                   <a
                     href="https://www.nature.com/articles/s41524-018-0127-2"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <em>npj Comp. Mater.</em> <b>4</b>, 72
                   </a>{" "}
                   (2018).
                 </li>
                 <li>
-                  <a href="http://materialscloud.org/sssp" target="_blank">
-                    http://materialscloud.org/sssp
+                  <span className={styles.citationPreLabel}>SSSP app:</span>{" "}
+                  <a
+                    href="https://sssp.materialscloud.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    https://sssp.materialscloud.org
                   </a>
                 </li>
               </ul>

@@ -353,20 +353,20 @@ const DownloadPage: React.FC = () => (
     </section>
 
     <section>
-      <h4>Regarding PBEsol</h4>
+      <h4 id="pbesol">Regarding PBEsol</h4>
       <p>
-        SSSP pseudopotentials (efficiency and precision) regenerated with the
-        PBEsol exchange-correlation functional were done using the same atomic
-        input parameters of the corresponding PBE pseudopotentials. The
-        suggested wavefunction cutoffs for each element are the same as for PBE
-        (see{" "}
+        SSSP pseudopotentials (efficiency and precision) for the PBEsol
+        exchange-correlation functional were generated using the same
+        pseudopotential input parameters of the corresponding PBE
+        pseudopotentials. Furthermore, the suggested wavefunction cutoffs for
+        each element are the same as for PBE (see{" "}
         <a href="" target="_blank">
           SSSP reference paper
         </a>{" "}
-        for a brief discussion on the topic). The PBEsol pseudopotentials{" "}
-        <strong>were not explicitly tested</strong> with the SSSP protocol. As
-        such, we <strong>do not guarantee</strong> correctness of simulations
-        carried out with the SSSP PBEsol library.
+        for a brief discussion on the topic). This means that the PBEsol
+        pseudopotentials <strong>were not explicitly tested</strong> with the
+        SSSP protocol. As such, we <strong>do not guarantee</strong> correctness
+        of simulations carried out with the SSSP PBEsol library.
       </p>
     </section>
   </div>

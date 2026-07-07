@@ -27,7 +27,7 @@ const AcknowledgementPage: React.FC = () => (
       </p>
       <p>
         Computational resources for the SSSP project were provided by MARVEL
-        (Piz Daint at CSCS) and by PRACE (Grant 2016153543).
+        (Piz Daint and Eiger at CSCS) and by PRACE (Grant 2016153543).
       </p>
     </main>
   </div>
