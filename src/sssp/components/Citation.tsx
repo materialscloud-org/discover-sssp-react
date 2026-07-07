@@ -26,7 +26,7 @@ const Citation: React.FC<CitationProps> = ({
     {label && (
       <b>
         {website ? (
-          <a href={website} target="_blank">
+          <a href={website} target="_blank" rel="noopener noreferrer">
             {label}
           </a>
         ) : (
