@@ -305,7 +305,7 @@ const AboutPage: React.FC = () => (
           <li>All calculations are non-spin-polarized</li>
         </ul>
         <div style={{ paddingLeft: "1rem" }}>
-          <h6>Note</h6>
+          <b>Note</b>
           <p>The convergence pattern for phonons is calculated as:</p>
           <ul>
             <li>
@@ -350,9 +350,10 @@ const AboutPage: React.FC = () => (
           </div>
         </div>
 
-        <h6>Bands calculations</h6>
+        <h6 id="bands-calculations">Bands calculations</h6>
         <p>
-          For the band structure calculations on a grid the following parameters were used:
+          For band structure calculations on a grid, the following parameters
+          were used:
         </p>
         <ul>
           <li>k-points for the self-consistent calculation: 20×20×20</li>
@@ -361,16 +362,26 @@ const AboutPage: React.FC = () => (
           <li>All calculations are non-spin-polarized</li>
         </ul>
         <p>
-          The band structures calculations on a path were calculated using the{" "}
-          <a href="https://github.com/aiidateam/aiida-quantumespresso"
-          target="_blank" rel="noopener noreferrer">
-          AiiDA Quantum ESPRESSO
+          Band structure calculations on a path were done using the{" "}
+          <a
+            href="https://github.com/aiidateam/aiida-quantumespresso"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            AiiDA Quantum ESPRESSO
+          </a>{" "}
+          plugin. Band structures are compared using the band-distance metric η
+          defined in{" "}
+          <a
+            href="https://doi.org/10.1038/s41524-018-0127-2"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Prandini et al. (2018)
           </a>
-          {" "}plugin and especially the <code>PwBandsWorkChain</code>. 
-          Band structures are compared using a band-distance metric,{" "}
-          <strong>η</strong>, following{" "} <a href="https://doi.org/10.1038/s41524-018-0127-2" target="_blank" rel="noopener noreferrer">
-          Prandini <em>et al.</em> (2018) </a>. We report two variants: η<sub>v</sub>, over occupied states, and η
-          <sub>10</sub>, extending to conduction band, all calculated with a window of 10&nbsp;eV from the Fermi level.
+          . We report two variants: η<sub>val</sub> over occupied states, and η
+          <sub>10</sub> extending to conduction bands, all calculated with a
+          window of 10 eV from the Fermi level.
         </p>
       </section>
     </main>
