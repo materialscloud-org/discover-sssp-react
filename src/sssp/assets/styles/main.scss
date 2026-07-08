@@ -62,3 +62,7 @@ h6,
 li {
   scroll-margin-top: 1rem;
 }
+
+p:has(+ :is(ul, ol)) {
+  margin-bottom: 0.5rem;
+}

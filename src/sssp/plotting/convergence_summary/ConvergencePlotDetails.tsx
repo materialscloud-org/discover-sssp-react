@@ -1,6 +1,8 @@
 import { Accordion, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+import { InlineMath } from "react-katex";
+
 import styles from "./ConvergencePlotDetails.module.scss";
 
 const ConvergencePlotDetails: React.FC = () => (
@@ -49,17 +51,15 @@ const ConvergencePlotDetails: React.FC = () => (
                 <td>
                   ν<sub>avg</sub>
                 </td>
-                <td>
-                  Average of <b>ν</b> across 10 configurations
-                </td>
+                <td>Average of ν across 10 configurations</td>
               </tr>
               <tr>
                 <td>
                   ν<sub>max</sub> (#)
                 </td>
                 <td>
-                  Maximum <b>ν</b> value across 10 configurations and the
-                  corresponding configuration (#)
+                  Maximum ν value across 10 configurations and the corresponding
+                  configuration (#)
                 </td>
               </tr>
               <tr>
@@ -67,8 +67,8 @@ const ConvergencePlotDetails: React.FC = () => (
                   ν<sub>avg</sub> (w/o #)
                 </td>
                 <td>
-                  Average of <b>ν</b>, excluding the configuration with the
-                  largest discrepancy (#)
+                  Average of ν excluding the configuration with the largest
+                  discrepancy (#)
                 </td>
               </tr>
             </tbody>
@@ -98,7 +98,9 @@ const ConvergencePlotDetails: React.FC = () => (
             <tbody>
               <tr>
                 <td>●</td>
-                <td>δω</td>
+                <td>
+                  δ<InlineMath math="\bar{\text{ω}}" />
+                </td>
                 <td>%</td>
                 <td>
                   Discrepancy in all phonon frequencies at the zone boundary
@@ -147,8 +149,8 @@ const ConvergencePlotDetails: React.FC = () => (
               Verification of the precision of DFT implementations via AiiDA
               common workflows
             </a>{" "}
-            app to learn more about how <b>ν</b> is computed. All calculations
-            are performed on the ground-state elemental solids unless stated
+            app to learn more about how ν is computed. All calculations are
+            performed on the ground-state elemental solids unless stated
             otherwise (i.e. rare-earths and flourine). See{" "}
             <Link
               to="/about#computational-details"

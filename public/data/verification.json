@@ -1,6 +1,6 @@
 {
   "SSSP v2": {
-    "citation": "J. Yu, et al."
+    "citation": "J. Yu et al., *in preparation*."
   },
   "DFT precision": {
     "citation": "E. Bosoni et al., [*Nat. Rev. Phys.* **6**, 45-58](https://doi.org/10.1038/s42254-023-00655-3) (2024)."
@@ -9,6 +9,6 @@
     "citation": "G. Prandini, A. Marrazzo, I. E. Castelli, N. Mounet and N. Marzari, [*npj Comp. Mater.* **4**, 72](https://doi.org/10.1038/s41524-018-0127-2) (2018)."
   },
   "DFT reproducibility": {
-    "citation": "K. Lejaeghere, et al., [*Science* **351**, 2016](https://doi.org/10.1126/science.aad3000) (2016)."
+    "citation": "K. Lejaeghere et al., [*Science* **351**, 2016](https://doi.org/10.1126/science.aad3000) (2016)."
   }
 }

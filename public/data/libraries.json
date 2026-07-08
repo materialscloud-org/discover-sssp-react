@@ -11,6 +11,7 @@
   },
   "SG15": {
     "citation": "M. Schlipf and F. Gygi, [*Comput. Phys. Commun.* **196**, 36-44](http://dx.doi.org/10.1016/j.cpc.2015.05.011) (2015).",
+    "comment": "The original UPF files of the SG15 library were generated with ONCVPSP v2.0.1 without outputting pseudo-wavefunction tags in the UPF file. They have been regenerated here with a newer version of the ONCVPSP code (v4.0.1), to also include pseudo-wavefunctions. As a consequence, due to the changed in the ONCVPSP code, some pseudopotentials that were performing well with the original version of the code might perform poorly when regenerated with the new code (as in the case of Ir).",
     "versions": ["SG15"]
   },
   "GBRV": {

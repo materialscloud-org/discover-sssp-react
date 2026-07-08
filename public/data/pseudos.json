@@ -47,7 +47,7 @@
     "category": "us",
     "color": "#009999",
     "displayName": "us-gbrv-v1.x-upf2",
-    "description": "GBRV v1.x pseudopotentials; UPF files generated with the conversion from K. Lasssonen et al., *Phys. Rev. B.* **47**, 10142 (1993)."
+    "description": "GBRV v1.x pseudopotentials; UPF files generated with the conversion from K. Lasssonen et al., [*Phys. Rev. B.* **47**, 10142](https://doi.org/10.1103/PhysRevB.47.10142) (1993)."
   },
   "PSL-US-v0.x": {
     "citeKey": "pslibrary-0.3.1",
