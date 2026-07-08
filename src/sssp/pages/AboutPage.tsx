@@ -118,8 +118,9 @@ const AboutPage: React.FC = () => (
             respect to the converged value
           </li>
           <li>
-            The discrepancy of all phonon frequencies, δω̄, at the zone boundary,
-            with respect to the converged value
+            The discrepancy of all phonon frequencies, δ
+            <InlineMath math="\bar{\text{ω}}" />, at the zone boundary, with
+            respect to the converged value
           </li>
           <li>
             The convergence of the band structure for all bands up to 10 eV
@@ -175,12 +176,7 @@ const AboutPage: React.FC = () => (
           reduce computational cost, while for SSSP Precision, stricter criteria
           ensure consistently more precise results.
         </p>
-        <Table
-          id={styles["selection-criteria-table"]}
-          striped
-          bordered
-          responsive
-        >
+        <Table striped bordered responsive>
           <thead>
             <tr>
               <th></th>
@@ -191,7 +187,10 @@ const AboutPage: React.FC = () => (
           </thead>
           <tbody>
             <tr>
-              <td>Phonon frequencies (δω̄)</td>
+              <td>
+                Phonon frequencies (δ
+                <InlineMath math="\bar{\text{ω}}" />)
+              </td>
               <td>&lt; 2%</td>
               <td>&lt; 1%</td>
               <td></td>
@@ -233,7 +232,7 @@ const AboutPage: React.FC = () => (
               </td>
             </tr>
             <tr>
-              <td>Equation of state (ν-metric)</td>
+              <td>Equation of state (ν metric)</td>
               <td>&lt; 0.2</td>
               <td>&lt; 0.1</td>
               <td></td>
@@ -341,12 +340,12 @@ const AboutPage: React.FC = () => (
               <InlineMath math="N" /> is the total number of frequencies
             </p>
             <p>
-              For some elements, we have neglected the first <code>n</code>{" "}
-              frequencies in the summation above due to negative frequencies
-              and/or strong frequency oscillations as a function of the cutoff
-              for all the considered pseudos). We also neglected the first 4
-              frequencies for H and I, 12 for N and Cl, 6 for O and SiF4 (which
-              replaces F).
+              For some elements, we have neglected the first{" "}
+              <InlineMath math="n" /> frequencies in the summation above due to
+              negative frequencies and/or strong frequency oscillations as a
+              function of the cutoff for all the considered pseudos. We also
+              neglected the first 4 frequencies for H and I, 12 for N and Cl,
+              and 6 for O and SiF4 (which replaces F).
             </p>
           </div>
         </div>
