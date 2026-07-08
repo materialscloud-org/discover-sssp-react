@@ -1,4 +1,5 @@
 import { Accordion } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const BandsChessboardPlotDetails: React.FC = () => (
   <Accordion>
@@ -22,7 +23,8 @@ const BandsChessboardPlotDetails: React.FC = () => (
               η<sub>10</sub> -{" "}
               <span style={{ color: "purple" }}>upper triangle</span>
             </b>
-            ).
+            ). For further details on the distance metrics, please see the{" "}
+            <Link to="/about#bands-calculations">About</Link> page.
           </p>
           <p>
             Clicking on a plot tile will redirect you to the{" "}
