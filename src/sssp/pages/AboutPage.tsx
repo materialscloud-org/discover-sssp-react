@@ -352,12 +352,27 @@ const AboutPage: React.FC = () => (
         </div>
 
         <h6>Bands calculations</h6>
+        <p>
+          For the band structure calculations on a grid the following parameters were used:
+        </p>
         <ul>
           <li>k-points for the self-consistent calculation: 20×20×20</li>
           <li>k-points for the bands calculation: 6×6×6</li>
           <li>Smearing: Marzari-Vanderbilt, 0.02 Ry</li>
           <li>All calculations are non-spin-polarized</li>
         </ul>
+        <p>
+          The band structures calculations on a path were calculated using the{" "}
+          <a href="https://github.com/aiidateam/aiida-quantumespresso"
+          target="_blank" rel="noopener noreferrer">
+          AiiDA Quantum ESPRESSO
+          </a>
+          {" "}plugin and especially the <code>PwBandsWorkChain</code>. 
+          Band structures are compared using a band-distance metric,{" "}
+          <strong>η</strong>, following{" "} <a href="https://doi.org/10.1038/s41524-018-0127-2" target="_blank" rel="noopener noreferrer">
+          Prandini <em>et al.</em> (2018) </a>. We report two variants: η<sub>v</sub>, over occupied states, and η
+          <sub>10</sub>, extending to conduction band, all calculated with a window of 10&nbsp;eV from the Fermi level.
+        </p>
       </section>
     </main>
   </div>
