@@ -132,9 +132,9 @@ const AboutPage: React.FC = () => (
             the converged value
           </li>
           <li>
-            The error δν of the equation of state (EOS) compared with the
-            average of two all-electron WIEN2k/FLEUR results at the fully
-            converged cutoff, using the ν metric defined in{" "}
+            The error δν of the equation of state (EOS) between the given cutoff
+            and the largest cutoff considered in the study, using the ν metric
+            defined in{" "}
             <a
               href="https://doi.org/10.1038/s42254-023-00655-3"
               target="_blank"
