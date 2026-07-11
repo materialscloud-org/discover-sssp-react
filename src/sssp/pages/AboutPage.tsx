@@ -259,7 +259,11 @@ const AboutPage: React.FC = () => (
         <ul>
           <li>
             Δ: most stable elemental system (
-            <a href="http://molmod.ugent.be/deltacodesdft" target="_blank">
+            <a
+              href="https://molmodstatic.ugent.be/deltacodesdft"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Cottenier's work
             </a>{" "}
             and rare-earth nitrides from{" "}
