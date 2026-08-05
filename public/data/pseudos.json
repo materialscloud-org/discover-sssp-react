@@ -5,7 +5,7 @@
     "version": "0.4.1",
     "accuracy": "standard",
     "category": "nc",
-    "color": "#ffcc80",
+    "color": "#c89600",
     "displayName": "nc-dojo-v0.4.1-std"
   },
   "DOJO-041-str": {
@@ -81,7 +81,7 @@
     "version": "1.0.0",
     "accuracy": "low",
     "category": "us",
-    "color": "#ff9e9e",
+    "color": "#ff6464",
     "displayName": "us-psl-v1.0.0-low",
     "description": "Ultrasoft pseudopotentials; \"low\" version (optimized for lower kinetic energy cut-offs at the cost of accuracy)"
   },
