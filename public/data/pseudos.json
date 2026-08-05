@@ -101,7 +101,7 @@
     "version": "1.0.0",
     "accuracy": "low",
     "category": "paw",
-    "color": "#66cc66",
+    "color": "#00b400",
     "displayName": "paw-psl-v1.0.0-low",
     "description": "PAW pseudopotentials; \"low\" version (optimized for lower kinetic energy cut-offs at the cost of accuracy)"
   },
