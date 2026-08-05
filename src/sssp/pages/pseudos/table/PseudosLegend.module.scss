@@ -5,6 +5,15 @@
   padding: 0;
   grid-template-columns: repeat(4, 1fr);
 
+  @media (min-width: 1400px) {
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 0;
+
+    .pseudoItem {
+      margin-bottom: 0.75rem !important;
+    }
+  }
+
   @media (max-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -28,8 +37,8 @@
 
     .pseudoListMarker {
       display: inline-block;
-      width: 1rem;
-      height: 1rem;
+      width: 1.25rem;
+      height: 1.25rem;
       margin-right: 0.5rem;
       border-radius: 50%;
       -webkit-border-radius: 50%;

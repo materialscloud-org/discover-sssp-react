@@ -1,8 +1,9 @@
 :root {
-  --element-box-size: 45px;
+  --element-box-size: 55px;
 }
 
 #periodicTable {
+  --step-size: calc(var(--element-box-size) + 2px);
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -11,6 +12,12 @@
   position: relative;
   overflow-x: auto;
   padding: 10px;
+
+  #libraryToggles {
+    position: absolute;
+    top: calc(var(--step-size) * 1.32);
+    left: calc(var(--step-size) * 7.85);
+  }
 
   #table {
     display: flex;

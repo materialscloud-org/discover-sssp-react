@@ -1,10 +1,21 @@
 #detailsBox {
+  --step-size: calc(var(--element-box-size) + 4px);
   display: flex;
   position: absolute;
-  top: 12px;
-  left: calc((var(--element-box-size) + 4px) * 4 - 5px);
+  top: calc(var(--step-size) * 0.65);
+  left: calc(var(--step-size) * 2.81);
   padding: 5px;
   border: 5px solid;
+  height: calc(var(--step-size) * 1.9);
+  width: calc(var(--step-size) * 4.2);
+
+  #noDetails {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+  }
 
   #elementDetails {
     display: flex;

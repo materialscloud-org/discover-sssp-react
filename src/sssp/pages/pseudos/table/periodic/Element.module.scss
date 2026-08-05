@@ -5,7 +5,7 @@
   justify-content: center;
   width: var(--element-box-size);
   height: var(--element-box-size);
-  font-size: 12px;
+  font-size: 14px;
   color: rgb(255, 255, 255);
   text-decoration: none;
   border: 1px solid var(--bs-border-color);
@@ -59,9 +59,9 @@
   }
 
   .symbol {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
-    line-height: 1;
+    line-height: 1.25;
   }
 
   .info {

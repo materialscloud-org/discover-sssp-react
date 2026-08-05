@@ -1,21 +1,31 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { LoadingSpinner } from "@sssp/components";
 import { ElementContext, FamilyContext, PseudoContext } from "@sssp/context";
 
+import Toggle from "@sssp/components/Toggle";
 import DetailsBox from "./DetailsBox";
 import ElementsGenerator from "./ElementsGenerator";
 import styles from "./PeriodicTable.module.scss";
 
 const PeriodicTable: React.FC = () => {
-  const { activeLibrary } = useContext(FamilyContext);
+  const navigate = useNavigate();
+  const { activeLibrary, libraries } = useContext(FamilyContext);
   const { loadingMetadata, pseudosMetadata } = useContext(PseudoContext);
   const { loadingInfo, elementsInfo } = useContext(ElementContext);
-
   return loadingMetadata || loadingInfo ? (
     <LoadingSpinner />
   ) : (
     <div id={styles.periodicTable}>
+      <div id={styles.libraryToggles}>
+        <Toggle
+          name="library"
+          items={libraries}
+          activeItem={activeLibrary}
+          onChange={(value) => navigate(`../${value}`)}
+        />
+      </div>
       <DetailsBox />
       <Table
         elements={
