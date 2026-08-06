@@ -244,11 +244,11 @@ export const generateConvergencePlotData = (
         x: 1,
         xanchor: "left",
         xshift: 20,
-        y: offset - belowScalar * windowHeight + annotationOffset,
-        text: "max <i>η</i><sub>10</sub> [meV]",
+        y: offset + aboveScalar * windowHeight + annotationOffset,
+        text: String.raw`\\LARGE $\eta_{10} \rm [meV]$`,
         showarrow: false,
         align: "left",
-        font: { size: fontSize },
+        font: { size: fontSize * 1.25 },
       });
 
       // max η10
@@ -271,11 +271,11 @@ export const generateConvergencePlotData = (
         x: 1,
         xanchor: "left",
         xshift: 20,
-        y: offset + aboveScalar * windowHeight + annotationOffset,
-        text: "<i>η</i><sub>10</sub> [meV]",
+        y: offset - belowScalar * windowHeight + annotationOffset,
+        text: String.raw`\\LARGE $\eta^{\rm max}_{10} \rm [meV]$`,
         showarrow: false,
         align: "left",
-        font: { size: fontSize },
+        font: { size: fontSize * 1.25 },
       });
     }
 
