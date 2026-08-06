@@ -38,6 +38,11 @@ const ConvergencePane: React.FC = () => {
       .reverse(); // reversed because we build it bottom-up in the plot
   }, [convergenceData, activePseudosMetadata]);
 
+  const configuration = useMemo(() => {
+    if (!convergenceData || !convergenceData.conff) return "";
+    return convergenceData.conff === "DC" ? "Diamond" : convergenceData.conff;
+  }, [convergenceData]);
+
   const isLoading = loadingMetadata || loadingPlotData;
 
   const hasData = Object.keys(convergenceData).length > 0;
@@ -47,7 +52,7 @@ const ConvergencePane: React.FC = () => {
   ) : (
     <div id={styles.convergencePane}>
       <PlotPaneHeader
-        title={`Verification Summary: ${element} ${convergenceData.conff ? `(${convergenceData.conff})` : ""}`}
+        title={`Verification Summary: ${element} ${configuration ? `(${configuration})` : ""}`}
       />
       {hasData && (
         <div id={styles.categorySelectorContainer}>

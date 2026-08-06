@@ -378,7 +378,9 @@ export const generateConvergencePlotData = (
     if (metadata) {
       const avg_nu = metadata.avgNu.toFixed(2);
       const max_nu = metadata.maxNu.toFixed(2);
-      const max_conf = formatSubscripts(metadata.maxConf);
+      const max_conf = formatSubscripts(
+        metadata.maxConf === "DC" ? "Diamond" : metadata.maxConf,
+      );
       const avg_nu_wo_max = metadata.avgNuWoMax.toFixed(2);
       metadataText = `ν<sub>avg</sub> = ${avg_nu}<br />ν<sub>max</sub> = ${max_nu} (${max_conf})<br />ν<sub>avg</sub> (w/o ${max_conf}) = ${avg_nu_wo_max}`;
     }
