@@ -28,7 +28,7 @@ const deltaX = 1.6; // highlight rectangle half-width
 const offsetHeight = 8; // offset between pseudos
 const pixelsPerPseudo = 120; // fixed
 
-const plotMargins = { l: 180, r: 180, t: 40, b: 80 };
+const plotMargins = { l: 190, r: 180, t: 40, b: 80 };
 
 const xTickStepSize = 10;
 const xTickSpacePixels = 80;
@@ -245,10 +245,10 @@ export const generateConvergencePlotData = (
         xanchor: "left",
         xshift: 20,
         y: offset + aboveScalar * windowHeight + annotationOffset,
-        text: String.raw`\\LARGE $\eta_{10} \rm [meV]$`,
+        text: "<i>η</i><sub>10</sub>&nbsp;&nbsp;&nbsp;[meV]",
         showarrow: false,
         align: "left",
-        font: { size: fontSize * 1.25 },
+        font: { size: fontSize },
       });
 
       // max η10
@@ -272,10 +272,21 @@ export const generateConvergencePlotData = (
         xanchor: "left",
         xshift: 20,
         y: offset - belowScalar * windowHeight + annotationOffset,
-        text: String.raw`\\LARGE $\eta^{\rm max}_{10} \rm [meV]$`,
+        text: "<i>η</i><sub>10</sub>&nbsp;&nbsp;&nbsp;[meV]",
         showarrow: false,
         align: "left",
-        font: { size: fontSize * 1.25 },
+        font: { size: fontSize },
+      });
+      annotations.push({
+        xref: "paper",
+        x: 1,
+        xanchor: "left",
+        xshift: 27,
+        y: offset - belowScalar * windowHeight + annotationOffset + 0.35,
+        text: "<sup>max</sup>",
+        showarrow: false,
+        align: "left",
+        font: { size: fontSize },
       });
     }
 
@@ -388,7 +399,7 @@ export const generateConvergencePlotData = (
       xref: "paper",
       x: 0,
       xanchor: "left",
-      xshift: -150,
+      xshift: -160,
       y: offset,
       text: `<span style="color:${color}"><b>${pseudo.name}<br />Z<sub>val</sub> = ${pseudo.Z}</b></span><br />${metadataText}`,
       showarrow: false,

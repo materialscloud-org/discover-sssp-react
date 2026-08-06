@@ -19,6 +19,8 @@ const config: Partial<Config> = {
   scrollZoom: false,
 };
 
+const etaLabelFontSize = 28;
+
 const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
   which,
   chessboardPseudos,
@@ -168,22 +170,63 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
           yref: "paper",
           x: -0.135,
           y: 1.205,
-          text: String.raw`$\LARGE \eta^{${which}}_{10}$`,
+          text: "η<sub>10</sub>",
           showarrow: false,
           textangle: "45",
-          font: { color: "purple", size: 24 },
+          font: {
+            color: "purple",
+            size: etaLabelFontSize,
+            weight: "bold",
+          },
         },
         {
           xref: "paper",
           yref: "paper",
-          x: -0.205,
-          y: 1.135,
-          text: String.raw`$\LARGE \eta^{${which}}_{val}$`,
+          x: -0.195,
+          y: 1.145,
+          text: "η<sub>val</sub>",
           showarrow: false,
           textangle: "45",
-          font: { color: "blue", size: 24 },
+          font: {
+            color: "blue",
+            size: etaLabelFontSize,
+            weight: "bold",
+          },
         },
       ];
+
+      if (which === "max") {
+        etaAnnotations.push(
+          {
+            xref: "paper",
+            yref: "paper",
+            x: -0.085,
+            y: 1.18,
+            text: "<sup>max</sup>",
+            showarrow: false,
+            textangle: "45",
+            font: {
+              color: "purple",
+              size: etaLabelFontSize * 0.75,
+              weight: "bold",
+            },
+          },
+          {
+            xref: "paper",
+            yref: "paper",
+            x: -0.15,
+            y: 1.12,
+            text: "<sup>max</sup>",
+            showarrow: false,
+            textangle: "45",
+            font: {
+              color: "blue",
+              size: etaLabelFontSize * 0.75,
+              weight: "bold",
+            },
+          },
+        );
+      }
 
       const formatTickLabel = (value: string, isBold = false) => {
         const color = ssspPseudoColors[value];
@@ -329,7 +372,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
 
       graphDiv.on("plotly_click", (event: PlotMouseEvent) => {
         const { x, y, pointIndex } = event.points[0];
-        const plotIndex = which == "v" ? 0 : 1;
+        const plotIndex = which === "max" ? 1 : 0;
         handleTileClick(
           plotIndex,
           [y as string, x as string],
