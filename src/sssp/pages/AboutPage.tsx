@@ -1,8 +1,8 @@
 import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import { BlockMath, InlineMath } from "react-katex";
 
-import { Link } from "react-router-dom";
 import styles from "./AboutPage.module.scss";
 
 const AboutPage: React.FC = () => (

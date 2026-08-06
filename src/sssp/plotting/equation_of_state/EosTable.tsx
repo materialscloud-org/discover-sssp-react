@@ -1,11 +1,11 @@
 import { useContext, useMemo } from "react";
 import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import { ElementContext, PseudoContext } from "@sssp/context";
 
 import EosTableProps from "./EosTable.models";
 import styles from "./EosTable.module.scss";
-import { Link } from "react-router-dom";
 
 const CONFIGURATIONS = [
   "SC",

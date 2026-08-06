@@ -3,8 +3,8 @@ import { Container } from "react-bootstrap";
 import MaterialsCloudHeader from "mc-react-header";
 
 import { BASE_URL } from "@sssp/common/config";
-import { Header } from "./components";
 
+import { Header } from "./components";
 import SsspApp, { ssspVersion } from "./sssp";
 
 import logo from "./assets/images/sssp_logo.png";

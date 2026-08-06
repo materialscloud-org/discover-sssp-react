@@ -6,10 +6,11 @@ import { ElementContext, PlotContext, PseudoContext } from "@sssp/context";
 import { EosPlotData } from "@sssp/models";
 
 import PlotPaneHeader from "../PlotPaneHeader";
-import styles from "./EosPane.module.scss";
 import EosPlot from "./EosPlot";
 import EosTable from "./EosTable";
 import PseudosCheckboxes from "./PseudosCheckboxes";
+
+import styles from "./EosPane.module.scss";
 
 const EosPane: React.FC = () => {
   const { element } = useContext(ElementContext);

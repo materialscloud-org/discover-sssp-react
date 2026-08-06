@@ -6,8 +6,9 @@ import { ElementContext, PlotContext, PseudoContext } from "@sssp/context";
 
 import PlotPaneHeader from "../PlotPaneHeader";
 import BandStructureControls from "./BandStructureControls";
-import styles from "./BandStructurePane.module.scss";
 import BandStructurePlot from "./BandStructurePlot";
+
+import styles from "./BandStructurePane.module.scss";
 
 const BandStructurePane: React.FC = () => {
   const { element } = useContext(ElementContext);

@@ -8,6 +8,7 @@ import { FamilyContext, HoverProvider } from "@sssp/context";
 
 import PeriodicTable from "./periodic";
 import PseudosLegend from "./PseudosLegend";
+
 import styles from "./TablePage.module.scss";
 
 const TablePage: React.FC = () => {

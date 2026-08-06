@@ -6,9 +6,10 @@ import { PseudosMetadata } from "@sssp/models";
 
 import PlotPaneHeader from "../PlotPaneHeader";
 import CategorySelector from "./CategorySelector";
-import styles from "./ConvergencePane.module.scss";
 import ConvergencePlot from "./ConvergencePlot";
 import ConvergencePlotDetails from "./ConvergencePlotDetails";
+
+import styles from "./ConvergencePane.module.scss";
 
 const ConvergencePane: React.FC = () => {
   const { element } = useContext(ElementContext);

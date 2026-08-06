@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { LoadingSpinner } from "@sssp/components";
+import { LoadingSpinner, Toggle } from "@sssp/components";
 import { ElementContext, FamilyContext, PseudoContext } from "@sssp/context";
 
-import Toggle from "@sssp/components/Toggle";
 import DetailsBox from "./DetailsBox";
 import ElementsGenerator from "./ElementsGenerator";
+
 import styles from "./PeriodicTable.module.scss";
 
 const PeriodicTable: React.FC = () => {
