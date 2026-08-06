@@ -82,7 +82,7 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
               />
             </div>
             <BandsChessboardPlot
-              which="avg"
+              which=""
               chessboardPseudos={chessboardData.pseudos}
               ssspPseudoColors={ssspPseudoColors}
               values={average}
