@@ -124,8 +124,9 @@ const AboutPage: React.FC = () => (
           </li>
           <li>
             The convergence of the band structure for all bands up to 10 eV
-            above the Fermi level, η<sub>10</sub> and max η<sub>10</sub>, with
-            respect to the converged value
+            above the Fermi level, <InlineMath math="\eta_{10}" /> and{" "}
+            <InlineMath math="\eta_{10}^{\rm max}" />, with respect to the
+            converged value
           </li>
           <li>
             The convergence of the pressure, δV<sub>press</sub>, with respect to
@@ -213,7 +214,7 @@ const AboutPage: React.FC = () => (
             </tr>
             <tr>
               <td>
-                Bands (η<sub>10</sub>)
+                Bands (<InlineMath math="\eta_{10}" />)
               </td>
               <td>&lt; 10 meV</td>
               <td>&lt; 5 meV</td>
@@ -223,7 +224,7 @@ const AboutPage: React.FC = () => (
             </tr>
             <tr>
               <td>
-                Bands (max η<sub>10</sub>)
+                Bands (<InlineMath math="\eta_{10}^{\rm max}" />)
               </td>
               <td>&lt; 20 meV</td>
               <td>&lt; 10 meV</td>
