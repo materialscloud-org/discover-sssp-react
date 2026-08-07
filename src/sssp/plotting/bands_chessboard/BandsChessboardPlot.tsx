@@ -272,7 +272,7 @@ const BandsChessboardPlot: React.FC<BandsChessboardPlotProps> = ({
         hoverlabel: { namelength: 0 },
         shapes: constantShapes,
         annotations: [...bandDiffAnnotations, ...etaAnnotations],
-        margin: { t: 140, r: 120, b: 80, l: 120 },
+        margin: { t: 160, r: 120, b: 80, l: 140 },
         paper_bgcolor: "rgba(0,0,0,0)",
         plot_bgcolor: "rgba(0,0,0,0)",
       };
