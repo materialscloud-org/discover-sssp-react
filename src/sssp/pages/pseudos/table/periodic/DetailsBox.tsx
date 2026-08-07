@@ -14,7 +14,7 @@ const DetailsBox: React.FC = () => {
     Details = () => (
       <div id={styles.detailsBox}>
         <div id={styles.noDetails}>
-          Hover over an element or a pseudo label to see details
+          Hover over an element or a pseudopotential for details
         </div>
       </div>
     );
