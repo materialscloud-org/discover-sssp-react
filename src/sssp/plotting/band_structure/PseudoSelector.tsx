@@ -24,8 +24,8 @@ const PseudoSelector: React.FC<PseudoSelectorProps> = ({
 
   const [efficiencyPseudo, precisionPseudo] = useMemo(() => {
     return [
-      [ssspPseudos?.efficiency?.library, ssspPseudos?.efficiency?.Z].join("-"),
-      [ssspPseudos?.precision?.library, ssspPseudos?.precision?.Z].join("-"),
+      `${ssspPseudos?.efficiency?.library} (Z=${ssspPseudos?.efficiency?.Z})`,
+      `${ssspPseudos?.precision?.library} (Z=${ssspPseudos?.precision?.Z})`,
     ];
   }, [ssspPseudos]);
 
