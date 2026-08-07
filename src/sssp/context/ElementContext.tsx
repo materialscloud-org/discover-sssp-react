@@ -27,13 +27,13 @@ interface ElementProviderProps {
 export const ElementProvider: React.FC<ElementProviderProps> = ({
   children,
 }) => {
-  const { activeFunctional } = useContext(FamilyContext);
+  const { activeFunctional, libraries } = useContext(FamilyContext);
   const [loadingInfo, setLoadingInfo] = useState(true);
   const [elementsInfo, setElementsInfo] = useState({} as ElementsInfo);
   const [element, setElement] = useState("");
 
   useEffect(() => {
-    SsspDataService.fetchElementsInfo(activeFunctional)
+    SsspDataService.fetchElementsInfo(activeFunctional, libraries)
       .then((info) => {
         setElementsInfo(info);
       })
@@ -43,7 +43,7 @@ export const ElementProvider: React.FC<ElementProviderProps> = ({
       .finally(() => {
         setLoadingInfo(false);
       });
-  }, [activeFunctional]);
+  }, [activeFunctional, libraries]);
 
   const ssspPseudos = useMemo(
     () =>

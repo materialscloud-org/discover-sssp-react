@@ -28,7 +28,7 @@ const deltaX = 1.6; // highlight rectangle half-width
 const offsetHeight = 8; // offset between pseudos
 const pixelsPerPseudo = 120; // fixed
 
-const plotMargins = { l: 180, r: 180, t: 40, b: 80 };
+const plotMargins = { l: 190, r: 180, t: 40, b: 80 };
 
 const xTickStepSize = 10;
 const xTickSpacePixels = 80;
@@ -244,8 +244,8 @@ export const generateConvergencePlotData = (
         x: 1,
         xanchor: "left",
         xshift: 20,
-        y: offset - belowScalar * windowHeight + annotationOffset,
-        text: "max <i>η</i><sub>10</sub> [meV]",
+        y: offset + aboveScalar * windowHeight + annotationOffset,
+        text: "<i>η</i><sub>10</sub>&nbsp;&nbsp;&nbsp;[meV]",
         showarrow: false,
         align: "left",
         font: { size: fontSize },
@@ -271,8 +271,19 @@ export const generateConvergencePlotData = (
         x: 1,
         xanchor: "left",
         xshift: 20,
-        y: offset + aboveScalar * windowHeight + annotationOffset,
-        text: "<i>η</i><sub>10</sub> [meV]",
+        y: offset - belowScalar * windowHeight + annotationOffset,
+        text: "<i>η</i><sub>10</sub>&nbsp;&nbsp;&nbsp;[meV]",
+        showarrow: false,
+        align: "left",
+        font: { size: fontSize },
+      });
+      annotations.push({
+        xref: "paper",
+        x: 1,
+        xanchor: "left",
+        xshift: 27,
+        y: offset - belowScalar * windowHeight + annotationOffset + 0.35,
+        text: "<sup>max</sup>",
         showarrow: false,
         align: "left",
         font: { size: fontSize },
@@ -378,7 +389,9 @@ export const generateConvergencePlotData = (
     if (metadata) {
       const avg_nu = metadata.avgNu.toFixed(2);
       const max_nu = metadata.maxNu.toFixed(2);
-      const max_conf = formatSubscripts(metadata.maxConf);
+      const max_conf = formatSubscripts(
+        metadata.maxConf === "DC" ? "Diamond" : metadata.maxConf,
+      );
       const avg_nu_wo_max = metadata.avgNuWoMax.toFixed(2);
       metadataText = `ν<sub>avg</sub> = ${avg_nu}<br />ν<sub>max</sub> = ${max_nu} (${max_conf})<br />ν<sub>avg</sub> (w/o ${max_conf}) = ${avg_nu_wo_max}`;
     }
@@ -386,7 +399,7 @@ export const generateConvergencePlotData = (
       xref: "paper",
       x: 0,
       xanchor: "left",
-      xshift: -150,
+      xshift: -160,
       y: offset,
       text: `<span style="color:${color}"><b>${pseudo.name}<br />Z<sub>val</sub> = ${pseudo.Z}</b></span><br />${metadataText}`,
       showarrow: false,

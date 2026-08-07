@@ -1,20 +1,19 @@
 import { useContext, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { ssspVersion } from "@sssp";
 import { capitalize } from "@sssp/common/utils";
-import Toggle from "@sssp/components/Toggle";
 import { FamilyContext, HoverProvider } from "@sssp/context";
 
 import PeriodicTable from "./periodic";
 import PseudosLegend from "./PseudosLegend";
+
 import styles from "./TablePage.module.scss";
 
 const TablePage: React.FC = () => {
   const location = useLocation();
-  const navigate = useNavigate();
-  const { libraries, activeLibrary, setActiveLibrary, activeFunctional } =
+  const { activeLibrary, setActiveLibrary, activeFunctional } =
     useContext(FamilyContext);
 
   useEffect(() => {
@@ -32,17 +31,11 @@ const TablePage: React.FC = () => {
       </header>
       <HoverProvider>
         <Row className="g-3">
-          <Col xxl="auto" className="mx-auto">
+          <Col xxl={2} className="m-0">
             <PseudosLegend />
           </Col>
-          <Col>
+          <Col className="m-0">
             <div id={styles.tableContainer}>
-              <Toggle
-                name="library"
-                items={libraries}
-                activeItem={activeLibrary}
-                onChange={(value) => navigate(`../${value}`)}
-              />
               <PeriodicTable />
             </div>
           </Col>

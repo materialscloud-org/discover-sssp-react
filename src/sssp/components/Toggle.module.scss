@@ -6,7 +6,15 @@
   z-index: 0;
 
   .toggleButton {
-    border-radius: 0.375rem !important;
+    border-radius: 0.375rem !important  ;
+    -webkit-border-radius: 0.375rem !important;
+    -moz-border-radius: 0.375rem !important;
+    -ms-border-radius: 0.375rem !important;
+    -o-border-radius: 0.375rem !important;
     transition: box-shadow 0.25s ease-in-out;
+    -webkit-transition: box-shadow 0.25s ease-in-out;
+    -moz-transition: box-shadow 0.25s ease-in-out;
+    -ms-transition: box-shadow 0.25s ease-in-out;
+    -o-transition: box-shadow 0.25s ease-in-out;
   }
 }

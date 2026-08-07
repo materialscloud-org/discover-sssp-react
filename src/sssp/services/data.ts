@@ -143,10 +143,20 @@ export default class SsspDataService {
 
   static fetchElementsInfo = async (
     functional: string,
+    libraries: string[],
   ): Promise<ElementsInfo> => {
-    const url = `${DATA_URL}/${functional}/info/element.json`;
-    const response = await fetch(url);
-    const elementsInfo: ElementsInfo = await response.json();
+    const response = await Promise.all(
+      libraries.map(async (library) => {
+        const url = `${DATA_URL}/${functional}/info/libraries/${library}.json`;
+        const response = await fetch(url);
+        const info = await response.json();
+        return { [library]: info || {} };
+      }),
+    );
+    const elementsInfo: ElementsInfo = response.reduce(
+      (acc, curr) => ({ ...acc, ...curr }),
+      {},
+    );
     return elementsInfo || ({} as ElementsInfo);
   };
 

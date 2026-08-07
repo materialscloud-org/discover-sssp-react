@@ -1,17 +1,24 @@
 import { useContext } from "react";
 
+import { capitalize } from "@sssp/common/utils";
 import { HoverContext, PseudoContext } from "@sssp/context";
 
 import styles from "./DetailsBox.module.scss";
-import { capitalize } from "@sssp/common/utils";
 
 const DetailsBox: React.FC = () => {
   const { pseudosMetadata } = useContext(PseudoContext);
   const { hoveredElement, hoveredPseudo } = useContext(HoverContext);
 
-  if (!hoveredElement && !hoveredPseudo) return null;
-
   let Details = () => <></>;
+  if (!hoveredElement && !hoveredPseudo) {
+    Details = () => (
+      <div id={styles.detailsBox}>
+        <div id={styles.noDetails}>
+          Hover over an element or a pseudopotential for details
+        </div>
+      </div>
+    );
+  }
 
   if (hoveredElement) {
     const { number, symbol, color, info } = hoveredElement;

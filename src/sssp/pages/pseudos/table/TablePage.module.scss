@@ -1,14 +1,6 @@
 #tablePage {
   margin: 0 auto;
 
-  @media (min-width: 1200px) {
-    max-width: 1080px;
-  }
-
-  @media (min-width: 1400px) {
-    max-width: 1400px;
-  }
-
   #tableContainer {
     display: flex;
     flex-direction: column;

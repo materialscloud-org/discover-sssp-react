@@ -7,8 +7,9 @@ import { useRoutedTabs } from "@sssp/common/hooks";
 import { elementSymbols } from "@sssp/common/symbols";
 import { ElementContext, FamilyContext } from "@sssp/context";
 
-import styles from "./DetailsPage.module.scss";
 import PlotPane from "./PlotPane";
+
+import styles from "./DetailsPage.module.scss";
 
 const tabs = {
   "convergence-summary": "Convergence Summary",

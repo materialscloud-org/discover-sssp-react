@@ -1,15 +1,15 @@
 import { useContext, useMemo } from "react";
 
-import { LoadingSpinner, NoDataMessage } from "@sssp/components";
+import { LoadingSpinner, NoDataMessage, Toggle } from "@sssp/components";
 import { ElementContext, PlotContext, PseudoContext } from "@sssp/context";
-
-import Toggle from "@sssp/components/Toggle";
 import { ChessboardDataFlavor } from "@sssp/models";
+
 import PlotPaneHeader from "../PlotPaneHeader";
-import BandsChessboardPaneProps from "./BandsChessboardPane.models";
-import styles from "./BandsChessboardPane.module.scss";
 import BandsChessboardPlot from "./BandsChessboardPlot";
 import BandsChessboardPlotDetails from "./BandsChessboardPlotDetails";
+
+import BandsChessboardPaneProps from "./BandsChessboardPane.models";
+import styles from "./BandsChessboardPane.module.scss";
 
 const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
   onTileClick: goToBands,
@@ -82,7 +82,7 @@ const BandsChessboardPane: React.FC<BandsChessboardPaneProps> = ({
               />
             </div>
             <BandsChessboardPlot
-              which="avg"
+              which=""
               chessboardPseudos={chessboardData.pseudos}
               ssspPseudoColors={ssspPseudoColors}
               values={average}
