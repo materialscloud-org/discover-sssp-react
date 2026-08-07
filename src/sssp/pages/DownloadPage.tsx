@@ -1,5 +1,7 @@
 import { Table } from "react-bootstrap";
 
+import { DATA_URL } from "@sssp/common/config";
+
 import styles from "./DownloadPage.module.scss";
 
 const SSSP_V2_ARCHIVE_URL =
@@ -41,10 +43,7 @@ const DownloadPage: React.FC = () => (
               </a>
             </td>
             <td>
-              <a
-                href={`${SSSP_V2_ARCHIVE_URL}/010-extract-eff-lib/cutoffs.json`}
-                download
-              >
+              <a href={`${DATA_URL}/PBE/info/libraries/efficiency.json`}>
                 Cutoffs
               </a>
             </td>
@@ -57,10 +56,7 @@ const DownloadPage: React.FC = () => (
               </a>
             </td>
             <td>
-              <a
-                href={`${SSSP_V2_ARCHIVE_URL}/010-extract-eff-lib/cutoffs.json`}
-                download
-              >
+              <a href={`${DATA_URL}/PBE/info/libraries/efficiency.json`}>
                 Cutoffs
               </a>
             </td>
@@ -73,10 +69,7 @@ const DownloadPage: React.FC = () => (
               </a>
             </td>
             <td>
-              <a
-                href={`${SSSP_V2_ARCHIVE_URL}/011-extract-prec-lib/cutoffs.json`}
-                download
-              >
+              <a href={`${DATA_URL}/PBE/info/libraries/precision.json`}>
                 Cutoffs
               </a>
             </td>
@@ -89,10 +82,7 @@ const DownloadPage: React.FC = () => (
               </a>
             </td>
             <td>
-              <a
-                href={`${SSSP_V2_ARCHIVE_URL}/011-extract-prec-lib/cutoffs.json`}
-                download
-              >
+              <a href={`${DATA_URL}/PBE/info/libraries/precision.json`}>
                 Cutoffs
               </a>
             </td>
