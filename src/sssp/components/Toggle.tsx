@@ -1,4 +1,4 @@
-import { ToggleButton, ToggleButtonGroup } from "react-bootstrap";
+import { Button, ButtonGroup } from "react-bootstrap";
 
 import { capitalize } from "@sssp/common/utils";
 
@@ -16,32 +16,24 @@ const Toggle: React.FC<ToggleProps> = ({
   items,
   activeItem,
   onChange,
-}) => {
-  return (
-    <ToggleButtonGroup
-      className={styles.toggleButtonGroup}
-      type="radio"
-      name={name}
-      value={activeItem}
-      onChange={onChange}
-    >
-      {items.map((item) => (
-        <ToggleButton
-          id={`${item}-toggle`}
-          className={styles.toggleButton}
-          key={item}
-          value={item}
-          variant="secondary"
-          style={{
-            boxShadow:
-              item === activeItem ? "0 0 0 0.25rem rgba(0,0,0,0.25)" : "none",
-          }}
-        >
-          {capitalize(item)}
-        </ToggleButton>
-      ))}
-    </ToggleButtonGroup>
-  );
-};
-
+}) => (
+  <ButtonGroup className={styles.toggleButtonGroup} aria-label={name}>
+    {items.map((item) => (
+      <Button
+        key={item}
+        type="button"
+        variant="secondary"
+        className={styles.toggleButton}
+        aria-pressed={item === activeItem}
+        onClick={() => onChange?.(item)}
+        style={{
+          boxShadow:
+            item === activeItem ? "0 0 0 0.25rem rgba(0,0,0,0.25)" : "none",
+        }}
+      >
+        {capitalize(item)}
+      </Button>
+    ))}
+  </ButtonGroup>
+);
 export default Toggle;
