@@ -1,4 +1,4 @@
-import { Container } from "react-bootstrap";
+import { Alert, Container } from "react-bootstrap";
 
 import MaterialsCloudHeader from "mc-react-header";
 
@@ -29,6 +29,15 @@ const App = () => (
         doi_ids={["f3-ym"]}
         logo={logo}
       />
+      <Alert variant="warning" className="text-center">
+        The SSSP v2.0 library is in alpha version.{" "}
+        <b>Pseudopotential selection may change</b>. For the most recent stable
+        version, please visit the{" "}
+        <a href="https://legacy.materialscloud.org/discover/sssp/table/efficiency">
+          legacy SSSP app
+        </a>
+        .
+      </Alert>
       <SsspApp urlBase={BASE_URL} />
     </Container>
   </MaterialsCloudHeader>
