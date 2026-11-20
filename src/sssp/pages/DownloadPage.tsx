@@ -1,11 +1,10 @@
 import { Table } from "react-bootstrap";
-
-import { DATA_URL } from "@sssp/common/config";
+import { DoiBadge } from "mc-react-library";
 
 import styles from "./DownloadPage.module.scss";
 
-const SSSP_V2_ARCHIVE_URL =
-  "https://raw.githubusercontent.com/unkcpz/sssp-verify-scripts/refs/heads/main/2-experiments/finalized_scripts";
+const DOWNLOADS_URL =
+  "https://raw.githubusercontent.com/materialscloud-org/discover-sssp-react/refs/heads/main/data";
 
 const DownloadPage: React.FC = () => (
   <div id={styles.downloadPage}>
@@ -33,70 +32,84 @@ const DownloadPage: React.FC = () => (
         </thead>
         <tbody>
           <tr>
-            <td>2.0</td>
+            <td>2.0 (alpha)</td>
             <td>
               <a
-                href={`${SSSP_V2_ARCHIVE_URL}/010-extract-eff-lib/SSSP-lib-pbe-eff-v2.tar.gz`}
+                href={`${DOWNLOADS_URL}/v2.0/SSSP_2.0_PBE_efficiency.tar.gz`}
                 download
               >
                 Pseudos
               </a>
             </td>
             <td>
-              <a href={`${DATA_URL}/PBE/info/libraries/efficiency.json`}>
+              <a
+                href={`${DOWNLOADS_URL}/v2.0/SSSP_2.0_PBE_efficiency.json`}
+                download
+              >
                 Cutoffs
               </a>
             </td>
             <td>
               <a
-                href={`${SSSP_V2_ARCHIVE_URL}/010-extract-eff-lib/SSSP-lib-pbesol-eff-v2.tar.gz`}
+                href={`${DOWNLOADS_URL}/v2.0/SSSP_2.0_PBEsol_efficiency.tar.gz`}
                 download
               >
                 Pseudos
               </a>
             </td>
             <td>
-              <a href={`${DATA_URL}/PBE/info/libraries/efficiency.json`}>
+              <a
+                href={`${DOWNLOADS_URL}/v2.0/SSSP_2.0_PBEsol_efficiency.json`}
+                download
+              >
                 Cutoffs
               </a>
             </td>
             <td>
               <a
-                href={`${SSSP_V2_ARCHIVE_URL}/011-extract-prec-lib/SSSP-lib-pbe-prec-v2.tar.gz`}
+                href={`${DOWNLOADS_URL}/v2.0/SSSP_2.0_PBE_precision.tar.gz`}
                 download
               >
                 Pseudos
               </a>
             </td>
             <td>
-              <a href={`${DATA_URL}/PBE/info/libraries/precision.json`}>
+              <a
+                href={`${DOWNLOADS_URL}/v2.0/SSSP_2.0_PBE_precision.json`}
+                download
+              >
                 Cutoffs
               </a>
             </td>
             <td>
               <a
-                href={`${SSSP_V2_ARCHIVE_URL}/011-extract-prec-lib/SSSP-lib-pbesol-prec-v2.tar.gz`}
+                href={`${DOWNLOADS_URL}/v2.0/SSSP_2.0_PBEsol_precision.tar.gz`}
                 download
               >
                 Pseudos
               </a>
             </td>
             <td>
-              <a href={`${DATA_URL}/PBE/info/libraries/precision.json`}>
+              <a
+                href={`${DOWNLOADS_URL}/v2.0/SSSP_2.0_PBEsol_precision.json`}
+                download
+              >
                 Cutoffs
               </a>
             </td>
           </tr>
           <tr>
             <td colSpan={9}>
-              <strong>Legacy versions</strong>
+              <strong>
+                Historic versions <DoiBadge doi_id="f3-ym" />
+              </strong>
             </td>
           </tr>
           <tr>
-            <td>1.3.0</td>
+            <td>1.3.0 (stable)</td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.3.0_PBE_efficiency.tar.gz/content"
+                href={`${DOWNLOADS_URL}/v1.3.0/SSSP_1.3.0_PBE_efficiency.tar.gz`}
                 download
               >
                 Pseudos
@@ -104,7 +117,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.3.0_PBE_efficiency.json/content"
+                href={`${DOWNLOADS_URL}/v1.3.0/SSSP_1.3.0_PBE_efficiency.json`}
                 download
               >
                 Cutoffs
@@ -112,7 +125,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.3.0_PBEsol_efficiency.tar.gz/content"
+                href={`${DOWNLOADS_URL}/v1.3.0/SSSP_1.3.0_PBEsol_efficiency.tar.gz`}
                 download
               >
                 Pseudos
@@ -120,7 +133,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.3.0_PBEsol_efficiency.json/content"
+                href={`${DOWNLOADS_URL}/v1.3.0/SSSP_1.3.0_PBEsol_efficiency.json`}
                 download
               >
                 Cutoffs
@@ -128,7 +141,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.3.0_PBE_precision.tar.gz/content"
+                href={`${DOWNLOADS_URL}/v1.3.0/SSSP_1.3.0_PBE_precision.tar.gz`}
                 download
               >
                 Pseudos
@@ -136,7 +149,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.3.0_PBE_precision.json/content"
+                href={`${DOWNLOADS_URL}/v1.3.0/SSSP_1.3.0_PBE_precision.json`}
                 download
               >
                 Cutoffs
@@ -144,7 +157,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.3.0_PBEsol_precision.tar.gz/content"
+                href={`${DOWNLOADS_URL}/v1.3.0/SSSP_1.3.0_PBEsol_precision.tar.gz`}
                 download
               >
                 Pseudos
@@ -152,7 +165,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.3.0_PBEsol_precision.json/content"
+                href={`${DOWNLOADS_URL}/v1.3.0/SSSP_1.3.0_PBEsol_precision.json`}
                 download
               >
                 Cutoffs
@@ -163,7 +176,7 @@ const DownloadPage: React.FC = () => (
             <td>1.2.1</td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.2.1_PBE_efficiency.tar.gz/content"
+                href={`${DOWNLOADS_URL}/v1.2.1/SSSP_1.2.1_PBE_efficiency.tar.gz`}
                 download
               >
                 Pseudos
@@ -171,7 +184,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.2.1_PBE_efficiency.json/content"
+                href={`${DOWNLOADS_URL}/v1.2.1/SSSP_1.2.1_PBE_efficiency.json`}
                 download
               >
                 Cutoffs
@@ -179,7 +192,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.2.1_PBEsol_efficiency.tar.gz/content"
+                href={`${DOWNLOADS_URL}/v1.2.1/SSSP_1.2.1_PBEsol_efficiency.tar.gz`}
                 download
               >
                 Pseudos
@@ -187,7 +200,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.2.1_PBEsol_efficiency.json/content"
+                href={`${DOWNLOADS_URL}/v1.2.1/SSSP_1.2.1_PBEsol_efficiency.json`}
                 download
               >
                 Cutoffs
@@ -195,7 +208,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.2.1_PBE_precision.tar.gz/content"
+                href={`${DOWNLOADS_URL}/v1.2.1/SSSP_1.2.1_PBE_precision.tar.gz`}
                 download
               >
                 Pseudos
@@ -203,7 +216,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.2.1_PBE_precision.json/content"
+                href={`${DOWNLOADS_URL}/v1.2.1/SSSP_1.2.1_PBE_precision.json`}
                 download
               >
                 Cutoffs
@@ -211,7 +224,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.2.1_PBEsol_precision.tar.gz/content"
+                href={`${DOWNLOADS_URL}/v1.2.1/SSSP_1.2.1_PBEsol_precision.tar.gz`}
                 download
               >
                 Pseudos
@@ -219,7 +232,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.2.1_PBEsol_precision.json/content"
+                href={`${DOWNLOADS_URL}/v1.2.1/SSSP_1.2.1_PBEsol_precision.json`}
                 download
               >
                 Cutoffs
@@ -230,7 +243,7 @@ const DownloadPage: React.FC = () => (
             <td>1.1.2</td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.1.2_PBE_efficiency.tar.gz/content"
+                href={`${DOWNLOADS_URL}/v1.1.2/SSSP_1.1.2_PBE_efficiency.tar.gz`}
                 download
               >
                 Pseudos
@@ -238,7 +251,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.1.2_PBE_efficiency.json/content"
+                href={`${DOWNLOADS_URL}/v1.1.2/SSSP_1.1.2_PBE_efficiency.json`}
                 download
               >
                 Cutoffs
@@ -246,7 +259,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.1.2_PBEsol_efficiency.tar.gz/content"
+                href={`${DOWNLOADS_URL}/v1.1.2/SSSP_1.1.2_PBEsol_efficiency.tar.gz`}
                 download
               >
                 Pseudos
@@ -254,7 +267,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.1.2_PBEsol_efficiency.json/content"
+                href={`${DOWNLOADS_URL}/v1.1.2/SSSP_1.1.2_PBEsol_efficiency.json`}
                 download
               >
                 Cutoffs
@@ -262,7 +275,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.1.2_PBE_precision.tar.gz/content"
+                href={`${DOWNLOADS_URL}/v1.1.2/SSSP_1.1.2_PBE_precision.tar.gz`}
                 download
               >
                 Pseudos
@@ -270,7 +283,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.1.2_PBE_precision.json/content"
+                href={`${DOWNLOADS_URL}/v1.1.2/SSSP_1.1.2_PBE_precision.json`}
                 download
               >
                 Cutoffs
@@ -278,7 +291,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.1.2_PBEsol_precision.tar.gz/content"
+                href={`${DOWNLOADS_URL}/v1.1.2/SSSP_1.1.2_PBEsol_precision.tar.gz`}
                 download
               >
                 Pseudos
@@ -286,7 +299,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.1.2_PBEsol_precision.json/content"
+                href={`${DOWNLOADS_URL}/v1.1.2/SSSP_1.1.2_PBEsol_precision.json`}
                 download
               >
                 Cutoffs
@@ -299,7 +312,7 @@ const DownloadPage: React.FC = () => (
             <td>1.0</td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.0_PBE_efficiency.tar.gz"
+                href={`${DOWNLOADS_URL}/v1.0/SSSP_1.0_PBE_efficiency.tar.gz`}
                 download
               >
                 Pseudos
@@ -307,7 +320,7 @@ const DownloadPage: React.FC = () => (
             </td>
             <td>
               <a
-                href="https://archive.materialscloud.org/api/records/rcyfm-68h65/files/SSSP_1.0_PBE_efficiency.json"
+                href={`${DOWNLOADS_URL}/v1.0/SSSP_1.0_PBE_efficiency.json`}
                 download
               >
                 Cutoffs
@@ -319,7 +332,7 @@ const DownloadPage: React.FC = () => (
             <td>0.7</td>
             <td colSpan={8}>
               <a
-                href="https://legacy.materialscloud.org/discover/data/discover/sssp/downloads/tarball_0.7/SSSP_0.7_pseudos.tar.gz"
+                href={`${DOWNLOADS_URL}/v0.7/SSSP_0.7_pseudos.tar.gz`}
                 download
               >
                 Pseudos
@@ -330,10 +343,7 @@ const DownloadPage: React.FC = () => (
         <caption>
           <ul className="mb-0">
             <li>
-              <a
-                href="https://legacy.materialscloud.org/discover/data/discover/sssp/downloads/tarball_1.0/SSSP_1.0_plots.tar.gz"
-                download
-              >
+              <a href={`${DOWNLOADS_URL}/v1.0/SSSP_1.0_plots.tar.gz`} download>
                 SSSP v1.0 convergence plots
               </a>
             </li>
