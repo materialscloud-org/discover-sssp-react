@@ -1,5 +1,5 @@
 import { Card, Tab, Tabs } from "react-bootstrap";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 import "@sssp/assets/styles/main.scss";
 import { useRoutedTabs } from "@sssp/common/hooks";
@@ -21,7 +21,6 @@ import {
   PseudosPage,
 } from "@sssp/pages";
 
-import SsspProps from "./SsspApp.models";
 import styles from "./SsspApp.module.scss";
 
 const pages = {
@@ -62,14 +61,12 @@ const pages = {
   },
 };
 
-const SsspApp: React.FC<SsspProps> = ({ urlBase }) => {
+const SsspApp: React.FC = () => {
   return (
     <Card id={styles.ssspApp}>
-      <BrowserRouter basename={urlBase}>
-        <ScrollToHash />
-        <BackToTop />
-        <SsspAppContent />
-      </BrowserRouter>
+      <ScrollToHash />
+      <BackToTop />
+      <SsspAppContent />
     </Card>
   );
 };
